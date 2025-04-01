@@ -1,0 +1,48 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+.husky/
+.cache/
+.nuxt/
+.build/
+.output/
+.vite/
+.env
+.env.*
+!.env.example
+.data/
+.nitro/
+.nuxt
+*.local
+
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Lockfiles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Coverage (tests)
+coverage/
+
+# Others
+*.tgz
+*.bak
+*.swp
