@@ -1,0 +1,22 @@
+{
+  "posts": {
+    "seen_on": "Vistu en",
+    "edit": "Editar",
+    "delete": "Desaniciar",
+    "confirm_delete": "¿De xuru que quies desaniciar esti unvíu?",
+    "delete_success": "Unvíu desaniciáu correutamente",
+    "vote": "votu",
+    "voted": "votáu",
+    "votes": "votos",
+    "vote_success": "¡Votu unviáu!",
+    "type_article": "Artículu",
+    "publish": "Espublizar",
+    "draft_saved": "Borrador guardáu",
+    "be_first_comment": "Compartir la to opinión y sé'l primeru en comentar",
+    "level_0": "Sé'l primeru en comentar",
+    "visited": "Visitáu",
+    "frontpage": "Portada",
+    "nsfw_warning_title": "Conteníu pa adultos",
+    "nsfw_go_back": "Volver atrás"
+  }
+}

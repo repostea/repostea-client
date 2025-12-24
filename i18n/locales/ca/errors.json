@@ -1,0 +1,43 @@
+{
+    "errors": {
+        "bad_request": "La sol·licitud és invàlida o no pot ser processada.",
+        "unauthorized": "Necessites iniciar sessió per accedir a aquest recurs.",
+        "forbidden": "No tens permís per accedir a aquest recurs.",
+        "not_found": "El recurs sol·licitat no s'ha trobat.",
+        "validation_error": "Les dades enviades contenen errors. Si us plau, revisa i torna-ho a intentar.",
+        "too_many_requests": "Massa sol·licituds. Si us plau, espera un moment i torna-ho a intentar.",
+        "server_error": "Ho sentim, alguna cosa ha sortit malament als nostres servidors. El nostre equip ha estat notificat.",
+        "service_unavailable": "El servei està temporalment no disponible. Si us plau, torna-ho a intentar més tard.",
+        "404": {
+            "title": "Pàgina No Trobada",
+            "message": "La pàgina que estàs buscant no existeix o ha estat moguda."
+        },
+        "500": {
+            "title": "Error del Servidor",
+            "message": "Ho sentim, alguna cosa ha sortit malament als nostres servidors. El nostre equip ha estat notificat."
+        },
+        "network": {
+            "title": "Error de Xarxa",
+            "message": "No s'ha pogut connectar amb el servidor. Si us plau, comprova la teva connexió a internet."
+        },
+        "generic": {
+            "title": "Error",
+            "message": "Ha ocorregut un error inesperat. Si us plau, torna-ho a intentar més tard."
+        },
+        "pageNotFound": "Pàgina no trobada",
+        "user_not_found": "Usuari no trobat",
+        "user_not_found_message": "L'usuari que estàs buscant no existeix o ha estat eliminat",
+        "load_notifications_failed": "Error en carregar les notificacions",
+        "mark_all_read_failed": "Error en marcar totes les notificacions com a llegides",
+        "delete_notification_failed": "Error en eliminar la notificació"
+    },
+    "maintenance": {
+        "title": "Manteniment en Progrés",
+        "message": "Estem realitzant millores per oferir-te una millor experiència. Tornarem aviat.",
+        "estimated_time": "Temps estimat: uns minuts",
+        "check_status": "Verificar Estat",
+        "checking": "Verificant...",
+        "auto_refresh": "Aquesta pàgina s'actualitzarà automàticament cada 30 segons",
+        "improving": "Estem millorant la plataforma. Gràcies per la teva paciència."
+    }
+}

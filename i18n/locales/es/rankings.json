@@ -1,0 +1,37 @@
+{
+  "rankings": {
+    "title": "Rankings",
+    "subtitle": "Descubre a los contribuidores más destacados de nuestra comunidad",
+    "meta_description": "Ve los rankings de los miembros más activos e influyentes de la comunidad",
+    "category": "Categoría",
+    "timeframe": "Período de Tiempo",
+    "karma_points": "puntos de karma",
+    "posts": "publicaciones",
+    "comments": "comentarios",
+    "days_streak": "días de racha",
+    "achievements": "logros",
+    "no_data": "No hay datos disponibles para este ranking",
+    "page": "Página",
+    "of": "de",
+    "categories": {
+      "karma": "Karma",
+      "posts": "Publicaciones",
+      "comments": "Comentarios",
+      "streaks": "Rachas",
+      "achievements": "Logros"
+    },
+    "timeframes": {
+      "all_time": "Todo el Tiempo",
+      "this_month": "Este Mes",
+      "this_week": "Esta Semana",
+      "today": "Hoy"
+    },
+    "descriptions": {
+      "karma": "Usuarios ordenados por sus puntos de karma totales ganados a través de contribuciones",
+      "posts": "Creadores de contenido más prolíficos de la comunidad",
+      "comments": "Usuarios más activos en discusiones y comentarios",
+      "streaks": "Usuarios con las rachas de actividad más largas",
+      "achievements": "Usuarios que han desbloqueado más logros"
+    }
+  }
+}

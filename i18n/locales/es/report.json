@@ -1,0 +1,342 @@
+{
+  "report": {
+    "title": "Reportar contenido",
+    "page_description": "Reporta contenido que viole nuestras políticas o derechos de autor",
+    "description": {
+      "label": "Descripción del problema",
+      "placeholder": "Describe en detalle el problema con este contenido...",
+      "help": "Proporciona todos los detalles relevantes sobre por qué estás reportando este contenido"
+    },
+    "button_title": "Reportar este contenido",
+    "submit": "Enviar reporte",
+    "submitting": "Enviando...",
+    "legal_first": {
+      "title": "¿Es un asunto legal?",
+      "description": "Si se trata de derechos de autor (DMCA), contenido ilegal o asuntos legales, usa el reporte legal formal.",
+      "button": "Reporte legal formal"
+    },
+    "type": {
+      "label": "Tipo de reporte",
+      "select": "Selecciona el tipo de problema",
+      "copyright": "Violación de derechos de autor",
+      "illegal": "Contenido ilegal",
+      "harassment": "Acoso o intimidación",
+      "privacy": "Violación de privacidad",
+      "spam": "Spam o contenido no deseado",
+      "other": "Otro problema"
+    },
+    "url": {
+      "label": "URL del contenido",
+      "help": "Enlace directo al contenido que deseas reportar"
+    },
+    "reporter": {
+      "title": "Información del reportante",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "organization": "Organización (opcional)"
+    },
+    "copyright": {
+      "title": "Información sobre derechos de autor",
+      "original_url": "URL del contenido original",
+      "ownership": "Prueba de propiedad",
+      "ownership_placeholder": "Explica cómo eres propietario o estás autorizado para representar este contenido..."
+    },
+    "legal": {
+      "title": "Declaraciones legales",
+      "good_faith": "Declaro bajo pena de perjurio que este reporte se hace de buena fe y que toda la información proporcionada es exacta y veraz",
+      "authorized": "Estoy autorizado para actuar en nombre del propietario de los derechos exclusivos que presuntamente han sido infringidos"
+    },
+    "privacy": {
+      "title": "Protección de datos personales",
+      "description": "Los datos personales proporcionados en este formulario serán utilizados exclusivamente para procesar tu reporte y contactarte si es necesario. Cumplimos con el RGPD y no compartiremos tu información con terceros sin tu consentimiento."
+    },
+    "success": {
+      "title": "Reporte enviado exitosamente",
+      "description": "Tu reporte ha sido recibido y será revisado por nuestro equipo. Te contactaremos si necesitamos más información.",
+      "next_steps": {
+        "title": "Próximos pasos",
+        "review": {
+          "title": "Revisión del reporte",
+          "description": "Nuestro equipo revisará tu reporte en un plazo de 24-48 horas hábiles."
+        },
+        "contact": {
+          "title": "Contacto adicional",
+          "description": "Te contactaremos por correo electrónico si necesitamos información adicional."
+        },
+        "action": {
+          "title": "Acción tomada",
+          "description": "Si se confirma la violación, tomaremos las medidas apropiadas según nuestras políticas."
+        }
+      },
+      "reference": {
+        "title": "Número de referencia",
+        "description": "Guarda este número para hacer seguimiento a tu reporte",
+        "check_status": "Consultar estado del reporte"
+      },
+      "actions": {
+        "home": "Volver al inicio",
+        "policies": "Ver políticas"
+      },
+      "contact": {
+        "description": "¿Tienes preguntas sobre tu reporte? Contacta con nosotros:"
+      }
+    },
+    "quick": {
+      "title": "Reporte de moderación",
+      "description": "O reporta por incumplimiento de las normas de la comunidad:",
+      "detailed": "Reporte legal detallado",
+      "additional_details": "Detalles adicionales",
+      "details_placeholder": "Añade información adicional si lo deseas (opcional)..."
+    },
+    "reasons": {
+      "spam": "Spam",
+      "inappropriate": "Inapropiado",
+      "harassment": "Acoso",
+      "misinformation": "Desinformación",
+      "hate_speech": "Discurso de odio",
+      "violence": "Violencia"
+    },
+    "report_singular": "reporte",
+    "report_plural": "reportes",
+    "success_quick": "Reporte de moderación enviado. Gracias por ayudarnos a mantener la comunidad.",
+    "error_quick": "Error al enviar el reporte. Inténtalo de nuevo.",
+    "withdraw_confirm_title": "¿Retirar reporte?",
+    "withdraw_confirm_message": "¿Estás seguro de que quieres retirar tu reporte? Esta acción no se puede deshacer.",
+    "withdraw_confirm": "Sí, retirar",
+    "withdraw_success": "Reporte retirado correctamente.",
+    "withdraw_error": "Error al retirar el reporte. Inténtalo de nuevo.",
+    "own_content_title": "Es tu propio contenido",
+    "own_content_message": "No puedes reportar tu propio contenido. Si quieres eliminarlo, puedes hacerlo desde las opciones de edición.",
+    "status": {
+      "title": "Estado del reporte",
+      "description": "Consulta el estado de tu reporte introduciendo el número de referencia y tu correo electrónico",
+      "reference_number": "Número de referencia",
+      "email": "Correo electrónico",
+      "email_help": "Debe ser el mismo correo que usaste al enviar el reporte",
+      "check_button": "Consultar estado",
+      "checking": "Consultando...",
+      "report_details": "Detalles del reporte",
+      "type": "Tipo de reporte",
+      "current_status": "Estado actual",
+      "submitted_at": "Fecha de envío",
+      "reviewed_at": "Fecha de revisión",
+      "team_response": "Respuesta del equipo",
+      "check_another": "Consultar otro reporte",
+      "error": "No se pudo consultar el estado del reporte. Verifica que el número de referencia y el email sean correctos.",
+      "statuses": {
+        "pending": "Pendiente de revisión",
+        "under_review": "En revisión",
+        "resolved": "Resuelto",
+        "rejected": "Rechazado"
+      }
+    }
+  },
+  "policies": {
+    "dmca": {
+      "title": "Política DMCA y Reportes",
+      "description": "Información sobre cómo reportar violaciones de derechos de autor y otros contenidos problemáticos",
+      "summary": {
+        "title": "Resumen",
+        "description": "{siteName} respeta los derechos de propiedad intelectual y cumple con la Ley de Derechos de Autor del Milenio Digital (DMCA). Si crees que tu contenido con derechos de autor ha sido usado sin autorización, puedes enviar una notificación DMCA.",
+        "important": "Importante",
+        "important_text": "Las notificaciones falsas de DMCA pueden tener consecuencias legales. Solo envía una notificación si realmente crees que tus derechos han sido infringidos."
+      },
+      "report": {
+        "title": "¿Cómo reportar contenido?",
+        "button": "Enviar un reporte",
+        "copyright": {
+          "title": "Derechos de autor",
+          "text": "Contenido protegido por derechos de autor usado sin permiso",
+          "images": "Imágenes, fotos o ilustraciones",
+          "videos": "Videos o contenido audiovisual",
+          "documents": "Textos, artículos o documentos"
+        },
+        "legal": {
+          "title": "Problemas legales",
+          "illegal": "Contenido ilegal o que promueve actividades ilegales",
+          "harassment": "Acoso, intimidación o amenazas",
+          "privacy": "Violación de privacidad o datos personales",
+          "spam": "Spam o contenido comercial no deseado"
+        }
+      },
+      "process": {
+        "title": "Proceso de manejo de reportes",
+        "step1": {
+          "title": "Recepción del reporte",
+          "description": "Recibimos y revisamos tu reporte en 24-48 horas hábiles."
+        },
+        "step2": {
+          "title": "Evaluación inicial",
+          "description": "Nuestro equipo evalúa la validez del reporte y la evidencia proporcionada."
+        },
+        "step3": {
+          "title": "Investigación",
+          "description": "Si es necesario, contactamos al usuario responsable del contenido para su respuesta."
+        },
+        "step4": {
+          "title": "Resolución",
+          "description": "Tomamos acción según nuestras políticas: eliminación, advertencia o rechazo del reporte."
+        }
+      },
+      "requirements": {
+        "title": "Información requerida",
+        "warning": {
+          "title": "Advertencia legal",
+          "description": "Proporcionar información falsa en un reporte DMCA puede constituir perjurio y tener consecuencias legales."
+        },
+        "personal": {
+          "title": "Información personal",
+          "name": "Nombre completo y datos de contacto",
+          "contact": "Dirección de correo electrónico válida",
+          "signature": "Firma física o electrónica"
+        },
+        "content": {
+          "title": "Información del contenido",
+          "url": "URL exacta del contenido infractor",
+          "description": "Descripción específica del material protegido",
+          "ownership": "Prueba de propiedad o autorización"
+        }
+      },
+      "contact": {
+        "title": "Contacto",
+        "agent": {
+          "title": "Agente DMCA designado"
+        },
+        "emergency": {
+          "title": "Contacto de emergencia",
+          "description": "Para casos urgentes que requieren atención inmediata:"
+        }
+      },
+      "counter": {
+        "title": "Contra-notificaciones",
+        "description": "Si crees que tu contenido fue eliminado por error, puedes enviar una contra-notificación DMCA. Sin embargo, este proceso tiene implicaciones legales serias.",
+        "note": "Nota importante",
+        "note_text": "Las contra-notificaciones también deben cumplir con requisitos legales específicos y pueden resultar en acciones legales."
+      }
+    }
+  },
+  "legal": {
+    "cookies": {
+      "banner": {
+        "title": "Usamos cookies",
+        "description": "Utilizamos cookies para mejorar tu experiencia de navegación y ofrecer contenido personalizado. Solo las cookies esenciales son obligatorias.",
+        "accept_all": "Aceptar todo",
+        "reject_all": "Rechazar todo",
+        "customize": "Personalizar",
+        "show_details": "Ver detalles",
+        "hide_details": "Ocultar detalles",
+        "learn_more": "Más información sobre cookies",
+        "essential": {
+          "title": "Cookies esenciales",
+          "description": "Necesarias para el funcionamiento básico del sitio"
+        },
+        "analytics": {
+          "title": "Cookies analíticas",
+          "description": "Nos ayudan a entender cómo usas el sitio para mejorarlo"
+        },
+        "functional": {
+          "title": "Cookies funcionales",
+          "description": "Mejoran tu experiencia con funcionalidades adicionales"
+        }
+      },
+      "customize": {
+        "title": "Personalizar cookies",
+        "save": "Guardar preferencias",
+        "essential": {
+          "title": "Cookies esenciales",
+          "description": "Estas cookies son necesarias para el funcionamiento básico del sitio web y no se pueden desactivar.",
+          "required": "Siempre activas (requeridas)"
+        },
+        "analytics": {
+          "title": "Cookies analíticas",
+          "description": "Estas cookies nos ayudan a entender cómo los visitantes interactúan con el sitio web recopilando y reportando información de forma anónima.",
+          "optional": "Opcional - puedes desactivar"
+        },
+        "functional": {
+          "title": "Cookies funcionales",
+          "description": "Estas cookies permiten que el sitio web proporcione funcionalidad y personalización mejoradas.",
+          "optional": "Opcional - puedes desactivar"
+        }
+      }
+    }
+  },
+  "transparency": {
+    "title": "Transparencia",
+    "description": "Información sobre cómo moderamos el contenido y manejamos los reportes",
+    "stats": {
+      "title": "Estadísticas generales",
+      "posts": "Envíos totales",
+      "users": "Usuarios activos",
+      "comments": "Comentarios",
+      "sources": "Fuentes agregadas"
+    },
+    "moderation": {
+      "title": "Moderación y reportes",
+      "reports": {
+        "title": "Reportes recibidos",
+        "received": "Total recibidos",
+        "processed": "Procesados",
+        "pending": "Pendientes",
+        "avg_response": "Tiempo promedio de respuesta"
+      },
+      "actions": {
+        "title": "Acciones tomadas",
+        "content_removed": "Contenido eliminado",
+        "warnings": "Advertencias enviadas",
+        "users_suspended": "Usuarios suspendidos",
+        "appeals": "Apelaciones procesadas"
+      }
+    },
+    "report_types": {
+      "title": "Tipos de reportes",
+      "last_30_days": "Últimos 30 días",
+      "spam": "Spam",
+      "copyright": "Derechos de autor",
+      "harassment": "Acoso",
+      "illegal": "Contenido ilegal",
+      "privacy": "Privacidad",
+      "other": "Otros"
+    },
+    "sources": {
+      "title": "Fuentes de contenido",
+      "description": "Sitios web de los que agregamos contenido de forma automática, respetando siempre sus términos de servicio y políticas.",
+      "items_this_month": "Artículos este mes",
+      "last_update": "Última actualización"
+    },
+    "commitments": {
+      "title": "Nuestros compromisos",
+      "privacy": {
+        "title": "Privacidad",
+        "no_tracking": "Sin seguimiento invasivo de usuarios",
+        "no_ads": "Sin publicidad dirigida o personalizada",
+        "data_minimal": "Recopilación mínima de datos personales",
+        "open_source": "Código abierto y transparente"
+      },
+      "quality": {
+        "title": "Calidad del contenido",
+        "human_moderation": "Moderación humana, no solo automatizada",
+        "fast_response": "Respuesta rápida a reportes (< 48h)",
+        "appeals_process": "Proceso claro de apelaciones",
+        "transparency_reports": "Informes de transparencia regulares"
+      }
+    },
+    "contact": {
+      "title": "Cómo contactarnos",
+      "reports": {
+        "title": "Reportar contenido",
+        "description": "Para reportar contenido problemático o que infringe políticas",
+        "button": "Enviar reporte"
+      },
+      "general": {
+        "title": "Consultas generales",
+        "description": "Para preguntas sobre políticas, funcionamiento o sugerencias",
+        "button": "Contactar por email"
+      },
+      "community": {
+        "title": "Comunidad",
+        "description": "Para unirte a la comunidad y recibir actualizaciones",
+        "button": "Unirse a Telegram"
+      }
+    }
+  }
+}

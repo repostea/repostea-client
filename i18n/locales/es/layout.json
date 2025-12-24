@@ -1,0 +1,8 @@
+{
+    "layout":  {
+                   "card_view":  "Vista de tarjetas",
+                   "compact_view":  "Vista compacta",
+                   "list_view":  "Vista de lista",
+                   "view":  "Vista"
+               }
+}

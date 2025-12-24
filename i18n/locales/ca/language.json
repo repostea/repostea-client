@@ -1,0 +1,15 @@
+{
+  "language": {
+    "available": "Idiomes disponibles",
+    "coming_soon": "Pròximament",
+    "soon": "Aviat",
+    "stats": {
+      "available": "Disponibles",
+      "coverage": "Cobertura"
+    },
+    "help": {
+      "description": "Parles un altre idioma? Ajuda'ns a traduir {siteName}.",
+      "contact": "Contacta per traduir"
+    }
+  }
+}

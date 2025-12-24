@@ -1,0 +1,11 @@
+{
+  "gifs": {
+    "insert": "Insertar GIF",
+    "insert_action": "Insertar",
+    "search_placeholder": "Buscar GIFs...",
+    "no_results": "No se encontraron GIFs",
+    "powered_by": "Powered by",
+    "loading": "Cargando GIFs...",
+    "error": "Error al cargar GIFs"
+  }
+}

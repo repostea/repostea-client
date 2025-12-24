@@ -1,0 +1,28 @@
+{
+  "errors": {
+    "bad_request": "La petición nu vali.",
+    "unauthorized": "Tiés que entrar pa ver estu.",
+    "forbidden": "Nu tiés permisu pa ver estu.",
+    "not_found": "Estu nu s'alcuentra.",
+    "too_many_requests": "Para quietu! Espérati un ratu.",
+    "server_error": "Oju, argu ha salíu mal. Ya estamus mirándolu.",
+    "404": {
+      "title": "Página Nu Alcuentrá",
+      "message": "La página que buscas nu existi."
+    },
+    "500": {
+      "title": "Error del Servidor",
+      "message": "Oju, argu ha salíu mal."
+    },
+    "generic": {
+      "title": "Error",
+      "message": "Ha pasáu argu raru. Prueba después."
+    },
+    "pageNotFound": "Página nu alcuentrá",
+    "user_not_found": "Usuariu nu alcuentráu"
+  },
+  "maintenance": {
+    "title": "Mantenimientu",
+    "message": "Estamus mejorandu. Volvimus prontu."
+  }
+}

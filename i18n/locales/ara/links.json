@@ -1,0 +1,15 @@
+{
+  "links": {
+    "title": "Vinclos",
+    "already_voted": "Ya has votau iste vinclo",
+    "published": "Publicatos",
+    "popular": "Populars",
+    "recent": "Recients",
+    "most_visited": "Más visitatos",
+    "most_valued": "Más valoratos",
+    "most_commented": "Más comentatos",
+    "no_links": "No s'han trobato vinclos",
+    "pending": "Pendients",
+    "visits": "vesitas"
+  }
+}

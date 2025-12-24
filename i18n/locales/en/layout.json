@@ -1,0 +1,8 @@
+{
+    "layout":  {
+                   "card_view":  "Card View",
+                   "compact_view":  "Compact View",
+                   "list_view":  "List View",
+                   "view":  "View"
+               }
+}

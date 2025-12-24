@@ -1,0 +1,35 @@
+{
+  "user": {
+    "profile": "Perfil mijo",
+    "settings": "Configurasión",
+    "karma": "karma mijo",
+    "joined": "Miembro desdi",
+    "bio": "Biografía mijo",
+    "about_me": "Aserca de mí",
+    "no_bio": "Este usuario no ha añadío una biografía mijo.",
+    "published_links": "Enlases publicaos",
+    "user_comments": "Comentarios mijo",
+    "edit_profile": "Editar perfil mijo",
+    "save_changes": "Guardar cambios",
+    "profile_updated": "Perfil actualisao correctamente mijo",
+    "karma_levels": {
+      "newcomer": "Novato mijo",
+      "contributor": "Contribuidor",
+      "regular": "Regular mijo",
+      "trusted": "Confiable",
+      "veteran": "Veterano mijo",
+      "expert": "Experto",
+      "master": "Maestro mijo",
+      "legend": "Leyenda mijo"
+    },
+    "karma_overview": "Resumen de Karma mijo",
+    "activity_streak": "Racha de Actividá",
+    "last_30_days": "Últimos 30 días mijo",
+    "activities": "actividaes",
+    "posts": "Publicasiones",
+    "comments": "Comentarios mijo",
+    "votes_given": "Votos daos",
+    "admin": "Administrador mijo",
+    "moderator": "Moderador mijo"
+  }
+}

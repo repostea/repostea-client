@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Logo Component > matches snapshot 1`] = `
+"<div data-v-936eacfa="" class="logo-container">
+  <div data-v-936eacfa="" class="logo-wrapper">
+    <nuxtimg data-v-936eacfa="" src="/logo-wolf.png" alt="Repostea" class="logo-image" width="36" height="36" format="webp" quality="80" loading="eager" placeholder="36,36,10"></nuxtimg>
+  </div><span data-v-936eacfa="" class="logo-text">Repostea</span>
+</div>"
+`;

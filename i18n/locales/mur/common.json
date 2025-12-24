@@ -1,0 +1,43 @@
+{
+  "common": {
+    "loading": "Cargandico...",
+    "error": "Ojo illo!",
+    "success": "Aro que bien illo!",
+    "warning": "Ojo illo",
+    "votes": "Voticos",
+    "comment": "Comentarico",
+    "comments": "Comentaricos",
+    "be_first": "Sel primerico",
+    "guest": "invitaico",
+    "copied": "Copiaico!",
+    "delete": "Quita",
+    "processing": "Procesandico...",
+    "uploading": "Subiendico",
+    "remove": "Quitarico",
+    "back": "Patrás",
+    "understood": "Entendío illo",
+    "saving": "Guardandico...",
+    "deleting": "Quitandico...",
+    "clearing": "Limpiandico...",
+    "backToHome": "Volvel pal inicio",
+    "time": {
+      "just_now": "ahorica mismo",
+      "yesterday": "Aye"
+    },
+    "go_home": "Ir pal inicio",
+    "back_to_home": "Volvel pal inicio",
+    "go_back": "Patrás",
+    "reply": "Respuestica",
+    "replies": "Respuesticas",
+    "login_to_participate": "Entrarico pa participar",
+    "edited": "cambiaico",
+    "searching": "Buscandico...",
+    "no_results": "No s'encontró ná illo",
+    "login_required": "Esta acción requiere estar registraico. Regístrate o entrarico pa continuar.",
+    "notifications": {
+      "success": "Aro que bien illo!",
+      "error": "Ojo illo!",
+      "warning": "Cuidaico illo"
+    }
+  }
+}

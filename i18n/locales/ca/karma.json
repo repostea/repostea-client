@@ -1,0 +1,148 @@
+{
+    "karma": {
+        "title": "Sistema de Karma",
+        "description": "Documentació tècnica del sistema de punts de {siteName}",
+        "beta_notice": "⚠️ Aquest sistema està en fase Beta i obert a debat i suggeriments de la comunitat.",
+        "overview": {
+            "title": "Resum",
+            "intro": "El karma és un sistema de puntuació que reflecteix la qualitat i consistència de la teva participació a {siteName}. A diferència d'altres sistemes, implementem mecanismes per prevenir la manipulació del sistema, assegurant que el karma reflecteixi contribució real.",
+            "key_features": "Característiques principals:",
+            "feature_1": "Rendiments decreixents en publicacions virals",
+            "feature_2": "Reducció progressiva de contingut antic per incentivar activitat contínua",
+            "feature_3": "Límit de 500 karma per publicació individual",
+            "feature_4": "Bonificació per activitat recent per recompensar participació constant"
+        },
+        "mechanics": {
+            "title": "Mecàniques del Sistema",
+            "posts": {
+                "title": "Publicacions",
+                "base": "Karma base per vot positiu: 10 punts",
+                "diminishing": "Rendiments decreixents: Després de 10 vots, s'aplica factor logarítmic log(n+1)/log(11). Això evita que una sola publicació viral generi karma desproporcionat, incentivant crear múltiples publicacions de qualitat. Per exemple, 100 vots generen ~233 karma (no 1000), i 1000 vots generen ~289 karma (no 10,000).",
+                "comment_bonus": "Bonificació per comentaris rebuts: 1 punt per comentari (màxim 25)",
+                "cap": "Límit màxim per publicació: 500 karma",
+                "note": "Les publicacions no poden rebre vots negatius"
+            },
+            "comments": {
+                "title": "Comentaris",
+                "upvote": "Vot positiu: 5 punts base",
+                "downvote": "Vot negatiu: -1 punt (mínim 0 karma total per comentari). Els vots negatius tenen menor impacte per protegir contra downvote brigading.",
+                "diminishing": "Rendiments decreixents: Igual que publicacions, després de 10 vots",
+                "reply_bonus": "Bonificació per respostes rebudes: 1 punt per resposta (màxim 12). Incentiva comentaris que generin conversa constructiva."
+            },
+            "activity": {
+                "title": "Bonificació d'Activitat (últims 30 dies)",
+                "description": "La participació constant es recompensa amb punts addicionals per incentivar usuaris que contribueixen regularment, no només aquells amb èxits puntuals.",
+                "posts": "Publicacions: 3 punts cada una",
+                "comments": "Comentaris: 1 punt cada un",
+                "votes": "Vots emesos: 0.1 punts cada un (votar també contribueix curant contingut)",
+                "cap": "Límit màxim: 50 punts",
+                "example": "Exemple: 5 publicacions + 20 comentaris + 100 vots al mes = 45 punts de bonificació."
+            },
+            "age_decay": {
+                "title": "Reducció per Antiguitat",
+                "description": "El karma de contingut antic es redueix progressivament per incentivar la participació contínua i evitar que usuaris inactius mantinguin karma alt indefinidament. El sistema aplica aquests multiplicadors segons l'antiguitat del contingut:",
+                "m1": "Menys d'1 mes: 100%",
+                "m3": "Entre 1 i 3 mesos: 95%",
+                "m6": "Entre 3 i 6 mesos: 90%",
+                "m12": "Entre 6 i 12 mesos: 80%",
+                "y2": "Entre 1 i 2 anys: 70%",
+                "old": "Més de 2 anys: 50%",
+                "note": "Una publicació de fa 18 mesos que va generar 100 punts ara aporta 70 punts al teu karma total. Nous vots rebuts també es calcularan amb aquest multiplicador."
+            },
+            "seals": {
+                "title": "Segells de Comunitat",
+                "description": "Els usuaris amb nivell de karma suficient reben Segells setmanals que poden usar per destacar contingut de qualitat o desaconsellar contingut. Els segells també afecten el karma de l'autor del contingut.",
+                "weekly_allocation": "Assignació Setmanal de Segells:",
+                "seal_table_level": "Nivell",
+                "seal_table_seals": "Segells/Setmana",
+                "recommended": "Segell Recomanat: +3 karma a l'autor",
+                "advised_against": "Segell Desaconsellat: -2 karma a l'autor",
+                "rules_title": "Regles dels Segells:",
+                "rule_1": "Només usuaris de nivell Aprenent o superior reben segells",
+                "rule_2": "Els segells es renoven cada dilluns a les 00:00",
+                "rule_3": "Els segells no usats caduquen després de 2 setmanes",
+                "rule_4": "No pots marcar el teu propi contingut",
+                "rule_5": "Només pots aplicar un segell de cada tipus per contingut",
+                "rule_6": "Si retires un segell, recuperes el punt i es reverteix el karma",
+                "impact": "Els segells permeten a la comunitat destacar contingut de qualitat i desaconsellar contingut de forma visible, mentre incentiven els autors a crear contingut valuós.",
+                "impact_title": "Impacte en Karma"
+            }
+        },
+        "levels": {
+            "title": "Nivells i Multiplicadors",
+            "description": "En assolir certs llindars de karma, el teu nivell augmenta. Quan votes contingut d'altres usuaris, el teu nivell atorga un petit multiplicador que augmenta lleugerament el karma que ells reben:",
+            "table_level": "Nivell",
+            "table_karma": "Karma Requerit",
+            "table_multiplier": "Multiplicador",
+            "novice": "Novell",
+            "apprentice": "Aprenent",
+            "contributor": "Col·laborador",
+            "expert": "Expert",
+            "mentor": "Mentor",
+            "sage": "Savi",
+            "legend": "Llegenda"
+        },
+        "examples": {
+            "title": "Exemples Pràctics",
+            "viral_post": {
+                "title": "Exemple 1: Publicació Viral",
+                "old_system": "Sistema sense rendiments decreixents: 1000 vots × 10 = 10,000 karma",
+                "new_system": "Sistema actual: 1000 vots = ~289 karma + bonificacions",
+                "conclusion": "Incentiva crear múltiples publicacions de qualitat en lloc de perseguir viralitat"
+            },
+            "content_decay": {
+                "title": "Exemple 2: Reducció per Antiguitat",
+                "scenario": "Una publicació amb 20 vots positius (200 karma base):",
+                "fresh": "Contingut recent (< 2 setmanes): 200 karma (100%)",
+                "old": "Contingut antic (> 3 mesos): 100 karma (50%)",
+                "conclusion": "El sistema incentiva crear contingut nou constantment"
+            },
+            "deleted_content": {
+                "title": "Exemple 3: Contingut Eliminat",
+                "scenario": "Una publicació rep 10 reports de la comunitat i és eliminada pels moderadors",
+                "karma_lost": "L'autor perd tot el karma guanyat per aquesta publicació (~100-200 karma)",
+                "strike": "A més rep un strike. 3 strikes = suspensió temporal",
+                "conclusion": "El sistema penalitza fortament el contingut que viola les normes"
+            }
+        },
+        "simulations": {
+            "title": "Projeccions de Progressió",
+            "description": "Estimacions basades en diferents nivells d'activitat mensual:",
+            "casual": {
+                "title": "Usuari Casual",
+                "activity": "2 publicacions, 15 comentaris, 50 vots/mes",
+                "monthly": "~450 karma/mes",
+                "legend": "Llegenda (100,000) en ~18.5 anys"
+            },
+            "active": {
+                "title": "Usuari Actiu",
+                "activity": "10 publicacions, 50 comentaris, 200 vots/mes",
+                "monthly": "~3,300 karma/mes",
+                "legend": "Llegenda (100,000) en ~2.5 anys"
+            },
+            "power": {
+                "title": "Usuari Molt Actiu",
+                "activity": "30 publicacions, 150 comentaris, 500 vots/mes",
+                "monthly": "~12,500 karma/mes",
+                "legend": "Llegenda (100,000) en ~8 mesos"
+            },
+            "troll": {
+                "title": "Usuari Troll/Spam",
+                "activity": "Publica 20 continguts/mes, però 15 són eliminats per reports",
+                "monthly": "Perd ~1,500-2,000 karma/mes + 15 strikes",
+                "result": "Suspensió permanent després de 3 strikes"
+            },
+            "note": "Les xifres assumeixen qualitat mitjana del contingut (8-10 vots per publicació, 3-5 per comentari). Els comentaris tenen un mínim de 0 karma independentment dels vots negatius."
+        },
+        "technical": {
+            "title": "Detalls Tècnics",
+            "formula_post": "karma_post = min(500, (diminishing_returns(upvotes) × time_mult + comment_bonus)) × age_decay",
+            "formula_comment": "karma_comment = max(0, (diminishing_returns(upvotes - downvotes) × time_mult + reply_bonus) × age_decay)",
+            "formula_total": "karma_total = Σ karma_posts + Σ karma_comments + activity_bonus",
+            "diminishing": "diminishing_returns(n) = n ≤ 10 ? n × base : base × 10 × log(n+1)/log(11)",
+            "time_mult": "time_multiplier = 1.0 (actualment sense efecte temporal)",
+            "activity": "activity_bonus = min(50, posts×3 + comments×1 + votes×0.1)",
+            "note": "Els càlculs es realitzen en ordre: rendiments decreixents → multiplicador temporal → bonificació → límit → reducció per antiguitat"
+        }
+    }
+}

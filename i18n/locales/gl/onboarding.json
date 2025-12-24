@@ -1,0 +1,347 @@
+{
+  "onboarding": {
+    "title": "Benvido a {siteName}",
+    "skip": "Omitir introdución",
+    "next": "Seguinte",
+    "previous": "Anterior",
+    "complete": "Completar",
+    "finish": "Finalizar",
+    "get_started": "Comezar",
+    "step_of": "Paso {current} de {total}",
+    "progress": "{percentage}% completado",
+    "steps": {
+      "welcome": {
+        "title": "Benvido á Comunidade",
+        "description": "Explicarémosche todo o que necesitas saber",
+        "content": {
+          "heading": "Benvido a {siteName}!",
+          "subtitle": "Unha plataforma democrática onde a comunidade decide que contido merece atención",
+          "purpose": {
+            "title": "Que é {siteName}?",
+            "description": "{siteName} é unha comunidade onde TI decides que contido merece atención. Sen algoritmos secretos, sen manipulación. Os usuarios votan e o mellor contido sobe.\n\n💡 Democracia dixital: o teu voto conta, a túa voz importa."
+          },
+          "features": [
+            "Comparte ligazóns, textos, vídeos e audio",
+            "Participa en discusións con comentarios",
+            "Constrúe o teu karma a través do compromiso comunitario",
+            "Crea e únete a comunidades especializadas (subs)"
+          ],
+          "cta": "Exploremos que fai especial a {siteName}!",
+          "show_details": "Mostrar detalles",
+          "hide_details": "Ocultar detalles"
+        }
+      },
+      "discover-content": {
+        "title": "Descobre e Comenta",
+        "description": "Explora contido e participa coa comunidade",
+        "content": {
+          "heading": "Descobre Contido Interesante",
+          "subtitle": "A túa participación dá valor á plataforma",
+          "main_text_1": "Descobre contido interesante e",
+          "main_text_2": "coméntao coa comunidade",
+          "essence_text_1": "Os teus comentarios son",
+          "essence_text_2": "a esencia",
+          "essence_text_3": "e o que dá",
+          "essence_text_4": "valor",
+          "essence_text_5": "á plataforma. As conversas enriquecen o contido e constrúen a comunidade.",
+          "tip": "💡 Comenta con respecto, achega a túa perspectiva e participa nas discusións."
+        }
+      },
+      "creating-posts": {
+        "title": "Crear Publicacións",
+        "description": "Aprende como compartir contido coa comunidade",
+        "content": {
+          "heading": "Comparte O Teu Contido",
+          "subtitle": "{siteName} soporta múltiples tipos de contido",
+          "brief_summary_1": "Podes compartir",
+          "brief_summary_2": "ligazóns",
+          "brief_summary_3": "textos",
+          "brief_summary_4": "vídeos",
+          "brief_summary_5": "audio",
+          "brief_summary_6": "e crear",
+          "brief_summary_7": "enquisas",
+          "brief_summary_8": ". Escolle un título claro, engade etiquetas relevantes e selecciona a comunidade apropiada.",
+          "tip": "💡 Contido de calidade + bo título = máis visibilidade",
+          "show_details": "Mostrar detalles",
+          "hide_details": "Ocultar detalles",
+          "types": [
+            {
+              "title": "Publicacións de Texto",
+              "description": "Comparte pensamentos, historias ou discusións con formato de texto enriquecido"
+            },
+            {
+              "title": "Publicacións de Ligazóns",
+              "description": "Comparte artigos interesantes, sitios web ou recursos"
+            },
+            {
+              "title": "Publicacións de Vídeo",
+              "description": "Comparte vídeos de YouTube, Vimeo ou outras plataformas"
+            },
+            {
+              "title": "Publicacións de Audio",
+              "description": "Comparte podcasts, música ou contido de audio"
+            },
+            {
+              "title": "Publicacións de Enquisa",
+              "description": "Crea enquisas para recompilar opinións da comunidade"
+            }
+          ],
+          "tips": [
+            "Escolle títulos descritivos que expliquen claramente o teu contido",
+            "Usa etiquetas relevantes para axudar a outros a descubrir as túas publicacións",
+            "Engade descricións detalladas para proporcionar contexto",
+            "Selecciona o sub (comunidade) apropiado para o teu contido"
+          ]
+        }
+      },
+      "voting": {
+        "title": "Sistema de Votación",
+        "description": "Aprende como os votos determinan a visibilidade do contido",
+        "content": {
+          "heading": "O Sistema de Votación",
+          "subtitle": "Os usuarios deciden que contido merece atención",
+          "brief_text_1": "Os usuarios votan o contido con",
+          "brief_text_2": "▲ votos positivos",
+          "brief_text_3": "para impulsar o más valioso e interesante.",
+          "visibility_text": "Máis votos = máis visibilidade na portada. Os votos tamén aumentan o karma do autor.",
+          "tip": "💡 Se atopas spam ou contido ilícito, podes reportalo para que os moderadores o revisen.",
+          "content_impact": [
+            "Os votos positivos aumentan a visibilidade do contido",
+            "O contido máis votado aparece na portada",
+            "Os votos negativos reducen a visibilidade",
+            "O balance de votos determina a orde das publicacións"
+          ],
+          "author_impact": [
+            "Cada voto positivo suma +1 karma ao autor",
+            "Cada voto negativo resta -1 karma ao autor",
+            "O karma reflicte a calidade das túas contribucións"
+          ],
+          "voting_guidelines": {
+            "dos": [
+              "Vota positivo: contido de calidade, ben argumentado, útil ou entretido",
+              "Vota negativo: spam, contido ofensivo, desinformación ou fóra de tema",
+              "Le antes de votar, non votes só polo título",
+              "Vota baseándote na calidade, non no teu acordo/desacordo persoal"
+            ],
+            "donts": [
+              "Non votes por vinganza ou para atacar a alguén",
+              "Non uses múltiples contas para manipular votos",
+              "Non votes todo o contido dun usuario (positivo ou negativo)",
+              "Non vendas o teu voto nin participes en brigadas de votación"
+            ]
+          }
+        }
+      },
+      "karma-system": {
+        "title": "Sistema de Karma",
+        "description": "Entende como funciona a reputación na comunidade",
+        "content": {
+          "heading": "O Sistema de Karma",
+          "subtitle": "A túa puntuación de reputación en {siteName}",
+          "brief_text_1": "O",
+          "brief_text_2": "karma",
+          "brief_text_3": "é a túa puntuación de reputación en {siteName}. Cada voto positivo que recibe o teu contido súmache",
+          "brief_text_4": "+1 karma",
+          "brief_text_5": ".",
+          "progression_text": "A medida que acumulas karma, avanzas de nivel e gaña recoñecemento na comunidade.",
+          "tip": "💡 Comparte contido de calidade, participa con respecto e constrúe a túa reputación.",
+          "levels_title": "Niveis de Karma",
+          "karma_explained": {
+            "title": "Que é o Karma?",
+            "description": "O karma é a túa puntuación de reputación. Calcúlase sumando todos os votos que reciben as túas publicacións e comentarios.",
+            "calculation": "Karma = Votos positivos - Votos negativos (de todo o teu contido)",
+            "importance": "O karma reflicte o teu historial de contribucións valiosas á comunidade.",
+            "permanent_levels": "Os niveis son permanentes: unha vez alcanzados, non se perden aínda que o teu karma baixe (excepto por sancións administrativas)."
+          },
+          "how_it_works": [
+            "Recibes +1 karma por cada voto positivo nos teus posts e comentarios",
+            "Perdes -1 karma por cada voto negativo",
+            "O teu karma é visible no teu perfil para todos",
+            "Non podes baixar de 0 karma, pero o teu historial segue visible"
+          ],
+          "earning_tips": [
+            "Comparte contido orixinal, interesante e de calidade",
+            "Le antes de comentar e achega perspectivas valiosas",
+            "Sé respectuoso incluso en desacordos",
+            "Verifica fontes antes de compartir información",
+            "Contribúe regularmente, a constancia conta"
+          ],
+          "levels": [
+            {
+              "name": "Novato",
+              "range": "0-199 karma",
+              "description": "Estás empezando. Publica contido e participa para subir de nivel.",
+              "benefits": "Acceso básico a todas as funcións principais"
+            },
+            {
+              "name": "Aprendiz",
+              "range": "200-999 karma",
+              "description": "Usuario activo con contribucións recoñecidas",
+              "benefits": "Os teus votos teñen máis peso, insignia de aprendiz"
+            },
+            {
+              "name": "Colaborador",
+              "range": "1.000-3.999 karma",
+              "description": "Membro valioso con historial de calidade",
+              "benefits": "Maior visibilidade, podes crear subs"
+            },
+            {
+              "name": "Experto",
+              "range": "4.000-15.999 karma",
+              "description": "Experto recoñecido na comunidade",
+              "benefits": "Insignia especial, prioridade en revisións"
+            },
+            {
+              "name": "Mentor",
+              "range": "16.000-39.999 karma",
+              "description": "Guía respectado con gran influencia",
+              "benefits": "Poder de moderación, voto con maior peso"
+            },
+            {
+              "name": "Sabio",
+              "range": "40.000-99.999 karma",
+              "description": "Veterano con contribucións excepcionais",
+              "benefits": "Insignia exclusiva, voz en decisións importantes"
+            },
+            {
+              "name": "Lenda",
+              "range": "100.000+ karma",
+              "description": "Líder lendario da comunidade",
+              "benefits": "Todas as ventaxes, recoñecemento especial"
+            }
+          ]
+        }
+      },
+      "notifications": {
+        "title": "Preferencias de Notificacións",
+        "description": "Escolle como queres manterte actualizado",
+        "content": {
+          "heading": "Mantente Conectado",
+          "subtitle": "Configura as túas preferencias de notificacións",
+          "brief_text": "Recibirás notificacións de respostas aos teus posts, mencións, votos e máis.",
+          "tip": "💡 Podes configurar todas as túas preferencias de notificacións desde o teu perfil en calquera momento.",
+          "email_notifications": "Notificacións por Email",
+          "email_description": "Recibe actualizacións por email para actividades importantes",
+          "push_notifications": "Notificacións Push do Navegador",
+          "push_description": "Recibe notificacións instantáneas no teu navegador",
+          "notification_types": "Tipos de Notificacións",
+          "types": {
+            "replies": "Respostas ás miñas publicacións e comentarios",
+            "mentions": "Cando alguén me menciona",
+            "votes": "Cando o meu contido recibe votos",
+            "follows": "Cando alguén me segue",
+            "announcements": "Anuncios importantes da plataforma"
+          },
+          "privacy_note": "Podes cambiar estas configuracións en calquera momento no teu perfil"
+        },
+        "push": {
+          "title": "Notificacións push",
+          "description": "Recibe alertas instantáneas cando alguén responda ou te mencione, incluso co navegador pechado.",
+          "enable_button": "Activar notificacións",
+          "enabled": "Notificacións activadas",
+          "enabled_description": "Recibirás alertas en tempo real",
+          "blocked": "Permiso bloqueado",
+          "blocked_description": "Podes cambialo na configuración do navegador",
+          "not_supported": "O teu navegador non soporta notificacións push",
+          "what_you_receive": "Recibirás alertas de:",
+          "receive_replies": "Respostas ás túas publicacións e comentarios",
+          "receive_mentions": "Mencións ({'@'}o_teu_usuario)",
+          "receive_achievements": "Logros desbloqueados"
+        }
+      },
+      "platform-features": {
+        "title": "Características da Plataforma",
+        "description": "Descubre todas as ferramentas dispoñibles para ti",
+        "content": {
+          "heading": "Explora as Características de {siteName}",
+          "subtitle": "Aproveita ao máximo a túa experiencia",
+          "brief_text_1": "{siteName} inclúe",
+          "brief_text_2": "comunidades (subs)",
+          "brief_text_3": "listas gardadas",
+          "brief_text_4": "modo escuro",
+          "brief_text_5": ", soporte para",
+          "brief_text_6": "múltiples idiomas",
+          "brief_text_7": "e moito máis.",
+          "evolution_text_1": "🚀 Estamos en",
+          "evolution_text_2": "continua evolución",
+          "evolution_text_3": "sacando funcionalidades novas constantemente.",
+          "tip": "💡 Non deixes de explorar todas as opcións e personaliza a túa experiencia segundo as túas preferencias.",
+          "features": [
+            {
+              "title": "Subs (Comunidades)",
+              "description": "Únete ou crea comunidades especializadas en temas específicos",
+              "icon": "users"
+            },
+            {
+              "title": "Listas Gardadas",
+              "description": "Garda publicacións en listas personalizadas para ler despois e organizar",
+              "icon": "bookmark"
+            },
+            {
+              "title": "Asistente de Escritura IA",
+              "description": "Obtén axuda para escribir mellores publicacións con suxestións impulsadas por IA",
+              "icon": "robot"
+            },
+            {
+              "title": "Aplicación Móbil",
+              "description": "Accede a {siteName} sobre a marcha coa nosa interface optimizada para móbiles",
+              "icon": "mobile"
+            },
+            {
+              "title": "Modo Escuro",
+              "description": "Cambia entre temas claro e escuro para unha navegación cómoda",
+              "icon": "moon"
+            },
+            {
+              "title": "Múltiples Idiomas",
+              "description": "Usa {siteName} no teu idioma preferido",
+              "icon": "globe"
+            }
+          ],
+          "tips": [
+            "Explora diferentes subs para atopar comunidades que che interesen",
+            "Usa a función de busca para descubrir novo contido",
+            "Revisa a sección de tendencias para publicacións populares",
+            "Personaliza o teu perfil para expresar a túa personalidade"
+          ]
+        }
+      },
+      "completed": {
+        "title": "Xa Estás Listo!",
+        "description": "Benvido á comunidade {siteName}",
+        "content": {
+          "heading": "Benvido a {siteName}!",
+          "subtitle": "Agora estás preparado para comezar a explorar e contribuír",
+          "next_steps": [
+            "Crea a túa primeira publicación",
+            "Únete a algúns subs interesantes",
+            "Comeza a interactuar coa comunidade",
+            "Personaliza o teu perfil"
+          ],
+          "cta": "Comezar a Explorar",
+          "support": "Necesitas axuda? Consulta o noso centro de axuda ou pregunta á comunidade!"
+        }
+      }
+    },
+    "actions": {
+      "save_preferences": "Gardar Preferencias",
+      "enable_notifications": "Habilitar Notificacións",
+      "create_first_post": "Crear A Túa Primeira Publicación",
+      "explore_subs": "Explorar Comunidades",
+      "go_to_dashboard": "Ir ao Panel"
+    },
+    "error": {
+      "complete_step": "Fallou completar o paso de introdución",
+      "update_preferences": "Fallou actualizar as preferencias de notificacións",
+      "skip": "Fallou omitir a introdución",
+      "generic": "Ocorreu un erro durante a introdución"
+    },
+    "success": {
+      "step_completed": "Paso completado exitosamente",
+      "preferences_saved": "Preferencias gardadas exitosamente",
+      "onboarding_skipped": "Introdución omitida",
+      "welcome": "Benvido a {siteName}!"
+    },
+    "confirm_skip": "Estás seguro de que queres omitir a introdución? Perderaste algúns consellos útiles sobre o uso de {siteName}."
+  }
+}

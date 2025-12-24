@@ -1,0 +1,8 @@
+{
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "description": "Encuentra respuestas a las preguntas más comunes sobre cómo usar la plataforma",
+    "error_loading": "Error al cargar las preguntas frecuentes. Por favor, inténtalo de nuevo más tarde.",
+    "meta_description": "Preguntas frecuentes sobre karma, sellos, votaciones, publicaciones y listas en nuestra plataforma"
+  }
+}

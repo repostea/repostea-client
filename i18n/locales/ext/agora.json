@@ -1,0 +1,32 @@
+{
+  "agora": {
+    "title": "Ágora",
+    "subtitle": "Plasa públiqua de conversaçión",
+    "description": "Compartil tus pensamientus i participal en conversacionis",
+    "write_placeholder": "¿Qué quieris compartil en el ágora?",
+    "write_message": "Escribil un mensahi",
+    "publish": "Publical",
+    "reply": "Respondel",
+    "edit": "Cambial",
+    "delete": "Borral",
+    "save": "Guardal",
+    "anonymous": "Anónimu",
+    "recent": "Recientis",
+    "popular": "Popularis",
+    "no_messages": "El ágora te está esperandu",
+    "no_messages_subtitle": "Sei el primeru en empezal una conversaçión",
+    "loading": "Cargandu conversacionis...",
+    "message_created": "Mensahi publicau correctamenti",
+    "message_deleted": "Mensahi borrau",
+    "confirm_delete": "¿Seguru que quieris borral esti mensahi?",
+    "replies_count": "{count} respuestas",
+    "show_replies": "Mohtral respuestas",
+    "hide_replies": "Escondel respuestas",
+    "view_thread": "Vel hilu",
+    "cta_title": "¡Úniti a la conversaçión!",
+    "view_threads": "Hilus",
+    "view_chronological": "Cronológicu",
+    "expires_in": "Expira en {time}",
+    "from_last_reply": "desdi última respuesta"
+  }
+}

@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SealBadges Component > Snapshots > matches snapshot with both badges 1`] = `
+"<div data-v-4b8687dd="" class="seal-badges">
+  <!-- Recommended Badge -->
+  <div data-v-4b8687dd="" class="seal-badge recommended" title="7 recommendations"><i data-v-4b8687dd="" class="iconify-icon seal-icon" name="fa6-solid:award"></i><span data-v-4b8687dd="" class="seal-count">7</span></div><!-- Advise Against Badge -->
+  <div data-v-4b8687dd="" class="seal-badge advise-against" title="2 warnings"><i data-v-4b8687dd="" class="iconify-icon seal-icon" name="fa6-solid:triangle-exclamation"></i><span data-v-4b8687dd="" class="seal-count">2</span></div>
+</div>"
+`;
+
+exports[`SealBadges Component > Snapshots > matches snapshot with only advise-against badge 1`] = `
+"<div data-v-4b8687dd="" class="seal-badges">
+  <!-- Recommended Badge -->
+  <!--v-if-->
+  <!-- Advise Against Badge -->
+  <div data-v-4b8687dd="" class="seal-badge advise-against" title="3 warnings"><i data-v-4b8687dd="" class="iconify-icon seal-icon" name="fa6-solid:triangle-exclamation"></i><span data-v-4b8687dd="" class="seal-count">3</span></div>
+</div>"
+`;
+
+exports[`SealBadges Component > Snapshots > matches snapshot with only recommended badge 1`] = `
+"<div data-v-4b8687dd="" class="seal-badges">
+  <!-- Recommended Badge -->
+  <div data-v-4b8687dd="" class="seal-badge recommended" title="5 recommendations"><i data-v-4b8687dd="" class="iconify-icon seal-icon" name="fa6-solid:award"></i><span data-v-4b8687dd="" class="seal-count">5</span></div><!-- Advise Against Badge -->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`SealBadges Component > Snapshots > matches snapshot with zero counts (no badges) 1`] = `"<!--v-if-->"`;

@@ -1,0 +1,11 @@
+{
+    "time":  {
+                 "just_now":  "ara mateix",
+                 "minutes_ago":  "fa {count} minut | fa {count} minuts",
+                 "hours_ago":  "fa {count} hora | fa {count} hores",
+                 "days_ago":  "fa {count} dia | fa {count} dies",
+                 "today":  "Avui",
+                 "yesterday":  "Ahir",
+                 "weeks_ago":  "fa {weeks} setmana | fa {weeks} setmanes"
+             }
+}

@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SealCornerBadge Component > Snapshots > matches snapshot with only problematic count 1`] = `"<button data-v-ff20b719="" type="button" class="seal-corner-badge badge-advise-against" title="Advised against by 5 users" aria-label="Advised against by 5 users"><i data-v-ff20b719="" class="iconify-icon badge-icon" name="fa6-solid:triangle-exclamation" aria-hidden="true"></i></button>"`;
+
+exports[`SealCornerBadge Component > Snapshots > matches snapshot with only recommended count 1`] = `"<button data-v-ff20b719="" type="button" class="seal-corner-badge badge-recommended" title="Recommended by 5 users" aria-label="Recommended by 5 users"><i data-v-ff20b719="" class="iconify-icon badge-icon rotated-icon" name="fa6-solid:award" aria-hidden="true"></i></button>"`;
+
+exports[`SealCornerBadge Component > Snapshots > matches snapshot with problematic badge 1`] = `"<button data-v-ff20b719="" type="button" class="seal-corner-badge badge-advise-against" title="Advised against by 7 users" aria-label="Advised against by 7 users"><i data-v-ff20b719="" class="iconify-icon badge-icon" name="fa6-solid:triangle-exclamation" aria-hidden="true"></i></button>"`;
+
+exports[`SealCornerBadge Component > Snapshots > matches snapshot with recommended badge 1`] = `"<button data-v-ff20b719="" type="button" class="seal-corner-badge badge-recommended" title="Recommended by 7 users" aria-label="Recommended by 7 users"><i data-v-ff20b719="" class="iconify-icon badge-icon rotated-icon" name="fa6-solid:award" aria-hidden="true"></i></button>"`;
+
+exports[`SealCornerBadge Component > Snapshots > matches snapshot with tie (no badge shown) 1`] = `"<!--v-if-->"`;
+
+exports[`SealCornerBadge Component > Snapshots > matches snapshot with zero counts (no badge shown) 1`] = `"<!--v-if-->"`;

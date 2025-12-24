@@ -1,0 +1,10 @@
+{
+  "comments": {
+    "write": "Escribe un comentario mijo...",
+    "confirm_delete": "¿Seguro que quieres borrar este comentario mijo?",
+    "deleted": "Este comentario ha sido borrao mijo.",
+    "edited": "(editao)",
+    "no_comments": "Todavía no hay comentarios. Se el primero mijo!",
+    "login_to_comment": "Pa comentar tiene que entrar mijo"
+  }
+}

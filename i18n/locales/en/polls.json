@@ -1,0 +1,32 @@
+{
+    "polls": {
+        "expired": "This poll has expired",
+        "vote": "vote",
+        "votes": "votes",
+        "submit_vote": "Submit vote",
+        "remove_vote": "Remove vote",
+        "show_results": "Show results",
+        "back_to_vote": "Back to vote",
+        "results_title": "Poll Results",
+        "total_votes": "{count} total votes",
+        "multiple_options_allowed": "Multiple options allowed",
+        "load_error": "Error loading poll",
+        "login_required": "You must log in to vote",
+        "vote_error": "Error submitting vote",
+        "remove_vote_error": "Error removing vote",
+        "time_left": "Time remaining",
+        "days": "days",
+        "hours": "hours",
+        "minutes": "minutes",
+        "seconds": "seconds",
+        "less_than_minute": "Less than a minute",
+        "view_pie": "View pie chart",
+        "view_bars": "View bars",
+        "you_voted_for_this": "You voted for this option",
+        "you_voted_for_multiple": "You voted for {count} options",
+        "options_chosen": "Options chosen: {count}",
+        "you_voted_option": "You voted for option {option}",
+        "you_voted_options": "You voted for options {options}",
+        "chart_aria_label": "Pie chart showing poll results"
+    }
+}

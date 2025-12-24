@@ -1,0 +1,32 @@
+{
+    "polls": {
+        "expired": "Inkesta hau iraungi da",
+        "vote": "botoa",
+        "votes": "botuak",
+        "submit_vote": "Bidali botoa",
+        "remove_vote": "Ezabatu botoa",
+        "show_results": "Ikusi emaitzak",
+        "back_to_vote": "Itzuli botatzera",
+        "results_title": "Inkestaren emaitzak",
+        "total_votes": "{count} boto guztira",
+        "multiple_options_allowed": "Hautaketa anizkoitzak onartzen dira",
+        "load_error": "Errorea inkesta kargatzean",
+        "login_required": "Erregistratuta egon behar duzu botatzeko",
+        "vote_error": "Errorea botoa bidaltzean",
+        "remove_vote_error": "Errorea botoa ezabatzean",
+        "time_left": "Geratzen den denbora",
+        "days": "egun",
+        "hours": "ordu",
+        "minutes": "minutu",
+        "seconds": "segundo",
+        "less_than_minute": "Minutu bat baino gutxiago",
+        "view_pie": "Ikusi grafiko zirkularra",
+        "view_bars": "Ikusi barrak",
+        "you_voted_for_this": "Aukera hau hautatu duzu",
+        "you_voted_for_multiple": "{count} aukera hautatu dituzu",
+        "options_chosen": "Aukeratutako aukerak: {count}",
+        "you_voted_option": "{option} aukera hautatu duzu",
+        "you_voted_options": "{options} aukerak hautatu dituzu",
+        "chart_aria_label": "Inkestaren emaitzak erakusten dituen diagrama zirkularra"
+    }
+}

@@ -1,0 +1,63 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EnhancedVoteControls Component > Snapshots > matches snapshot with downvote 1`] = `
+"<div data-v-d2d589eb="" class="vote-controls relative">
+  <!-- Control principal de votos -->
+  <div data-v-d2d589eb="" class="main-vote-controls flex items-center border border-gray-200 dark:border-neutral-700 rounded-md overflow-hidden">
+    <!-- Botón de voto positivo --><button data-v-d2d589eb="" class="vote-up px-2 py-1 flex items-center hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors border-r border-gray-200 dark:border-neutral-700" title="Upvote"><i data-v-d2d589eb="" class="iconify-icon" name="fa6-solid:arrow-up"></i></button>
+    <div data-v-d2d589eb="" class="vote-count px-2 py-1 text-center min-w-[24px]">0</div><button data-v-d2d589eb="" class="vote-down px-2 py-1 flex items-center hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors text-red-500 border-l border-gray-200 dark:border-neutral-700" title="Downvote"><i data-v-d2d589eb="" class="iconify-icon" name="fa6-solid:arrow-down"></i></button>
+  </div><!-- Modal de tipos de voto positivo -->
+  <!--v-if-->
+  <!-- Modal de tipos de voto negativo -->
+  <!--v-if-->
+  <!-- Indicador del tipo de voto actual -->
+  <div data-v-d2d589eb="" class="vote-type-indicator mt-1"><span data-v-d2d589eb="" class="text-xs px-1.5 py-0.5 rounded-full inline-flex items-center bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"><i data-v-d2d589eb="" class="iconify-icon text-orange-500 mr-1" name="fa6-solid:scissors"></i> Incomplete</span></div>
+</div>"
+`;
+
+exports[`EnhancedVoteControls Component > Snapshots > matches snapshot with modal open 1`] = `
+"<div data-v-d2d589eb="" class="vote-controls relative">
+  <!-- Control principal de votos -->
+  <div data-v-d2d589eb="" class="main-vote-controls flex items-center border border-gray-200 dark:border-neutral-700 rounded-md overflow-hidden">
+    <!-- Botón de voto positivo --><button data-v-d2d589eb="" class="vote-up px-2 py-1 flex items-center hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors border-r border-gray-200 dark:border-neutral-700" title="Upvote"><i data-v-d2d589eb="" class="iconify-icon" name="fa6-solid:arrow-up"></i></button>
+    <div data-v-d2d589eb="" class="vote-count px-2 py-1 text-center min-w-[24px]">0</div><button data-v-d2d589eb="" class="vote-down px-2 py-1 flex items-center hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors border-l border-gray-200 dark:border-neutral-700" title="Downvote"><i data-v-d2d589eb="" class="iconify-icon" name="fa6-solid:arrow-down"></i></button>
+  </div><!-- Modal de tipos de voto positivo -->
+  <div data-v-d2d589eb="" class="vote-type-modal absolute bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg rounded-md p-2 z-10 mt-1">
+    <div data-v-d2d589eb="" class="text-xs font-medium mb-1 text-gray-500 dark:text-gray-400">Select a reason</div>
+    <div data-v-d2d589eb="" class="grid grid-cols-2 gap-1"><button data-v-d2d589eb="" class="px-2 py-1 text-xs rounded-md flex items-center gap-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"><i data-v-d2d589eb="" class="iconify-icon text-yellow-500" name="fa6-solid:graduation-cap"></i> Didactic</button><button data-v-d2d589eb="" class="px-2 py-1 text-xs rounded-md flex items-center gap-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"><i data-v-d2d589eb="" class="iconify-icon text-purple-500" name="fa6-solid:brain"></i> Interesting</button><button data-v-d2d589eb="" class="px-2 py-1 text-xs rounded-md flex items-center gap-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"><i data-v-d2d589eb="" class="iconify-icon text-blue-500" name="fa6-solid:book"></i> Elaborate</button><button data-v-d2d589eb="" class="px-2 py-1 text-xs rounded-md flex items-center gap-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"><i data-v-d2d589eb="" class="iconify-icon text-green-500" name="fa6-solid:face-laugh"></i> Funny</button></div>
+  </div><!-- Modal de tipos de voto negativo -->
+  <!--v-if-->
+  <!-- Indicador del tipo de voto actual -->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`EnhancedVoteControls Component > Snapshots > matches snapshot with no vote 1`] = `
+"<div data-v-d2d589eb="" class="vote-controls relative">
+  <!-- Control principal de votos -->
+  <div data-v-d2d589eb="" class="main-vote-controls flex items-center border border-gray-200 dark:border-neutral-700 rounded-md overflow-hidden">
+    <!-- Botón de voto positivo --><button data-v-d2d589eb="" class="vote-up px-2 py-1 flex items-center hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors border-r border-gray-200 dark:border-neutral-700" title="Upvote"><i data-v-d2d589eb="" class="iconify-icon" name="fa6-solid:arrow-up"></i></button>
+    <div data-v-d2d589eb="" class="vote-count px-2 py-1 text-center min-w-[24px]">0</div><button data-v-d2d589eb="" class="vote-down px-2 py-1 flex items-center hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors border-l border-gray-200 dark:border-neutral-700" title="Downvote"><i data-v-d2d589eb="" class="iconify-icon" name="fa6-solid:arrow-down"></i></button>
+  </div><!-- Modal de tipos de voto positivo -->
+  <!--v-if-->
+  <!-- Modal de tipos de voto negativo -->
+  <!--v-if-->
+  <!-- Indicador del tipo de voto actual -->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`EnhancedVoteControls Component > Snapshots > matches snapshot with upvote 1`] = `
+"<div data-v-d2d589eb="" class="vote-controls relative">
+  <!-- Control principal de votos -->
+  <div data-v-d2d589eb="" class="main-vote-controls flex items-center border border-gray-200 dark:border-neutral-700 rounded-md overflow-hidden">
+    <!-- Botón de voto positivo --><button data-v-d2d589eb="" class="vote-up px-2 py-1 flex items-center hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors text-green-500 border-r border-gray-200 dark:border-neutral-700" title="Upvote"><i data-v-d2d589eb="" class="iconify-icon" name="fa6-solid:arrow-up"></i></button>
+    <div data-v-d2d589eb="" class="vote-count px-2 py-1 text-center min-w-[24px]">0</div><button data-v-d2d589eb="" class="vote-down px-2 py-1 flex items-center hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors border-l border-gray-200 dark:border-neutral-700" title="Downvote"><i data-v-d2d589eb="" class="iconify-icon" name="fa6-solid:arrow-down"></i></button>
+  </div><!-- Modal de tipos de voto positivo -->
+  <!--v-if-->
+  <!-- Modal de tipos de voto negativo -->
+  <!--v-if-->
+  <!-- Indicador del tipo de voto actual -->
+  <div data-v-d2d589eb="" class="vote-type-indicator mt-1"><span data-v-d2d589eb="" class="text-xs px-1.5 py-0.5 rounded-full inline-flex items-center bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"><i data-v-d2d589eb="" class="iconify-icon text-yellow-500 mr-1" name="fa6-solid:graduation-cap"></i> Didactic</span></div>
+</div>"
+`;

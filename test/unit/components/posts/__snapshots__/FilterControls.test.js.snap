@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FilterControls Component > Snapshots > matches snapshot with dropdown open 1`] = `
+"<div data-v-c5195a36="" class="filter-controls">
+  <div data-v-c5195a36="" class="flex items-center"><button data-v-c5195a36="" class="control-button flex items-center justify-between py-0.5 px-2 text-xs font-medium transition-all focus:outline-none rounded-md max-w-[120px] sm:max-w-none active border border-transparent" title="Content Type" aria-expanded="true" aria-haspopup="menu">
+      <div data-v-c5195a36="" class="flex items-center min-w-0"><i data-v-c5195a36="" class="iconify-icon mr-1 flex-shrink-0" name="fa6-solid:filter" aria-hidden="true"></i><span data-v-c5195a36="" class="truncate">All</span></div><i data-v-c5195a36="" class="iconify-icon ml-1 text-xs flex-shrink-0" name="fa6-solid:chevron-up" aria-hidden="true"></i>
+    </button>
+    <div data-v-c5195a36="" class="control-dropdown absolute mt-1" role="menu">
+      <div data-v-c5195a36="" class="flex flex-col p-2"><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md active" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:globe" aria-hidden="true"></i><span data-v-c5195a36="">All</span></button><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:file-lines" aria-hidden="true"></i><span data-v-c5195a36="">Text</span></button><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:link" aria-hidden="true"></i><span data-v-c5195a36="">Link</span></button><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:video" aria-hidden="true"></i><span data-v-c5195a36="">Video</span></button><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:headphones" aria-hidden="true"></i><span data-v-c5195a36="">Audio</span></button><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:square-poll-vertical" aria-hidden="true"></i><span data-v-c5195a36="">Poll</span></button></div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`FilterControls Component > Snapshots > matches snapshot with no filter 1`] = `
+"<div data-v-c5195a36="" class="filter-controls">
+  <div data-v-c5195a36="" class="flex items-center"><button data-v-c5195a36="" class="control-button flex items-center justify-between py-0.5 px-2 text-xs font-medium transition-all focus:outline-none rounded-md max-w-[120px] sm:max-w-none border border-transparent" title="Content Type" aria-expanded="false" aria-haspopup="menu">
+      <div data-v-c5195a36="" class="flex items-center min-w-0"><i data-v-c5195a36="" class="iconify-icon mr-1 flex-shrink-0" name="fa6-solid:filter" aria-hidden="true"></i><span data-v-c5195a36="" class="truncate">All</span></div><i data-v-c5195a36="" class="iconify-icon ml-1 text-xs flex-shrink-0" name="fa6-solid:chevron-down" aria-hidden="true"></i>
+    </button>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`FilterControls Component > Snapshots > matches snapshot with text filter active 1`] = `
+"<div data-v-c5195a36="" class="filter-controls">
+  <div data-v-c5195a36="" class="flex items-center"><button data-v-c5195a36="" class="control-button flex items-center justify-between py-0.5 px-2 text-xs font-medium transition-all focus:outline-none rounded-md max-w-[120px] sm:max-w-none text-primary dark:text-primary-light bg-primary/10 border border-primary" title="Content Type" aria-expanded="false" aria-haspopup="menu">
+      <div data-v-c5195a36="" class="flex items-center min-w-0"><i data-v-c5195a36="" class="iconify-icon mr-1 flex-shrink-0" name="fa6-solid:file-lines" aria-hidden="true"></i><span data-v-c5195a36="" class="truncate">Text</span></div><i data-v-c5195a36="" class="iconify-icon ml-1 text-xs flex-shrink-0" name="fa6-solid:chevron-down" aria-hidden="true"></i>
+    </button>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`FilterControls Component > Snapshots > matches snapshot with video filter active and dropdown open 1`] = `
+"<div data-v-c5195a36="" class="filter-controls">
+  <div data-v-c5195a36="" class="flex items-center"><button data-v-c5195a36="" class="control-button flex items-center justify-between py-0.5 px-2 text-xs font-medium transition-all focus:outline-none rounded-md max-w-[120px] sm:max-w-none active text-primary dark:text-primary-light bg-primary/10 border border-primary" title="Content Type" aria-expanded="true" aria-haspopup="menu">
+      <div data-v-c5195a36="" class="flex items-center min-w-0"><i data-v-c5195a36="" class="iconify-icon mr-1 flex-shrink-0" name="fa6-solid:video" aria-hidden="true"></i><span data-v-c5195a36="" class="truncate">Video</span></div><i data-v-c5195a36="" class="iconify-icon ml-1 text-xs flex-shrink-0" name="fa6-solid:chevron-up" aria-hidden="true"></i>
+    </button>
+    <div data-v-c5195a36="" class="control-dropdown absolute mt-1" role="menu">
+      <div data-v-c5195a36="" class="flex flex-col p-2"><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:globe" aria-hidden="true"></i><span data-v-c5195a36="">All</span></button><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:file-lines" aria-hidden="true"></i><span data-v-c5195a36="">Text</span></button><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:link" aria-hidden="true"></i><span data-v-c5195a36="">Link</span></button><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md active" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:video" aria-hidden="true"></i><span data-v-c5195a36="">Video</span></button><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:headphones" aria-hidden="true"></i><span data-v-c5195a36="">Audio</span></button><button data-v-c5195a36="" class="filter-button text-left px-4 py-2 rounded-md" role="menuitem"><i data-v-c5195a36="" class="iconify-icon mr-2" name="fa6-solid:square-poll-vertical" aria-hidden="true"></i><span data-v-c5195a36="">Poll</span></button></div>
+    </div>
+  </div>
+</div>"
+`;

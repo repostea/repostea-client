@@ -1,0 +1,347 @@
+{
+  "onboarding": {
+    "title": "Benvingut a {siteName}",
+    "skip": "Ometre introducció",
+    "next": "Següent",
+    "previous": "Anterior",
+    "complete": "Completar",
+    "finish": "Finalitzar",
+    "get_started": "Començar",
+    "step_of": "Pas {current} de {total}",
+    "progress": "{percentage}% completat",
+    "steps": {
+      "welcome": {
+        "title": "Benvingut a la Comunitat",
+        "description": "T'explicarem tot el que necessites saber",
+        "content": {
+          "heading": "Benvingut a {siteName}!",
+          "subtitle": "Una plataforma democràtica on la comunitat decideix quin contingut mereix atenció",
+          "purpose": {
+            "title": "Què és {siteName}?",
+            "description": "{siteName} és una comunitat on TU decideixes quin contingut mereix atenció. Sense algoritmes secrets, sense manipulació. Els usuaris voten i el millor contingut puja.\n\n💡 Democràcia digital: el teu vot compta, la teva veu importa."
+          },
+          "features": [
+            "Comparteix enllaços, textos, vídeos i àudio",
+            "Participa en discussions amb comentaris",
+            "Construeix el teu karma a través del compromís comunitari",
+            "Crea i uneix-te a comunitats especialitzades (subs)"
+          ],
+          "cta": "Explorem què fa especial a {siteName}!",
+          "show_details": "Mostrar detalls",
+          "hide_details": "Ocultar detalls"
+        }
+      },
+      "discover-content": {
+        "title": "Descobreix i Comenta",
+        "description": "Explora contingut i participa amb la comunitat",
+        "content": {
+          "heading": "Descobreix Contingut Interessant",
+          "subtitle": "La teva participació dona valor a la plataforma",
+          "main_text_1": "Descobreix contingut interessant i",
+          "main_text_2": "comenta'l amb la comunitat",
+          "essence_text_1": "Els teus comentaris són",
+          "essence_text_2": "l'essència",
+          "essence_text_3": "i el que dona",
+          "essence_text_4": "valor",
+          "essence_text_5": "a la plataforma. Les converses enriqueixen el contingut i construeixen la comunitat.",
+          "tip": "💡 Comenta amb respecte, aporta la teva perspectiva i participa a les discussions."
+        }
+      },
+      "creating-posts": {
+        "title": "Crear Publicacions",
+        "description": "Aprèn com compartir contingut amb la comunitat",
+        "content": {
+          "heading": "Comparteix El Teu Contingut",
+          "subtitle": "{siteName} suporta múltiples tipus de contingut",
+          "brief_summary_1": "Pots compartir",
+          "brief_summary_2": "enllaços",
+          "brief_summary_3": "textos",
+          "brief_summary_4": "vídeos",
+          "brief_summary_5": "àudio",
+          "brief_summary_6": "i crear",
+          "brief_summary_7": "enquestes",
+          "brief_summary_8": ". Tria un títol clar, afegeix etiquetes rellevants i selecciona la comunitat apropiada.",
+          "tip": "💡 Contingut de qualitat + bon títol = més visibilitat",
+          "show_details": "Mostrar detalls",
+          "hide_details": "Ocultar detalls",
+          "types": [
+            {
+              "title": "Publicacions de Text",
+              "description": "Comparteix pensaments, històries o discussions amb format de text enriquit"
+            },
+            {
+              "title": "Publicacions d'Enllaços",
+              "description": "Comparteix articles interessants, llocs web o recursos"
+            },
+            {
+              "title": "Publicacions de Vídeo",
+              "description": "Comparteix vídeos de YouTube, Vimeo o altres plataformes"
+            },
+            {
+              "title": "Publicacions d'Àudio",
+              "description": "Comparteix podcasts, música o contingut d'àudio"
+            },
+            {
+              "title": "Publicacions d'Enquesta",
+              "description": "Crea enquestes per recopilar opinions de la comunitat"
+            }
+          ],
+          "tips": [
+            "Tria títols descriptius que expliquin clarament el teu contingut",
+            "Utilitza etiquetes rellevants per ajudar altres a descobrir les teves publicacions",
+            "Afegeix descripcions detallades per proporcionar context",
+            "Selecciona el sub (comunitat) apropiat per al teu contingut"
+          ]
+        }
+      },
+      "voting": {
+        "title": "Sistema de Votació",
+        "description": "Aprèn com els vots determinen la visibilitat del contingut",
+        "content": {
+          "heading": "El Sistema de Votació",
+          "subtitle": "Els usuaris decideixen quin contingut mereix atenció",
+          "brief_text_1": "Els usuaris voten el contingut amb",
+          "brief_text_2": "▲ vots positius",
+          "brief_text_3": "per impulsar el més valuós i interessant.",
+          "visibility_text": "Més vots = més visibilitat a la portada. Els vots també augmenten el karma de l'autor.",
+          "tip": "💡 Si trobes spam o contingut il·lícit, pots reportar-lo perquè els moderadors el revisin.",
+          "content_impact": [
+            "Els vots positius augmenten la visibilitat del contingut",
+            "El contingut més votat apareix a la portada",
+            "Els vots negatius redueixen la visibilitat",
+            "El balanç de vots determina l'ordre de les publicacions"
+          ],
+          "author_impact": [
+            "Cada vot positiu suma +1 karma a l'autor",
+            "Cada vot negatiu resta -1 karma a l'autor",
+            "El karma reflecteix la qualitat de les teves contribucions"
+          ],
+          "voting_guidelines": {
+            "dos": [
+              "Vota positiu: contingut de qualitat, ben argumentat, útil o entretingut",
+              "Vota negatiu: spam, contingut ofensiu, desinformació o fora de tema",
+              "Llegeix abans de votar, no votis només pel títol",
+              "Vota basant-te en la qualitat, no en el teu acord/desacord personal"
+            ],
+            "donts": [
+              "No votis per venjança o per atacar algú",
+              "No utilitzis múltiples comptes per manipular vots",
+              "No votis tot el contingut d'un usuari (positiu o negatiu)",
+              "No venguis el teu vot ni participis en brigades de votació"
+            ]
+          }
+        }
+      },
+      "karma-system": {
+        "title": "Sistema de Karma",
+        "description": "Entén com funciona la reputació a la comunitat",
+        "content": {
+          "heading": "El Sistema de Karma",
+          "subtitle": "La teva puntuació de reputació a {siteName}",
+          "brief_text_1": "El",
+          "brief_text_2": "karma",
+          "brief_text_3": "és la teva puntuació de reputació a {siteName}. Cada vot positiu que rep el teu contingut et suma",
+          "brief_text_4": "+1 karma",
+          "brief_text_5": ".",
+          "progression_text": "A mesura que acumules karma, avances de nivell i guanyes reconeixement a la comunitat.",
+          "tip": "💡 Comparteix contingut de qualitat, participa amb respecte i construeix la teva reputació.",
+          "levels_title": "Nivells de Karma",
+          "karma_explained": {
+            "title": "Què és el Karma?",
+            "description": "El karma és la teva puntuació de reputació. Es calcula sumant tots els vots que reben les teves publicacions i comentaris.",
+            "calculation": "Karma = Vots positius - Vots negatius (de tot el teu contingut)",
+            "importance": "El karma reflecteix el teu historial de contribucions valuoses a la comunitat.",
+            "permanent_levels": "Els nivells són permanents: un cop assolits, no es perden encara que el teu karma baixi (excepte per sancions administratives)."
+          },
+          "how_it_works": [
+            "Reps +1 karma per cada vot positiu als teus posts i comentaris",
+            "Perds -1 karma per cada vot negatiu",
+            "El teu karma és visible al teu perfil per a tothom",
+            "No pots baixar de 0 karma, però el teu historial segueix visible"
+          ],
+          "earning_tips": [
+            "Comparteix contingut original, interessant i de qualitat",
+            "Llegeix abans de comentar i aporta perspectives valuoses",
+            "Sigues respectuós fins i tot en desacords",
+            "Verifica fonts abans de compartir informació",
+            "Contribueix regularment, la constància compta"
+          ],
+          "levels": [
+            {
+              "name": "Novell",
+              "range": "0-199 karma",
+              "description": "Estàs començant. Publica contingut i participa per pujar de nivell.",
+              "benefits": "Accés bàsic a totes les funcions principals"
+            },
+            {
+              "name": "Aprenent",
+              "range": "200-999 karma",
+              "description": "Usuari actiu amb contribucions reconegudes",
+              "benefits": "Els teus vots tenen més pes, insígnia d'aprenent"
+            },
+            {
+              "name": "Col·laborador",
+              "range": "1.000-3.999 karma",
+              "description": "Membre valuós amb historial de qualitat",
+              "benefits": "Major visibilitat, pots crear subs"
+            },
+            {
+              "name": "Expert",
+              "range": "4.000-15.999 karma",
+              "description": "Expert reconegut a la comunitat",
+              "benefits": "Insígnia especial, prioritat en revisions"
+            },
+            {
+              "name": "Mentor",
+              "range": "16.000-39.999 karma",
+              "description": "Guia respectat amb gran influència",
+              "benefits": "Poder de moderació, vot amb major pes"
+            },
+            {
+              "name": "Savi",
+              "range": "40.000-99.999 karma",
+              "description": "Veterà amb contribucions excepcionals",
+              "benefits": "Insígnia exclusiva, veu en decisions importants"
+            },
+            {
+              "name": "Llegenda",
+              "range": "100.000+ karma",
+              "description": "Líder llegendari de la comunitat",
+              "benefits": "Tots els avantatges, reconeixement especial"
+            }
+          ]
+        }
+      },
+      "notifications": {
+        "title": "Preferències de Notificacions",
+        "description": "Tria com vols mantenir-te actualitzat",
+        "content": {
+          "heading": "Mantén-te Connectat",
+          "subtitle": "Configura les teves preferències de notificacions",
+          "brief_text": "Rebràs notificacions de respostes als teus posts, mencions, vots i més.",
+          "tip": "💡 Pots configurar totes les teves preferències de notificacions des del teu perfil en qualsevol moment.",
+          "email_notifications": "Notificacions per Email",
+          "email_description": "Rep actualitzacions per email per a activitats importants",
+          "push_notifications": "Notificacions Push del Navegador",
+          "push_description": "Rep notificacions instantànies al teu navegador",
+          "notification_types": "Tipus de Notificacions",
+          "types": {
+            "replies": "Respostes a les meves publicacions i comentaris",
+            "mentions": "Quan algú em menciona",
+            "votes": "Quan el meu contingut rep vots",
+            "follows": "Quan algú em segueix",
+            "announcements": "Anuncis importants de la plataforma"
+          },
+          "privacy_note": "Pots canviar aquestes configuracions en qualsevol moment al teu perfil"
+        },
+        "push": {
+          "title": "Notificacions push",
+          "description": "Rep alertes instantànies quan algú respongui o et mencioni, fins i tot amb el navegador tancat.",
+          "enable_button": "Activar notificacions",
+          "enabled": "Notificacions activades",
+          "enabled_description": "Rebràs alertes en temps real",
+          "blocked": "Permís bloquejat",
+          "blocked_description": "Pots canviar-ho a la configuració del navegador",
+          "not_supported": "El teu navegador no suporta notificacions push",
+          "what_you_receive": "Rebràs alertes de:",
+          "receive_replies": "Respostes a les teves publicacions i comentaris",
+          "receive_mentions": "Mencions ({'@'}el_teu_usuari)",
+          "receive_achievements": "Assoliments desbloquejats"
+        }
+      },
+      "platform-features": {
+        "title": "Característiques de la Plataforma",
+        "description": "Descobreix totes les eines disponibles per a tu",
+        "content": {
+          "heading": "Explora les Característiques de {siteName}",
+          "subtitle": "Aprofita al màxim la teva experiència",
+          "brief_text_1": "{siteName} inclou",
+          "brief_text_2": "comunitats (subs)",
+          "brief_text_3": "llistes guardades",
+          "brief_text_4": "mode fosc",
+          "brief_text_5": ", suport per a",
+          "brief_text_6": "múltiples idiomes",
+          "brief_text_7": "i molt més.",
+          "evolution_text_1": "🚀 Estem en",
+          "evolution_text_2": "contínua evolució",
+          "evolution_text_3": "traient funcionalitats noves constantment.",
+          "tip": "💡 No deixis d'explorar totes les opcions i personalitza la teva experiència segons les teves preferències.",
+          "features": [
+            {
+              "title": "Subs (Comunitats)",
+              "description": "Uneix-te o crea comunitats especialitzades en temes específics",
+              "icon": "users"
+            },
+            {
+              "title": "Llistes Guardades",
+              "description": "Guarda publicacions en llistes personalitzades per llegir després i organitzar",
+              "icon": "bookmark"
+            },
+            {
+              "title": "Assistent d'Escriptura IA",
+              "description": "Obté ajuda per escriure millors publicacions amb suggeriments impulsats per IA",
+              "icon": "robot"
+            },
+            {
+              "title": "Aplicació Mòbil",
+              "description": "Accedeix a {siteName} sobre la marxa amb la nostra interfície optimitzada per a mòbils",
+              "icon": "mobile"
+            },
+            {
+              "title": "Mode Fosc",
+              "description": "Canvia entre temes clar i fosc per a una navegació còmoda",
+              "icon": "moon"
+            },
+            {
+              "title": "Múltiples Idiomes",
+              "description": "Utilitza {siteName} en el teu idioma preferit",
+              "icon": "globe"
+            }
+          ],
+          "tips": [
+            "Explora diferents subs per trobar comunitats que t'interessin",
+            "Utilitza la funció de cerca per descobrir nou contingut",
+            "Revisa la secció de tendències per a publicacions populars",
+            "Personalitza el teu perfil per expressar la teva personalitat"
+          ]
+        }
+      },
+      "completed": {
+        "title": "Ja Estàs Llest!",
+        "description": "Benvingut a la comunitat {siteName}",
+        "content": {
+          "heading": "Benvingut a {siteName}!",
+          "subtitle": "Ara estàs preparat per començar a explorar i contribuir",
+          "next_steps": [
+            "Crea la teva primera publicació",
+            "Uneix-te a alguns subs interessants",
+            "Comença a interactuar amb la comunitat",
+            "Personalitza el teu perfil"
+          ],
+          "cta": "Començar a Explorar",
+          "support": "Necessites ajuda? Consulta el nostre centre d'ajuda o pregunta a la comunitat!"
+        }
+      }
+    },
+    "actions": {
+      "save_preferences": "Desar Preferències",
+      "enable_notifications": "Habilitar Notificacions",
+      "create_first_post": "Crear La Teva Primera Publicació",
+      "explore_subs": "Explorar Comunitats",
+      "go_to_dashboard": "Anar al Tauler"
+    },
+    "error": {
+      "complete_step": "Ha fallat completar el pas d'introducció",
+      "update_preferences": "Ha fallat actualitzar les preferències de notificacions",
+      "skip": "Ha fallat ometre la introducció",
+      "generic": "Ha ocorregut un error durant la introducció"
+    },
+    "success": {
+      "step_completed": "Pas completat exitosament",
+      "preferences_saved": "Preferències guardades exitosament",
+      "onboarding_skipped": "Introducció omesa",
+      "welcome": "Benvingut a {siteName}!"
+    },
+    "confirm_skip": "Estàs segur que vols ometre la introducció? Et perdràs alguns consells útils sobre l'ús de {siteName}."
+  }
+}

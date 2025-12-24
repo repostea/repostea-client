@@ -1,0 +1,9 @@
+{
+  "time": {
+    "just_now": "ahora mesmu",
+    "minutes_ago": "hace {count} minutu | hace {count} minutus",
+    "hours_ago": "hace {count} hora | hace {count} horas",
+    "days_ago": "hace {count} día | hace {count} días",
+    "yesterday": "Ayel"
+  }
+}

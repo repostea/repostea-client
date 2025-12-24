@@ -1,0 +1,86 @@
+{
+    "validation":  {
+                       "required":  "The {field} field is required",
+                       "email":  "Enter a valid email address",
+                       "min":  "The {field} field must have at least {min} characters",
+                       "max":  "The {field} field cannot exceed {max} characters",
+                       "confirmed":  "The {field} confirmation does not match",
+                       "title":  {
+                                     "required":  "Title is required",
+                                     "min":  "Title must be at least {min} characters",
+                                     "max":  "Title cannot exceed {max} characters"
+                                 },
+                       "content":  {
+                                       "required":  "Content is required for text posts"
+                                   },
+                       "url":  {
+                                   "required":  "URL is required",
+                                   "format":  "URL must begin with http:// or https://",
+                                   "invalid":  "Please enter a valid URL",
+                                   "image_invalid":  "The image URL is invalid or could not be loaded"
+                               },
+                       "thumbnail_url":  {
+                                             "format":  "Image URL must begin with http:// or https://"
+                                         },
+                       "tags":  {
+                                    "required":  "Select at least one tag",
+                                    "max":  "You can only select up to {max} tags"
+                                },
+                       "current_password":  {
+                                                "required":  "Current password is required"
+                                            },
+                       "password":  {
+                                        "required":  "New password is required",
+                                        "min":  "Password must be at least {min} characters"
+                                    },
+                       "password_confirmation":  {
+                                                     "required":  "Please confirm your new password",
+                                                     "match":  "Passwords do not match"
+                                                 },
+                       "display_name":  {
+                                            "max":  "Display name cannot exceed {max} characters"
+                                        },
+                       "bio":  {
+                                   "max":  "Biography cannot exceed {max} characters"
+                               },
+                       "avatar_url":  {
+                                          "format":  "Please enter a valid URL"
+                                      },
+                       "username":  {
+                                        "required":  "Username is required",
+                                        "min":  "Username must be at least {min} characters",
+                                        "max":  "Username cannot exceed {max} characters",
+                                        "format":  "Username can only contain letters, numbers, hyphens, and underscores",
+                                        "reserved":  "This username is reserved and cannot be used"
+                                    },
+                       "description": {
+                                        "required": "Description is required",
+                                        "min": "Description must be at least {min} characters",
+                                        "max": "Description cannot exceed {max} characters"
+                                    },
+                       "ai_prompt": {
+                                        "required": "AI prompt is required",
+                                        "min": "AI prompt must be at least {min} characters",
+                                        "max": "AI prompt cannot exceed {max} characters"
+                                    },
+                       "expected_behavior": {
+                                        "max": "Expected behavior cannot exceed {max} characters"
+                                    },
+                       "technical_constraints": {
+                                        "max": "Technical constraints cannot exceed {max} characters"
+                                    },
+                       "priority": {
+                                        "required": "Priority is required",
+                                        "invalid": "Please select a valid priority"
+                                    },
+                       "author_name": {
+                                        "required": "Author name is required for anonymous submissions",
+                                        "min": "Author name must be at least {min} characters",
+                                        "max": "Author name cannot exceed {max} characters"
+                                    },
+                       "tag_ids": {
+                                        "required": "Select at least one tag",
+                                        "max": "You can only select up to {max} tags"
+                                    }
+                   }
+}

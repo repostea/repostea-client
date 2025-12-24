@@ -1,0 +1,37 @@
+{
+  "rankings": {
+    "title": "Rankings",
+    "subtitle": "Discover the most outstanding contributors to our community",
+    "meta_description": "View the rankings of the most active and influential community members",
+    "category": "Category",
+    "timeframe": "Time Period",
+    "karma_points": "karma points",
+    "posts": "posts",
+    "comments": "comments",
+    "days_streak": "day streak",
+    "achievements": "achievements",
+    "no_data": "No data available for this ranking",
+    "page": "Page",
+    "of": "of",
+    "categories": {
+      "karma": "Karma",
+      "posts": "Posts",
+      "comments": "Comments",
+      "streaks": "Streaks",
+      "achievements": "Achievements"
+    },
+    "timeframes": {
+      "all_time": "All Time",
+      "this_month": "This Month",
+      "this_week": "This Week",
+      "today": "Today"
+    },
+    "descriptions": {
+      "karma": "Users ranked by their total karma points earned through contributions",
+      "posts": "Most prolific content creators in the community",
+      "comments": "Most active users in discussions and comments",
+      "streaks": "Users with the longest activity streaks",
+      "achievements": "Users who have unlocked the most achievements"
+    }
+  }
+}

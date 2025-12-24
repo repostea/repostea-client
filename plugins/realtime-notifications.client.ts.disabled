@@ -1,0 +1,25 @@
+export default defineNuxtPlugin(() => {
+  // Initialize real-time notifications store
+  const { $pinia } = useNuxtApp()
+
+  if (process.client) {
+    // Import and initialize the store on client side only
+    import('~/stores/realTimeNotifications').then(({ useRealTimeNotificationsStore }) => {
+      const notificationsStore = useRealTimeNotificationsStore($pinia)
+
+      // Auto-connect when ready
+      notificationsStore.autoConnect()
+      console.log('🔔 Real-time notifications initialized')
+
+      // Optional: Add global error handler for connection issues
+      window.addEventListener('online', () => {
+        console.log('🌐 Network back online, reconnecting notifications...')
+        notificationsStore.connect()
+      })
+
+      window.addEventListener('offline', () => {
+        console.log('📡 Network offline, notifications disconnected')
+      })
+    })
+  }
+})

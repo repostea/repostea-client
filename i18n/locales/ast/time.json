@@ -1,0 +1,10 @@
+{
+  "time": {
+    "just_now": "agora mesmo",
+    "minutes_ago": "fai {count} minutu | fai {count} minutos",
+    "hours_ago": "fai {count} hora | fai {count} hores",
+    "days_ago": "fai {count} día | fai {count} díes",
+    "today": "Güei",
+    "yesterday": "Ayeri"
+  }
+}

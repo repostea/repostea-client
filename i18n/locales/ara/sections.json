@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "frontpage": "Portada",
+    "pending": "Pendients",
+    "featured": "Destacatos",
+    "popular": "Populars",
+    "all": "Tot",
+    "my_subs": "Os míos Subs",
+    "my_subs_login_required": "Dentra ta veyer ninvíos de as tuyas comunidaz",
+    "comments": "Comentarios",
+    "comments_description": "Explorar os zaguers comentarios"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "user": {
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "karma": "karma",
+    "joined": "Miembro dende",
+    "bio": "Biografía",
+    "about_me": "Arerca de yo",
+    "no_bio": "Iste usuario no ha anyadiu una biografía.",
+    "published_links": "Vinclos publicaus",
+    "user_comments": "Comentarios",
+    "edit_profile": "Editar perfil",
+    "save_changes": "Alzar cambios",
+    "profile_updated": "Perfil actualizau correctament",
+    "karma_levels": {
+      "newcomer": "Novato",
+      "contributor": "Contribuidor",
+      "regular": "Regular",
+      "trusted": "Confiable",
+      "veteran": "Veterano",
+      "expert": "Experto",
+      "master": "Maestro",
+      "legend": "Leyenda"
+    },
+    "karma_overview": "Resumen de Karma",
+    "activity_streak": "Racha d'Actividat",
+    "last_30_days": "Zaguers 30 días",
+    "activities": "actividatz",
+    "posts": "Publicacions",
+    "comments": "Comentarios",
+    "votes_given": "Votos daus",
+    "admin": "Administrador",
+    "moderator": "Moderador"
+  }
+}

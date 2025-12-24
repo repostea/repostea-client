@@ -1,0 +1,18 @@
+{
+  "data": {
+    "id": 10,
+    "title": "NSFW Test Post",
+    "content": "This is a post with NSFW content",
+    "slug": "nsfw-test-post",
+    "user": {
+      "id": 1,
+      "username": "author"
+    },
+    "is_nsfw": true,
+    "is_anonymous": false,
+    "votes_count": 5,
+    "numComments": 0,
+    "created_at": "2024-01-01T00:00:00.000000Z",
+    "updated_at": "2024-01-01T00:00:00.000000Z"
+  }
+}

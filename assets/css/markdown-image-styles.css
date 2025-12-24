@@ -1,0 +1,129 @@
+.prose {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+  max-height: 80vh;
+  object-fit: contain;
+  transition: max-width 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .prose img:not(.wide-image) {
+    max-width: 70%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .prose img:not(.wide-image) {
+    max-width: 50%;
+  }
+}
+
+.prose img.tall-image {
+  max-height: 80vh;
+  width: auto;
+}
+
+.prose img.large-image {
+  object-fit: contain;
+}
+
+.prose img.error {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+.prose h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--color-border-default);
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.prose code {
+  font-family: monospace;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.prose a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.prose hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--color-border-default);
+}
+
+.dark .prose code {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.image-loading-placeholder {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .image-loading-placeholder {
+  background-color: rgba(255, 255, 255, 0.05);
+}

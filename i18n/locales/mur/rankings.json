@@ -1,0 +1,31 @@
+{
+  "rankings": {
+    "title": "Rankingicos",
+    "subtitle": "Descubre a los contribuidoricos más destacaos de nuestra comunidá",
+    "karma_points": "punticos de karma",
+    "posts": "publicacionicas",
+    "comments": "comentaricos",
+    "days_streak": "días de rachica",
+    "achievements": "logricos",
+    "no_data": "No hay daticos disponibles pa este rankingico",
+    "categories": {
+      "posts": "Publicacionicas",
+      "comments": "Comentaricos",
+      "streaks": "Rachicas",
+      "achievements": "Logricos"
+    },
+    "timeframes": {
+      "all_time": "To el Tiempo",
+      "this_month": "Este Mesico",
+      "this_week": "Esta Semaniquica",
+      "today": "Hoyico"
+    },
+    "descriptions": {
+      "karma": "Usuaricos ordenaus por sus punticos de karma totales",
+      "posts": "Creadoricos de contenío más prolíficos",
+      "comments": "Usuaricos más activos en los comentaricos",
+      "streaks": "Usuaricos con las rachicas más larguicas",
+      "achievements": "Usuaricos que han desbloqueau más logricos"
+    }
+  }
+}

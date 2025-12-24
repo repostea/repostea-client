@@ -1,0 +1,153 @@
+{
+  "audio_help": {
+    "modal_title": "Supported Audio Platforms",
+    "how_to_use": "How to use",
+    "step_1": "Find your podcast/audio on a platform",
+    "step_2": "Copy the episode or show URL",
+    "step_3": "Paste it here and we'll detect it automatically",
+    "popular_platforms": "Popular Platforms",
+    "search_platforms_button": "Search popular platforms",
+    "category_podcasts": "Podcasts",
+    "category_music": "Music",
+    "category_audiobooks": "Audiobooks",
+    "more_platforms_available": "We support 20+ platforms",
+    "search_all_platforms": "View all and search",
+    "page_title": "Supported Audio Platforms",
+    "page_description": "Complete list of podcast, music, and audiobook platforms you can share on {siteName}",
+    "search_placeholder": "Search platforms...",
+    "all_platforms": "All Platforms",
+    "example_url": "Example URL",
+    "visit_platform": "Visit {platform}",
+    "how_to_copy": "How to copy the link",
+    "search_on_platform": "Search on {platform}",
+    "no_results": "No platforms found matching your search",
+    "platforms": {
+      "spotify": {
+        "name": "Spotify",
+        "description": "The most popular streaming platform for podcasts and music",
+        "category": "Podcasts",
+        "how_to_copy": "Open the episode or show, click '...' (more options), select 'Share' and copy the browser link"
+      },
+      "ivoox": {
+        "name": "iVoox",
+        "description": "Leading Spanish-language podcast platform",
+        "category": "Podcasts",
+        "how_to_copy": "Play the episode, right-click on the player, select 'Copy audio URL' or copy the URL from the browser bar"
+      },
+      "apple_podcasts": {
+        "name": "Apple Podcasts",
+        "description": "Apple's official podcast directory",
+        "category": "Podcasts",
+        "how_to_copy": "Open the episode or podcast, click the share button (arrow icon) and select 'Copy link'"
+      },
+      "anchor": {
+        "name": "Anchor",
+        "description": "Podcast hosting and distribution platform (part of Spotify)",
+        "category": "Podcasts",
+        "how_to_copy": "Go to the episode, click 'Share', then 'Copy link' or copy the URL directly from the browser"
+      },
+      "spreaker": {
+        "name": "Spreaker",
+        "description": "Podcast platform with creation and distribution tools",
+        "category": "Podcasts",
+        "how_to_copy": "Open the show or episode, click the 'Share' button and copy the provided link"
+      },
+      "transistor": {
+        "name": "Transistor",
+        "description": "Professional podcast hosting for businesses and brands",
+        "category": "Podcasts",
+        "how_to_copy": "Click 'Share this episode', then copy the share URL that appears"
+      },
+      "buzzsprout": {
+        "name": "Buzzsprout",
+        "description": "Podcast hosting with detailed analytics",
+        "category": "Podcasts",
+        "how_to_copy": "Open the episode, click the share icon and copy the direct link"
+      },
+      "podbean": {
+        "name": "Podbean",
+        "description": "Complete podcasting platform with monetization",
+        "category": "Podcasts",
+        "how_to_copy": "Go to the episode, click 'Share' and copy the episode URL or simply copy the browser URL"
+      },
+      "captivate": {
+        "name": "Captivate",
+        "description": "Podcast hosting with marketing tools",
+        "category": "Podcasts",
+        "how_to_copy": "Click the share button on the player and copy the episode link"
+      },
+      "castos": {
+        "name": "Castos",
+        "description": "Podcast hosting for WordPress and websites",
+        "category": "Podcasts",
+        "how_to_copy": "Play the episode and copy the URL directly from the player or browser bar"
+      },
+      "acast": {
+        "name": "Acast",
+        "description": "Podcast network with integrated monetization",
+        "category": "Podcasts",
+        "how_to_copy": "Open the episode, click 'Share' and copy the share link"
+      },
+      "megaphone": {
+        "name": "Megaphone",
+        "description": "Enterprise podcasting platform",
+        "category": "Podcasts",
+        "how_to_copy": "Click the share button on the player and copy the episode URL"
+      },
+      "simplecast": {
+        "name": "Simplecast",
+        "description": "Podcast hosting with advanced analytics",
+        "category": "Podcasts",
+        "how_to_copy": "Open the episode and copy the player URL or use the 'Share' button"
+      },
+      "podigee": {
+        "name": "Podigee",
+        "description": "Professional podcast hosting in Europe",
+        "category": "Podcasts",
+        "how_to_copy": "Go to the episode and copy the URL directly from the browser or use the share button"
+      },
+      "google_podcasts": {
+        "name": "Google Podcasts",
+        "description": "Google's podcast directory",
+        "category": "Podcasts",
+        "how_to_copy": "Open the podcast or episode, click 'Share' and copy the link"
+      },
+      "soundcloud": {
+        "name": "SoundCloud",
+        "description": "Platform for sharing user-created music and audio",
+        "category": "Music",
+        "how_to_copy": "Click the 'Share' button below the player, then copy the link that appears"
+      },
+      "bandcamp": {
+        "name": "Bandcamp",
+        "description": "Platform for independent music artists",
+        "category": "Music",
+        "how_to_copy": "Open the song or album, click 'Share/Embed', then copy the browser URL"
+      },
+      "mixcloud": {
+        "name": "Mixcloud",
+        "description": "Streaming platform for DJ mixes and radio shows",
+        "category": "Music",
+        "how_to_copy": "Click the share button (arrow icon) and copy the mix link"
+      },
+      "audioboom": {
+        "name": "Audioboom",
+        "description": "Platform for podcasts and on-demand audio content",
+        "category": "Music",
+        "how_to_copy": "Open the post, click 'Share' and copy the provided link"
+      },
+      "deezer": {
+        "name": "Deezer",
+        "description": "Music and podcast streaming service",
+        "category": "Music",
+        "how_to_copy": "Click '...' (more options) on the song, select 'Share' and copy the link"
+      },
+      "audible": {
+        "name": "Audible",
+        "description": "Amazon's leading audiobook platform",
+        "category": "Audiobooks",
+        "how_to_copy": "Open the audiobook, click 'Share' and copy the product link"
+      }
+    }
+  }
+}

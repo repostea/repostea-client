@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "frontpage": "Portá",
+    "pending": "Pendientis",
+    "featured": "Dehtacaus",
+    "popular": "Popularis",
+    "all": "Tou",
+    "my_subs": "Los mius Subs",
+    "my_subs_login_required": "Entral pa vel envíus de tus comunidaes",
+    "comments": "Comentarius",
+    "comments_description": "Exploral los últimus comentarius"
+  }
+}

@@ -1,0 +1,43 @@
+{
+    "errors": {
+        "bad_request": "The request was invalid or cannot be processed.",
+        "unauthorized": "You need to be logged in to access this resource.",
+        "forbidden": "You don't have permission to access this resource.",
+        "not_found": "The requested resource was not found.",
+        "validation_error": "The submitted data contains errors. Please check and try again.",
+        "too_many_requests": "Too many requests. Please wait a moment and try again.",
+        "server_error": "Sorry, something went wrong on our servers. Our team has been notified.",
+        "service_unavailable": "The service is temporarily unavailable. Please try again later.",
+        "404": {
+            "title": "Page Not Found",
+            "message": "The page you are looking for does not exist or has been moved."
+        },
+        "500": {
+            "title": "Server Error",
+            "message": "Sorry, something went wrong on our servers. Our team has been notified."
+        },
+        "network": {
+            "title": "Network Error",
+            "message": "Could not connect to the server. Please check your internet connection."
+        },
+        "generic": {
+            "title": "Error",
+            "message": "An unexpected error occurred. Please try again later."
+        },
+        "pageNotFound": "Page not found",
+        "user_not_found": "User not found",
+        "user_not_found_message": "The user you are looking for does not exist or has been deleted",
+        "load_notifications_failed": "Failed to load notifications",
+        "mark_all_read_failed": "Failed to mark all notifications as read",
+        "delete_notification_failed": "Failed to delete notification"
+    },
+    "maintenance": {
+        "title": "Maintenance in Progress",
+        "message": "We are making improvements to provide you with a better experience. We'll be back soon.",
+        "estimated_time": "Estimated time: a few minutes",
+        "check_status": "Check Status",
+        "checking": "Checking...",
+        "auto_refresh": "This page will automatically refresh every 30 seconds",
+        "improving": "We're improving the platform. Thank you for your patience."
+    }
+}

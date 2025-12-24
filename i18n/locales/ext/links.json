@@ -1,0 +1,17 @@
+{
+  "links": {
+    "title": "Enlazis",
+    "vote_up": "Votal positivu",
+    "vote_down": "Votal negativu",
+    "already_voted": "Ya has votau esti enlazi",
+    "published": "Publicaus",
+    "popular": "Popularis",
+    "recent": "Recientis",
+    "most_visited": "Más visitaus",
+    "most_valued": "Más valoraus",
+    "most_commented": "Más comentaus",
+    "no_links": "Nu s'alcuentran enlazis",
+    "pending": "Pendientis",
+    "visits": "visitas"
+  }
+}

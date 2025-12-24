@@ -1,0 +1,25 @@
+{
+  "help": {
+    "title": "Laguntza",
+    "subtitle": "Ikasi plataforma nola erabili eta aurkitu erantzunak zure galderei",
+    "onboarding": {
+      "title": "Plataformaren tutoriala",
+      "description": "Berrikusi tutorial interaktiboa {siteName}en ezaugarri guztiak nola erabili azaltzen dizuna. Ezaugarriak gogoratzeko edo hasierako tutoriala saltatu bazenuen egokia.",
+      "start_button": "Ikusi tutoriala"
+    },
+    "karma": {
+      "title": "Karma Sistema",
+      "description": "Deskubritu karma sistema nola funtzionatzen duen, nola lortu eta zergatik den garrantzitsua komunitatearentzat.",
+      "learn_more": "Informazio gehiago"
+    },
+    "faq": {
+      "title": "Maiz egindako galderak",
+      "description": "Aurkitu erantzun azkarrak plataformari buruzko galdera ohikoenetara.",
+      "view_button": "Ikusi maiz egindako galderak"
+    },
+    "guides": {
+      "title": "Gidak eta dokumentazioa",
+      "coming_soon": "Laster: Gida zehatzak {siteName}i aprobetxamendu handiena ateratzeko."
+    }
+  }
+}

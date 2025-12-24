@@ -1,0 +1,28 @@
+{
+  "vote": {
+    "upvote": "Votá positivo",
+    "downvote": "Votá negativo",
+    "select_reason": "Elige por qué vota",
+    "already_voted": "Ya ha votao ehte envío",
+    "updated": "Voto actualisao",
+    "registered": "Voto regihtrao",
+    "removed": "Voto quitao",
+    "types": {
+      "didactic": "Educativo",
+      "interesting": "Interesante",
+      "elaborate": "Currao",
+      "funny": "Grasioco",
+      "false": "Farto",
+      "incomplete": "Incompleto",
+      "irrelevant": "No viene a cuento",
+      "outofplace": "Fuera de lugá"
+    },
+    "polls": {
+      "expired": "Ehta encuehta ha expirao",
+      "submit_vote": "Mandá Voto",
+      "remove_vote": "Quitá Voto",
+      "show_results": "Ve Resultado",
+      "back_to_vote": "Vorve a Votá"
+    }
+  }
+}

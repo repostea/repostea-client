@@ -1,0 +1,13 @@
+{
+  "posts": {
+    "seen_on": "Visto en",
+    "confirm_delete": "¿Seguro que quieres borrar este envío mijo?",
+    "delete_success": "Envío borrao mijo",
+    "vote_success": "Voto mandao mijo!",
+    "draft_saved": "Borrador guardao",
+    "be_first_comment": "Comparte tu opinión y se el primero en comentar mijo",
+    "level_0": "Se el primero en comentar mijo",
+    "visited": "Visitao",
+    "nsfw_go_back": "Volver pal atrás"
+  }
+}

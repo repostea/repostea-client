@@ -1,0 +1,9 @@
+{
+  "time": {
+    "just_now": "ahorica mismo",
+    "minutes_ago": "hace {count} minutico | hace {count} minuticos",
+    "hours_ago": "hace {count} horica | hace {count} horicas",
+    "days_ago": "hace {count} díica | hace {count} díicas",
+    "yesterday": "Ayerico"
+  }
+}

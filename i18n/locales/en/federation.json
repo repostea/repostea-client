@@ -1,0 +1,89 @@
+{
+  "federation": {
+    "title": "Fediverse Interactions",
+    "menu_title": "Fediverse",
+    "explanation": "This content has been shared on the Fediverse (Mastodon, Lemmy, etc.) and has received interactions from users on other federated platforms.",
+    "likes": "Federated likes",
+    "shares": "Shares",
+    "replies": "Federated replies",
+    "stats_tooltip": "View Fediverse interactions",
+    "stats_info": "These metrics are independent from the platform's votes and karma. They represent the reach of this content across the Fediverse.",
+    "learn_more": "Learn more about federation",
+    "via": "via",
+    "view_profile": "View profile on the Fediverse",
+    "remote_comment": "Comment from",
+    "remote_comment_label": "via fediverse",
+    "via_fediverse": "Via fediverse",
+    "remote_user": "Federated user",
+    "page": {
+      "title": "The Fediverse",
+      "subtitle": "What it is, how it works, and how we connect to it",
+      "what_is_fediverse": {
+        "title": "What is the Fediverse?",
+        "description": "The Fediverse (from \"federation\" and \"universe\") is a collection of decentralized and interconnected social networks. Unlike centralized platforms like Twitter or Facebook, where a single company controls everything, the Fediverse is made up of thousands of independent servers that can communicate with each other.",
+        "protocol": "All these platforms use an open protocol called ActivityPub, which allows users from different services to interact with each other. It's similar to how email works between different providers: a Gmail user can write to an Outlook user without any issues."
+      },
+      "platforms": {
+        "title": "Fediverse Platforms",
+        "description": "The Fediverse includes decentralized alternatives to almost any social network you know:",
+        "mastodon": "microblogging, alternative to Twitter/X",
+        "lemmy": "forums and communities, alternative to Reddit",
+        "peertube": "videos, alternative to YouTube",
+        "pixelfed": "photos, alternative to Instagram",
+        "friendica": "full social network, alternative to Facebook",
+        "mbin": "content aggregator similar to this platform"
+      },
+      "our_approach": {
+        "title": "Our connection to the Fediverse",
+        "description": "We connect to the Fediverse in a particular way that preserves the integrity of our community while expanding the reach of your content.",
+        "what_we_do": "What we do",
+        "do_item_1": "We publish your submissions to the Fediverse so users on Mastodon, Lemmy and other platforms can see and follow them",
+        "do_item_2": "We receive comments from external users, which appear clearly identified as federated",
+        "do_item_3": "We show federated interactions (likes, shares) as reach metrics",
+        "do_item_4": "We allow users from other platforms to follow our content",
+        "what_we_dont": "What we DON'T do",
+        "dont_item_1": "We don't import posts from other instances to the main feed",
+        "dont_item_2": "We don't sync votes or karma with the Fediverse",
+        "dont_item_3": "We don't allow remote users to vote in our karma system"
+      },
+      "why_this_model": {
+        "title": "Why this model?",
+        "description": "We are a content aggregation platform where the local community decides what's relevant through votes. If we imported external posts or allowed federated votes, we would lose control over the quality and relevance of the content you see.",
+        "benefits": "This approach gives you the best of both worlds: your content can reach a much larger audience through the Fediverse, while the experience within the platform continues to be managed by our community. Federated comments enrich discussions without compromising the karma system."
+      },
+      "privacy": {
+        "title": "Privacy and control",
+        "description": "Your privacy is important. Federation is optional and you decide what to share:",
+        "item_1": "Federation is disabled by default on your account",
+        "item_2": "You can choose which posts are federated and which are not",
+        "item_3": "Your shared profile information is minimal: only username and avatar",
+        "item_4": "You can disable federation at any time",
+        "item_5": "Your votes, karma and internal activity are never shared externally"
+      },
+      "metrics": {
+        "title": "Local vs federated metrics",
+        "description": "It's important to understand the difference between local metrics (from our platform) and federated ones (from the Fediverse):",
+        "type": "Type",
+        "local": "Local",
+        "federated": "Federated",
+        "votes_row": "Votes",
+        "votes_local": "Affect karma and content position",
+        "votes_federated": "Likes from external users, reach metric only",
+        "comments_row": "Comments",
+        "comments_local": "From verified platform users",
+        "comments_federated": "From Fediverse users, clearly identified",
+        "karma_row": "Karma",
+        "karma_local": "Internal reputation system",
+        "karma_federated": "Doesn't exist, doesn't affect karma"
+      },
+      "how_to_enable": {
+        "title": "How to enable federation",
+        "description": "Federation is optional. If you want your content to reach the Fediverse:",
+        "step_1": "Go to Settings in your profile",
+        "step_2": "Find the Federation section",
+        "step_3": "Enable \"Federate my posts\"",
+        "step_4": "Optionally, configure what type of content you want to share"
+      }
+    }
+  }
+}

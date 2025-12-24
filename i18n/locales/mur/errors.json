@@ -1,0 +1,28 @@
+{
+  "errors": {
+    "bad_request": "La peticiónica no vale illo.",
+    "unauthorized": "Tié que entrarico pa ver estico.",
+    "forbidden": "No tié permisico pa ver estico illo.",
+    "not_found": "Estico no s'encuentra illo.",
+    "too_many_requests": "Para quietico illo! Esperatico un ratico.",
+    "server_error": "Ojo illo, algo ha salío mal. Ya estamos mirandico.",
+    "404": {
+      "title": "Paginica No Encontrá",
+      "message": "La paginica que buscas no existico."
+    },
+    "500": {
+      "title": "Errorico del Servidorico",
+      "message": "Ojo illo, algo ha salío mal."
+    },
+    "generic": {
+      "title": "Errorico",
+      "message": "Ha pasaico algo rarico. Prueba lueguico."
+    },
+    "pageNotFound": "Paginica no encontrá",
+    "user_not_found": "Usuarico no encontraico"
+  },
+  "maintenance": {
+    "title": "Mantenimientico",
+    "message": "Estamos mejorandico la cosica. Volvemos prontico illo."
+  }
+}

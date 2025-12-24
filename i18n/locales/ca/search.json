@@ -1,0 +1,32 @@
+{
+  "search": {
+    "placeholder": "Cercar posts per títol, contingut, etiquetes...",
+    "search_button": "Cercar",
+    "searching": "Cercant...",
+    "all_types": "Tots els tipus",
+    "type_text": "Text",
+    "type_link": "Enllaç",
+    "type_video": "Vídeo",
+    "type_audio": "Àudio",
+    "type_poll": "Enquesta",
+    "all_posts": "Tots",
+    "featured_only": "Portada",
+    "pending_only": "Pendents",
+    "sort_recent": "Més recents",
+    "sort_votes": "Més votats",
+    "sort_comments": "Més comentats",
+    "sort_active": "Més actius",
+    "include_comments": "Cercar en comentaris",
+    "enter_query": "Escriu la teva cerca",
+    "help_text": "Cerca posts per títol, contingut, etiquetes i opcionalment en comentaris",
+    "no_results": "No s'han trobat resultats",
+    "try_different": "Prova amb altres termes o filtres",
+    "loading": "Carregant...",
+    "load_more": "Carregar més resultats",
+    "featured": "Portada",
+    "found_in_comment": "Trobat en comentari",
+    "content_type": "Tipus de contingut",
+    "featured_filter": "Filtre de portada",
+    "sort_by": "Ordenar per"
+  }
+}

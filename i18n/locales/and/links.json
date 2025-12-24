@@ -1,0 +1,22 @@
+{
+  "links": {
+    "title": "Enlase",
+    "vote_up": "Votá positivo",
+    "vote_down": "Votá negativo",
+    "already_voted": "Ya ha votao ehte enlase",
+    "not_enough_karma": "No tié sufisiente karma",
+    "published": "Publicao",
+    "popular": "Populare",
+    "recent": "Resiente",
+    "most_visited": "Má visitao",
+    "most_valued": "Má valorao",
+    "most_commented": "Má comentao",
+    "no_links": "No s'encontró enlase",
+    "no_links_title": "No hay enlase pa enseñá",
+    "pending": "Pendiente",
+    "visits": "visita",
+    "posts": "publicasione",
+    "internal_link": "Artículo escribío en Renegado",
+    "poll": "Encuehta"
+  }
+}

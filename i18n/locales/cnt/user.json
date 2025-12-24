@@ -1,0 +1,35 @@
+{
+  "user": {
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "karma": "karma",
+    "joined": "Miembru desdi",
+    "bio": "Biografía",
+    "about_me": "Acerqua de mí",
+    "no_bio": "Esti usuariu nu ha añadíu una biografía.",
+    "published_links": "Enlacis publicaus",
+    "user_comments": "Comentarius",
+    "edit_profile": "Editar perfil",
+    "save_changes": "Guardar cambius",
+    "profile_updated": "Perfil actualizau correctamenti",
+    "karma_levels": {
+      "newcomer": "Novatu",
+      "contributor": "Contribuidol",
+      "regular": "Regulal",
+      "trusted": "Confiabli",
+      "veteran": "Veteranu",
+      "expert": "Expertu",
+      "master": "Maestru",
+      "legend": "Leyenda"
+    },
+    "karma_overview": "Resumil de Karma",
+    "activity_streak": "Racha de Actividá",
+    "last_30_days": "Últimus 30 días",
+    "activities": "actividaes",
+    "posts": "Publicacionis",
+    "comments": "Comentarius",
+    "votes_given": "Votus daus",
+    "admin": "Administradol",
+    "moderator": "Moderadol"
+  }
+}

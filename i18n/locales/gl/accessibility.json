@@ -1,0 +1,26 @@
+{
+  "accessibility": {
+    "title": "Declaración de Accesibilidade",
+    "meta_description": "Información sobre o noso compromiso coa accesibilidade web",
+    "intro": "{siteName} comprométese a garantir a accesibilidade dixital para todas as persoas, incluídas aquelas con discapacidades. Traballamos continuamente para mellorar a experiencia de usuario e aplicar os estándares de accesibilidade relevantes.",
+    "standards_title": "Estándares que seguimos",
+    "standards_text": "Esforzámonos por cumprir coas Pautas de Accesibilidade para o Contido Web (WCAG) 2.1 nivel AA. Estas pautas explican como facer o contido web máis accesible para persoas con discapacidades.",
+    "measures_title": "Medidas implementadas",
+    "measure_1": "Uso de HTML semántico para estrutura clara do contido",
+    "measure_2": "Textos alternativos para imaxes informativas",
+    "measure_3": "Etiquetas ARIA para elementos interactivos",
+    "measure_4": "Navegación por teclado completa",
+    "measure_5": "Contraste de cores suficiente",
+    "measure_6": "Ligazón para saltar ao contido principal",
+    "measure_7": "Rexións ARIA live para contido dinámico",
+    "measure_8": "Soporte para preferencias de movemento reducido",
+    "measure_9": "Atributos de idioma en contido multilingüe",
+    "limitations_title": "Limitacións coñecidas",
+    "limitations_text": "A pesar dos nosos esforzos, algunhas partes do sitio poden non ser completamente accesibles. Estamos traballando activamente para identificar e resolver estas limitacións.",
+    "feedback_title": "Comentarios e contacto",
+    "feedback_text": "Agradecemos os teus comentarios sobre a accesibilidade deste sitio. Se atopas barreiras de accesibilidade ou tes suxestións de mellora, por favor contáctanos:",
+    "email_label": "Correo electrónico",
+    "response_time": "Intentamos responder aos comentarios sobre accesibilidade nun prazo de 5 días hábiles.",
+    "last_updated": "Última actualización"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "links": {
+    "title": "Enlaces mijo",
+    "already_voted": "Ya has votao este enlace mijo",
+    "published": "Publicaos",
+    "popular": "Populares mijo",
+    "recent": "Recientes",
+    "most_visited": "Más visitaos mijo",
+    "most_valued": "Más valoraos mijo",
+    "most_commented": "Más comentaos mijo",
+    "no_links": "No se encontraron enlaces mijo",
+    "pending": "Pendientes"
+  }
+}

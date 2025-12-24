@@ -1,0 +1,32 @@
+{
+  "search": {
+    "placeholder": "Search posts by title, content, tags...",
+    "search_button": "Search",
+    "searching": "Searching...",
+    "all_types": "All types",
+    "type_text": "Text",
+    "type_link": "Link",
+    "type_video": "Video",
+    "type_audio": "Audio",
+    "type_poll": "Poll",
+    "all_posts": "All",
+    "featured_only": "Frontpage",
+    "pending_only": "Pending",
+    "sort_recent": "Most recent",
+    "sort_votes": "Most voted",
+    "sort_comments": "Most commented",
+    "sort_active": "Most active",
+    "include_comments": "Search in comments",
+    "enter_query": "Enter your search",
+    "help_text": "Search posts by title, content, tags and optionally in comments",
+    "no_results": "No results found",
+    "try_different": "Try different terms or filters",
+    "loading": "Loading...",
+    "load_more": "Load more results",
+    "featured": "Featured",
+    "found_in_comment": "Found in comment",
+    "content_type": "Content type",
+    "featured_filter": "Featured filter",
+    "sort_by": "Sort by"
+  }
+}

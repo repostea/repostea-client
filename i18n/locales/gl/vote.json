@@ -1,0 +1,47 @@
+{
+    "vote":  {
+                 "upvote":  "Votar positivo",
+                 "downvote":  "Votar negativo",
+                 "positive_vote":  "Voto positivo",
+                 "negative_vote":  "Voto negativo",
+                 "select_reason":  "Selecciona unha razón para o teu voto",
+                 "reason_help_text":  "Isto axudará a outros usuarios a entender por que valoraches este contido",
+                 "will_appear_in_summary":  "Aparecerá no resumo de votos",
+                 "stats":  {
+                               "title":  "Estatísticas de votos",
+                               "positive":  "Votos positivos",
+                               "negative":  "Votos negativos"
+                           },
+                 "show_stats": "Mostrar detalles de votos",
+                 "hide_stats": "Agochar detalles de votos",
+                 "types":  {
+                               "didactic":  "Educativo",
+                               "interesting":  "Interesante",
+                               "elaborate":  "Detallado",
+                               "funny":  "Divertido",
+                               "false":  "Incorrecto",
+                               "incomplete":  "Incompleto",
+                               "irrelevant":  "Irrelevante",
+                               "outofplace":  "Fóra de lugar"
+                           },
+                 "already_voted":  "Xa votaches este post",
+                 "updated":  "Voto actualizado",
+                 "registered":  "Voto rexistrado",
+                 "removed":  "Voto eliminado",
+                 "invalid_type":  "O tipo de voto proporcionado non é válido. Tipos permitidos: {types}",
+                 "polls":  {
+                               "expired":  "Esta enquisa caducou",
+                               "vote":  "voto",
+                               "votes":  "votos",
+                               "submit_vote":  "Enviar Voto",
+                               "remove_vote":  "Quitar Voto",
+                               "show_results":  "Ver Resultados",
+                               "back_to_vote":  "Volver a Votar",
+                               "total_votes":  "Total de votos: {count}",
+                               "multiple_options_allowed":  "Permítense múltiples opcións",
+                               "load_error":  "Erro ao cargar os resultados da enquisa",
+                               "vote_error":  "Erro ao enviar o voto",
+                               "remove_vote_error":  "Erro ao quitar o voto"
+                           }
+             }
+}

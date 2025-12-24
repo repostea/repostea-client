@@ -1,0 +1,50 @@
+{
+  "common": {
+    "error": "Oju!",
+    "success": "Bien jecho!",
+    "warning": "Oju",
+    "not_found": "Nu s'alcuentra",
+    "forbidden": "Prohibíu",
+    "unauthorized": "Nu tié permisu",
+    "votes": "Votus",
+    "comment": "Comentarucu",
+    "comments": "Comentarucos",
+    "be_first": "Sei el primeru",
+    "language": "Palabru",
+    "all_languages": "Tós los idiomas",
+    "dark_mode": "Modu escuru",
+    "light_mode": "Modu claru",
+    "or": "u",
+    "ok": "Gueno",
+    "guest": "convidáu",
+    "view_all": "Ver tó",
+    "copied": "Copiáu!",
+    "show_less": "Ver menus",
+    "processing": "Procesandu...",
+    "uploading": "Subiendhu",
+    "understood": "Entendíu",
+    "saving": "Guardandu...",
+    "deleting": "Borrandu...",
+    "clearing": "Limpiandu...",
+    "backToHome": "Mos pal casa",
+    "time": {
+      "just_now": "ahora mesmu",
+      "yesterday": "Ayel"
+    },
+    "go_home": "Ir pal casa",
+    "back_to_home": "Mos pal casa",
+    "all": "Tó",
+    "upvote": "Votu buenu",
+    "downvote": "Votu malu",
+    "edited": "cambiáu",
+    "searching": "Buscandu...",
+    "anonymous": "Anónimu",
+    "no_results": "Nu s'alcuentra ná",
+    "login_required": "Esta acción requieri estar registráu. Regístrate u entrar pa continuar.",
+    "notifications": {
+      "success": "Bien jecho!",
+      "error": "Oju!",
+      "warning": "Cuidáu"
+    }
+  }
+}

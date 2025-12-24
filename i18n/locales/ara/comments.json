@@ -1,0 +1,14 @@
+{
+  "comments": {
+    "write": "Escribe un comentario...",
+    "reply": "Responder",
+    "confirm_delete": "¿Yes seguro que quiers borrar iste comentario?",
+    "deleted": "Iste comentario ha estau borrau.",
+    "edited": "(editau)",
+    "show_replies": "Amostrar respuestas",
+    "hide_replies": "Amagar respuestas",
+    "no_comments": "Encara no i hai comentarios. ¡Sía o primero en comentar!",
+    "login_to_comment": "Ta comentar has de dentrar u rechistrar-te",
+    "posting_as": "Publicando como"
+  }
+}

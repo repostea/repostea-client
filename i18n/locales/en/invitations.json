@@ -1,0 +1,23 @@
+{
+  "invitations": {
+    "title": "Invitations",
+    "description": "Manage your invitation codes to invite new members to the community.",
+    "create": "Create Invitation",
+    "my_invitations": "My Invitations",
+    "used": "Used",
+    "remaining": "Remaining",
+    "limit": "Limit",
+    "uses": "Uses",
+    "created": "Created",
+    "expires": "Expires",
+    "inactive": "Inactive",
+    "used_up": "Used up",
+    "copy_link": "Copy invitation link",
+    "delete": "Delete invitation",
+    "confirm_delete": "Are you sure you want to delete this invitation?",
+    "no_invitations": "You haven't created any invitations yet",
+    "link_copied": "Invitation link copied to clipboard!",
+    "error_creating": "Error creating invitation",
+    "error_deleting": "Error deleting invitation"
+  }
+}

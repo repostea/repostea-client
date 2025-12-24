@@ -1,0 +1,14 @@
+{
+  "navigation": {
+    "pending": "Pendients",
+    "submit": "Ninviar",
+    "login": "Dentrar",
+    "register": "Rechistrar-se",
+    "my_profile": "O mío perfil",
+    "saved_lists": "As mías Listas",
+    "language": "Luenga",
+    "back_to_home": "Tornar ta l'inicio",
+    "about": "Sobre o Prochecto",
+    "my_subs": "Os míos Subs"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "faq": {
+    "title": "Preguntes freqüents",
+    "description": "Troba respostes a les preguntes més comunes sobre l'ús de la plataforma",
+    "error_loading": "Error en carregar les FAQs. Si us plau, torna-ho a provar més tard.",
+    "meta_description": "Preguntes freqüents sobre karma, segells, votacions, publicacions i llistes a la nostra plataforma"
+  }
+}

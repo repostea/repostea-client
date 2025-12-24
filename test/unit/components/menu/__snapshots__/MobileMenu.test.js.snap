@@ -1,0 +1,153 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MobileMenu Component > Snapshots > matches snapshot on submit page (no FAB) 1`] = `
+"<div data-v-36ba52d7="" class="h-full flex items-center">
+  <div data-v-36ba52d7="" class="flex items-center justify-end md:hidden w-full h-full gap-1">
+    <!--v-if-->
+    <div data-v-36ba52d7="" class="flex-shrink-0 flex items-center">
+      <div data-v-36ba52d7="" class="auth-nav-stub mobile-auth"></div>
+    </div><button data-v-36ba52d7="" class="menu-button p-2 my-auto rounded-md focus:outline-none" style="color: var(--color-navbar-text);" aria-label="navigation.main_menu" aria-expanded="false"><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span></button>
+  </div>
+  <div data-v-36ba52d7="" class="mobile-menu-container md:hidden bg-navbar-bg dark:bg-navbar-bg-dark border-t border-white/10 fixed top-16 left-0 right-0 z-50" style="color: var(--color-navbar-text);">
+    <div data-v-36ba52d7="" class="container mx-auto px-4 py-2 space-y-2"><a data-v-36ba52d7="" to="/" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active" aria-label="navigation.home"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:house" aria-hidden="true"></i></a><a data-v-36ba52d7="" to="/submit" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-plus" aria-hidden="true"></i><span data-v-36ba52d7="">Submit</span></a><a data-v-36ba52d7="" to="/agora" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:landmark" aria-hidden="true"></i><span data-v-36ba52d7="">Agora</span></a><a data-v-36ba52d7="" to="/s" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:users" aria-hidden="true"></i><span data-v-36ba52d7="">Communities</span></a><a data-v-36ba52d7="" to="/stats" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:chart-line" aria-hidden="true"></i><span data-v-36ba52d7="">Statistics</span></a><a data-v-36ba52d7="" to="/rankings" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:trophy" aria-hidden="true"></i><span data-v-36ba52d7="">Rankings</span></a><a data-v-36ba52d7="" to="/lists" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:bookmark" aria-hidden="true"></i><span data-v-36ba52d7="">Saved Lists</span></a><a data-v-36ba52d7="" to="/activity" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:rss" aria-hidden="true"></i><span data-v-36ba52d7="">Activity</span></a><a data-v-36ba52d7="" to="/help" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-question" aria-hidden="true"></i><span data-v-36ba52d7="">help.title</span></a><a data-v-36ba52d7="" to="/federation" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:globe" aria-hidden="true"></i><span data-v-36ba52d7="">federation.menu_title</span></a>
+      <div data-v-36ba52d7="" class="border-t border-white/10 mt-3 pt-3 pb-1">
+        <div data-v-36ba52d7="" class="flex items-center justify-between"><span data-v-36ba52d7="" class="text-sm" style="color: var(--color-navbar-text-secondary);">Settings</span></div>
+      </div>
+      <div data-v-36ba52d7="" class="space-y-0.5"><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:language" aria-hidden="true"></i><span data-v-36ba52d7="">Language</span></button><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:palette" aria-hidden="true"></i><span data-v-36ba52d7="">Theme</span></button></div>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`MobileMenu Component > Snapshots > matches snapshot when authenticated 1`] = `
+"<div data-v-36ba52d7="" class="h-full flex items-center">
+  <div data-v-36ba52d7="" class="flex items-center justify-end md:hidden w-full h-full gap-1">
+    <div data-v-36ba52d7="" class="flex-shrink-0 flex items-center">
+      <div data-v-36ba52d7="" class="notification-dropdown-stub"></div>
+    </div>
+    <div data-v-36ba52d7="" class="flex-shrink-0 flex items-center">
+      <div data-v-36ba52d7="" class="auth-nav-stub mobile-auth"></div>
+    </div><button data-v-36ba52d7="" class="menu-button p-2 my-auto rounded-md focus:outline-none" style="color: var(--color-navbar-text);" aria-label="navigation.main_menu" aria-expanded="false"><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span></button>
+  </div>
+  <div data-v-36ba52d7="" class="mobile-menu-container md:hidden bg-navbar-bg dark:bg-navbar-bg-dark border-t border-white/10 fixed top-16 left-0 right-0 z-50" style="color: var(--color-navbar-text);">
+    <div data-v-36ba52d7="" class="container mx-auto px-4 py-2 space-y-2">
+      <!--v-if--><a data-v-36ba52d7="" to="/submit" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-plus" aria-hidden="true"></i><span data-v-36ba52d7="">Submit</span></a><a data-v-36ba52d7="" to="/agora" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:landmark" aria-hidden="true"></i><span data-v-36ba52d7="">Agora</span></a><a data-v-36ba52d7="" to="/s" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:users" aria-hidden="true"></i><span data-v-36ba52d7="">Communities</span></a><a data-v-36ba52d7="" to="/stats" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:chart-line" aria-hidden="true"></i><span data-v-36ba52d7="">Statistics</span></a><a data-v-36ba52d7="" to="/rankings" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:trophy" aria-hidden="true"></i><span data-v-36ba52d7="">Rankings</span></a><a data-v-36ba52d7="" to="/lists" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:bookmark" aria-hidden="true"></i><span data-v-36ba52d7="">Saved Lists</span></a><a data-v-36ba52d7="" to="/activity" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:rss" aria-hidden="true"></i><span data-v-36ba52d7="">Activity</span></a><a data-v-36ba52d7="" to="/help" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-question" aria-hidden="true"></i><span data-v-36ba52d7="">help.title</span></a><a data-v-36ba52d7="" to="/federation" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:globe" aria-hidden="true"></i><span data-v-36ba52d7="">federation.menu_title</span></a>
+      <div data-v-36ba52d7="" class="border-t border-white/10 mt-3 pt-3 pb-1">
+        <div data-v-36ba52d7="" class="flex items-center justify-between"><span data-v-36ba52d7="" class="text-sm" style="color: var(--color-navbar-text-secondary);">Settings</span></div>
+      </div>
+      <div data-v-36ba52d7="" class="space-y-0.5"><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:language" aria-hidden="true"></i><span data-v-36ba52d7="">Language</span></button><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:palette" aria-hidden="true"></i><span data-v-36ba52d7="">Theme</span></button></div>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if--><a data-v-36ba52d7="" to="/submit" class="mobile-fab fixed lg:hidden" aria-label="Submit"><i data-v-36ba52d7="" class="iconify-icon" name="fa6-solid:plus" aria-hidden="true"></i></a>
+</div>"
+`;
+
+exports[`MobileMenu Component > Snapshots > matches snapshot when menu is closed 1`] = `
+"<div data-v-36ba52d7="" class="h-full flex items-center">
+  <div data-v-36ba52d7="" class="flex items-center justify-end md:hidden w-full h-full gap-1">
+    <!--v-if-->
+    <div data-v-36ba52d7="" class="flex-shrink-0 flex items-center">
+      <div data-v-36ba52d7="" class="auth-nav-stub mobile-auth"></div>
+    </div><button data-v-36ba52d7="" class="menu-button p-2 my-auto rounded-md focus:outline-none" style="color: var(--color-navbar-text);" aria-label="navigation.main_menu" aria-expanded="false"><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span></button>
+  </div>
+  <div data-v-36ba52d7="" class="mobile-menu-container md:hidden bg-navbar-bg dark:bg-navbar-bg-dark border-t border-white/10 fixed top-16 left-0 right-0 z-50" style="color: var(--color-navbar-text);">
+    <div data-v-36ba52d7="" class="container mx-auto px-4 py-2 space-y-2">
+      <!--v-if--><a data-v-36ba52d7="" to="/submit" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-plus" aria-hidden="true"></i><span data-v-36ba52d7="">Submit</span></a><a data-v-36ba52d7="" to="/agora" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:landmark" aria-hidden="true"></i><span data-v-36ba52d7="">Agora</span></a><a data-v-36ba52d7="" to="/s" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:users" aria-hidden="true"></i><span data-v-36ba52d7="">Communities</span></a><a data-v-36ba52d7="" to="/stats" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:chart-line" aria-hidden="true"></i><span data-v-36ba52d7="">Statistics</span></a><a data-v-36ba52d7="" to="/rankings" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:trophy" aria-hidden="true"></i><span data-v-36ba52d7="">Rankings</span></a><a data-v-36ba52d7="" to="/lists" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:bookmark" aria-hidden="true"></i><span data-v-36ba52d7="">Saved Lists</span></a><a data-v-36ba52d7="" to="/activity" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:rss" aria-hidden="true"></i><span data-v-36ba52d7="">Activity</span></a><a data-v-36ba52d7="" to="/help" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-question" aria-hidden="true"></i><span data-v-36ba52d7="">help.title</span></a><a data-v-36ba52d7="" to="/federation" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:globe" aria-hidden="true"></i><span data-v-36ba52d7="">federation.menu_title</span></a>
+      <div data-v-36ba52d7="" class="border-t border-white/10 mt-3 pt-3 pb-1">
+        <div data-v-36ba52d7="" class="flex items-center justify-between"><span data-v-36ba52d7="" class="text-sm" style="color: var(--color-navbar-text-secondary);">Settings</span></div>
+      </div>
+      <div data-v-36ba52d7="" class="space-y-0.5"><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:language" aria-hidden="true"></i><span data-v-36ba52d7="">Language</span></button><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:palette" aria-hidden="true"></i><span data-v-36ba52d7="">Theme</span></button></div>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if--><a data-v-36ba52d7="" to="/submit" class="mobile-fab fixed lg:hidden" aria-label="Submit"><i data-v-36ba52d7="" class="iconify-icon" name="fa6-solid:plus" aria-hidden="true"></i></a>
+</div>"
+`;
+
+exports[`MobileMenu Component > Snapshots > matches snapshot when menu is open 1`] = `
+"<div data-v-36ba52d7="" class="h-full flex items-center">
+  <div data-v-36ba52d7="" class="flex items-center justify-end md:hidden w-full h-full gap-1">
+    <!--v-if-->
+    <div data-v-36ba52d7="" class="flex-shrink-0 flex items-center">
+      <div data-v-36ba52d7="" class="auth-nav-stub mobile-auth"></div>
+    </div><button data-v-36ba52d7="" class="menu-button p-2 my-auto rounded-md focus:outline-none menu-open" style="color: var(--color-navbar-text);" aria-label="navigation.main_menu" aria-expanded="true"><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span></button>
+  </div>
+  <div data-v-36ba52d7="" class="mobile-menu-container md:hidden bg-navbar-bg dark:bg-navbar-bg-dark border-t border-white/10 fixed top-16 left-0 right-0 z-50 open" style="color: var(--color-navbar-text);">
+    <div data-v-36ba52d7="" class="container mx-auto px-4 py-2 space-y-2">
+      <!--v-if--><a data-v-36ba52d7="" to="/submit" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-plus" aria-hidden="true"></i><span data-v-36ba52d7="">Submit</span></a><a data-v-36ba52d7="" to="/agora" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:landmark" aria-hidden="true"></i><span data-v-36ba52d7="">Agora</span></a><a data-v-36ba52d7="" to="/s" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:users" aria-hidden="true"></i><span data-v-36ba52d7="">Communities</span></a><a data-v-36ba52d7="" to="/stats" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:chart-line" aria-hidden="true"></i><span data-v-36ba52d7="">Statistics</span></a><a data-v-36ba52d7="" to="/rankings" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:trophy" aria-hidden="true"></i><span data-v-36ba52d7="">Rankings</span></a><a data-v-36ba52d7="" to="/lists" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:bookmark" aria-hidden="true"></i><span data-v-36ba52d7="">Saved Lists</span></a><a data-v-36ba52d7="" to="/activity" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:rss" aria-hidden="true"></i><span data-v-36ba52d7="">Activity</span></a><a data-v-36ba52d7="" to="/help" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-question" aria-hidden="true"></i><span data-v-36ba52d7="">help.title</span></a><a data-v-36ba52d7="" to="/federation" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:globe" aria-hidden="true"></i><span data-v-36ba52d7="">federation.menu_title</span></a>
+      <div data-v-36ba52d7="" class="border-t border-white/10 mt-3 pt-3 pb-1">
+        <div data-v-36ba52d7="" class="flex items-center justify-between"><span data-v-36ba52d7="" class="text-sm" style="color: var(--color-navbar-text-secondary);">Settings</span></div>
+      </div>
+      <div data-v-36ba52d7="" class="space-y-0.5"><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:language" aria-hidden="true"></i><span data-v-36ba52d7="">Language</span></button><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:palette" aria-hidden="true"></i><span data-v-36ba52d7="">Theme</span></button></div>
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if--><a data-v-36ba52d7="" to="/submit" class="mobile-fab fixed lg:hidden" aria-label="Submit"><i data-v-36ba52d7="" class="iconify-icon" name="fa6-solid:plus" aria-hidden="true"></i></a>
+</div>"
+`;
+
+exports[`MobileMenu Component > Snapshots > matches snapshot with language modal 1`] = `
+"<div data-v-36ba52d7="" class="h-full flex items-center">
+  <div data-v-36ba52d7="" class="flex items-center justify-end md:hidden w-full h-full gap-1">
+    <!--v-if-->
+    <div data-v-36ba52d7="" class="flex-shrink-0 flex items-center">
+      <div data-v-36ba52d7="" class="auth-nav-stub mobile-auth"></div>
+    </div><button data-v-36ba52d7="" class="menu-button p-2 my-auto rounded-md focus:outline-none" style="color: var(--color-navbar-text);" aria-label="navigation.main_menu" aria-expanded="false"><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span></button>
+  </div>
+  <div data-v-36ba52d7="" class="mobile-menu-container md:hidden bg-navbar-bg dark:bg-navbar-bg-dark border-t border-white/10 fixed top-16 left-0 right-0 z-50" style="color: var(--color-navbar-text);">
+    <div data-v-36ba52d7="" class="container mx-auto px-4 py-2 space-y-2">
+      <!--v-if--><a data-v-36ba52d7="" to="/submit" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-plus" aria-hidden="true"></i><span data-v-36ba52d7="">Submit</span></a><a data-v-36ba52d7="" to="/agora" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:landmark" aria-hidden="true"></i><span data-v-36ba52d7="">Agora</span></a><a data-v-36ba52d7="" to="/s" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:users" aria-hidden="true"></i><span data-v-36ba52d7="">Communities</span></a><a data-v-36ba52d7="" to="/stats" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:chart-line" aria-hidden="true"></i><span data-v-36ba52d7="">Statistics</span></a><a data-v-36ba52d7="" to="/rankings" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:trophy" aria-hidden="true"></i><span data-v-36ba52d7="">Rankings</span></a><a data-v-36ba52d7="" to="/lists" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:bookmark" aria-hidden="true"></i><span data-v-36ba52d7="">Saved Lists</span></a><a data-v-36ba52d7="" to="/activity" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:rss" aria-hidden="true"></i><span data-v-36ba52d7="">Activity</span></a><a data-v-36ba52d7="" to="/help" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-question" aria-hidden="true"></i><span data-v-36ba52d7="">help.title</span></a><a data-v-36ba52d7="" to="/federation" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:globe" aria-hidden="true"></i><span data-v-36ba52d7="">federation.menu_title</span></a>
+      <div data-v-36ba52d7="" class="border-t border-white/10 mt-3 pt-3 pb-1">
+        <div data-v-36ba52d7="" class="flex items-center justify-between"><span data-v-36ba52d7="" class="text-sm" style="color: var(--color-navbar-text-secondary);">Settings</span></div>
+      </div>
+      <div data-v-36ba52d7="" class="space-y-0.5"><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:language" aria-hidden="true"></i><span data-v-36ba52d7="">Language</span></button><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:palette" aria-hidden="true"></i><span data-v-36ba52d7="">Theme</span></button></div>
+    </div>
+  </div>
+  <div data-v-36ba52d7="" class="mobile-modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div data-v-36ba52d7="" class="mobile-modal rounded-lg p-4 w-4/5 max-w-md">
+      <div data-v-36ba52d7="" class="flex justify-between items-center mb-4">
+        <h3 data-v-36ba52d7="" class="text-lg font-medium modal-title">Language</h3><button data-v-36ba52d7="" class="modal-close-btn" aria-label="common.close"><i data-v-36ba52d7="" class="iconify-icon" name="fa6-solid:xmark" aria-hidden="true"></i></button>
+      </div>
+      <div data-v-36ba52d7="" class="modal-content">
+        <div data-v-36ba52d7="" class="language-selector-stub"></div>
+      </div>
+    </div>
+  </div>
+  <!--v-if--><a data-v-36ba52d7="" to="/submit" class="mobile-fab fixed lg:hidden" aria-label="Submit"><i data-v-36ba52d7="" class="iconify-icon" name="fa6-solid:plus" aria-hidden="true"></i></a>
+</div>"
+`;
+
+exports[`MobileMenu Component > Snapshots > matches snapshot with theme modal 1`] = `
+"<div data-v-36ba52d7="" class="h-full flex items-center">
+  <div data-v-36ba52d7="" class="flex items-center justify-end md:hidden w-full h-full gap-1">
+    <!--v-if-->
+    <div data-v-36ba52d7="" class="flex-shrink-0 flex items-center">
+      <div data-v-36ba52d7="" class="auth-nav-stub mobile-auth"></div>
+    </div><button data-v-36ba52d7="" class="menu-button p-2 my-auto rounded-md focus:outline-none" style="color: var(--color-navbar-text);" aria-label="navigation.main_menu" aria-expanded="false"><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span><span data-v-36ba52d7="" class="menu-bar"></span></button>
+  </div>
+  <div data-v-36ba52d7="" class="mobile-menu-container md:hidden bg-navbar-bg dark:bg-navbar-bg-dark border-t border-white/10 fixed top-16 left-0 right-0 z-50" style="color: var(--color-navbar-text);">
+    <div data-v-36ba52d7="" class="container mx-auto px-4 py-2 space-y-2">
+      <!--v-if--><a data-v-36ba52d7="" to="/submit" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-plus" aria-hidden="true"></i><span data-v-36ba52d7="">Submit</span></a><a data-v-36ba52d7="" to="/agora" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:landmark" aria-hidden="true"></i><span data-v-36ba52d7="">Agora</span></a><a data-v-36ba52d7="" to="/s" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:users" aria-hidden="true"></i><span data-v-36ba52d7="">Communities</span></a><a data-v-36ba52d7="" to="/stats" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:chart-line" aria-hidden="true"></i><span data-v-36ba52d7="">Statistics</span></a><a data-v-36ba52d7="" to="/rankings" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:trophy" aria-hidden="true"></i><span data-v-36ba52d7="">Rankings</span></a><a data-v-36ba52d7="" to="/lists" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:bookmark" aria-hidden="true"></i><span data-v-36ba52d7="">Saved Lists</span></a><a data-v-36ba52d7="" to="/activity" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:rss" aria-hidden="true"></i><span data-v-36ba52d7="">Activity</span></a><a data-v-36ba52d7="" to="/help" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:circle-question" aria-hidden="true"></i><span data-v-36ba52d7="">help.title</span></a><a data-v-36ba52d7="" to="/federation" class="mobile-nav-link flex items-center py-3 px-2 rounded-md" active-class="active"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:globe" aria-hidden="true"></i><span data-v-36ba52d7="">federation.menu_title</span></a>
+      <div data-v-36ba52d7="" class="border-t border-white/10 mt-3 pt-3 pb-1">
+        <div data-v-36ba52d7="" class="flex items-center justify-between"><span data-v-36ba52d7="" class="text-sm" style="color: var(--color-navbar-text-secondary);">Settings</span></div>
+      </div>
+      <div data-v-36ba52d7="" class="space-y-0.5"><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:language" aria-hidden="true"></i><span data-v-36ba52d7="">Language</span></button><button data-v-36ba52d7="" class="mobile-nav-link flex items-center w-full py-1.5 px-2 text-sm cursor-pointer rounded-md"><i data-v-36ba52d7="" class="iconify-icon w-8 text-center" name="fa6-solid:palette" aria-hidden="true"></i><span data-v-36ba52d7="">Theme</span></button></div>
+    </div>
+  </div>
+  <!--v-if-->
+  <div data-v-36ba52d7="" class="mobile-modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div data-v-36ba52d7="" class="mobile-modal rounded-lg p-4 w-4/5 max-w-md">
+      <div data-v-36ba52d7="" class="flex justify-between items-center mb-4">
+        <h3 data-v-36ba52d7="" class="text-lg font-medium modal-title">Theme</h3><button data-v-36ba52d7="" class="modal-close-btn" aria-label="common.close"><i data-v-36ba52d7="" class="iconify-icon" name="fa6-solid:xmark" aria-hidden="true"></i></button>
+      </div>
+      <div data-v-36ba52d7="" class="modal-content">
+        <div data-v-36ba52d7="" class="theme-selector-stub"></div>
+      </div>
+    </div>
+  </div><a data-v-36ba52d7="" to="/submit" class="mobile-fab fixed lg:hidden" aria-label="Submit"><i data-v-36ba52d7="" class="iconify-icon" name="fa6-solid:plus" aria-hidden="true"></i></a>
+</div>"
+`;

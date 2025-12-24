@@ -1,0 +1,22 @@
+{
+    "sections": {
+        "frontpage": "Portada",
+        "frontpage_title": "Portada - Publicacións Populares",
+        "pending": "Pendentes",
+        "pending_title": "Publicacións Pendentes",
+        "pending_description": "Contido pendente de votación",
+        "featured": "Destacados",
+        "featured_title": "Publicacións Destacadas",
+        "trending": "En tendencia",
+        "trending_title": "Publicacións en Tendencia",
+        "popular": "Populares",
+        "popular_title": "Publicacións Populares",
+        "all": "Todos",
+        "all_title": "Todas as Publicacións",
+        "my_subs": "Os meus Subs",
+        "my_subs_title": "Publicacións das Miñas Comunidades",
+        "my_subs_login_required": "Inicia sesión para ver publicacións das túas comunidades",
+        "comments": "Comentarios",
+        "comments_description": "Explora os últimos comentarios da comunidade"
+    }
+}

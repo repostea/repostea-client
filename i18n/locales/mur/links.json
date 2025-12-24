@@ -1,0 +1,23 @@
+{
+  "links": {
+    "title": "Enlacicos",
+    "vote_up": "Votarico positivo",
+    "vote_down": "Votarico negativo",
+    "already_voted": "Ya has votaico este enlacico",
+    "not_enough_karma": "No tiés suficiente karmica",
+    "published": "Publicaicos",
+    "popular": "Popularicos",
+    "recent": "Recienticos",
+    "most_visited": "Más visitaicos",
+    "most_valued": "Más valoraicos",
+    "most_commented": "Más comentaicos",
+    "no_links": "No s'encontraron enlacicos",
+    "no_links_title": "No hay enlacicos pa mostrarico",
+    "no_links_description": "No pudimos encontrarico enlacicos illo",
+    "pending": "Pendienticos",
+    "visits": "visiticas",
+    "posts": "publicacionicas",
+    "internal_link": "Articulico escritico en {siteName}",
+    "poll": "Encuestica"
+  }
+}

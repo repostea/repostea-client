@@ -1,0 +1,15 @@
+{
+  "comments": {
+    "title": "Comentarucos",
+    "write": "Escribi un comentarucu...",
+    "reply": "Responder",
+    "confirm_delete": "¿Seguru que quieris borrar esti comentarucu?",
+    "deleted": "Esti comentarucu ha síu borráu.",
+    "edited": "(cambiáu)",
+    "no_comments": "Entavía nu hay comentarucos. ¡Sei el primeru en comentar!",
+    "login_to_comment": "Pa comentar tié que entrar u registrasi",
+    "vote": "votu",
+    "votes": "votus",
+    "posting_as": "Publicandu comu"
+  }
+}

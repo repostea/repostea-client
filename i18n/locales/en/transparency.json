@@ -1,0 +1,42 @@
+{
+  "transparency": {
+    "title": "Transparency",
+    "description": "Statistics and information about {siteName}' moderation and activity",
+    "stats": {
+      "title": "General Statistics",
+      "posts": "Posts",
+      "users": "Users",
+      "comments": "Comments",
+      "sources": "Aggregated sources"
+    },
+    "moderation": {
+      "title": "Moderation",
+      "reports": {
+        "title": "Reports",
+        "received": "Reports received",
+        "processed": "Reports processed",
+        "pending": "Pending reports",
+        "avg_response": "Average response time"
+      },
+      "actions": {
+        "title": "Actions",
+        "content_removed": "Content removed",
+        "warnings": "Warnings issued",
+        "users_suspended": "Users suspended",
+        "appeals": "Total appeals"
+      }
+    },
+    "report_types": {
+      "title": "Report Types",
+      "last_30_days": "Last 30 days",
+      "spam": "Spam",
+      "copyright": "Copyright",
+      "harassment": "Harassment",
+      "illegal": "Illegal content",
+      "privacy": "Privacy",
+      "other": "Other",
+      "inappropriate": "Inappropriate content",
+      "misinformation": "Misinformation"
+    }
+  }
+}

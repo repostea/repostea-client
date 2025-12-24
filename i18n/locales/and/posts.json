@@ -1,0 +1,27 @@
+{
+  "posts": {
+    "seen_on": "Vihto en",
+    "edit": "Cambia",
+    "delete": "Borra",
+    "confirm_delete": "¿Seguro que quiere borrá ehte envío? No se pué deshacé.",
+    "delete_success": "Envío borrao correctamente",
+    "vote": "voto",
+    "voted": "votao",
+    "votes": "voto",
+    "vote_success": "Voto mandao correctamente!",
+    "type_link": "Enlase",
+    "type_article": "Artículo",
+    "publish": "Publica",
+    "draft_saved": "Borrador guardao",
+    "be_first_comment": "Comparte tu opinión y se er primero en comentá",
+    "level_0": "Se er primero en comentá",
+    "level_1": "Suma tu opinión",
+    "level_5": "La cosa se anima",
+    "level_9": "Ehto arde quillo",
+    "visited": "Visitao",
+    "frontpage": "Portá",
+    "nsfw_warning_title": "Contenío pa adulto",
+    "nsfw_go_back": "Vorve atrá",
+    "open_link": "Abri enlase"
+  }
+}

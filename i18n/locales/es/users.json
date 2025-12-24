@@ -1,0 +1,37 @@
+{
+    "users":  {
+                  "admin":  "Administrador",
+                  "moderator":  "Moderador",
+                  "bot":  "Bot",
+                  "premium":  "Premium",
+                  "karma_overview":  "Resumen de Karma",
+                  "activity_streak":  "Racha de Actividad",
+                  "last_30_days":  "Últimos 30 días",
+                  "calendar_info":  "Cada celda representa un día",
+                  "activities":  "actividades",
+                  "max_level_reached":  "¡Has alcanzado el nivel máximo!",
+                  "next_level":  "{points} puntos necesarios para alcanzar el nivel {level}",
+                  "posts":  "Publicaciones",
+                  "comments":  "Comentarios",
+                  "votes_given":  "Votos dados",
+                  "profile":  "Perfil",
+                  "karma":  "karma",
+                  "joined":  "Miembro desde",
+                  "bio":  "Biografía",
+                  "about_me":  "Sobre mí",
+                  "no_bio":  "Este usuario no ha añadido una biografía.",
+                  "published_links":  "Enlaces publicados",
+                  "user_comments":  "Comentarios",
+                  "edit_profile":  "Editar perfil",
+                  "karma_levels":  {
+                                       "newcomer":  "Principiante",
+                                       "contributor":  "Colaborador",
+                                       "regular":  "Regular",
+                                       "trusted":  "Confiable",
+                                       "veteran":  "Veterano",
+                                       "expert":  "Experto",
+                                       "master":  "Maestro",
+                                       "legend":  "Leyenda"
+                                   }
+              }
+}

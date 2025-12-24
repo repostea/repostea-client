@@ -1,0 +1,64 @@
+{
+  "activity": {
+    "title": "Jarduera",
+    "description": "Azken komunitatearen ekintzak denbora errealean",
+    "loading": "Jarduerak kargatzen...",
+    "error_loading": "Ezin izan dira jarduerak kargatu. Saiatu berriro.",
+    "retry": "Saiatu berriro",
+    "load_more": "Kargatu gehiago",
+    "no_more_activities": "Ez dago jarduera gehiagorik",
+    "no_activities": "Ez da jarduerarik aurkitu",
+    "filters": {
+      "time": "Denbora",
+      "last_hour": "Azken ordua",
+      "last_24h": "Azken 24 orduak",
+      "last_week": "Azken astea",
+      "all_time": "Dena",
+      "types": "Jarduera motak",
+      "clear": "Garbitu iragazkiak",
+      "reset": "Berrezarri"
+    },
+    "new_activities": "{count} jarduera berria | {count} jarduera berriak",
+    "auto_refresh_on": "Auto-eguneraketa aktibo",
+    "auto_refresh_off": "Auto-eguneraketa desaktibatu",
+    "by": "nork",
+    "by_anonymous": "erabiltzaile anonimoak",
+    "on_post": "bidalketarekin",
+    "on_comment": "iruzkin batean",
+    "in_post": "bidalketarekin",
+    "comment_on": "Iruzkindu",
+    "upvote": "Boto positiboa",
+    "downvote": "Boto negatiboa",
+    "seal_awarded": "Zigilua",
+    "reached_frontpage": "azalera iritsi da",
+    "activity_types": {
+      "new_post": "Bidalketa berria",
+      "post_vote": "Botoa bidalketarekin",
+      "new_comment": "Iruzkin berria",
+      "comment_vote": "Botoa iruzkinekin",
+      "seal_awarded": "Zigilua eman da",
+      "frontpage": "Azala",
+      "new_agora_message": "Agora mezua",
+      "agora_vote": "Agora botoa",
+      "new_sub": "Komunitate berria"
+    },
+    "seals": {
+      "recommended": "Gomendatua",
+      "problematic": "Problematikoa",
+      "advise_against": "Desaconsejado"
+    },
+    "time": {
+      "just_now": "Orain",
+      "year": "duela {count} urte | duela {count} urte",
+      "month": "duela {count} hilabete | duela {count} hilabete",
+      "week": "duela {count} aste | duela {count} aste",
+      "day": "duela {count} egun | duela {count} egun",
+      "hour": "duela {count} ordu | duela {count} ordu",
+      "minute": "duela {count} minutu | duela {count} minutu"
+    },
+    "on_agora_message": "Agorako mezuan",
+    "agora_message": "Mezu berria Agoran",
+    "view_in_agora": "Agoran ikusi",
+    "sub_created": "Komunitate berria sortua"
+  }
+}

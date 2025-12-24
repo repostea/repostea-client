@@ -1,0 +1,23 @@
+{
+  "invitations": {
+    "title": "Invitaciones",
+    "description": "Gestiona tus códigos de invitación para invitar nuevos miembros a la comunidad.",
+    "create": "Crear Invitación",
+    "my_invitations": "Mis Invitaciones",
+    "used": "Usadas",
+    "remaining": "Disponibles",
+    "limit": "Límite",
+    "uses": "Usos",
+    "created": "Creada",
+    "expires": "Expira",
+    "inactive": "Inactiva",
+    "used_up": "Agotada",
+    "copy_link": "Copiar enlace de invitación",
+    "delete": "Eliminar invitación",
+    "confirm_delete": "¿Estás seguro de que quieres eliminar esta invitación?",
+    "no_invitations": "Aún no has creado ninguna invitación",
+    "link_copied": "¡Enlace de invitación copiado al portapapeles!",
+    "error_creating": "Error al crear la invitación",
+    "error_deleting": "Error al eliminar la invitación"
+  }
+}

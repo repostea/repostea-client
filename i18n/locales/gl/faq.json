@@ -1,0 +1,8 @@
+{
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "description": "Atopa respostas ás preguntas máis comúns sobre o uso da plataforma",
+    "error_loading": "Erro ao cargar as FAQs. Por favor, téntao de novo máis tarde.",
+    "meta_description": "Preguntas frecuentes sobre karma, selos, votacións, publicacións e listas na nosa plataforma"
+  }
+}

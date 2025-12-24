@@ -1,0 +1,81 @@
+{
+  "data": [
+    {
+      "id": 10,
+      "hex_id": "a",
+      "content": "This is the first comment with hex ID 'a'.",
+      "created_at": "2023-01-01T11:00:00Z",
+      "user": {
+        "id": 2,
+        "username": "commenter1",
+        "display_name": "First Commenter"
+      },
+      "post": {
+        "uuid": "bb680fd8-483d-4444-a4ac-4115439c304c",
+        "permalink": "/posts/test-post"
+      },
+      "is_anonymous": false,
+      "author_name": null,
+      "votes": 5,
+      "children": [
+        {
+          "id": 11,
+          "hex_id": "b",
+          "content": "This is a nested reply with hex ID 'b'.",
+          "created_at": "2023-01-01T11:30:00Z",
+          "user": {
+            "id": 3,
+            "username": "replier",
+            "display_name": "Reply Author"
+          },
+          "post": {
+            "uuid": "bb680fd8-483d-4444-a4ac-4115439c304c",
+            "permalink": "/posts/test-post"
+          },
+          "is_anonymous": false,
+          "author_name": null,
+          "votes": 2,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "hex_id": "64",
+      "content": "This is the second comment with hex ID '64'. It references #c-a (commenter1: \"This is the first comment\") from above.",
+      "created_at": "2023-01-01T12:00:00Z",
+      "user": {
+        "id": 4,
+        "username": "commenter2",
+        "display_name": "Second Commenter"
+      },
+      "post": {
+        "uuid": "bb680fd8-483d-4444-a4ac-4115439c304c",
+        "permalink": "/posts/test-post"
+      },
+      "is_anonymous": false,
+      "author_name": null,
+      "votes": 3,
+      "children": []
+    },
+    {
+      "id": 200,
+      "hex_id": "c8",
+      "content": "Third comment with hex ID 'c8'.",
+      "created_at": "2023-01-01T13:00:00Z",
+      "user": {
+        "id": 5,
+        "username": "commenter3",
+        "display_name": "Third Commenter"
+      },
+      "post": {
+        "uuid": "bb680fd8-483d-4444-a4ac-4115439c304c",
+        "permalink": "/posts/test-post"
+      },
+      "is_anonymous": false,
+      "author_name": null,
+      "votes": 1,
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "navigation": {
+    "home": "Entamu",
+    "submit": "Mandal",
+    "login": "Entral",
+    "register": "Registrasi",
+    "logout": "Salil",
+    "my_profile": "El miu perfil",
+    "settings": "Configuraçión",
+    "admin": "Administraçión",
+    "saved_lists": "Las mías Listas",
+    "language": "Palra",
+    "back_to_home": "Volvel al entamu",
+    "about": "Sobri el Proyeutu",
+    "manifesto": "Manifiestu",
+    "my_subs": "Los mius Subs"
+  }
+}

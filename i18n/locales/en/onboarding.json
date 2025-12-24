@@ -1,0 +1,351 @@
+{
+  "onboarding": {
+    "title": "Welcome to {siteName}",
+    "skip": "Skip onboarding",
+    "next": "Next",
+    "previous": "Previous",
+    "complete": "Complete",
+    "finish": "Finish",
+    "get_started": "Get Started",
+    "step_of": "Step {current} of {total}",
+    "progress": "{percentage}% complete",
+    
+    "steps": {
+      "welcome": {
+        "title": "Welcome to the Community",
+        "description": "Let's get you started with everything you need to know",
+        "content": {
+          "heading": "Welcome to {siteName}!",
+          "subtitle": "A democratic platform where the community decides what content deserves attention",
+          "purpose": {
+            "title": "What is {siteName}?",
+            "description": "{siteName} is a community where YOU decide what content deserves attention. No secret algorithms, no manipulation. Users vote and the best content rises.\n\n💡 Digital democracy: your vote counts, your voice matters."
+          },
+          "features": [
+            "Share links, texts, videos, and audio",
+            "Participate in discussions with comments",
+            "Build your karma through community engagement",
+            "Create and join specialized communities (subs)"
+          ],
+          "cta": "Let's explore what makes {siteName} special!",
+          "show_details": "Show details",
+          "hide_details": "Hide details"
+        }
+      },
+      "discover-content": {
+        "title": "Discover & Comment",
+        "description": "Explore content and engage with the community",
+        "content": {
+          "heading": "Discover Interesting Content",
+          "subtitle": "Your participation brings value to the platform",
+          "main_text_1": "Discover interesting content and",
+          "main_text_2": "comment with the community",
+          "essence_text_1": "Your comments are",
+          "essence_text_2": "the essence",
+          "essence_text_3": "and what brings",
+          "essence_text_4": "value",
+          "essence_text_5": "to the platform. Conversations enrich content and build the community.",
+          "tip": "💡 Comment respectfully, share your perspective and participate in discussions."
+        }
+      },
+      "creating-posts": {
+        "title": "Creating Posts",
+        "description": "Learn how to share content with the community",
+        "content": {
+          "heading": "Share Your Content",
+          "subtitle": "{siteName} supports multiple types of content",
+          "brief_summary_1": "You can share",
+          "brief_summary_2": "links",
+          "brief_summary_3": "texts",
+          "brief_summary_4": "videos",
+          "brief_summary_5": "audio",
+          "brief_summary_6": "and create",
+          "brief_summary_7": "polls",
+          "brief_summary_8": ". Choose a clear title, add relevant tags and select the appropriate community.",
+          "tip": "💡 Quality content + good title = more visibility",
+          "show_details": "Show details",
+          "hide_details": "Hide details",
+          "types": [
+            {
+              "title": "Text Posts",
+              "description": "Share thoughts, stories, or discussions with rich text formatting"
+            },
+            {
+              "title": "Link Posts", 
+              "description": "Share interesting articles, websites, or resources"
+            },
+            {
+              "title": "Video Posts",
+              "description": "Share videos from YouTube, Vimeo, or other platforms"
+            },
+            {
+              "title": "Audio Posts",
+              "description": "Share podcasts, music, or audio content"
+            },
+            {
+              "title": "Poll Posts",
+              "description": "Create polls to gather community opinions"
+            }
+          ],
+          "tips": [
+            "Choose descriptive titles that clearly explain your content",
+            "Use relevant tags to help others discover your posts",
+            "Add detailed descriptions to provide context",
+            "Select the appropriate sub (community) for your content"
+          ]
+        }
+      },
+      "voting": {
+        "title": "Voting System",
+        "description": "Learn how votes determine content visibility",
+        "content": {
+          "heading": "The Voting System",
+          "subtitle": "Users decide what content deserves attention",
+          "brief_text_1": "Users vote on content with",
+          "brief_text_2": "▲ upvotes",
+          "brief_text_3": "to promote the most valuable and interesting.",
+          "visibility_text": "More votes = more visibility on the homepage. Votes also increase the author's karma.",
+          "tip": "💡 If you find spam or illicit content, you can report it for moderators to review.",
+          "content_impact": [
+            "Upvotes increase content visibility",
+            "Top-voted content appears on the front page",
+            "Downvotes reduce visibility",
+            "Vote balance determines post ranking"
+          ],
+          "author_impact": [
+            "Each upvote adds +1 karma to the author",
+            "Each downvote subtracts -1 karma from the author",
+            "Karma reflects the quality of your contributions"
+          ],
+          "voting_guidelines": {
+            "dos": [
+              "Upvote: quality content, well-argued, useful or entertaining",
+              "Downvote: spam, offensive content, misinformation or off-topic",
+              "Read before voting, don't just vote by title",
+              "Vote based on quality, not personal agreement/disagreement"
+            ],
+            "donts": [
+              "Don't vote out of revenge or to attack someone",
+              "Don't use multiple accounts to manipulate votes",
+              "Don't vote all content from a user (positive or negative)",
+              "Don't sell your vote or participate in vote brigading"
+            ]
+          }
+        }
+      },
+      "karma-system": {
+        "title": "Karma System",
+        "description": "Learn how reputation works in the community",
+        "content": {
+          "heading": "The Karma System",
+          "subtitle": "Your reputation score on {siteName}",
+          "brief_text_1": "Your",
+          "brief_text_2": "karma",
+          "brief_text_3": "is your reputation score on {siteName}. Each upvote your content receives adds",
+          "brief_text_4": "+1 karma",
+          "brief_text_5": ".",
+          "progression_text": "As you accumulate karma, you level up and gain recognition in the community.",
+          "tip": "💡 Share quality content, participate respectfully and build your reputation.",
+          "levels_title": "Karma Levels",
+          "karma_explained": {
+            "title": "What is Karma?",
+            "description": "Karma is your reputation score. It's calculated by adding up all votes your posts and comments receive.",
+            "calculation": "Karma = Upvotes - Downvotes (from all your content)",
+            "importance": "Karma reflects your history of valuable contributions to the community.",
+            "permanent_levels": "Levels are permanent: once achieved, they are not lost even if your karma decreases (except for administrative sanctions)."
+          },
+          "how_it_works": [
+            "Receive karma when others upvote your posts and comments",
+            "Lose karma when others downvote your contributions",
+            "Higher karma unlocks additional features and privileges",
+            "Karma levels show your standing in the community"
+          ],
+          "earning_tips": [
+            "Share high-quality, relevant content",
+            "Engage thoughtfully in discussions",
+            "Help others with informative comments",
+            "Follow community guidelines and be respectful"
+          ],
+          "levels": [
+            {
+              "name": "Newcomer",
+              "range": "0-199 karma",
+              "description": "Just getting started. Post content and participate to level up.",
+              "benefits": "Basic access to all main features"
+            },
+            {
+              "name": "Apprentice",
+              "range": "200-999 karma",
+              "description": "Active user with recognized contributions",
+              "benefits": "Your votes carry more weight, apprentice badge"
+            },
+            {
+              "name": "Contributor",
+              "range": "1,000-3,999 karma",
+              "description": "Valuable member with quality history",
+              "benefits": "Higher visibility, can create subs"
+            },
+            {
+              "name": "Expert",
+              "range": "4,000-15,999 karma",
+              "description": "Recognized expert in the community",
+              "benefits": "Special badge, priority in reviews"
+            },
+            {
+              "name": "Mentor",
+              "range": "16,000-39,999 karma",
+              "description": "Respected guide with great influence",
+              "benefits": "Moderation power, higher vote weight"
+            },
+            {
+              "name": "Sage",
+              "range": "40,000-99,999 karma",
+              "description": "Veteran with exceptional contributions",
+              "benefits": "Exclusive badge, voice in important decisions"
+            },
+            {
+              "name": "Legend",
+              "range": "100,000+ karma",
+              "description": "Legendary community leader",
+              "benefits": "All advantages, special recognition"
+            }
+          ]
+        }
+      },
+      "notifications": {
+        "title": "Notification Preferences",
+        "description": "Choose how you want to stay updated",
+        "content": {
+          "heading": "Stay Connected",
+          "subtitle": "Configure your notification preferences",
+          "brief_text": "You'll receive notifications for replies to your posts, mentions, votes and more.",
+          "tip": "💡 You can configure all your notification preferences from your profile at any time.",
+          "email_notifications": "Email Notifications",
+          "email_description": "Receive email updates for important activities",
+          "push_notifications": "Browser Push Notifications",
+          "push_description": "Get instant notifications in your browser",
+          "notification_types": "Notification Types",
+          "types": {
+            "replies": "Replies to my posts and comments",
+            "mentions": "When someone mentions me",
+            "votes": "When my content receives votes",
+            "follows": "When someone follows me",
+            "announcements": "Important platform announcements"
+          },
+          "privacy_note": "You can change these settings anytime in your profile"
+        },
+        "push": {
+          "title": "Push notifications",
+          "description": "Get instant alerts when someone replies or mentions you, even with the browser closed.",
+          "enable_button": "Enable notifications",
+          "enabled": "Notifications enabled",
+          "enabled_description": "You'll receive real-time alerts",
+          "blocked": "Permission blocked",
+          "blocked_description": "You can change this in your browser settings",
+          "not_supported": "Your browser doesn't support push notifications",
+          "what_you_receive": "You'll receive alerts for:",
+          "receive_replies": "Replies to your posts and comments",
+          "receive_mentions": "Mentions ({'@'}your_username)",
+          "receive_achievements": "Achievements unlocked"
+        }
+      },
+      "platform-features": {
+        "title": "Platform Features",
+        "description": "Discover all the tools available to you",
+        "content": {
+          "heading": "Explore {siteName} Features",
+          "subtitle": "Make the most of your experience",
+          "brief_text_1": "{siteName} includes",
+          "brief_text_2": "communities (subs)",
+          "brief_text_3": "saved lists",
+          "brief_text_4": "dark mode",
+          "brief_text_5": ", support for",
+          "brief_text_6": "multiple languages",
+          "brief_text_7": "and much more.",
+          "evolution_text_1": "🚀 We are in",
+          "evolution_text_2": "continuous evolution",
+          "evolution_text_3": "constantly releasing new features.",
+          "tip": "💡 Don't hesitate to explore all the options and customize your experience according to your preferences.",
+          "features": [
+            {
+              "title": "Subs (Communities)",
+              "description": "Join or create specialized communities around specific topics",
+              "icon": "users"
+            },
+            {
+              "title": "Saved Lists",
+              "description": "Save posts to custom lists for later reading and organization",
+              "icon": "bookmark"
+            },
+            {
+              "title": "AI Writing Assistant", 
+              "description": "Get help writing better posts with AI-powered suggestions",
+              "icon": "robot"
+            },
+            {
+              "title": "Mobile App",
+              "description": "Access {siteName} on the go with our mobile-optimized interface",
+              "icon": "mobile"
+            },
+            {
+              "title": "Dark Mode",
+              "description": "Switch between light and dark themes for comfortable browsing",
+              "icon": "moon"
+            },
+            {
+              "title": "Multiple Languages",
+              "description": "Use {siteName} in your preferred language",
+              "icon": "globe"
+            }
+          ],
+          "tips": [
+            "Explore different subs to find communities that interest you",
+            "Use the search function to discover new content",
+            "Check out the trending section for popular posts",
+            "Customize your profile to express your personality"
+          ]
+        }
+      },
+      "completed": {
+        "title": "You're All Set!",
+        "description": "Welcome to the {siteName} community",
+        "content": {
+          "heading": "Welcome to {siteName}!",
+          "subtitle": "You're now ready to start exploring and contributing",
+          "next_steps": [
+            "Create your first post",
+            "Join some interesting subs",
+            "Start engaging with the community",
+            "Customize your profile"
+          ],
+          "cta": "Start Exploring",
+          "support": "Need help? Check out our help center or ask the community!"
+        }
+      }
+    },
+    
+    "actions": {
+      "save_preferences": "Save Preferences",
+      "enable_notifications": "Enable Notifications",
+      "create_first_post": "Create Your First Post",
+      "explore_subs": "Explore Communities",
+      "go_to_dashboard": "Go to Dashboard"
+    },
+    
+    "error": {
+      "complete_step": "Failed to complete onboarding step",
+      "update_preferences": "Failed to update notification preferences", 
+      "skip": "Failed to skip onboarding",
+      "generic": "An error occurred during onboarding"
+    },
+    
+    "success": {
+      "step_completed": "Step completed successfully",
+      "preferences_saved": "Preferences saved successfully",
+      "onboarding_skipped": "Onboarding skipped",
+      "welcome": "Welcome to {siteName}!"
+    },
+    
+    "confirm_skip": "Are you sure you want to skip the onboarding? You'll miss some helpful tips about using {siteName}."
+  }
+}

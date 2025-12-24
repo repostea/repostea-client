@@ -1,0 +1,86 @@
+{
+    "validation":  {
+                       "required":  "El camp {field} és obligatori",
+                       "email":  "Introdueix una adreça de correu vàlida",
+                       "min":  "El camp {field} ha de tenir almenys {min} caràcters",
+                       "max":  "El camp {field} no pot excedir {max} caràcters",
+                       "confirmed":  "La confirmació del camp {field} no coincideix",
+                       "title":  {
+                                     "required":  "El títol és obligatori",
+                                     "min":  "El títol ha de tenir almenys {min} caràcters",
+                                     "max":  "El títol no pot excedir {max} caràcters"
+                                 },
+                       "content":  {
+                                       "required":  "El contingut és obligatori per a publicacions de text"
+                                   },
+                       "url":  {
+                                   "required":  "L'URL és obligatòria",
+                                   "format":  "L'URL ha de començar amb http:// o https://",
+                                   "invalid":  "Si us plau introdueix una URL vàlida",
+                                   "image_invalid":  "L'URL de la imatge no és vàlida o no s'ha pogut carregar"
+                               },
+                       "thumbnail_url":  {
+                                             "format":  "L'URL de la imatge ha de començar amb http:// o https://"
+                                         },
+                       "tags":  {
+                                    "required":  "Selecciona almenys una etiqueta",
+                                    "max":  "Només pots seleccionar fins a {max} etiquetes"
+                                },
+                       "current_password":  {
+                                                "required":  "La contrasenya actual és obligatòria"
+                                            },
+                       "password":  {
+                                        "required":  "La nova contrasenya és obligatòria",
+                                        "min":  "La contrasenya ha de tenir almenys {min} caràcters"
+                                    },
+                       "password_confirmation":  {
+                                                     "required":  "Si us plau confirma la teva nova contrasenya",
+                                                     "match":  "Les contrasenyes no coincideixen"
+                                                 },
+                       "display_name":  {
+                                            "max":  "El nom visible no pot excedir {max} caràcters"
+                                        },
+                       "bio":  {
+                                   "max":  "La biografia no pot excedir {max} caràcters"
+                               },
+                       "avatar_url":  {
+                                          "format":  "Si us plau introdueix una URL vàlida"
+                                      },
+                       "username":  {
+                                        "required":  "El nom d'usuari és obligatori",
+                                        "min":  "El nom d'usuari ha de tenir almenys {min} caràcters",
+                                        "max":  "El nom d'usuari no pot excedir {max} caràcters",
+                                        "format":  "El nom d'usuari només pot contenir lletres, números, guions i guions baixos",
+                                        "reserved":  "Aquest nom d'usuari està reservat i no pot ser utilitzat"
+                                    },
+                       "description": {
+                                        "required": "La descripció és obligatòria",
+                                        "min": "La descripció ha de tenir almenys {min} caràcters",
+                                        "max": "La descripció no pot excedir {max} caràcters"
+                                    },
+                       "ai_prompt": {
+                                        "required": "El prompt d'IA és obligatori",
+                                        "min": "El prompt d'IA ha de tenir almenys {min} caràcters",
+                                        "max": "El prompt d'IA no pot excedir {max} caràcters"
+                                    },
+                       "expected_behavior": {
+                                        "max": "El comportament esperat no pot excedir {max} caràcters"
+                                    },
+                       "technical_constraints": {
+                                        "max": "Les limitacions tècniques no poden excedir {max} caràcters"
+                                    },
+                       "priority": {
+                                        "required": "La prioritat és obligatòria",
+                                        "invalid": "Selecciona una prioritat vàlida"
+                                    },
+                       "author_name": {
+                                        "required": "El nom de l'autor és obligatori per a enviaments efímers",
+                                        "min": "El nom de l'autor ha de tenir almenys {min} caràcters",
+                                        "max": "El nom de l'autor no pot excedir {max} caràcters"
+                                    },
+                       "tag_ids": {
+                                        "required": "Selecciona almenys una etiqueta",
+                                        "max": "Només pots seleccionar fins a {max} etiquetes"
+                                    }
+                   }
+}

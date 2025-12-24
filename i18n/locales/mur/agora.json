@@ -1,0 +1,32 @@
+{
+  "agora": {
+    "title": "Ágorica",
+    "subtitle": "Plazica públiquica de conversaciónica",
+    "description": "Compartico tus pensamienticos y participaico en conversacionicas",
+    "write_placeholder": "¿Qué quieres compartirico en el ágorica?",
+    "write_message": "Escribico un mensajico",
+    "publish": "Publicarico",
+    "reply": "Respondeico",
+    "edit": "Cambiaico",
+    "delete": "Quitarico",
+    "save": "Guardaico",
+    "anonymous": "Anónimico",
+    "recent": "Recienticos",
+    "popular": "Popularicos",
+    "no_messages": "El ágorica te está esperandico",
+    "no_messages_subtitle": "Sei el primerico en iniciarico una conversaciónica illo",
+    "loading": "Cargandico conversacionicas...",
+    "message_created": "Mensajico publicaico correctamentico",
+    "message_deleted": "Mensajico quitaico",
+    "confirm_delete": "¿Seguro que quieres quitarico este mensajico illo?",
+    "replies_count": "{count} respuesticas",
+    "show_replies": "Mostrarico respuesticas",
+    "hide_replies": "Esconderico respuesticas",
+    "view_thread": "Ver hilico",
+    "cta_title": "¡Úneteico a la conversaciónica!",
+    "view_threads": "Hilicos",
+    "view_chronological": "Cronológico",
+    "expires_in": "Expiraico en {time}",
+    "from_last_reply": "desde última respuestica"
+  }
+}

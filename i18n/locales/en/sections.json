@@ -1,0 +1,22 @@
+{
+    "sections":  {
+                     "frontpage":  "Frontpage",
+                     "frontpage_title":  "Frontpage - Popular Posts",
+                     "pending":  "Pending",
+                     "pending_title":  "Pending Posts",
+                     "pending_description":  "Content awaiting votes",
+                     "featured":  "Featured",
+                     "featured_title":  "Featured Posts",
+                     "trending":  "Trending",
+                     "trending_title":  "Trending Posts",
+                     "popular":  "Popular",
+                     "popular_title":  "Popular Posts",
+                     "all":  "All",
+                     "all_title":  "All Posts",
+                     "my_subs":  "My Subs",
+                     "my_subs_title":  "Posts from My Communities",
+                     "my_subs_login_required":  "Please log in to see posts from your communities",
+                     "comments":  "Comments",
+                     "comments_description":  "Explore the latest community comments"
+                 }
+}

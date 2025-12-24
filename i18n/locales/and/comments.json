@@ -1,0 +1,21 @@
+{
+  "comments": {
+    "title": "Comentario",
+    "write": "Escribe un comentario...",
+    "write_comment": "Escribí comentario",
+    "reply": "Responde",
+    "edit": "Cambia",
+    "delete": "Borra",
+    "confirm_delete": "¿Seguro que quiere borrá ehte comentario?",
+    "deleted": "Ehte comentario ha sío borrao.",
+    "edited": "(cambiao)",
+    "show_more": "Enseña má",
+    "show_replies": "Enseña respuehta",
+    "hide_replies": "Esconde respuehta",
+    "no_comments": "Toavía no hay comentario. ¡Se er primero en comentá!",
+    "login_to_comment": "Pa comentá tié que entrá o registrarse",
+    "vote": "voto",
+    "votes": "voto",
+    "posting_as": "Publicando como"
+  }
+}

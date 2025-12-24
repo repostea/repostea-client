@@ -1,0 +1,43 @@
+{
+    "errors": {
+        "bad_request": "Eskaera baliogabea da edo ezin da prozesatu.",
+        "unauthorized": "Saioa hasi behar duzu baliabide honetara sartzeko.",
+        "forbidden": "Ez duzu baimenik baliabide honetara sartzeko.",
+        "not_found": "Eskatutako baliabidea ez da aurkitu.",
+        "validation_error": "Bidalitako datuek erroreak dituzte. Mesedez, berrikusi eta saiatu berriz.",
+        "too_many_requests": "Eskaera gehiegi. Mesedez, itxaron pixka bat eta saiatu berriz.",
+        "server_error": "Barkatu, zerbait gaizki joan da gure zerbitzarietan. Gure taldea jakinarazi da.",
+        "service_unavailable": "Zerbitzua aldi baterako ez dago eskuragarri. Mesedez, saiatu berriz geroago.",
+        "404": {
+            "title": "Orria Ez da Aurkitu",
+            "message": "Bilatzen ari zaren orria ez dago edo mugitu egin da."
+        },
+        "500": {
+            "title": "Zerbitzariaren Errorea",
+            "message": "Barkatu, zerbait gaizki joan da gure zerbitzarietan. Gure taldea jakinarazi da."
+        },
+        "network": {
+            "title": "Sare Errorea",
+            "message": "Ezin izan da zerbitzariarekin konektatu. Mesedez, egiaztatu zure interneteko konexioa."
+        },
+        "generic": {
+            "title": "Errorea",
+            "message": "Ustekabeko errore bat gertatu da. Mesedez, saiatu berriz geroago."
+        },
+        "pageNotFound": "Orria ez da aurkitu",
+        "user_not_found": "Erabiltzailea ez da aurkitu",
+        "user_not_found_message": "Bilatzen ari zaren erabiltzailea ez dago edo ezabatu egin da",
+        "load_notifications_failed": "Errorea jakinarazpenak kargatzean",
+        "mark_all_read_failed": "Errorea jakinarazpen guztiak irakurritatzat markatzean",
+        "delete_notification_failed": "Errorea jakinarazpena ezabatzean"
+    },
+    "maintenance": {
+        "title": "Mantentze-lanak Abian",
+        "message": "Esperientzia hobea eskaintzeko hobekuntzak egiten ari gara. Laster itzuliko gara.",
+        "estimated_time": "Aurreikusitako denbora: minutu batzuk",
+        "check_status": "Egiaztatu Egoera",
+        "checking": "Egiaztatzen...",
+        "auto_refresh": "Orri hau automatikoki eguneratuko da 30 segunduro",
+        "improving": "Plataforma hobetzen ari gara. Eskerrik asko zure pazientziagatik."
+    }
+}

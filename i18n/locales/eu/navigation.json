@@ -1,0 +1,24 @@
+{
+    "navigation":  {
+                       "main_menu": "Menu nagusia",
+                       "home":  "Hasiera",
+                       "pending":  "Zain",
+                       "topics":  "Gaiak",
+                       "subs":  "Subs",
+                       "submit":  "Bidali",
+                       "login":  "Hasi saioa",
+                       "register":  "Erregistratu",
+                       "logout":  "Itxi saioa",
+                       "my_profile":  "Nire profila",
+                       "settings":  "Ezarpenak",
+                       "admin":  "Administrazioa",
+                       "saved_lists":  "Nire Zerrendak",
+                       "actions":  "Gehiago",
+                       "theme":  "Gaia",
+                       "language":  "Hizkuntza",
+                       "back_to_home":  "Hasierara itzuli",
+                       "about": "Proiektuari buruz",
+                       "manifesto": "Adierazpena",
+                       "my_subs": "Nire Subs"
+                   }
+}

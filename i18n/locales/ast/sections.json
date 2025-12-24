@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "frontpage": "Portada",
+    "pending": "Pendientes",
+    "featured": "Destacaos",
+    "popular": "Populares",
+    "all": "Too",
+    "my_subs": "Los mios Subs",
+    "my_subs_login_required": "Aníciala sesión pa ver unvíos de les tos comunidaes",
+    "comments": "Comentarios",
+    "comments_description": "Esplorar los últimos comentarios"
+  }
+}

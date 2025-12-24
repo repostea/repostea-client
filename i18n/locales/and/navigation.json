@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "main_menu": "Menú prinsipá",
+    "home": "Inisio",
+    "submit": "Manda",
+    "login": "Entra",
+    "logout": "Sali",
+    "my_profile": "Mi perfi",
+    "settings": "Configurasión",
+    "admin": "Administrasión",
+    "language": "Palique",
+    "back_to_home": "Vorve ar inisio",
+    "about": "Sobre er Proyerto",
+    "manifesto": "Manifiehto"
+  }
+}

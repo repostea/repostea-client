@@ -1,0 +1,22 @@
+{
+    "sections": {
+        "frontpage": "Portada",
+        "frontpage_title": "Portada - Publicacions Populars",
+        "pending": "Pendents",
+        "pending_title": "Publicacions Pendents",
+        "pending_description": "Contingut pendent de votació",
+        "featured": "Destacats",
+        "featured_title": "Publicacions Destacades",
+        "trending": "Tendència",
+        "trending_title": "Publicacions en Tendència",
+        "popular": "Populars",
+        "popular_title": "Publicacions Populars",
+        "all": "Tots",
+        "all_title": "Totes les Publicacions",
+        "my_subs": "Els meus Subs",
+        "my_subs_title": "Publicacions de les Meves Comunitats",
+        "my_subs_login_required": "Inicia sessió per veure publicacions de les teves comunitats",
+        "comments": "Comentaris",
+        "comments_description": "Explora els últims comentaris de la comunitat"
+    }
+}

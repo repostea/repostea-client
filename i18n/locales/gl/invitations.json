@@ -1,0 +1,23 @@
+{
+  "invitations": {
+    "title": "Invitacións",
+    "description": "Xestiona os teus códigos de invitación para convidar novos membros á comunidade.",
+    "create": "Crear Invitación",
+    "my_invitations": "As miñas Invitacións",
+    "used": "Usadas",
+    "remaining": "Dispoñibles",
+    "limit": "Límite",
+    "uses": "Usos",
+    "created": "Creada",
+    "expires": "Caduca",
+    "inactive": "Inactiva",
+    "used_up": "Esgotada",
+    "copy_link": "Copiar ligazón de invitación",
+    "delete": "Eliminar invitación",
+    "confirm_delete": "Estás seguro de que queres eliminar esta invitación?",
+    "no_invitations": "Aínda non creaches ningunha invitación",
+    "link_copied": "Ligazón de invitación copiada ao portapapeis!",
+    "error_creating": "Erro ao crear a invitación",
+    "error_deleting": "Erro ao eliminar a invitación"
+  }
+}

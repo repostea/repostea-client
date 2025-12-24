@@ -1,0 +1,86 @@
+{
+    "validation":  {
+                       "required":  "El campo {field} es obligatorio",
+                       "email":  "Introduce una dirección de correo válida",
+                       "min":  "El campo {field} debe tener al menos {min} caracteres",
+                       "max":  "El campo {field} no puede exceder {max} caracteres",
+                       "confirmed":  "La confirmación del campo {field} no coincide",
+                       "title":  {
+                                     "required":  "El título es obligatorio",
+                                     "min":  "El título debe tener al menos {min} caracteres",
+                                     "max":  "El título no puede exceder {max} caracteres"
+                                 },
+                       "content":  {
+                                       "required":  "El contenido es obligatorio para publicaciones de texto"
+                                   },
+                       "url":  {
+                                   "required":  "La URL es obligatoria",
+                                   "format":  "La URL debe comenzar con http:// o https://",
+                                   "invalid":  "Por favor introduce una URL válida",
+                                   "image_invalid":  "La URL de la imagen no es válida o no se pudo cargar"
+                               },
+                       "thumbnail_url":  {
+                                             "format":  "La URL de la imagen debe comenzar con http:// o https://"
+                                         },
+                       "tags":  {
+                                    "required":  "Selecciona al menos una etiqueta",
+                                    "max":  "Solo puedes seleccionar hasta {max} etiquetas"
+                                },
+                       "current_password":  {
+                                                "required":  "La contraseña actual es obligatoria"
+                                            },
+                       "password":  {
+                                        "required":  "La nueva contraseña es obligatoria",
+                                        "min":  "La contraseña debe tener al menos {min} caracteres"
+                                    },
+                       "password_confirmation":  {
+                                                     "required":  "Por favor confirma tu nueva contraseña",
+                                                     "match":  "Las contraseñas no coinciden"
+                                                 },
+                       "display_name":  {
+                                            "max":  "El nombre visible no puede exceder {max} caracteres"
+                                        },
+                       "bio":  {
+                                   "max":  "La biografía no puede exceder {max} caracteres"
+                               },
+                       "avatar_url":  {
+                                          "format":  "Por favor introduce una URL válida"
+                                      },
+                       "username":  {
+                                        "required":  "El nombre de usuario es obligatorio",
+                                        "min":  "El nombre de usuario debe tener al menos {min} caracteres",
+                                        "max":  "El nombre de usuario no puede exceder {max} caracteres",
+                                        "format":  "El nombre de usuario solo puede contener letras, números, guiones y guiones bajos",
+                                        "reserved":  "Este nombre de usuario está reservado y no puede ser utilizado"
+                                    },
+                       "description": {
+                                        "required": "La descripción es obligatoria",
+                                        "min": "La descripción debe tener al menos {min} caracteres",
+                                        "max": "La descripción no puede exceder {max} caracteres"
+                                    },
+                       "ai_prompt": {
+                                        "required": "El prompt de IA es obligatorio",
+                                        "min": "El prompt de IA debe tener al menos {min} caracteres",
+                                        "max": "El prompt de IA no puede exceder {max} caracteres"
+                                    },
+                       "expected_behavior": {
+                                        "max": "El comportamiento esperado no puede exceder {max} caracteres"
+                                    },
+                       "technical_constraints": {
+                                        "max": "Las limitaciones técnicas no pueden exceder {max} caracteres"
+                                    },
+                       "priority": {
+                                        "required": "La prioridad es obligatoria",
+                                        "invalid": "Selecciona una prioridad válida"
+                                    },
+                       "author_name": {
+                                        "required": "El nombre del autor es obligatorio para envíos efímeros",
+                                        "min": "El nombre del autor debe tener al menos {min} caracteres",
+                                        "max": "El nombre del autor no puede exceder {max} caracteres"
+                                    },
+                       "tag_ids": {
+                                        "required": "Selecciona al menos una etiqueta",
+                                        "max": "Solo puedes seleccionar hasta {max} etiquetas"
+                                    }
+                   }
+}

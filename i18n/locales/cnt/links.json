@@ -1,0 +1,15 @@
+{
+  "links": {
+    "title": "Enlaces",
+    "already_voted": "Ya has votáu esti enlace",
+    "published": "Publicáus",
+    "popular": "Popularis",
+    "recent": "Recientis",
+    "most_visited": "Más visitáus",
+    "most_valued": "Más valoráus",
+    "most_commented": "Más comentáus",
+    "no_links": "Nu s'alcuentran enlaces",
+    "pending": "Pendientis",
+    "visits": "visitas"
+  }
+}

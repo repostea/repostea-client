@@ -1,0 +1,25 @@
+{
+  "help": {
+    "title": "Help",
+    "subtitle": "Learn how to use the platform and find answers to your questions",
+    "onboarding": {
+      "title": "Platform Tutorial",
+      "description": "Review the interactive tutorial that explains how to use all of {siteName}' features. Perfect for refreshing your memory or if you skipped the initial tutorial.",
+      "start_button": "Start tutorial"
+    },
+    "karma": {
+      "title": "Karma System",
+      "description": "Discover how the karma system works, how to earn it, and why it's important for the community.",
+      "learn_more": "Learn more"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Find quick answers to the most common questions about the platform.",
+      "view_button": "View FAQ"
+    },
+    "guides": {
+      "title": "Guides and Documentation",
+      "coming_soon": "Coming soon: Detailed guides on how to get the most out of {siteName}."
+    }
+  }
+}

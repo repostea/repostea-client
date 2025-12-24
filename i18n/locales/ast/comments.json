@@ -1,0 +1,20 @@
+{
+  "comments": {
+    "title": "Comentarios",
+    "write": "Escribe un comentariu...",
+    "write_comment": "Escribir comentariu",
+    "reply": "Responder",
+    "edit": "Editar",
+    "delete": "Desaniciar",
+    "confirm_delete": "¿De xuru que quies desaniciar esti comentariu?",
+    "deleted": "Esti comentariu foi desaniciáu.",
+    "edited": "(editáu)",
+    "show_more": "Amosar más",
+    "show_replies": "Amosar rempuestes",
+    "hide_replies": "Anubrir rempuestes",
+    "no_comments": "Entá nun hai comentarios. ¡Sé'l primeru en comentar!",
+    "login_to_comment": "Pa comentar tienes qu'aniciar sesión o rexistrate",
+    "vote": "votu",
+    "posting_as": "Publicando como"
+  }
+}

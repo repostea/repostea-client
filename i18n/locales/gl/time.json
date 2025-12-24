@@ -1,0 +1,11 @@
+{
+    "time":  {
+                 "just_now":  "agora mesmo",
+                 "minutes_ago":  "hai {count} minuto | hai {count} minutos",
+                 "hours_ago":  "hai {count} hora | hai {count} horas",
+                 "days_ago":  "hai {count} día | hai {count} días",
+                 "today":  "Hoxe",
+                 "yesterday":  "Onte",
+                 "weeks_ago":  "hai {weeks} semana | hai {weeks} semanas"
+             }
+}

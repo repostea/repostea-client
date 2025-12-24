@@ -1,0 +1,28 @@
+{
+  "errors": {
+    "bad_request": "La petición no vale mijo.",
+    "unauthorized": "Tienes que entrar pa ver esto mijo.",
+    "forbidden": "No tienes permiso pa ver esto mijo.",
+    "not_found": "Esto no se encuentra mijo.",
+    "too_many_requests": "Para quieto mijo! Espérate un rato.",
+    "server_error": "Aro mijo, algo ha salío mal.",
+    "404": {
+      "title": "Página No Encontrá",
+      "message": "La página que buscas no existe mijo."
+    },
+    "500": {
+      "title": "Error del Servidor",
+      "message": "Aro mijo, algo ha salío mal."
+    },
+    "generic": {
+      "title": "Error",
+      "message": "Ha pasao algo raro mijo. Prueba luego."
+    },
+    "pageNotFound": "Página no encontrá mijo",
+    "user_not_found": "Usuario no encontrao mijo"
+  },
+  "maintenance": {
+    "title": "Mantenimiento",
+    "message": "Estamos mejorando mijo. Volvemos pronto."
+  }
+}

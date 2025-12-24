@@ -1,0 +1,18 @@
+{
+  "posts": {
+    "seen_on": "Visto en",
+    "confirm_delete": "¿Yes seguro que quiers borrar iste ninvío?",
+    "delete_success": "Ninvío borrau correctament",
+    "vote": "voto",
+    "voted": "votau",
+    "vote_success": "Voto ninviato!",
+    "type_article": "Articlo",
+    "publish": "Publicar",
+    "draft_saved": "Borrador alzau",
+    "be_first_comment": "Compartir a tuya opinión y sía o primero en comentar",
+    "level_0": "Sía o primero en comentar",
+    "visited": "Visitau",
+    "nsfw_warning_title": "Conteníu ta adultos",
+    "nsfw_go_back": "Tornar dezaga"
+  }
+}

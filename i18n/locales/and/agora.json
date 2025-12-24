@@ -1,0 +1,32 @@
+{
+  "agora": {
+    "title": "Ágora",
+    "subtitle": "Plasa públiqua de conversasión",
+    "description": "Comparte tus pensamientos y participa en conversasione",
+    "write_placeholder": "¿Qué quiere compartí en er ágora?",
+    "write_message": "Escribí un mensahe",
+    "publish": "Publica",
+    "reply": "Responde",
+    "edit": "Cambia",
+    "delete": "Borra",
+    "save": "Guarda",
+    "anonymous": "Anónimo",
+    "recent": "Resiente",
+    "popular": "Populare",
+    "no_messages": "Er ágora te ehta esperando",
+    "no_messages_subtitle": "Se er primero en empesá una conversasión quillo",
+    "loading": "Cargando conversasione...",
+    "message_created": "Mensahe publicao correctamente",
+    "message_deleted": "Mensahe borrao",
+    "confirm_delete": "¿Seguro que quiere borrá ehte mensahe?",
+    "replies_count": "{count} respuehta",
+    "show_replies": "Enseña respuehta",
+    "hide_replies": "Esconde respuehta",
+    "view_thread": "Ve hilo",
+    "cta_title": "¡Únete a la conversasión!",
+    "view_threads": "Hilo",
+    "view_chronological": "Cronológico",
+    "expires_in": "Expira en {time}",
+    "from_last_reply": "desde última respuehta"
+  }
+}

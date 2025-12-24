@@ -1,0 +1,47 @@
+{
+    "vote":  {
+                 "upvote":  "Upvote",
+                 "downvote":  "Downvote",
+                 "positive_vote":  "Positive vote",
+                 "negative_vote":  "Negative vote",
+                 "select_reason":  "Select a reason for your vote",
+                 "reason_help_text":  "This will help other users understand why you valued this content",
+                 "will_appear_in_summary":  "Will appear in the vote summary",
+                 "stats":  {
+                               "title":  "Vote statistics",
+                               "positive":  "Positive votes",
+                               "negative":  "Negative votes"
+                           },
+                 "show_stats": "Show vote details",
+                 "hide_stats": "Hide vote details",
+                 "types":  {
+                               "didactic":  "Educational",
+                               "interesting":  "Interesting",
+                               "elaborate":  "Detailed",
+                               "funny":  "Funny",
+                               "false":  "Incorrect",
+                               "incomplete":  "Incomplete",
+                               "irrelevant":  "Irrelevant",
+                               "outofplace":  "Out of place"
+                           },
+                 "already_voted":  "You have already voted for this post",
+                 "updated":  "Vote updated",
+                 "registered":  "Vote registered",
+                 "removed":  "Vote removed",
+                 "invalid_type":  "The vote type provided is not valid. Allowed types: {types}",
+                 "polls":  {
+                               "expired":  "This poll has expired",
+                               "vote":  "vote",
+                               "votes":  "votes",
+                               "submit_vote":  "Submit Vote",
+                               "remove_vote":  "Remove Vote",
+                               "show_results":  "Show Results",
+                               "back_to_vote":  "Back to Vote",
+                               "total_votes":  "Total votes: {count}",
+                               "multiple_options_allowed":  "Multiple options allowed",
+                               "load_error":  "Error loading poll results",
+                               "vote_error":  "Error submitting vote",
+                               "remove_vote_error":  "Error removing vote"
+                           }
+             }
+}

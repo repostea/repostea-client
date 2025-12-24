@@ -1,0 +1,15 @@
+{
+  "subs": {
+    "explore_title": "Explorar Subs",
+    "featured": "Destacáus",
+    "popular": "Popularis",
+    "all": "Tó",
+    "my_subs": "Los mieus Subs",
+    "members": "miembrus",
+    "posts": "publicacionis",
+    "comments": "comentarucos",
+    "join": "Unirse",
+    "leave": "Abandonar",
+    "no_subs_found": "Nu s'alcuentran subs"
+  }
+}

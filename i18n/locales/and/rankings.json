@@ -1,0 +1,24 @@
+{
+  "rankings": {
+    "title": "Rankingeh",
+    "subtitle": "Dehcubre a loh contribuidoreh máh dehtacaoh de nuehra comunidá",
+    "karma_points": "puntoh de karma",
+    "posts": "publicasioneh",
+    "comments": "comentarioh",
+    "days_streak": "díah de racha",
+    "achievements": "logroh",
+    "no_data": "No hay datoh disponibleh pa ehte ranking",
+    "categories": {
+      "posts": "Publicasioneh",
+      "comments": "Comentarioh",
+      "streaks": "Rachah",
+      "achievements": "Logroh"
+    },
+    "timeframes": {
+      "all_time": "Tó er Tiempo",
+      "this_month": "Ehte Meh",
+      "this_week": "Ehta Semana",
+      "today": "Hoy"
+    }
+  }
+}

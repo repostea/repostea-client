@@ -1,0 +1,17 @@
+{
+  "posts": {
+    "seen_on": "Vistu en",
+    "confirm_delete": "¿Seguru que quieris borrar esti envíu?",
+    "delete_success": "Envíu borráu correctamenti",
+    "vote": "votu",
+    "voted": "votáu",
+    "votes": "votus",
+    "vote_success": "Votu mandáu!",
+    "draft_saved": "Borrador guardáu",
+    "be_first_comment": "Compartir tu opinión y sei el primeru en comentar",
+    "level_0": "Sei el primeru en comentar",
+    "visited": "Visitáu",
+    "nsfw_warning_title": "Conteníu pa adultus",
+    "nsfw_go_back": "Volver atrás"
+  }
+}

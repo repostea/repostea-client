@@ -1,0 +1,29 @@
+{
+  "agora": {
+    "title": "Ágora",
+    "subtitle": "Plaza pública de conversación",
+    "description": "Compartir los tos pensamientos y participar en conversaciones",
+    "write_placeholder": "¿Qué quies compartir nel ágora?",
+    "publish": "Espublizar",
+    "reply": "Responder",
+    "edit": "Editar",
+    "delete": "Desaniciar",
+    "save": "Guardar",
+    "anonymous": "Anónimu",
+    "recent": "Recientes",
+    "popular": "Populares",
+    "no_messages": "L'ágora ta esperándote",
+    "no_messages_subtitle": "Sé'l primeru n'aniciar una conversación",
+    "loading": "Cargando conversaciones...",
+    "message_created": "Mensaxe espublizáu correutamente",
+    "message_deleted": "Mensaxe desaniciáu",
+    "confirm_delete": "¿De xuru que quies desaniciar esti mensaxe?",
+    "replies_count": "{count} rempuestes",
+    "show_replies": "Amosar rempuestes",
+    "hide_replies": "Anubrir rempuestes",
+    "view_thread": "Ver filu",
+    "cta_title": "¡Xúnite a la conversación!",
+    "view_threads": "Filos",
+    "view_chronological": "Cronolóxicu"
+  }
+}

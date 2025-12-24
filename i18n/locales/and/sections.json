@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "frontpage": "Portá",
+    "pending": "Pendiente",
+    "featured": "Dehtacao",
+    "trending": "En tendencia",
+    "popular": "Populare",
+    "all": "Tó",
+    "my_subs": "Mis Sub",
+    "my_subs_login_required": "Entra pa ve envío de tus comunidá",
+    "comments": "Comentario",
+    "comments_description": "Explora lo último comentario"
+  }
+}

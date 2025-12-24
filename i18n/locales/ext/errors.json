@@ -1,0 +1,33 @@
+{
+  "errors": {
+    "bad_request": "La petiçión nu vali.",
+    "unauthorized": "Tiés que entral pa vel estu.",
+    "forbidden": "Nu tiés permisu pa vel estu.",
+    "not_found": "Estu nu s'alcuentra.",
+    "too_many_requests": "Para quietu! Espérati un ratu.",
+    "server_error": "Oju, argu ha salíu mal. Ya estamus mirándulu.",
+    "service_unavailable": "Estu nu está funcionandu ahora. Prueba despuéh.",
+    "404": {
+      "title": "Página Nu Alcuentrá",
+      "message": "La página que buscas nu existi u s'ha movíu."
+    },
+    "500": {
+      "title": "Errol del Servidol",
+      "message": "Oju, argu ha salíu mal."
+    },
+    "network": {
+      "title": "Errol de Rél",
+      "message": "Nu se pué conectal al servidol. Mira tu conexión."
+    },
+    "generic": {
+      "title": "Errol",
+      "message": "Ha pasau argu raru. Prueba despuéh."
+    },
+    "pageNotFound": "Página nu alcuentrá",
+    "user_not_found": "Usuariu nu alcuentrau"
+  },
+  "maintenance": {
+    "title": "Mantenimientu",
+    "message": "Estamus mejorandu la cosa. Volvimus prontu."
+  }
+}

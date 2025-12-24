@@ -1,0 +1,16 @@
+{
+    "tags":  {
+                 "title":  "Temes",
+                 "popular":  "Temes populars",
+                 "about":  "Sobre els temes",
+                 "about_text":  "Els temes (o etiquetes) ajuden a categoritzar els enllaços. Cada enllaç pot tenir múltiples temes associats.",
+                 "related":  "Temes relacionats",
+                 "all":  "Tots els temes",
+                 "search":  "Cercar temes",
+                 "usage_text":  "Pots afegir temes en enviar enllaços per ajudar a altres a trobar el teu contingut",
+                 "no_results":  "No s'han trobat temes que coincideixin amb la teva cerca",
+                 "tag": "Tema",
+                 "posts_tagged": "Posts amb #{tag}",
+                 "seo_description": "Explora contingut relacionat amb #{tag} a {app}. Descobreix {count} publicacions i enllaços."
+             }
+}

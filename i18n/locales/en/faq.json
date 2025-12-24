@@ -1,0 +1,8 @@
+{
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to the most common questions about using the platform",
+    "error_loading": "Error loading FAQs. Please try again later.",
+    "meta_description": "Frequently asked questions about karma, seals, voting, posts and lists on our platform"
+  }
+}

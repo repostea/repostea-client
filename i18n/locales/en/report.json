@@ -1,0 +1,342 @@
+{
+  "report": {
+    "title": "Report content",
+    "page_description": "Report content that violates our policies or copyright",
+    "description": {
+      "label": "Problem description",
+      "placeholder": "Describe in detail the problem with this content...",
+      "help": "Provide all relevant details about why you are reporting this content"
+    },
+    "button_title": "Report this content",
+    "submit": "Submit report",
+    "submitting": "Submitting...",
+    "legal_first": {
+      "title": "Is it a legal matter?",
+      "description": "If it's about copyright (DMCA), illegal content, or legal issues, use the formal legal report.",
+      "button": "Formal legal report"
+    },
+    "type": {
+      "label": "Report type",
+      "select": "Select the type of problem",
+      "copyright": "Copyright violation",
+      "illegal": "Illegal content",
+      "harassment": "Harassment or intimidation",
+      "privacy": "Privacy violation",
+      "spam": "Spam or unwanted content",
+      "other": "Other issue"
+    },
+    "url": {
+      "label": "Content URL",
+      "help": "Direct link to the content you want to report"
+    },
+    "reporter": {
+      "title": "Reporter information",
+      "name": "Full name",
+      "email": "Email address",
+      "organization": "Organization (optional)"
+    },
+    "copyright": {
+      "title": "Copyright information",
+      "original_url": "Original content URL",
+      "ownership": "Proof of ownership",
+      "ownership_placeholder": "Explain how you own or are authorized to represent this content..."
+    },
+    "legal": {
+      "title": "Legal declarations",
+      "good_faith": "I declare under penalty of perjury that this report is made in good faith and that all information provided is accurate and truthful",
+      "authorized": "I am authorized to act on behalf of the owner of the exclusive rights that have allegedly been infringed"
+    },
+    "privacy": {
+      "title": "Personal data protection",
+      "description": "Personal data provided in this form will be used exclusively to process your report and contact you if necessary. We comply with GDPR and will not share your information with third parties without your consent."
+    },
+    "success": {
+      "title": "Report submitted successfully",
+      "description": "Your report has been received and will be reviewed by our team. We will contact you if we need more information.",
+      "next_steps": {
+        "title": "Next steps",
+        "review": {
+          "title": "Report review",
+          "description": "Our team will review your report within 24-48 business hours."
+        },
+        "contact": {
+          "title": "Additional contact",
+          "description": "We will contact you by email if we need additional information."
+        },
+        "action": {
+          "title": "Action taken",
+          "description": "If the violation is confirmed, we will take appropriate action according to our policies."
+        }
+      },
+      "reference": {
+        "title": "Reference number",
+        "description": "Save this number to track your report",
+        "check_status": "Check report status"
+      },
+      "actions": {
+        "home": "Back to home",
+        "policies": "View policies"
+      },
+      "contact": {
+        "description": "Have questions about your report? Contact us:"
+      }
+    },
+    "quick": {
+      "title": "Moderation report",
+      "description": "Or report for community guidelines non-compliance:",
+      "detailed": "Detailed legal report",
+      "additional_details": "Additional details",
+      "details_placeholder": "Add additional information if you wish (optional)..."
+    },
+    "reasons": {
+      "spam": "Spam",
+      "inappropriate": "Inappropriate",
+      "harassment": "Harassment",
+      "misinformation": "Misinformation",
+      "hate_speech": "Hate speech",
+      "violence": "Violence"
+    },
+    "report_singular": "report",
+    "report_plural": "reports",
+    "success_quick": "Moderation report submitted. Thank you for helping us maintain the community.",
+    "error_quick": "Error submitting report. Please try again.",
+    "withdraw_confirm_title": "Withdraw report?",
+    "withdraw_confirm_message": "Are you sure you want to withdraw your report? This action cannot be undone.",
+    "withdraw_confirm": "Yes, withdraw",
+    "withdraw_success": "Report withdrawn successfully.",
+    "withdraw_error": "Error withdrawing report. Please try again.",
+    "own_content_title": "This is your own content",
+    "own_content_message": "You cannot report your own content. If you want to delete it, you can do so from the edit options.",
+    "status": {
+      "title": "Report Status",
+      "description": "Check the status of your report by entering the reference number and your email address",
+      "reference_number": "Reference number",
+      "email": "Email address",
+      "email_help": "Must be the same email you used when submitting the report",
+      "check_button": "Check status",
+      "checking": "Checking...",
+      "report_details": "Report details",
+      "type": "Report type",
+      "current_status": "Current status",
+      "submitted_at": "Submitted at",
+      "reviewed_at": "Reviewed at",
+      "team_response": "Team response",
+      "check_another": "Check another report",
+      "error": "Unable to check report status. Please verify that the reference number and email are correct.",
+      "statuses": {
+        "pending": "Pending review",
+        "under_review": "Under review",
+        "resolved": "Resolved",
+        "rejected": "Rejected"
+      }
+    }
+  },
+  "policies": {
+    "dmca": {
+      "title": "DMCA Policy and Reports",
+      "description": "Information on how to report copyright violations and other problematic content",
+      "summary": {
+        "title": "Summary",
+        "description": "{siteName} respects intellectual property rights and complies with the Digital Millennium Copyright Act (DMCA). If you believe your copyrighted content has been used without authorization, you can submit a DMCA notification.",
+        "important": "Important",
+        "important_text": "False DMCA notifications can have legal consequences. Only submit a notification if you truly believe your rights have been infringed."
+      },
+      "report": {
+        "title": "How to report content?",
+        "button": "Submit a report",
+        "copyright": {
+          "title": "Copyright",
+          "text": "Copyrighted content used without permission",
+          "images": "Images, photos or illustrations",
+          "videos": "Videos or audiovisual content",
+          "documents": "Texts, articles or documents"
+        },
+        "legal": {
+          "title": "Legal issues",
+          "illegal": "Illegal content or content promoting illegal activities",
+          "harassment": "Harassment, intimidation or threats",
+          "privacy": "Privacy violation or personal data",
+          "spam": "Spam or unwanted commercial content"
+        }
+      },
+      "process": {
+        "title": "Report handling process",
+        "step1": {
+          "title": "Report reception",
+          "description": "We receive and review your report within 24-48 business hours."
+        },
+        "step2": {
+          "title": "Initial evaluation",
+          "description": "Our team evaluates the validity of the report and the evidence provided."
+        },
+        "step3": {
+          "title": "Investigation",
+          "description": "If necessary, we contact the user responsible for the content for their response."
+        },
+        "step4": {
+          "title": "Resolution",
+          "description": "We take action according to our policies: removal, warning, or rejection of the report."
+        }
+      },
+      "requirements": {
+        "title": "Required information",
+        "warning": {
+          "title": "Legal warning",
+          "description": "Providing false information in a DMCA report may constitute perjury and have legal consequences."
+        },
+        "personal": {
+          "title": "Personal information",
+          "name": "Full name and contact details",
+          "contact": "Valid email address",
+          "signature": "Physical or electronic signature"
+        },
+        "content": {
+          "title": "Content information",
+          "url": "Exact URL of the infringing content",
+          "description": "Specific description of the protected material",
+          "ownership": "Proof of ownership or authorization"
+        }
+      },
+      "contact": {
+        "title": "Contact",
+        "agent": {
+          "title": "Designated DMCA agent"
+        },
+        "emergency": {
+          "title": "Emergency contact",
+          "description": "For urgent cases requiring immediate attention:"
+        }
+      },
+      "counter": {
+        "title": "Counter-notifications",
+        "description": "If you believe your content was removed in error, you can submit a DMCA counter-notification. However, this process has serious legal implications.",
+        "note": "Important note",
+        "note_text": "Counter-notifications must also comply with specific legal requirements and may result in legal action."
+      }
+    }
+  },
+  "legal": {
+    "cookies": {
+      "banner": {
+        "title": "We use cookies",
+        "description": "We use cookies to improve your browsing experience and offer personalized content. Only essential cookies are mandatory.",
+        "accept_all": "Accept all",
+        "reject_all": "Reject all",
+        "customize": "Customize",
+        "show_details": "Show details",
+        "hide_details": "Hide details",
+        "learn_more": "Learn more about cookies",
+        "essential": {
+          "title": "Essential cookies",
+          "description": "Necessary for basic site functionality"
+        },
+        "analytics": {
+          "title": "Analytics cookies",
+          "description": "Help us understand how you use the site to improve it"
+        },
+        "functional": {
+          "title": "Functional cookies",
+          "description": "Enhance your experience with additional functionality"
+        }
+      },
+      "customize": {
+        "title": "Customize cookies",
+        "save": "Save preferences",
+        "essential": {
+          "title": "Essential cookies",
+          "description": "These cookies are necessary for the basic functionality of the website and cannot be disabled.",
+          "required": "Always active (required)"
+        },
+        "analytics": {
+          "title": "Analytics cookies",
+          "description": "These cookies help us understand how visitors interact with the website by collecting and reporting information anonymously.",
+          "optional": "Optional - you can disable"
+        },
+        "functional": {
+          "title": "Functional cookies",
+          "description": "These cookies enable the website to provide enhanced functionality and personalization.",
+          "optional": "Optional - you can disable"
+        }
+      }
+    }
+  },
+  "transparency": {
+    "title": "Transparency",
+    "description": "Information about how we moderate content and handle reports",
+    "stats": {
+      "title": "General statistics",
+      "posts": "Total posts",
+      "users": "Active users",
+      "comments": "Comments",
+      "sources": "Aggregated sources"
+    },
+    "moderation": {
+      "title": "Moderation and reports",
+      "reports": {
+        "title": "Reports received",
+        "received": "Total received",
+        "processed": "Processed",
+        "pending": "Pending",
+        "avg_response": "Average response time"
+      },
+      "actions": {
+        "title": "Actions taken",
+        "content_removed": "Content removed",
+        "warnings": "Warnings sent",
+        "users_suspended": "Users suspended",
+        "appeals": "Appeals processed"
+      }
+    },
+    "report_types": {
+      "title": "Report types",
+      "last_30_days": "Last 30 days",
+      "spam": "Spam",
+      "copyright": "Copyright",
+      "harassment": "Harassment",
+      "illegal": "Illegal content",
+      "privacy": "Privacy",
+      "other": "Other"
+    },
+    "sources": {
+      "title": "Content sources",
+      "description": "Websites from which we automatically aggregate content, always respecting their terms of service and policies.",
+      "items_this_month": "Articles this month",
+      "last_update": "Last update"
+    },
+    "commitments": {
+      "title": "Our commitments",
+      "privacy": {
+        "title": "Privacy",
+        "no_tracking": "No invasive user tracking",
+        "no_ads": "No targeted or personalized advertising",
+        "data_minimal": "Minimal personal data collection",
+        "open_source": "Open source and transparent code"
+      },
+      "quality": {
+        "title": "Content quality",
+        "human_moderation": "Human moderation, not just automated",
+        "fast_response": "Fast response to reports (< 48h)",
+        "appeals_process": "Clear appeals process",
+        "transparency_reports": "Regular transparency reports"
+      }
+    },
+    "contact": {
+      "title": "How to contact us",
+      "reports": {
+        "title": "Report content",
+        "description": "To report problematic content or policy violations",
+        "button": "Submit report"
+      },
+      "general": {
+        "title": "General inquiries",
+        "description": "For questions about policies, operations, or suggestions",
+        "button": "Contact by email"
+      },
+      "community": {
+        "title": "Community",
+        "description": "To join the community and receive updates",
+        "button": "Join Telegram"
+      }
+    }
+  }
+}

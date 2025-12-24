@@ -1,0 +1,21 @@
+{
+  "comments": {
+    "title": "Comentarius",
+    "write": "Escribil un comentariu...",
+    "write_comment": "Escribil comentariu",
+    "reply": "Respondel",
+    "edit": "Cambial",
+    "delete": "Borral",
+    "confirm_delete": "¿Seguru que quieris borral esti comentariu?",
+    "deleted": "Esti comentariu ha síu borrau.",
+    "edited": "(cambiau)",
+    "show_more": "Mohtral más",
+    "show_replies": "Mohtral rehpuehtas",
+    "hide_replies": "Escondel rehpuehtas",
+    "no_comments": "Entavía nu hay comentarius. ¡Sei el primeru en comental!",
+    "login_to_comment": "Pa comental tié que entral u registrasi",
+    "vote": "votu",
+    "votes": "votus",
+    "posting_as": "Publicandu comu"
+  }
+}

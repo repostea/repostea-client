@@ -1,0 +1,15 @@
+{
+  "language": {
+    "available": "Hizkuntza erabilgarriak",
+    "coming_soon": "Laster",
+    "soon": "Laster",
+    "stats": {
+      "available": "Erabilgarriak",
+      "coverage": "Estaldura"
+    },
+    "help": {
+      "description": "Beste hizkuntza bat hitz egiten duzu? Lagundu {siteName} itzultzen.",
+      "contact": "Jarri harremanetan itzultzeko"
+    }
+  }
+}

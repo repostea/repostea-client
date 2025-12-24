@@ -1,0 +1,24 @@
+{
+  "rankings": {
+    "title": "Rankings",
+    "subtitle": "Descubre a los contribuidores más destacaos de la nuestra comunidá",
+    "karma_points": "puntos de karma",
+    "posts": "publicaciones",
+    "comments": "comentarios",
+    "days_streak": "díes de racha",
+    "achievements": "llogros",
+    "no_data": "Nun hai datos disponibles pa esti ranking",
+    "categories": {
+      "posts": "Publicaciones",
+      "comments": "Comentarios",
+      "streaks": "Raches",
+      "achievements": "Llogros"
+    },
+    "timeframes": {
+      "all_time": "Tol Tiempu",
+      "this_month": "Esti Mes",
+      "this_week": "Esta Selmana",
+      "today": "Güei"
+    }
+  }
+}

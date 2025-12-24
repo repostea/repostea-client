@@ -1,0 +1,22 @@
+{
+    "sections": {
+        "frontpage": "Hasiera",
+        "frontpage_title": "Hasiera - Argitalpen Ezagunak",
+        "pending": "Zain",
+        "pending_title": "Argitalpen Zain daudenak",
+        "pending_description": "Bozketarako zain dagoen edukia",
+        "featured": "Nabarmenduak",
+        "featured_title": "Argitalpen Nabarmenduak",
+        "trending": "Joera",
+        "trending_title": "Joeran dauden Argitalpenak",
+        "popular": "Ezagunak",
+        "popular_title": "Argitalpen Ezagunak",
+        "all": "Guztiak",
+        "all_title": "Argitalpen Guztiak",
+        "my_subs": "Nire Subak",
+        "my_subs_title": "Nire Komunitateen Argitalpenak",
+        "my_subs_login_required": "Hasi saioa zure komunitateen argitalpenak ikusteko",
+        "comments": "Iruzkinak",
+        "comments_description": "Esploratu komunitatearen azken iruzkinak"
+    }
+}

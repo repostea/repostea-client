@@ -1,0 +1,206 @@
+{
+  "legal": {
+    "dsa": {
+      "title": "DSA Betetzea (Zerbitzu Digitalen Legea)",
+      "description": "Europar Batasuneko Zerbitzu Digitalen Legearen betetzeari buruzko informazioa",
+      "general": {
+        "title": "DSA informazio orokorra",
+        "description": "{siteName}ek Europar Batasuneko Zerbitzu Digitalen Legea (DSA) betetzen du, erabiltzaileen arteko informazio-trukea errazten duen bitarteko plataforma gisa.",
+        "status": "Betetze egoera",
+        "status_value": "Betetze aktiboa 2024ko otsailetik",
+        "establishment": "Kokaleku",
+        "establishment_value": "Espainia, Europar Batasuna"
+      },
+      "representative": {
+        "title": "Legezko ordezkaria",
+        "legal": {
+          "title": "EBko legezko ordezkaria",
+          "description": "EBko agintarientzako izendatutako kontaktu juridikoa:",
+          "name": "Izena",
+          "email": "Emaila",
+          "address": "Helbidea"
+        },
+        "dpo": {
+          "title": "Datuen Babesaren Ordezkaria",
+          "description": "Datuen babesarekin lotutako gaietarako kontaktua:",
+          "contact": "Kontaktua",
+          "language": "Hizkuntzak",
+          "language_value": "Gaztelania, Ingelesa"
+        }
+      },
+      "moderation": {
+        "title": "Edukien moderazio sistemak",
+        "mechanisms": {
+          "title": "Inplementatutako mekanismoak",
+          "reporting": {
+            "title": "Salaketa sistema",
+            "description": "Zerbitzu-baldintzak urratzen dituen eduki ilegala edo edukia salatzeko formulario eskuragarria"
+          },
+          "automated": {
+            "title": "Moderazio automatizatua",
+            "description": "Sistema automatikoak spam eta oinarrizko eduki problematikoa detektatzeko"
+          }
+        },
+        "response_times": {
+          "title": "Konprometitutako erantzun-denborak",
+          "illegal": "Argi eta garbi ilegala den edukia",
+          "general": "Salaketa orokorrak",
+          "appeals": "Apelazio prozesua"
+        }
+      },
+      "appeals": {
+        "title": "Apelazio prozesua",
+        "description": "Erabiltzaileek moderazio-erabakiak apela ditzakete prozesu garden eta bidezkoan:",
+        "step1": {
+          "title": "Aurkezpena",
+          "description": "Bidali zure apelazioa ebidentzia eta justifikazioarekin"
+        },
+        "step2": {
+          "title": "Berrikuspena",
+          "description": "Jatorrizko erabakiaren berrikusketa gizaki independentearen bidez"
+        },
+        "step3": {
+          "title": "Ebazpena",
+          "description": "Azalpen zehatzarekin jakinarazitako azken erabakia"
+        },
+        "external": {
+          "title": "Gatazkak epaitegiez kanpo ebaztea",
+          "description": "Modu egokian ebatzitako ez dauden apelazioetarako, erabiltzaileek epaitegiez kanpoko ebazpen-organo ziurtatuetara jo dezakete."
+        }
+      },
+      "transparency": {
+        "title": "Gardentasuna eta txostenak",
+        "description": "DSAren gardentasun-betebeharrak betetzen ditugu gure moderazio-jarduerei buruzko txosten erregularrak argitaratuz:",
+        "reports": {
+          "title": "DSA sei hilabeteko txostenak",
+          "semi_annual": "Moderazioari buruzko sei hilabeteko txosten publikoak",
+          "content_moderation": "Edukien moderazioaren estatistika zehatzak",
+          "automated_systems": "Erabilitako sistema automatizatuei buruzko informazioa",
+          "appeals_data": "Apelazio eta ebazpenei buruzko datuak"
+        },
+        "public": {
+          "title": "Eskuragarri dagoen informazio publikoa",
+          "live_stats": "Denbora errealeko estatistikak",
+          "live_stats_desc": "Moderazio eta salaketei buruzko datu eguneratuak",
+          "reports": "DSA txostenak",
+          "reports_desc": "Sei hilabeteko txosten ofizialak (laster)"
+        }
+      },
+      "contact": {
+        "title": "DSA kontaktuak",
+        "dsa_contact": {
+          "title": "DSA kontaktu-puntua",
+          "description": "DSArekin lotutako agintari eta kontsulta ofizialetarako:",
+          "response": "Erantzun-denbora"
+        },
+        "authorities": {
+          "title": "Agintari eskudunak",
+          "description": "Erreguladore agintari garrantzitsuak:",
+          "coordinator": "DSA koordinatzailea",
+          "competent": "Agintari eskuduna"
+        }
+      }
+    }
+  },
+  "notice": {
+    "title": "Lege Oharra",
+    "description": "{siteName}(e)n izaera esperimentalari eta erantzukizun-mugetari buruzko lege-informazioa",
+    "responsible": {
+      "title": "Arduradunaren informazioa",
+      "website": "Webgunearen arduraduna",
+      "domain": "Domeinua",
+      "nature": "Proiektuaren izaera",
+      "nature_value": "Irabazi-asmorik gabeko proiektu pertsonal esperimentala",
+      "purpose": "Helburua",
+      "purpose_value": "IAk lagundutako garapen eta web teknologiekin esperimentazioa",
+      "status": "Egoera",
+      "status_value": "Garapen aktiboko proiektua - Ez da enpresa komertzial bat",
+      "contact": "Kontaktu informazioa",
+      "email": "Emaila",
+      "location": "Kokalekua",
+      "location_value": "Espainia, Europar Batasuna",
+      "jurisdiction": "Jurisdikzioa",
+      "jurisdiction_value": "Espainiako eta Europako legeria"
+    },
+    "experimental": {
+      "title": "Proiektuaren izaera esperimentala",
+      "important": "Informazio garrantzitsua",
+      "non_commercial": "Hau irabazi-asmorik gabeko proiektu pertsonal bat da",
+      "educational": "Helburu hezitzaileak eta esperimentazio teknologikoa ditu",
+      "development": "Garapen aktiboan dago eta akatsak izan ditzake",
+      "no_profit": "Ez da onura ekonomikorik lortzen proiektu honetatik",
+      "ai_experiment": "Adimen artifizialak lagundutako garapen esperimentu bat da",
+      "disclaimer": {
+        "title": "Erantzukizun eza",
+        "description": "Plataforma honen erabilera zure arrisku propioan da. Ez dugu zerbitzuaren erabilgarritasuna, segurtasuna edo zehaztasuna bermatzen."
+      }
+    },
+    "liability": {
+      "title": "Erantzukizunaren mugaketa",
+      "exclusion": {
+        "title": "Erantzukizunen baztertzea",
+        "content": "Ez gara erabiltzaileek argitaratutako edukiaren arduradun egiten",
+        "availability": "Ez dugu zerbitzuaren etengabeko erabilgarritasuna bermatzen",
+        "errors": "Ez gara akats edo hutsegite teknikoen arduradun egiten",
+        "data_loss": "Ez dugu datuen kontserbazio iraunkorra bermatzen",
+        "external_links": "Ez gara kanpoko esteken edukiaren arduradun egiten",
+        "user_content": "Erabiltzaileak beren edukiaren eta lege-betetzearen arduradun dira"
+      },
+      "personal": {
+        "title": "Babes pertsonala",
+        "description": "Proiektu pertsonal esperimentala izanda, erantzukizuna legeak onartutako gehienekora mugatzen da. Ez dago proiektu hau babesten duen enpresa-egiturarik."
+      }
+    },
+    "intellectual_property": {
+      "title": "Jabetza intelektuala eta lizentziak",
+      "platform": {
+        "title": "Plataforma",
+        "code": "Iturburu-kodea software librearen lizentzietan dago",
+        "design": "Diseinua eta egitura garatzailearen jabetzakoak dira",
+        "brand": "'{siteName}' marka proiektuaren erabilera esklusibokoa da",
+        "open_source": "Kodearen zatiak open source gisa askatu daitezke"
+      },
+      "content": {
+        "title": "Edukia",
+        "user_content": "Erabiltzaileen edukia haien egile bakoitzarena da",
+        "external_links": "Kanpoko estekek jatorrizko jabetza intelektuala mantentzen dute",
+        "aggregated": "Bildutako edukiak jatorrizko egile-eskubideak errespetatzen ditu",
+        "fair_use": "Erabilera bidezkoa eta aipu-salbuespenak aplikatzen dira"
+      }
+    },
+    "jurisdiction": {
+      "title": "Aplikagarria den legea eta jurisdikzioa",
+      "applicable_law": {
+        "title": "Aplikagarria den legea",
+        "description": "Proiektu hau Espainiako legeria eta Europar Batasuneko araudiak arautzen ditu, RGPD eta DSA barne."
+      },
+      "courts": {
+        "title": "Auzitegi eskudunak",
+        "description": "Edozein eztabaidarako, Espainiako epaitegi eta auzitegiak izango dira eskudunak, kontsumitzailearen babesaren araudia kaltetu gabe."
+      }
+    },
+    "modifications": {
+      "title": "Aldaketak eta kontaktua",
+      "description": "Lege-ohar hau edozein unetan alda daiteke. Aldaketak webgunean argitaratzen direnetik izango dute eraginkortasuna."
+    },
+    "contact": {
+      "title": "Kontaktua",
+      "legal": "Lege-gaiak",
+      "general": "Kontsulta orokorrak",
+      "response_time": "Erantzun-denbora",
+      "response_time_value": "72 lan-ordu arte"
+    },
+    "last_updated": "Azken eguneratzea"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Cookie erabilera",
+      "description": "Gune honek oinarrizko funtzionamendurako beharrezkoak diren funtsezko cookie bakarrik erabiltzen ditu. Ez ditugu jarraipen, analitika edo publizitate cookierik erabiltzen.",
+      "accept": "Onartu",
+      "learnMore": "Informazio gehiagorako, kontsultatu gure",
+      "privacyPolicy": "Pribatutasun Politika",
+      "and": "eta",
+      "cookiesPolicy": "Cookie Politika"
+    }
+  }
+}

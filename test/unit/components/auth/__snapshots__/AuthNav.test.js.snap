@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AuthNav Component > Snapshots > matches snapshot when authenticated as guest 1`] = `
+"<div data-v-30338476="" class="auth-nav">
+  <div data-v-30338476="" class="user-menu"><button data-v-30338476="" class="user-info" aria-expanded="false" aria-haspopup="menu"><i data-v-30338476="" class="iconify-icon text-lg" name="fa6-solid:user-secret" aria-hidden="true"></i><!-- Desktop: Show full username (only on large screens) --><span data-v-30338476="" class="username hidden lg:inline truncate"><div data-v-30338476="" class="flex flex-col"><span data-v-30338476="" class="guest-name-header">Guest123</span><span data-v-30338476="" class="guest-indicator">Guest</span></div></span><!-- Mobile & Tablet: Show only icon + arrow, no text to save space --><span data-v-30338476="" class="lg:hidden"></span><i data-v-30338476="" class="iconify-icon ml-1 text-xs" name="fa6-solid:chevron-down" aria-hidden="true"></i></button>
+  <!--v-if-->
+</div>
+</div>"
+`;
+
+exports[`AuthNav Component > Snapshots > matches snapshot when authenticated as regular user 1`] = `
+"<div data-v-30338476="" class="auth-nav">
+  <div data-v-30338476="" class="user-menu"><button data-v-30338476="" class="user-info" aria-expanded="false" aria-haspopup="menu"><i data-v-30338476="" class="iconify-icon text-lg" name="fa6-solid:circle-user" aria-hidden="true"></i><!-- Desktop: Show full username (only on large screens) --><span data-v-30338476="" class="username hidden lg:inline truncate"><span data-v-30338476="">testuser</span></span><!-- Mobile & Tablet: Show only icon + arrow, no text to save space --><span data-v-30338476="" class="lg:hidden"></span><i data-v-30338476="" class="iconify-icon ml-1 text-xs" name="fa6-solid:chevron-down" aria-hidden="true"></i></button>
+    <!--v-if-->
+  </div>
+</div>"
+`;
+
+exports[`AuthNav Component > Snapshots > matches snapshot when not authenticated 1`] = `
+"<div data-v-30338476="" class="auth-nav">
+  <div data-v-30338476="" class="auth-buttons"><a data-v-30338476="" to="/auth/login" class="btn-login" aria-label="Login"><span data-v-30338476="" class="login-text">Login</span><i data-v-30338476="" class="iconify-icon login-icon" name="fa6-solid:right-to-bracket" aria-hidden="true"></i></a><a data-v-30338476="" to="/auth/register" class="btn-register" aria-label="Register"><span data-v-30338476="" class="hidden lg:inline">Register</span><i data-v-30338476="" class="iconify-icon lg:hidden" name="fa6-solid:user-plus" aria-hidden="true"></i></a></div>
+</div>"
+`;
+
+exports[`AuthNav Component > Snapshots > matches snapshot with dropdown open 1`] = `
+"<div data-v-30338476="" class="auth-nav">
+  <div data-v-30338476="" class="user-menu"><button data-v-30338476="" class="user-info" aria-expanded="true" aria-haspopup="menu"><i data-v-30338476="" class="iconify-icon text-lg" name="fa6-solid:circle-user" aria-hidden="true"></i><!-- Desktop: Show full username (only on large screens) --><span data-v-30338476="" class="username hidden lg:inline truncate"><span data-v-30338476="">testuser</span></span><!-- Mobile & Tablet: Show only icon + arrow, no text to save space --><span data-v-30338476="" class="lg:hidden"></span><i data-v-30338476="" class="iconify-icon ml-1 text-xs" name="fa6-solid:chevron-down" aria-hidden="true"></i></button>
+    <div data-v-30338476="" class="dropdown-menu" role="menu">
+      <!-- Different menu for guest users -->
+      <!-- Regular user menu --><a data-v-30338476="" to="/profile/" class="menu-item inline-flex items-center" role="menuitem"><i data-v-30338476="" class="iconify-icon mr-2" name="fa6-solid:circle-user" aria-hidden="true"></i> My Profile</a><a data-v-30338476="" to="/profile/posts" class="menu-item inline-flex items-center" role="menuitem"><i data-v-30338476="" class="iconify-icon mr-2" name="fa6-solid:newspaper" aria-hidden="true"></i> My Posts</a><a data-v-30338476="" to="/profile/settings" class="menu-item inline-flex items-center" role="menuitem"><i data-v-30338476="" class="iconify-icon mr-2" name="fa6-solid:gear" aria-hidden="true"></i> Settings</a>
+      <div data-v-30338476="" class="menu-divider" role="separator"></div><button data-v-30338476="" class="menu-item logout inline-flex items-center" role="menuitem"><i data-v-30338476="" class="iconify-icon mr-2" name="fa6-solid:right-from-bracket" aria-hidden="true"></i> Logout</button>
+    </div>
+  </div>
+</div>"
+`;

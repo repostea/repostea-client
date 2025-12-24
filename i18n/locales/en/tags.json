@@ -1,0 +1,16 @@
+{
+    "tags":  {
+                 "title":  "Topics",
+                 "popular":  "Popular topics",
+                 "about":  "About topics",
+                 "about_text":  "Topics (or tags) help categorize links. Each link can have multiple associated topics.",
+                 "related":  "Related topics",
+                 "all":  "All topics",
+                 "search":  "Search topics",
+                 "usage_text":  "You can add topics when submitting links to help others find your content",
+                 "no_results":  "No topics found that match your search",
+                 "tag": "Topic",
+                 "posts_tagged": "Posts tagged #{tag}",
+                 "seo_description": "Explore content related to #{tag} on {app}. Discover {count} posts and links."
+             }
+}

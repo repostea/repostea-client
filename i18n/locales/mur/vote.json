@@ -1,0 +1,22 @@
+{
+  "vote": {
+    "upvote": "Votarico positivo",
+    "downvote": "Votarico negativo",
+    "already_voted": "Ya has votaico este envío illo",
+    "updated": "Votico actualizaico",
+    "registered": "Votico registraico",
+    "removed": "Votico quitaico",
+    "types": {
+      "elaborate": "Curraíco",
+      "funny": "Graciosico",
+      "false": "Farsico",
+      "irrelevant": "No viene a cuentico",
+      "outofplace": "Fuera de lugarico"
+    },
+    "polls": {
+      "expired": "Esta encuestica ha expiraico",
+      "submit_vote": "Mandaico Votico",
+      "remove_vote": "Quitarico Votico"
+    }
+  }
+}

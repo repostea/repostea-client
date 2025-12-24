@@ -1,0 +1,44 @@
+{
+  "data": {
+    "id": 20,
+    "title": "Post with Relationships",
+    "content": "This post has relationships to other posts",
+    "slug": "post-with-relationships",
+    "user": {
+      "id": 1,
+      "username": "author"
+    },
+    "votes_count": 10,
+    "numComments": 0,
+    "created_at": "2024-01-01T00:00:00.000000Z",
+    "updated_at": "2024-01-01T00:00:00.000000Z",
+    "relationships": [
+      {
+        "id": 1,
+        "type": "reply",
+        "related_post": {
+          "id": 21,
+          "title": "Related Post 1",
+          "slug": "related-post-1"
+        },
+        "created_by": {
+          "id": 1,
+          "username": "author"
+        }
+      },
+      {
+        "id": 2,
+        "type": "related",
+        "related_post": {
+          "id": 22,
+          "title": "Related Post 2",
+          "slug": "related-post-2"
+        },
+        "created_by": {
+          "id": 2,
+          "username": "otheruser"
+        }
+      }
+    ]
+  }
+}

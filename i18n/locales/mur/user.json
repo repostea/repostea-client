@@ -1,0 +1,37 @@
+{
+  "user": {
+    "profile": "Perfilico",
+    "settings": "Configuraciónica",
+    "karma": "karmico",
+    "joined": "Miembrico desdi",
+    "bio": "Biografíquica",
+    "about_me": "Acerquica de mí",
+    "no_bio": "Esti usuarico no ha añadío una biografíquica.",
+    "published_links": "Enlacicos publicaus",
+    "user_comments": "Comentaricos",
+    "edit_profile": "Editar perfilico",
+    "avatar": "Avatarico",
+    "save_changes": "Guardar cambicos",
+    "profile_updated": "Perfilico actualizao correctamentico",
+    "karma_levels": {
+      "newcomer": "Novático",
+      "contributor": "Contribuidorico",
+      "regular": "Regularico",
+      "trusted": "Confiablico",
+      "veteran": "Veteranico",
+      "expert": "Expertico",
+      "master": "Maestrico",
+      "legend": "Leyendica"
+    },
+    "max_level_reached": "¡Has llegau al nivelico máximo!",
+    "karma_overview": "Resumico de Karma",
+    "activity_streak": "Rachica de Actividá",
+    "last_30_days": "Últimos 30 díquicas",
+    "activities": "actividaes",
+    "posts": "Publicacionicas",
+    "comments": "Comentaricos",
+    "votes_given": "Voticos daos",
+    "admin": "Administradorico",
+    "moderator": "Moderadorico"
+  }
+}

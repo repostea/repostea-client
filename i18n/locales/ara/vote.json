@@ -1,0 +1,23 @@
+{
+  "vote": {
+    "upvote": "Votar positivo",
+    "downvote": "Votar negativo",
+    "already_voted": "Ya has votau iste ninvío",
+    "updated": "Voto esviellau",
+    "registered": "Voto rechistrau",
+    "removed": "Voto borrau",
+    "types": {
+      "elaborate": "Treballau",
+      "funny": "Risible",
+      "false": "Falso",
+      "irrelevant": "No viene a cuento",
+      "outofplace": "Fuera de puesto"
+    },
+    "polls": {
+      "expired": "Ista encuesta ha expirau",
+      "submit_vote": "Ninviar Voto",
+      "remove_vote": "Borrar Voto",
+      "back_to_vote": "Tornar a Votar"
+    }
+  }
+}

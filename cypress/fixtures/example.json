@@ -1,0 +1,43 @@
+{
+  "posts": {
+    "link": {
+      "title": "Amazing Article About Web Development",
+      "description": "This is a comprehensive guide about modern web development practices",
+      "url": "https://example.com/web-development-guide",
+      "contentType": "link"
+    },
+    "text": {
+      "title": "My Thoughts on Modern JavaScript",
+      "content": "# Modern JavaScript\n\nJavaScript has evolved significantly over the years. Here are some key points:\n\n- ES6+ features\n- Async/await patterns\n- Module systems\n- Type safety with TypeScript\n\n**Conclusion:** The ecosystem is more mature than ever.",
+      "contentType": "text"
+    },
+    "video": {
+      "title": "Great Tutorial on Vue.js",
+      "description": "This video explains Vue.js concepts from basic to advanced",
+      "url": "https://youtube.com/watch?v=example123",
+      "contentType": "video"
+    },
+    "audio": {
+      "title": "Podcast About Tech Trends",
+      "description": "Discussion about emerging technologies and their impact",
+      "url": "https://soundcloud.com/tech-podcast/episode-1",
+      "contentType": "audio"
+    },
+    "poll": {
+      "title": "What's your favorite JavaScript framework?",
+      "contentType": "poll",
+      "pollOptions": ["Vue.js", "React", "Angular", "Svelte"]
+    }
+  },
+  "users": {
+    "anonymous": {
+      "name": "Usuario Anónimo",
+      "isAnonymous": true
+    },
+    "registered": {
+      "name": "Test User",
+      "email": "test@example.com",
+      "isAnonymous": false
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "language": {
+    "available": "Idiomas dispoñibles",
+    "coming_soon": "Proximamente",
+    "soon": "Pronto",
+    "stats": {
+      "available": "Dispoñibles",
+      "coverage": "Cobertura"
+    },
+    "help": {
+      "description": "Falas outro idioma? Axúdanos a traducir {siteName}.",
+      "contact": "Contacta para traducir"
+    }
+  }
+}

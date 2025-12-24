@@ -1,0 +1,19 @@
+{
+  "posts": {
+    "seen_on": "Vistico en",
+    "edit": "Cambia",
+    "delete": "Quita",
+    "confirm_delete": "¿Seguro que quieres quitarico este envío illo?",
+    "delete_success": "Envío quitaico correctamentico",
+    "vote": "votico",
+    "voted": "votaico",
+    "votes": "voticos",
+    "vote_success": "Votico mandaico!",
+    "publish": "Publicarico",
+    "draft_saved": "Borradorico guardaico",
+    "be_first_comment": "Compartico tu opinión y sel primerico en comentar",
+    "level_0": "Sel primerico en comentarico",
+    "visited": "Visitaico",
+    "nsfw_go_back": "Patrás"
+  }
+}

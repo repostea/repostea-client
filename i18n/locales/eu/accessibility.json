@@ -1,0 +1,26 @@
+{
+  "accessibility": {
+    "title": "Irisgarritasun Adierazpena",
+    "meta_description": "Web irisgarritasunarekin dugun konpromisoari buruzko informazioa",
+    "intro": "{siteName}-ek pertsona guztientzako irisgarritasun digitala bermatzeko konpromisoa du, desgaitasunak dituztenak barne. Etengabe lan egiten dugu erabiltzaile esperientzia hobetzeko eta irisgarritasun estandar garrantzitsuak aplikatzeko.",
+    "standards_title": "Jarraitzen ditugun estandarrak",
+    "standards_text": "Web Edukien Irisgarritasun Gidalerroak (WCAG) 2.1 AA mailarekin bat etortzen saiatzen gara. Gidalerro hauek web edukia desgaitasunak dituzten pertsonentzat nola irisgarriago egin azaltzen dute.",
+    "measures_title": "Ezarritako neurriak",
+    "measure_1": "HTML semantikoa edukiaren egitura argia lortzeko",
+    "measure_2": "Testu alternatiboak irudi informatiboetarako",
+    "measure_3": "ARIA etiketak elementu interaktiboetarako",
+    "measure_4": "Teklatuaren bidezko nabigazio osoa",
+    "measure_5": "Kolore kontraste nahikoa",
+    "measure_6": "Eduki nagusira salto egiteko esteka",
+    "measure_7": "ARIA live eskualdeak eduki dinamikorako",
+    "measure_8": "Murriztutako mugimendu hobespenetan laguntza",
+    "measure_9": "Hizkuntza atributuak eduki eleanitzean",
+    "limitations_title": "Muga ezagunak",
+    "limitations_text": "Gure ahaleginak gorabehera, gunearen zenbait atal ez dira guztiz irisgarriak izan. Muga hauek identifikatu eta konpontzeko lanean ari gara aktiboki.",
+    "feedback_title": "Iruzkinak eta kontaktua",
+    "feedback_text": "Gune honen irisgarritasunari buruzko iruzkinak ongi etorriak dira. Irisgarritasun oztopoak aurkitzen badituzu edo hobekuntza iradokizunak badituzu, mesedez jarri gurekin harremanetan:",
+    "email_label": "Helbide elektronikoa",
+    "response_time": "Irisgarritasun iritzioi 5 lanegunetan erantzuten saiatzen gara.",
+    "last_updated": "Azken eguneratzea"
+  }
+}

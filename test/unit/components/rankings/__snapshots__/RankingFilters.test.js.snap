@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RankingFilters Component > Snapshots > matches snapshot with "all" selected 1`] = `
+"<div data-v-b93a48b8="" class="ranking-filters">
+  <div data-v-b93a48b8="" class="ranking-filters-container inline-flex rounded-lg p-1"><button data-v-b93a48b8="" class="timeframe-btn active">All Time</button><button data-v-b93a48b8="" class="timeframe-btn">This Month</button><button data-v-b93a48b8="" class="timeframe-btn">This Week</button><button data-v-b93a48b8="" class="timeframe-btn">Today</button></div>
+</div>"
+`;
+
+exports[`RankingFilters Component > Snapshots > matches snapshot with "month" selected 1`] = `
+"<div data-v-b93a48b8="" class="ranking-filters">
+  <div data-v-b93a48b8="" class="ranking-filters-container inline-flex rounded-lg p-1"><button data-v-b93a48b8="" class="timeframe-btn">All Time</button><button data-v-b93a48b8="" class="timeframe-btn active">This Month</button><button data-v-b93a48b8="" class="timeframe-btn">This Week</button><button data-v-b93a48b8="" class="timeframe-btn">Today</button></div>
+</div>"
+`;
+
+exports[`RankingFilters Component > Snapshots > matches snapshot with "today" selected 1`] = `
+"<div data-v-b93a48b8="" class="ranking-filters">
+  <div data-v-b93a48b8="" class="ranking-filters-container inline-flex rounded-lg p-1"><button data-v-b93a48b8="" class="timeframe-btn">All Time</button><button data-v-b93a48b8="" class="timeframe-btn">This Month</button><button data-v-b93a48b8="" class="timeframe-btn">This Week</button><button data-v-b93a48b8="" class="timeframe-btn active">Today</button></div>
+</div>"
+`;
+
+exports[`RankingFilters Component > Snapshots > matches snapshot with "week" selected 1`] = `
+"<div data-v-b93a48b8="" class="ranking-filters">
+  <div data-v-b93a48b8="" class="ranking-filters-container inline-flex rounded-lg p-1"><button data-v-b93a48b8="" class="timeframe-btn">All Time</button><button data-v-b93a48b8="" class="timeframe-btn">This Month</button><button data-v-b93a48b8="" class="timeframe-btn active">This Week</button><button data-v-b93a48b8="" class="timeframe-btn">Today</button></div>
+</div>"
+`;

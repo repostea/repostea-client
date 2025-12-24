@@ -1,0 +1,91 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SaveButton Component > Snapshots > matches snapshot with create list modal 1`] = `
+"<div class="save-button">
+  <div class="relative inline-block">
+    <!-- Botón principal para guardar --><button class="p-1.5 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-700 hover:text-primary dark:hover:text-primary-light"><i class="iconify-icon" name="fa6-regular:bookmark"></i></button><!-- Dropdown para opciones de guardado -->
+    <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-800 rounded-lg shadow-lg z-10 border border-gray-200 dark:border-neutral-700" style="display: none;">
+      <div class="p-1">
+        <!-- Opción para guardar para más tarde --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:bookmark"></i><span class="flex-1">Leer más tarde</span>
+          <!--v-if-->
+        </button><!-- Opción para marcar como favorito --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:star"></i><span class="flex-1">Favorito</span>
+          <!--v-if-->
+        </button>
+        <div class="border-t border-gray-200 dark:border-neutral-700 my-1"></div><!-- Opción para añadir a una lista personalizada --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center text-primary dark:text-primary-light"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:circle-plus"></i><span>Crear nueva lista</span></button><!-- Opción para cerrar el dropdown --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:xmark"></i><span>Cerrar</span></button>
+      </div>
+    </div>
+  </div><!-- Fondo para cerrar el dropdown al hacer clic fuera -->
+  <!--v-if-->
+  <!-- Modal para crear una nueva lista -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white dark:bg-card-dark rounded-lg shadow-lg p-6 max-w-md w-full">
+      <h3 class="text-lg font-medium mb-4">Crear nueva lista</h3>
+      <div class="mb-4"><label for="listName" class="block text-sm font-medium mb-1">Nombre de la lista</label><input id="listName" type="text" class="w-full rounded-md border border-gray-300 dark:border-neutral-600 dark:bg-neutral-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Ej: Artículos favoritos"></div>
+      <div class="mb-4"><label for="listDescription" class="block text-sm font-medium mb-1">Descripción (opcional)</label><textarea id="listDescription" rows="3" class="w-full rounded-md border border-gray-300 dark:border-neutral-600 dark:bg-neutral-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Añade una breve descripción"></textarea></div>
+      <div class="flex justify-end space-x-3"><button class="px-4 py-2 border border-gray-300 dark:border-neutral-600 rounded-md text-text dark:text-text-dark hover:bg-gray-50 dark:hover:bg-neutral-700 transition-colors"> Cancelar </button><button class="px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors" disabled=""> Crear </button></div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`SaveButton Component > Snapshots > matches snapshot with dropdown open 1`] = `
+"<div class="save-button">
+  <div class="relative inline-block">
+    <!-- Botón principal para guardar -->
+    <!--v-if-->
+    <!-- Dropdown para opciones de guardado -->
+    <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-800 rounded-lg shadow-lg z-10 border border-gray-200 dark:border-neutral-700">
+      <div class="p-1">
+        <!-- Opción para guardar para más tarde --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:bookmark"></i><span class="flex-1">Leer más tarde</span>
+          <!--v-if-->
+        </button><!-- Opción para marcar como favorito --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:star"></i><span class="flex-1">Favorito</span>
+          <!--v-if-->
+        </button>
+        <div class="border-t border-gray-200 dark:border-neutral-700 my-1"></div><!-- Opción para añadir a una lista personalizada --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center text-primary dark:text-primary-light"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:circle-plus"></i><span>Crear nueva lista</span></button><!-- Opción para cerrar el dropdown --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:xmark"></i><span>Cerrar</span></button>
+      </div>
+    </div>
+  </div><!-- Fondo para cerrar el dropdown al hacer clic fuera -->
+  <div class="fixed inset-0 z-0"></div><!-- Modal para crear una nueva lista -->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`SaveButton Component > Snapshots > matches snapshot with not saved state 1`] = `
+"<div class="save-button">
+  <div class="relative inline-block">
+    <!-- Botón principal para guardar --><button class="p-1.5 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-700 hover:text-primary dark:hover:text-primary-light"><i class="iconify-icon" name="fa6-regular:bookmark"></i></button><!-- Dropdown para opciones de guardado -->
+    <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-800 rounded-lg shadow-lg z-10 border border-gray-200 dark:border-neutral-700" style="display: none;">
+      <div class="p-1">
+        <!-- Opción para guardar para más tarde --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:bookmark"></i><span class="flex-1">Leer más tarde</span>
+          <!--v-if-->
+        </button><!-- Opción para marcar como favorito --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:star"></i><span class="flex-1">Favorito</span>
+          <!--v-if-->
+        </button>
+        <div class="border-t border-gray-200 dark:border-neutral-700 my-1"></div><!-- Opción para añadir a una lista personalizada --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center text-primary dark:text-primary-light"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:circle-plus"></i><span>Crear nueva lista</span></button><!-- Opción para cerrar el dropdown --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:xmark"></i><span>Cerrar</span></button>
+      </div>
+    </div>
+  </div><!-- Fondo para cerrar el dropdown al hacer clic fuera -->
+  <!--v-if-->
+  <!-- Modal para crear una nueva lista -->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`SaveButton Component > Snapshots > matches snapshot with read later active 1`] = `
+"<div class="save-button">
+  <div class="relative inline-block">
+    <!-- Botón principal para guardar --><button class="p-1.5 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-700 hover:text-primary dark:hover:text-primary-light text-primary dark:text-primary-light"><i class="iconify-icon" name="fa6-solid:bookmark"></i></button><!-- Dropdown para opciones de guardado -->
+    <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-neutral-800 rounded-lg shadow-lg z-10 border border-gray-200 dark:border-neutral-700" style="display: none;">
+      <div class="p-1">
+        <!-- Opción para guardar para más tarde --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center text-primary dark:text-primary-light bg-blue-50 dark:bg-blue-900/20"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:bookmark"></i><span class="flex-1">Leer más tarde</span><i class="iconify-icon ml-2 flex-shrink-0" name="fa6-solid:check"></i></button><!-- Opción para marcar como favorito --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:star"></i><span class="flex-1">Favorito</span>
+          <!--v-if-->
+        </button>
+        <div class="border-t border-gray-200 dark:border-neutral-700 my-1"></div><!-- Opción para añadir a una lista personalizada --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center text-primary dark:text-primary-light"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:circle-plus"></i><span>Crear nueva lista</span></button><!-- Opción para cerrar el dropdown --><button class="w-full text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 dark:hover:bg-neutral-700 flex items-center"><i class="iconify-icon mr-2 flex-shrink-0" name="fa6-solid:xmark"></i><span>Cerrar</span></button>
+      </div>
+    </div>
+  </div><!-- Fondo para cerrar el dropdown al hacer clic fuera -->
+  <!--v-if-->
+  <!-- Modal para crear una nueva lista -->
+  <!--v-if-->
+</div>"
+`;

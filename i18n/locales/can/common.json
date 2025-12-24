@@ -1,0 +1,30 @@
+{
+  "common": {
+    "loading": "Cargando mijo...",
+    "error": "Aro mijo!",
+    "success": "Aro que bien!",
+    "warning": "Ojo mijo",
+    "not_found": "No s'encuentra mijo",
+    "be_first": "Se el primero mijo",
+    "guest": "invitao",
+    "copied": "Copiáo!",
+    "processing": "Procesando mijo...",
+    "understood": "Entendío",
+    "backToHome": "Volver pal inicio",
+    "time": {
+      "just_now": "ahorita mismo"
+    },
+    "go_home": "Ir pal inicio",
+    "back_to_home": "Volver pal inicio",
+    "all": "Tó",
+    "retry": "Probar otra vez mijo",
+    "edited": "editao",
+    "no_results": "No se encontró ná mijo",
+    "login_required": "Esta acción requiere estar registrao. Regístrate o entra pa continuar mijo.",
+    "notifications": {
+      "success": "Aro que bien mijo!",
+      "error": "Aro mijo!",
+      "warning": "Ojo mijo"
+    }
+  }
+}

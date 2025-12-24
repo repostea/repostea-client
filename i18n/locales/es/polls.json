@@ -1,0 +1,32 @@
+{
+    "polls": {
+        "expired": "Esta encuesta ha expirado",
+        "vote": "voto",
+        "votes": "votos",
+        "submit_vote": "Enviar voto",
+        "remove_vote": "Retirar voto",
+        "show_results": "Ver resultados",
+        "back_to_vote": "Volver a votar",
+        "results_title": "Resultados de la encuesta",
+        "total_votes": "{count} votos totales",
+        "multiple_options_allowed": "Se permiten múltiples opciones",
+        "load_error": "Error al cargar la encuesta",
+        "login_required": "Tienes que estar registrado para poder votar",
+        "vote_error": "Error al enviar el voto",
+        "remove_vote_error": "Error al eliminar el voto",
+        "time_left": "Tiempo restante",
+        "days": "días",
+        "hours": "horas",
+        "minutes": "minutos",
+        "seconds": "segundos",
+        "less_than_minute": "Menos de un minuto",
+        "view_pie": "Ver gráfica circular",
+        "view_bars": "Ver barras",
+        "you_voted_for_this": "Has elegido esta opción",
+        "you_voted_for_multiple": "Has elegido {count} opciones",
+        "options_chosen": "Opciones elegidas: {count}",
+        "you_voted_option": "Has elegido la opción {option}",
+        "you_voted_options": "Has elegido las opciones {options}",
+        "chart_aria_label": "Gráfico circular con los resultados de la encuesta"
+    }
+}

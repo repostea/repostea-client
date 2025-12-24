@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoadingSpinner Component > Snapshots > matches snapshot with custom styling 1`] = `
+"<div class="flex items-center justify-center gap-2 py-8">
+  <div class="w-10 h-10 border-4 border-neutral-500 border-t-transparent rounded-full animate-spin" role="status" aria-label="common.loading"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`LoadingSpinner Component > Snapshots > matches snapshot with default props 1`] = `
+"<div class="flex items-center gap-2">
+  <div class="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" role="status" aria-label="common.loading"></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`LoadingSpinner Component > Snapshots > matches snapshot with text shown 1`] = `
+"<div class="flex items-center gap-2">
+  <div class="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" role="status" aria-label="Loading..."></div><span class="text-gray-500 dark:text-gray-400 text-sm">Loading...</span>
+</div>"
+`;

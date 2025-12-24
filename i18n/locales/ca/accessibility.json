@@ -1,0 +1,26 @@
+{
+  "accessibility": {
+    "title": "Declaració d'Accessibilitat",
+    "meta_description": "Informació sobre el nostre compromís amb l'accessibilitat web",
+    "intro": "{siteName} es compromet a garantir l'accessibilitat digital per a totes les persones, incloent aquelles amb discapacitats. Treballem contínuament per millorar l'experiència d'usuari i aplicar els estàndards d'accessibilitat rellevants.",
+    "standards_title": "Estàndards que seguim",
+    "standards_text": "Ens esforcem per complir amb les Pautes d'Accessibilitat per al Contingut Web (WCAG) 2.1 nivell AA. Aquestes pautes expliquen com fer el contingut web més accessible per a persones amb discapacitats.",
+    "measures_title": "Mesures implementades",
+    "measure_1": "Ús d'HTML semàntic per a una estructura clara del contingut",
+    "measure_2": "Textos alternatius per a imatges informatives",
+    "measure_3": "Etiquetes ARIA per a elements interactius",
+    "measure_4": "Navegació per teclat completa",
+    "measure_5": "Contrast de colors suficient",
+    "measure_6": "Enllaç per saltar al contingut principal",
+    "measure_7": "Regions ARIA live per a contingut dinàmic",
+    "measure_8": "Suport per a preferències de moviment reduït",
+    "measure_9": "Atributs d'idioma en contingut multilingüe",
+    "limitations_title": "Limitacions conegudes",
+    "limitations_text": "Malgrat els nostres esforços, algunes parts del lloc poden no ser completament accessibles. Estem treballant activament per identificar i resoldre aquestes limitacions.",
+    "feedback_title": "Comentaris i contacte",
+    "feedback_text": "Agraïm els teus comentaris sobre l'accessibilitat d'aquest lloc. Si trobes barreres d'accessibilitat o tens suggeriments de millora, si us plau contacta'ns:",
+    "email_label": "Correu electrònic",
+    "response_time": "Intentem respondre als comentaris sobre accessibilitat en un termini de 5 dies hàbils.",
+    "last_updated": "Última actualització"
+  }
+}

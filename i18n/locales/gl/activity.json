@@ -1,0 +1,64 @@
+{
+  "activity": {
+    "title": "Actividade",
+    "description": "Últimas accións da comunidade en tempo real",
+    "loading": "Cargando actividades...",
+    "error_loading": "Non se puideron cargar as actividades. Téntao de novo.",
+    "retry": "Reintentar",
+    "load_more": "Cargar máis",
+    "no_more_activities": "Non hai máis actividades",
+    "no_activities": "Non se atoparon actividades",
+    "filters": {
+      "time": "Tempo",
+      "last_hour": "Última hora",
+      "last_24h": "Últimas 24 horas",
+      "last_week": "Última semana",
+      "all_time": "Todo",
+      "types": "Tipos de actividade",
+      "clear": "Limpar filtros",
+      "reset": "Restablecer"
+    },
+    "new_activities": "{count} nova actividade | {count} novas actividades",
+    "auto_refresh_on": "Auto-actualización activa",
+    "auto_refresh_off": "Auto-actualización desactivada",
+    "by": "por",
+    "by_anonymous": "por usuario anónimo",
+    "on_post": "no envío",
+    "on_comment": "nun comentario",
+    "in_post": "no envío",
+    "comment_on": "Comentario en",
+    "upvote": "Voto positivo",
+    "downvote": "Voto negativo",
+    "seal_awarded": "Selo",
+    "reached_frontpage": "chegou á portada",
+    "activity_types": {
+      "new_post": "Novo envío",
+      "post_vote": "Voto en envío",
+      "new_comment": "Novo comentario",
+      "comment_vote": "Voto en comentario",
+      "seal_awarded": "Selo outorgado",
+      "frontpage": "Portada",
+      "new_agora_message": "Mensaxe Ágora",
+      "agora_vote": "Voto na Ágora",
+      "new_sub": "Nova comunidade"
+    },
+    "seals": {
+      "recommended": "Recomendado",
+      "problematic": "Problemático",
+      "advise_against": "Desaconsellado"
+    },
+    "time": {
+      "just_now": "Agora mesmo",
+      "year": "hai {count} ano | hai {count} anos",
+      "month": "hai {count} mes | hai {count} meses",
+      "week": "hai {count} semana | hai {count} semanas",
+      "day": "hai {count} día | hai {count} días",
+      "hour": "hai {count} hora | hai {count} horas",
+      "minute": "hai {count} minuto | hai {count} minutos"
+    },
+    "on_agora_message": "en mensaxe da Ágora",
+    "agora_message": "Nova mensaxe na Ágora",
+    "view_in_agora": "Ver na Ágora",
+    "sub_created": "Nova comunidade creada"
+  }
+}

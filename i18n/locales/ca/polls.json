@@ -1,0 +1,32 @@
+{
+    "polls": {
+        "expired": "Aquesta enquesta ha expirat",
+        "vote": "vot",
+        "votes": "vots",
+        "submit_vote": "Enviar vot",
+        "remove_vote": "Eliminar vot",
+        "show_results": "Veure resultats",
+        "back_to_vote": "Tornar a votar",
+        "results_title": "Resultats de l'enquesta",
+        "total_votes": "{count} vots totals",
+        "multiple_options_allowed": "Es permeten múltiples opcions",
+        "load_error": "Error en carregar l'enquesta",
+        "login_required": "Has d'estar registrat per poder votar",
+        "vote_error": "Error en enviar el vot",
+        "remove_vote_error": "Error en eliminar el vot",
+        "time_left": "Temps restant",
+        "days": "dies",
+        "hours": "hores",
+        "minutes": "minuts",
+        "seconds": "segons",
+        "less_than_minute": "Menys d'un minut",
+        "view_pie": "Veure gràfica circular",
+        "view_bars": "Veure barres",
+        "you_voted_for_this": "Has triat aquesta opció",
+        "you_voted_for_multiple": "Has triat {count} opcions",
+        "options_chosen": "Opcions triades: {count}",
+        "you_voted_option": "Has triat l'opció {option}",
+        "you_voted_options": "Has triat les opcions {options}",
+        "chart_aria_label": "Gràfic circular amb els resultats de l'enquesta"
+    }
+}

@@ -1,0 +1,32 @@
+{
+  "search": {
+    "placeholder": "Buscar envíos por título, contenido, etiquetas...",
+    "search_button": "Buscar",
+    "searching": "Buscando...",
+    "all_types": "Todos los tipos",
+    "type_text": "Texto",
+    "type_link": "Enlace",
+    "type_video": "Vídeo",
+    "type_audio": "Audio",
+    "type_poll": "Encuesta",
+    "all_posts": "Todos",
+    "featured_only": "Portada",
+    "pending_only": "Pendientes",
+    "sort_recent": "Más recientes",
+    "sort_votes": "Más votados",
+    "sort_comments": "Más comentados",
+    "sort_active": "Más activos",
+    "include_comments": "Buscar en comentarios",
+    "enter_query": "Escribe tu búsqueda",
+    "help_text": "Busca envíos por título, contenido, etiquetas y opcionalmente en comentarios",
+    "no_results": "No se encontraron resultados",
+    "try_different": "Intenta con otros términos o filtros",
+    "loading": "Cargando...",
+    "load_more": "Cargar más resultados",
+    "featured": "Portada",
+    "found_in_comment": "Encontrado en comentario",
+    "content_type": "Tipo de contenido",
+    "featured_filter": "Filtro de portada",
+    "sort_by": "Ordenar por"
+  }
+}

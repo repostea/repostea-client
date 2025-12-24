@@ -1,0 +1,17 @@
+{
+  "navigation": {
+    "home": "Aniciu",
+    "topics": "Temes",
+    "submit": "Unviar",
+    "login": "Aniciar sesión",
+    "register": "Rexistrase",
+    "logout": "Zarrar sesión",
+    "my_profile": "El mío perfil",
+    "admin": "Alministración",
+    "saved_lists": "Les míes Llistes",
+    "language": "Llingua",
+    "back_to_home": "Volver al aniciu",
+    "about": "Sobre'l Proyeutu",
+    "manifesto": "Manifiestu"
+  }
+}

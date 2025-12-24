@@ -1,0 +1,64 @@
+{
+  "activity": {
+    "title": "Activitat",
+    "description": "Últimes accions de la comunitat en temps real",
+    "loading": "Carregant activitats...",
+    "error_loading": "No s'han pogut carregar les activitats. Torna-ho a intentar.",
+    "retry": "Reintentar",
+    "load_more": "Carregar més",
+    "no_more_activities": "No hi ha més activitats",
+    "no_activities": "No s'han trobat activitats",
+    "filters": {
+      "time": "Temps",
+      "last_hour": "Última hora",
+      "last_24h": "Últimes 24 hores",
+      "last_week": "Última setmana",
+      "all_time": "Tot",
+      "types": "Tipus d'activitat",
+      "clear": "Netejar filtres",
+      "reset": "Restablir"
+    },
+    "new_activities": "{count} nova activitat | {count} noves activitats",
+    "auto_refresh_on": "Auto-actualització activa",
+    "auto_refresh_off": "Auto-actualització desactivada",
+    "by": "per",
+    "by_anonymous": "per usuari anònim",
+    "on_post": "a l'enviament",
+    "on_comment": "en un comentari",
+    "in_post": "a l'enviament",
+    "comment_on": "Comentari a",
+    "upvote": "Vot positiu",
+    "downvote": "Vot negatiu",
+    "seal_awarded": "Segell",
+    "reached_frontpage": "ha arribat a portada",
+    "activity_types": {
+      "new_post": "Nou enviament",
+      "post_vote": "Vot a enviament",
+      "new_comment": "Nou comentari",
+      "comment_vote": "Vot a comentari",
+      "seal_awarded": "Segell atorgat",
+      "frontpage": "Portada",
+      "new_agora_message": "Missatge Àgora",
+      "agora_vote": "Vot a Àgora",
+      "new_sub": "Nova comunitat"
+    },
+    "seals": {
+      "recommended": "Recomanat",
+      "problematic": "Problemàtic",
+      "advise_against": "Desaconsellat"
+    },
+    "time": {
+      "just_now": "Ara mateix",
+      "year": "fa {count} any | fa {count} anys",
+      "month": "fa {count} mes | fa {count} mesos",
+      "week": "fa {count} setmana | fa {count} setmanes",
+      "day": "fa {count} dia | fa {count} dies",
+      "hour": "fa {count} hora | fa {count} hores",
+      "minute": "fa {count} minut | fa {count} minuts"
+    },
+    "on_agora_message": "en missatge de l'Àgora",
+    "agora_message": "Nou missatge a l'Àgora",
+    "view_in_agora": "Veure a l'Àgora",
+    "sub_created": "Nova comunitat creada"
+  }
+}

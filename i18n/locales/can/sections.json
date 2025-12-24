@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "frontpage": "Portada",
+    "pending": "Pendientes",
+    "featured": "Destacaos",
+    "popular": "Populares mijo",
+    "all": "Tó",
+    "my_subs": "Mis Subs mijo",
+    "my_subs_login_required": "Entra pa ver envíos de tus comunidades mijo",
+    "comments": "Comentarios",
+    "comments_description": "Explorar los últimos comentarios mijo"
+  }
+}

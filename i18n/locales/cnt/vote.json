@@ -1,0 +1,21 @@
+{
+  "vote": {
+    "upvote": "Votar positivu",
+    "downvote": "Votar negativu",
+    "already_voted": "Ya has votáu esti envíu",
+    "updated": "Votu actualizáu",
+    "registered": "Votu registráu",
+    "removed": "Votu quitáu",
+    "types": {
+      "elaborate": "Curráu",
+      "funny": "Graciosu",
+      "false": "Falsu",
+      "outofplace": "Fuera de lugar"
+    },
+    "polls": {
+      "expired": "Esta encuesta ha expiráu",
+      "submit_vote": "Mandar Votu",
+      "remove_vote": "Quitar Votu"
+    }
+  }
+}

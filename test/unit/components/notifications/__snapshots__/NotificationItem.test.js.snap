@@ -1,0 +1,161 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NotificationItem Component > Snapshots > matches snapshot for high priority notification 1`] = `
+"<div data-v-c8d1eb23="" class="notification-item px-4 py-3 last:border-b-0 transition-colors cursor-pointer relative bg-blue-50 dark:bg-blue-900/20" role="button" aria-label="Unread comment notification: New comment on your post" tabindex="0">
+  <!-- Unread Indicator -->
+  <div data-v-c8d1eb23="" class="absolute left-2 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full" aria-hidden="true"></div>
+  <div data-v-c8d1eb23="" class="flex items-start space-x-3 ml-4">
+    <!-- Icon -->
+    <div data-v-c8d1eb23="" class="flex-shrink-0 mt-1"><i data-v-c8d1eb23="" class="iconify-icon text-blue-500" name="fa6-solid:comment" aria-hidden="true"></i></div><!-- Content -->
+    <div data-v-c8d1eb23="" class="flex-1 min-w-0">
+      <!-- Title and Actions -->
+      <div data-v-c8d1eb23="" class="flex items-start justify-between gap-2">
+        <h4 data-v-c8d1eb23="" class="text-sm font-medium text-text dark:text-text-dark flex-1 line-clamp-2 font-semibold">
+          <!--v-if--><span data-v-c8d1eb23="">New comment on your post</span>
+        </h4><!-- Actions Menu -->
+        <div data-v-c8d1eb23="" class="relative flex-shrink-0"><button data-v-c8d1eb23="" class="p-1 text-text-muted dark:text-text-dark-muted hover:text-text dark:hover:text-text-dark rounded opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center" aria-label="Actions"><i data-v-c8d1eb23="" class="iconify-icon text-xs" name="fa6-solid:ellipsis" aria-hidden="true"></i></button><!-- Actions Dropdown -->
+          <!--v-if-->
+        </div>
+      </div><!-- Message with parsed body -->
+      <div data-v-c8d1eb23="" class="mt-2 space-y-2">
+        <!-- Notification body -->
+        <div data-v-c8d1eb23="" class="notification-body text-sm">
+          <div data-v-c8d1eb23="">Someone commented on your post</div>
+        </div><!-- Timestamp and View link -->
+        <div data-v-c8d1eb23="" class="flex items-center justify-between"><time data-v-c8d1eb23="" datetime="2025-01-01T10:00:00.000Z" class="text-xs text-text-muted dark:text-text-dark-muted" title="January 1, 2025 at 11:00 AM">1/1/2025</time><!-- View link if actionUrl exists (not for achievements/karma) -->
+          <!--v-if-->
+        </div>
+      </div><!-- Priority Indicator -->
+      <div data-v-c8d1eb23="" class="mt-1 flex items-center space-x-1 text-xs text-red-600 dark:text-red-400"><i data-v-c8d1eb23="" class="iconify-icon" name="fa6-solid:triangle-exclamation" aria-hidden="true"></i><span data-v-c8d1eb23="">High Priority</span></div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`NotificationItem Component > Snapshots > matches snapshot for read notification 1`] = `
+"<div data-v-c8d1eb23="" class="notification-item px-4 py-3 last:border-b-0 transition-colors cursor-pointer relative opacity-75" role="button" aria-label="Read comment notification: New comment on your post" tabindex="0">
+  <!-- Unread Indicator -->
+  <!--v-if-->
+  <div data-v-c8d1eb23="" class="flex items-start space-x-3">
+    <!-- Icon -->
+    <div data-v-c8d1eb23="" class="flex-shrink-0 mt-1"><i data-v-c8d1eb23="" class="iconify-icon text-blue-500" name="fa6-solid:comment" aria-hidden="true"></i></div><!-- Content -->
+    <div data-v-c8d1eb23="" class="flex-1 min-w-0">
+      <!-- Title and Actions -->
+      <div data-v-c8d1eb23="" class="flex items-start justify-between gap-2">
+        <h4 data-v-c8d1eb23="" class="text-sm font-medium text-text dark:text-text-dark flex-1 line-clamp-2">
+          <!--v-if--><span data-v-c8d1eb23="">New comment on your post</span>
+        </h4><!-- Actions Menu -->
+        <div data-v-c8d1eb23="" class="relative flex-shrink-0"><button data-v-c8d1eb23="" class="p-1 text-text-muted dark:text-text-dark-muted hover:text-text dark:hover:text-text-dark rounded opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center" aria-label="Actions"><i data-v-c8d1eb23="" class="iconify-icon text-xs" name="fa6-solid:ellipsis" aria-hidden="true"></i></button><!-- Actions Dropdown -->
+          <!--v-if-->
+        </div>
+      </div><!-- Message with parsed body -->
+      <div data-v-c8d1eb23="" class="mt-2 space-y-2">
+        <!-- Notification body -->
+        <div data-v-c8d1eb23="" class="notification-body text-sm">
+          <div data-v-c8d1eb23="">Someone commented on your post</div>
+        </div><!-- Timestamp and View link -->
+        <div data-v-c8d1eb23="" class="flex items-center justify-between"><time data-v-c8d1eb23="" datetime="2025-01-01T10:00:00.000Z" class="text-xs text-text-muted dark:text-text-dark-muted" title="January 1, 2025 at 11:00 AM">1/1/2025</time><!-- View link if actionUrl exists (not for achievements/karma) -->
+          <!--v-if-->
+        </div>
+      </div><!-- Priority Indicator -->
+      <!--v-if-->
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`NotificationItem Component > Snapshots > matches snapshot for unread comment notification 1`] = `
+"<div data-v-c8d1eb23="" class="notification-item px-4 py-3 last:border-b-0 transition-colors cursor-pointer relative bg-blue-50 dark:bg-blue-900/20" role="button" aria-label="Unread comment notification: New comment on your post" tabindex="0">
+  <!-- Unread Indicator -->
+  <div data-v-c8d1eb23="" class="absolute left-2 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full" aria-hidden="true"></div>
+  <div data-v-c8d1eb23="" class="flex items-start space-x-3 ml-4">
+    <!-- Icon -->
+    <div data-v-c8d1eb23="" class="flex-shrink-0 mt-1"><i data-v-c8d1eb23="" class="iconify-icon text-blue-500" name="fa6-solid:comment" aria-hidden="true"></i></div><!-- Content -->
+    <div data-v-c8d1eb23="" class="flex-1 min-w-0">
+      <!-- Title and Actions -->
+      <div data-v-c8d1eb23="" class="flex items-start justify-between gap-2">
+        <h4 data-v-c8d1eb23="" class="text-sm font-medium text-text dark:text-text-dark flex-1 line-clamp-2 font-semibold">
+          <!--v-if--><span data-v-c8d1eb23="">New comment on your post</span>
+        </h4><!-- Actions Menu -->
+        <div data-v-c8d1eb23="" class="relative flex-shrink-0"><button data-v-c8d1eb23="" class="p-1 text-text-muted dark:text-text-dark-muted hover:text-text dark:hover:text-text-dark rounded opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center" aria-label="Actions"><i data-v-c8d1eb23="" class="iconify-icon text-xs" name="fa6-solid:ellipsis" aria-hidden="true"></i></button><!-- Actions Dropdown -->
+          <!--v-if-->
+        </div>
+      </div><!-- Message with parsed body -->
+      <div data-v-c8d1eb23="" class="mt-2 space-y-2">
+        <!-- Notification body -->
+        <div data-v-c8d1eb23="" class="notification-body text-sm">
+          <div data-v-c8d1eb23="">Someone commented on your post</div>
+        </div><!-- Timestamp and View link -->
+        <div data-v-c8d1eb23="" class="flex items-center justify-between"><time data-v-c8d1eb23="" datetime="2025-01-01T10:00:00.000Z" class="text-xs text-text-muted dark:text-text-dark-muted" title="January 1, 2025 at 11:00 AM">1/1/2025</time><!-- View link if actionUrl exists (not for achievements/karma) -->
+          <!--v-if-->
+        </div>
+      </div><!-- Priority Indicator -->
+      <!--v-if-->
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`NotificationItem Component > Snapshots > matches snapshot for vote notification 1`] = `
+"<div data-v-c8d1eb23="" class="notification-item px-4 py-3 last:border-b-0 transition-colors cursor-pointer relative bg-blue-50 dark:bg-blue-900/20" role="button" aria-label="Unread vote notification: New comment on your post" tabindex="0">
+  <!-- Unread Indicator -->
+  <div data-v-c8d1eb23="" class="absolute left-2 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full" aria-hidden="true"></div>
+  <div data-v-c8d1eb23="" class="flex items-start space-x-3 ml-4">
+    <!-- Icon -->
+    <div data-v-c8d1eb23="" class="flex-shrink-0 mt-1"><i data-v-c8d1eb23="" class="iconify-icon text-green-500" name="fa6-solid:thumbs-up" aria-hidden="true"></i></div><!-- Content -->
+    <div data-v-c8d1eb23="" class="flex-1 min-w-0">
+      <!-- Title and Actions -->
+      <div data-v-c8d1eb23="" class="flex items-start justify-between gap-2">
+        <h4 data-v-c8d1eb23="" class="text-sm font-medium text-text dark:text-text-dark flex-1 line-clamp-2 font-semibold">
+          <!--v-if--><span data-v-c8d1eb23="">New comment on your post</span>
+        </h4><!-- Actions Menu -->
+        <div data-v-c8d1eb23="" class="relative flex-shrink-0"><button data-v-c8d1eb23="" class="p-1 text-text-muted dark:text-text-dark-muted hover:text-text dark:hover:text-text-dark rounded opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center" aria-label="Actions"><i data-v-c8d1eb23="" class="iconify-icon text-xs" name="fa6-solid:ellipsis" aria-hidden="true"></i></button><!-- Actions Dropdown -->
+          <!--v-if-->
+        </div>
+      </div><!-- Message with parsed body -->
+      <div data-v-c8d1eb23="" class="mt-2 space-y-2">
+        <!-- Notification body -->
+        <div data-v-c8d1eb23="" class="notification-body text-sm">
+          <div data-v-c8d1eb23="">Someone commented on your post</div>
+        </div><!-- Timestamp and View link -->
+        <div data-v-c8d1eb23="" class="flex items-center justify-between"><time data-v-c8d1eb23="" datetime="2025-01-01T10:00:00.000Z" class="text-xs text-text-muted dark:text-text-dark-muted" title="January 1, 2025 at 11:00 AM">1/1/2025</time><!-- View link if actionUrl exists (not for achievements/karma) -->
+          <!--v-if-->
+        </div>
+      </div><!-- Priority Indicator -->
+      <!--v-if-->
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`NotificationItem Component > Snapshots > matches snapshot with actions menu open 1`] = `
+"<div data-v-c8d1eb23="" class="notification-item px-4 py-3 last:border-b-0 transition-colors cursor-pointer relative bg-blue-50 dark:bg-blue-900/20" role="button" aria-label="Unread comment notification: New comment on your post" tabindex="0">
+  <!-- Unread Indicator -->
+  <div data-v-c8d1eb23="" class="absolute left-2 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full" aria-hidden="true"></div>
+  <div data-v-c8d1eb23="" class="flex items-start space-x-3 ml-4">
+    <!-- Icon -->
+    <div data-v-c8d1eb23="" class="flex-shrink-0 mt-1"><i data-v-c8d1eb23="" class="iconify-icon text-blue-500" name="fa6-solid:comment" aria-hidden="true"></i></div><!-- Content -->
+    <div data-v-c8d1eb23="" class="flex-1 min-w-0">
+      <!-- Title and Actions -->
+      <div data-v-c8d1eb23="" class="flex items-start justify-between gap-2">
+        <h4 data-v-c8d1eb23="" class="text-sm font-medium text-text dark:text-text-dark flex-1 line-clamp-2 font-semibold">
+          <!--v-if--><span data-v-c8d1eb23="">New comment on your post</span>
+        </h4><!-- Actions Menu -->
+        <div data-v-c8d1eb23="" class="relative flex-shrink-0"><button data-v-c8d1eb23="" class="p-1 text-text-muted dark:text-text-dark-muted hover:text-text dark:hover:text-text-dark rounded opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center" aria-label="Actions"><i data-v-c8d1eb23="" class="iconify-icon text-xs" name="fa6-solid:ellipsis" aria-hidden="true"></i></button><!-- Actions Dropdown -->
+          <div data-v-c8d1eb23="" class="notification-dropdown absolute right-0 mt-1 py-1 w-32 rounded-md shadow-lg z-10" role="menu"><button data-v-c8d1eb23="" class="w-full px-3 py-1 text-left text-sm text-text dark:text-text-dark hover:bg-primary/10 transition-colors" role="menuitem"><i data-v-c8d1eb23="" class="iconify-icon text-xs mr-2" name="fa6-solid:check" aria-hidden="true"></i> Mark as read</button><button data-v-c8d1eb23="" class="w-full px-3 py-1 text-left text-sm text-red-600 dark:text-red-400 hover:bg-primary/10 transition-colors" role="menuitem"><i data-v-c8d1eb23="" class="iconify-icon text-xs mr-2" name="fa6-solid:trash" aria-hidden="true"></i> Remove</button></div>
+        </div>
+      </div><!-- Message with parsed body -->
+      <div data-v-c8d1eb23="" class="mt-2 space-y-2">
+        <!-- Notification body -->
+        <div data-v-c8d1eb23="" class="notification-body text-sm">
+          <div data-v-c8d1eb23="">Someone commented on your post</div>
+        </div><!-- Timestamp and View link -->
+        <div data-v-c8d1eb23="" class="flex items-center justify-between"><time data-v-c8d1eb23="" datetime="2025-01-01T10:00:00.000Z" class="text-xs text-text-muted dark:text-text-dark-muted" title="January 1, 2025 at 11:00 AM">1/1/2025</time><!-- View link if actionUrl exists (not for achievements/karma) -->
+          <!--v-if-->
+        </div>
+      </div><!-- Priority Indicator -->
+      <!--v-if-->
+    </div>
+  </div>
+</div>"
+`;

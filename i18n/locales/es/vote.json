@@ -1,0 +1,47 @@
+{
+    "vote":  {
+                 "upvote":  "Votar positivo",
+                 "downvote":  "Votar negativo",
+                 "positive_vote":  "Voto positivo",
+                 "negative_vote":  "Voto negativo",
+                 "select_reason":  "Selecciona una razón para tu voto",
+                 "reason_help_text":  "Esto ayudará a otros usuarios a entender por qué valoraste este contenido",
+                 "will_appear_in_summary":  "Aparecerá en el resumen de votos",
+                 "stats":  {
+                               "title":  "Estadísticas de votos",
+                               "positive":  "Votos positivos",
+                               "negative":  "Votos negativos"
+                           },
+                 "show_stats": "Mostrar detalles de votos",
+                 "hide_stats": "Ocultar detalles de votos",
+                 "types":  {
+                               "didactic":  "Educativo",
+                               "interesting":  "Interesante",
+                               "elaborate":  "Detallado",
+                               "funny":  "Divertido",
+                               "false":  "Incorrecto",
+                               "incomplete":  "Incompleto",
+                               "irrelevant":  "Irrelevante",
+                               "outofplace":  "Fuera de lugar"
+                           },
+                 "already_voted":  "Ya has votado este envío",
+                 "updated":  "Voto actualizado",
+                 "registered":  "Voto registrado",
+                 "removed":  "Voto eliminado",
+                 "invalid_type":  "El tipo de voto proporcionado no es válido. Tipos permitidos: {types}",
+                 "polls":  {
+                               "expired":  "Esta encuesta ha expirado",
+                               "vote":  "voto",
+                               "votes":  "votos",
+                               "submit_vote":  "Enviar Voto",
+                               "remove_vote":  "Quitar Voto",
+                               "show_results":  "Ver Resultados",
+                               "back_to_vote":  "Volver a Votar",
+                               "total_votes":  "Total de votos: {count}",
+                               "multiple_options_allowed":  "Se permiten múltiples opciones",
+                               "load_error":  "Error al cargar los resultados de la encuesta",
+                               "vote_error":  "Error al enviar el voto",
+                               "remove_vote_error":  "Error al quitar el voto"
+                           }
+             }
+}

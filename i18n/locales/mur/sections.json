@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "frontpage": "Portaica",
+    "pending": "Pendienticos",
+    "featured": "Destacaicos",
+    "trending": "En tendencica",
+    "popular": "Popularicos",
+    "all": "Toicos",
+    "my_subs": "Mis Subicos",
+    "my_subs_login_required": "Entrarico pa ver envíos de tus comunidaicas",
+    "comments": "Comentaricos",
+    "comments_description": "Explorarico los últimos comentaricos"
+  }
+}

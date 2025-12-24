@@ -1,0 +1,32 @@
+{
+    "polls": {
+        "expired": "Esta enquisa expirou",
+        "vote": "voto",
+        "votes": "votos",
+        "submit_vote": "Enviar voto",
+        "remove_vote": "Eliminar voto",
+        "show_results": "Ver resultados",
+        "back_to_vote": "Volver votar",
+        "results_title": "Resultados da enquisa",
+        "total_votes": "{count} votos totais",
+        "multiple_options_allowed": "Permítense múltiples opcións",
+        "load_error": "Erro ao cargar a enquisa",
+        "login_required": "Tes que estar rexistrado para poder votar",
+        "vote_error": "Erro ao enviar o voto",
+        "remove_vote_error": "Erro ao eliminar o voto",
+        "time_left": "Tempo restante",
+        "days": "días",
+        "hours": "horas",
+        "minutes": "minutos",
+        "seconds": "segundos",
+        "less_than_minute": "Menos dun minuto",
+        "view_pie": "Ver gráfica circular",
+        "view_bars": "Ver barras",
+        "you_voted_for_this": "Escolleches esta opción",
+        "you_voted_for_multiple": "Escolleches {count} opcións",
+        "options_chosen": "Opcións escollidas: {count}",
+        "you_voted_option": "Escolliches a opción {option}",
+        "you_voted_options": "Escolliches as opcións {options}",
+        "chart_aria_label": "Gráfico circular cos resultados da enquisa"
+    }
+}

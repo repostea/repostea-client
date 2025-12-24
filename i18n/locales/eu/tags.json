@@ -1,0 +1,16 @@
+{
+    "tags":  {
+                 "title":  "Gaiak",
+                 "popular":  "Gai ezagunak",
+                 "about":  "Gaiei buruz",
+                 "about_text":  "Gaiek (edo etiketak) estekak kategorizatzen laguntzen dute. Esteka bakoitzak gai anitz izan ditzake.",
+                 "related":  "Lotutako gaiak",
+                 "all":  "Gai guztiak",
+                 "search":  "Bilatu gaiak",
+                 "usage_text":  "Estekak bidaltzean gaiak gehitu ditzakezu beste batzuei zure edukia aurkitzen laguntzeko",
+                 "no_results":  "Ez da zure bilaketarekin bat datorren gairik aurkitu",
+                 "tag": "Gaia",
+                 "posts_tagged": "#{tag} etiketarekin postak",
+                 "seo_description": "Arakatu #{tag}(e)rekin lotutako edukia {app}(e)n. Aurkitu {count} argitalpen eta esteka."
+             }
+}

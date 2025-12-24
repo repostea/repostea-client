@@ -1,0 +1,347 @@
+{
+  "onboarding": {
+    "title": "Ongi etorri {siteName}era",
+    "skip": "Sarrera saltatu",
+    "next": "Hurrengoa",
+    "previous": "Aurrekoa",
+    "complete": "Osatu",
+    "finish": "Amaitu",
+    "get_started": "Hasi",
+    "step_of": "{current}. urratsa {total}tik",
+    "progress": "% {percentage} osatuta",
+    "steps": {
+      "welcome": {
+        "title": "Ongi etorri Komunitatera",
+        "description": "Jakin behar duzun guztia azalduko dizugu",
+        "content": {
+          "heading": "Ongi etorri {siteName}era!",
+          "subtitle": "Plataforma demokratikoa non komunitateak erabakitzen duen zein edukik merezi duen arreta",
+          "purpose": {
+            "title": "Zer da {siteName}?",
+            "description": "{siteName} ZUK erabakitzen duzun komunitate bat da zein edukik merezi duen arreta. Algoritmo sekreturik gabe, manipulaziorik gabe. Erabiltzaileek bozkatu eta eduki onena gora doa.\n\n💡 Demokrazia digitala: zure botoa kontatzen da, zure ahotsak garrantzia du."
+          },
+          "features": [
+            "Partekatu estekak, testuak, bideoak eta audioa",
+            "Parte hartu eztabaidetan iruzkinak eginez",
+            "Eraikitzeko zure karma komunitatearekin konpromisoaren bidez",
+            "Sortu eta batu komunitate espezializatuetara (sub-ak)"
+          ],
+          "cta": "Aztertu dezagun zer egiten duen {siteName} berezia!",
+          "show_details": "Xehetasunak erakutsi",
+          "hide_details": "Xehetasunak ezkutatu"
+        }
+      },
+      "discover-content": {
+        "title": "Aurkitu eta Iruzkindu",
+        "description": "Arakatu edukia eta parte hartu komunitatearekin",
+        "content": {
+          "heading": "Aurkitu Eduki Interesgarria",
+          "subtitle": "Zure partaidetzak balioa ematen dio plataformari",
+          "main_text_1": "Aurkitu eduki interesgarria eta",
+          "main_text_2": "iruzkindu komunitatearekin",
+          "essence_text_1": "Zure iruzkinak dira",
+          "essence_text_2": "esentzia",
+          "essence_text_3": "eta",
+          "essence_text_4": "balioa",
+          "essence_text_5": "ematen dioten plataformari. Elkarrizketak edukia aberasten dute eta komunitatea eraikitzen.",
+          "tip": "💡 Iruzkindu errespetuarekin, ekarri zure ikuspegia eta parte hartu eztabaidetan."
+        }
+      },
+      "creating-posts": {
+        "title": "Argitalpenak Sortu",
+        "description": "Ikasi nola partekatu edukia komunitatearekin",
+        "content": {
+          "heading": "Partekatu Zure Edukia",
+          "subtitle": "{siteName}ek eduki mota anitzak onartzen ditu",
+          "brief_summary_1": "Partekatu dezakezu",
+          "brief_summary_2": "estekak",
+          "brief_summary_3": "testuak",
+          "brief_summary_4": "bideoak",
+          "brief_summary_5": "audioa",
+          "brief_summary_6": "eta sortu",
+          "brief_summary_7": "inkestak",
+          "brief_summary_8": ". Aukeratu titulu argia, gehitu etiketa garrantzitsuak eta hautatu komunitate egokia.",
+          "tip": "💡 Kalitate edukia + titulu ona = ikusgarritasun gehiago",
+          "show_details": "Erakutsi xehetasunak",
+          "hide_details": "Ezkutatu xehetasunak",
+          "types": [
+            {
+              "title": "Testu Argitalpenak",
+              "description": "Partekatu pentsamenduak, istorioak edo eztabaidak testu aberastuko formatuarekin"
+            },
+            {
+              "title": "Esteka Argitalpenak",
+              "description": "Partekatu artikulu interesgarriak, webguneak edo baliabideak"
+            },
+            {
+              "title": "Bideo Argitalpenak",
+              "description": "Partekatu YouTube, Vimeo edo beste plataformetako bideoak"
+            },
+            {
+              "title": "Audio Argitalpenak",
+              "description": "Partekatu podcastak, musika edo audio edukia"
+            },
+            {
+              "title": "Inkesta Argitalpenak",
+              "description": "Sortu inkestak komunitatearen iritziak biltzeko"
+            }
+          ],
+          "tips": [
+            "Aukeratu titulu deskribatzaileak zure edukia argi azaltzen dutenak",
+            "Erabili etiketa garrantzitsuak besteei zure argitalpenak aurkitzen laguntzeko",
+            "Gehitu deskribapen xehatuak testuingurua emateko",
+            "Hautatu zure edukiarentzako sub (komunitate) egokia"
+          ]
+        }
+      },
+      "voting": {
+        "title": "Bozketa Sistema",
+        "description": "Ikasi nola bozkatuek edukiaren ikusgarritasuna zehazten duten",
+        "content": {
+          "heading": "Bozketa Sistema",
+          "subtitle": "Erabiltzaileek erabakitzen dute zein edukik merezi duen arreta",
+          "brief_text_1": "Erabiltzaileek edukia bozkatzen dute",
+          "brief_text_2": "▲ bozka positiboekin",
+          "brief_text_3": "baliotsuena eta interesgarriena bultzatzeko.",
+          "visibility_text": "Bozka gehiago = ikusgarritasun gehiago hasieran. Bozkatuek egilearen karma ere gehitzen dute.",
+          "tip": "💡 Spam edo eduki ilegala aurkitzen baduzu, salatu dezakezu moderatzaileek berrikusi dezaten.",
+          "content_impact": [
+            "Bozka positiboek edukiaren ikusgarritasuna gehitzen dute",
+            "Bozkatuena duen edukia hasieran agertzen da",
+            "Bozka negatiboek ikusgarritasuna murrizten dute",
+            "Bozken balantzearen arabera argitalpenen ordena zehazten da"
+          ],
+          "author_impact": [
+            "Bozka positibo bakoitzak +1 karma gehitzen dio egileari",
+            "Bozka negatibo bakoitzak -1 karma kentzen dio egileari",
+            "Karmak zure ekarpenen kalitatea islatzen du"
+          ],
+          "voting_guidelines": {
+            "dos": [
+              "Bozka positiboa: kalitate edukia, ongi argudiatu, erabilgarria edo dibertigarria",
+              "Bozka negatiboa: spam, eduki iraingarria, desinformazioa edo gaitik kanpo",
+              "Irakurri bozkatu aurretik, ez bozkatu titulua soilik irakurrita",
+              "Bozkatu kalitatearen arabera, ez zure akordio/desadostasun pertsonalaren arabera"
+            ],
+            "donts": [
+              "Ez bozkatu mendekuz edo inor erasotzeko",
+              "Ez erabili kontu anitz bozkatuak manipulatzeko",
+              "Ez bozkatu erabiltzaile baten eduki guztia (positibo edo negatibo)",
+              "Ez saldu zure bozkatua ez eta parte hartu bozketa brigadetan"
+            ]
+          }
+        }
+      },
+      "karma-system": {
+        "title": "Karma Sistema",
+        "description": "Ulertu nola funtzionatzen duen osasunak komunitatean",
+        "content": {
+          "heading": "Karma Sistema",
+          "subtitle": "Zure osasun-puntuazioa {siteName}en",
+          "brief_text_1": "Zure",
+          "brief_text_2": "karma",
+          "brief_text_3": "zure osasun-puntuazioa da {siteName}en. Zure edukiak jasotzen duen bozka positibo bakoitzak",
+          "brief_text_4": "+1 karma",
+          "brief_text_5": "gehitzen dizu.",
+          "progression_text": "Karma pilatzen duzun heinean, mailaz igotzen zara eta aitorpena jasotzen duzu komunitatean.",
+          "tip": "💡 Partekatu kalitate edukia, parte hartu errespetuarekin eta eraikitzeko zure osasunak.",
+          "levels_title": "Karma Mailak",
+          "karma_explained": {
+            "title": "Zer da Karma?",
+            "description": "Karma zure osasun-puntuazioa da. Kalkulatzen da zure argitalpen eta iruzkinek jasotzen dituzten bozka guztiak batuz.",
+            "calculation": "Karma = Bozka positiboak - Bozka negatiboak (zure eduki guztitik)",
+            "importance": "Karmak zure ekarpen baliotsuen historia islatzen du komunitatean.",
+            "permanent_levels": "Mailak iraunkorra dira: behin lortuta, ez dira galtzen zure karma jaisten bada ere (zigor administratiboak izan ezik)."
+          },
+          "how_it_works": [
+            "Jasotzen duzu +1 karma zure post eta iruzkinen bozka positibo bakoitzeko",
+            "Galtzen duzu -1 karma bozka negatibo bakoitzeko",
+            "Zure karma ikusgai dago zure profilean guztientzat",
+            "Ezin duzu 0 karma baino beheratu, baina zure historia ikusgai jarraitzen du"
+          ],
+          "earning_tips": [
+            "Partekatu jatorrizko edukia, interesgarria eta kalitatea",
+            "Irakurri iruzkindu aurretik eta ekarri ikuspegia baliotsuak",
+            "Izan errespetuzkoa desadostasunak izan arren ere",
+            "Egiaztatu iturriak informazioa partekatu aurretik",
+            "Ekarri erregularki, konstantzia kontatzen da"
+          ],
+          "levels": [
+            {
+              "name": "Hasiberria",
+              "range": "0-199 karma",
+              "description": "Hasten ari zara. Argitaratu edukia eta parte hartu mailaz igotzeko.",
+              "benefits": "Oinarrizko sarbidea funtzio nagusi guztietara"
+            },
+            {
+              "name": "Ikaslea",
+              "range": "200-999 karma",
+              "description": "Erabiltzaile aktiboa ekarpen aitortuekin",
+              "benefits": "Zure bozkatuek pisu gehiago dute, ikasle insignia"
+            },
+            {
+              "name": "Kolaboratzailea",
+              "range": "1.000-3.999 karma",
+              "description": "Kide baliotsua kalitate historiarekin",
+              "benefits": "Ikusgarritasun handiagoa, sub-ak sortu ditzakezu"
+            },
+            {
+              "name": "Aditu",
+              "range": "4.000-15.999 karma",
+              "description": "Aitortu aditu komunitatean",
+              "benefits": "Insignia berezia, lehentasuna berrikusietan"
+            },
+            {
+              "name": "Mentore",
+              "range": "16.000-39.999 karma",
+              "description": "Errespetatutako gida eragin handiarekin",
+              "benefits": "Moderazio ahalmena, bozka pisu handiagoaz"
+            },
+            {
+              "name": "Jakituna",
+              "range": "40.000-99.999 karma",
+              "description": "Beteranoa ekarpen salbuespenarekin",
+              "benefits": "Insignia esklusiboa, ahotsa erabaki garrantzitsuetan"
+            },
+            {
+              "name": "Legenda",
+              "range": "100.000+ karma",
+              "description": "Komunitatearen buruzagi legendarioa",
+              "benefits": "Abantaila guztiak, aitorpen berezia"
+            }
+          ]
+        }
+      },
+      "notifications": {
+        "title": "Jakinarazpenen Hobespenak",
+        "description": "Aukeratu nola mantendu nahi duzun eguneratuta",
+        "content": {
+          "heading": "Mantendu Konektatuta",
+          "subtitle": "Konfiguratu zure jakinarazpenen hobespenak",
+          "brief_text": "Jasoko dituzu jakinarazpenak zure postetarako erantzunak, aipamenak, bozkatuak eta gehiago.",
+          "tip": "💡 Konfiguratu ditzakezu zure jakinarazpen-hobespena guztiak zure profiletik edozein unetan.",
+          "email_notifications": "Jakinarazpenak Email bidez",
+          "email_description": "Jaso eguneraketak email bidez jarduera garrantzitsuetarako",
+          "push_notifications": "Nabigatzailearen Push Jakinarazpenak",
+          "push_description": "Jaso jakinarazpen instantaneoak zure nabigatzailean",
+          "notification_types": "Jakinarazpen Motak",
+          "types": {
+            "replies": "Erantzunak nire argitalpen eta iruzkinetara",
+            "mentions": "Norbaitek aipatzen nauenean",
+            "votes": "Nire edukiak bozkatuak jasotzen dituenean",
+            "follows": "Norbaitek jarraitzen didanean",
+            "announcements": "Plataformaren iragarki garrantzitsuak"
+          },
+          "privacy_note": "Aldatu ditzakezu konfigurazio hauek edozein unetan zure profilean"
+        },
+        "push": {
+          "title": "Push jakinarazpenak",
+          "description": "Jaso berehalako alertak norbaitek erantzuten edo aipatzen zaituenean, nabigatzailea itxita egon arren.",
+          "enable_button": "Aktibatu jakinarazpenak",
+          "enabled": "Jakinarazpenak aktibatuta",
+          "enabled_description": "Denbora errealeko alertak jasoko dituzu",
+          "blocked": "Baimena blokeatuta",
+          "blocked_description": "Aldatu dezakezu nabigatzailearen konfigurazioan",
+          "not_supported": "Zure nabigatzaileak ez ditu push jakinarazpenak onartzen",
+          "what_you_receive": "Alerta hauek jasoko dituzu:",
+          "receive_replies": "Zure argitalpen eta iruzkinetarako erantzunak",
+          "receive_mentions": "Aipamenak ({'@'}zure_erabiltzailea)",
+          "receive_achievements": "Desblokeatutako lorpenak"
+        }
+      },
+      "platform-features": {
+        "title": "Plataformaren Ezaugarriak",
+        "description": "Aurkitu zuretzat eskuragarri dauden tresna guztiak",
+        "content": {
+          "heading": "Arakatu {siteName}en Ezaugarriak",
+          "subtitle": "Aprobetxatu gehienez zure esperientzia",
+          "brief_text_1": "{siteName}ek barne hartzen ditu",
+          "brief_text_2": "komunitateak (sub-ak)",
+          "brief_text_3": "gordetako zerrendak",
+          "brief_text_4": "modu iluna",
+          "brief_text_5": ", laguntza",
+          "brief_text_6": "hizkuntza anitzak",
+          "brief_text_7": "eta askoz gehiago.",
+          "evolution_text_1": "🚀 Gaude",
+          "evolution_text_2": "etengabeko eboluzio",
+          "evolution_text_3": "funtzionalitate berriak ateratzen etengabe.",
+          "tip": "💡 Ez utzi aukera guztiak aztertzetik eta pertsonalizatu zure esperientzia zure hobespenen arabera.",
+          "features": [
+            {
+              "title": "Sub-ak (Komunitateak)",
+              "description": "Batu edo sortu gai espezifikoetan espezializatutako komunitateak",
+              "icon": "users"
+            },
+            {
+              "title": "Gordetako Zerrendak",
+              "description": "Gorde argitalpenak zerrenda pertsonalizatuetan gero irakurtzeko eta antolatzeko",
+              "icon": "bookmark"
+            },
+            {
+              "title": "Idazketa Laguntzailea IA",
+              "description": "Lortu laguntza argitalpen hobeak idazteko IAk bultzatutako iradokizunekin",
+              "icon": "robot"
+            },
+            {
+              "title": "Aplikazio Mugikorra",
+              "description": "Sartu {siteName}era mugimenduan gure mugikorra optimizatutako interfazearekin",
+              "icon": "mobile"
+            },
+            {
+              "title": "Modu Iluna",
+              "description": "Aldatu gai argia eta ilunaren artean nabigazio erosoagoa lortzeko",
+              "icon": "moon"
+            },
+            {
+              "title": "Hizkuntza Anitzak",
+              "description": "Erabili {siteName} zure hizkuntza gogokoenean",
+              "icon": "globe"
+            }
+          ],
+          "tips": [
+            "Arakatu sub desberdinak zure intereseko komunitateak aurkitzeko",
+            "Erabili bilaketa funtzioa eduki berria aurkitzeko",
+            "Berrikusi joera atala argitalpen herritarretarako",
+            "Pertsonalizatu zure profila zure nortasuna adierazteko"
+          ]
+        }
+      },
+      "completed": {
+        "title": "Prest zaude!",
+        "description": "Ongi etorri {siteName} komunitatera",
+        "content": {
+          "heading": "Ongi etorri {siteName}era!",
+          "subtitle": "Orain prest zaude esploratu eta ekartzeko hasteko",
+          "next_steps": [
+            "Sortu zure lehen argitalpena",
+            "Batu sub interesgarri batzuetara",
+            "Hasi elkarreragiten komunitatearekin",
+            "Pertsonalizatu zure profila"
+          ],
+          "cta": "Hasi Esploratzen",
+          "support": "Laguntza behar duzu? Kontsultatu gure laguntza zentroa edo galdetu komunitateari!"
+        }
+      }
+    },
+    "actions": {
+      "save_preferences": "Gorde Hobespenak",
+      "enable_notifications": "Gaitu Jakinarazpenak",
+      "create_first_post": "Sortu Zure Lehen Argitalpena",
+      "explore_subs": "Arakatu Komunitateak",
+      "go_to_dashboard": "Joan Panelera"
+    },
+    "error": {
+      "complete_step": "Huts egin du sarrera urratsa osatzean",
+      "update_preferences": "Huts egin du jakinarazpenen hobespenak eguneratzean",
+      "skip": "Huts egin du sarrera saltatzen",
+      "generic": "Errore bat gertatu da sarreraren zehar"
+    },
+    "success": {
+      "step_completed": "Urratsa ongi osatuta",
+      "preferences_saved": "Hobespenak ongi gordeta",
+      "onboarding_skipped": "Sarrera saltatuta",
+      "welcome": "Ongi etorri {siteName}era!"
+    },
+    "confirm_skip": "Ziur zaude sarrera saltatu nahi duzula? Galdu egingo dituzu {siteName}en erabiltzeari buruzko aholku batzuk."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "errors": {
+    "bad_request": "La petisión no vale quillo.",
+    "unauthorized": "Tié que entrá pa ve ehto.",
+    "forbidden": "No tié permiso pa ve ehto quillo.",
+    "not_found": "Ehto no s'encuentra por ningún lao.",
+    "validation_error": "Lo dato tienen fallo. Revísalo y prueba otra vé.",
+    "too_many_requests": "Para quieto quillo! Espérate un rato.",
+    "server_error": "Aro quillo, argo ha salío mal. Ya ehtamo mirándolo.",
+    "service_unavailable": "Ehto no ehta funcionando ahora. Prueba luego.",
+    "404": {
+      "title": "Página No Encontrá",
+      "message": "La página que burca no exihte o se ha movío."
+    },
+    "500": {
+      "title": "Error der Servidó",
+      "message": "Aro quillo, argo ha salío mal. Ya ehtamo mirándolo."
+    },
+    "network": {
+      "title": "Error de Ré",
+      "message": "No se pué conectá ar servidó. Mira tu conexión a internet."
+    },
+    "generic": {
+      "title": "Error",
+      "message": "Ha pasao argo raro. Prueba luego."
+    },
+    "pageNotFound": "Página no encontrá",
+    "user_not_found": "Usuarió no encontrao",
+    "user_not_found_message": "Er usuarió que burca no exihte"
+  },
+  "maintenance": {
+    "title": "Mantenimiento en Progreso",
+    "message": "Ehtamo mejorando la cosa. Volvemo pronto quillo.",
+    "estimated_time": "Tiempo estimao: uno minutillo"
+  }
+}

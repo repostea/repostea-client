@@ -1,0 +1,43 @@
+{
+    "errors": {
+        "bad_request": "La solicitud es inválida o no puede ser procesada.",
+        "unauthorized": "Necesitas iniciar sesión para acceder a este recurso.",
+        "forbidden": "No tienes permiso para acceder a este recurso.",
+        "not_found": "El recurso solicitado no fue encontrado.",
+        "validation_error": "Los datos enviados contienen errores. Por favor, revisa e intenta de nuevo.",
+        "too_many_requests": "Demasiadas solicitudes. Por favor, espera un momento e intenta de nuevo.",
+        "server_error": "Lo sentimos, algo salió mal en nuestros servidores. Nuestro equipo ha sido notificado.",
+        "service_unavailable": "El servicio está temporalmente no disponible. Por favor, intenta de nuevo más tarde.",
+        "404": {
+            "title": "Página No Encontrada",
+            "message": "La página que estás buscando no existe o ha sido movida."
+        },
+        "500": {
+            "title": "Error del Servidor",
+            "message": "Lo sentimos, algo salió mal en nuestros servidores. Nuestro equipo ha sido notificado."
+        },
+        "network": {
+            "title": "Error de Red",
+            "message": "No se pudo conectar con el servidor. Por favor, comprueba tu conexión a internet."
+        },
+        "generic": {
+            "title": "Error",
+            "message": "Ocurrió un error inesperado. Por favor, inténtalo de nuevo más tarde."
+        },
+        "pageNotFound": "Página no encontrada",
+        "user_not_found": "Usuario no encontrado",
+        "user_not_found_message": "El usuario que estás buscando no existe o ha sido eliminado",
+        "load_notifications_failed": "Error al cargar las notificaciones",
+        "mark_all_read_failed": "Error al marcar todas las notificaciones como leídas",
+        "delete_notification_failed": "Error al eliminar la notificación"
+    },
+    "maintenance": {
+        "title": "Mantenimiento en Progreso",
+        "message": "Estamos realizando mejoras para brindarte una mejor experiencia. Volveremos pronto.",
+        "estimated_time": "Tiempo estimado: unos minutos",
+        "check_status": "Verificar Estado",
+        "checking": "Verificando...",
+        "auto_refresh": "Esta página se actualizará automáticamente cada 30 segundos",
+        "improving": "Estamos mejorando la plataforma. Gracias por tu paciencia."
+    }
+}

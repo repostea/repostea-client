@@ -1,0 +1,18 @@
+{
+  "comments": {
+    "title": "Comentaricos",
+    "write": "Escribico un comentarico...",
+    "reply": "Respondeico",
+    "edit": "Cambia",
+    "delete": "Quita",
+    "confirm_delete": "¿Seguro que quieres quitarico este comentarico illo?",
+    "deleted": "Este comentarico ha sido quitaico.",
+    "edited": "(cambiaico)",
+    "show_more": "Enseñarico más",
+    "no_comments": "Todavía no hay comentaricos. Sel primerico illo!",
+    "login_to_comment": "Pa comentarico tié que entrarico",
+    "vote": "votico",
+    "votes": "voticos",
+    "posting_as": "Publicandico como"
+  }
+}

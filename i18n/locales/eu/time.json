@@ -1,0 +1,11 @@
+{
+    "time":  {
+                 "just_now":  "oraintxe bertan",
+                 "minutes_ago":  "duela {count} minutu | duela {count} minutu",
+                 "hours_ago":  "duela {count} ordu | duela {count} ordu",
+                 "days_ago":  "duela {count} egun | duela {count} egun",
+                 "today":  "Gaur",
+                 "yesterday":  "Atzo",
+                 "weeks_ago":  "duela {weeks} aste | duela {weeks} aste"
+             }
+}

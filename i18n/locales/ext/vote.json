@@ -1,0 +1,23 @@
+{
+  "vote": {
+    "upvote": "Votal positivu",
+    "downvote": "Votal negativu",
+    "already_voted": "Ya has votau esti envíu",
+    "updated": "Votu actualizau",
+    "registered": "Votu registrau",
+    "removed": "Votu quitau",
+    "types": {
+      "elaborate": "Currau",
+      "funny": "Graciosu",
+      "false": "Farsu",
+      "irrelevant": "Nu vieni a cuentu",
+      "outofplace": "Fuera de lugal"
+    },
+    "polls": {
+      "expired": "Esta encuesta ha expirau",
+      "submit_vote": "Mandal Votu",
+      "remove_vote": "Quital Votu",
+      "back_to_vote": "Volvel a Votal"
+    }
+  }
+}

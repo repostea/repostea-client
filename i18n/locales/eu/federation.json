@@ -1,0 +1,89 @@
+{
+  "federation": {
+    "title": "Fedibertsoko elkarrekintzak",
+    "menu_title": "Fedibertsoa",
+    "explanation": "Eduki hau Fedibertsoan partekatu da (Mastodon, Lemmy, etab.) eta beste plataforma federatuetako erabiltzaileen elkarrekintzak jaso ditu.",
+    "likes": "Atsegin federatuak",
+    "shares": "Partekatuak",
+    "replies": "Erantzun federatuak",
+    "stats_tooltip": "Ikusi Fedibertsoko elkarrekintzak",
+    "stats_info": "Metrika hauek plataformako botoetatik eta karmatik independenteak dira. Eduki honen irismena adierazten dute Fedibertsoan.",
+    "learn_more": "Federazioari buruzko informazio gehiago",
+    "via": "bidez",
+    "view_profile": "Ikusi profila Fedibertsoan",
+    "remote_comment": "Iruzkina hemendik",
+    "remote_comment_label": "fedibertsotik",
+    "via_fediverse": "Fedibertsotik",
+    "remote_user": "Erabiltzaile federatua",
+    "page": {
+      "title": "Fedibertsoa",
+      "subtitle": "Zer den, nola funtzionatzen duen eta nola konektatzen garen berarekin",
+      "what_is_fediverse": {
+        "title": "Zer da Fedibertsoa?",
+        "description": "Fedibertsoa (\"federazio\" eta \"unibertso\" hitzetatik) sare sozial deszentralizatu eta interkonektatuen multzoa da. Twitter edo Facebook bezalako plataforma zentralizatuetan, non enpresa bakar batek dena kontrolatzen duen, ez bezala, Fedibertsoa elkarrekin komunikatu daitezkeen milaka zerbitzari independentek osatzen dute.",
+        "protocol": "Plataforma hauek guztiek ActivityPub izeneko protokolo ireki bat erabiltzen dute, zerbitzu desberdinetako erabiltzaileek elkarren artean elkarreragin ahal izateko. Posta elektronikoak hornitzaile desberdinen artean nola funtzionatzen duen antzekoa da: Gmail erabiltzaile batek Outlook erabiltzaile bati idatzi diezaioke arazorik gabe."
+      },
+      "platforms": {
+        "title": "Fedibertsoko plataformak",
+        "description": "Fedibertsoak ezagutzen duzun ia edozein sare sozialetarako alternatiba deszentralizatuak biltzen ditu:",
+        "mastodon": "mikroblogging-a, Twitter/X-ren alternatiba",
+        "lemmy": "foroak eta komunitateak, Reddit-en alternatiba",
+        "peertube": "bideoak, YouTube-ren alternatiba",
+        "pixelfed": "argazkiak, Instagram-en alternatiba",
+        "friendica": "sare sozial osoa, Facebook-en alternatiba",
+        "mbin": "plataforma honen antzeko eduki agregatzailea"
+      },
+      "our_approach": {
+        "title": "Gure konexioa Fedibertsoarekin",
+        "description": "Fedibertsoarekin modu berezi batean konektatzen gara, gure komunitatearen osotasuna mantentzen duena zure edukiaren irismena zabaltzen duen bitartean.",
+        "what_we_do": "Egiten duguna",
+        "do_item_1": "Zure bidalketak Fedibertsoan argitaratzen ditugu Mastodon, Lemmy eta beste plataformetako erabiltzaileek ikusi eta jarraitu ditzaten",
+        "do_item_2": "Kanpoko erabiltzaileen iruzkinak jasotzen ditugu, federatu gisa argi identifikatuta agertzen direnak",
+        "do_item_3": "Elkarrekintza federatuak (atseginak, partekatuak) irismenaren metrika gisa erakusten ditugu",
+        "do_item_4": "Beste plataformetako erabiltzaileei gure edukia jarraitzea ahalbidetzen diegu",
+        "what_we_dont": "EZ duguna egiten",
+        "dont_item_1": "Ez ditugu beste instantzietako argitalpenak feed nagusira inportatzen",
+        "dont_item_2": "Ez ditugu botoak edo karma Fedibertsoarekin sinkronizatzen",
+        "dont_item_3": "Ez diegu urruneko erabiltzaileei gure karma sisteman botatzea ahalbidetzen"
+      },
+      "why_this_model": {
+        "title": "Zergatik eredu hau?",
+        "description": "Eduki agregazio plataforma bat gara, non tokiko komunitateak erabakitzen duen zer den garrantzitsua botoen bidez. Kanpoko argitalpenak inportatuko bagenitu edo botoek federatuak onartuko bagenitu, ikusten duzun edukiaren kalitate eta garrantziaren gaineko kontrola galduko genuke.",
+        "benefits": "Ikuspegi honek bi munduen onena ematen dizu: zure edukiak audientzia askoz handiagoa lor dezake Fedibertsoaren bidez, plataformaren barruko esperientzia gure komunitateak kudeatzen jarraitzen duen bitartean. Iruzkin federatuek eztabaidak aberasten dituzte karma sistema arriskuan jarri gabe."
+      },
+      "privacy": {
+        "title": "Pribatutasuna eta kontrola",
+        "description": "Zure pribatutasuna garrantzitsua da. Federazioa aukerakoa da eta zuk erabakitzen duzu zer partekatu:",
+        "item_1": "Federazioa desaktibatuta dago modu lehenetsian zure kontuan",
+        "item_2": "Aukeratu dezakezu zein argitalpen federatu eta zein ez",
+        "item_3": "Partekatutako zure profileko informazioa minimoa da: erabiltzaile izena eta avatarra soilik",
+        "item_4": "Federazioa edozein momentutan desaktiba dezakezu",
+        "item_5": "Zure botoak, karma eta barne jarduera ez dira inoiz kanpoan partekatzen"
+      },
+      "metrics": {
+        "title": "Metrika lokalak vs federatuak",
+        "description": "Garrantzitsua da metrika lokalen (gure plataformakoak) eta federatuen (Fedibertsokoak) arteko aldea ulertzea:",
+        "type": "Mota",
+        "local": "Lokala",
+        "federated": "Federatua",
+        "votes_row": "Botoak",
+        "votes_local": "Karmari eta edukiaren posizioari eragiten diote",
+        "votes_federated": "Kanpoko erabiltzaileen atseginak, irismenaren metrika soilik",
+        "comments_row": "Iruzkinak",
+        "comments_local": "Plataformako erabiltzaile egiaztatuak",
+        "comments_federated": "Fedibertsoko erabiltzaileak, argi identifikatuta",
+        "karma_row": "Karma",
+        "karma_local": "Barne ospe sistema",
+        "karma_federated": "Ez da existitzen, ez dio karmari eragiten"
+      },
+      "how_to_enable": {
+        "title": "Nola aktibatu federazioa",
+        "description": "Federazioa aukerakoa da. Zure edukia Fedibertsora iristea nahi baduzu:",
+        "step_1": "Joan Ezarpenetara zure profilean",
+        "step_2": "Bilatu Federazioa atala",
+        "step_3": "Aktibatu \"Nire argitalpenak federatu\"",
+        "step_4": "Aukeran, konfiguratu zein eduki mota partekatu nahi duzun"
+      }
+    }
+  }
+}

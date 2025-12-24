@@ -1,0 +1,24 @@
+{
+  "rankings": {
+    "title": "Rankings mijo",
+    "subtitle": "Descubre a los contribuidores más destacaos de nuestra comunidá mijo",
+    "karma_points": "puntos de karma mijo",
+    "posts": "publicasiones",
+    "comments": "comentarios mijo",
+    "days_streak": "días de racha",
+    "achievements": "logros mijo",
+    "no_data": "No hay datos disponibles pa este ranking mijo",
+    "categories": {
+      "posts": "Publicasiones",
+      "comments": "Comentarios mijo",
+      "streaks": "Rachas",
+      "achievements": "Logros mijo"
+    },
+    "timeframes": {
+      "all_time": "To el Tiempo mijo",
+      "this_month": "Este Mes",
+      "this_week": "Esta Semana",
+      "today": "Hoy mijo"
+    }
+  }
+}

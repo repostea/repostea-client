@@ -1,0 +1,28 @@
+{
+  "errors": {
+    "bad_request": "A demanda no ye correuta.",
+    "unauthorized": "Has de dentrar ta veyer isto.",
+    "forbidden": "No tiens permiso ta veyer isto.",
+    "not_found": "Isto no s'ha trobato.",
+    "too_many_requests": "Para quieto! Aspera un poquet.",
+    "server_error": "Alerta, bella cosa ha saliu mal.",
+    "404": {
+      "title": "Pachina No Trobata",
+      "message": "A pachina que buscas no existe u s'ha moviu."
+    },
+    "500": {
+      "title": "Error d'o Servidor",
+      "message": "Alerta, bella cosa ha saliu mal."
+    },
+    "generic": {
+      "title": "Error",
+      "message": "Ha pasau bella cosa rara. Preba dimpués."
+    },
+    "pageNotFound": "Pachina no trobata",
+    "user_not_found": "Usuario no trobato"
+  },
+  "maintenance": {
+    "title": "Mantenimiento",
+    "message": "Estamos amillorando. Tornamos luego."
+  }
+}

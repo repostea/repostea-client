@@ -1,0 +1,27 @@
+{
+  "agora": {
+    "title": "Ágora",
+    "subtitle": "Plaza publica de conversación",
+    "description": "Compartir os tuyos pensamientos y participar en conversacions",
+    "write_placeholder": "¿Qué quiers compartir en l'ágora?",
+    "publish": "Publicar",
+    "reply": "Responder",
+    "edit": "Editar",
+    "delete": "Borrar",
+    "save": "Alzar",
+    "anonymous": "Anonimo",
+    "recent": "Recients",
+    "popular": "Populars",
+    "no_messages": "L'ágora ye aguardando-te",
+    "no_messages_subtitle": "Sía o primero en prençipiar una conversación",
+    "loading": "Cargando conversacions...",
+    "message_created": "Mensache publicau correctament",
+    "message_deleted": "Mensache borrau",
+    "confirm_delete": "¿Yes seguro que quiers borrar iste mensache?",
+    "replies_count": "{count} respuestas",
+    "view_thread": "Veyer filo",
+    "cta_title": "¡Apunta-te a la conversación!",
+    "view_threads": "Filos",
+    "view_chronological": "Cronolochico"
+  }
+}

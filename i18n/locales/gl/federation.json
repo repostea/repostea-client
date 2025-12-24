@@ -1,0 +1,89 @@
+{
+  "federation": {
+    "title": "Interaccións do Fediverso",
+    "menu_title": "Fediverso",
+    "explanation": "Este contido compartiuse no Fediverso (Mastodon, Lemmy, etc.) e recibiu interaccións de usuarios doutras plataformas federadas.",
+    "likes": "Gústame federados",
+    "shares": "Compartidos",
+    "replies": "Respostas federadas",
+    "stats_tooltip": "Ver interaccións do Fediverso",
+    "stats_info": "Estas métricas son independentes dos votos e karma da plataforma. Representan o alcance deste contido no Fediverso.",
+    "learn_more": "Máis información sobre a federación",
+    "via": "vía",
+    "view_profile": "Ver perfil no Fediverso",
+    "remote_comment": "Comentario desde",
+    "remote_comment_label": "vía fediverso",
+    "via_fediverse": "Vía fediverso",
+    "remote_user": "Usuario federado",
+    "page": {
+      "title": "O Fediverso",
+      "subtitle": "Que é, como funciona e como nos conectamos con el",
+      "what_is_fediverse": {
+        "title": "Que é o Fediverso?",
+        "description": "O Fediverso (de \"federación\" e \"universo\") é un conxunto de redes sociais descentralizadas e interconectadas. A diferenza de plataformas centralizadas como Twitter ou Facebook, onde unha soa empresa controla todo, o Fediverso está formado por miles de servidores independentes que poden comunicarse entre si.",
+        "protocol": "Todas estas plataformas utilizan un protocolo aberto chamado ActivityPub, que permite que usuarios de diferentes servizos interactúen entre si. É similar a como funciona o correo electrónico entre distintos provedores: un usuario de Gmail pode escribir a un de Outlook sen problemas."
+      },
+      "platforms": {
+        "title": "Plataformas do Fediverso",
+        "description": "O Fediverso inclúe alternativas descentralizadas a case calquera rede social que coñezas:",
+        "mastodon": "microblogging, alternativa a Twitter/X",
+        "lemmy": "foros e comunidades, alternativa a Reddit",
+        "peertube": "vídeos, alternativa a YouTube",
+        "pixelfed": "fotos, alternativa a Instagram",
+        "friendica": "rede social completa, alternativa a Facebook",
+        "mbin": "agregador de contido similar a esta plataforma"
+      },
+      "our_approach": {
+        "title": "A nosa conexión co Fediverso",
+        "description": "Conectámonos ao Fediverso dunha forma particular que preserva a integridade da nosa comunidade mentres amplía o alcance do teu contido.",
+        "what_we_do": "O que facemos",
+        "do_item_1": "Publicamos os teus envíos no Fediverso para que usuarios de Mastodon, Lemmy e outras plataformas poidan velos e seguilos",
+        "do_item_2": "Recibimos comentarios de usuarios externos, que aparecen claramente identificados como federados",
+        "do_item_3": "Mostramos as interaccións federadas (gústame, compartidos) como métricas de alcance",
+        "do_item_4": "Permitimos que usuarios doutras plataformas sigan o noso contido",
+        "what_we_dont": "O que NON facemos",
+        "dont_item_1": "Non importamos publicacións doutras instancias ao feed principal",
+        "dont_item_2": "Non sincronizamos votos nin karma co Fediverso",
+        "dont_item_3": "Non permitimos que usuarios remotos voten no noso sistema de karma"
+      },
+      "why_this_model": {
+        "title": "Por que este modelo?",
+        "description": "Somos unha plataforma de agregación de contido onde a comunidade local decide que é relevante mediante votos. Se importásemos publicacións externas ou permitísemos votos federados, perderiamos o control sobre a calidade e relevancia do contido que ves.",
+        "benefits": "Este enfoque dáche o mellor dos dous mundos: o teu contido pode alcanzar unha audiencia moito maior a través do Fediverso, mentres que a experiencia dentro da plataforma segue sendo xestionada pola nosa comunidade. Os comentarios federados enriquecen as discusións sen comprometer o sistema de karma."
+      },
+      "privacy": {
+        "title": "Privacidade e control",
+        "description": "A túa privacidade é importante. A federación é opcional e ti decides que compartir:",
+        "item_1": "A federación está desactivada por defecto na túa conta",
+        "item_2": "Podes elixir que publicacións se federan e cales non",
+        "item_3": "A túa información de perfil compartida é mínima: só nome de usuario e avatar",
+        "item_4": "Podes desactivar a federación en calquera momento",
+        "item_5": "Os teus votos, karma e actividade interna nunca se comparten externamente"
+      },
+      "metrics": {
+        "title": "Métricas locais vs federadas",
+        "description": "É importante entender a diferenza entre as métricas locais (da nosa plataforma) e as federadas (do Fediverso):",
+        "type": "Tipo",
+        "local": "Local",
+        "federated": "Federado",
+        "votes_row": "Votos",
+        "votes_local": "Afectan ao karma e posición do contido",
+        "votes_federated": "Gústame de usuarios externos, só métrica de alcance",
+        "comments_row": "Comentarios",
+        "comments_local": "De usuarios verificados da plataforma",
+        "comments_federated": "De usuarios do Fediverso, identificados claramente",
+        "karma_row": "Karma",
+        "karma_local": "Sistema de reputación interno",
+        "karma_federated": "Non existe, non afecta ao karma"
+      },
+      "how_to_enable": {
+        "title": "Como activar a federación",
+        "description": "A federación é opcional. Se queres que o teu contido chegue ao Fediverso:",
+        "step_1": "Vai a Configuración no teu perfil",
+        "step_2": "Busca a sección Federación",
+        "step_3": "Activa \"Federar as miñas publicacións\"",
+        "step_4": "Opcionalmente, configura que tipo de contido queres compartir"
+      }
+    }
+  }
+}

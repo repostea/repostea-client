@@ -1,0 +1,64 @@
+{
+  "activity": {
+    "title": "Actividad",
+    "description": "Últimas acciones de la comunidad en tiempo real",
+    "loading": "Cargando actividades...",
+    "error_loading": "No se pudieron cargar las actividades. Inténtalo de nuevo.",
+    "retry": "Reintentar",
+    "load_more": "Cargar más",
+    "no_more_activities": "No hay más actividades",
+    "no_activities": "No se encontraron actividades",
+    "filters": {
+      "time": "Tiempo",
+      "last_hour": "Última hora",
+      "last_24h": "Últimas 24 horas",
+      "last_week": "Última semana",
+      "all_time": "Todo",
+      "types": "Tipos de actividad",
+      "clear": "Limpiar filtros",
+      "reset": "Resetear"
+    },
+    "new_activities": "{count} nueva actividad | {count} nuevas actividades",
+    "auto_refresh_on": "Auto-actualización activa",
+    "auto_refresh_off": "Auto-actualización desactivada",
+    "by": "por",
+    "by_anonymous": "por usuario anónimo",
+    "on_post": "en envío",
+    "on_comment": "en un comentario",
+    "on_agora_message": "en mensaje del Ágora",
+    "in_post": "en envío",
+    "comment_on": "Comentario en",
+    "agora_message": "Nuevo mensaje en el Ágora",
+    "view_in_agora": "Ver en el Ágora",
+    "sub_created": "Nueva comunidad creada",
+    "upvote": "Voto positivo",
+    "downvote": "Voto negativo",
+    "seal_awarded": "Sello",
+    "reached_frontpage": "llegó a portada",
+    "activity_types": {
+      "new_post": "Nuevo envío",
+      "post_vote": "Voto en envío",
+      "new_comment": "Nuevo comentario",
+      "comment_vote": "Voto en comentario",
+      "seal_awarded": "Sello otorgado",
+      "frontpage": "Portada",
+      "new_agora_message": "Mensaje Ágora",
+      "agora_vote": "Voto en Ágora",
+      "new_sub": "Nueva comunidad"
+    },
+    "seals": {
+      "recommended": "Recomendado",
+      "problematic": "Problemático",
+      "advise_against": "Desaconsejado"
+    },
+    "time": {
+      "just_now": "Justo ahora",
+      "year": "hace {count} año | hace {count} años",
+      "month": "hace {count} mes | hace {count} meses",
+      "week": "hace {count} semana | hace {count} semanas",
+      "day": "hace {count} día | hace {count} días",
+      "hour": "hace {count} hora | hace {count} horas",
+      "minute": "hace {count} minuto | hace {count} minutos"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "errors": {
+    "bad_request": "La solicitú nun ye válida.",
+    "unauthorized": "Tienes qu'aniciar sesión pa ver esto.",
+    "forbidden": "Nun tienes permisu pa ver esto.",
+    "not_found": "Esto nun s'atopó.",
+    "too_many_requests": "¡Oi! Para quietu! Espera un poco.",
+    "server_error": "¡Oi! Daqué salió mal. Yá lo tamos mirando.",
+    "service_unavailable": "Esto nun ta funcionando agora. Prueba llueu.",
+    "404": {
+      "title": "Páxina Nun Atopada",
+      "message": "La páxina que busques nun existe o movióse."
+    },
+    "500": {
+      "title": "Error del Sirvidor",
+      "message": "¡Oi! Daqué salió mal."
+    },
+    "network": {
+      "title": "Error de Rede",
+      "message": "Nun se pue conectar al sirvidor. Mira la to conexón."
+    },
+    "generic": {
+      "title": "Fallu",
+      "message": "Pasó daqué raro. Prueba llueu."
+    },
+    "pageNotFound": "Páxina nun atopada",
+    "user_not_found": "Usuariu nun atopáu"
+  },
+  "maintenance": {
+    "title": "Mantenimientu",
+    "message": "Tamos ameyorando. Volvemos llueu."
+  }
+}

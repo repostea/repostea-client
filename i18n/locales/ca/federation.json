@@ -1,0 +1,89 @@
+{
+  "federation": {
+    "title": "Interaccions del Fedivers",
+    "menu_title": "Fedivers",
+    "explanation": "Aquest contingut s'ha compartit al Fedivers (Mastodon, Lemmy, etc.) i ha rebut interaccions d'usuaris d'altres plataformes federades.",
+    "likes": "M'agrada federats",
+    "shares": "Compartits",
+    "replies": "Respostes federades",
+    "stats_tooltip": "Veure interaccions del Fedivers",
+    "stats_info": "Aquestes mètriques són independents dels vots i karma de la plataforma. Representen l'abast d'aquest contingut al Fedivers.",
+    "learn_more": "Més informació sobre la federació",
+    "via": "via",
+    "view_profile": "Veure perfil al Fedivers",
+    "remote_comment": "Comentari des de",
+    "remote_comment_label": "via fedivers",
+    "via_fediverse": "Via fedivers",
+    "remote_user": "Usuari federat",
+    "page": {
+      "title": "El Fedivers",
+      "subtitle": "Què és, com funciona i com ens hi connectem",
+      "what_is_fediverse": {
+        "title": "Què és el Fedivers?",
+        "description": "El Fedivers (de \"federació\" i \"univers\") és un conjunt de xarxes socials descentralitzades i interconnectades. A diferència de plataformes centralitzades com Twitter o Facebook, on una sola empresa ho controla tot, el Fedivers està format per milers de servidors independents que es poden comunicar entre si.",
+        "protocol": "Totes aquestes plataformes utilitzen un protocol obert anomenat ActivityPub, que permet que usuaris de diferents serveis interactuïn entre si. És similar a com funciona el correu electrònic entre diferents proveïdors: un usuari de Gmail pot escriure a un d'Outlook sense problemes."
+      },
+      "platforms": {
+        "title": "Plataformes del Fedivers",
+        "description": "El Fedivers inclou alternatives descentralitzades a gairebé qualsevol xarxa social que coneguis:",
+        "mastodon": "microblogging, alternativa a Twitter/X",
+        "lemmy": "fòrums i comunitats, alternativa a Reddit",
+        "peertube": "vídeos, alternativa a YouTube",
+        "pixelfed": "fotos, alternativa a Instagram",
+        "friendica": "xarxa social completa, alternativa a Facebook",
+        "mbin": "agregador de contingut similar a aquesta plataforma"
+      },
+      "our_approach": {
+        "title": "La nostra connexió amb el Fedivers",
+        "description": "Ens connectem al Fedivers d'una manera particular que preserva la integritat de la nostra comunitat mentre amplia l'abast del teu contingut.",
+        "what_we_do": "El que fem",
+        "do_item_1": "Publiquem els teus enviaments al Fedivers perquè usuaris de Mastodon, Lemmy i altres plataformes puguin veure'ls i seguir-los",
+        "do_item_2": "Rebem comentaris d'usuaris externs, que apareixen clarament identificats com a federats",
+        "do_item_3": "Mostrem les interaccions federades (m'agrada, compartits) com a mètriques d'abast",
+        "do_item_4": "Permetem que usuaris d'altres plataformes segueixin el nostre contingut",
+        "what_we_dont": "El que NO fem",
+        "dont_item_1": "No importem publicacions d'altres instàncies al feed principal",
+        "dont_item_2": "No sincronitzem vots ni karma amb el Fedivers",
+        "dont_item_3": "No permetem que usuaris remots votin al nostre sistema de karma"
+      },
+      "why_this_model": {
+        "title": "Per què aquest model?",
+        "description": "Som una plataforma d'agregació de contingut on la comunitat local decideix què és rellevant mitjançant vots. Si importéssim publicacions externes o permetéssim vots federats, perdríem el control sobre la qualitat i rellevància del contingut que veus.",
+        "benefits": "Aquest enfocament et dóna el millor dels dos mons: el teu contingut pot arribar a una audiència molt més gran a través del Fedivers, mentre que l'experiència dins de la plataforma continua sent gestionada per la nostra comunitat. Els comentaris federats enriqueixen les discussions sense comprometre el sistema de karma."
+      },
+      "privacy": {
+        "title": "Privacitat i control",
+        "description": "La teva privacitat és important. La federació és opcional i tu decideixes què compartir:",
+        "item_1": "La federació està desactivada per defecte al teu compte",
+        "item_2": "Pots triar quines publicacions es federen i quines no",
+        "item_3": "La teva informació de perfil compartida és mínima: només nom d'usuari i avatar",
+        "item_4": "Pots desactivar la federació en qualsevol moment",
+        "item_5": "Els teus vots, karma i activitat interna mai es comparteixen externament"
+      },
+      "metrics": {
+        "title": "Mètriques locals vs federades",
+        "description": "És important entendre la diferència entre les mètriques locals (de la nostra plataforma) i les federades (del Fedivers):",
+        "type": "Tipus",
+        "local": "Local",
+        "federated": "Federat",
+        "votes_row": "Vots",
+        "votes_local": "Afecten el karma i la posició del contingut",
+        "votes_federated": "M'agrada d'usuaris externs, només mètrica d'abast",
+        "comments_row": "Comentaris",
+        "comments_local": "D'usuaris verificats de la plataforma",
+        "comments_federated": "D'usuaris del Fedivers, identificats clarament",
+        "karma_row": "Karma",
+        "karma_local": "Sistema de reputació intern",
+        "karma_federated": "No existeix, no afecta el karma"
+      },
+      "how_to_enable": {
+        "title": "Com activar la federació",
+        "description": "La federació és opcional. Si vols que el teu contingut arribi al Fedivers:",
+        "step_1": "Vés a Configuració al teu perfil",
+        "step_2": "Busca la secció Federació",
+        "step_3": "Activa \"Federar les meves publicacions\"",
+        "step_4": "Opcionalment, configura quin tipus de contingut vols compartir"
+      }
+    }
+  }
+}

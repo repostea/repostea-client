@@ -1,0 +1,42 @@
+{
+  "transparency": {
+    "title": "Transparencia",
+    "description": "Estadísticas e información sobre la moderación y actividad de {siteName}",
+    "stats": {
+      "title": "Estadísticas Generales",
+      "posts": "Publicaciones",
+      "users": "Usuarios",
+      "comments": "Comentarios",
+      "sources": "Fuentes agregadas"
+    },
+    "moderation": {
+      "title": "Moderación",
+      "reports": {
+        "title": "Reportes",
+        "received": "Reportes recibidos",
+        "processed": "Reportes procesados",
+        "pending": "Reportes pendientes",
+        "avg_response": "Tiempo medio de respuesta"
+      },
+      "actions": {
+        "title": "Acciones",
+        "content_removed": "Contenido eliminado",
+        "warnings": "Avisos emitidos",
+        "users_suspended": "Usuarios suspendidos",
+        "appeals": "Apelaciones totales"
+      }
+    },
+    "report_types": {
+      "title": "Tipos de Reportes",
+      "last_30_days": "Últimos 30 días",
+      "spam": "Spam",
+      "copyright": "Derechos de autor",
+      "harassment": "Acoso",
+      "illegal": "Contenido ilegal",
+      "privacy": "Privacidad",
+      "other": "Otros",
+      "inappropriate": "Contenido inapropiado",
+      "misinformation": "Desinformación"
+    }
+  }
+}

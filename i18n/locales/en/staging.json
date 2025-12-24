@@ -1,0 +1,6 @@
+{
+  "staging": {
+    "banner_title": "Test environment",
+    "banner_message": "Data may be deleted at any time. For production use"
+  }
+}

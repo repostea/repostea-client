@@ -1,0 +1,16 @@
+{
+    "tags":  {
+                 "title":  "Temas",
+                 "popular":  "Temas populares",
+                 "about":  "Sobre os temas",
+                 "about_text":  "Os temas (ou etiquetas) axudan a categorizar as ligazóns. Cada ligazón pode ter múltiples temas asociados.",
+                 "related":  "Temas relacionados",
+                 "all":  "Todos os temas",
+                 "search":  "Buscar temas",
+                 "usage_text":  "Podes engadir temas ao enviar ligazóns para axudar a outros a atopar o teu contido",
+                 "no_results":  "Non se atoparon temas que coincidan coa túa busca",
+                 "tag": "Tema",
+                 "posts_tagged": "Posts con #{tag}",
+                 "seo_description": "Explora contido relacionado con #{tag} en {app}. Descobre {count} publicacións e ligazóns."
+             }
+}

@@ -1,0 +1,26 @@
+{
+  "accessibility": {
+    "title": "Accessibility Statement",
+    "meta_description": "Information about our commitment to web accessibility",
+    "intro": "{siteName} is committed to ensuring digital accessibility for all people, including those with disabilities. We continuously work to improve the user experience and apply relevant accessibility standards.",
+    "standards_title": "Standards we follow",
+    "standards_text": "We strive to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 level AA. These guidelines explain how to make web content more accessible for people with disabilities.",
+    "measures_title": "Implemented measures",
+    "measure_1": "Semantic HTML for clear content structure",
+    "measure_2": "Alternative text for informative images",
+    "measure_3": "ARIA labels for interactive elements",
+    "measure_4": "Full keyboard navigation",
+    "measure_5": "Sufficient color contrast",
+    "measure_6": "Skip to main content link",
+    "measure_7": "ARIA live regions for dynamic content",
+    "measure_8": "Support for reduced motion preferences",
+    "measure_9": "Language attributes for multilingual content",
+    "limitations_title": "Known limitations",
+    "limitations_text": "Despite our efforts, some parts of the site may not be fully accessible. We are actively working to identify and resolve these limitations.",
+    "feedback_title": "Feedback and contact",
+    "feedback_text": "We welcome your feedback on the accessibility of this site. If you encounter accessibility barriers or have suggestions for improvement, please contact us:",
+    "email_label": "Email",
+    "response_time": "We try to respond to accessibility feedback within 5 business days.",
+    "last_updated": "Last updated"
+  }
+}

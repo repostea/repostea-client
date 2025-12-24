@@ -1,0 +1,24 @@
+{
+  "rankings": {
+    "title": "Rankingus",
+    "subtitle": "Descubril a los contribuidoris más destacaus de nuestra comuniá",
+    "karma_points": "puntus de karma",
+    "posts": "publicaçionis",
+    "comments": "comentarius",
+    "days_streak": "días de racha",
+    "achievements": "logrus",
+    "no_data": "Nu hay datus disponiblis pa esti ranking",
+    "categories": {
+      "posts": "Publicaçionis",
+      "comments": "Comentarius",
+      "streaks": "Rachas",
+      "achievements": "Logrus"
+    },
+    "timeframes": {
+      "all_time": "Tó el Tiempu",
+      "this_month": "Esti Mes",
+      "this_week": "Esta Semana",
+      "today": "Hoy"
+    }
+  }
+}

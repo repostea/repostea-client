@@ -1,0 +1,6 @@
+{
+  "staging": {
+    "banner_title": "Entorno de pruebas",
+    "banner_message": "Los datos pueden borrarse en cualquier momento. Para el entorno real usa"
+  }
+}

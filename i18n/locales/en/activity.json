@@ -1,0 +1,64 @@
+{
+  "activity": {
+    "title": "Activity",
+    "description": "Latest community activities in real-time",
+    "loading": "Loading activities...",
+    "error_loading": "Could not load activities. Please try again.",
+    "retry": "Retry",
+    "load_more": "Load more",
+    "no_more_activities": "No more activities",
+    "no_activities": "No activities found",
+    "filters": {
+      "time": "Time",
+      "last_hour": "Last hour",
+      "last_24h": "Last 24 hours",
+      "last_week": "Last week",
+      "all_time": "All time",
+      "types": "Activity types",
+      "clear": "Clear filters",
+      "reset": "Reset"
+    },
+    "new_activities": "{count} new activity | {count} new activities",
+    "auto_refresh_on": "Auto-refresh enabled",
+    "auto_refresh_off": "Auto-refresh disabled",
+    "by": "by",
+    "by_anonymous": "by anonymous user",
+    "on_post": "on post",
+    "on_comment": "on a comment",
+    "on_agora_message": "on Agora message",
+    "in_post": "in post",
+    "comment_on": "Comment on",
+    "agora_message": "New message in the Agora",
+    "view_in_agora": "View in Agora",
+    "sub_created": "New community created",
+    "upvote": "Upvote",
+    "downvote": "Downvote",
+    "seal_awarded": "Seal",
+    "reached_frontpage": "reached frontpage",
+    "activity_types": {
+      "new_post": "New post",
+      "post_vote": "Post vote",
+      "new_comment": "New comment",
+      "comment_vote": "Comment vote",
+      "seal_awarded": "Seal awarded",
+      "frontpage": "Frontpage",
+      "new_agora_message": "Agora message",
+      "agora_vote": "Agora vote",
+      "new_sub": "New community"
+    },
+    "seals": {
+      "recommended": "Recommended",
+      "problematic": "Problematic",
+      "advise_against": "Advised Against"
+    },
+    "time": {
+      "just_now": "Just now",
+      "year": "{count} year ago | {count} years ago",
+      "month": "{count} month ago | {count} months ago",
+      "week": "{count} week ago | {count} weeks ago",
+      "day": "{count} day ago | {count} days ago",
+      "hour": "{count} hour ago | {count} hours ago",
+      "minute": "{count} minute ago | {count} minutes ago"
+    }
+  }
+}

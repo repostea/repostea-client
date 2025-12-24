@@ -1,0 +1,10 @@
+{
+    "streak":  {
+                   "title":  "Streak",
+                   "multiplier":  "Karma multiplier: x{multiplier}",
+                   "guardian":  "GUARDIAN",
+                   "freezes":  "{count} streak freezes",
+                   "customization":  "Premium profile customization",
+                   "nameAura":  "Special name aura"
+               }
+}

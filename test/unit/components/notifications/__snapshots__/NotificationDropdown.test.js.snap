@@ -1,0 +1,211 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NotificationDropdown Component > Snapshots > matches snapshot when disconnected 1`] = `
+"<div data-v-10738399="" class="relative flex items-center">
+  <!-- Notification Bell --><button data-v-10738399="" class="relative p-2 min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors notification-bell-btn" aria-label="Toggle notifications" aria-expanded="false" aria-haspopup="menu" title="Notifications"><i data-v-10738399="" class="iconify-icon text-lg" name="fa6-solid:bell" aria-hidden="true"></i><!-- Unread Badge - Only show on client side with valid count -->
+    <div data-v-10738399=""></div><!-- Connection Status Indicator - Hidden per user request -->
+    <!--
+      <span
+        class="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white dark:border-neutral-900"
+        :class="connectionStatusClass"
+        :title="connectionStatusText"
+      ></span>
+      -->
+  </button><!-- Dropdown Menu - Only render after first interaction and on client side -->
+  <div data-v-10738399=""></div>
+</div>"
+`;
+
+exports[`NotificationDropdown Component > Snapshots > matches snapshot with 99+ badge 1`] = `
+"<div data-v-10738399="" class="relative flex items-center">
+  <!-- Notification Bell --><button data-v-10738399="" class="relative p-2 min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors notification-bell-btn" aria-label="Toggle notifications" aria-expanded="false" aria-haspopup="menu" title="Notifications"><i data-v-10738399="" class="iconify-icon text-lg" name="fa6-solid:bell" aria-hidden="true"></i><!-- Unread Badge - Only show on client side with valid count -->
+    <div data-v-10738399=""></div><!-- Connection Status Indicator - Hidden per user request -->
+    <!--
+      <span
+        class="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white dark:border-neutral-900"
+        :class="connectionStatusClass"
+        :title="connectionStatusText"
+      ></span>
+      -->
+  </button><!-- Dropdown Menu - Only render after first interaction and on client side -->
+  <div data-v-10738399=""></div>
+</div>"
+`;
+
+exports[`NotificationDropdown Component > Snapshots > matches snapshot with dropdown closed 1`] = `
+"<div data-v-10738399="" class="relative flex items-center">
+  <!-- Notification Bell --><button data-v-10738399="" class="relative p-2 min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors notification-bell-btn" aria-label="Toggle notifications" aria-expanded="false" aria-haspopup="menu" title="Notifications"><i data-v-10738399="" class="iconify-icon text-lg" name="fa6-solid:bell" aria-hidden="true"></i><!-- Unread Badge - Only show on client side with valid count -->
+    <div data-v-10738399=""></div><!-- Connection Status Indicator - Hidden per user request -->
+    <!--
+      <span
+        class="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white dark:border-neutral-900"
+        :class="connectionStatusClass"
+        :title="connectionStatusText"
+      ></span>
+      -->
+  </button><!-- Dropdown Menu - Only render after first interaction and on client side -->
+  <div data-v-10738399=""></div>
+</div>"
+`;
+
+exports[`NotificationDropdown Component > Snapshots > matches snapshot with dropdown open and notifications 1`] = `
+"<div data-v-10738399="" class="relative flex items-center">
+  <!-- Notification Bell --><button data-v-10738399="" class="relative p-2 min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors notification-bell-btn bg-white/20" aria-label="Toggle notifications" aria-expanded="true" aria-haspopup="menu" title="Notifications"><i data-v-10738399="" class="iconify-icon text-lg" name="fa6-solid:bell" aria-hidden="true"></i><!-- Unread Badge - Only show on client side with valid count -->
+    <div data-v-10738399=""></div><!-- Connection Status Indicator - Hidden per user request -->
+    <!--
+      <span
+        class="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white dark:border-neutral-900"
+        :class="connectionStatusClass"
+        :title="connectionStatusText"
+      ></span>
+      -->
+  </button><!-- Dropdown Menu - Only render after first interaction and on client side -->
+  <div data-v-10738399="">
+    <div data-v-10738399="" enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+      <div data-v-10738399="" class="notification-dropdown fixed sm:absolute top-16 sm:top-full right-0 sm:right-0 mt-0 sm:mt-2 w-[calc(100vw-1rem)] sm:w-96 max-w-none sm:max-w-md mr-2 sm:mr-0 rounded-lg shadow-lg z-50" role="menu" aria-orientation="vertical">
+        <!-- Header -->
+        <div data-v-10738399="" class="notification-header px-4 py-3">
+          <h3 data-v-10738399="" class="font-semibold text-text dark:text-text-dark">Notifications</h3>
+        </div><!-- Notification Summary -->
+        <div data-v-10738399="" class="notification-summary">
+          <!-- Loading State -->
+          <!-- Summary Cards (always shown when not loading) -->
+          <div data-v-10738399="">
+            <!-- Post Comments --><a data-v-10738399="" to="/profile/notifications/posts" class="block px-4 py-3 notification-item-hover transition-colors">
+              <div data-v-10738399="" class="flex items-center justify-between">
+                <div data-v-10738399="" class="flex items-center space-x-3"><i data-v-10738399="" class="iconify-icon text-blue-500 text-lg" name="fa6-solid:comment" aria-hidden="true"></i>
+                  <div data-v-10738399="">
+                    <div data-v-10738399="" class="text-sm font-medium text-text dark:text-text-dark">Post comments</div>
+                    <div data-v-10738399="" class="text-xs text-text-muted dark:text-text-dark-muted"><span data-v-10738399="">No new</span></div>
+                  </div>
+                </div>
+                <!--v-if-->
+              </div>
+            </a><!-- Comment Replies --><a data-v-10738399="" to="/profile/notifications/comments" class="block px-4 py-3 notification-item-hover transition-colors">
+              <div data-v-10738399="" class="flex items-center justify-between">
+                <div data-v-10738399="" class="flex items-center space-x-3"><i data-v-10738399="" class="iconify-icon text-blue-500 text-lg" name="fa6-solid:reply" aria-hidden="true"></i>
+                  <div data-v-10738399="">
+                    <div data-v-10738399="" class="text-sm font-medium text-text dark:text-text-dark">Comment replies</div>
+                    <div data-v-10738399="" class="text-xs text-text-muted dark:text-text-dark-muted"><span data-v-10738399="">No new</span></div>
+                  </div>
+                </div>
+                <!--v-if-->
+              </div>
+            </a><!-- Mentions --><a data-v-10738399="" to="/profile/notifications/mentions" class="block px-4 py-3 notification-item-hover transition-colors">
+              <div data-v-10738399="" class="flex items-center justify-between">
+                <div data-v-10738399="" class="flex items-center space-x-3"><i data-v-10738399="" class="iconify-icon text-purple-500 text-lg" name="fa6-solid:at" aria-hidden="true"></i>
+                  <div data-v-10738399="">
+                    <div data-v-10738399="" class="text-sm font-medium text-text dark:text-text-dark">Mentions</div>
+                    <div data-v-10738399="" class="text-xs text-text-muted dark:text-text-dark-muted"><span data-v-10738399="">No new</span></div>
+                  </div>
+                </div>
+                <!--v-if-->
+              </div>
+            </a><!-- Achievements (sin punto rojo) --><a data-v-10738399="" to="/profile/notifications/achievements" class="block px-4 py-3 notification-item-hover transition-colors">
+              <div data-v-10738399="" class="flex items-center justify-between">
+                <div data-v-10738399="" class="flex items-center space-x-3"><i data-v-10738399="" class="iconify-icon text-yellow-500 text-lg" name="fa6-solid:trophy" aria-hidden="true"></i>
+                  <div data-v-10738399="">
+                    <div data-v-10738399="" class="text-sm font-medium text-text dark:text-text-dark">Achievements and karma</div>
+                    <div data-v-10738399="" class="text-xs text-text-muted dark:text-text-dark-muted"><span data-v-10738399="">No new</span></div>
+                  </div>
+                </div>
+                <!--v-if-->
+              </div>
+            </a>
+          </div>
+        </div><!-- Footer -->
+        <div data-v-10738399="" class="notification-footer px-4 py-3 flex items-center justify-center text-sm"><a data-v-10738399="" to="/profile/notifications" class="text-primary hover:text-primary-dark transition-colors font-medium inline-flex items-center gap-1">View all <i data-v-10738399="" class="iconify-icon text-xs" name="fa6-solid:arrow-right" aria-hidden="true"></i></a></div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`NotificationDropdown Component > Snapshots > matches snapshot with empty notifications 1`] = `
+"<div data-v-10738399="" class="relative flex items-center">
+  <!-- Notification Bell --><button data-v-10738399="" class="relative p-2 min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors notification-bell-btn bg-white/20" aria-label="Toggle notifications" aria-expanded="true" aria-haspopup="menu" title="Notifications"><i data-v-10738399="" class="iconify-icon text-lg" name="fa6-solid:bell" aria-hidden="true"></i><!-- Unread Badge - Only show on client side with valid count -->
+    <div data-v-10738399=""></div><!-- Connection Status Indicator - Hidden per user request -->
+    <!--
+      <span
+        class="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white dark:border-neutral-900"
+        :class="connectionStatusClass"
+        :title="connectionStatusText"
+      ></span>
+      -->
+  </button><!-- Dropdown Menu - Only render after first interaction and on client side -->
+  <div data-v-10738399="">
+    <div data-v-10738399="" enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+      <div data-v-10738399="" class="notification-dropdown fixed sm:absolute top-16 sm:top-full right-0 sm:right-0 mt-0 sm:mt-2 w-[calc(100vw-1rem)] sm:w-96 max-w-none sm:max-w-md mr-2 sm:mr-0 rounded-lg shadow-lg z-50" role="menu" aria-orientation="vertical">
+        <!-- Header -->
+        <div data-v-10738399="" class="notification-header px-4 py-3">
+          <h3 data-v-10738399="" class="font-semibold text-text dark:text-text-dark">Notifications</h3>
+        </div><!-- Notification Summary -->
+        <div data-v-10738399="" class="notification-summary">
+          <!-- Loading State -->
+          <!-- Summary Cards (always shown when not loading) -->
+          <div data-v-10738399="">
+            <!-- Post Comments --><a data-v-10738399="" to="/profile/notifications/posts" class="block px-4 py-3 notification-item-hover transition-colors">
+              <div data-v-10738399="" class="flex items-center justify-between">
+                <div data-v-10738399="" class="flex items-center space-x-3"><i data-v-10738399="" class="iconify-icon text-blue-500 text-lg" name="fa6-solid:comment" aria-hidden="true"></i>
+                  <div data-v-10738399="">
+                    <div data-v-10738399="" class="text-sm font-medium text-text dark:text-text-dark">Post comments</div>
+                    <div data-v-10738399="" class="text-xs text-text-muted dark:text-text-dark-muted"><span data-v-10738399="">No new</span></div>
+                  </div>
+                </div>
+                <!--v-if-->
+              </div>
+            </a><!-- Comment Replies --><a data-v-10738399="" to="/profile/notifications/comments" class="block px-4 py-3 notification-item-hover transition-colors">
+              <div data-v-10738399="" class="flex items-center justify-between">
+                <div data-v-10738399="" class="flex items-center space-x-3"><i data-v-10738399="" class="iconify-icon text-blue-500 text-lg" name="fa6-solid:reply" aria-hidden="true"></i>
+                  <div data-v-10738399="">
+                    <div data-v-10738399="" class="text-sm font-medium text-text dark:text-text-dark">Comment replies</div>
+                    <div data-v-10738399="" class="text-xs text-text-muted dark:text-text-dark-muted"><span data-v-10738399="">No new</span></div>
+                  </div>
+                </div>
+                <!--v-if-->
+              </div>
+            </a><!-- Mentions --><a data-v-10738399="" to="/profile/notifications/mentions" class="block px-4 py-3 notification-item-hover transition-colors">
+              <div data-v-10738399="" class="flex items-center justify-between">
+                <div data-v-10738399="" class="flex items-center space-x-3"><i data-v-10738399="" class="iconify-icon text-purple-500 text-lg" name="fa6-solid:at" aria-hidden="true"></i>
+                  <div data-v-10738399="">
+                    <div data-v-10738399="" class="text-sm font-medium text-text dark:text-text-dark">Mentions</div>
+                    <div data-v-10738399="" class="text-xs text-text-muted dark:text-text-dark-muted"><span data-v-10738399="">No new</span></div>
+                  </div>
+                </div>
+                <!--v-if-->
+              </div>
+            </a><!-- Achievements (sin punto rojo) --><a data-v-10738399="" to="/profile/notifications/achievements" class="block px-4 py-3 notification-item-hover transition-colors">
+              <div data-v-10738399="" class="flex items-center justify-between">
+                <div data-v-10738399="" class="flex items-center space-x-3"><i data-v-10738399="" class="iconify-icon text-yellow-500 text-lg" name="fa6-solid:trophy" aria-hidden="true"></i>
+                  <div data-v-10738399="">
+                    <div data-v-10738399="" class="text-sm font-medium text-text dark:text-text-dark">Achievements and karma</div>
+                    <div data-v-10738399="" class="text-xs text-text-muted dark:text-text-dark-muted"><span data-v-10738399="">No new</span></div>
+                  </div>
+                </div>
+                <!--v-if-->
+              </div>
+            </a>
+          </div>
+        </div><!-- Footer -->
+        <div data-v-10738399="" class="notification-footer px-4 py-3 flex items-center justify-center text-sm"><a data-v-10738399="" to="/profile/notifications" class="text-primary hover:text-primary-dark transition-colors font-medium inline-flex items-center gap-1">View all <i data-v-10738399="" class="iconify-icon text-xs" name="fa6-solid:arrow-right" aria-hidden="true"></i></a></div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`NotificationDropdown Component > Snapshots > matches snapshot with unread badge 1`] = `
+"<div data-v-10738399="" class="relative flex items-center">
+  <!-- Notification Bell --><button data-v-10738399="" class="relative p-2 min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors notification-bell-btn" aria-label="Toggle notifications" aria-expanded="false" aria-haspopup="menu" title="Notifications"><i data-v-10738399="" class="iconify-icon text-lg" name="fa6-solid:bell" aria-hidden="true"></i><!-- Unread Badge - Only show on client side with valid count -->
+    <div data-v-10738399=""></div><!-- Connection Status Indicator - Hidden per user request -->
+    <!--
+      <span
+        class="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white dark:border-neutral-900"
+        :class="connectionStatusClass"
+        :title="connectionStatusText"
+      ></span>
+      -->
+  </button><!-- Dropdown Menu - Only render after first interaction and on client side -->
+  <div data-v-10738399=""></div>
+</div>"
+`;

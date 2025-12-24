@@ -1,0 +1,23 @@
+{
+  "posts": {
+    "seen_on": "Vistu en",
+    "edit": "Cambial",
+    "delete": "Borral",
+    "confirm_delete": "¿Seguru que quieris borral esti envíu? Nu se pué deshacel.",
+    "delete_success": "Envíu borrau correctamenti",
+    "vote": "votu",
+    "voted": "votau",
+    "votes": "votus",
+    "vote_success": "Votu mandau correctamenti!",
+    "type_article": "Artículu",
+    "publish": "Publical",
+    "draft_saved": "Borradol guardau",
+    "be_first_comment": "Compartil tu opinión i sei el primeru en comental",
+    "level_0": "Sei el primeru en comental",
+    "visited": "Visitau",
+    "frontpage": "Portá",
+    "nsfw_warning_title": "Conteníu pa adultus",
+    "nsfw_go_back": "Volvel atrás",
+    "open_link": "Abril enlazi"
+  }
+}

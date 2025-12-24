@@ -1,0 +1,86 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RegisterForm Component > Snapshots > matches snapshot while loading 1`] = `
+"<div data-v-4cacaaed="" class="register-container">
+  <form data-v-4cacaaed="" class="register-form">
+    <h2 data-v-4cacaaed="" class="form-title">Register</h2>
+    <!--v-if-->
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="name">Name</label><input data-v-4cacaaed="" id="name" type="text" required="" autocomplete="name" class="form-control">
+      <!--v-if-->
+    </div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="email">Email</label><input data-v-4cacaaed="" id="email" type="email" required="" autocomplete="email" class="form-control">
+      <!--v-if-->
+    </div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="password">Password</label><input data-v-4cacaaed="" id="password" type="password" required="" autocomplete="new-password" class="form-control">
+      <!--v-if-->
+    </div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="password_confirmation">Confirm Password</label><input data-v-4cacaaed="" id="password_confirmation" type="password" required="" autocomplete="new-password" class="form-control">
+      <!--v-if-->
+    </div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="locale">Preferred Language</label><select data-v-4cacaaed="" id="locale" class="form-control">
+        <option data-v-4cacaaed="" value="es">Español</option>
+        <option data-v-4cacaaed="" value="en">English</option>
+      </select></div>
+    <div data-v-4cacaaed="" class="form-actions"><button data-v-4cacaaed="" type="submit" class="btn-primary" disabled=""><span data-v-4cacaaed="" class="spinner"></span> Register</button></div>
+    <div data-v-4cacaaed="" class="form-links">
+      <p data-v-4cacaaed="">Already registered? <a data-v-4cacaaed="" to="/login">Login</a></p>
+    </div>
+  </form>
+</div>"
+`;
+
+exports[`RegisterForm Component > Snapshots > matches snapshot with empty form 1`] = `
+"<div data-v-4cacaaed="" class="register-container">
+  <form data-v-4cacaaed="" class="register-form">
+    <h2 data-v-4cacaaed="" class="form-title">Register</h2>
+    <!--v-if-->
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="name">Name</label><input data-v-4cacaaed="" id="name" type="text" required="" autocomplete="name" class="form-control">
+      <!--v-if-->
+    </div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="email">Email</label><input data-v-4cacaaed="" id="email" type="email" required="" autocomplete="email" class="form-control">
+      <!--v-if-->
+    </div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="password">Password</label><input data-v-4cacaaed="" id="password" type="password" required="" autocomplete="new-password" class="form-control">
+      <!--v-if-->
+    </div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="password_confirmation">Confirm Password</label><input data-v-4cacaaed="" id="password_confirmation" type="password" required="" autocomplete="new-password" class="form-control">
+      <!--v-if-->
+    </div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="locale">Preferred Language</label><select data-v-4cacaaed="" id="locale" class="form-control">
+        <option data-v-4cacaaed="" value="es">Español</option>
+        <option data-v-4cacaaed="" value="en">English</option>
+      </select></div>
+    <div data-v-4cacaaed="" class="form-actions"><button data-v-4cacaaed="" type="submit" class="btn-primary">
+        <!--v-if--> Register
+      </button></div>
+    <div data-v-4cacaaed="" class="form-links">
+      <p data-v-4cacaaed="">Already registered? <a data-v-4cacaaed="" to="/login">Login</a></p>
+    </div>
+  </form>
+</div>"
+`;
+
+exports[`RegisterForm Component > Snapshots > matches snapshot with validation errors 1`] = `
+"<div data-v-4cacaaed="" class="register-container">
+  <form data-v-4cacaaed="" class="register-form">
+    <h2 data-v-4cacaaed="" class="form-title">Register</h2>
+    <!--v-if-->
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="name">Name</label><input data-v-4cacaaed="" id="name" type="text" required="" autocomplete="name" class="form-control"><span data-v-4cacaaed="" class="validation-error">Name is required</span></div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="email">Email</label><input data-v-4cacaaed="" id="email" type="email" required="" autocomplete="email" class="form-control"><span data-v-4cacaaed="" class="validation-error">Email is required</span></div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="password">Password</label><input data-v-4cacaaed="" id="password" type="password" required="" autocomplete="new-password" class="form-control"><span data-v-4cacaaed="" class="validation-error">Password is required</span></div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="password_confirmation">Confirm Password</label><input data-v-4cacaaed="" id="password_confirmation" type="password" required="" autocomplete="new-password" class="form-control">
+      <!--v-if-->
+    </div>
+    <div data-v-4cacaaed="" class="form-group"><label data-v-4cacaaed="" for="locale">Preferred Language</label><select data-v-4cacaaed="" id="locale" class="form-control">
+        <option data-v-4cacaaed="" value="es">Español</option>
+        <option data-v-4cacaaed="" value="en">English</option>
+      </select></div>
+    <div data-v-4cacaaed="" class="form-actions"><button data-v-4cacaaed="" type="submit" class="btn-primary">
+        <!--v-if--> Register
+      </button></div>
+    <div data-v-4cacaaed="" class="form-links">
+      <p data-v-4cacaaed="">Already registered? <a data-v-4cacaaed="" to="/login">Login</a></p>
+    </div>
+  </form>
+</div>"
+`;

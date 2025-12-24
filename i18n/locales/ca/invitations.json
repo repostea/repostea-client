@@ -1,0 +1,23 @@
+{
+  "invitations": {
+    "title": "Invitacions",
+    "description": "Gestiona els teus codis d'invitació per convidar nous membres a la comunitat.",
+    "create": "Crear Invitació",
+    "my_invitations": "Les meves Invitacions",
+    "used": "Usades",
+    "remaining": "Disponibles",
+    "limit": "Límit",
+    "uses": "Usos",
+    "created": "Creada",
+    "expires": "Caduca",
+    "inactive": "Inactiva",
+    "used_up": "Esgotada",
+    "copy_link": "Copiar enllaç d'invitació",
+    "delete": "Eliminar invitació",
+    "confirm_delete": "Estàs segur que vols eliminar aquesta invitació?",
+    "no_invitations": "Encara no has creat cap invitació",
+    "link_copied": "Enllaç d'invitació copiat al porta-retalls!",
+    "error_creating": "Error en crear la invitació",
+    "error_deleting": "Error en eliminar la invitació"
+  }
+}

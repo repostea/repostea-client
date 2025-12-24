@@ -1,0 +1,47 @@
+{
+    "vote":  {
+                 "upvote":  "Votar positiu",
+                 "downvote":  "Votar negatiu",
+                 "positive_vote":  "Vot positiu",
+                 "negative_vote":  "Vot negatiu",
+                 "select_reason":  "Selecciona una raó per al teu vot",
+                 "reason_help_text":  "Això ajudarà a altres usuaris a entendre per què has valorat aquest contingut",
+                 "will_appear_in_summary":  "Apareixerà al resum de vots",
+                 "stats":  {
+                               "title":  "Estadístiques de vots",
+                               "positive":  "Vots positius",
+                               "negative":  "Vots negatius"
+                           },
+                 "show_stats": "Mostrar detalls de vots",
+                 "hide_stats": "Amagar detalls de vots",
+                 "types":  {
+                               "didactic":  "Educatiu",
+                               "interesting":  "Interessant",
+                               "elaborate":  "Detallat",
+                               "funny":  "Divertit",
+                               "false":  "Incorrecte",
+                               "incomplete":  "Incomplet",
+                               "irrelevant":  "Irrellevant",
+                               "outofplace":  "Fora de lloc"
+                           },
+                 "already_voted":  "Ja has votat aquest post",
+                 "updated":  "Vot actualitzat",
+                 "registered":  "Vot registrat",
+                 "removed":  "Vot eliminat",
+                 "invalid_type":  "El tipus de vot proporcionat no és vàlid. Tipus permesos: {types}",
+                 "polls":  {
+                               "expired":  "Aquesta enquesta ha caducat",
+                               "vote":  "vot",
+                               "votes":  "vots",
+                               "submit_vote":  "Enviar Vot",
+                               "remove_vote":  "Treure Vot",
+                               "show_results":  "Veure Resultats",
+                               "back_to_vote":  "Tornar a Votar",
+                               "total_votes":  "Total de vots: {count}",
+                               "multiple_options_allowed":  "Es permeten múltiples opcions",
+                               "load_error":  "Error en carregar els resultats de l'enquesta",
+                               "vote_error":  "Error en enviar el vot",
+                               "remove_vote_error":  "Error en treure el vot"
+                           }
+             }
+}

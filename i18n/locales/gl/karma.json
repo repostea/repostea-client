@@ -1,0 +1,148 @@
+{
+    "karma": {
+        "title": "Sistema de Karma",
+        "description": "Documentación técnica do sistema de puntos de {siteName}",
+        "beta_notice": "⚠️ Este sistema está en fase Beta e aberto a debate e suxestións da comunidade.",
+        "overview": {
+            "title": "Resumo",
+            "intro": "O karma é un sistema de puntuación que reflexa a calidade e consistencia da túa participación en {siteName}. A diferenza doutros sistemas, implementamos mecanismos para previr manipulación do sistema, asegurando que o karma reflexe contribución real.",
+            "key_features": "Características principais:",
+            "feature_1": "Rendementos decrecentes en publicacións virais",
+            "feature_2": "Reducción progresiva de contido antigo para incentivar actividade continua",
+            "feature_3": "Límite de 500 karma por publicación individual",
+            "feature_4": "Bonificación por actividade recente para recompensar participación constante"
+        },
+        "mechanics": {
+            "title": "Mecánicas do Sistema",
+            "posts": {
+                "title": "Publicacións",
+                "base": "Karma base por voto positivo: 10 puntos",
+                "diminishing": "Rendementos decrecentes: Despois de 10 votos, aplícase factor logarítmico log(n+1)/log(11). Isto evita que unha soa publicación viral xere karma desproporcionado, incentivando crear múltiples publicacións de calidade. Por exemplo, 100 votos xeran ~233 karma (non 1000), e 1000 votos xeran ~289 karma (non 10,000).",
+                "comment_bonus": "Bonificación por comentarios recibidos: 1 punto por comentario (máximo 25)",
+                "cap": "Límite máximo por publicación: 500 karma",
+                "note": "As publicacións non poden recibir votos negativos"
+            },
+            "comments": {
+                "title": "Comentarios",
+                "upvote": "Voto positivo: 5 puntos base",
+                "downvote": "Voto negativo: -1 punto (mínimo 0 karma total por comentario). Os votos negativos teñen menor impacto para protexer contra downvote brigading.",
+                "diminishing": "Rendementos decrecentes: Igual que publicacións, despois de 10 votos",
+                "reply_bonus": "Bonificación por respostas recibidas: 1 punto por resposta (máximo 12). Incentiva comentarios que xeren conversa construtiva."
+            },
+            "activity": {
+                "title": "Bonificación de Actividade (últimos 30 días)",
+                "description": "A participación constante recompénsase con puntos adicionais para incentivar usuarios que contribúen regularmente, non só aqueles con éxitos puntuais.",
+                "posts": "Publicacións: 3 puntos cada unha",
+                "comments": "Comentarios: 1 punto cada un",
+                "votes": "Votos emitidos: 0.1 puntos cada un (votar tamén contribúe curando contido)",
+                "cap": "Límite máximo: 50 puntos",
+                "example": "Exemplo: 5 publicacións + 20 comentarios + 100 votos no mes = 45 puntos de bonificación."
+            },
+            "age_decay": {
+                "title": "Reducción por Antigüidade",
+                "description": "O karma de contido antigo redúcese progresivamente para incentivar a participación continua e evitar que usuarios inactivos manteñan karma alto indefinidamente. O sistema aplica estes multiplicadores segundo a antigüidade do contido:",
+                "m1": "Menos de 1 mes: 100%",
+                "m3": "Entre 1 e 3 meses: 95%",
+                "m6": "Entre 3 e 6 meses: 90%",
+                "m12": "Entre 6 e 12 meses: 80%",
+                "y2": "Entre 1 e 2 anos: 70%",
+                "old": "Máis de 2 anos: 50%",
+                "note": "Unha publicación de hai 18 meses que xerou 100 puntos agora aporta 70 puntos ao teu karma total. Novos votos recibidos tamén se calcularán con este multiplicador."
+            },
+            "seals": {
+                "title": "Selos de Comunidade",
+                "description": "Os usuarios con nivel de karma suficiente reciben Selos semanais que poden usar para destacar contido de calidade ou desaconsellar contido. Os selos tamén afectan o karma do autor do contido.",
+                "weekly_allocation": "Asignación Semanal de Selos:",
+                "seal_table_level": "Nivel",
+                "seal_table_seals": "Selos/Semana",
+                "recommended": "Selo Recomendado: +3 karma ao autor",
+                "advised_against": "Selo Desaconsellado: -2 karma ao autor",
+                "rules_title": "Regras dos Selos:",
+                "rule_1": "Só usuarios de nivel Aprendiz ou superior reciben selos",
+                "rule_2": "Os selos renóvanse cada luns ás 00:00",
+                "rule_3": "Os selos sen usar caducan despois de 2 semanas",
+                "rule_4": "Non podes marcar o teu propio contido",
+                "rule_5": "Só podes aplicar un selo de cada tipo por contido",
+                "rule_6": "Se retiras un selo, recuperas o punto e revértese o karma",
+                "impact": "Os selos permiten á comunidade destacar contido de calidade e desaconsellar contido de forma visible, mentres incentivan aos autores a crear contido valioso.",
+                "impact_title": "Impacto en Karma"
+            }
+        },
+        "levels": {
+            "title": "Niveis e Multiplicadores",
+            "description": "Ao acadar certos limiares de karma, o teu nivel aumenta. Cando votas contido doutros usuarios, o teu nivel outorga un pequeno multiplicador que aumenta lixeiramente o karma que eles reciben:",
+            "table_level": "Nivel",
+            "table_karma": "Karma Requirido",
+            "table_multiplier": "Multiplicador",
+            "novice": "Novato",
+            "apprentice": "Aprendiz",
+            "contributor": "Colaborador",
+            "expert": "Experto",
+            "mentor": "Mentor",
+            "sage": "Sabio",
+            "legend": "Lenda"
+        },
+        "examples": {
+            "title": "Exemplos Prácticos",
+            "viral_post": {
+                "title": "Exemplo 1: Publicación Viral",
+                "old_system": "Sistema sen rendementos decrecentes: 1000 votos × 10 = 10,000 karma",
+                "new_system": "Sistema actual: 1000 votos = ~289 karma + bonificacións",
+                "conclusion": "Incentiva crear múltiples publicacións de calidade no canto de perseguir viralidade"
+            },
+            "content_decay": {
+                "title": "Exemplo 2: Reducción por Antigüidade",
+                "scenario": "Unha publicación con 20 votos positivos (200 karma base):",
+                "fresh": "Contido recente (< 2 semanas): 200 karma (100%)",
+                "old": "Contido antigo (> 3 meses): 100 karma (50%)",
+                "conclusion": "O sistema incentiva crear contido novo constantemente"
+            },
+            "deleted_content": {
+                "title": "Exemplo 3: Contido Eliminado",
+                "scenario": "Unha publicación recibe 10 reportes da comunidade e é eliminada polos moderadores",
+                "karma_lost": "O autor perde todo o karma gañado por esa publicación (~100-200 karma)",
+                "strike": "Ademais recibe un strike. 3 strikes = suspensión temporal",
+                "conclusion": "O sistema penaliza fortemente o contido que viola as normas"
+            }
+        },
+        "simulations": {
+            "title": "Proxeccións de Progresión",
+            "description": "Estimacións basadas en diferentes niveis de actividade mensual:",
+            "casual": {
+                "title": "Usuario Casual",
+                "activity": "2 publicacións, 15 comentarios, 50 votos/mes",
+                "monthly": "~450 karma/mes",
+                "legend": "Lenda (100,000) en ~18.5 anos"
+            },
+            "active": {
+                "title": "Usuario Activo",
+                "activity": "10 publicacións, 50 comentarios, 200 votos/mes",
+                "monthly": "~3,300 karma/mes",
+                "legend": "Lenda (100,000) en ~2.5 anos"
+            },
+            "power": {
+                "title": "Usuario Moi Activo",
+                "activity": "30 publicacións, 150 comentarios, 500 votos/mes",
+                "monthly": "~12,500 karma/mes",
+                "legend": "Lenda (100,000) en ~8 meses"
+            },
+            "troll": {
+                "title": "Usuario Troll/Spam",
+                "activity": "Publica 20 contidos/mes, pero 15 son eliminados por reportes",
+                "monthly": "Perde ~1,500-2,000 karma/mes + 15 strikes",
+                "result": "Suspensión permanente despois de 3 strikes"
+            },
+            "note": "As cifras asumen calidade promedio do contido (8-10 votos por publicación, 3-5 por comentario). Os comentarios teñen un mínimo de 0 karma independentemente dos votos negativos."
+        },
+        "technical": {
+            "title": "Detalles Técnicos",
+            "formula_post": "karma_post = min(500, (diminishing_returns(upvotes) × time_mult + comment_bonus)) × age_decay",
+            "formula_comment": "karma_comment = max(0, (diminishing_returns(upvotes - downvotes) × time_mult + reply_bonus) × age_decay)",
+            "formula_total": "karma_total = Σ karma_posts + Σ karma_comments + activity_bonus",
+            "diminishing": "diminishing_returns(n) = n ≤ 10 ? n × base : base × 10 × log(n+1)/log(11)",
+            "time_mult": "time_multiplier = 1.0 (actualmente sen efecto temporal)",
+            "activity": "activity_bonus = min(50, posts×3 + comments×1 + votes×0.1)",
+            "note": "Os cálculos realízanse en orde: rendementos decrecentes → multiplicador temporal → bonificación → límite → reducción por antigüidade"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "help": {
+    "title": "Axuda",
+    "subtitle": "Aprende a usar a plataforma e atopa respostas ás túas preguntas",
+    "onboarding": {
+      "title": "Tutorial da plataforma",
+      "description": "Revisa o tutorial interactivo que che explica como usar todas as funcións de {siteName}. Perfecto para recordar características ou se omitiche o tutorial inicial.",
+      "start_button": "Ver tutorial"
+    },
+    "karma": {
+      "title": "Sistema de Karma",
+      "description": "Descobre como funciona o sistema de karma, como gañalo e por que é importante para a comunidade.",
+      "learn_more": "Máis información"
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "description": "Atopa respostas rápidas ás preguntas máis comúns sobre a plataforma.",
+      "view_button": "Ver preguntas frecuentes"
+    },
+    "guides": {
+      "title": "Guías e documentación",
+      "coming_soon": "Próximamente: Guías detalladas sobre como aproveitar ao máximo {siteName}."
+    }
+  }
+}

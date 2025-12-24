@@ -1,0 +1,35 @@
+{
+  "user": {
+    "profile": "Perfí",
+    "settings": "Configurasión",
+    "karma": "karma",
+    "joined": "Miembro dehde",
+    "bio": "Biografía",
+    "about_me": "Aserca de mí",
+    "no_bio": "Ehte usuario no ha añadío una biografía.",
+    "published_links": "Enlasseh publicaoh",
+    "user_comments": "Comentarioh",
+    "edit_profile": "Editá perfí",
+    "save_changes": "Guardá cambioh",
+    "profile_updated": "Perfí actualisao correctamenti",
+    "karma_levels": {
+      "newcomer": "Novato",
+      "contributor": "Contribuidó",
+      "regular": "Regulá",
+      "trusted": "Confiable",
+      "veteran": "Veterano",
+      "expert": "Ehperto",
+      "master": "Maehtro",
+      "legend": "Leyenda"
+    },
+    "karma_overview": "Resumen de Karma",
+    "activity_streak": "Racha de Actividá",
+    "last_30_days": "Úrtimoh 30 díah",
+    "activities": "actividadeh",
+    "posts": "Publicasioneh",
+    "comments": "Comentarioh",
+    "votes_given": "Votoh daoh",
+    "admin": "Adminihtradorh",
+    "moderator": "Moderadó"
+  }
+}

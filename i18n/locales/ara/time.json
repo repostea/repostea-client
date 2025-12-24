@@ -1,0 +1,10 @@
+{
+  "time": {
+    "just_now": "agora mesmo",
+    "minutes_ago": "fa {count} minuto | fa {count} minutos",
+    "hours_ago": "fa {count} hora | fa {count} horas",
+    "days_ago": "fa {count} día | fa {count} días",
+    "today": "Hue",
+    "yesterday": "Ahier"
+  }
+}

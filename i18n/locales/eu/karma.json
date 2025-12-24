@@ -1,0 +1,148 @@
+{
+    "karma": {
+        "title": "Karma Sistema",
+        "description": "{siteName}en puntu sistemaren dokumentazio teknikoa",
+        "beta_notice": "⚠️ Sistema hau Beta fasean dago eta komunitatearen eztabaidara eta iradokizunetara irekita.",
+        "overview": {
+            "title": "Laburpena",
+            "intro": "Karma puntuazio-sistema bat da, {siteName}en zure partaidetzaren kalitatea eta koherentzia islatzen duena. Beste sistema batzuetatik bereiziz, sistemaren manipulazioa saihesteko mekanismoak ezartzen ditugu, karma egiazko ekarpenak islatzen dituela ziurtatuz.",
+            "key_features": "Ezaugarri nagusiak:",
+            "feature_1": "Etekina gutxitzen da argitalpen biraletan",
+            "feature_2": "Eduki zaharraren murrizketa progresiboa jarduera jarraitua sustatzeko",
+            "feature_3": "500 karma-ko muga argitalpen bakoitzeko",
+            "feature_4": "Jarduera berriaren bonifikazioa partaidetza etengabea saritzeko"
+        },
+        "mechanics": {
+            "title": "Sistemaren Mekanika",
+            "posts": {
+                "title": "Argitalpenak",
+                "base": "Oinarrizko karma boto positiboko: 10 puntu",
+                "diminishing": "Etekina gutxitzen da: 10 botoaren ondoren, log(n+1)/log(11) faktore logaritmikoa aplikatzen da. Honek saihestu egiten du argitalpen biral bakarrak karma desproportzionatua sortzea, kalitate handiko argitalpen anitzak sortzera bultzatuz. Adibidez, 100 botoek ~233 karma sortzen dute (ez 1000), eta 1000 botoek ~289 karma (ez 10,000).",
+                "comment_bonus": "Jasotako iruzkinengatiko bonifikazioa: 1 puntu iruzkinek (gehienez 25)",
+                "cap": "Gehienezko muga argitalpenko: 500 karma",
+                "note": "Argitalpenek ezin dituzte boto negatiboak jaso"
+            },
+            "comments": {
+                "title": "Iruzkinak",
+                "upvote": "Boto positiboa: 5 oinarrizko puntu",
+                "downvote": "Boto negatiboa: -1 puntu (gutxienez 0 karma guztira iruzkinek). Boto negatiboek eragin txikiagoa dute downvote brigading-aren aurka babesteko.",
+                "diminishing": "Etekina gutxitzen da: Argitalpenen antzera, 10 botoaren ondoren",
+                "reply_bonus": "Jasotako erantzunengatiko bonifikazioa: 1 puntu erantzuneko (gehienez 12). Elkarrizketa eraikitzailea sortzen duten iruzkinak bultzatzen ditu."
+            },
+            "activity": {
+                "title": "Jarduera Bonifikazioa (azken 30 egunetan)",
+                "description": "Partaidetza etengabea puntu gehigarriekin saritzen da, erregularki laguntzen duten erabiltzaileak bultzatzeko, ez bakarrik puntualki arrakastatsuak direnak.",
+                "posts": "Argitalpenak: 3 puntu bakoitzeko",
+                "comments": "Iruzkinak: 1 puntu bakoitzeko",
+                "votes": "Emandako botuak: 0.1 puntu bakoitzeko (botatzeak ere edukia kuratzen laguntzen du)",
+                "cap": "Gehienezko muga: 50 puntu",
+                "example": "Adibidea: 5 argitalpen + 20 iruzkin + 100 boto hilean = 45 puntuko bonifikazioa."
+            },
+            "age_decay": {
+                "title": "Zahartzeagatiko Murrizketa",
+                "description": "Eduki zaharraren karma murrizten da pixkanaka, partaidetza jarraitu sustatzeko eta erabiltzaile ez-aktiboak karma altua mugagabe gordetzea saihesteko. Sistemak biderkatzaile hauek aplikatzen ditu edukilaren zahartzea kontuan hartuta:",
+                "m1": "Hilabete baino gutxiago: 100%",
+                "m3": "1 eta 3 hilabete artean: 95%",
+                "m6": "3 eta 6 hilabete artean: 90%",
+                "m12": "6 eta 12 hilabete artean: 80%",
+                "y2": "1 eta 2 urte artean: 70%",
+                "old": "2 urte baino gehiago: 50%",
+                "note": "Duela 18 hilabeteko 100 puntu sortu zituen argitalpen batek orain 70 puntu ematen ditu zure karma totalean. Jasotako boto berriak ere biderkatzaile honekin kalkulatuko dira."
+            },
+            "seals": {
+                "title": "Komunitatearen Zigiluak",
+                "description": "Karma-maila nahikoa duten erabiltzaileek astero Zigiluak jasotzen dituzte, kalitate handiko edukia nabarmentzeko edo edukia desaholkatzeko erabil ditzaketen. Zigiluek edukilaren egilearen karman ere eragiten dute.",
+                "weekly_allocation": "Zigilu Esleipena Astero:",
+                "seal_table_level": "Maila",
+                "seal_table_seals": "Zigiluak/Astea",
+                "recommended": "Gomendatutako Zigilua: +3 karma egileari",
+                "advised_against": "Desaholkatutako Zigilua: -2 karma egileari",
+                "rules_title": "Zigiluen Arauak:",
+                "rule_1": "Ikasle mailako edo goragoko erabiltzaileek bakarrik jasotzen dituzte zigiluak",
+                "rule_2": "Zigiluak astelehen guztietan berritzen dira 00:00etan",
+                "rule_3": "Erabili gabeko zigiluak 2 asteko ondoren iraungitzen dira",
+                "rule_4": "Ezin duzu zure edukia markatu",
+                "rule_5": "Zigilu mota bakoitzetik bakarra aplika dezakezu eduki bakoitzeko",
+                "rule_6": "Zigilu bat kentzen baduzu, puntua berreskuratzen duzu eta karma alderantzikatzen da",
+                "impact": "Zigiluek komunitateari aukera ematen diote kalitate handiko edukia nabarmentzeko eta edukia desaholkatzeko modu ikusgarrian, egileak eduki baliotsua sortzera bultzatzen dituen bitartean.",
+                "impact_title": "Karma-ren eragina"
+            }
+        },
+        "levels": {
+            "title": "Mailak eta Biderkatzaileak",
+            "description": "Karma-atalase jakin batzuk lortzen dituzunean, zure maila handitzen da. Beste erabiltzaileen edukia botatzen duzunean, zure mailak biderkatzaile txiki bat ematen du, haiek jasotzen duten karma apur bat handitzen duena:",
+            "table_level": "Maila",
+            "table_karma": "Beharrezko Karma",
+            "table_multiplier": "Biderkatzailea",
+            "novice": "Hasiberria",
+            "apprentice": "Ikaslea",
+            "contributor": "Laguntzailea",
+            "expert": "Aditua",
+            "mentor": "Mentore",
+            "sage": "Jakintsu",
+            "legend": "Kondaira"
+        },
+        "examples": {
+            "title": "Adibide Praktikoak",
+            "viral_post": {
+                "title": "1. Adibidea: Argitalpen Birala",
+                "old_system": "Sistema etekina gutxitu gabe: 1000 boto × 10 = 10,000 karma",
+                "new_system": "Oraingo sistema: 1000 boto = ~289 karma + bonifikazioak",
+                "conclusion": "Kalitate handiko argitalpen anitzak sortzera bultzatzen du, biralidadea bilatzeko ordez"
+            },
+            "content_decay": {
+                "title": "2. Adibidea: Zahartzeagatiko Murrizketa",
+                "scenario": "20 boto positibo dituen argitalpena (200 oinarrizko karma):",
+                "fresh": "Azken edukia (< 2 aste): 200 karma (100%)",
+                "old": "Eduki zaharra (> 3 hilabete): 100 karma (50%)",
+                "conclusion": "Sistemak etengabe eduki berria sortzera bultzatzen du"
+            },
+            "deleted_content": {
+                "title": "3. Adibidea: Ezabatutako Edukia",
+                "scenario": "Argitalpen bat komunitateak 10 salaketaren ondoren ezabatu du moderatzaileek",
+                "karma_lost": "Egileak argitalpen horrek irabazitako karma guztia galtzen du (~100-200 karma)",
+                "strike": "Gainera strike bat jasotzen du. 3 strike = aldi baterako kanporaketa",
+                "conclusion": "Sistemak arauak urratzen dituen edukia gogorrean zigortzen du"
+            }
+        },
+        "simulations": {
+            "title": "Progresioa Proiekzioak",
+            "description": "Hileko jarduera-maila desberdinetan oinarritutako estimazioak:",
+            "casual": {
+                "title": "Erabiltzaile Kasuala",
+                "activity": "2 argitalpen, 15 iruzkin, 50 boto/hilabete",
+                "monthly": "~450 karma/hilabete",
+                "legend": "Kondaira (100,000) ~18.5 urtetan"
+            },
+            "active": {
+                "title": "Erabiltzaile Aktiboa",
+                "activity": "10 argitalpen, 50 iruzkin, 200 boto/hilabete",
+                "monthly": "~3,300 karma/hilabete",
+                "legend": "Kondaira (100,000) ~2.5 urtetan"
+            },
+            "power": {
+                "title": "Erabiltzaile Oso Aktiboa",
+                "activity": "30 argitalpen, 150 iruzkin, 500 boto/hilabete",
+                "monthly": "~12,500 karma/hilabete",
+                "legend": "Kondaira (100,000) ~8 hilabetetan"
+            },
+            "troll": {
+                "title": "Erabiltzaile Troll/Spam",
+                "activity": "20 eduki/hilabete argitaratzen ditu, baina 15 salaketengatik ezabatzen dira",
+                "monthly": "~1,500-2,000 karma/hilabete galtzen ditu + 15 strike",
+                "result": "Behin-betiko kanporaketa 3 strike ondoren"
+            },
+            "note": "Zifrek batez besteko kalitate mailatako edukia suposatzen dute (8-10 boto argitalpenko, 3-5 iruzkinek). Iruzkinak gutxienez 0 karma dute boto negatiboak gorabehera."
+        },
+        "technical": {
+            "title": "Xehetasun Teknikoak",
+            "formula_post": "karma_post = min(500, (diminishing_returns(upvotes) × time_mult + comment_bonus)) × age_decay",
+            "formula_comment": "karma_comment = max(0, (diminishing_returns(upvotes - downvotes) × time_mult + reply_bonus) × age_decay)",
+            "formula_total": "karma_total = Σ karma_posts + Σ karma_comments + activity_bonus",
+            "diminishing": "diminishing_returns(n) = n ≤ 10 ? n × base : base × 10 × log(n+1)/log(11)",
+            "time_mult": "time_multiplier = 1.0 (gaur egun denbora-efekturik gabe)",
+            "activity": "activity_bonus = min(50, posts×3 + comments×1 + votes×0.1)",
+            "note": "Kalkuluak ordenan egiten dira: etekina gutxitu → denbora biderkatzailea → bonifikazioa → muga → zahartzeagatiko murrizketa"
+        }
+    }
+}

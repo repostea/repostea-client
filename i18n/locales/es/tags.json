@@ -1,0 +1,16 @@
+{
+    "tags":  {
+                 "title":  "Temas",
+                 "popular":  "Temas populares",
+                 "about":  "Acerca de los temas",
+                 "about_text":  "Los temas (o etiquetas) ayudan a categorizar los enlaces. Cada enlace puede tener múltiples temas asociados.",
+                 "related":  "Temas relacionados",
+                 "all":  "Todos los temas",
+                 "search":  "Buscar temas",
+                 "usage_text":  "Puedes añadir temas al enviar enlaces para ayudar a otros a encontrar tu contenido",
+                 "no_results":  "No se encontraron temas que coincidan con tu búsqueda",
+                 "tag": "Tema",
+                 "posts_tagged": "Posts con #{tag}",
+                 "seo_description": "Explora contenido relacionado con #{tag} en {app}. Descubre {count} publicaciones y enlaces."
+             }
+}

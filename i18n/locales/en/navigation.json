@@ -1,0 +1,24 @@
+{
+    "navigation":  {
+                       "main_menu": "Main menu",
+                       "home":  "Home",
+                       "pending":  "Pending",
+                       "topics":  "Topics",
+                       "subs": "Subs",
+                       "submit":  "Submit",
+                       "login":  "Login",
+                       "register":  "Register",
+                       "logout":  "Logout",
+                       "my_profile":  "My profile",
+                       "settings":  "Settings",
+                       "admin":  "Administration",
+                       "saved_lists":  "My Lists",
+                       "actions":  "More",
+                       "theme":  "Theme",
+                       "language":  "Language",
+                       "back_to_home":  "Back to home",
+                       "about": "About the Project",
+                       "manifesto": "Manifesto",
+                       "my_subs": "My Subs"
+                   }
+}

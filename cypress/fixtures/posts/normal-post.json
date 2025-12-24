@@ -1,0 +1,18 @@
+{
+  "data": {
+    "id": 11,
+    "title": "Normal Test Post for SEO",
+    "content": "This is a normal post with proper SEO meta tags",
+    "slug": "normal-test-post",
+    "user": {
+      "id": 1,
+      "username": "author"
+    },
+    "is_nsfw": false,
+    "is_anonymous": false,
+    "votes_count": 15,
+    "numComments": 3,
+    "created_at": "2024-01-01T00:00:00.000000Z",
+    "updated_at": "2024-01-01T00:00:00.000000Z"
+  }
+}

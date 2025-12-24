@@ -1,0 +1,44 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SortControls Component > Snapshots > matches snapshot with Most Valued sort active 1`] = `
+"<div data-v-b83e6917="" class="sort-controls">
+  <div data-v-b83e6917="" class="flex items-center space-x-2"><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:clock" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Recent</span></button><button data-v-b83e6917="" class="sort-button active"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:bolt" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Valued</span></button><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:comments" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Commented</span></button><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:eye" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Visited</span></button></div>
+  <div data-v-b83e6917="" class="mt-2"><select data-v-b83e6917="" class="time-select time-select-active" aria-label="filters.time_period">
+      <option data-v-b83e6917="" value="1440">Last 24 hours</option>
+      <option data-v-b83e6917="" value="10080">Last 7 days</option>
+      <option data-v-b83e6917="" value="43200">Last 30 days</option>
+      <option data-v-b83e6917="" value="0">All time</option>
+    </select></div>
+</div>"
+`;
+
+exports[`SortControls Component > Snapshots > matches snapshot with Recent sort active 1`] = `
+"<div data-v-b83e6917="" class="sort-controls">
+  <div data-v-b83e6917="" class="flex items-center space-x-2"><button data-v-b83e6917="" class="sort-button active"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:clock" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Recent</span></button><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:bolt" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Valued</span></button><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:comments" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Commented</span></button><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:eye" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Visited</span></button></div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`SortControls Component > Snapshots > matches snapshot with all time selected 1`] = `
+"<div data-v-b83e6917="" class="sort-controls">
+  <div data-v-b83e6917="" class="flex items-center space-x-2"><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:clock" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Recent</span></button><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:bolt" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Valued</span></button><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:comments" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Commented</span></button><button data-v-b83e6917="" class="sort-button active"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:eye" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Visited</span></button></div>
+  <div data-v-b83e6917="" class="mt-2"><select data-v-b83e6917="" class="time-select time-select-active" aria-label="filters.time_period">
+      <option data-v-b83e6917="" value="1440">Last 24 hours</option>
+      <option data-v-b83e6917="" value="10080">Last 7 days</option>
+      <option data-v-b83e6917="" value="43200">Last 30 days</option>
+      <option data-v-b83e6917="" value="0">All time</option>
+    </select></div>
+</div>"
+`;
+
+exports[`SortControls Component > Snapshots > matches snapshot with time filter visible 1`] = `
+"<div data-v-b83e6917="" class="sort-controls">
+  <div data-v-b83e6917="" class="flex items-center space-x-2"><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:clock" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Recent</span></button><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:bolt" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Valued</span></button><button data-v-b83e6917="" class="sort-button active"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:comments" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Commented</span></button><button data-v-b83e6917="" class="sort-button"><i data-v-b83e6917="" class="iconify-icon" name="fa6-solid:eye" aria-hidden="true"></i><span data-v-b83e6917="" class="ml-1">Most Visited</span></button></div>
+  <div data-v-b83e6917="" class="mt-2"><select data-v-b83e6917="" class="time-select time-select-active" aria-label="filters.time_period">
+      <option data-v-b83e6917="" value="1440">Last 24 hours</option>
+      <option data-v-b83e6917="" value="10080">Last 7 days</option>
+      <option data-v-b83e6917="" value="43200">Last 30 days</option>
+      <option data-v-b83e6917="" value="0">All time</option>
+    </select></div>
+</div>"
+`;

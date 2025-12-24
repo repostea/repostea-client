@@ -1,0 +1,109 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ReportButton Component > Snapshots > matches snapshot with modal open 1`] = `
+"<div data-v-1f2303e5="" class="relative flex items-center gap-2">
+  <!-- Badges de reportes por tipo (fuera del modal) -->
+  <!--v-if-->
+  <!-- Botón de reportar --><button data-v-4a851dbc="" data-v-1f2303e5="" class="footer-btn" title="Report" aria-label="Report"><i data-v-4a851dbc="" class="iconify-icon footer-btn-icon" name="fa6-solid:flag" aria-hidden="true"></i>
+    <!--v-if-->
+    <!--v-if-->
+  </button><!-- Modal de reportes -->
+  <teleport-stub data-v-1f2303e5="" to="body">
+    <div data-v-1f2303e5="" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4">
+      <div data-v-1f2303e5="" class="report-modal rounded-lg shadow-xl max-w-md w-full max-h-[90vh] flex flex-col">
+        <div data-v-1f2303e5="" class="flex justify-between items-center p-6 pb-4 flex-shrink-0">
+          <h3 data-v-1f2303e5="" class="text-lg font-semibold text-text dark:text-text-dark"><i data-v-1f2303e5="" class="iconify-icon text-red-500 mr-2" name="fa6-solid:flag" aria-hidden="true"></i> Report</h3><button data-v-1f2303e5="" class="text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100" aria-label="common.close"><i data-v-1f2303e5="" class="iconify-icon" name="fa6-solid:xmark" aria-hidden="true"></i></button>
+        </div><!-- Contenido scrolleable -->
+        <div data-v-1f2303e5="" class="overflow-y-auto px-6 pb-6 flex-1">
+          <!-- Usuario NO autenticado -->
+          <!-- Usuario autenticado -->
+          <div data-v-1f2303e5="">
+            <!-- Mensaje si es contenido propio -->
+            <!-- Contenido normal de reporte (solo si no es propio) -->
+            <!-- Reporte legal (solo visible si no ha seleccionado razón) -->
+            <div data-v-1f2303e5="" class="mb-4 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-300 dark:border-red-700">
+              <div data-v-1f2303e5="" class="flex items-start space-x-2"><i data-v-1f2303e5="" class="iconify-icon text-red-600 dark:text-red-400 mt-0.5 text-sm" name="fa6-solid:gavel" aria-hidden="true"></i>
+                <div data-v-1f2303e5="" class="flex-1">
+                  <h4 data-v-1f2303e5="" class="font-medium text-text dark:text-text-dark text-xs mb-1">Legal Report</h4>
+                  <p data-v-1f2303e5="" class="text-xs text-gray-600 dark:text-gray-400 mb-2">For legal matters, use this form</p><a data-v-1f2303e5="" href="/report?url=" class="inline-flex items-center px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded text-xs font-medium transition-colors"><i data-v-1f2303e5="" class="iconify-icon mr-1.5 text-xs" name="fa6-solid:shield-halved" aria-hidden="true"></i> Legal Form</a>
+                </div>
+              </div>
+            </div><!-- Separador (solo si no ha seleccionado razón) -->
+            <div data-v-1f2303e5="" class="relative my-4">
+              <div data-v-1f2303e5="" class="absolute inset-0 flex items-center">
+                <div data-v-1f2303e5="" class="report-divider w-full"></div>
+              </div>
+              <div data-v-1f2303e5="" class="relative flex justify-center text-xs"><span data-v-1f2303e5="" class="report-or-text px-2 text-gray-500 dark:text-gray-400">or</span></div>
+            </div><!-- Mensaje si ya reportaste (activo) -->
+            <!--v-if-->
+            <p data-v-1f2303e5="" class="text-text-muted dark:text-text-dark-muted mb-3 text-xs">Select a reason to report</p><!-- Reportes rápidos -->
+            <div data-v-1f2303e5="" class="grid grid-cols-2 gap-2 mb-3"><button data-v-1f2303e5="" class="report-reason-btn p-3 rounded-lg transition-colors flex flex-col items-center min-h-[80px] report-reason-btn-hover justify-center gap-2">
+                <!-- Sin reportes: icono arriba, texto abajo (centrado) --><i data-v-1f2303e5="" class="iconify-icon text-lg text-orange-500" name="fa6-solid:bullhorn" aria-hidden="true"></i>
+                <div data-v-1f2303e5="" class="text-sm font-medium">Spam</div>
+              </button><button data-v-1f2303e5="" class="report-reason-btn p-3 rounded-lg transition-colors flex flex-col items-center min-h-[80px] report-reason-btn-hover justify-center gap-2">
+                <!-- Sin reportes: icono arriba, texto abajo (centrado) --><i data-v-1f2303e5="" class="iconify-icon text-lg text-yellow-600" name="fa6-solid:triangle-exclamation" aria-hidden="true"></i>
+                <div data-v-1f2303e5="" class="text-sm font-medium">Inappropriate</div>
+              </button><button data-v-1f2303e5="" class="report-reason-btn p-3 rounded-lg transition-colors flex flex-col items-center min-h-[80px] report-reason-btn-hover justify-center gap-2">
+                <!-- Sin reportes: icono arriba, texto abajo (centrado) --><i data-v-1f2303e5="" class="iconify-icon text-lg text-purple-500" name="fa6-solid:user-slash" aria-hidden="true"></i>
+                <div data-v-1f2303e5="" class="text-sm font-medium">Harassment</div>
+              </button><button data-v-1f2303e5="" class="report-reason-btn p-3 rounded-lg transition-colors flex flex-col items-center min-h-[80px] report-reason-btn-hover justify-center gap-2">
+                <!-- Sin reportes: icono arriba, texto abajo (centrado) --><i data-v-1f2303e5="" class="iconify-icon text-lg text-blue-500" name="fa6-solid:circle-xmark" aria-hidden="true"></i>
+                <div data-v-1f2303e5="" class="text-sm font-medium">Misinformation</div>
+              </button><button data-v-1f2303e5="" class="report-reason-btn p-3 rounded-lg transition-colors flex flex-col items-center min-h-[80px] report-reason-btn-hover justify-center gap-2">
+                <!-- Sin reportes: icono arriba, texto abajo (centrado) --><i data-v-1f2303e5="" class="iconify-icon text-lg text-red-600" name="fa6-solid:hand-fist" aria-hidden="true"></i>
+                <div data-v-1f2303e5="" class="text-sm font-medium">Hate Speech</div>
+              </button><button data-v-1f2303e5="" class="report-reason-btn p-3 rounded-lg transition-colors flex flex-col items-center min-h-[80px] report-reason-btn-hover justify-center gap-2">
+                <!-- Sin reportes: icono arriba, texto abajo (centrado) --><i data-v-1f2303e5="" class="iconify-icon text-lg text-red-700" name="fa6-solid:skull-crossbones" aria-hidden="true"></i>
+                <div data-v-1f2303e5="" class="text-sm font-medium">Violence</div>
+              </button></div><!-- Campo de descripción adicional (opcional) -->
+            <!--v-if-->
+            <!-- Botón enviar reporte -->
+            <!--v-if-->
+            <!-- Mensaje de éxito -->
+            <!--v-if-->
+            <!-- Mensaje de error -->
+            <!--v-if-->
+            <!-- Botón cancelar --><button data-v-1f2303e5="" class="mt-3 w-full px-4 py-2 text-text-muted dark:text-text-dark-muted hover:text-text dark:hover:text-text-dark transition-colors text-xs">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </teleport-stub><!-- Modal de confirmación para retirar reporte -->
+  <teleport-stub data-v-1f2303e5="" to="body">
+    <!--v-if-->
+  </teleport-stub>
+</div>"
+`;
+
+exports[`ReportButton Component > Snapshots > matches snapshot with no reports 1`] = `
+"<div data-v-1f2303e5="" class="relative flex items-center gap-2">
+  <!-- Badges de reportes por tipo (fuera del modal) -->
+  <!--v-if-->
+  <!-- Botón de reportar --><button data-v-4a851dbc="" data-v-1f2303e5="" class="footer-btn" title="Report" aria-label="Report"><i data-v-4a851dbc="" class="iconify-icon footer-btn-icon" name="fa6-solid:flag" aria-hidden="true"></i>
+    <!--v-if-->
+    <!--v-if-->
+  </button><!-- Modal de reportes -->
+  <teleport-stub data-v-1f2303e5="" to="body">
+    <!--v-if-->
+  </teleport-stub><!-- Modal de confirmación para retirar reporte -->
+  <teleport-stub data-v-1f2303e5="" to="body">
+    <!--v-if-->
+  </teleport-stub>
+</div>"
+`;
+
+exports[`ReportButton Component > Snapshots > matches snapshot with reports 1`] = `
+"<div data-v-1f2303e5="" class="relative flex items-center gap-2">
+  <!-- Badges de reportes por tipo (fuera del modal) -->
+  <div data-v-1f2303e5="" class="flex items-center gap-1.5"><span data-v-1f2303e5="" class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400" title="Spam"><i data-v-1f2303e5="" class="iconify-icon text-[9px]" name="fa6-solid:bullhorn" aria-hidden="true"></i><span data-v-1f2303e5="">1</span></span><span data-v-1f2303e5="" class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400" title="Harassment"><i data-v-1f2303e5="" class="iconify-icon text-[9px]" name="fa6-solid:user-slash" aria-hidden="true"></i><span data-v-1f2303e5="">1</span></span></div><!-- Botón de reportar --><button data-v-4a851dbc="" data-v-1f2303e5="" class="footer-btn report-mild" title="2 reportes: 1 spam, 1 harassment" aria-label="2 reportes: 1 spam, 1 harassment"><i data-v-4a851dbc="" class="iconify-icon footer-btn-icon" name="fa6-solid:flag" aria-hidden="true"></i>
+    <!--v-if-->
+    <!--v-if-->
+  </button><!-- Modal de reportes -->
+  <teleport-stub data-v-1f2303e5="" to="body">
+    <!--v-if-->
+  </teleport-stub><!-- Modal de confirmación para retirar reporte -->
+  <teleport-stub data-v-1f2303e5="" to="body">
+    <!--v-if-->
+  </teleport-stub>
+</div>"
+`;

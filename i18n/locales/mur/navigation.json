@@ -1,0 +1,11 @@
+{
+  "navigation": {
+    "home": "Inicioquico",
+    "submit": "Manda",
+    "login": "Entra",
+    "logout": "Sali",
+    "my_profile": "Mi perfilico",
+    "back_to_home": "Volvel pal inicio",
+    "about": "Sobre el Proyectico"
+  }
+}

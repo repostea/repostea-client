@@ -1,0 +1,14 @@
+{
+  "subs": {
+    "explore_title": "Explorar Subs",
+    "featured": "Destacatos",
+    "popular": "Populars",
+    "all": "Tot",
+    "my_subs": "Os míos Subs",
+    "members": "miembros",
+    "posts": "publicacions",
+    "join": "Apuntar-se",
+    "leave": "Abandonar",
+    "no_subs_found": "No s'han trobato subs"
+  }
+}

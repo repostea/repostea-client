@@ -1,0 +1,292 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`KarmaDisplay Component > Snapshots > matches snapshot with advanced level 1`] = `
+"<div data-v-8e711ea7="" class="karma-display">
+  <div data-v-8e711ea7="" class="flex items-center justify-center mb-4">
+    <div data-v-8e711ea7="" class="karma-badge karma-badge-orange"><i data-v-8e711ea7="" class="iconify-icon mr-2" name="fa6-solid:fire"></i><span data-v-8e711ea7="" class="font-bold">2500</span></div>
+  </div>
+  <div data-v-8e711ea7="" class="level-progress mb-4">
+    <div data-v-8e711ea7="" class="flex justify-between items-center mb-1">
+      <div data-v-8e711ea7="" class="text-sm font-medium">Advanced</div>
+      <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">1000 - 4999</div>
+    </div>
+    <div data-v-8e711ea7="" class="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2.5">
+      <div data-v-8e711ea7="" class="h-2.5 rounded-full bg-orange-500" style="width: 37.5%;"></div>
+    </div>
+    <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400 mt-1">2500 points to Expert</div>
+  </div>
+  <div data-v-8e711ea7="" class="streak-info mb-4">
+    <div data-v-8e711ea7="" class="flex items-center">
+      <div data-v-8e711ea7="" class="streak-badge streak-rare"><i data-v-8e711ea7="" class="iconify-icon" name="fa6-solid:fire"></i><span data-v-8e711ea7="" class="ml-1 font-bold">35</span></div>
+      <div data-v-8e711ea7="" class="ml-2">
+        <div data-v-8e711ea7="" class="text-sm font-medium">Streak</div>
+        <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">2.0x multiplier</div>
+      </div>
+    </div>
+  </div>
+  <div data-v-8e711ea7="" class="karma-stats grid grid-cols-3 gap-3">
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Posts</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Comments</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Votes Given</div>
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`KarmaDisplay Component > Snapshots > matches snapshot with beginner level 1`] = `
+"<div data-v-8e711ea7="" class="karma-display">
+  <div data-v-8e711ea7="" class="flex items-center justify-center mb-4">
+    <div data-v-8e711ea7="" class="karma-badge karma-badge-green"><i data-v-8e711ea7="" class="iconify-icon mr-2" name="fa6-solid:seedling"></i><span data-v-8e711ea7="" class="font-bold">100</span></div>
+  </div>
+  <div data-v-8e711ea7="" class="level-progress mb-4">
+    <div data-v-8e711ea7="" class="flex justify-between items-center mb-1">
+      <div data-v-8e711ea7="" class="text-sm font-medium">Beginner</div>
+      <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">0 - 499</div>
+    </div>
+    <div data-v-8e711ea7="" class="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2.5">
+      <div data-v-8e711ea7="" class="h-2.5 rounded-full bg-green-500" style="width: 20%;"></div>
+    </div>
+    <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400 mt-1">400 points to Intermediate</div>
+  </div>
+  <!--v-if-->
+  <div data-v-8e711ea7="" class="karma-stats grid grid-cols-3 gap-3">
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Posts</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Comments</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Votes Given</div>
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`KarmaDisplay Component > Snapshots > matches snapshot with custom user stats 1`] = `
+"<div data-v-8e711ea7="" class="karma-display">
+  <div data-v-8e711ea7="" class="flex items-center justify-center mb-4">
+    <div data-v-8e711ea7="" class="karma-badge karma-badge-orange"><i data-v-8e711ea7="" class="iconify-icon mr-2" name="fa6-solid:fire"></i><span data-v-8e711ea7="" class="font-bold">1500</span></div>
+  </div>
+  <div data-v-8e711ea7="" class="level-progress mb-4">
+    <div data-v-8e711ea7="" class="flex justify-between items-center mb-1">
+      <div data-v-8e711ea7="" class="text-sm font-medium">Advanced</div>
+      <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">1000 - 4999</div>
+    </div>
+    <div data-v-8e711ea7="" class="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2.5">
+      <div data-v-8e711ea7="" class="h-2.5 rounded-full bg-orange-500" style="width: 12.5%;"></div>
+    </div>
+    <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400 mt-1">3500 points to Expert</div>
+  </div>
+  <!--v-if-->
+  <div data-v-8e711ea7="" class="karma-stats grid grid-cols-3 gap-3">
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">42</div>
+      <div data-v-8e711ea7="" class="stat-label">Posts</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">150</div>
+      <div data-v-8e711ea7="" class="stat-label">Comments</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">89</div>
+      <div data-v-8e711ea7="" class="stat-label">Votes Given</div>
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`KarmaDisplay Component > Snapshots > matches snapshot with expert level 1`] = `
+"<div data-v-8e711ea7="" class="karma-display">
+  <div data-v-8e711ea7="" class="flex items-center justify-center mb-4">
+    <div data-v-8e711ea7="" class="karma-badge karma-badge-purple"><i data-v-8e711ea7="" class="iconify-icon mr-2" name="fa6-solid:star"></i><span data-v-8e711ea7="" class="font-bold">7000</span></div>
+  </div>
+  <div data-v-8e711ea7="" class="level-progress mb-4">
+    <div data-v-8e711ea7="" class="flex justify-between items-center mb-1">
+      <div data-v-8e711ea7="" class="text-sm font-medium">Expert</div>
+      <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">5000 - 9999</div>
+    </div>
+    <div data-v-8e711ea7="" class="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2.5">
+      <div data-v-8e711ea7="" class="h-2.5 rounded-full bg-purple-500" style="width: 40%;"></div>
+    </div>
+    <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400 mt-1">3000 points to Master</div>
+  </div>
+  <div data-v-8e711ea7="" class="streak-info mb-4">
+    <div data-v-8e711ea7="" class="flex items-center">
+      <div data-v-8e711ea7="" class="streak-badge streak-epic"><i data-v-8e711ea7="" class="iconify-icon" name="fa6-solid:fire"></i><span data-v-8e711ea7="" class="ml-1 font-bold">100</span></div>
+      <div data-v-8e711ea7="" class="ml-2">
+        <div data-v-8e711ea7="" class="text-sm font-medium">Streak</div>
+        <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">2.5x multiplier</div>
+      </div>
+    </div>
+  </div>
+  <div data-v-8e711ea7="" class="karma-stats grid grid-cols-3 gap-3">
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Posts</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Comments</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Votes Given</div>
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`KarmaDisplay Component > Snapshots > matches snapshot with intermediate level 1`] = `
+"<div data-v-8e711ea7="" class="karma-display">
+  <div data-v-8e711ea7="" class="flex items-center justify-center mb-4">
+    <div data-v-8e711ea7="" class="karma-badge karma-badge-blue"><i data-v-8e711ea7="" class="iconify-icon mr-2" name="fa6-solid:user"></i><span data-v-8e711ea7="" class="font-bold">750</span></div>
+  </div>
+  <div data-v-8e711ea7="" class="level-progress mb-4">
+    <div data-v-8e711ea7="" class="flex justify-between items-center mb-1">
+      <div data-v-8e711ea7="" class="text-sm font-medium">Intermediate</div>
+      <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">500 - 999</div>
+    </div>
+    <div data-v-8e711ea7="" class="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2.5">
+      <div data-v-8e711ea7="" class="h-2.5 rounded-full bg-blue-500" style="width: 50%;"></div>
+    </div>
+    <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400 mt-1">250 points to Advanced</div>
+  </div>
+  <div data-v-8e711ea7="" class="streak-info mb-4">
+    <div data-v-8e711ea7="" class="flex items-center">
+      <div data-v-8e711ea7="" class="streak-badge streak-uncommon"><i data-v-8e711ea7="" class="iconify-icon" name="fa6-solid:fire"></i><span data-v-8e711ea7="" class="ml-1 font-bold">10</span></div>
+      <div data-v-8e711ea7="" class="ml-2">
+        <div data-v-8e711ea7="" class="text-sm font-medium">Streak</div>
+        <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">1.5x multiplier</div>
+      </div>
+    </div>
+  </div>
+  <div data-v-8e711ea7="" class="karma-stats grid grid-cols-3 gap-3">
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Posts</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Comments</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Votes Given</div>
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`KarmaDisplay Component > Snapshots > matches snapshot with master level 1`] = `
+"<div data-v-8e711ea7="" class="karma-display">
+  <div data-v-8e711ea7="" class="flex items-center justify-center mb-4">
+    <div data-v-8e711ea7="" class="karma-badge karma-badge-rainbow"><i data-v-8e711ea7="" class="iconify-icon mr-2" name="fa6-solid:crown"></i><span data-v-8e711ea7="" class="font-bold">15000</span></div>
+  </div>
+  <div data-v-8e711ea7="" class="level-progress mb-4">
+    <div data-v-8e711ea7="" class="flex justify-between items-center mb-1">
+      <div data-v-8e711ea7="" class="text-sm font-medium">Master</div>
+      <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">10000 - ∞</div>
+    </div>
+    <div data-v-8e711ea7="" class="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2.5">
+      <div data-v-8e711ea7="" class="h-2.5 rounded-full bg-rainbow-500" style="width: 100%;"></div>
+    </div>
+    <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400 mt-1">Max level reached!</div>
+  </div>
+  <div data-v-8e711ea7="" class="streak-info mb-4">
+    <div data-v-8e711ea7="" class="flex items-center">
+      <div data-v-8e711ea7="" class="streak-badge streak-legendary"><i data-v-8e711ea7="" class="iconify-icon" name="fa6-solid:fire"></i><span data-v-8e711ea7="" class="ml-1 font-bold">400</span></div>
+      <div data-v-8e711ea7="" class="ml-2">
+        <div data-v-8e711ea7="" class="text-sm font-medium">Streak</div>
+        <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">3.0x multiplier</div>
+      </div>
+    </div>
+  </div>
+  <div data-v-8e711ea7="" class="karma-stats grid grid-cols-3 gap-3">
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Posts</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Comments</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Votes Given</div>
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`KarmaDisplay Component > Snapshots > matches snapshot with stats disabled 1`] = `
+"<div data-v-8e711ea7="" class="karma-display">
+  <div data-v-8e711ea7="" class="flex items-center justify-center mb-4">
+    <div data-v-8e711ea7="" class="karma-badge karma-badge-orange"><i data-v-8e711ea7="" class="iconify-icon mr-2" name="fa6-solid:fire"></i><span data-v-8e711ea7="" class="font-bold">1500</span></div>
+  </div>
+  <div data-v-8e711ea7="" class="level-progress mb-4">
+    <div data-v-8e711ea7="" class="flex justify-between items-center mb-1">
+      <div data-v-8e711ea7="" class="text-sm font-medium">Advanced</div>
+      <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">1000 - 4999</div>
+    </div>
+    <div data-v-8e711ea7="" class="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2.5">
+      <div data-v-8e711ea7="" class="h-2.5 rounded-full bg-orange-500" style="width: 12.5%;"></div>
+    </div>
+    <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400 mt-1">3500 points to Expert</div>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`KarmaDisplay Component > Snapshots > matches snapshot with streak disabled 1`] = `
+"<div data-v-8e711ea7="" class="karma-display">
+  <div data-v-8e711ea7="" class="flex items-center justify-center mb-4">
+    <div data-v-8e711ea7="" class="karma-badge karma-badge-orange"><i data-v-8e711ea7="" class="iconify-icon mr-2" name="fa6-solid:fire"></i><span data-v-8e711ea7="" class="font-bold">1500</span></div>
+  </div>
+  <div data-v-8e711ea7="" class="level-progress mb-4">
+    <div data-v-8e711ea7="" class="flex justify-between items-center mb-1">
+      <div data-v-8e711ea7="" class="text-sm font-medium">Advanced</div>
+      <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400">1000 - 4999</div>
+    </div>
+    <div data-v-8e711ea7="" class="w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2.5">
+      <div data-v-8e711ea7="" class="h-2.5 rounded-full bg-orange-500" style="width: 12.5%;"></div>
+    </div>
+    <div data-v-8e711ea7="" class="text-xs text-gray-500 dark:text-gray-400 mt-1">3500 points to Expert</div>
+  </div>
+  <!--v-if-->
+  <div data-v-8e711ea7="" class="karma-stats grid grid-cols-3 gap-3">
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Posts</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Comments</div>
+    </div>
+    <div data-v-8e711ea7="" class="stat-box">
+      <div data-v-8e711ea7="" class="stat-value">0</div>
+      <div data-v-8e711ea7="" class="stat-label">Votes Given</div>
+    </div>
+  </div>
+  <!--v-if-->
+</div>"
+`;

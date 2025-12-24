@@ -1,0 +1,86 @@
+{
+    "validation":  {
+                       "required":  "{field} eremua nahitaezkoa da",
+                       "email":  "Sartu baliozko helbide elektroniko bat",
+                       "min":  "{field} eremuak gutxienez {min} karaktere izan behar ditu",
+                       "max":  "{field} eremuak ezin du {max} karaktere gainditu",
+                       "confirmed":  "{field} eremuaren berrespena ez dator bat",
+                       "title":  {
+                                     "required":  "Izenburua nahitaezkoa da",
+                                     "min":  "Izenburuak gutxienez {min} karaktere izan behar ditu",
+                                     "max":  "Izenburuak ezin du {max} karaktere gainditu"
+                                 },
+                       "content":  {
+                                       "required":  "Edukia nahitaezkoa da testu-argitalpenetarako"
+                                   },
+                       "url":  {
+                                   "required":  "URLa nahitaezkoa da",
+                                   "format":  "URLak http:// edo https:// -rekin hasi behar du",
+                                   "invalid":  "Mesedez sartu baliozko URL bat",
+                                   "image_invalid":  "Irudiaren URLa ez da baliozkoa edo ezin izan da kargatu"
+                               },
+                       "thumbnail_url":  {
+                                             "format":  "Irudiaren URLak http:// edo https:// -rekin hasi behar du"
+                                         },
+                       "tags":  {
+                                    "required":  "Hautatu gutxienez etiketa bat",
+                                    "max":  "Gehienez {max} etiketa hautatu ditzakezu"
+                                },
+                       "current_password":  {
+                                                "required":  "Oraingo pasahitza nahitaezkoa da"
+                                            },
+                       "password":  {
+                                        "required":  "Pasahitz berria nahitaezkoa da",
+                                        "min":  "Pasahitzak gutxienez {min} karaktere izan behar ditu"
+                                    },
+                       "password_confirmation":  {
+                                                     "required":  "Mesedez baieztatu zure pasahitz berria",
+                                                     "match":  "Pasahitzak ez datoz bat"
+                                                 },
+                       "display_name":  {
+                                            "max":  "Izen ikusgarriak ezin du {max} karaktere gainditu"
+                                        },
+                       "bio":  {
+                                   "max":  "Biografiak ezin du {max} karaktere gainditu"
+                               },
+                       "avatar_url":  {
+                                          "format":  "Mesedez sartu baliozko URL bat"
+                                      },
+                       "username":  {
+                                        "required":  "Erabiltzaile-izena nahitaezkoa da",
+                                        "min":  "Erabiltzaile-izenak gutxienez {min} karaktere izan behar ditu",
+                                        "max":  "Erabiltzaile-izenak ezin du {max} karaktere gainditu",
+                                        "format":  "Erabiltzaile-izenak letrak, zenbakiak, gidoiak eta azpigidoiak soilik eduki ditzake",
+                                        "reserved":  "Erabiltzaile-izen hau erreserbatuta dago eta ezin da erabili"
+                                    },
+                       "description": {
+                                        "required": "Deskribapena nahitaezkoa da",
+                                        "min": "Deskribapenak gutxienez {min} karaktere izan behar ditu",
+                                        "max": "Deskribapenak ezin du {max} karaktere gainditu"
+                                    },
+                       "ai_prompt": {
+                                        "required": "IA galdekizuna nahitaezkoa da",
+                                        "min": "IA galdekizunak gutxienez {min} karaktere izan behar ditu",
+                                        "max": "IA galdekizunak ezin du {max} karaktere gainditu"
+                                    },
+                       "expected_behavior": {
+                                        "max": "Itxarondako portaerak ezin du {max} karaktere gainditu"
+                                    },
+                       "technical_constraints": {
+                                        "max": "Muga teknikoek ezin dute {max} karaktere gainditu"
+                                    },
+                       "priority": {
+                                        "required": "Lehentasuna nahitaezkoa da",
+                                        "invalid": "Hautatu baliozko lehentasun bat"
+                                    },
+                       "author_name": {
+                                        "required": "Egilearen izena nahitaezkoa da bidalketa aldi baterakoetarako",
+                                        "min": "Egilearen izenak gutxienez {min} karaktere izan behar ditu",
+                                        "max": "Egilearen izenak ezin du {max} karaktere gainditu"
+                                    },
+                       "tag_ids": {
+                                        "required": "Hautatu gutxienez etiketa bat",
+                                        "max": "Gehienez {max} etiketa hautatu ditzakezu"
+                                    }
+                   }
+}

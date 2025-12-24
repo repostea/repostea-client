@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TimeAgo Component > Snapshots > matches snapshot with days ago 1`] = `"<span title="12/1/2025, 13:00:00">hace 3 días</span>"`;
+
+exports[`TimeAgo Component > Snapshots > matches snapshot with hours ago 1`] = `"<span title="15/1/2025, 10:00:00">hace 3 horas</span>"`;
+
+exports[`TimeAgo Component > Snapshots > matches snapshot with minutes ago 1`] = `"<span title="15/1/2025, 12:55:00">hace 5 minutos</span>"`;
+
+exports[`TimeAgo Component > Snapshots > matches snapshot with months ago 1`] = `"<span title="16/11/2024, 13:00:00">hace 2 meses</span>"`;
+
+exports[`TimeAgo Component > Snapshots > matches snapshot with seconds ago 1`] = `"<span title="15/1/2025, 12:59:30">hace 30 segundos</span>"`;
+
+exports[`TimeAgo Component > Snapshots > matches snapshot with weeks ago 1`] = `"<span title="1/1/2025, 13:00:00">hace 2 semanas</span>"`;
+
+exports[`TimeAgo Component > Snapshots > matches snapshot with years ago 1`] = `"<span title="16/1/2023, 13:00:00">hace 2 años</span>"`;

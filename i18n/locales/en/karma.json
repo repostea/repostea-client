@@ -1,0 +1,148 @@
+{
+  "karma": {
+    "title": "Karma System",
+    "description": "Technical documentation of the {siteName} points system",
+    "beta_notice": "⚠️ This system is in Beta phase and open to community debate and suggestions.",
+    "overview": {
+      "title": "Overview",
+      "intro": "Karma is a scoring system that reflects the quality and consistency of your participation in {siteName}. Unlike other systems, we implement mechanisms to prevent manipulation, ensuring that karma reflects real contribution.",
+      "key_features": "Key features:",
+      "feature_1": "Diminishing returns on viral posts",
+      "feature_2": "Progressive reduction of old content to incentivize continuous activity",
+      "feature_3": "500 karma limit per individual post",
+      "feature_4": "Recent activity bonus to reward consistent participation"
+    },
+    "mechanics": {
+      "title": "System Mechanics",
+      "posts": {
+        "title": "Posts",
+        "base": "Base karma per upvote: 10 points",
+        "diminishing": "Diminishing returns: After 10 votes, logarithmic factor log(n+1)/log(11) is applied. This prevents a single viral post from generating disproportionate karma, incentivizing multiple quality posts. For example, 100 votes generate ~233 karma (not 1000), and 1000 votes generate ~289 karma (not 10,000).",
+        "comment_bonus": "Bonus for received comments: 1 point per comment (max 25)",
+        "cap": "Maximum limit per post: 500 karma",
+        "note": "Posts cannot receive negative votes"
+      },
+      "comments": {
+        "title": "Comments",
+        "upvote": "Upvote: 5 base points",
+        "downvote": "Downvote: -1 point (minimum 0 total karma per comment). Downvotes have less impact to protect against downvote brigading.",
+        "diminishing": "Diminishing returns: Same as posts, after 10 votes",
+        "reply_bonus": "Bonus for received replies: 1 point per reply (max 12). Incentivizes comments that generate constructive conversation."
+      },
+      "activity": {
+        "title": "Activity Bonus (last 30 days)",
+        "description": "Consistent participation is rewarded with additional points to incentivize users who contribute regularly, not just those with one-time successes.",
+        "posts": "Posts: 3 points each",
+        "comments": "Comments: 1 point each",
+        "votes": "Votes cast: 0.1 points each (voting also helps curate content)",
+        "cap": "Maximum limit: 50 points",
+        "example": "Example: 5 posts + 20 comments + 100 votes in the month = 45 bonus points."
+      },
+      "age_decay": {
+        "title": "Age Decay",
+        "description": "Karma from old content decreases progressively to incentivize continuous participation and prevent inactive users from maintaining high karma indefinitely. The system applies these multipliers based on content age:",
+        "m1": "< 1 month: 100%",
+        "m3": "1-3 months: 95%",
+        "m6": "3-6 months: 90%",
+        "m12": "6-12 months: 80%",
+        "y2": "1-2 years: 70%",
+        "old": "> 2 years: 50%",
+        "note": "A post from 18 months ago that generated 100 points now contributes 70 points to your total karma. New votes received will also be calculated with this multiplier."
+      },
+      "seals": {
+        "title": "Community Seals",
+        "description": "Users with sufficient karma level receive weekly Seals that they can use to highlight quality content or advise against content. Seals also affect the karma of the content author.",
+        "weekly_allocation": "Weekly Seal Allocation:",
+        "seal_table_level": "Level",
+        "seal_table_seals": "Seals/Week",
+        "impact_title": "Karma Impact",
+        "recommended": "Recommended Seal: +3 karma to author",
+        "advised_against": "Advised Against Seal: -2 karma to author",
+        "rules_title": "Seal Rules:",
+        "rule_1": "Only users of Apprentice level or higher receive seals",
+        "rule_2": "Seals renew every Monday at 00:00",
+        "rule_3": "Unused seals expire after 2 weeks",
+        "rule_4": "You cannot mark your own content",
+        "rule_5": "You can only apply one seal of each type per content",
+        "rule_6": "If you remove a seal, you recover the point and the karma is reversed",
+        "impact": "Seals allow the community to highlight quality content and advise against content in a visible way, while incentivizing authors to create valuable content."
+      }
+    },
+    "levels": {
+      "title": "Levels and Multipliers",
+      "description": "Upon reaching certain karma thresholds, your level increases. When you vote on other users' content, your level grants a small multiplier that slightly increases the karma they receive:",
+      "table_level": "Level",
+      "table_karma": "Required Karma",
+      "table_multiplier": "Multiplier",
+      "novice": "Novice",
+      "apprentice": "Apprentice",
+      "contributor": "Contributor",
+      "expert": "Expert",
+      "mentor": "Mentor",
+      "sage": "Sage",
+      "legend": "Legend"
+    },
+    "examples": {
+      "title": "Practical Examples",
+      "viral_post": {
+        "title": "Example 1: Viral Post",
+        "old_system": "System without diminishing returns: 1000 votes × 10 = 10,000 karma",
+        "new_system": "Current system: 1000 votes = ~289 karma + bonuses",
+        "conclusion": "Incentivizes creating multiple quality posts instead of chasing virality"
+      },
+      "content_decay": {
+        "title": "Example 2: Age Decay",
+        "scenario": "A post with 20 upvotes (200 base karma):",
+        "fresh": "Recent content (< 2 weeks): 200 karma (100%)",
+        "old": "Old content (> 3 months): 100 karma (50%)",
+        "conclusion": "The system incentivizes creating new content constantly"
+      },
+      "deleted_content": {
+        "title": "Example 3: Deleted Content",
+        "scenario": "A post receives 10 community reports and is deleted by moderators",
+        "karma_lost": "Author loses all karma earned from that post (~100-200 karma)",
+        "strike": "Also receives a strike. 3 strikes = temporary suspension",
+        "conclusion": "The system heavily penalizes content that violates rules"
+      }
+    },
+    "simulations": {
+      "title": "Progression Projections",
+      "description": "Estimates based on different monthly activity levels:",
+      "casual": {
+        "title": "Casual User",
+        "activity": "2 posts, 15 comments, 50 votes/month",
+        "monthly": "~450 karma/month",
+        "legend": "Legend (100,000) in ~18.5 years"
+      },
+      "active": {
+        "title": "Active User",
+        "activity": "10 posts, 50 comments, 200 votes/month",
+        "monthly": "~3,300 karma/month",
+        "legend": "Legend (100,000) in ~2.5 years"
+      },
+      "power": {
+        "title": "Power User",
+        "activity": "30 posts, 150 comments, 500 votes/month",
+        "monthly": "~12,500 karma/month",
+        "legend": "Legend (100,000) in ~8 months"
+      },
+      "troll": {
+        "title": "Troll/Spam User",
+        "activity": "Posts 20 contents/month, but 15 are deleted due to reports",
+        "monthly": "Loses ~1,500-2,000 karma/month + 15 strikes",
+        "result": "Permanent suspension after 3 strikes"
+      },
+      "note": "Figures assume average content quality (8-10 votes per post, 3-5 per comment). Comments have a minimum of 0 karma regardless of negative votes."
+    },
+    "technical": {
+      "title": "Technical Details",
+      "formula_post": "karma_post = min(500, (diminishing_returns(upvotes) × time_mult + comment_bonus)) × age_decay",
+      "formula_comment": "karma_comment = max(0, (diminishing_returns(upvotes - downvotes) × time_mult + reply_bonus) × age_decay)",
+      "formula_total": "karma_total = Σ karma_posts + Σ karma_comments + activity_bonus",
+      "diminishing": "diminishing_returns(n) = n ≤ 10 ? n × base : base × 10 × log(n+1)/log(11)",
+      "time_mult": "time_multiplier = 1.0 (currently no temporal effect)",
+      "activity": "activity_bonus = min(50, posts×3 + comments×1 + votes×0.1)",
+      "note": "Calculations are performed in order: diminishing returns → time multiplier → bonus → cap → age decay"
+    }
+  }
+}

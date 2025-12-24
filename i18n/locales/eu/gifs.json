@@ -1,0 +1,11 @@
+{
+  "gifs": {
+    "insert": "GIF txertatu",
+    "insert_action": "Txertatu",
+    "search_placeholder": "GIFak bilatu...",
+    "no_results": "Ez da GIFik aurkitu",
+    "powered_by": "Powered by",
+    "loading": "GIFak kargatzen...",
+    "error": "Errorea GIFak kargatzean"
+  }
+}

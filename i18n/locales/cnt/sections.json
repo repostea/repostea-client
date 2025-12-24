@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "frontpage": "Portá",
+    "pending": "Pendientis",
+    "featured": "Destacáus",
+    "popular": "Popularis",
+    "all": "Tó",
+    "my_subs": "Los mieus Subs",
+    "my_subs_login_required": "Entrar pa ver envíus de tus comunidaes",
+    "comments": "Comentarucos",
+    "comments_description": "Explorar los últimus comentarucos"
+  }
+}

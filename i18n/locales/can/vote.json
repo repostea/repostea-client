@@ -1,0 +1,16 @@
+{
+  "vote": {
+    "already_voted": "Ya has votao este envío mijo",
+    "updated": "Voto actualizao mijo",
+    "registered": "Voto registrao mijo",
+    "removed": "Voto quitao mijo",
+    "types": {
+      "elaborate": "Currao",
+      "funny": "Gracioso mijo",
+      "irrelevant": "No viene a cuento mijo"
+    },
+    "polls": {
+      "expired": "Esta encuesta ha expirado mijo"
+    }
+  }
+}

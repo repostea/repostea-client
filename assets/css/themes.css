@@ -1,0 +1,371 @@
+/* themes.css - Theme-specific primary colors only */
+/* Card, text, border colors are handled by theme-variables.css */
+
+:root {
+  /* Default theme colors */
+  --color-primary: #3b82f6;
+  --color-primary-rgb: 59, 130, 246;
+  --color-primary-light: #60a5fa;
+  --color-primary-dark: #2563eb;
+  --color-primary-hover: #2563eb;
+  --color-navbar-bg: #2563eb;
+  --color-navbar-bg-dark: #1e3a8a;
+  --color-footer-bg: var(--color-navbar-bg);
+  --color-footer-bg-dark: var(--color-navbar-bg-dark);
+  /* Text colors for buttons and navbar (default: white for contrast on colored backgrounds) */
+  --color-btn-primary-text: #ffffff;
+  --color-navbar-text: #ffffff;
+  --color-navbar-text-secondary: rgba(255, 255, 255, 0.9);
+
+  /* Legacy aliases - map to semantic variables */
+  --color-card-bg: var(--color-bg-card);
+  --color-card-bg-dark: var(--color-bg-card);
+  --color-page: var(--color-bg-page);
+  --color-page-dark: var(--color-bg-page);
+  --color-text: var(--color-text-primary);
+  --color-text-dark: var(--color-text-primary);
+  --color-text-muted: var(--color-text-secondary);
+  --color-text-muted-dark: var(--color-text-secondary);
+  --color-border: var(--color-border-default);
+  --color-border-dark: var(--color-border-default);
+  --color-input-bg-dark: var(--color-bg-input);
+  --color-stats-bg-dark: var(--color-bg-card);
+}
+
+/* Tema Repostea - uses :root defaults (no override needed) */
+
+/* Tema Renegados */
+.theme-renegados1 {
+  --color-primary: #6D28D9;
+  --color-primary-rgb: 109, 40, 217;
+  --color-primary-light: #8B5CF6;
+  --color-primary-dark: #5B21B6;
+  --color-primary-hover: #5B21B6;
+  --color-navbar-bg: #5B21B6;
+  --color-navbar-bg-dark: #4C1D95;
+  --color-accent: #FFD936;
+  --color-accent-hover: #FFED4E;
+}
+
+/* Tema Yups */
+.theme-yups {
+  --color-primary: #e01968;
+  --color-primary-rgb: 224, 25, 104;
+  --color-primary-light: #f14b8a;
+  --color-primary-dark: #b5004d;
+  --color-primary-hover: #b5004d;
+  --color-navbar-bg: #e01968;
+  --color-navbar-bg-dark: #9d174d;
+}
+
+/* Tema Barrapunto */
+.theme-barrapunto {
+  --color-primary: #ff6600;
+  --color-primary-rgb: 255, 102, 0;
+  --color-primary-light: #ff8533;
+  --color-primary-dark: #cc5200;
+  --color-primary-hover: #cc5200;
+  --color-navbar-bg: #ff6600;
+  --color-navbar-bg-dark: #c2410c;
+}
+
+/* Tema Oscuro - Slate (azulado suave) */
+.theme-dark {
+  --color-primary: #64748b;
+  --color-primary-rgb: 100, 116, 139;
+  --color-primary-light: #94a3b8;
+  --color-primary-dark: #475569;
+  --color-primary-hover: #475569;
+  --color-navbar-bg: #1e293b;
+  --color-navbar-bg-dark: #1e293b;
+  /* White text on dark slate navbar */
+  --color-navbar-text: #ffffff;
+  --color-navbar-text-secondary: rgba(255, 255, 255, 0.85);
+}
+
+/* Tema Oscuro Neutral - Gris puro */
+.theme-dark-neutral {
+  --color-primary: #a3a3a3;
+  --color-primary-rgb: 163, 163, 163;
+  --color-primary-light: #d4d4d4;
+  --color-primary-dark: #737373;
+  --color-primary-hover: #737373;
+  --color-navbar-bg: #1f1f1f;
+  --color-navbar-bg-dark: #1f1f1f;
+  /* White text on dark gray navbar */
+  --color-navbar-text: #ffffff;
+  --color-navbar-text-secondary: rgba(255, 255, 255, 0.85);
+}
+
+/* =========================================
+   NEW THEMES
+   ========================================= */
+
+/* Tema Hacker / Matrix */
+.theme-hacker {
+  --color-primary: #00ff00;
+  --color-primary-rgb: 0, 255, 0;
+  --color-primary-light: #33ff33;
+  --color-primary-dark: #00cc00;
+  --color-primary-hover: #33ff33;
+  --color-navbar-bg: #0a0a0a;
+  --color-navbar-bg-dark: #0a0a0a;
+  --color-link: #00ffff;
+  /* Black text on green buttons for contrast */
+  --color-btn-primary-text: #0a0a0a;
+  /* Green text on black navbar */
+  --color-navbar-text: #00ff00;
+  --color-navbar-text-secondary: rgba(0, 255, 0, 0.85);
+}
+
+/* Tema Solarized Dark */
+.theme-solarized-dark {
+  --color-primary: #268bd2;
+  --color-primary-rgb: 38, 139, 210;
+  --color-primary-light: #2aa198;
+  --color-primary-dark: #0d6eaa;
+  --color-primary-hover: #2aa198;
+  --color-navbar-bg: #002b36;
+  --color-navbar-bg-dark: #002b36;
+  --color-link: #2aa198;
+  /* Solarized base1/base2 text on dark cyan navbar */
+  --color-navbar-text: #eee8d5;
+  --color-navbar-text-secondary: #93a1a1;
+}
+
+/* Tema Solarized Light */
+.theme-solarized-light {
+  --color-primary: #268bd2;
+  --color-primary-rgb: 38, 139, 210;
+  --color-primary-light: #2aa198;
+  --color-primary-dark: #0d6eaa;
+  --color-primary-hover: #2aa198;
+  --color-navbar-bg: #073642;
+  --color-navbar-bg-dark: #073642;
+  --color-link: #2aa198;
+  /* Solarized base2 text on dark navbar */
+  --color-navbar-text: #eee8d5;
+  --color-navbar-text-secondary: #93a1a1;
+}
+
+/* Tema Sepia / Paper */
+.theme-sepia {
+  --color-primary: #8b4513;
+  --color-primary-rgb: 139, 69, 19;
+  --color-primary-light: #a0522d;
+  --color-primary-dark: #6b3410;
+  --color-primary-hover: #a0522d;
+  --color-navbar-bg: #5c4b37;
+  --color-navbar-bg-dark: #5c4b37;
+  --color-link: #6b4423;
+  /* Cream text on brown navbar */
+  --color-navbar-text: #faf6eb;
+  --color-navbar-text-secondary: rgba(250, 246, 235, 0.85);
+}
+
+/* Tema Nord */
+.theme-nord {
+  --color-primary: #88c0d0;
+  --color-primary-rgb: 136, 192, 208;
+  --color-primary-light: #8fbcbb;
+  --color-primary-dark: #5e81ac;
+  --color-primary-hover: #8fbcbb;
+  --color-navbar-bg: #2e3440;
+  --color-navbar-bg-dark: #2e3440;
+  --color-link: #81a1c1;
+  /* Dark text on light blue buttons for contrast */
+  --color-btn-primary-text: #2e3440;
+  /* Nord snow white text on polar night navbar */
+  --color-navbar-text: #eceff4;
+  --color-navbar-text-secondary: #d8dee9;
+}
+
+/* Tema Dracula */
+.theme-dracula {
+  --color-primary: #bd93f9;
+  --color-primary-rgb: 189, 147, 249;
+  --color-primary-light: #ff79c6;
+  --color-primary-dark: #9d6be0;
+  --color-primary-hover: #ff79c6;
+  --color-navbar-bg: #282a36;
+  --color-navbar-bg-dark: #282a36;
+  --color-link: #8be9fd;
+  /* Dark text on light purple buttons for better contrast */
+  --color-btn-primary-text: #282a36;
+  /* Dracula foreground on dark navbar */
+  --color-navbar-text: #f8f8f2;
+  --color-navbar-text-secondary: rgba(248, 248, 242, 0.8);
+}
+
+/* Tema High Contrast Dark */
+.theme-high-contrast-dark {
+  --color-primary: #ffff00;
+  --color-primary-rgb: 255, 255, 0;
+  --color-primary-light: #ffff66;
+  --color-primary-dark: #cccc00;
+  --color-primary-hover: #ffff66;
+  --color-navbar-bg: #000000;
+  --color-navbar-bg-dark: #000000;
+  --color-link: #00ffff;
+  /* Yellow text on black navbar for maximum contrast */
+  --color-btn-primary-text: #000000;
+  --color-navbar-text: #ffff00;
+  --color-navbar-text-secondary: #ffffff;
+}
+
+/* Tema High Contrast Light */
+.theme-high-contrast-light {
+  --color-primary: #0000cc;
+  --color-primary-rgb: 0, 0, 204;
+  --color-primary-light: #0000ff;
+  --color-primary-dark: #000099;
+  --color-primary-hover: #0000ff;
+  --color-navbar-bg: #000000;
+  --color-navbar-bg-dark: #000000;
+  --color-link: #0000cc;
+  /* White text on black navbar */
+  --color-navbar-text: #ffffff;
+  --color-navbar-text-secondary: #ffffff;
+}
+
+/* Utility classes for primary colors */
+.bg-primary { background-color: var(--color-primary) !important; }
+.bg-primary-light { background-color: var(--color-primary-light) !important; }
+.bg-primary-dark { background-color: var(--color-primary-dark) !important; }
+.text-primary { color: var(--color-primary) !important; }
+.border-primary { border-color: var(--color-primary) !important; }
+
+/* Primary with opacity */
+.bg-primary\/5 { background-color: rgba(var(--color-primary-rgb), 0.05) !important; }
+.bg-primary\/10 { background-color: rgba(var(--color-primary-rgb), 0.1) !important; }
+.bg-primary\/20 { background-color: rgba(var(--color-primary-rgb), 0.2) !important; }
+.border-primary\/20 { border-color: rgba(var(--color-primary-rgb), 0.2) !important; }
+.border-primary\/30 { border-color: rgba(var(--color-primary-rgb), 0.3) !important; }
+.border-primary\/40 { border-color: rgba(var(--color-primary-rgb), 0.4) !important; }
+.border-primary\/50 { border-color: rgba(var(--color-primary-rgb), 0.5) !important; }
+
+/* Hover states */
+.hover\:bg-primary:hover { background-color: var(--color-primary) !important; }
+.hover\:bg-primary-dark:hover { background-color: var(--color-primary-dark) !important; }
+.hover\:bg-primary\/5:hover { background-color: rgba(var(--color-primary-rgb), 0.05) !important; }
+.hover\:bg-primary\/10:hover { background-color: rgba(var(--color-primary-rgb), 0.1) !important; }
+.hover\:text-primary:hover { color: var(--color-primary) !important; }
+.hover\:border-primary:hover { border-color: var(--color-primary) !important; }
+.hover\:border-primary\/50:hover { border-color: rgba(var(--color-primary-rgb), 0.5) !important; }
+.focus\:ring-primary:focus { --tw-ring-color: var(--color-primary) !important; }
+
+/* Navbar and footer */
+.navbar { background-color: var(--color-navbar-bg) !important; }
+.dark .navbar { background-color: var(--color-navbar-bg-dark) !important; }
+footer { background-color: var(--color-navbar-bg) !important; }
+.dark footer { background-color: var(--color-navbar-bg-dark) !important; }
+
+/* Vote button colors */
+.vote-btn { color: var(--color-primary) !important; }
+.vote-btn:hover:not(:disabled) { color: var(--color-primary-light) !important; }
+
+/* Dark mode base */
+.dark {
+  color-scheme: dark;
+}
+
+/* Theme-specific overrides */
+.theme-yups .vote-count { color: var(--color-primary); }
+.theme-barrapunto .vote-count { color: var(--color-primary); }
+
+/* Force correct colors for dark themes (override Tailwind hardcoded colors) */
+.dark body {
+  background-color: var(--color-bg-page) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.dark .bg-page-dark,
+.dark .dark\:bg-page-dark {
+  background-color: var(--color-bg-page) !important;
+}
+
+.dark .bg-card-bg-dark,
+.dark .dark\:bg-card-bg-dark,
+.dark .link-card,
+.dark .card-body {
+  background-color: var(--color-bg-card) !important;
+}
+
+.dark .bg-input-bg-dark,
+.dark .dark\:bg-input-bg-dark,
+.dark .form-input,
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: var(--color-bg-input) !important;
+}
+
+.dark .bg-stats-bg-dark,
+.dark .dark\:bg-stats-bg-dark,
+.dark .stats-box {
+  background-color: var(--color-bg-card) !important;
+}
+
+.dark .card-footer {
+  background-color: var(--color-card-footer-bg) !important;
+}
+
+.dark .text-text-dark,
+.dark .dark\:text-text-dark {
+  color: var(--color-text-primary) !important;
+}
+
+.dark .text-text-muted-dark,
+.dark .dark\:text-text-muted-dark {
+  color: var(--color-text-secondary) !important;
+}
+
+/* ===========================================
+   MOBILE THEME STYLES
+   =========================================== */
+
+.mobile-menu-container {
+  background-color: var(--color-navbar-bg) !important;
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .mobile-menu-container {
+  background-color: var(--color-navbar-bg-dark) !important;
+}
+
+.mobile-fab {
+  background-color: var(--color-primary) !important;
+  color: var(--color-btn-primary-text) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.mobile-fab:hover,
+.mobile-fab:active {
+  background-color: var(--color-primary-dark) !important;
+}
+
+.mobile-nav-link {
+  color: var(--color-navbar-text) !important;
+  font-size: 14px !important;
+  padding: 10px 12px !important;
+  border-radius: 6px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.mobile-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.mobile-nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark .mobile-modal {
+  background-color: var(--color-bg-card) !important;
+  color: var(--color-text-primary) !important;
+  border: 1px solid var(--color-border-default) !important;
+}
+
+.dark .mobile-modal h3 {
+  color: var(--color-text-primary) !important;
+}

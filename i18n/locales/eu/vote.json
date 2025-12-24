@@ -1,0 +1,47 @@
+{
+    "vote":  {
+                 "upvote":  "Bozkatu alde",
+                 "downvote":  "Bozkatu aurka",
+                 "positive_vote":  "Boto positiboa",
+                 "negative_vote":  "Boto negatiboa",
+                 "select_reason":  "Hautatu arrazoina zure botoaren",
+                 "reason_help_text":  "Honek beste erabiltzaileei eduki hau zergatik baloratu duzun ulertzeko lagunduko die",
+                 "will_appear_in_summary":  "Botuen laburpenean agertuko da",
+                 "stats":  {
+                               "title":  "Botuen estatistikak",
+                               "positive":  "Boto positiboak",
+                               "negative":  "Boto negatiboak"
+                           },
+                 "show_stats": "Erakutsi botuen xehetasunak",
+                 "hide_stats": "Ezkutatu botuen xehetasunak",
+                 "types":  {
+                               "didactic":  "Hezitzailea",
+                               "interesting":  "Interesgarria",
+                               "elaborate":  "Zehatza",
+                               "funny":  "Dibertigarria",
+                               "false":  "Okerra",
+                               "incomplete":  "Osatu gabea",
+                               "irrelevant":  "Ez-garrantzitsua",
+                               "outofplace":  "Lekuz kanpo"
+                           },
+                 "already_voted":  "Dagoeneko post hau bozkatu duzu",
+                 "updated":  "Botoa eguneratuta",
+                 "registered":  "Botoa erregistratuta",
+                 "removed":  "Botoa kenduta",
+                 "invalid_type":  "Emandako boto mota ez da baliozkoa. Onartutako motak: {types}",
+                 "polls":  {
+                               "expired":  "Inkesta hau iraungita dago",
+                               "vote":  "botoa",
+                               "votes":  "botuak",
+                               "submit_vote":  "Bidali Botoa",
+                               "remove_vote":  "Kendu Botoa",
+                               "show_results":  "Ikusi Emaitzak",
+                               "back_to_vote":  "Itzuli Bozkatzera",
+                               "total_votes":  "Boto guztira: {count}",
+                               "multiple_options_allowed":  "Aukera anitz onartzen dira",
+                               "load_error":  "Errorea inkestaren emaitzak kargatzean",
+                               "vote_error":  "Errorea botoa bidaltzean",
+                               "remove_vote_error":  "Errorea botoa kentzean"
+                           }
+             }
+}

@@ -1,0 +1,43 @@
+{
+    "errors": {
+        "bad_request": "A solicitude é inválida ou non pode ser procesada.",
+        "unauthorized": "Necesitas iniciar sesión para acceder a este recurso.",
+        "forbidden": "Non tes permiso para acceder a este recurso.",
+        "not_found": "O recurso solicitado non foi atopado.",
+        "validation_error": "Os datos enviados conteñen erros. Por favor, revisa e téntao de novo.",
+        "too_many_requests": "Demasiadas solicitudes. Por favor, espera un momento e téntao de novo.",
+        "server_error": "Sentímolo, algo saíu mal nos nosos servidores. O noso equipo foi notificado.",
+        "service_unavailable": "O servizo está temporalmente non dispoñible. Por favor, téntao de novo máis tarde.",
+        "404": {
+            "title": "Páxina Non Atopada",
+            "message": "A páxina que estás buscando non existe ou foi movida."
+        },
+        "500": {
+            "title": "Erro do Servidor",
+            "message": "Sentímolo, algo saíu mal nos nosos servidores. O noso equipo foi notificado."
+        },
+        "network": {
+            "title": "Erro de Rede",
+            "message": "Non se puido conectar co servidor. Por favor, comproba a túa conexión a internet."
+        },
+        "generic": {
+            "title": "Erro",
+            "message": "Ocorreu un erro inesperado. Por favor, téntao de novo máis tarde."
+        },
+        "pageNotFound": "Páxina non atopada",
+        "user_not_found": "Usuario non atopado",
+        "user_not_found_message": "O usuario que estás buscando non existe ou foi eliminado",
+        "load_notifications_failed": "Erro ao cargar as notificacións",
+        "mark_all_read_failed": "Erro ao marcar todas as notificacións como lidas",
+        "delete_notification_failed": "Erro ao eliminar a notificación"
+    },
+    "maintenance": {
+        "title": "Mantemento en Progreso",
+        "message": "Estamos realizando melloras para brindarte unha mellor experiencia. Volveremos pronto.",
+        "estimated_time": "Tempo estimado: uns minutos",
+        "check_status": "Verificar Estado",
+        "checking": "Verificando...",
+        "auto_refresh": "Esta páxina actualizarase automaticamente cada 30 segundos",
+        "improving": "Estamos mellorando a plataforma. Grazas pola túa paciencia."
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "users":  {
+                  "admin":  "Administrator",
+                  "moderator":  "Moderator",
+                  "bot":  "Bot",
+                  "premium":  "Premium",
+                  "karma_overview":  "Karma Overview",
+                  "activity_streak":  "Activity Streak",
+                  "last_30_days":  "Last 30 days",
+                  "calendar_info":  "Each cell represents a day",
+                  "activities":  "activities",
+                  "max_level_reached":  "You\u0027ve reached the maximum level!",
+                  "next_level":  "{points} points needed to reach {level}",
+                  "posts":  "Posts",
+                  "comments":  "Comments",
+                  "votes_given":  "Votes given",
+                  "profile":  "Profile",
+                  "karma":  "karma",
+                  "joined":  "Member since",
+                  "bio":  "Biography",
+                  "about_me":  "About me",
+                  "no_bio":  "This user hasn\u0027t added a biography.",
+                  "published_links":  "Published links",
+                  "user_comments":  "Comments",
+                  "edit_profile":  "Edit profile",
+                  "karma_levels":  {
+                                       "newcomer":  "Newcomer",
+                                       "contributor":  "Contributor",
+                                       "regular":  "Regular",
+                                       "trusted":  "Trusted",
+                                       "veteran":  "Veteran",
+                                       "expert":  "Expert",
+                                       "master":  "Master",
+                                       "legend":  "Legend"
+                                   }
+              }
+}

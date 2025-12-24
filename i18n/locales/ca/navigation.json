@@ -1,0 +1,24 @@
+{
+    "navigation":  {
+                       "main_menu": "Menú principal",
+                       "home":  "Inici",
+                       "pending":  "Pendents",
+                       "topics":  "Temes",
+                       "subs":  "Subs",
+                       "submit":  "Enviar",
+                       "login":  "Iniciar sessió",
+                       "register":  "Registrar-se",
+                       "logout":  "Tancar sessió",
+                       "my_profile":  "El meu perfil",
+                       "settings":  "Configuració",
+                       "admin":  "Administració",
+                       "saved_lists":  "Les meves Llistes",
+                       "actions":  "Més",
+                       "theme":  "Tema",
+                       "language":  "Idioma",
+                       "back_to_home":  "Tornar a l'inici",
+                       "about": "Sobre el Projecte",
+                       "manifesto": "Manifest",
+                       "my_subs": "Els meus Subs"
+                   }
+}

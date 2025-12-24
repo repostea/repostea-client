@@ -1,0 +1,24 @@
+{
+  "rankings": {
+    "title": "Rankings",
+    "subtitle": "Descubre a os contribuidors más destacaus d'a nuestra comunidá",
+    "karma_points": "puntos de karma",
+    "posts": "publicacions",
+    "comments": "comentarios",
+    "days_streak": "días de racha",
+    "achievements": "logros",
+    "no_data": "No bi ha datos disponibles ta iste ranking",
+    "categories": {
+      "posts": "Publicacions",
+      "comments": "Comentarios",
+      "streaks": "Rachas",
+      "achievements": "Logros"
+    },
+    "timeframes": {
+      "all_time": "Tot o Tiempo",
+      "this_month": "Iste Mes",
+      "this_week": "Ista Semana",
+      "today": "Hue"
+    }
+  }
+}

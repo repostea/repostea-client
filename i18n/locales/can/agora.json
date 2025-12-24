@@ -1,0 +1,22 @@
+{
+  "agora": {
+    "title": "Ágora",
+    "subtitle": "Plaza pública de conversación mijo",
+    "description": "Comparte tus pensamientos y participa en conversaciones mijo",
+    "write_placeholder": "¿Qué quieres compartir en el ágora mijo?",
+    "publish": "Publicar",
+    "reply": "Responder",
+    "anonymous": "Anónimo",
+    "recent": "Recientes",
+    "popular": "Populares mijo",
+    "no_messages": "El ágora te está esperando mijo",
+    "no_messages_subtitle": "Se el primero en empezar una conversación mijo",
+    "loading": "Cargando conversaciones mijo...",
+    "message_created": "Mensaje publicao mijo",
+    "message_deleted": "Mensaje borrao mijo",
+    "confirm_delete": "¿Seguro que quieres borrar este mensaje mijo?",
+    "cta_title": "¡Únete a la conversación mijo!",
+    "view_threads": "Hilos",
+    "view_chronological": "Cronológico"
+  }
+}

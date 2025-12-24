@@ -1,0 +1,15 @@
+{
+  "language": {
+    "available": "Available languages",
+    "coming_soon": "Coming soon",
+    "soon": "Soon",
+    "stats": {
+      "available": "Available",
+      "coverage": "Coverage"
+    },
+    "help": {
+      "description": "Speak another language? Help us translate {siteName}.",
+      "contact": "Contact to translate"
+    }
+  }
+}

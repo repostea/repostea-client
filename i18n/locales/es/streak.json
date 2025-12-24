@@ -1,0 +1,10 @@
+{
+    "streak":  {
+                   "title":  "Racha",
+                   "multiplier":  "Multiplicador de karma: x{multiplier}",
+                   "guardian":  "GUARDIÁN",
+                   "freezes":  "{count} congelaciones de racha",
+                   "customization":  "Personalización premium de perfil",
+                   "nameAura":  "Aura especial para nombre"
+               }
+}

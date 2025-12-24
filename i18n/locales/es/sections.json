@@ -1,0 +1,22 @@
+{
+    "sections":  {
+                     "frontpage":  "Portada",
+                     "frontpage_title":  "Portada - Envíos Populares",
+                     "pending":  "Pendientes",
+                     "pending_title":  "Envíos Pendientes",
+                     "pending_description":  "Contenido pendiente de votación",
+                     "featured":  "Destacados",
+                     "featured_title":  "Envíos Destacados",
+                     "trending":  "En tendencia",
+                     "trending_title":  "Envíos en Tendencia",
+                     "popular":  "Populares",
+                     "popular_title":  "Envíos Populares",
+                     "all":  "Todos",
+                     "all_title":  "Todos los Envíos",
+                     "my_subs":  "Mis Subs",
+                     "my_subs_title":  "Envíos de Mis Comunidades",
+                     "my_subs_login_required":  "Inicia sesión para ver envíos de tus comunidades",
+                     "comments":  "Comentarios",
+                     "comments_description":  "Explora los últimos comentarios de la comunidad"
+                 }
+}
