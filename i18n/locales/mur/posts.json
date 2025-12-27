@@ -7,6 +7,8 @@
     "delete_success": "Envío quitaico correctamentico",
     "vote": "votico",
     "voted": "votaico",
+    "closed": "cerraico",
+    "voting_closed": "La votación está cerraica",
     "votes": "voticos",
     "vote_success": "Votico mandaico!",
     "publish": "Publicarico",

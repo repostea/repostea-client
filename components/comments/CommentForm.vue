@@ -13,7 +13,7 @@
     @submit="handleSubmit"
   >
     <template #cancel-button>
-      <slot name="cancel-button"/>
+      <slot name="cancel-button" />
     </template>
   </CommentEditor>
 </template>

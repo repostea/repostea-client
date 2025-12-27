@@ -6,7 +6,11 @@
       class="mb-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-md border border-yellow-200 dark:border-yellow-800"
     >
       <div class="flex items-start">
-        <Icon name="fa6-solid:triangle-exclamation" class="text-yellow-500 mt-1 mr-3" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:triangle-exclamation"
+          class="text-yellow-500 mt-1 mr-3"
+          aria-hidden="true"
+        />
         <div>
           <p class="text-sm font-medium text-yellow-800 dark:text-yellow-200 mb-1">
             {{ t('submit.form.poll_has_votes_warning') }}
@@ -42,7 +46,9 @@
     <div class="mb-4">
       <label class="block text-sm font-medium mb-1"> {{ t('submit.form.poll_options') }} * </label>
       <div v-for="(option, index) in pollOptions" :key="index" class="flex mb-2 items-center">
-        <span class="text-gray-500 dark:text-gray-400 mr-2 text-sm">{{ String.fromCharCode(65 + index) }})</span>
+        <span class="text-gray-500 dark:text-gray-400 mr-2 text-sm"
+          >{{ String.fromCharCode(65 + index) }})</span
+        >
         <input
           v-model="pollOptions[index]"
           type="text"
@@ -66,7 +72,9 @@
         type="button"
         class="mt-2 px-3 py-2 text-sm text-primary hover:text-primary-dark transition-colors flex items-center"
         @click="addOption"
-      ><Icon name="fa6-solid:plus" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.form.add_option') }}</span>
+      >
+        <Icon name="fa6-solid:plus" class="mr-1 flex-shrink-0" aria-hidden="true" />
+        <span>{{ t('submit.form.add_option') }}</span>
       </button>
       <p v-if="pollOptionsError" class="mt-1 text-sm text-red-500">
         {{ pollOptionsError }}
@@ -84,8 +92,7 @@
         id="expires_at"
         v-model="expirationOption"
         :class="{
-          'poll-select-active':
-            expirationOption !== 'never',
+          'poll-select-active': expirationOption !== 'never',
           'poll-select-default': expirationOption === 'never',
         }"
         class="poll-select w-full rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
@@ -170,7 +177,7 @@
   // Load existing poll options when in edit mode
   onMounted(() => {
     if (props.isEditMode && props.existingOptions.length > 0) {
-      pollOptions.value = props.existingOptions.map(opt => opt.text || opt)
+      pollOptions.value = props.existingOptions.map((opt) => opt.text || opt)
     }
   })
 

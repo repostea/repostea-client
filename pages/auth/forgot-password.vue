@@ -2,12 +2,8 @@
   <div class="container mx-auto px-4 py-8">
     <div class="flex justify-center">
       <div class="w-full max-w-md">
-        <div
-          class="card-bg rounded-lg shadow-sm border auth-border"
-        >
-          <div
-            class="auth-header px-6 py-4 border-b auth-border rounded-t-lg"
-          >
+        <div class="card-bg rounded-lg shadow-sm border auth-border">
+          <div class="auth-header px-6 py-4 border-b auth-border rounded-t-lg">
             <h2 class="text-lg font-medium">
               {{ t('auth.forgot_password') }}
             </h2>
@@ -91,8 +87,7 @@
 <script setup>
   import { ref, reactive } from 'vue'
   import { useAuthStore } from '~/stores/auth'
-  import { useLocalePath, useI18n  } from '#i18n'
-  
+  import { useLocalePath, useI18n } from '#i18n'
 
   const { t } = useI18n()
   const localePath = useLocalePath()

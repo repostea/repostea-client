@@ -7,7 +7,6 @@ if (typeof window !== 'undefined') {
   ;(window as unknown as { Pusher: typeof Pusher }).Pusher = Pusher
 }
 
- 
 let echoInstance: Echo<any> | null = null
 
 // Reconnection state (shared across all useEcho instances)
@@ -57,10 +56,7 @@ export const useEcho = (options: EchoOptions = {}) => {
 
   // Calculate reconnect delay with exponential backoff
   const getReconnectDelay = (): number => {
-    const delay = Math.min(
-      baseReconnectDelay * Math.pow(2, reconnectAttempts),
-      maxReconnectDelay
-    )
+    const delay = Math.min(baseReconnectDelay * Math.pow(2, reconnectAttempts), maxReconnectDelay)
     // Add jitter (±20%)
     const jitter = delay * 0.2 * (Math.random() - 0.5)
     return Math.round(delay + jitter)
@@ -102,7 +98,7 @@ export const useEcho = (options: EchoOptions = {}) => {
   }
 
   // Get or create Echo instance (singleton)
-   
+
   const getEcho = (): Echo<any> | null => {
     if (typeof window === 'undefined') return null
 
@@ -110,8 +106,7 @@ export const useEcho = (options: EchoOptions = {}) => {
       const config = useRuntimeConfig()
 
       // Get auth token
-      const token =
-        sessionStorage.getItem('token') || localStorage.getItem('token')
+      const token = sessionStorage.getItem('token') || localStorage.getItem('token')
 
       const isSecure = config.public.reverbScheme === 'https'
       const wsPort = Number(config.public.reverbPort) || 8080
@@ -136,32 +131,31 @@ export const useEcho = (options: EchoOptions = {}) => {
       })
 
       // Listen for connection events
-      echoInstance.connector.pusher.connection.bind(
-        'connected',
-        () => {
-          sharedIsConnected.value = true
-          sharedIsConnecting.value = false
-          sharedConnectionError.value = null
-          sharedErrorType.value = null
-          resetReconnectState()
-          reconnectCallbacks.forEach((cb) => cb())
-        }
-      )
+      echoInstance.connector.pusher.connection.bind('connected', () => {
+        sharedIsConnected.value = true
+        sharedIsConnecting.value = false
+        sharedConnectionError.value = null
+        sharedErrorType.value = null
+        resetReconnectState()
+        reconnectCallbacks.forEach((cb) => cb())
+      })
 
-      echoInstance.connector.pusher.connection.bind(
-        'disconnected',
-        () => {
-          sharedIsConnected.value = false
-          // Auto-reconnect on disconnect
-          if (autoReconnect && !sharedUsingFallback.value) {
-            attemptReconnect()
-          }
+      echoInstance.connector.pusher.connection.bind('disconnected', () => {
+        sharedIsConnected.value = false
+        // Auto-reconnect on disconnect
+        if (autoReconnect && !sharedUsingFallback.value) {
+          attemptReconnect()
         }
-      )
+      })
 
       echoInstance.connector.pusher.connection.bind(
         'error',
-        (error: { error?: { data?: { code?: number } }; data?: { code?: number }; code?: number; message?: string }) => {
+        (error: {
+          error?: { data?: { code?: number } }
+          data?: { code?: number }
+          code?: number
+          message?: string
+        }) => {
           const code = error?.error?.data?.code || error?.data?.code || error?.code
 
           // Detect connection limit error (code 4004)

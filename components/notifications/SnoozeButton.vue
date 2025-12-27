@@ -6,10 +6,21 @@
       :class="snoozeButtonClass"
       @click="toggleMenu"
     >
-      <span v-if="loading" class="inline-block animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"/>
-      <Icon v-else :name="isSnoozed ? 'fa6-solid:bell-slash' : 'fa6-solid:bell'" aria-hidden="true" />
+      <span
+        v-if="loading"
+        class="inline-block animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full"
+      />
+      <Icon
+        v-else
+        :name="isSnoozed ? 'fa6-solid:bell-slash' : 'fa6-solid:bell'"
+        aria-hidden="true"
+      />
       <span class="hidden sm:inline">
-        {{ isSnoozed ? t('notifications.preferences.snooze_active') : t('notifications.preferences.snooze_section') }}
+        {{
+          isSnoozed
+            ? t('notifications.preferences.snooze_active')
+            : t('notifications.preferences.snooze_section')
+        }}
       </span>
       <Icon name="fa6-solid:chevron-down" class="text-xs" aria-hidden="true" />
     </button>
@@ -57,7 +68,7 @@
         </template>
 
         <!-- Divider -->
-        <div class="border-t snooze-border my-1"/>
+        <div class="border-t snooze-border my-1" />
 
         <!-- Preferences Link -->
         <NuxtLink
@@ -74,142 +85,149 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
-import { useI18n, useLocalePath } from '#i18n'
-import { useNotification } from '~/composables/useNotification'
+  import { ref, computed, onMounted } from 'vue'
+  import { useI18n, useLocalePath } from '#i18n'
+  import { useNotification } from '~/composables/useNotification'
 
-const { t } = useI18n()
-const localePath = useLocalePath()
-const { $api } = useNuxtApp()
-const notification = useNotification()
+  const { t } = useI18n()
+  const localePath = useLocalePath()
+  const { $api } = useNuxtApp()
+  const notification = useNotification()
 
-// State
-const loading = ref(false)
-const isMenuOpen = ref(false)
-const isSnoozed = ref(false)
-const snoozedUntil = ref<string | null>(null)
+  // State
+  const loading = ref(false)
+  const isMenuOpen = ref(false)
+  const isSnoozed = ref(false)
+  const snoozedUntil = ref<string | null>(null)
 
-// Snooze options
-const snoozeOptions = computed(() => [
-  { value: 1, type: 'hours', label: t('notifications.preferences.snooze_1h') },
-  { value: 2, type: 'hours', label: t('notifications.preferences.snooze_2h') },
-  { value: 4, type: 'hours', label: t('notifications.preferences.snooze_4h') },
-  { value: 8, type: 'hours', label: t('notifications.preferences.snooze_8h') },
-  { value: 0, type: 'until_tomorrow', label: t('notifications.preferences.snooze_until_tomorrow') },
-])
+  // Snooze options
+  const snoozeOptions = computed(() => [
+    { value: 1, type: 'hours', label: t('notifications.preferences.snooze_1h') },
+    { value: 2, type: 'hours', label: t('notifications.preferences.snooze_2h') },
+    { value: 4, type: 'hours', label: t('notifications.preferences.snooze_4h') },
+    { value: 8, type: 'hours', label: t('notifications.preferences.snooze_8h') },
+    {
+      value: 0,
+      type: 'until_tomorrow',
+      label: t('notifications.preferences.snooze_until_tomorrow'),
+    },
+  ])
 
-const snoozeButtonClass = computed(() => {
-  if (isSnoozed.value) {
-    return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border border-yellow-300 dark:border-yellow-700'
+  const snoozeButtonClass = computed(() => {
+    if (isSnoozed.value) {
+      return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border border-yellow-300 dark:border-yellow-700'
+    }
+    return 'snooze-btn-default'
+  })
+
+  // Methods
+  function toggleMenu() {
+    isMenuOpen.value = !isMenuOpen.value
   }
-  return 'snooze-btn-default'
-})
 
-// Methods
-function toggleMenu() {
-  isMenuOpen.value = !isMenuOpen.value
-}
-
-function closeMenu() {
-  isMenuOpen.value = false
-}
-
-function formatTime(dateString: string | null): string {
-  if (!dateString) return ''
-  const date = new Date(dateString)
-  return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-}
-
-async function loadSnoozeStatus() {
-  try {
-    const response = await $api.notifications.getPreferences()
-    isSnoozed.value = response.data.snooze?.is_snoozed || false
-    snoozedUntil.value = response.data.snooze?.snoozed_until || null
-  } catch (error) {
-    console.error('Error loading snooze status:', error)
+  function closeMenu() {
+    isMenuOpen.value = false
   }
-}
 
-async function handleSnooze(value: number, type: string) {
-  loading.value = true
-  try {
-    const response = await $api.notifications.snooze({
-      hours: type === 'hours' ? value : undefined,
-      until_tomorrow: type === 'until_tomorrow',
-    })
-    isSnoozed.value = true
-    snoozedUntil.value = response.data.snoozed_until
-    notification.success(t('notifications.preferences.snooze_activated'))
-  } catch (error) {
-    console.error('Error snoozing:', error)
-  } finally {
-    loading.value = false
-    closeMenu()
+  function formatTime(dateString: string | null): string {
+    if (!dateString) return ''
+    const date = new Date(dateString)
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
   }
-}
 
-async function handleUnsnooze() {
-  loading.value = true
-  try {
-    await $api.notifications.unsnooze()
-    isSnoozed.value = false
-    snoozedUntil.value = null
-    notification.success(t('notifications.preferences.snooze_cancelled'))
-  } catch (error) {
-    console.error('Error unsnoozing:', error)
-  } finally {
-    loading.value = false
-    closeMenu()
+  async function loadSnoozeStatus() {
+    try {
+      const response = await $api.notifications.getPreferences()
+      isSnoozed.value = response.data.snooze?.is_snoozed || false
+      snoozedUntil.value = response.data.snooze?.snoozed_until || null
+    } catch (error) {
+      console.error('Error loading snooze status:', error)
+    }
   }
-}
 
-// Click outside directive
-const vClickOutside = {
-  beforeMount(el: HTMLElement & { clickOutsideEvent?: (event: Event) => void }, binding: { value: () => void }) {
-    el.clickOutsideEvent = (evt: Event) => {
-      if (!(el === evt.target || el.contains(evt.target as Node))) {
-        binding.value()
+  async function handleSnooze(value: number, type: string) {
+    loading.value = true
+    try {
+      const response = await $api.notifications.snooze({
+        hours: type === 'hours' ? value : undefined,
+        until_tomorrow: type === 'until_tomorrow',
+      })
+      isSnoozed.value = true
+      snoozedUntil.value = response.data.snoozed_until
+      notification.success(t('notifications.preferences.snooze_activated'))
+    } catch (error) {
+      console.error('Error snoozing:', error)
+    } finally {
+      loading.value = false
+      closeMenu()
+    }
+  }
+
+  async function handleUnsnooze() {
+    loading.value = true
+    try {
+      await $api.notifications.unsnooze()
+      isSnoozed.value = false
+      snoozedUntil.value = null
+      notification.success(t('notifications.preferences.snooze_cancelled'))
+    } catch (error) {
+      console.error('Error unsnoozing:', error)
+    } finally {
+      loading.value = false
+      closeMenu()
+    }
+  }
+
+  // Click outside directive
+  const vClickOutside = {
+    beforeMount(
+      el: HTMLElement & { clickOutsideEvent?: (event: Event) => void },
+      binding: { value: () => void }
+    ) {
+      el.clickOutsideEvent = (evt: Event) => {
+        if (!(el === evt.target || el.contains(evt.target as Node))) {
+          binding.value()
+        }
       }
-    }
-    document.addEventListener('click', el.clickOutsideEvent)
-  },
-  unmounted(el: HTMLElement & { clickOutsideEvent?: (event: Event) => void }) {
-    if (el.clickOutsideEvent) {
-      document.removeEventListener('click', el.clickOutsideEvent)
-    }
-  },
-}
+      document.addEventListener('click', el.clickOutsideEvent)
+    },
+    unmounted(el: HTMLElement & { clickOutsideEvent?: (event: Event) => void }) {
+      if (el.clickOutsideEvent) {
+        document.removeEventListener('click', el.clickOutsideEvent)
+      }
+    },
+  }
 
-onMounted(() => {
-  loadSnoozeStatus()
-})
+  onMounted(() => {
+    loadSnoozeStatus()
+  })
 </script>
 
 <style scoped>
-.snooze-menu {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border-default);
-}
+  .snooze-menu {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-default);
+  }
 
-.snooze-border {
-  border-color: var(--color-border-default);
-}
+  .snooze-border {
+    border-color: var(--color-border-default);
+  }
 
-.snooze-item-hover:hover {
-  background-color: var(--color-bg-hover);
-}
+  .snooze-item-hover:hover {
+    background-color: var(--color-bg-hover);
+  }
 
-.snooze-btn-default {
-  background-color: var(--color-bg-subtle);
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border-default);
-}
+  .snooze-btn-default {
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-default);
+  }
 
-.snooze-btn-default:hover {
-  background-color: var(--color-bg-hover);
-}
+  .snooze-btn-default:hover {
+    background-color: var(--color-bg-hover);
+  }
 
-.snooze-text {
-  color: var(--color-text);
-}
+  .snooze-text {
+    color: var(--color-text);
+  }
 </style>

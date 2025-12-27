@@ -86,9 +86,9 @@ describe('ConfirmDialog', () => {
       attachTo: document.body,
     })
 
-    const cancelButton = wrapper.findAll('button').find((btn) =>
-      btn.text().match(/cancel|cancelar/i),
-    )
+    const cancelButton = wrapper
+      .findAll('button')
+      .find((btn) => btn.text().match(/cancel|cancelar/i))
 
     if (cancelButton) {
       await cancelButton.trigger('click')

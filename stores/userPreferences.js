@@ -134,7 +134,6 @@ export const useUserPreferencesStore = defineStore('userPreferences', {
     async savePreferences(preferences = {}) {
       const authStore = useAuthStore()
 
-
       // Only save preferences if user is authenticated and not anonymous
       if (!authStore.isAuthenticated || authStore.user?.is_guest === true) {
         return
@@ -187,14 +186,14 @@ export const useUserPreferencesStore = defineStore('userPreferences', {
       if (process.client) {
         const prefsCookie = useCookie('user_prefs', {
           maxAge: 60 * 60 * 24 * 365, // 1 year
-          sameSite: 'lax'
+          sameSite: 'lax',
         })
         prefsCookie.value = JSON.stringify({
           theme: this.theme,
           layout: this.layout,
           sortBy: this.sortBy,
           sortDir: this.sortDir,
-          selectedLanguages: this.selectedLanguages
+          selectedLanguages: this.selectedLanguages,
         })
       }
     },
@@ -237,12 +236,6 @@ export const useUserPreferencesStore = defineStore('userPreferences', {
         pushNotifications: this.pushNotifications,
       })
       this.savePreferences({ sortDir })
-    },
-
-    setFilters(_filters) {
-      // Deprecated: Use setContentTypeFilter instead
-      // This is kept for backward compatibility but does nothing
-      console.warn('[STORE] setFilters is deprecated. Filters are no longer saved.')
     },
 
     setContentTypeFilter(contentType) {

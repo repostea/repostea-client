@@ -15,16 +15,16 @@
 </template>
 
 <script setup>
-defineProps({
-  remoteUser: {
-    type: Object,
-    required: true
-  }
-})
+  defineProps({
+    remoteUser: {
+      type: Object,
+      required: true,
+    },
+  })
 </script>
 
 <style scoped>
-.author-info a {
-  text-decoration: none;
-}
+  .author-info a {
+    text-decoration: none;
+  }
 </style>

@@ -63,7 +63,7 @@
 
   async function editPost(updatedPost) {
     // Update post in local array without reloading the entire list
-    const index = userPosts.value.findIndex(p => p.id === updatedPost.id)
+    const index = userPosts.value.findIndex((p) => p.id === updatedPost.id)
     if (index !== -1) {
       // Keep additional properties the post might have
       userPosts.value[index] = { ...userPosts.value[index], ...updatedPost }
@@ -102,14 +102,13 @@
 
   async function handleStatusChange(postId, newStatus) {
     // Update post in local array without reloading the entire list
-    const index = userPosts.value.findIndex(p => p.id === postId)
+    const index = userPosts.value.findIndex((p) => p.id === postId)
     if (index !== -1) {
       userPosts.value[index] = { ...userPosts.value[index], status: newStatus }
     }
 
-    successMessage.value = newStatus === 'published'
-      ? t('posts.published_successfully')
-      : t('posts.draft_saved')
+    successMessage.value =
+      newStatus === 'published' ? t('posts.published_successfully') : t('posts.draft_saved')
 
     setTimeout(() => {
       successMessage.value = ''

@@ -17,7 +17,11 @@
     <!-- Resumen breve -->
     <div class="mb-6 text-left">
       <p class="text-gray-800 dark:text-gray-200 mb-3">
-        {{ t('onboarding.steps.voting.content.brief_text_1') }} <span class="text-green-600 dark:text-green-400 font-semibold">{{ t('onboarding.steps.voting.content.brief_text_2') }}</span> {{ t('onboarding.steps.voting.content.brief_text_3') }}
+        {{ t('onboarding.steps.voting.content.brief_text_1') }}
+        <span class="text-green-600 dark:text-green-400 font-semibold">{{
+          t('onboarding.steps.voting.content.brief_text_2')
+        }}</span>
+        {{ t('onboarding.steps.voting.content.brief_text_3') }}
       </p>
       <p class="text-gray-700 dark:text-gray-300 mb-3">
         {{ t('onboarding.steps.voting.content.visibility_text') }}

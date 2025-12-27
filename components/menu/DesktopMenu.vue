@@ -110,7 +110,11 @@
             role="menuitem"
             @click="closeActionsMenu"
           >
-            <Icon name="fa6-solid:circle-question" class="w-5 text-primary mr-2" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:circle-question"
+              class="w-5 text-primary mr-2"
+              aria-hidden="true"
+            />
             <span>{{ t('help.title') }}</span>
           </NuxtLink>
 
@@ -127,7 +131,7 @@
       </div>
     </div>
 
-    <div class="border-l h-6 mx-2" style="border-color: var(--color-navbar-text-secondary)"/>
+    <div class="border-l h-6 mx-2" style="border-color: var(--color-navbar-text-secondary)" />
     <div class="flex items-center">
       <ThemeSelector ref="themeSelector" />
       <LanguageSelector class="ml-2" />
@@ -139,7 +143,7 @@
 
 <script setup>
   import { ref } from 'vue'
-  import { useLocalePath, useI18n  } from '#i18n'
+  import { useLocalePath, useI18n } from '#i18n'
 
   import { useAuthStore } from '~/stores/auth'
   import LanguageSelector from '~/components/common/LanguageSelector.vue'

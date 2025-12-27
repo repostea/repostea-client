@@ -1,9 +1,7 @@
 <template>
   <div class="description-editor">
     <!-- Toolbar -->
-    <div
-      class="editor-toolbar p-1.5 rounded-t-md flex flex-wrap items-center gap-0.5"
-    >
+    <div class="editor-toolbar p-1.5 rounded-t-md flex flex-wrap items-center gap-0.5">
       <button
         v-for="tool in toolbarItems"
         :key="tool.action"
@@ -16,11 +14,11 @@
         <Icon :name="tool.icon" class="text-sm" aria-hidden="true" />
       </button>
 
-      <div class="h-4 w-px bg-gray-300 dark:bg-gray-600 mx-1"/>
+      <div class="h-4 w-px bg-gray-300 dark:bg-gray-600 mx-1" />
 
       <EmojiPicker @select="insertEmoji" />
 
-      <div class="flex-grow"/>
+      <div class="flex-grow" />
 
       <button
         class="toolbar-btn p-1.5 rounded transition-colors"
@@ -30,7 +28,11 @@
         type="button"
         @click="togglePreview"
       >
-        <Icon :name="isPreviewActive ? 'fa6-solid:pen-to-square' : 'fa6-solid:eye'" class="text-sm" aria-hidden="true" />
+        <Icon
+          :name="isPreviewActive ? 'fa6-solid:pen-to-square' : 'fa6-solid:eye'"
+          class="text-sm"
+          aria-hidden="true"
+        />
       </button>
     </div>
 
@@ -59,10 +61,14 @@
     <!-- Footer info -->
     <div class="flex justify-between items-center mt-1.5 text-xs">
       <div class="flex items-center gap-3">
-        <span :class="isOverCharLimit ? 'text-red-500 font-medium' : 'text-gray-500 dark:text-gray-400'">
+        <span
+          :class="isOverCharLimit ? 'text-red-500 font-medium' : 'text-gray-500 dark:text-gray-400'"
+        >
           {{ characterCount }}/{{ props.maxLength }}
         </span>
-        <span :class="isOverLineLimit ? 'text-red-500 font-medium' : 'text-gray-500 dark:text-gray-400'">
+        <span
+          :class="isOverLineLimit ? 'text-red-500 font-medium' : 'text-gray-500 dark:text-gray-400'"
+        >
           {{ lineCount }}/{{ props.maxLines }} {{ t('common.lines') }}
         </span>
       </div>
@@ -131,7 +137,8 @@
   const isOverLimit = computed(() => isOverCharLimit.value || isOverLineLimit.value)
 
   const renderedContent = computed(() => {
-    if (!props.modelValue) return `<p class="text-gray-400">${t('comments.editor.preview_empty')}</p>`
+    if (!props.modelValue)
+      return `<p class="text-gray-400">${t('comments.editor.preview_empty')}</p>`
     const rawHtml = marked.parse(props.modelValue)
     if (import.meta.client) {
       return DOMPurify.sanitize(rawHtml, RESTRICTED_SANITIZE_CONFIG)
@@ -142,7 +149,11 @@
   const toolbarItems = [
     { label: t('comments.editor.bold'), icon: 'fa6-solid:bold', action: 'bold' },
     { label: t('comments.editor.italic'), icon: 'fa6-solid:italic', action: 'italic' },
-    { label: t('comments.editor.strikethrough'), icon: 'fa6-solid:strikethrough', action: 'strikethrough' },
+    {
+      label: t('comments.editor.strikethrough'),
+      icon: 'fa6-solid:strikethrough',
+      action: 'strikethrough',
+    },
     { label: t('comments.editor.link'), icon: 'fa6-solid:link', action: 'link' },
     { label: t('comments.editor.list'), icon: 'fa6-solid:list-ul', action: 'list' },
     { label: t('comments.editor.quote'), icon: 'fa6-solid:quote-right', action: 'quote' },
@@ -174,7 +185,10 @@
     return {
       start: textareaRef.value.selectionStart,
       end: textareaRef.value.selectionEnd,
-      text: props.modelValue.substring(textareaRef.value.selectionStart, textareaRef.value.selectionEnd),
+      text: props.modelValue.substring(
+        textareaRef.value.selectionStart,
+        textareaRef.value.selectionEnd
+      ),
     }
   }
 
@@ -182,7 +196,8 @@
     const { start, end, text } = getSelectionInfo()
     const content = props.modelValue
     const selectedText = text || defaultText
-    const newContent = content.substring(0, start) + before + selectedText + after + content.substring(end)
+    const newContent =
+      content.substring(0, start) + before + selectedText + after + content.substring(end)
 
     emit('update:modelValue', newContent)
 
@@ -221,7 +236,10 @@
         break
       case 'list':
         if (text) {
-          const lines = text.split('\n').map(line => `- ${line}`).join('\n')
+          const lines = text
+            .split('\n')
+            .map((line) => `- ${line}`)
+            .join('\n')
           insertText('', '', lines)
         } else {
           insertText('- ', '', '')
@@ -229,7 +247,10 @@
         break
       case 'quote':
         if (text) {
-          const lines = text.split('\n').map(line => `> ${line}`).join('\n')
+          const lines = text
+            .split('\n')
+            .map((line) => `> ${line}`)
+            .join('\n')
           insertText('', '', lines)
         } else {
           insertText('> ', '', '')
@@ -263,9 +284,12 @@
     nextTick(() => autoResize())
   })
 
-  watch(() => props.modelValue, () => {
-    nextTick(() => autoResize())
-  })
+  watch(
+    () => props.modelValue,
+    () => {
+      nextTick(() => autoResize())
+    }
+  )
 </script>
 
 <style scoped>

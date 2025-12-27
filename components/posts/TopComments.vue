@@ -1,10 +1,14 @@
 <template>
-  <div
-    class="top-comments-container px-3 py-2 md:p-4 rounded-lg shadow-sm"
-  >
+  <div class="top-comments-container px-3 py-2 md:p-4 rounded-lg shadow-sm">
     <div class="flex items-center justify-between mb-3">
-      <h4 class="text-base lg:text-lg font-semibold text-text dark:text-text-dark flex items-center">
-        <Icon :name="currentTabIcon" class="mr-2 text-primary dark:text-primary-light" aria-hidden="true" />
+      <h4
+        class="text-base lg:text-lg font-semibold text-text dark:text-text-dark flex items-center"
+      >
+        <Icon
+          :name="currentTabIcon"
+          class="mr-2 text-primary dark:text-primary-light"
+          aria-hidden="true"
+        />
         <span class="truncate">{{ currentTabTitle }}</span>
       </h4>
     </div>
@@ -18,14 +22,17 @@
           'top-comment-tab px-2 py-1.5 text-xs font-medium rounded transition-colors whitespace-nowrap flex items-center justify-center relative group',
           activeTab === tab.value
             ? 'top-comment-tab-active bg-primary text-white'
-            : 'text-gray-700 dark:text-gray-300'
+            : 'text-gray-700 dark:text-gray-300',
         ]"
         :title="t(tab.label)"
         :aria-label="t(tab.label)"
         @click="activeTab = tab.value"
       >
         <Icon :name="tab.icon" class="text-sm" aria-hidden="true" />
-        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 top-comment-tooltip text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10" aria-hidden="true">
+        <span
+          class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-2 py-1 top-comment-tooltip text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10"
+          aria-hidden="true"
+        >
           {{ t(tab.label) }}
         </span>
       </button>
@@ -49,19 +56,25 @@
         :key="item.itemKey"
         :to="getItemLink(item)"
         class="top-comment-item block border-l-2 pl-3 py-2 rounded-r transition-colors no-underline"
-        :class="item.isAgora ? 'border-primary/50 dark:border-primary-light/50' : 'border-primary/30 dark:border-primary-light/30'"
+        :class="
+          item.isAgora
+            ? 'border-primary/50 dark:border-primary-light/50'
+            : 'border-primary/30 dark:border-primary-light/30'
+        "
       >
         <!-- User info and votes -->
         <div class="flex items-center justify-between mb-1">
           <div class="flex items-center gap-1.5 min-w-0 flex-1">
-            <span
-              class="text-xs font-medium text-primary dark:text-primary-light truncate"
-            >
+            <span class="text-xs font-medium text-primary dark:text-primary-light truncate">
               {{ item.user.display_name || item.user.username }}
             </span>
           </div>
           <div class="flex items-center gap-1 ml-2 flex-shrink-0">
-            <Icon :name="currentTabIcon" class="text-[10px] text-primary dark:text-primary-light" aria-hidden="true" />
+            <Icon
+              :name="currentTabIcon"
+              class="text-[10px] text-primary dark:text-primary-light"
+              aria-hidden="true"
+            />
             <span class="text-[10px] font-semibold text-primary dark:text-primary-light">
               {{ getVoteCount(item) }}
             </span>
@@ -69,9 +82,21 @@
         </div>
 
         <!-- Content -->
-        <p class="text-xs text-text dark:text-text-dark line-clamp-2 mb-1.5 flex items-center gap-1">
-          <Icon v-if="hasImage(item.content)" name="fa6-solid:image" class="text-primary dark:text-primary-light flex-shrink-0" aria-hidden="true" />
-          <Icon v-else-if="hasEmbed(item.content)" name="fa6-solid:link" class="text-primary dark:text-primary-light flex-shrink-0" aria-hidden="true" />
+        <p
+          class="text-xs text-text dark:text-text-dark line-clamp-2 mb-1.5 flex items-center gap-1"
+        >
+          <Icon
+            v-if="hasImage(item.content)"
+            name="fa6-solid:image"
+            class="text-primary dark:text-primary-light flex-shrink-0"
+            aria-hidden="true"
+          />
+          <Icon
+            v-else-if="hasEmbed(item.content)"
+            name="fa6-solid:link"
+            class="text-primary dark:text-primary-light flex-shrink-0"
+            aria-hidden="true"
+          />
           <span>{{ formatCommentPreview(item.content) }}</span>
         </p>
 
@@ -79,7 +104,11 @@
         <div
           class="text-[10px] text-gray-600 dark:text-gray-400 transition-colors flex items-center truncate"
         >
-          <Icon :name="item.isAgora ? 'fa6-solid:landmark' : 'fa6-solid:file-lines'" class="mr-1 flex-shrink-0" aria-hidden="true" />
+          <Icon
+            :name="item.isAgora ? 'fa6-solid:landmark' : 'fa6-solid:file-lines'"
+            class="mr-1 flex-shrink-0"
+            aria-hidden="true"
+          />
           <span class="truncate">{{ item.isAgora ? t('agora.title') : item.post.title }}</span>
         </div>
       </NuxtLink>
@@ -106,8 +135,7 @@
 <script setup>
   import { ref, computed } from 'vue'
   import { useNuxtApp } from '#app'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
 
   const { $api } = useNuxtApp()
   const { t } = useI18n()
@@ -119,25 +147,54 @@
   const fetchLimit = 5
 
   const tabs = [
-    { value: 'top', label: 'comments.tab_top', icon: 'fa6-solid:fire', title: 'comments.top_comments_title' },
-    { value: 'funny', label: 'comments.vote_types.funny', icon: 'fa6-solid:face-laugh', title: 'comments.top_funny_title' },
-    { value: 'interesting', label: 'comments.vote_types.interesting', icon: 'fa6-solid:lightbulb', title: 'comments.top_interesting_title' },
-    { value: 'didactic', label: 'comments.vote_types.didactic', icon: 'fa6-solid:graduation-cap', title: 'comments.top_didactic_title' },
-    { value: 'elaborate', label: 'comments.vote_types.elaborate', icon: 'fa6-solid:list-check', title: 'comments.top_elaborate_title' },
+    {
+      value: 'top',
+      label: 'comments.tab_top',
+      icon: 'fa6-solid:fire',
+      title: 'comments.top_comments_title',
+    },
+    {
+      value: 'funny',
+      label: 'comments.vote_types.funny',
+      icon: 'fa6-solid:face-laugh',
+      title: 'comments.top_funny_title',
+    },
+    {
+      value: 'interesting',
+      label: 'comments.vote_types.interesting',
+      icon: 'fa6-solid:lightbulb',
+      title: 'comments.top_interesting_title',
+    },
+    {
+      value: 'didactic',
+      label: 'comments.vote_types.didactic',
+      icon: 'fa6-solid:graduation-cap',
+      title: 'comments.top_didactic_title',
+    },
+    {
+      value: 'elaborate',
+      label: 'comments.vote_types.elaborate',
+      icon: 'fa6-solid:list-check',
+      title: 'comments.top_elaborate_title',
+    },
   ]
 
   const currentTabIcon = computed(() => {
-    const tab = tabs.find(t => t.value === activeTab.value)
+    const tab = tabs.find((t) => t.value === activeTab.value)
     return tab?.icon || 'fa6-solid:fire'
   })
 
   const currentTabTitle = computed(() => {
-    const tab = tabs.find(t => t.value === activeTab.value)
+    const tab = tabs.find((t) => t.value === activeTab.value)
     return t(tab?.title || 'comments.top_comments_title')
   })
 
   // Fetch comments and agora messages in a single API call
-  const { data: itemsData, error, pending } = await useAsyncData(
+  const {
+    data: itemsData,
+    error,
+    pending,
+  } = await useAsyncData(
     () => `top-items-${activeTab.value}`,
     async () => {
       try {
@@ -149,7 +206,7 @@
         })
 
         const itemsArray = Array.isArray(res?.data?.data) ? res.data.data : []
-        return itemsArray.map(item => ({
+        return itemsArray.map((item) => ({
           ...item,
           isAgora: item.is_agora || false,
           itemKey: item.is_agora ? `agora-${item.id}` : `comment-${item.id}`,
@@ -219,7 +276,8 @@
     if (!cleaned) {
       if (hasEmbed(content)) {
         const provider = getEmbedProvider(content)
-        const providerName = provider === 'xtwitter' ? 'X' : provider?.charAt(0).toUpperCase() + provider?.slice(1)
+        const providerName =
+          provider === 'xtwitter' ? 'X' : provider?.charAt(0).toUpperCase() + provider?.slice(1)
         return t('comments.embed_content', { provider: providerName || 'embed' })
       }
       return t('comments.image_attachment')

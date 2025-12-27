@@ -1,7 +1,9 @@
 <template>
   <div class="container mx-auto px-4 py-8 max-w-4xl">
     <div class="mb-8">
-      <h1 class="text-3xl font-bold text-text dark:text-text-dark mb-2">{{ t('accessibility.title') }}</h1>
+      <h1 class="text-3xl font-bold text-text dark:text-text-dark mb-2">
+        {{ t('accessibility.title') }}
+      </h1>
       <p class="text-text-muted dark:text-text-dark-muted leading-relaxed">
         {{ t('accessibility.intro') }}
       </p>
@@ -60,25 +62,25 @@
 </template>
 
 <script setup>
-import { useI18n } from '#i18n'
+  import { useI18n } from '#i18n'
 
-const { t } = useI18n()
-const runtimeConfig = useRuntimeConfig()
-const contactEmail = computed(() => runtimeConfig.public.contactEmail || 'contact@example.com')
+  const { t } = useI18n()
+  const runtimeConfig = useRuntimeConfig()
+  const contactEmail = computed(() => runtimeConfig.public.contactEmail || 'contact@example.com')
 
-useHead({
-  title: () => t('accessibility.title'),
-  meta: [
-    {
-      name: 'description',
-      content: () => t('accessibility.meta_description'),
-    },
-  ],
-})
+  useHead({
+    title: () => t('accessibility.title'),
+    meta: [
+      {
+        name: 'description',
+        content: () => t('accessibility.meta_description'),
+      },
+    ],
+  })
 </script>
 
 <style scoped>
-.a11y-border-bottom {
-  border-bottom: 1px solid var(--color-border-default);
-}
+  .a11y-border-bottom {
+    border-bottom: 1px solid var(--color-border-default);
+  }
 </style>

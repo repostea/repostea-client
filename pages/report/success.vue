@@ -19,17 +19,23 @@
       </p>
 
       <!-- Información del proceso -->
-      <div
-        class="card-bg rounded-lg shadow-sm border report-success-border p-6 mb-8 text-left"
-      >
+      <div class="card-bg rounded-lg shadow-sm border report-success-border p-6 mb-8 text-left">
         <h2 class="text-xl font-semibold mb-4 text-text dark:text-text-dark">
-          <Icon name="fa6-solid:circle-info" class="mr-2 text-gray-500 dark:text-gray-400" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:circle-info"
+            class="mr-2 text-gray-500 dark:text-gray-400"
+            aria-hidden="true"
+          />
           {{ $t('report.success.next_steps.title') }}
         </h2>
 
         <div class="space-y-4">
           <div class="flex items-start space-x-3">
-            <Icon name="fa6-solid:clock" class="text-gray-500 dark:text-gray-400 mt-1" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:clock"
+              class="text-gray-500 dark:text-gray-400 mt-1"
+              aria-hidden="true"
+            />
             <div>
               <h3 class="font-medium text-text dark:text-text-dark">
                 {{ $t('report.success.next_steps.review.title') }}
@@ -41,7 +47,11 @@
           </div>
 
           <div class="flex items-start space-x-3">
-            <Icon name="fa6-solid:envelope" class="text-gray-500 dark:text-gray-400 mt-1" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:envelope"
+              class="text-gray-500 dark:text-gray-400 mt-1"
+              aria-hidden="true"
+            />
             <div>
               <h3 class="font-medium text-text dark:text-text-dark">
                 {{ $t('report.success.next_steps.contact.title') }}
@@ -53,7 +63,11 @@
           </div>
 
           <div class="flex items-start space-x-3">
-            <Icon name="fa6-solid:gavel" class="text-gray-500 dark:text-gray-400 mt-1" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:gavel"
+              class="text-gray-500 dark:text-gray-400 mt-1"
+              aria-hidden="true"
+            />
             <div>
               <h3 class="font-medium text-text dark:text-text-dark">
                 {{ $t('report.success.next_steps.action.title') }}

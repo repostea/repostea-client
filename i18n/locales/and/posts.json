@@ -7,6 +7,8 @@
     "delete_success": "Envío borrao correctamente",
     "vote": "voto",
     "voted": "votao",
+    "closed": "serrao",
+    "voting_closed": "La votasión ehtá serrá",
     "votes": "voto",
     "vote_success": "Voto mandao correctamente!",
     "type_link": "Enlase",

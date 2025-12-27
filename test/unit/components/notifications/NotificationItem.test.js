@@ -308,14 +308,14 @@ describe('NotificationItem Component', () => {
     it('actions button has aria-label', () => {
       wrapper = createWrapper()
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
       expect(actionsButton.attributes('aria-label')).toBe('Actions')
     })
 
     it('toggles actions menu when clicking actions button', async () => {
       wrapper = createWrapper()
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
 
       await actionsButton.trigger('click')
       expect(wrapper.vm.showActions).toBe(true)
@@ -327,7 +327,7 @@ describe('NotificationItem Component', () => {
     it('shows mark as read option for unread notification', async () => {
       wrapper = createWrapper({ read: false })
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
       await actionsButton.trigger('click')
 
       expect(wrapper.text()).toContain('Mark as read')
@@ -337,7 +337,7 @@ describe('NotificationItem Component', () => {
     it('does not show mark as read option for read notification', async () => {
       wrapper = createWrapper({ read: true })
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
       await actionsButton.trigger('click')
 
       expect(wrapper.text()).not.toContain('Mark as read')
@@ -346,7 +346,7 @@ describe('NotificationItem Component', () => {
     it('always shows remove option', async () => {
       wrapper = createWrapper()
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
       await actionsButton.trigger('click')
 
       expect(wrapper.text()).toContain('Remove')
@@ -356,7 +356,7 @@ describe('NotificationItem Component', () => {
     it('actions menu has role="menu"', async () => {
       wrapper = createWrapper()
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
       await actionsButton.trigger('click')
 
       expect(wrapper.find('[role="menu"]').exists()).toBe(true)
@@ -365,7 +365,7 @@ describe('NotificationItem Component', () => {
     it('action items have role="menuitem"', async () => {
       wrapper = createWrapper({ read: false })
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
       await actionsButton.trigger('click')
 
       const menuItems = wrapper.findAll('[role="menuitem"]')
@@ -375,7 +375,7 @@ describe('NotificationItem Component', () => {
     it('does not propagate click when clicking actions button', async () => {
       wrapper = createWrapper()
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
 
       // Click actions button
       await actionsButton.trigger('click')
@@ -389,11 +389,11 @@ describe('NotificationItem Component', () => {
     it('emits mark-read when clicking mark as read', async () => {
       wrapper = createWrapper({ read: false })
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
       await actionsButton.trigger('click')
 
       const menuItems = wrapper.findAll('[role="menuitem"]')
-      const markReadButton = menuItems.find(item => item.text().includes('Mark as read'))
+      const markReadButton = menuItems.find((item) => item.text().includes('Mark as read'))
       await markReadButton.trigger('click')
 
       expect(wrapper.emitted('mark-read')).toBeTruthy()
@@ -402,11 +402,11 @@ describe('NotificationItem Component', () => {
     it('emits remove when clicking remove', async () => {
       wrapper = createWrapper()
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
       await actionsButton.trigger('click')
 
       const menuItems = wrapper.findAll('[role="menuitem"]')
-      const removeButton = menuItems.find(item => item.text().includes('Remove'))
+      const removeButton = menuItems.find((item) => item.text().includes('Remove'))
       await removeButton.trigger('click')
 
       expect(wrapper.emitted('remove')).toBeTruthy()
@@ -415,11 +415,11 @@ describe('NotificationItem Component', () => {
     it('does not propagate click when clicking mark as read', async () => {
       wrapper = createWrapper({ read: false })
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
       await actionsButton.trigger('click')
 
       const menuItems = wrapper.findAll('[role="menuitem"]')
-      const markReadButton = menuItems.find(item => item.text().includes('Mark as read'))
+      const markReadButton = menuItems.find((item) => item.text().includes('Mark as read'))
       await markReadButton.trigger('click')
 
       // Main notification click should not have been emitted
@@ -573,7 +573,7 @@ describe('NotificationItem Component', () => {
     it('matches snapshot with actions menu open', async () => {
       wrapper = createWrapper({ read: false })
       const buttons = wrapper.findAll('button')
-      const actionsButton = buttons.find(btn => btn.attributes('aria-label') === 'Actions')
+      const actionsButton = buttons.find((btn) => btn.attributes('aria-label') === 'Actions')
       await actionsButton.trigger('click')
       expect(wrapper.html()).toMatchSnapshot()
     })

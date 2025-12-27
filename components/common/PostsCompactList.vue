@@ -1,18 +1,23 @@
 <template>
   <div class="card">
     <div v-if="showHeader" class="card-header flex justify-between items-center">
-      <h2 class="card-title inline-flex items-center"><Icon name="fa6-solid:newspaper" class="mr-2 flex-shrink-0" aria-hidden="true" /><span>{{ headerTitle }}</span></h2>
+      <h2 class="card-title inline-flex items-center">
+        <Icon name="fa6-solid:newspaper" class="mr-2 flex-shrink-0" aria-hidden="true" /><span>{{
+          headerTitle
+        }}</span>
+      </h2>
       <NuxtLink
         v-if="showAddButton"
         :to="localePath('/submit')"
         class="btn-primary text-sm inline-flex items-center justify-center px-4 py-2 rounded-md hover:text-white transition-colors"
-      ><Icon name="fa6-solid:plus" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('posts.submit_new') }}</span>
+        ><Icon name="fa6-solid:plus" class="mr-1 flex-shrink-0" aria-hidden="true" />
+        <span>{{ t('posts.submit_new') }}</span>
       </NuxtLink>
     </div>
 
     <div class="card-body p-0">
       <div v-if="loading" class="p-6 text-center">
-        <div class="spinner"/>
+        <div class="spinner" />
         <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
           {{ t('profile.loading_posts') }}
         </p>
@@ -69,8 +74,7 @@
               :class="{
                 'border-primary bg-primary/10 text-primary dark:text-primary-light font-medium':
                   contentTypeFilter !== 'all',
-                'posts-compact-input':
-                  contentTypeFilter === 'all',
+                'posts-compact-input': contentTypeFilter === 'all',
               }"
             >
               <option value="all">{{ t('profile.all_types') }}</option>
@@ -124,18 +128,29 @@
                       v-if="post.is_anonymous"
                       class="ml-2 px-2 py-0.5 text-xs posts-anon-badge rounded-full inline-flex items-center"
                       :title="t('common.anonymous_post')"
-                    ><Icon name="fa6-solid:user-secret" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('common.anonymous') }}</span>
+                      ><Icon
+                        name="fa6-solid:user-secret"
+                        class="mr-1 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ t('common.anonymous') }}</span>
                     </span>
                     <span
                       v-if="post.frontpage_at"
                       class="ml-2 px-2 py-0.5 text-xs bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-200 rounded-full inline-flex items-center"
                       :title="t('profile.on_frontpage')"
-                    ><Icon name="fa6-solid:star" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('profile.frontpage') }}</span>
+                      ><Icon name="fa6-solid:star" class="mr-1 flex-shrink-0" aria-hidden="true" />
+                      <span>{{ t('profile.frontpage') }}</span>
                     </span>
                     <span
                       v-if="post.status === 'draft'"
                       class="ml-2 px-2 py-0.5 text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-200 rounded-full inline-flex items-center"
-                    ><Icon name="fa6-solid:file-lines" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('profile.draft') }}</span>
+                      ><Icon
+                        name="fa6-solid:file-lines"
+                        class="mr-1 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ t('profile.draft') }}</span>
                     </span>
                     <span
                       v-if="post.status === 'pending'"
@@ -147,22 +162,48 @@
                       v-if="post.status === 'hidden'"
                       class="ml-2 px-2 py-0.5 text-xs bg-red-100 dark:bg-red-900/40 text-red-800 dark:text-red-200 rounded-full inline-flex items-center"
                       :title="t('posts.post_hidden_by_admin')"
-                    ><Icon name="fa6-solid:eye-slash" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('profile.hidden') }}</span>
+                      ><Icon
+                        name="fa6-solid:eye-slash"
+                        class="mr-1 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ t('profile.hidden') }}</span>
                     </span>
                   </h3>
 
                   <div class="flex items-center text-xs text-gray-500 dark:text-gray-400">
-                    <span class="inline-flex items-center mr-3"><Icon name="fa6-solid:calendar-days" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ formatDate(post.created_at) }}</span>
+                    <span class="inline-flex items-center mr-3"
+                      ><Icon
+                        name="fa6-solid:calendar-days"
+                        class="mr-1 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ formatDate(post.created_at) }}</span>
                     </span>
-                    <span class="inline-flex items-center mr-3"><Icon name="fa6-solid:arrow-up" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ post.vote_count || 0 }}</span>
+                    <span class="inline-flex items-center mr-3"
+                      ><Icon
+                        name="fa6-solid:arrow-up"
+                        class="mr-1 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ post.vote_count || 0 }}</span>
                     </span>
                     <NuxtLink
                       :to="localePath(post.permalink || `/p/${post.uuid}`)"
                       class="inline-flex items-center mr-3 text-primary hover:text-primary-dark"
-                    ><Icon name="fa6-solid:comment" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ post.comment_count || 0 }}</span>
+                      ><Icon
+                        name="fa6-solid:comment"
+                        class="mr-1 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ post.comment_count || 0 }}</span>
                     </NuxtLink>
                     <span class="flex items-center">
-                      <Icon :name="getContentTypeIcon(post.content_type)" class="mr-1" aria-hidden="true" />
+                      <Icon
+                        :name="getContentTypeIcon(post.content_type)"
+                        class="mr-1"
+                        aria-hidden="true"
+                      />
                       {{ t(`posts.type_${post.content_type || 'link'}`) }}
                     </span>
                   </div>
@@ -170,10 +211,7 @@
 
                 <div v-if="showActionButtons" class="flex items-center ml-3 space-x-2">
                   <slot name="action-buttons" :post="post">
-                    <ChangePostStatusModal
-                      :post="post"
-                      @status-changed="handleStatusChange"
-                    />
+                    <ChangePostStatusModal :post="post" @status-changed="handleStatusChange" />
                     <EditPostModal
                       v-if="showEditButton"
                       :post="post"
@@ -210,9 +248,7 @@
             :key="page"
             class="px-3 py-1 mx-1 rounded-md"
             :class="
-              page === posts.meta.current_page
-                ? 'bg-primary text-white'
-                : 'posts-compact-page-btn'
+              page === posts.meta.current_page ? 'bg-primary text-white' : 'posts-compact-page-btn'
             "
             @click="changePage(page)"
           >
@@ -259,8 +295,7 @@
 
 <script setup>
   import { ref, computed } from 'vue'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
 
   const props = defineProps({
     posts: {

@@ -15,8 +15,8 @@ test.describe('Language Preferences Persistence', () => {
             sort_dir: 'desc',
             filters: null,
             content_languages: null,
-            push_notifications: null
-          })
+            push_notifications: null,
+          }),
         })
       } else if (route.request().method() === 'POST') {
         const postData = route.request().postDataJSON()
@@ -25,8 +25,8 @@ test.describe('Language Preferences Persistence', () => {
           contentType: 'application/json',
           body: JSON.stringify({
             message: 'Preferences saved successfully',
-            preferences: postData
-          })
+            preferences: postData,
+          }),
         })
       }
     })
@@ -37,7 +37,9 @@ test.describe('Language Preferences Persistence', () => {
 
   test('should display "All languages" button initially', async ({ page }) => {
     // Find the language selector button
-    const languageButton = page.locator('button:has-text("All languages"), button:has-text("Todos los idiomas")')
+    const languageButton = page.locator(
+      'button:has-text("All languages"), button:has-text("Todos los idiomas")'
+    )
     await expect(languageButton).toBeVisible()
   })
 
@@ -51,7 +53,9 @@ test.describe('Language Preferences Persistence', () => {
     await expect(modal).toBeVisible()
 
     // Verify it has the correct title
-    const modalTitle = page.locator('h3:has-text("Select languages"), h3:has-text("Seleccionar idiomas")')
+    const modalTitle = page.locator(
+      'h3:has-text("Select languages"), h3:has-text("Seleccionar idiomas")'
+    )
     await expect(modalTitle).toBeVisible()
   })
 
@@ -116,7 +120,7 @@ test.describe('Language Preferences Persistence', () => {
 
     // Verificar que existe la cookie user_prefs
     const cookies = await context.cookies()
-    const prefsCookie = cookies.find(c => c.name === 'user_prefs')
+    const prefsCookie = cookies.find((c) => c.name === 'user_prefs')
 
     expect(prefsCookie).toBeDefined()
 
@@ -128,18 +132,20 @@ test.describe('Language Preferences Persistence', () => {
 
   test('should load languages from cookie on page refresh', async ({ page, context }) => {
     // Establecer cookie con idiomas seleccionados
-    await context.addCookies([{
-      name: 'user_prefs',
-      value: JSON.stringify({
-        theme: 'renegados1',
-        layout: 'card',
-        sortBy: 'created_at',
-        sortDir: 'desc',
-        selectedLanguages: ['es', 'en', 'fr']
-      }),
-      domain: 'localhost',
-      path: '/'
-    }])
+    await context.addCookies([
+      {
+        name: 'user_prefs',
+        value: JSON.stringify({
+          theme: 'renegados1',
+          layout: 'card',
+          sortBy: 'created_at',
+          sortDir: 'desc',
+          selectedLanguages: ['es', 'en', 'fr'],
+        }),
+        domain: 'localhost',
+        path: '/',
+      },
+    ])
 
     // Reload the page
     await page.reload()
@@ -187,8 +193,8 @@ test.describe('Language Preferences Persistence', () => {
           contentType: 'application/json',
           body: JSON.stringify({
             message: 'Preferences saved successfully',
-            preferences: savedPreferences
-          })
+            preferences: savedPreferences,
+          }),
         })
       } else {
         await route.fulfill({
@@ -201,8 +207,8 @@ test.describe('Language Preferences Persistence', () => {
             sort_dir: 'desc',
             filters: null,
             content_languages: ['es', 'en'],
-            push_notifications: null
-          })
+            push_notifications: null,
+          }),
         })
       }
     })

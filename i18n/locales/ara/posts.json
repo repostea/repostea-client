@@ -5,6 +5,8 @@
     "delete_success": "Ninvío borrau correctament",
     "vote": "voto",
     "voted": "votau",
+    "closed": "zarrau",
+    "voting_closed": "A votación ye zarrada",
     "vote_success": "Voto ninviato!",
     "type_article": "Articlo",
     "publish": "Publicar",

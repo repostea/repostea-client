@@ -8,7 +8,7 @@
           class="prose dark:prose-invert max-w-none"
           v-html="renderedContent"
         />
-        <p v-else v-html="displayText"/>
+        <p v-else v-html="displayText" />
       </div>
       <div class="max-w-md">
         <AudioPlayer
@@ -30,7 +30,7 @@
           class="prose dark:prose-invert max-w-none"
           v-html="renderedContent"
         />
-        <p v-else v-html="displayText"/>
+        <p v-else v-html="displayText" />
       </div>
 
       <div class="mb-4 w-full">

@@ -5,7 +5,9 @@
   >
     <div class="flex items-start gap-4 p-4">
       <div class="flex-shrink-0 mt-1">
-        <div class="w-12 h-12 bg-primary/20 dark:bg-primary/30 rounded-full flex items-center justify-center">
+        <div
+          class="w-12 h-12 bg-primary/20 dark:bg-primary/30 rounded-full flex items-center justify-center"
+        >
           <Icon name="fa6-solid:star" class="text-primary text-xl" aria-hidden="true" />
         </div>
       </div>
@@ -43,8 +45,7 @@
 <script setup>
   import { computed } from 'vue'
   import { useAuth } from '~/composables/useAuth'
-  import { useLocalePath, useI18n  } from '#i18n'
-
+  import { useLocalePath, useI18n } from '#i18n'
 
   defineProps({
     authorName: {

@@ -214,7 +214,10 @@ export const useAgoraRealtime = (options: AgoraRealtimeOptions = {}) => {
             ? t('agora.anonymous_user')
             : data.message.user?.username || 'Someone'
 
-          info(t('agora.notification_reply', { user: authorName }) || `${authorName} replied to your message`)
+          info(
+            t('agora.notification_reply', { user: authorName }) ||
+              `${authorName} replied to your message`
+          )
 
           if (onReplyToMeCallback) {
             onReplyToMeCallback(data)

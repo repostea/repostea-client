@@ -42,7 +42,7 @@ const mockT = (key, params) => {
 
   if (params) {
     let result = translations[key] || key
-    Object.keys(params).forEach(param => {
+    Object.keys(params).forEach((param) => {
       result = result.replace(`{${param}}`, params[param])
     })
     return result
@@ -310,7 +310,7 @@ describe('ReportButton Component', () => {
       await wrapper.vm.$nextTick()
 
       const icons = wrapper.findAll('.iconify-icon')
-      const iconNames = icons.map(icon => icon.attributes('name'))
+      const iconNames = icons.map((icon) => icon.attributes('name'))
       expect(iconNames).toContain('fa6-solid:bullhorn') // spam
       expect(iconNames).toContain('fa6-solid:triangle-exclamation') // inappropriate
       expect(iconNames).toContain('fa6-solid:user-slash') // harassment
@@ -408,7 +408,7 @@ describe('ReportButton Component', () => {
       await wrapper.vm.$nextTick()
 
       const submitButtons = wrapper.findAll('button')
-      const submitButton = submitButtons.find(btn => btn.text().includes('Submit Report'))
+      const submitButton = submitButtons.find((btn) => btn.text().includes('Submit Report'))
       expect(submitButton).toBeDefined()
     })
 
@@ -431,7 +431,7 @@ describe('ReportButton Component', () => {
       await wrapper.vm.$nextTick()
 
       const submitButtons = wrapper.findAll('button')
-      const submitButton = submitButtons.find(btn => btn.text().includes('Submit Report'))
+      const submitButton = submitButtons.find((btn) => btn.text().includes('Submit Report'))
       await submitButton.trigger('click')
       await wrapper.vm.$nextTick()
 
@@ -460,7 +460,7 @@ describe('ReportButton Component', () => {
       wrapper.vm.additionalDescription = 'Test description'
 
       const submitButtons = wrapper.findAll('button')
-      const submitButton = submitButtons.find(btn => btn.text().includes('Submit Report'))
+      const submitButton = submitButtons.find((btn) => btn.text().includes('Submit Report'))
       await submitButton.trigger('click')
       await wrapper.vm.$nextTick()
 
@@ -485,7 +485,7 @@ describe('ReportButton Component', () => {
       await wrapper.vm.$nextTick()
 
       const submitButtons = wrapper.findAll('button')
-      const submitButton = submitButtons.find(btn => btn.text().includes('Submitting'))
+      const submitButton = submitButtons.find((btn) => btn.text().includes('Submitting'))
       expect(submitButton.attributes('disabled')).toBeDefined()
     })
 
@@ -505,11 +505,11 @@ describe('ReportButton Component', () => {
       await wrapper.vm.$nextTick()
 
       const submitButtons = wrapper.findAll('button')
-      const submitButton = submitButtons.find(btn => btn.text().includes('Submit Report'))
+      const submitButton = submitButtons.find((btn) => btn.text().includes('Submit Report'))
       await submitButton.trigger('click')
       await wrapper.vm.$nextTick()
 
-      await new Promise(resolve => setTimeout(resolve, 0))
+      await new Promise((resolve) => setTimeout(resolve, 0))
       await wrapper.vm.$nextTick()
 
       expect(wrapper.vm.successMessage).toBeTruthy()
@@ -518,9 +518,7 @@ describe('ReportButton Component', () => {
 
   describe('User Already Reported', () => {
     it('shows message when user has already reported', async () => {
-      const reports = [
-        { id: 1, reason: 'spam', status: 'pending', is_own: true },
-      ]
+      const reports = [{ id: 1, reason: 'spam', status: 'pending', is_own: true }]
       wrapper = createWrapper({ reports })
       await wrapper.find('button').trigger('click')
       await wrapper.vm.$nextTick()
@@ -529,9 +527,7 @@ describe('ReportButton Component', () => {
     })
 
     it('shows withdraw button when user has already reported', async () => {
-      const reports = [
-        { id: 1, reason: 'spam', status: 'pending', is_own: true },
-      ]
+      const reports = [{ id: 1, reason: 'spam', status: 'pending', is_own: true }]
       wrapper = createWrapper({ reports })
       await wrapper.find('button').trigger('click')
       await wrapper.vm.$nextTick()
@@ -540,15 +536,13 @@ describe('ReportButton Component', () => {
     })
 
     it('disables reason buttons when user has already reported', async () => {
-      const reports = [
-        { id: 1, reason: 'spam', status: 'pending', is_own: true },
-      ]
+      const reports = [{ id: 1, reason: 'spam', status: 'pending', is_own: true }]
       wrapper = createWrapper({ reports })
       await wrapper.find('button').trigger('click')
       await wrapper.vm.$nextTick()
 
       const reasonButtons = wrapper.findAll('.grid.grid-cols-2 button')
-      reasonButtons.forEach(btn => {
+      reasonButtons.forEach((btn) => {
         expect(btn.attributes('disabled')).toBeDefined()
       })
     })
@@ -556,15 +550,13 @@ describe('ReportButton Component', () => {
 
   describe('Withdraw Report', () => {
     it('opens confirmation modal when clicking withdraw', async () => {
-      const reports = [
-        { id: 1, reason: 'spam', status: 'pending', is_own: true },
-      ]
+      const reports = [{ id: 1, reason: 'spam', status: 'pending', is_own: true }]
       wrapper = createWrapper({ reports })
       await wrapper.find('button').trigger('click')
       await wrapper.vm.$nextTick()
 
       const buttons = wrapper.findAll('button')
-      const withdrawButton = buttons.find(btn => btn.text().includes('Retirar mi reporte'))
+      const withdrawButton = buttons.find((btn) => btn.text().includes('Retirar mi reporte'))
       await withdrawButton.trigger('click')
       await wrapper.vm.$nextTick()
 
@@ -572,9 +564,7 @@ describe('ReportButton Component', () => {
     })
 
     it('shows confirmation dialog', async () => {
-      const reports = [
-        { id: 1, reason: 'spam', status: 'pending', is_own: true },
-      ]
+      const reports = [{ id: 1, reason: 'spam', status: 'pending', is_own: true }]
       wrapper = createWrapper({ reports })
       wrapper.vm.showWithdrawConfirm = true
       await wrapper.vm.$nextTick()
@@ -583,15 +573,13 @@ describe('ReportButton Component', () => {
     })
 
     it('cancels withdrawal when clicking cancel', async () => {
-      const reports = [
-        { id: 1, reason: 'spam', status: 'pending', is_own: true },
-      ]
+      const reports = [{ id: 1, reason: 'spam', status: 'pending', is_own: true }]
       wrapper = createWrapper({ reports })
       wrapper.vm.showWithdrawConfirm = true
       await wrapper.vm.$nextTick()
 
       const buttons = wrapper.findAll('button')
-      const cancelButton = buttons.find(btn => btn.text().includes('Cancel'))
+      const cancelButton = buttons.find((btn) => btn.text().includes('Cancel'))
       await cancelButton.trigger('click')
 
       expect(wrapper.vm.showWithdrawConfirm).toBe(false)

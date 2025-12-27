@@ -58,11 +58,36 @@
 
   const sortOptions = [
     { key: 'recent', direction: 'desc', label: t('comments.sort.recent'), icon: 'fa6-solid:clock' },
-    { key: 'votes', direction: 'desc', label: t('comments.sort.most_votes'), icon: 'fa6-solid:arrow-up' },
-    { key: 'didactic', direction: 'desc', label: t('comments.vote_types.didactic'), icon: 'fa6-solid:graduation-cap' },
-    { key: 'interesting', direction: 'desc', label: t('comments.vote_types.interesting'), icon: 'fa6-solid:star' },
-    { key: 'elaborate', direction: 'desc', label: t('comments.vote_types.elaborate'), icon: 'fa6-solid:pen-fancy' },
-    { key: 'funny', direction: 'desc', label: t('comments.vote_types.funny'), icon: 'fa6-solid:face-grin-squint' },
+    {
+      key: 'votes',
+      direction: 'desc',
+      label: t('comments.sort.most_votes'),
+      icon: 'fa6-solid:arrow-up',
+    },
+    {
+      key: 'didactic',
+      direction: 'desc',
+      label: t('comments.vote_types.didactic'),
+      icon: 'fa6-solid:graduation-cap',
+    },
+    {
+      key: 'interesting',
+      direction: 'desc',
+      label: t('comments.vote_types.interesting'),
+      icon: 'fa6-solid:star',
+    },
+    {
+      key: 'elaborate',
+      direction: 'desc',
+      label: t('comments.vote_types.elaborate'),
+      icon: 'fa6-solid:pen-fancy',
+    },
+    {
+      key: 'funny',
+      direction: 'desc',
+      label: t('comments.vote_types.funny'),
+      icon: 'fa6-solid:face-grin-squint',
+    },
   ]
 
   const needsTimeFilter = computed(() => {

@@ -150,7 +150,9 @@ describe('Sub Page - Orphaned Sub Claiming', () => {
           PostList: { template: '<div class="post-list-stub"></div>' },
           FilterControls: { template: '<div class="filter-controls-stub"></div>' },
           LayoutSelector: { template: '<div class="layout-selector-stub"></div>' },
-          ContentLanguageSelector: { template: '<div class="content-language-selector-stub"></div>' },
+          ContentLanguageSelector: {
+            template: '<div class="content-language-selector-stub"></div>',
+          },
           Teleport: { template: '<div><slot /></div>' },
         },
       },

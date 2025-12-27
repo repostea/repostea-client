@@ -25,7 +25,8 @@ export default {
       if (postData.body !== undefined && data.content === undefined) data.content = postData.body
       if (postData.url !== undefined) data.url = postData.url
       if (postData.thumbnail_url !== undefined) data.thumbnail_url = postData.thumbnail_url
-      if (postData.image !== undefined && data.thumbnail_url === undefined) data.thumbnail_url = postData.image
+      if (postData.image !== undefined && data.thumbnail_url === undefined)
+        data.thumbnail_url = postData.image
       if (postData.content_type !== undefined) data.content_type = postData.content_type
       if (postData.media_provider !== undefined) data.media_provider = postData.media_provider
       if (postData.status !== undefined) data.status = postData.status

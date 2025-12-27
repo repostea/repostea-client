@@ -2,9 +2,7 @@
   <div class="container mx-auto px-4 py-8">
     <div class="flex justify-center">
       <div class="w-full max-w-md">
-        <div
-          class="card-bg rounded-lg shadow-sm border auth-border"
-        >
+        <div class="card-bg rounded-lg shadow-sm border auth-border">
           <div
             class="bg-blue-50 dark:bg-blue-900/20 px-6 py-4 border-b border-blue-300 dark:border-blue-800 rounded-t-lg"
           >
@@ -32,11 +30,19 @@
 
             <div class="space-y-4 text-sm text-text-muted dark:text-text-dark-muted">
               <p>
-                <Icon name="fa6-solid:circle-check" class="text-green-500 mr-2" aria-hidden="true" />
+                <Icon
+                  name="fa6-solid:circle-check"
+                  class="text-green-500 mr-2"
+                  aria-hidden="true"
+                />
                 <strong>Account Created:</strong> Your information has been securely saved.
               </p>
               <p>
-                <Icon name="fa6-solid:hourglass-half" class="text-yellow-500 mr-2" aria-hidden="true" />
+                <Icon
+                  name="fa6-solid:hourglass-half"
+                  class="text-yellow-500 mr-2"
+                  aria-hidden="true"
+                />
                 <strong>Awaiting Review:</strong> An administrator will review your registration
                 shortly.
               </p>

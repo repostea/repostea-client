@@ -69,7 +69,9 @@
                 : 'post-form-type-btn-inactive'
             "
             @click="setContentType('link')"
-          ><Icon name="fa6-solid:link" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.form.type_link') }}</span>
+          >
+            <Icon name="fa6-solid:link" class="mr-1 flex-shrink-0" aria-hidden="true" />
+            <span>{{ t('submit.form.type_link') }}</span>
           </button>
           <button
             type="button"
@@ -80,7 +82,9 @@
                 : 'post-form-type-btn-inactive'
             "
             @click="setContentType('text')"
-          ><Icon name="fa6-solid:file-lines" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.form.type_text') }}</span>
+          >
+            <Icon name="fa6-solid:file-lines" class="mr-1 flex-shrink-0" aria-hidden="true" />
+            <span>{{ t('submit.form.type_text') }}</span>
           </button>
           <button
             type="button"
@@ -91,7 +95,9 @@
                 : 'post-form-type-btn-inactive'
             "
             @click="setContentType('video')"
-          ><Icon name="fa6-solid:video" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.form.type_video') }}</span>
+          >
+            <Icon name="fa6-solid:video" class="mr-1 flex-shrink-0" aria-hidden="true" />
+            <span>{{ t('submit.form.type_video') }}</span>
           </button>
           <button
             type="button"
@@ -102,7 +108,9 @@
                 : 'post-form-type-btn-inactive'
             "
             @click="setContentType('audio')"
-          ><Icon name="fa6-solid:headphones" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.form.type_audio') }}</span>
+          >
+            <Icon name="fa6-solid:headphones" class="mr-1 flex-shrink-0" aria-hidden="true" />
+            <span>{{ t('submit.form.type_audio') }}</span>
           </button>
           <button
             type="button"
@@ -113,7 +121,9 @@
                 : 'post-form-type-btn-inactive'
             "
             @click="setContentType('image')"
-          ><Icon name="fa6-solid:image" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.form.type_image') }}</span>
+          >
+            <Icon name="fa6-solid:image" class="mr-1 flex-shrink-0" aria-hidden="true" />
+            <span>{{ t('submit.form.type_image') }}</span>
           </button>
           <button
             type="button"
@@ -124,7 +134,13 @@
                 : 'post-form-type-btn-inactive'
             "
             @click="setContentType('poll')"
-          ><Icon name="fa6-solid:square-poll-vertical" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.form.type_poll') }}</span>
+          >
+            <Icon
+              name="fa6-solid:square-poll-vertical"
+              class="mr-1 flex-shrink-0"
+              aria-hidden="true"
+            />
+            <span>{{ t('submit.form.type_poll') }}</span>
           </button>
         </div>
       </div>
@@ -157,23 +173,41 @@
           {{ t('submit.form.language') }}
           <span class="text-red-500">*</span>
         </label>
-        <div v-if="isEditMode && (initialData?.moderated_by || initialData?.language_locked_by_admin)">
-          <div class="p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-300 dark:border-amber-600 rounded-lg">
+        <div
+          v-if="isEditMode && (initialData?.moderated_by || initialData?.language_locked_by_admin)"
+        >
+          <div
+            class="p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-300 dark:border-amber-600 rounded-lg"
+          >
             <p class="text-sm text-amber-800 dark:text-amber-200 flex items-center gap-2">
               <Icon name="fa6-solid:lock" aria-hidden="true" />
               <span>{{ t('submit.form.language_locked') }}</span>
             </p>
             <div class="mt-2 flex items-center gap-2">
-              <span class="text-xl">{{ languages.find(l => l.code === form.language_code)?.flag }}</span>
+              <span class="text-xl">{{
+                languages.find((l) => l.code === form.language_code)?.flag
+              }}</span>
               <span class="font-medium text-text dark:text-text-dark">
-                {{ languages.find(l => l.code === form.language_code)?.native }}
+                {{ languages.find((l) => l.code === form.language_code)?.native }}
               </span>
             </div>
           </div>
         </div>
         <PostLanguageSelector v-else v-model="form.language_code" />
-        <p v-if="errors.language_code" role="alert" class="mt-2 text-sm text-red-500 inline-flex items-start"><Icon name="fa6-solid:circle-exclamation" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ errors.language_code }}</span></p>
-        <p v-if="!isEditMode || (!initialData?.moderated_by && !initialData?.language_locked_by_admin)" class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+        <p
+          v-if="errors.language_code"
+          role="alert"
+          class="mt-2 text-sm text-red-500 inline-flex items-start"
+        >
+          <Icon name="fa6-solid:circle-exclamation" class="mr-1 flex-shrink-0" aria-hidden="true" />
+          <span>{{ errors.language_code }}</span>
+        </p>
+        <p
+          v-if="
+            !isEditMode || (!initialData?.moderated_by && !initialData?.language_locked_by_admin)
+          "
+          class="mt-2 text-xs text-gray-500 dark:text-gray-400"
+        >
           {{ t('submit.form.language_help') }}
         </p>
       </div>
@@ -219,7 +253,11 @@
         class="mb-4 bg-red-50 dark:bg-red-900/20 p-4 rounded-md border border-red-200 dark:border-red-800"
       >
         <div class="flex items-start">
-          <Icon name="fa6-solid:triangle-exclamation" class="text-red-500 mt-1 mr-3" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:triangle-exclamation"
+            class="text-red-500 mt-1 mr-3"
+            aria-hidden="true"
+          />
           <div>
             <p class="text-sm font-medium text-red-800 dark:text-red-200 mb-1">
               {{ t('posts.post_hidden_by_admin') }}
@@ -263,13 +301,21 @@
             v-model="form.is_nsfw"
             type="checkbox"
             class="post-form-checkbox w-6 h-6 mt-0.5 rounded text-red-600 dark:text-red-500 focus:ring-red-500 dark:focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
-            :disabled="isEditMode && (initialData?.moderated_by || initialData?.nsfw_locked_by_admin)"
+            :disabled="
+              isEditMode && (initialData?.moderated_by || initialData?.nsfw_locked_by_admin)
+            "
           >
           <div class="ml-2">
             <label for="is_nsfw" class="text-sm font-medium">
               {{ t('submit.form.is_nsfw') }}
             </label>
-            <p v-if="isEditMode && (initialData?.moderated_by || initialData?.nsfw_locked_by_admin)" class="text-xs text-amber-600 dark:text-amber-400 mt-1 inline-flex items-start"><Icon name="fa6-solid:lock" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.form.nsfw_locked') }}</span></p>
+            <p
+              v-if="isEditMode && (initialData?.moderated_by || initialData?.nsfw_locked_by_admin)"
+              class="text-xs text-amber-600 dark:text-amber-400 mt-1 inline-flex items-start"
+            >
+              <Icon name="fa6-solid:lock" class="mr-1 flex-shrink-0" aria-hidden="true" />
+              <span>{{ t('submit.form.nsfw_locked') }}</span>
+            </p>
             <p v-else class="text-xs text-gray-500 dark:text-gray-400 mt-1">
               {{ t('submit.form.nsfw_help') }}
             </p>
@@ -289,7 +335,10 @@
               <Icon name="fa6-solid:globe" class="text-primary" aria-hidden="true" />
               {{ t('submit.form.federate_post') }}
             </label>
-            <p v-if="initialData?.federation?.is_federated" class="text-xs text-green-600 dark:text-green-400 mt-1 inline-flex items-center gap-1">
+            <p
+              v-if="initialData?.federation?.is_federated"
+              class="text-xs text-green-600 dark:text-green-400 mt-1 inline-flex items-center gap-1"
+            >
               <Icon name="fa6-solid:circle-check" aria-hidden="true" />
               {{ t('submit.form.already_federated') }}
             </p>
@@ -318,7 +367,13 @@
           <span
             v-if="loading && savingAsDraft"
             class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-gray-500 border-t-transparent rounded-full flex-shrink-0"
-          /><Icon v-else name="fa6-solid:floppy-disk" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('posts.save_as_draft') }}</span>
+          /><Icon
+            v-else
+            name="fa6-solid:floppy-disk"
+            class="mr-2 flex-shrink-0"
+            aria-hidden="true"
+          />
+          <span>{{ t('posts.save_as_draft') }}</span>
         </button>
         <button
           v-if="!isPostHidden"
@@ -397,10 +452,7 @@
   const authStore = useAuthStore()
 
   // ActivityPub federation
-  const {
-    isFederationEnabled,
-    fetchUserSettings: fetchFederationSettings,
-  } = useActivityPub()
+  const { isFederationEnabled, fetchUserSettings: fetchFederationSettings } = useActivityPub()
 
   const loading = ref(false)
   const successMessage = ref('')
@@ -558,7 +610,7 @@
         if (post.content_type === 'poll' && post.poll) {
           existingPollOptions.value = post.poll.options || []
           pollHasVotes.value = post.poll.total_votes > 0
-          form.poll_options = post.poll.options.map(opt => opt.text) || []
+          form.poll_options = post.poll.options.map((opt) => opt.text) || []
           form.allow_multiple_options = post.poll.allow_multiple_options || false
 
           // Set expires_at if poll has expiration
@@ -647,8 +699,7 @@
   }
 
   function handleThumbnailUpdated(urls) {
-    // Update form with medium size URL (for backward compatibility)
-    form.thumbnail_url = urls.medium
+    form.thumbnail_url = urls.url
   }
 
   function handleThumbnailDeleted() {

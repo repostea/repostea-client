@@ -8,7 +8,7 @@
         @click.self="clearHighPriority"
       >
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"/>
+        <div class="absolute inset-0 bg-black/20 backdrop-blur-sm" />
 
         <!-- High Priority Notification -->
         <div
@@ -22,7 +22,11 @@
           <div class="p-6">
             <div class="flex items-start">
               <div class="flex-shrink-0">
-                <Icon :name="getIconIconify(notification.type)" :class="getIconColorClass(notification.type) + ' text-xl'" aria-hidden="true" />
+                <Icon
+                  :name="getIconIconify(notification.type)"
+                  :class="getIconColorClass(notification.type) + ' text-xl'"
+                  aria-hidden="true"
+                />
               </div>
               <div class="ml-4 flex-1">
                 <h3 class="text-lg font-semibold mb-2" :class="getTitleClass(notification.type)">
@@ -80,7 +84,11 @@
           <div class="p-4">
             <div class="flex items-start">
               <div class="flex-shrink-0">
-                <Icon :name="getIconIconify(notification.type)" :class="getIconColorClass(notification.type) + ' text-sm'" aria-hidden="true" />
+                <Icon
+                  :name="getIconIconify(notification.type)"
+                  :class="getIconColorClass(notification.type) + ' text-sm'"
+                  aria-hidden="true"
+                />
               </div>
               <div class="ml-3 flex-1">
                 <p class="text-sm font-medium">

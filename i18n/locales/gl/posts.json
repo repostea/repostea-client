@@ -30,6 +30,8 @@
     "created_label": "Creado",
     "vote": "voto",
     "voted": "votado",
+    "closed": "pechado",
+    "voting_closed": "A votación está pechada",
     "votes": "votos",
     "vote_success": "Voto enviado correctamente!",
     "vote_success_guest": "Voto enviado! O teu voto efímero foi rexistrado.",

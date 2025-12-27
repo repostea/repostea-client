@@ -20,14 +20,18 @@
  * })
  * ```
  */
-export const useSeoI18n = (options?: string | {
-  title?: string
-  description?: string
-  keywords?: string
-  ogTitle?: string
-  ogDescription?: string
-  ogImage?: string
-}) => {
+export const useSeoI18n = (
+  options?:
+    | string
+    | {
+        title?: string
+        description?: string
+        keywords?: string
+        ogTitle?: string
+        ogDescription?: string
+        ogImage?: string
+      }
+) => {
   const { t } = useI18n()
   const config = useRuntimeConfig()
 
@@ -49,9 +53,7 @@ export const useSeoI18n = (options?: string | {
   }
 
   // Build the full title
-  const title = options?.title
-    ? `${appName} - ${options.title}`
-    : `${appName} - ${defaultTagline}`
+  const title = options?.title ? `${appName} - ${options.title}` : `${appName} - ${defaultTagline}`
 
   const description = options?.description || defaultDescription
   const ogTitle = options?.ogTitle || title

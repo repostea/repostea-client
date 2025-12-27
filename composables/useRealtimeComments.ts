@@ -43,9 +43,12 @@ export const useRealtimeComments = (postId: number | null) => {
   const markAsOwn = (commentId: number) => {
     ownCommentIds.add(commentId)
     // Clean up old IDs after 5 minutes to prevent memory buildup
-    setTimeout(() => {
-      ownCommentIds.delete(commentId)
-    }, 5 * 60 * 1000)
+    setTimeout(
+      () => {
+        ownCommentIds.delete(commentId)
+      },
+      5 * 60 * 1000
+    )
   }
 
   // Handle incoming new comment
@@ -56,7 +59,6 @@ export const useRealtimeComments = (postId: number | null) => {
     if (ownCommentIds.has(event.comment.id)) {
       return
     }
-
 
     newComments.value.push(event.comment)
     pendingCount.value++

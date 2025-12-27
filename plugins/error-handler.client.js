@@ -9,12 +9,14 @@ export default defineNuxtPlugin((_nuxtApp) => {
       }
 
       // Show user-friendly message using useNotification
-      import('~/composables/useNotification').then(({ useNotification }) => {
-        const { error: showError } = useNotification()
-        showError('An unexpected error occurred. Please try again later.', { timeout: 10000 })
-      }).catch(() => {
-        console.error('[Error Handler] Failed to show notification')
-      })
+      import('~/composables/useNotification')
+        .then(({ useNotification }) => {
+          const { error: showError } = useNotification()
+          showError('An unexpected error occurred. Please try again later.', { timeout: 10000 })
+        })
+        .catch(() => {
+          console.error('[Error Handler] Failed to show notification')
+        })
 
       return false
     }
@@ -27,12 +29,14 @@ export default defineNuxtPlugin((_nuxtApp) => {
       }
 
       // Show user-friendly message using useNotification
-      import('~/composables/useNotification').then(({ useNotification }) => {
-        const { error: showError } = useNotification()
-        showError('An operation failed. Please try again later.', { timeout: 10000 })
-      }).catch(() => {
-        console.error('[Error Handler] Failed to show notification')
-      })
+      import('~/composables/useNotification')
+        .then(({ useNotification }) => {
+          const { error: showError } = useNotification()
+          showError('An operation failed. Please try again later.', { timeout: 10000 })
+        })
+        .catch(() => {
+          console.error('[Error Handler] Failed to show notification')
+        })
     })
   }
 })

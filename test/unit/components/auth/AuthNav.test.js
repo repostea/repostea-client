@@ -130,14 +130,14 @@ describe('AuthNav Component', () => {
     it('shows user icon', () => {
       wrapper = createWrapper()
       const icons = wrapper.findAll('.iconify-icon')
-      const iconNames = icons.map(icon => icon.attributes('name'))
+      const iconNames = icons.map((icon) => icon.attributes('name'))
       expect(iconNames).toContain('fa6-solid:circle-user')
     })
 
     it('shows chevron down icon', () => {
       wrapper = createWrapper()
       const icons = wrapper.findAll('.iconify-icon')
-      const iconNames = icons.map(icon => icon.attributes('name'))
+      const iconNames = icons.map((icon) => icon.attributes('name'))
       expect(iconNames).toContain('fa6-solid:chevron-down')
     })
 
@@ -149,7 +149,7 @@ describe('AuthNav Component', () => {
     it('does not show guest icon for regular user', () => {
       wrapper = createWrapper()
       const icons = wrapper.findAll('.iconify-icon')
-      const iconNames = icons.map(icon => icon.attributes('name'))
+      const iconNames = icons.map((icon) => icon.attributes('name'))
       expect(iconNames).not.toContain('fa6-solid:user-secret')
     })
   })
@@ -167,7 +167,7 @@ describe('AuthNav Component', () => {
     it('shows guest icon instead of regular user icon', () => {
       wrapper = createWrapper()
       const icons = wrapper.findAll('.iconify-icon')
-      const iconNames = icons.map(icon => icon.attributes('name'))
+      const iconNames = icons.map((icon) => icon.attributes('name'))
       expect(iconNames).toContain('fa6-solid:user-secret')
       expect(iconNames).not.toContain('fa6-solid:circle-user')
     })

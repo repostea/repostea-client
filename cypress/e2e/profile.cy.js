@@ -27,8 +27,8 @@ describe('User Profile E2E Tests', () => {
   // Helper to accept cookie banner
   const acceptCookies = () => {
     cy.get('body').then(($body) => {
-      const acceptBtn = $body.find('button').filter(function() {
-        return this.textContent.includes('Aceptar')
+      const acceptBtn = $body.find('button').filter(function () {
+        return this.textContent.includes('Accept')
       })
       if (acceptBtn.length > 0) {
         cy.wrap(acceptBtn.first()).click({ force: true })
@@ -55,48 +55,31 @@ describe('User Profile E2E Tests', () => {
       acceptCookies()
 
       // Should show user information
-      cy.get('body', { timeout: 20000 }).should('contain.text', testUser.username)
+      cy.get('body', { timeout: 10000 }).should('contain.text', testUser.username)
     })
 
-    it('should show user stats', () => {
-      visitWithRetry(`/es/u/${testUser.username}`)
+    it('should show user stats section', () => {
+      visitWithRetry(`/en/u/${testUser.username}`)
       acceptCookies()
 
-      // Should show posts and comments count
-      cy.get('body', { timeout: 20000 }).then(($body) => {
-        const text = $body.text().toLowerCase()
-        const hasStats = text.includes('post') ||
-                        text.includes('publicacion') ||
-                        text.includes('comment') ||
-                        text.includes('comentario') ||
-                        text.includes('karma')
-        expect(hasStats).to.be.true
-      })
+      // Profile page shows stats (posts, comments counts)
+      cy.contains(/posts|comments/i, { timeout: 10000 }).should('exist')
     })
 
-    it('should handle non-existent user gracefully', () => {
-      visitWithRetry('/es/u/nonexistent_user_12345')
+    it('should show 404 for non-existent user', () => {
+      visitWithRetry('/en/u/nonexistent_user_12345')
       acceptCookies()
 
-      // Should show 404 or user not found message
-      cy.get('body', { timeout: 20000 }).should('satisfy', ($body) => {
-        const text = $body.text().toLowerCase()
-        return text.includes('404') ||
-               text.includes('not found') ||
-               text.includes('no encontrado') ||
-               text.includes('no existe')
-      })
+      // Should show "User not found" message
+      cy.contains(/user not found|does not exist/i, { timeout: 10000 }).should('exist')
     })
 
     it('should show user activity tabs', () => {
-      visitWithRetry(`/es/u/${testUser.username}`)
+      visitWithRetry(`/en/u/${testUser.username}`)
       acceptCookies()
 
-      // Should have tabs or sections for posts/comments
-      cy.get('body', { timeout: 20000 }).then(($body) => {
-        const hasTabs = $body.find('[role="tablist"], .tabs, .nav-tabs, button').length > 0
-        expect(hasTabs).to.be.true
-      })
+      // Profile page has tab buttons for achievements/posts/comments
+      cy.get('button', { timeout: 10000 }).filter(':contains("Posts"), :contains("Comments"), :contains("Achievements")').should('have.length.at.least', 1)
     })
   })
 
@@ -106,55 +89,48 @@ describe('User Profile E2E Tests', () => {
     })
 
     it('should access own profile from menu', () => {
-      visitWithRetry('/es/')
+      visitWithRetry('/en/')
       acceptCookies()
-      cy.wait(1000)
+      cy.wait(500)
 
-      // Click on user menu
-      cy.get('.user-info', { timeout: 20000 }).first().click()
+      // Wait for auth to be fully loaded and click user menu button (first for desktop)
+      cy.get('.user-menu .user-info', { timeout: 10000 }).first().click()
 
-      // Click on profile link
+      // Wait for dropdown to render
+      cy.wait(300)
+
+      // Click on profile link in dropdown
       cy.get('.dropdown-menu', { timeout: 5000 }).should('be.visible')
-      cy.get('a[href*="/profile"]').first().click()
+      cy.get('.dropdown-menu a[href*="/profile"]').first().click()
 
       // Should be on profile page
       cy.url().should('include', '/profile')
     })
 
     it('should display profile dashboard', () => {
-      visitWithRetry('/es/profile')
+      visitWithRetry('/en/profile')
       acceptCookies()
 
-      // Should show profile content
-      cy.get('body', { timeout: 20000 }).should('satisfy', ($body) => {
-        const text = $body.text().toLowerCase()
-        return text.includes(testUser.username.toLowerCase()) ||
-               text.includes('perfil') ||
-               text.includes('profile')
-      })
+      // Should show the username on profile page
+      cy.get('body', { timeout: 10000 }).should('contain.text', testUser.username)
     })
 
     it('should show my posts section', () => {
-      visitWithRetry('/es/profile/posts')
+      visitWithRetry('/en/profile/posts')
       acceptCookies()
 
       // Should be on my posts page
       cy.url().should('include', '/profile/posts')
-      cy.get('body', { timeout: 20000 }).should('be.visible')
+      cy.get('body', { timeout: 10000 }).should('be.visible')
     })
 
     it('should access settings page', () => {
-      visitWithRetry('/es/profile/settings')
+      visitWithRetry('/en/profile/settings')
       acceptCookies()
 
-      // Should show settings form
+      // Should show settings page with form elements
       cy.url().should('include', '/profile/settings')
-      cy.get('body', { timeout: 20000 }).should('satisfy', ($body) => {
-        const text = $body.text().toLowerCase()
-        return text.includes('settings') ||
-               text.includes('configuración') ||
-               text.includes('ajustes')
-      })
+      cy.get('form, input, select, button[type="submit"]', { timeout: 10000 }).should('exist')
     })
   })
 
@@ -164,31 +140,28 @@ describe('User Profile E2E Tests', () => {
     })
 
     it('should access edit profile page', () => {
-      visitWithRetry('/es/profile/edit')
+      visitWithRetry('/en/profile/edit')
       acceptCookies()
 
       // Should show edit form
       cy.url().should('include', '/profile/edit')
-      cy.get('form, input, textarea', { timeout: 20000 }).should('exist')
+      cy.get('form, input, textarea', { timeout: 10000 }).should('exist')
     })
 
     it('should display profile fields', () => {
-      visitWithRetry('/es/profile/edit')
+      visitWithRetry('/en/profile/edit')
       acceptCookies()
 
       // Should have editable fields
-      cy.get('input, textarea', { timeout: 20000 })
-        .should('have.length.at.least', 1)
+      cy.get('input, textarea', { timeout: 10000 }).should('have.length.at.least', 1)
     })
 
     it('should show save button', () => {
-      visitWithRetry('/es/profile/edit')
+      visitWithRetry('/en/profile/edit')
       acceptCookies()
 
-      // Should have submit/save button
-      cy.get('button[type="submit"], button', { timeout: 20000 })
-        .filter(':contains("guardar"), :contains("save"), :contains("actualizar")')
-        .should('exist')
+      // Should have "Save Changes" submit button
+      cy.contains('button', 'Save Changes', { timeout: 10000 }).should('exist')
     })
   })
 
@@ -198,35 +171,28 @@ describe('User Profile E2E Tests', () => {
     })
 
     it('should display settings sections', () => {
-      visitWithRetry('/es/profile/settings')
+      visitWithRetry('/en/profile/settings')
       acceptCookies()
 
       // Should show various settings sections
-      cy.get('body', { timeout: 20000 }).should('be.visible')
+      cy.get('body', { timeout: 10000 }).should('be.visible')
     })
 
     it('should have password change section', () => {
-      visitWithRetry('/es/profile/settings')
+      visitWithRetry('/en/profile/settings')
       acceptCookies()
 
-      // Should have password related fields or section
-      cy.get('body', { timeout: 20000 }).then(($body) => {
-        const text = $body.text().toLowerCase()
-        const hasPasswordSection = text.includes('password') ||
-                                   text.includes('contraseña') ||
-                                   text.includes('seguridad') ||
-                                   text.includes('security')
-        expect(hasPasswordSection).to.be.true
-      })
+      // Should have password section
+      cy.contains('Password', { timeout: 10000 }).should('be.visible')
     })
 
     it('should have notification preferences', () => {
-      visitWithRetry('/es/profile/notifications/preferences')
+      visitWithRetry('/en/profile/notifications/preferences')
       acceptCookies()
 
       // Should show notification settings
       cy.url().should('include', '/notifications')
-      cy.get('body', { timeout: 20000 }).should('be.visible')
+      cy.get('body', { timeout: 10000 }).should('be.visible')
     })
   })
 
@@ -236,18 +202,12 @@ describe('User Profile E2E Tests', () => {
     })
 
     it('should access achievements page', () => {
-      visitWithRetry('/es/profile/achievements')
+      visitWithRetry('/en/profile/achievements')
       acceptCookies()
 
-      // Should show achievements
+      // Should show achievements page
       cy.url().should('include', '/achievements')
-      cy.get('body', { timeout: 20000 }).should('satisfy', ($body) => {
-        const text = $body.text().toLowerCase()
-        return text.includes('logro') ||
-               text.includes('achievement') ||
-               text.includes('badge') ||
-               text.includes('trofeo')
-      })
+      cy.contains('Achievements', { timeout: 10000 }).should('be.visible')
     })
   })
 
@@ -257,25 +217,24 @@ describe('User Profile E2E Tests', () => {
     })
 
     it('should navigate between profile sections', () => {
-      visitWithRetry('/es/profile')
+      visitWithRetry('/en/profile')
       acceptCookies()
 
-      // Find and click on posts link
-      cy.get('a[href*="/profile/posts"], a[href*="/posts"]', { timeout: 20000 })
+      // Find and click on posts link (visible one, not mobile hidden)
+      cy.get('a[href*="/profile/posts"]:visible, a[href*="/posts"]:visible', { timeout: 10000 })
         .first()
-        .click()
+        .click({ force: true })
 
-      cy.url().should('satisfy', (url) => {
-        return url.includes('/posts') || url.includes('/profile')
-      })
+      // After clicking posts link, URL should include /posts
+      cy.url().should('include', '/posts')
     })
 
     it('should have consistent navigation menu', () => {
-      visitWithRetry('/es/profile')
+      visitWithRetry('/en/profile')
       acceptCookies()
 
       // Profile should have navigation links
-      cy.get('nav, aside, .sidebar, .menu', { timeout: 20000 })
+      cy.get('nav, aside, .sidebar, .menu', { timeout: 10000 })
         .find('a')
         .should('have.length.at.least', 1)
     })
@@ -288,26 +247,26 @@ describe('User Profile E2E Tests', () => {
     })
 
     it('should redirect to login when accessing profile without auth', () => {
-      visitWithRetry('/es/profile')
+      visitWithRetry('/en/profile')
 
-      // Should redirect to login
-      cy.url({ timeout: 20000 }).should('include', '/auth/login')
+      // Auth middleware redirects to login (wait for client-side redirect)
+      cy.url({ timeout: 15000 }).should('include', '/auth/login')
     })
 
     it('should redirect to login when accessing settings without auth', () => {
-      visitWithRetry('/es/profile/settings')
+      visitWithRetry('/en/profile/settings')
 
       // Should redirect to login
-      cy.url({ timeout: 20000 }).should('include', '/auth/login')
+      cy.url({ timeout: 10000 }).should('include', '/auth/login')
     })
 
     it('should allow viewing public profiles without auth', () => {
-      visitWithRetry(`/es/u/${testUser.username}`)
+      visitWithRetry(`/en/u/${testUser.username}`)
       acceptCookies()
 
       // Should show the profile (not redirect to login)
       cy.url().should('include', `/u/${testUser.username}`)
-      cy.get('body', { timeout: 20000 }).should('contain.text', testUser.username)
+      cy.get('body', { timeout: 10000 }).should('contain.text', testUser.username)
     })
   })
 })

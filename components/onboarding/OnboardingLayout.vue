@@ -17,7 +17,6 @@
 
     <div class="container mx-auto px-4 py-8">
       <div class="max-w-4xl mx-auto">
-
         <OnboardingMobileNavigation
           :current-step="currentStep"
           :progress="progress"
@@ -30,9 +29,7 @@
         />
 
         <div class="onboarding-card rounded-lg shadow-lg overflow-hidden">
-          <div
-            class="hidden md:block px-6 py-4 onboarding-header"
-          >
+          <div class="hidden md:block px-6 py-4 onboarding-header">
             <div class="flex items-center justify-between mb-4">
               <div class="flex items-center space-x-4">
                 <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
@@ -85,9 +82,7 @@
 
             <slot />
 
-            <div
-              class="flex items-center justify-between mt-8 pt-6 onboarding-footer-border"
-            >
+            <div class="flex items-center justify-between mt-8 pt-6 onboarding-footer-border">
               <button
                 v-if="!isFirstStep"
                 class="flex items-center px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -97,7 +92,7 @@
                 <Icon name="fa6-solid:arrow-left" class="mr-2" aria-hidden="true" />
                 {{ t('onboarding.previous') }}
               </button>
-              <div v-else/>
+              <div v-else />
 
               <button
                 v-if="!isLastStep"

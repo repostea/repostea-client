@@ -2,12 +2,8 @@
   <div class="container mx-auto px-4 py-8">
     <div class="flex justify-center">
       <div class="w-full max-w-md">
-        <div
-          class="card-bg rounded-lg shadow-sm border auth-border"
-        >
-          <div
-            class="auth-header px-6 py-4 border-b auth-border rounded-t-lg"
-          >
+        <div class="card-bg rounded-lg shadow-sm border auth-border">
+          <div class="auth-header px-6 py-4 border-b auth-border rounded-t-lg">
             <h2 class="text-lg font-medium">
               {{ t('auth.login') }}
             </h2>
@@ -23,35 +19,35 @@
 
             <!-- Anonymous login button (only if guest access is enabled) -->
             <ClientOnly>
-            <div v-if="guestAccessEnabled" class="mb-6">
-              <button
-                type="button"
-                class="w-full border auth-guest-btn hover:bg-primary hover:border-primary hover:text-white dark:hover:bg-primary dark:hover:border-primary dark:hover:text-white py-2 rounded-md transition-all duration-300 flex items-center justify-center"
-                :disabled="loading"
-                @click="loginGuest"
-              >
-                <LoadingSpinner
-                  v-if="guestLoading"
-                  size="sm"
-                  color="neutral"
-                  display="inline"
-                  custom-class="mr-2"
-                />
-                <Icon name="fa6-solid:user-secret" class="mr-2" aria-hidden="true" />
-                {{ t('auth.enter_as_guest') }}
-              </button>
-              <p class="mt-2 text-xs text-center text-text-muted dark:text-text-dark-muted">
-                {{ t('auth.guest_info') }}
-              </p>
-            </div>
+              <div v-if="guestAccessEnabled" class="mb-6">
+                <button
+                  type="button"
+                  class="w-full border auth-guest-btn hover:bg-primary hover:border-primary hover:text-white dark:hover:bg-primary dark:hover:border-primary dark:hover:text-white py-2 rounded-md transition-all duration-300 flex items-center justify-center"
+                  :disabled="loading"
+                  @click="loginGuest"
+                >
+                  <LoadingSpinner
+                    v-if="guestLoading"
+                    size="sm"
+                    color="neutral"
+                    display="inline"
+                    custom-class="mr-2"
+                  />
+                  <Icon name="fa6-solid:user-secret" class="mr-2" aria-hidden="true" />
+                  {{ t('auth.enter_as_guest') }}
+                </button>
+                <p class="mt-2 text-xs text-center text-text-muted dark:text-text-dark-muted">
+                  {{ t('auth.guest_info') }}
+                </p>
+              </div>
 
-            <div v-if="guestAccessEnabled" class="relative my-6 flex items-center">
-              <div class="flex-grow border-t auth-divider"/>
-              <span class="flex-shrink mx-4 text-sm text-gray-500 dark:text-gray-400">{{
-                t('auth.or')
-              }}</span>
-              <div class="flex-grow border-t auth-divider"/>
-            </div>
+              <div v-if="guestAccessEnabled" class="relative my-6 flex items-center">
+                <div class="flex-grow border-t auth-divider" />
+                <span class="flex-shrink mx-4 text-sm text-gray-500 dark:text-gray-400">{{
+                  t('auth.or')
+                }}</span>
+                <div class="flex-grow border-t auth-divider" />
+              </div>
             </ClientOnly>
 
             <form @submit.prevent="loginWithCredentials">
@@ -142,12 +138,11 @@
   import { ref, onMounted, computed } from 'vue'
   import { useRoute } from 'vue-router'
   import { useAuthStore } from '~/stores/auth'
-  import { useLocalePath, useI18n  } from '#i18n'
+  import { useLocalePath, useI18n } from '#i18n'
   import LoadingSpinner from '~/components/common/LoadingSpinner.vue'
   import { useSystemSettings } from '@/composables/useSystemSettings'
   import SocialLoginProviders from '~/components/auth/SocialLoginProviders.vue'
 
-  
   const { t } = useI18n()
 
   const route = useRoute()

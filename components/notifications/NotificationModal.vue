@@ -8,13 +8,9 @@
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <div
-        v-if="isOpen"
-        class="fixed inset-0 z-[9999] overflow-y-auto"
-        @click.self="close"
-      >
+      <div v-if="isOpen" class="fixed inset-0 z-[9999] overflow-y-auto" @click.self="close">
         <!-- Backdrop -->
-        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm"/>
+        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" />
 
         <!-- Modal Container -->
         <div class="flex min-h-full items-center justify-center p-4">
@@ -40,14 +36,23 @@
                   <div class="flex items-center gap-3">
                     <!-- Icon -->
                     <div class="flex-shrink-0">
-                      <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Icon :name="defaultIconIconify" :class="[defaultIconColor, 'text-xl']" aria-hidden="true" />
+                      <div
+                        class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center"
+                      >
+                        <Icon
+                          :name="defaultIconIconify"
+                          :class="[defaultIconColor, 'text-xl']"
+                          aria-hidden="true"
+                        />
                       </div>
                     </div>
 
                     <!-- Title & Status -->
                     <div class="flex-1">
-                      <h2 id="notification-modal-title" class="text-2xl font-bold text-text dark:text-text-dark">
+                      <h2
+                        id="notification-modal-title"
+                        class="text-2xl font-bold text-text dark:text-text-dark"
+                      >
                         {{ notification.title }}
                       </h2>
 
@@ -80,7 +85,7 @@
               <div v-if="notification.body" class="px-6 py-6">
                 <div
                   class="text-text dark:text-text-dark text-base leading-relaxed notification-body"
-                  v-html="notification.body"
+                  v-html="sanitizeHtml(notification.body)"
                 />
               </div>
 
@@ -127,11 +132,19 @@
 <script setup>
   import { ref, computed, watch, onUnmounted, defineAsyncComponent } from 'vue'
   import { useI18n } from '#i18n'
-
+  import DOMPurify from 'dompurify'
 
   const ConfirmDialog = defineAsyncComponent(() => import('~/components/common/ConfirmDialog.vue'))
 
   const { t } = useI18n()
+
+  const sanitizeHtml = (html) => {
+    if (!html) return ''
+    return DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'a', 'span'],
+      ALLOWED_ATTR: ['href', 'target', 'rel', 'class'],
+    })
+  }
   const showDeleteConfirm = ref(false)
 
   const props = defineProps({

@@ -5,22 +5,41 @@
       :to="localePath(`/posts/${postSlug || postId}`)"
       class="comments-engagement-link group block w-full py-3 mb-3 transition-all duration-200"
       :aria-label="`${commentsCount || 0} ${t('common.comments')}`"
-      :style="[commentLevelStyle, { marginLeft: '-1rem', marginRight: '-1rem', marginTop: '-0.5rem', paddingLeft: '1rem', paddingRight: '1rem', width: 'calc(100% + 2rem)' }]"
+      :style="[
+        commentLevelStyle,
+        {
+          marginLeft: '-1rem',
+          marginRight: '-1rem',
+          marginTop: '-0.5rem',
+          paddingLeft: '1rem',
+          paddingRight: '1rem',
+          width: 'calc(100% + 2rem)',
+        },
+      ]"
     >
       <div class="flex items-center gap-2 float-left">
-        <span class="comment-count text-sm" :class="{ 'realtime-update': commentsAnimating }">{{ commentsCount || 0 }}</span>
-        <span class="comment-label text-sm">{{ commentsCount === 1 ? t('common.comment') : t('common.comments') }}</span>
+        <span class="comment-count text-sm" :class="{ 'realtime-update': commentsAnimating }">{{
+          commentsCount || 0
+        }}</span>
+        <span class="comment-label text-sm">{{
+          commentsCount === 1 ? t('common.comment') : t('common.comments')
+        }}</span>
         <span v-if="newCommentsCount > 0" class="new-comments-badge text-xs font-medium">
-          {{ newCommentsCount }} {{ newCommentsCount === 1 ? t('posts.new_singular') : t('posts.new_plural') }}
+          {{ newCommentsCount }}
+          {{ newCommentsCount === 1 ? t('posts.new_singular') : t('posts.new_plural') }}
         </span>
       </div>
       <div class="flex items-center gap-2 float-right">
         <span class="cta-message text-sm font-medium">
           {{ getCommentsCTA(commentsCount) }}
         </span>
-        <Icon name="fa6-solid:arrow-right" class="text-sm opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:arrow-right"
+          class="text-sm opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+          aria-hidden="true"
+        />
       </div>
-      <div class="clear-both"/>
+      <div class="clear-both" />
     </NuxtLink>
 
     <div class="flex flex-wrap justify-between items-center text-xs gap-3 pr-0">
@@ -34,7 +53,9 @@
           >
             <Icon name="fa6-solid:clock" class="mr-1" aria-hidden="true" />
             {{ formatDate(primaryDate) }}
-            <span v-if="showPublishedIndicator" class="date-secondary ml-1">({{ t('posts.pub_short') }} {{ publishedDateFormatted }})</span>
+            <span v-if="showPublishedIndicator" class="date-secondary ml-1"
+              >({{ t('posts.pub_short') }} {{ publishedDateFormatted }})</span
+            >
           </button>
           <Teleport to="body">
             <div
@@ -47,7 +68,10 @@
                 <div class="font-medium popover-label">{{ t('posts.published_label') }}</div>
                 <div class="popover-value">{{ formatDateFull(publishedAt) }}</div>
               </div>
-              <div v-if="frontpageAt" :class="{ 'mb-2': !publishedAt && !frontpageAt && createdAt }">
+              <div
+                v-if="frontpageAt"
+                :class="{ 'mb-2': !publishedAt && !frontpageAt && createdAt }"
+              >
                 <div class="font-medium popover-label">{{ t('posts.frontpage_label') }}</div>
                 <div class="popover-value">{{ formatDateFull(frontpageAt) }}</div>
               </div>
@@ -82,7 +106,10 @@
           @updated="handleSealsUpdated"
         />
 
-        <span v-if="sourceName && isExternalImport && sourceUrl" class="flex items-center mb-1 sm:mb-0"><Icon name="fa6-solid:globe" class="mr-1" aria-hidden="true" /> {{ t('posts.seen_on') }}
+        <span
+          v-if="sourceName && isExternalImport && sourceUrl"
+          class="flex items-center mb-1 sm:mb-0"
+          ><Icon name="fa6-solid:globe" class="mr-1" aria-hidden="true" /> {{ t('posts.seen_on') }}
           <a
             :href="sourceUrl"
             target="_blank"
@@ -112,7 +139,7 @@
           :is-own-post="isOwnPost"
         />
 
-        <slot name="actions"/>
+        <slot name="actions" />
       </div>
     </div>
 
@@ -145,9 +172,7 @@
 
           <div class="space-y-4">
             <p class="text-sm modal-description">
-              {{
-                t('common.permalink_description')
-              }}
+              {{ t('common.permalink_description') }}
             </p>
 
             <div>
@@ -206,7 +231,11 @@
             <div class="flex items-start justify-between mb-5">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10">
-                  <Icon name="fa6-solid:chart-simple" class="text-lg text-primary" aria-hidden="true" />
+                  <Icon
+                    name="fa6-solid:chart-simple"
+                    class="text-lg text-primary"
+                    aria-hidden="true"
+                  />
                 </div>
                 <h3 id="views-modal-title" class="text-lg font-bold text-text dark:text-text-dark">
                   {{ t('posts.views_title') }}
@@ -224,24 +253,50 @@
             <!-- Stats Grid -->
             <div class="grid grid-cols-3 gap-3 mb-5">
               <div class="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50">
-                <div class="text-2xl font-bold text-text dark:text-text-dark tabular-nums">{{ views.toLocaleString() }}</div>
-                <div class="text-xs text-text-muted dark:text-text-dark-muted mt-1">{{ t('posts.unique_views') }}</div>
+                <div class="text-2xl font-bold text-text dark:text-text-dark tabular-nums">
+                  {{ views.toLocaleString() }}
+                </div>
+                <div class="text-xs text-text-muted dark:text-text-dark-muted mt-1">
+                  {{ t('posts.unique_views') }}
+                </div>
               </div>
               <div class="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50">
-                <div class="text-2xl font-bold text-text dark:text-text-dark tabular-nums">{{ totalViews.toLocaleString() }}</div>
-                <div class="text-xs text-text-muted dark:text-text-dark-muted mt-1">{{ t('posts.total_views') }}</div>
+                <div class="text-2xl font-bold text-text dark:text-text-dark tabular-nums">
+                  {{ totalViews.toLocaleString() }}
+                </div>
+                <div class="text-xs text-text-muted dark:text-text-dark-muted mt-1">
+                  {{ t('posts.total_views') }}
+                </div>
               </div>
               <div class="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50">
-                <div class="text-2xl font-bold text-text dark:text-text-dark tabular-nums">{{ impressions.toLocaleString() }}</div>
-                <div class="text-xs text-text-muted dark:text-text-dark-muted mt-1">{{ t('posts.impressions') }}</div>
+                <div class="text-2xl font-bold text-text dark:text-text-dark tabular-nums">
+                  {{ impressions.toLocaleString() }}
+                </div>
+                <div class="text-xs text-text-muted dark:text-text-dark-muted mt-1">
+                  {{ t('posts.impressions') }}
+                </div>
               </div>
             </div>
 
             <!-- Info -->
-            <div class="text-xs text-text-muted dark:text-text-dark-muted space-y-1.5 border-t border-gray-200 dark:border-gray-700 pt-4">
-              <p><Icon name="fa6-solid:user" class="inline mr-1.5" aria-hidden="true" />{{ t('posts.views_logged_info') }}</p>
-              <p><Icon name="fa6-solid:eye" class="inline mr-1.5" aria-hidden="true" />{{ t('posts.total_views_info') }}</p>
-              <p><Icon name="fa6-solid:list" class="inline mr-1.5" aria-hidden="true" />{{ t('posts.impressions_info') }}</p>
+            <div
+              class="text-xs text-text-muted dark:text-text-dark-muted space-y-1.5 border-t border-gray-200 dark:border-gray-700 pt-4"
+            >
+              <p>
+                <Icon name="fa6-solid:user" class="inline mr-1.5" aria-hidden="true" />{{
+                  t('posts.views_logged_info')
+                }}
+              </p>
+              <p>
+                <Icon name="fa6-solid:eye" class="inline mr-1.5" aria-hidden="true" />{{
+                  t('posts.total_views_info')
+                }}
+              </p>
+              <p>
+                <Icon name="fa6-solid:list" class="inline mr-1.5" aria-hidden="true" />{{
+                  t('posts.impressions_info')
+                }}
+              </p>
             </div>
 
             <!-- Close Button -->
@@ -260,7 +315,7 @@
 
 <script setup>
   import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
-  import { useLocalePath, useI18n  } from '#i18n'
+  import { useLocalePath, useI18n } from '#i18n'
 
   import ReportButton from '~/components/posts/ReportButton.vue'
   import FooterButton from '~/components/posts/postCard/FooterButton.vue'
@@ -372,7 +427,7 @@
         likes_count: 0,
         shares_count: 0,
         replies_count: 0,
-        has_engagement: false
+        has_engagement: false,
       }),
     },
   })
@@ -391,30 +446,30 @@
     if (count === 0) {
       return {
         '--comment-bg': 'rgba(16, 185, 129, 0.1)',
-        '--comment-text': 'var(--color-engagement-cold-strong)'
+        '--comment-text': 'var(--color-engagement-cold-strong)',
       }
     } else if (count <= 15) {
-      const intensity = 0.05 + (count / 15) * 0.10
+      const intensity = 0.05 + (count / 15) * 0.1
       return {
         '--comment-bg': `rgba(var(--color-primary-rgb), ${intensity})`,
-        '--comment-text': 'var(--color-primary-dark)'
+        '--comment-text': 'var(--color-primary-dark)',
       }
     } else if (count <= 60) {
-      const intensity = 0.10 + ((count - 15) / 45) * 0.10
+      const intensity = 0.1 + ((count - 15) / 45) * 0.1
       return {
         '--comment-bg': `rgba(251, 146, 60, ${intensity})`,
-        '--comment-text': 'var(--color-engagement-hot-strong)'
+        '--comment-text': 'var(--color-engagement-hot-strong)',
       }
     } else if (count <= 200) {
-      const intensity = 0.12 + ((count - 60) / 140) * 0.10
+      const intensity = 0.12 + ((count - 60) / 140) * 0.1
       return {
         '--comment-bg': `rgba(239, 68, 68, ${intensity})`,
-        '--comment-text': 'var(--color-engagement-hot-strong)'
+        '--comment-text': 'var(--color-engagement-hot-strong)',
       }
     } else {
       return {
         '--comment-bg': 'rgba(234, 179, 8, 0.25)',
-        '--comment-text': 'var(--color-engagement-hot-strong)'
+        '--comment-text': 'var(--color-engagement-hot-strong)',
       }
     }
   })
@@ -433,7 +488,7 @@
 
   const popoverStyle = computed(() => ({
     top: `${popoverPosition.value.top}px`,
-    left: `${popoverPosition.value.left}px`
+    left: `${popoverPosition.value.left}px`,
   }))
 
   function toggleDatePopover() {
@@ -441,7 +496,7 @@
       const rect = dateButtonRef.value.getBoundingClientRect()
       popoverPosition.value = {
         top: rect.bottom + 4,
-        left: rect.left
+        left: rect.left,
       }
     }
     showDatePopover.value = !showDatePopover.value
@@ -540,18 +595,17 @@
       year: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
-      hour12: false
+      hour12: false,
     })
   }
 
   // Smart date display computed properties - used in template
-   
+
   const primaryDate = computed(() => {
     if (props.frontpageAt) return props.frontpageAt
     return props.publishedAt || props.createdAt
   })
 
-   
   const showPublishedIndicator = computed(() => {
     if (!props.frontpageAt || !props.publishedAt) return false
     const frontpage = new Date(props.frontpageAt)
@@ -560,7 +614,6 @@
     return diffHours > 24
   })
 
-   
   const publishedDateFormatted = computed(() => {
     if (!props.publishedAt) return ''
     return formatDate(props.publishedAt)
@@ -714,7 +767,6 @@
     width: 0.875rem;
     height: 0.875rem;
   }
-
 
   /* Comments engagement link styling - dynamic background via JS */
   .comments-engagement-link {

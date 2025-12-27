@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="user-stats-card card-bg rounded-lg shadow-sm overflow-hidden mb-6"
-  >
+  <div class="user-stats-card card-bg rounded-lg shadow-sm overflow-hidden mb-6">
     <div class="p-4">
       <!-- Current Level - Highlighted -->
       <div class="user-stats-header mb-4 text-center pb-4">
@@ -15,7 +13,8 @@
         </ClientOnly>
         <ClientOnly fallback-tag="p" fallback="...">
           <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            {{ karma.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }) }} {{ t('profile.karma_points') }}
+            {{ karma.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }) }}
+            {{ t('profile.karma_points') }}
           </p>
         </ClientOnly>
       </div>
@@ -38,7 +37,10 @@
             />
           </div>
           <div class="text-center text-xs text-gray-500 dark:text-gray-400">
-            <span>{{ karma.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }) }} / {{ nextLevelPoints.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }) }}</span>
+            <span
+              >{{ karma.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }) }} /
+              {{ nextLevelPoints.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }) }}</span
+            >
           </div>
         </div>
         <div v-else-if="!hasKarmaForLevel" class="text-center py-3">
@@ -49,7 +51,8 @@
             {{ t('profile.recover_karma_for_next_level') }}
           </p>
           <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">
-            {{ level.min?.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }) }} {{ t('profile.karma_needed') }}
+            {{ level.min?.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }) }}
+            {{ t('profile.karma_needed') }}
           </p>
         </div>
         <div v-else class="text-center py-2">

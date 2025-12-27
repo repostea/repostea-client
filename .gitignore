@@ -65,3 +65,7 @@ C\:\\*
 /plugins-ext/*
 !/plugins-ext/.gitkeep
 !/plugins-ext/manifest.json
+
+# Deploy scripts (kept in parent repo, not published)
+deploy-*.sh
+build-and-deploy.sh

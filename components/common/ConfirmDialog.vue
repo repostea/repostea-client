@@ -8,13 +8,9 @@
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <div
-        v-if="isOpen"
-        class="fixed inset-0 z-[9999] overflow-y-auto"
-        @click.self="cancel"
-      >
+      <div v-if="isOpen" class="fixed inset-0 z-[9999] overflow-y-auto" @click.self="cancel">
         <!-- Backdrop -->
-        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm"/>
+        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" />
 
         <!-- Modal Container -->
         <div class="flex min-h-full items-center justify-center p-4">
@@ -40,7 +36,11 @@
                       class="w-12 h-12 rounded-full flex items-center justify-center"
                       :class="iconBackgroundClass"
                     >
-                      <Icon :name="iconName" :class="iconColorClass + ' text-xl'" aria-hidden="true" />
+                      <Icon
+                        :name="iconName"
+                        :class="iconColorClass + ' text-xl'"
+                        aria-hidden="true"
+                      />
                     </div>
                   </div>
 

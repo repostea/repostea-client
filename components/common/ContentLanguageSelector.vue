@@ -8,7 +8,7 @@
         aria-haspopup="dialog"
         :class="{
           active: showDropdown,
-          'no-filter-highlight': !selectedLanguages || selectedLanguages.length === 0
+          'no-filter-highlight': !selectedLanguages || selectedLanguages.length === 0,
         }"
         @click="toggleDropdown"
       >
@@ -61,7 +61,11 @@
               <div class="modal-section px-6 py-4">
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Icon name="fa6-solid:magnifying-glass" style="color: var(--color-text-muted)" aria-hidden="true" />
+                    <Icon
+                      name="fa6-solid:magnifying-glass"
+                      style="color: var(--color-text-muted)"
+                      aria-hidden="true"
+                    />
                   </div>
                   <input
                     v-model="searchQuery"
@@ -75,29 +79,39 @@
 
               <!-- Languages List -->
               <div class="px-6 py-4">
-        <div
-          v-for="locale in filteredAndSortedLocales"
-          :key="locale.code"
-          class="language-item flex items-center px-4 py-2 text-sm"
-        >
-          <input
-            :id="`lang-${locale.code}`"
-            v-model="selectedLanguages"
-            type="checkbox"
-            :value="locale.code"
-            class="w-6 h-6 mr-2 rounded text-primary focus:ring-primary"
-            @change="clearSearchOnSelect"
-          >
-          <label :for="`lang-${locale.code}`" class="flex items-center cursor-pointer flex-1">
-            <span class="inline-block w-6 mr-2">{{ locale.flag }}</span>
-            <span class="inline-block w-8 font-semibold">{{ locale.code.toUpperCase() }}</span>
-            <span class="ml-1">{{ locale.native }}</span>
-          </label>
-        </div>
+                <div
+                  v-for="locale in filteredAndSortedLocales"
+                  :key="locale.code"
+                  class="language-item flex items-center px-4 py-2 text-sm"
+                >
+                  <input
+                    :id="`lang-${locale.code}`"
+                    v-model="selectedLanguages"
+                    type="checkbox"
+                    :value="locale.code"
+                    class="w-6 h-6 mr-2 rounded text-primary focus:ring-primary"
+                    @change="clearSearchOnSelect"
+                  >
+                  <label
+                    :for="`lang-${locale.code}`"
+                    class="flex items-center cursor-pointer flex-1"
+                  >
+                    <span class="inline-block w-6 mr-2">{{ locale.flag }}</span>
+                    <span class="inline-block w-8 font-semibold">{{
+                      locale.code.toUpperCase()
+                    }}</span>
+                    <span class="ml-1">{{ locale.native }}</span>
+                  </label>
+                </div>
 
                 <!-- Empty state -->
                 <div v-if="filteredAndSortedLocales.length === 0" class="py-12 text-center">
-                  <Icon name="fa6-solid:magnifying-glass" style="color: var(--color-text-muted)" class="text-3xl mb-3" aria-hidden="true" />
+                  <Icon
+                    name="fa6-solid:magnifying-glass"
+                    style="color: var(--color-text-muted)"
+                    class="text-3xl mb-3"
+                    aria-hidden="true"
+                  />
                   <p class="text-sm" style="color: var(--color-text-secondary)">
                     {{ t('submit.form.no_language_found') }}
                   </p>
@@ -118,7 +132,12 @@
                 :disabled="isApplying"
                 @click="applyLanguages"
               >
-                <Icon v-if="isApplying" name="fa6-solid:spinner" class="mr-2 animate-spin" aria-hidden="true" />
+                <Icon
+                  v-if="isApplying"
+                  name="fa6-solid:spinner"
+                  class="mr-2 animate-spin"
+                  aria-hidden="true"
+                />
                 {{ isApplying ? t('common.applying') : t('common.apply') }}
               </button>
             </div>
@@ -150,7 +169,7 @@
     set: (value) => {
       // Update store directly - it will handle cookie and database
       userPrefsStore.selectedLanguages = value
-    }
+    },
   })
 
   // Initialize event listeners
@@ -215,7 +234,7 @@
     // Apply search filter if there's a search query
     if (searchQuery.value) {
       const query = searchQuery.value.toLowerCase()
-      locales = locales.filter(locale => {
+      locales = locales.filter((locale) => {
         return (
           locale.name.toLowerCase().includes(query) ||
           locale.native.toLowerCase().includes(query) ||
@@ -252,7 +271,7 @@
     // Show language names for 2-3 languages, otherwise show count
     if (selectedLanguages.value.length <= 3) {
       const languageNames = selectedLanguages.value
-        .map(code => {
+        .map((code) => {
           const lang = availableLocales.value.find((l) => l.code === code)
           return lang ? lang.native : code.toUpperCase()
         })
@@ -358,7 +377,9 @@
 
   .modal-enter-active .modal-content,
   .modal-leave-active .modal-content {
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
   }
 
   .modal-enter-from,
@@ -381,7 +402,8 @@
   }
 
   @keyframes pulse-subtle {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
     }
     50% {

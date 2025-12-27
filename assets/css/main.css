@@ -11,7 +11,15 @@
 
   body {
     @apply bg-page dark:bg-page-dark text-text dark:text-text-dark;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      sans-serif;
     line-height: 1.6;
   }
 
@@ -277,7 +285,6 @@
     opacity: 0;
   }
 
-
   @media (max-width: 768px) {
     .menu-button {
       margin-right: 0 !important;
@@ -453,7 +460,9 @@ footer .opacity-80 {
 
 .nsfw-blur-wrapper img {
   filter: blur(30px);
-  transition: filter 0.3s ease, opacity 0.3s ease;
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .nsfw-overlay {

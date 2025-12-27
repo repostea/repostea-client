@@ -4,7 +4,11 @@
     class="bg-gradient-to-br from-primary/8 to-primary/12 dark:from-primary/15 dark:to-primary/20 border border-primary/30 dark:border-primary/40 rounded-lg p-3 shadow-sm"
   >
     <div class="flex items-start gap-2">
-      <Icon name="fa6-solid:pen-fancy" class="text-primary text-sm flex-shrink-0 mt-0.5" aria-hidden="true" />
+      <Icon
+        name="fa6-solid:pen-fancy"
+        class="text-primary text-sm flex-shrink-0 mt-0.5"
+        aria-hidden="true"
+      />
       <div class="flex-grow min-w-0">
         <p class="text-xs text-text dark:text-text-dark leading-tight mb-2 font-medium">
           {{ t('auth.share_your_story_cta') }}
@@ -23,8 +27,7 @@
 
 <script setup>
   import { useAuthStore } from '~/stores/auth'
-  import { useLocalePath, useI18n  } from '#i18n'
-  
+  import { useLocalePath, useI18n } from '#i18n'
 
   const authStore = useAuthStore()
   const localePath = useLocalePath()

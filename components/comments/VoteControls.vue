@@ -5,7 +5,11 @@
       <div class="vote-inline flex items-center gap-0.5">
         <button
           class="vote-inline-btn p-1 rounded transition-colors touch-manipulation"
-          :class="localUserVote > 0 ? 'text-green-500 dark:text-green-400' : 'text-text-muted dark:text-text-dark-muted hover:text-green-500'"
+          :class="
+            localUserVote > 0
+              ? 'text-green-500 dark:text-green-400'
+              : 'text-text-muted dark:text-text-dark-muted hover:text-green-500'
+          "
           :title="t('vote.upvote')"
           :aria-label="t('vote.upvote')"
           @click="handleVoteButtonClick(1)"
@@ -25,7 +29,11 @@
         </span>
         <button
           class="vote-inline-btn p-1 rounded transition-colors touch-manipulation"
-          :class="localUserVote < 0 ? 'text-red-500 dark:text-red-400' : 'text-text-muted dark:text-text-dark-muted hover:text-red-500'"
+          :class="
+            localUserVote < 0
+              ? 'text-red-500 dark:text-red-400'
+              : 'text-text-muted dark:text-text-dark-muted hover:text-red-500'
+          "
           :title="t('vote.downvote')"
           :aria-label="t('vote.downvote')"
           @click="handleVoteButtonClick(-1)"
@@ -53,13 +61,17 @@
               <span class="font-semibold">{{ count }}</span>
             </div>
           </div>
-          <span class="vote-bar-divider w-px h-4 bg-gray-300 dark:bg-gray-600 mx-0.5"/>
+          <span class="vote-bar-divider w-px h-4 bg-gray-300 dark:bg-gray-600 mx-0.5" />
         </template>
 
         <!-- Vote buttons -->
         <button
           class="vote-bar-btn p-1.5 rounded-full transition-colors touch-manipulation"
-          :class="localUserVote > 0 ? 'text-green-500 dark:text-green-400 bg-green-500/10' : 'text-text-muted dark:text-text-dark-muted hover:text-green-500 hover:bg-green-500/10'"
+          :class="
+            localUserVote > 0
+              ? 'text-green-500 dark:text-green-400 bg-green-500/10'
+              : 'text-text-muted dark:text-text-dark-muted hover:text-green-500 hover:bg-green-500/10'
+          "
           :title="t('vote.upvote')"
           :aria-label="t('vote.upvote')"
           @click="handleVoteButtonClick(1)"
@@ -79,7 +91,11 @@
         </span>
         <button
           class="vote-bar-btn p-1.5 rounded-full transition-colors touch-manipulation"
-          :class="localUserVote < 0 ? 'text-red-500 dark:text-red-400 bg-red-500/10' : 'text-text-muted dark:text-text-dark-muted hover:text-red-500 hover:bg-red-500/10'"
+          :class="
+            localUserVote < 0
+              ? 'text-red-500 dark:text-red-400 bg-red-500/10'
+              : 'text-text-muted dark:text-text-dark-muted hover:text-red-500 hover:bg-red-500/10'
+          "
           :title="t('vote.downvote')"
           :aria-label="t('vote.downvote')"
           @click="handleVoteButtonClick(-1)"
@@ -89,7 +105,7 @@
 
         <!-- Negative vote type chips (right side) -->
         <template v-if="hasNegativeVoteTypes">
-          <span class="vote-bar-divider w-px h-4 bg-gray-300 dark:bg-gray-600 mx-0.5"/>
+          <span class="vote-bar-divider w-px h-4 bg-gray-300 dark:bg-gray-600 mx-0.5" />
           <div class="vote-bar-chips flex items-center gap-0.5">
             <div
               v-for="(count, type) in negativeVoteTypesFiltered"
@@ -118,8 +134,7 @@
           :class="[
             {
               'text-green-500 dark:text-green-400': localUserVote > 0,
-              'vote-btn-inactive':
-                localUserVote <= 0,
+              'vote-btn-inactive': localUserVote <= 0,
             },
             isMobile ? 'w-11 h-11' : 'w-[22px] h-[22px]',
           ]"
@@ -156,8 +171,7 @@
           :class="[
             {
               'text-red-500 dark:text-red-400': localUserVote < 0,
-              'vote-btn-inactive':
-                localUserVote >= 0,
+              'vote-btn-inactive': localUserVote >= 0,
             },
             isMobile ? 'w-11 h-11' : 'w-[22px] h-[22px]',
           ]"
@@ -171,7 +185,10 @@
     </template>
 
     <!-- Vote type indicator (shown for all variants when user has voted) -->
-    <div v-if="localUserVote !== null && localUserVoteType && variant === 'default'" class="vote-type-indicator ml-2">
+    <div
+      v-if="localUserVote !== null && localUserVoteType && variant === 'default'"
+      class="vote-type-indicator ml-2"
+    >
       <span
         class="text-xs px-2 py-0.5 rounded-full flex items-center gap-1 inline-flex shadow-sm"
         :class="getVoteTypeClass(localUserVote, localUserVoteType)"
@@ -197,9 +214,7 @@
           ]"
           @click.stop
         >
-          <div
-            class="flex justify-between items-center mb-3 border-b vote-border pb-2"
-          >
+          <div class="flex justify-between items-center mb-3 border-b vote-border pb-2">
             <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
               {{ voteDirection > 0 ? t('vote.positive_vote') : t('vote.negative_vote') }}
             </h3>
@@ -235,7 +250,11 @@
               ]"
               @click="vote(1, type.value)"
             >
-              <Icon :name="type.icon" :class="[type.color, isMobile ? 'text-lg' : 'text-xl']" aria-hidden="true" />
+              <Icon
+                :name="type.icon"
+                :class="[type.color, isMobile ? 'text-lg' : 'text-xl']"
+                aria-hidden="true"
+              />
               <span :class="isMobile ? 'text-base font-medium' : 'text-sm'">{{
                 t(`vote.types.${type.value}`)
               }}</span>
@@ -260,7 +279,11 @@
               ]"
               @click="vote(-1, type.value)"
             >
-              <Icon :name="type.icon" :class="[type.color, isMobile ? 'text-lg' : 'text-xl']" aria-hidden="true" />
+              <Icon
+                :name="type.icon"
+                :class="[type.color, isMobile ? 'text-lg' : 'text-xl']"
+                aria-hidden="true"
+              />
               <span :class="isMobile ? 'text-base font-medium' : 'text-sm'">{{
                 t(`vote.types.${type.value}`)
               }}</span>
@@ -295,7 +318,7 @@
   import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
   import { useAuthStore } from '~/stores/auth'
   import { useCommentsStore } from '~/stores/comments'
-  import { useI18n  } from '#i18n'
+  import { useI18n } from '#i18n'
 
   import { useNotification } from '~/composables/useNotification'
   import { useMobileDetection } from '~/composables/useMobileDetection'
@@ -407,20 +430,59 @@
   })
 
   // Check if there are any positive/negative vote types
-  const hasPositiveVoteTypes = computed(() => Object.keys(positiveVoteTypesFiltered.value).length > 0)
-  const hasNegativeVoteTypes = computed(() => Object.keys(negativeVoteTypesFiltered.value).length > 0)
+  const hasPositiveVoteTypes = computed(
+    () => Object.keys(positiveVoteTypesFiltered.value).length > 0
+  )
+  const hasNegativeVoteTypes = computed(
+    () => Object.keys(negativeVoteTypesFiltered.value).length > 0
+  )
 
   const positiveVoteTypes = [
-    { value: 'didactic', icon: 'fa6-solid:graduation-cap', color: 'text-yellow-400', description: 'Educativo' },
-    { value: 'interesting', icon: 'fa6-solid:brain', color: 'text-purple-400', description: 'Interesante' },
-    { value: 'elaborate', icon: 'fa6-solid:book', color: 'text-blue-400', description: 'Detallado' },
-    { value: 'funny', icon: 'fa6-solid:face-laugh', color: 'text-green-400', description: 'Divertido' },
+    {
+      value: 'didactic',
+      icon: 'fa6-solid:graduation-cap',
+      color: 'text-yellow-400',
+      description: 'Educativo',
+    },
+    {
+      value: 'interesting',
+      icon: 'fa6-solid:brain',
+      color: 'text-purple-400',
+      description: 'Interesante',
+    },
+    {
+      value: 'elaborate',
+      icon: 'fa6-solid:book',
+      color: 'text-blue-400',
+      description: 'Detallado',
+    },
+    {
+      value: 'funny',
+      icon: 'fa6-solid:face-laugh',
+      color: 'text-green-400',
+      description: 'Divertido',
+    },
   ]
 
   const negativeVoteTypes = [
-    { value: 'incomplete', icon: 'fa6-solid:scissors', color: 'text-orange-400', description: 'Incompleto' },
-    { value: 'irrelevant', icon: 'fa6-solid:ban', color: 'text-gray-400', description: 'Irrelevante' },
-    { value: 'false', icon: 'fa6-solid:circle-xmark', color: 'text-red-400', description: 'Incorrecto' },
+    {
+      value: 'incomplete',
+      icon: 'fa6-solid:scissors',
+      color: 'text-orange-400',
+      description: 'Incompleto',
+    },
+    {
+      value: 'irrelevant',
+      icon: 'fa6-solid:ban',
+      color: 'text-gray-400',
+      description: 'Irrelevante',
+    },
+    {
+      value: 'false',
+      icon: 'fa6-solid:circle-xmark',
+      color: 'text-red-400',
+      description: 'Incorrecto',
+    },
     {
       value: 'outofplace',
       icon: 'fa6-solid:arrow-up-right-from-square',
@@ -894,7 +956,10 @@
     overflow: hidden;
     white-space: nowrap;
     opacity: 0;
-    transition: max-width 0.2s ease, opacity 0.15s ease, margin 0.2s ease;
+    transition:
+      max-width 0.2s ease,
+      opacity 0.15s ease,
+      margin 0.2s ease;
     margin-left: 0;
     margin-right: 0;
   }

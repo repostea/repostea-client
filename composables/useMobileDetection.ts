@@ -89,7 +89,9 @@ export const useMobileDetection = (options: MobileDetectionOptions = {}) => {
     if (!import.meta.client) return false
 
     return (
-      'ontouchstart' in window || navigator.maxTouchPoints > 0 || (navigator as Navigator & { msMaxTouchPoints?: number }).msMaxTouchPoints! > 0
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      (navigator as Navigator & { msMaxTouchPoints?: number }).msMaxTouchPoints! > 0
     )
   }
 
@@ -164,25 +166,23 @@ export const useMobileDetection = (options: MobileDetectionOptions = {}) => {
 
     resizeTimeout = setTimeout(() => {
       updateScreenWidth()
-    }, 100) // Debounce resize events
+    }, 100)
   }
 
-  // Lifecycle
+  const handleOrientationChange = () => {
+    setTimeout(updateScreenWidth, 500)
+  }
+
   onMounted(() => {
     if (import.meta.client) {
-      // Initial detection
       updateScreenWidth()
       isTouchDevice.value = detectTouchDevice()
       isMobileUserAgent.value = detectMobileUserAgent()
 
-      // Add resize listener
       window.addEventListener('resize', handleResize)
 
-      // Add orientation change listener for mobile devices
       if ('orientation' in window) {
-        window.addEventListener('orientationchange', () => {
-          setTimeout(updateScreenWidth, 500) // Delay to ensure orientation change is complete
-        })
+        window.addEventListener('orientationchange', handleOrientationChange)
       }
     }
   })
@@ -192,7 +192,7 @@ export const useMobileDetection = (options: MobileDetectionOptions = {}) => {
       window.removeEventListener('resize', handleResize)
 
       if ('orientation' in window) {
-        window.removeEventListener('orientationchange', updateScreenWidth)
+        window.removeEventListener('orientationchange', handleOrientationChange)
       }
 
       if (resizeTimeout) {

@@ -50,151 +50,195 @@
           role="menu"
           aria-orientation="vertical"
         >
-        <!-- Header -->
-        <div class="notification-header px-4 py-3 flex items-center justify-between">
-          <h3 class="font-semibold text-text dark:text-text-dark">
-            {{ $t('notifications.notifications') }}
-          </h3>
-          <SnoozeButton />
-        </div>
-
-        <!-- Push Subscription Banner -->
-        <PushSubscriptionBanner />
-
-        <!-- Notification Summary -->
-        <div class="notification-summary">
-          <!-- Loading State -->
-          <div v-if="loadingSummary" class="px-4 py-8 text-center flex flex-col items-center">
-            <Icon name="fa6-solid:spinner" class="text-2xl text-primary mb-2 animate-spin" aria-hidden="true" />
-            <p class="text-sm text-text-muted dark:text-text-dark-muted">
-              {{ $t('common.loading') }}
-            </p>
+          <!-- Header -->
+          <div class="notification-header px-4 py-3 flex items-center justify-between">
+            <h3 class="font-semibold text-text dark:text-text-dark">
+              {{ $t('notifications.notifications') }}
+            </h3>
+            <SnoozeButton />
           </div>
 
-          <!-- Summary Cards (always shown when not loading) -->
-          <div v-else>
-            <!-- Post Comments -->
-            <NuxtLink
-              :to="localePath('/profile/notifications/posts')"
-              class="block px-4 py-3 notification-item-hover transition-colors"
-              @click="closeDropdown"
-            >
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                  <Icon name="fa6-solid:comment" class="text-blue-500 text-lg" aria-hidden="true" />
-                  <div>
-                    <div class="text-sm font-medium text-text dark:text-text-dark">
-                      {{ $t('notifications.post_comments') }}
-                    </div>
-                    <div class="text-xs text-text-muted dark:text-text-dark-muted">
-                      <span v-if="summary.posts?.new > 0">{{ summary.posts.new }} {{ $t('notifications.new') }}</span>
-                      <span v-else-if="summary.posts?.unread > 0">{{ summary.posts.unread }} {{ $t('notifications.unread').toLowerCase() }}</span>
-                      <span v-else>{{ $t('notifications.no_new') }}</span>
-                    </div>
-                  </div>
-                </div>
-                <span v-if="summary.posts?.new > 0" class="px-2 py-1 text-xs font-semibold bg-red-500 text-white rounded-full">
-                  {{ summary.posts.new }}
-                </span>
-              </div>
-            </NuxtLink>
+          <!-- Push Subscription Banner -->
+          <PushSubscriptionBanner />
 
-            <!-- Comment Replies -->
-            <NuxtLink
-              :to="localePath('/profile/notifications/comments')"
-              class="block px-4 py-3 notification-item-hover transition-colors"
-              @click="closeDropdown"
-            >
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                  <Icon name="fa6-solid:reply" class="text-blue-500 text-lg" aria-hidden="true" />
-                  <div>
-                    <div class="text-sm font-medium text-text dark:text-text-dark">
-                      {{ $t('notifications.comment_replies') }}
-                    </div>
-                    <div class="text-xs text-text-muted dark:text-text-dark-muted">
-                      <span v-if="summary.comments?.new > 0">{{ summary.comments.new }} {{ $t('notifications.new') }}</span>
-                      <span v-else-if="summary.comments?.unread > 0">{{ summary.comments.unread }} {{ $t('notifications.unread').toLowerCase() }}</span>
-                      <span v-else>{{ $t('notifications.no_new') }}</span>
-                    </div>
-                  </div>
-                </div>
-                <span v-if="summary.comments?.new > 0" class="px-2 py-1 text-xs font-semibold bg-red-500 text-white rounded-full">
-                  {{ summary.comments.new }}
-                </span>
-              </div>
-            </NuxtLink>
+          <!-- Notification Summary -->
+          <div class="notification-summary">
+            <!-- Loading State -->
+            <div v-if="loadingSummary" class="px-4 py-8 text-center flex flex-col items-center">
+              <Icon
+                name="fa6-solid:spinner"
+                class="text-2xl text-primary mb-2 animate-spin"
+                aria-hidden="true"
+              />
+              <p class="text-sm text-text-muted dark:text-text-dark-muted">
+                {{ $t('common.loading') }}
+              </p>
+            </div>
 
-            <!-- Mentions -->
-            <NuxtLink
-              :to="localePath('/profile/notifications/mentions')"
-              class="block px-4 py-3 notification-item-hover transition-colors"
-              @click="closeDropdown"
-            >
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                  <Icon name="fa6-solid:at" class="text-purple-500 text-lg" aria-hidden="true" />
-                  <div>
-                    <div class="text-sm font-medium text-text dark:text-text-dark">
-                      {{ $t('notifications.mentions') }}
-                    </div>
-                    <div class="text-xs text-text-muted dark:text-text-dark-muted">
-                      <span v-if="summary.mentions?.new > 0">{{ summary.mentions.new }} {{ $t('notifications.new') }}</span>
-                      <span v-else-if="summary.mentions?.unread > 0">{{ summary.mentions.unread }} {{ $t('notifications.unread').toLowerCase() }}</span>
-                      <span v-else>{{ $t('notifications.no_new') }}</span>
+            <!-- Summary Cards (always shown when not loading) -->
+            <div v-else>
+              <!-- Post Comments -->
+              <NuxtLink
+                :to="localePath('/profile/notifications/posts')"
+                class="block px-4 py-3 notification-item-hover transition-colors"
+                @click="closeDropdown"
+              >
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <Icon
+                      name="fa6-solid:comment"
+                      class="text-blue-500 text-lg"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <div class="text-sm font-medium text-text dark:text-text-dark">
+                        {{ $t('notifications.post_comments') }}
+                      </div>
+                      <div class="text-xs text-text-muted dark:text-text-dark-muted">
+                        <span v-if="summary.posts?.new > 0"
+                          >{{ summary.posts.new }} {{ $t('notifications.new') }}</span
+                        >
+                        <span v-else-if="summary.posts?.unread > 0"
+                          >{{ summary.posts.unread }}
+                          {{ $t('notifications.unread').toLowerCase() }}</span
+                        >
+                        <span v-else>{{ $t('notifications.no_new') }}</span>
+                      </div>
                     </div>
                   </div>
+                  <span
+                    v-if="summary.posts?.new > 0"
+                    class="px-2 py-1 text-xs font-semibold bg-red-500 text-white rounded-full"
+                  >
+                    {{ summary.posts.new }}
+                  </span>
                 </div>
-                <span v-if="summary.mentions?.new > 0" class="px-2 py-1 text-xs font-semibold bg-red-500 text-white rounded-full">
-                  {{ summary.mentions.new }}
-                </span>
-              </div>
-            </NuxtLink>
+              </NuxtLink>
 
-            <!-- Achievements (sin punto rojo) -->
-            <NuxtLink
-              :to="localePath('/profile/notifications/achievements')"
-              class="block px-4 py-3 notification-item-hover transition-colors"
-              @click="closeDropdown"
-            >
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                  <Icon name="fa6-solid:trophy" class="text-yellow-500 text-lg" aria-hidden="true" />
-                  <div>
-                    <div class="text-sm font-medium text-text dark:text-text-dark">
-                      {{ $t('notifications.achievements_and_karma') }}
-                    </div>
-                    <div class="text-xs text-text-muted dark:text-text-dark-muted">
-                      <span v-if="summary.achievements?.new > 0">{{ summary.achievements.new }} {{ $t('notifications.new') }}</span>
-                      <span v-else-if="summary.achievements?.unread > 0">{{ summary.achievements.unread }} {{ $t('notifications.unread').toLowerCase() }}</span>
-                      <span v-else>{{ $t('notifications.no_new') }}</span>
+              <!-- Comment Replies -->
+              <NuxtLink
+                :to="localePath('/profile/notifications/comments')"
+                class="block px-4 py-3 notification-item-hover transition-colors"
+                @click="closeDropdown"
+              >
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <Icon name="fa6-solid:reply" class="text-blue-500 text-lg" aria-hidden="true" />
+                    <div>
+                      <div class="text-sm font-medium text-text dark:text-text-dark">
+                        {{ $t('notifications.comment_replies') }}
+                      </div>
+                      <div class="text-xs text-text-muted dark:text-text-dark-muted">
+                        <span v-if="summary.comments?.new > 0"
+                          >{{ summary.comments.new }} {{ $t('notifications.new') }}</span
+                        >
+                        <span v-else-if="summary.comments?.unread > 0"
+                          >{{ summary.comments.unread }}
+                          {{ $t('notifications.unread').toLowerCase() }}</span
+                        >
+                        <span v-else>{{ $t('notifications.no_new') }}</span>
+                      </div>
                     </div>
                   </div>
+                  <span
+                    v-if="summary.comments?.new > 0"
+                    class="px-2 py-1 text-xs font-semibold bg-red-500 text-white rounded-full"
+                  >
+                    {{ summary.comments.new }}
+                  </span>
                 </div>
-                <span v-if="summary.achievements?.new > 0" class="px-2 py-1 text-xs font-semibold bg-red-500 text-white rounded-full">
-                  {{ summary.achievements.new }}
-                </span>
-              </div>
-            </NuxtLink>
+              </NuxtLink>
+
+              <!-- Mentions -->
+              <NuxtLink
+                :to="localePath('/profile/notifications/mentions')"
+                class="block px-4 py-3 notification-item-hover transition-colors"
+                @click="closeDropdown"
+              >
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <Icon name="fa6-solid:at" class="text-purple-500 text-lg" aria-hidden="true" />
+                    <div>
+                      <div class="text-sm font-medium text-text dark:text-text-dark">
+                        {{ $t('notifications.mentions') }}
+                      </div>
+                      <div class="text-xs text-text-muted dark:text-text-dark-muted">
+                        <span v-if="summary.mentions?.new > 0"
+                          >{{ summary.mentions.new }} {{ $t('notifications.new') }}</span
+                        >
+                        <span v-else-if="summary.mentions?.unread > 0"
+                          >{{ summary.mentions.unread }}
+                          {{ $t('notifications.unread').toLowerCase() }}</span
+                        >
+                        <span v-else>{{ $t('notifications.no_new') }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    v-if="summary.mentions?.new > 0"
+                    class="px-2 py-1 text-xs font-semibold bg-red-500 text-white rounded-full"
+                  >
+                    {{ summary.mentions.new }}
+                  </span>
+                </div>
+              </NuxtLink>
+
+              <!-- Achievements (sin punto rojo) -->
+              <NuxtLink
+                :to="localePath('/profile/notifications/achievements')"
+                class="block px-4 py-3 notification-item-hover transition-colors"
+                @click="closeDropdown"
+              >
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <Icon
+                      name="fa6-solid:trophy"
+                      class="text-yellow-500 text-lg"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <div class="text-sm font-medium text-text dark:text-text-dark">
+                        {{ $t('notifications.achievements_and_karma') }}
+                      </div>
+                      <div class="text-xs text-text-muted dark:text-text-dark-muted">
+                        <span v-if="summary.achievements?.new > 0"
+                          >{{ summary.achievements.new }} {{ $t('notifications.new') }}</span
+                        >
+                        <span v-else-if="summary.achievements?.unread > 0"
+                          >{{ summary.achievements.unread }}
+                          {{ $t('notifications.unread').toLowerCase() }}</span
+                        >
+                        <span v-else>{{ $t('notifications.no_new') }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    v-if="summary.achievements?.new > 0"
+                    class="px-2 py-1 text-xs font-semibold bg-red-500 text-white rounded-full"
+                  >
+                    {{ summary.achievements.new }}
+                  </span>
+                </div>
+              </NuxtLink>
+            </div>
           </div>
-        </div>
 
-        <!-- Footer -->
-        <div
-          v-if="!loadingSummary"
-          class="notification-footer px-4 py-3 flex items-center justify-center text-sm"
-        >
-          <NuxtLink
-            :to="localePath('/profile/notifications')"
-            class="text-primary hover:text-primary-dark transition-colors font-medium inline-flex items-center gap-1"
-            @click="closeDropdown"
+          <!-- Footer -->
+          <div
+            v-if="!loadingSummary"
+            class="notification-footer px-4 py-3 flex items-center justify-center text-sm"
           >
-            {{ $t('notifications.view_all') }}
-            <Icon name="fa6-solid:arrow-right" class="text-xs" aria-hidden="true" />
-          </NuxtLink>
+            <NuxtLink
+              :to="localePath('/profile/notifications')"
+              class="text-primary hover:text-primary-dark transition-colors font-medium inline-flex items-center gap-1"
+              @click="closeDropdown"
+            >
+              {{ $t('notifications.view_all') }}
+              <Icon name="fa6-solid:arrow-right" class="text-xs" aria-hidden="true" />
+            </NuxtLink>
+          </div>
         </div>
-      </div>
-    </Transition>
+      </Transition>
     </ClientOnly>
   </div>
 </template>
@@ -222,9 +266,11 @@
   // New count solo para posts, comments y mentions (sin achievements)
   const unreadCount = computed(() => {
     if (!import.meta.client) return 0
-    return (summary.value.posts?.new || 0) +
-           (summary.value.comments?.new || 0) +
-           (summary.value.mentions?.new || 0)
+    return (
+      (summary.value.posts?.new || 0) +
+      (summary.value.comments?.new || 0) +
+      (summary.value.mentions?.new || 0)
+    )
   })
 
   // Methods

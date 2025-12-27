@@ -5,6 +5,8 @@
     "delete_success": "Envíu borráu correctamenti",
     "vote": "votu",
     "voted": "votáu",
+    "closed": "cerráu",
+    "voting_closed": "La votación ta cerrá",
     "votes": "votus",
     "vote_success": "Votu mandáu!",
     "draft_saved": "Borrador guardáu",

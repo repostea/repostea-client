@@ -32,12 +32,12 @@ export const useCanonical = () => {
     link: [
       {
         rel: 'canonical',
-        href: canonicalUrl.value
-      }
-    ]
+        href: canonicalUrl.value,
+      },
+    ],
   }))
 
   return {
-    canonicalUrl
+    canonicalUrl,
   }
 }

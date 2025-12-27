@@ -18,7 +18,9 @@
         <div class="flex-1">
           <div class="flex flex-wrap gap-2">
             <!-- Upload Button -->
-            <label class="px-3 py-1.5 text-sm bg-primary text-white rounded-md hover:bg-primary-dark cursor-pointer inline-flex items-center">
+            <label
+              class="px-3 py-1.5 text-sm bg-primary text-white rounded-md hover:bg-primary-dark cursor-pointer inline-flex items-center"
+            >
               <Icon name="fa6-solid:upload" class="mr-2" aria-hidden="true" />
               {{ $t('subs.upload_image') }}
               <input
@@ -52,7 +54,11 @@
     </div>
 
     <!-- Privacy Settings -->
-    <div v-if="showPrivacy" class="space-y-4" :class="{ 'pt-4 border-t sub-form-border': showIcon }">
+    <div
+      v-if="showPrivacy"
+      class="space-y-4"
+      :class="{ 'pt-4 border-t sub-form-border': showIcon }"
+    >
       <h2 v-if="showSectionHeaders" class="text-lg font-semibold flex items-center">
         <Icon name="fa6-solid:shield-halved" class="mr-2 text-primary" aria-hidden="true" />
         {{ $t('subs.settings_privacy') }}
@@ -109,7 +115,11 @@
     </div>
 
     <!-- Content Types -->
-    <div v-if="showContentTypes" class="space-y-4" :class="{ 'pt-4 border-t sub-form-border': showPrivacy || showIcon }">
+    <div
+      v-if="showContentTypes"
+      class="space-y-4"
+      :class="{ 'pt-4 border-t sub-form-border': showPrivacy || showIcon }"
+    >
       <h2 v-if="showSectionHeaders" class="text-lg font-semibold flex items-center">
         <Icon name="fa6-solid:file-lines" class="mr-2 text-primary" aria-hidden="true" />
         {{ $t('subs.settings_content_types') }}
@@ -124,7 +134,11 @@
           v-for="type in contentTypes"
           :key="type.value"
           class="flex items-center gap-2 p-3 border rounded-lg cursor-pointer transition-colors"
-          :class="modelValue.allowed_content_types.includes(type.value) ? 'border-primary bg-primary/5' : 'border-gray-200 dark:border-gray-700'"
+          :class="
+            modelValue.allowed_content_types.includes(type.value)
+              ? 'border-primary bg-primary/5'
+              : 'border-gray-200 dark:border-gray-700'
+          "
         >
           <input
             v-model="modelValue.allowed_content_types"
@@ -139,7 +153,11 @@
     </div>
 
     <!-- Rules -->
-    <div v-if="showRules" class="space-y-4" :class="{ 'pt-4 border-t sub-form-border': showContentTypes || showPrivacy || showIcon }">
+    <div
+      v-if="showRules"
+      class="space-y-4"
+      :class="{ 'pt-4 border-t sub-form-border': showContentTypes || showPrivacy || showIcon }"
+    >
       <h2 v-if="showSectionHeaders" class="text-lg font-semibold flex items-center">
         <Icon name="fa6-solid:scale-balanced" class="mr-2 text-primary" aria-hidden="true" />
         {{ $t('subs.rules') }}
@@ -201,178 +219,178 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { useNuxtApp } from '#app'
-import { useNotification } from '~/composables/useNotification'
+  import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  import { useNuxtApp } from '#app'
+  import { useNotification } from '~/composables/useNotification'
 
-const { t } = useI18n()
-const { $api } = useNuxtApp()
-const { success, error: showError } = useNotification()
+  const { t } = useI18n()
+  const { $api } = useNuxtApp()
+  const { success, error: showError } = useNotification()
 
-const props = defineProps({
-  modelValue: {
-    type: Object,
-    required: true
-  },
-  // For upload - need sub ID (only for editing existing sub)
-  subId: {
-    type: [Number, String],
-    default: null
-  },
-  // Sub name for showing initials when no icon
-  subName: {
-    type: String,
-    default: ''
-  },
-  // Control which sections to show
-  showIcon: {
-    type: Boolean,
-    default: true
-  },
-  showPrivacy: {
-    type: Boolean,
-    default: true
-  },
-  showContentTypes: {
-    type: Boolean,
-    default: true
-  },
-  showRules: {
-    type: Boolean,
-    default: true
-  },
-  // Style options
-  showSectionHeaders: {
-    type: Boolean,
-    default: true
-  },
-  showNsfwDescription: {
-    type: Boolean,
-    default: true
-  },
-  showContentTypesDescription: {
-    type: Boolean,
-    default: true
-  },
-  showRulesDescription: {
-    type: Boolean,
-    default: true
-  },
-  // Whether to use is_public (create) or is_private (settings)
-  useIsPublic: {
-    type: Boolean,
-    default: false
-  }
-})
+  const props = defineProps({
+    modelValue: {
+      type: Object,
+      required: true,
+    },
+    // For upload - need sub ID (only for editing existing sub)
+    subId: {
+      type: [Number, String],
+      default: null,
+    },
+    // Sub name for showing initials when no icon
+    subName: {
+      type: String,
+      default: '',
+    },
+    // Control which sections to show
+    showIcon: {
+      type: Boolean,
+      default: true,
+    },
+    showPrivacy: {
+      type: Boolean,
+      default: true,
+    },
+    showContentTypes: {
+      type: Boolean,
+      default: true,
+    },
+    showRules: {
+      type: Boolean,
+      default: true,
+    },
+    // Style options
+    showSectionHeaders: {
+      type: Boolean,
+      default: true,
+    },
+    showNsfwDescription: {
+      type: Boolean,
+      default: true,
+    },
+    showContentTypesDescription: {
+      type: Boolean,
+      default: true,
+    },
+    showRulesDescription: {
+      type: Boolean,
+      default: true,
+    },
+    // Whether to use is_public (create) or is_private (settings)
+    useIsPublic: {
+      type: Boolean,
+      default: false,
+    },
+  })
 
-const emit = defineEmits(['update:modelValue', 'icon-uploaded'])
+  const emit = defineEmits(['update:modelValue', 'icon-uploaded'])
 
-// Local state
-const uploadingIcon = ref(false)
+  // Local state
+  const uploadingIcon = ref(false)
 
-// Content types definition
-const contentTypes = [
-  { value: 'text', label: 'subs.content_type_text', icon: 'fa6-solid:align-left' },
-  { value: 'link', label: 'subs.content_type_link', icon: 'fa6-solid:link' },
-  { value: 'image', label: 'subs.content_type_image', icon: 'fa6-solid:image' },
-  { value: 'video', label: 'subs.content_type_video', icon: 'fa6-solid:video' },
-  { value: 'audio', label: 'subs.content_type_audio', icon: 'fa6-solid:headphones' },
-  { value: 'poll', label: 'subs.content_type_poll', icon: 'fa6-solid:square-poll-vertical' }
-]
+  // Content types definition
+  const contentTypes = [
+    { value: 'text', label: 'subs.content_type_text', icon: 'fa6-solid:align-left' },
+    { value: 'link', label: 'subs.content_type_link', icon: 'fa6-solid:link' },
+    { value: 'image', label: 'subs.content_type_image', icon: 'fa6-solid:image' },
+    { value: 'video', label: 'subs.content_type_video', icon: 'fa6-solid:video' },
+    { value: 'audio', label: 'subs.content_type_audio', icon: 'fa6-solid:headphones' },
+    { value: 'poll', label: 'subs.content_type_poll', icon: 'fa6-solid:square-poll-vertical' },
+  ]
 
-// Methods
-function resetToInitials() {
-  props.modelValue.icon = null
-  props.modelValue.icon_file = null
-}
-
-function togglePrivacy(event) {
-  if (props.useIsPublic) {
-    props.modelValue.is_public = event.target.checked
-  } else {
-    props.modelValue.is_private = !event.target.checked
-  }
-}
-
-async function handleImageUpload(event) {
-  const file = event.target.files[0]
-  if (!file) return
-
-  if (!file.type.startsWith('image/')) {
-    showError(t('profile.invalid_image_type'))
-    return
+  // Methods
+  function resetToInitials() {
+    props.modelValue.icon = null
+    props.modelValue.icon_file = null
   }
 
-  if (file.size > 5 * 1024 * 1024) {
-    showError(t('profile.image_too_large'))
-    return
+  function togglePrivacy(event) {
+    if (props.useIsPublic) {
+      props.modelValue.is_public = event.target.checked
+    } else {
+      props.modelValue.is_private = !event.target.checked
+    }
   }
 
-  // For creating new sub, convert to base64 and store temporarily
-  if (!props.subId) {
-    uploadingIcon.value = true
-    try {
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        props.modelValue.icon = e.target.result
-        props.modelValue.icon_file = file
+  async function handleImageUpload(event) {
+    const file = event.target.files[0]
+    if (!file) return
+
+    if (!file.type.startsWith('image/')) {
+      showError(t('profile.invalid_image_type'))
+      return
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      showError(t('profile.image_too_large'))
+      return
+    }
+
+    // For creating new sub, convert to base64 and store temporarily
+    if (!props.subId) {
+      uploadingIcon.value = true
+      try {
+        const reader = new FileReader()
+        reader.onload = (e) => {
+          props.modelValue.icon = e.target.result
+          props.modelValue.icon_file = file
+          uploadingIcon.value = false
+        }
+        reader.readAsDataURL(file)
+      } catch (err) {
+        console.error('Error reading file:', err)
+        showError(t('common.error'))
         uploadingIcon.value = false
       }
-      reader.readAsDataURL(file)
-    } catch (err) {
-      console.error('Error reading file:', err)
-      showError(t('common.error'))
-      uploadingIcon.value = false
+      event.target.value = ''
+      return
     }
-    event.target.value = ''
-    return
+
+    // For editing existing sub, upload directly
+    uploadingIcon.value = true
+    try {
+      const formData = new FormData()
+      formData.append('icon', file)
+      formData.append('sub_id', props.subId)
+
+      const response = await $api.subs.uploadIcon(props.subId, formData)
+      props.modelValue.icon = response.data.icon_url
+      success(t('subs.icon_uploaded'))
+      emit('icon-uploaded', response.data.icon_url)
+    } catch (err) {
+      console.error('Error uploading icon:', err)
+      showError(err.response?.data?.message || t('common.error'))
+    } finally {
+      uploadingIcon.value = false
+      event.target.value = ''
+    }
   }
 
-  // For editing existing sub, upload directly
-  uploadingIcon.value = true
-  try {
-    const formData = new FormData()
-    formData.append('icon', file)
-    formData.append('sub_id', props.subId)
-
-    const response = await $api.subs.uploadIcon(props.subId, formData)
-    props.modelValue.icon = response.data.icon_url
-    success(t('subs.icon_uploaded'))
-    emit('icon-uploaded', response.data.icon_url)
-  } catch (err) {
-    console.error('Error uploading icon:', err)
-    showError(err.response?.data?.message || t('common.error'))
-  } finally {
-    uploadingIcon.value = false
-    event.target.value = ''
+  function addRule() {
+    if (props.modelValue.rules.length < 10) {
+      props.modelValue.rules.push({ title: '', description: '' })
+    }
   }
-}
 
-function addRule() {
-  if (props.modelValue.rules.length < 10) {
-    props.modelValue.rules.push({ title: '', description: '' })
+  function removeRule(index) {
+    props.modelValue.rules.splice(index, 1)
   }
-}
-
-function removeRule(index) {
-  props.modelValue.rules.splice(index, 1)
-}
 </script>
 
 <style scoped>
-.sub-form-border {
-  border-color: var(--color-border-default);
-}
+  .sub-form-border {
+    border-color: var(--color-border-default);
+  }
 
-.sub-form-input {
-  background-color: var(--color-bg-input);
-  border-color: var(--color-border-default);
-  color: var(--color-text-primary);
-}
+  .sub-form-input {
+    background-color: var(--color-bg-input);
+    border-color: var(--color-border-default);
+    color: var(--color-text-primary);
+  }
 
-.sub-form-input:focus {
-  border-color: var(--color-primary);
-  outline: none;
-}
+  .sub-form-input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+  }
 </style>

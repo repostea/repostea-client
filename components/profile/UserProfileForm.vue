@@ -15,7 +15,9 @@
     </div>
 
     <div class="mb-4">
-      <label for="username" class="block text-sm font-medium mb-1">{{ t('profile.username') }}</label>
+      <label for="username" class="block text-sm font-medium mb-1">{{
+        t('profile.username')
+      }}</label>
     </div>
     <input
       id="username"
@@ -26,7 +28,9 @@
       :aria-invalid="!!errors.username"
       :aria-describedby="errors.username ? 'username-error' : undefined"
     >
-    <p v-if="errors.username" id="username-error" role="alert" class="mt-1 text-sm text-red-500">{{ errors.username }}</p>
+    <p v-if="errors.username" id="username-error" role="alert" class="mt-1 text-sm text-red-500">
+      {{ errors.username }}
+    </p>
     <p class="mt-1 text-xs text-gray-500 dark:text-gray-400 mb-4">
       {{ t('profile.username_help') }}
     </p>
@@ -81,16 +85,16 @@
         :aria-invalid="!!errors.bio"
         :aria-describedby="errors.bio ? 'bio-error' : undefined"
       />
-      <p v-if="errors.bio" id="bio-error" role="alert" class="mt-1 text-sm text-red-500">{{ errors.bio }}</p>
+      <p v-if="errors.bio" id="bio-error" role="alert" class="mt-1 text-sm text-red-500">
+        {{ errors.bio }}
+      </p>
       <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
         {{ t('profile.bio_description') }}
       </p>
     </div>
 
     <div class="mb-6">
-      <label class="block text-sm font-medium mb-2">{{
-        t('profile.avatar')
-      }}</label>
+      <label class="block text-sm font-medium mb-2">{{ t('profile.avatar') }}</label>
       <ClientOnly>
         <AvatarUploader
           :current-avatar="avatarPreview || form.avatar_url"
@@ -99,37 +103,6 @@
         />
       </ClientOnly>
     </div>
-
-    <!-- TODO: Implement professional title and institution fields later -->
-    <!-- <div class="mb-6">
-      <label for="professional_title" class="block text-sm font-medium mb-1">{{
-        t('profile.professional_title')
-      }}</label>
-      <input
-        id="professional_title"
-        v-model="form.professional_title"
-        type="text"
-        class="w-full rounded-md border border-gray-300 dark:border-neutral-600 dark:bg-neutral-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-        :class="{ 'border-red-500': errors.professional_title }"
-      />
-      <p v-if="errors.professional_title" class="mt-1 text-sm text-red-500">
-        {{ errors.professional_title }}
-      </p>
-    </div>
-
-    <div class="mb-6">
-      <label for="institution" class="block text-sm font-medium mb-1">{{
-        t('profile.institution')
-      }}</label>
-      <input
-        id="institution"
-        v-model="form.institution"
-        type="text"
-        class="w-full rounded-md border border-gray-300 dark:border-neutral-600 dark:bg-neutral-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-        :class="{ 'border-red-500': errors.institution }"
-      />
-      <p v-if="errors.institution" class="mt-1 text-sm text-red-500">{{ errors.institution }}</p>
-    </div> -->
 
     <div class="flex justify-end">
       <button
@@ -150,8 +123,8 @@
 <script setup>
   import { ref, reactive, watch } from 'vue'
   import { useAuthStore } from '~/stores/auth'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
+
   import { useReservedUsernames } from '~/composables/useReservedUsernames'
   import AvatarUploader from '~/components/profile/AvatarUploader.vue'
 
@@ -205,16 +178,8 @@
         form.locale = newValue.locale || 'en'
         form.bio = newValue.bio || ''
 
-        if (typeof newValue.avatar === 'string') {
-          form.avatar_url = newValue.avatar
-          avatarPreview.value = newValue.avatar
-        } else if (newValue.avatar?.storageUrl) {
-          form.avatar_url = newValue.avatar.storageUrl
-          avatarPreview.value = newValue.avatar.storageUrl
-        } else {
-          form.avatar_url = ''
-          avatarPreview.value = ''
-        }
+        form.avatar_url = newValue.avatar || ''
+        avatarPreview.value = newValue.avatar || ''
 
         form.professional_title = newValue.professional_title || ''
         form.institution = newValue.institution || ''

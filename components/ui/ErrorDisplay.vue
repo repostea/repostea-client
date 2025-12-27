@@ -1,8 +1,6 @@
 <template>
   <div class="error-container" role="alert" aria-live="assertive">
-    <div
-      class="error-card card-bg p-6 rounded-lg shadow-sm text-center"
-    >
+    <div class="error-card card-bg p-6 rounded-lg shadow-sm text-center">
       <Icon :name="iconIconify" :class="iconColor + ' text-3xl mb-3'" aria-hidden="true" />
       <h2 class="text-xl font-bold mb-2">{{ title }}</h2>
       <p class="mb-4">{{ message }}</p>

@@ -8,7 +8,9 @@
         <Icon name="fa6-solid:list-ol" class="mr-1" aria-hidden="true" />
         {{ t('posts.relationships.continuation_chain') }}
       </div>
-      <div class="text-[9px] font-semibold text-primary dark:text-primary-light px-1.5 py-0.5 rounded chain-badge">
+      <div
+        class="text-[9px] font-semibold text-primary dark:text-primary-light px-1.5 py-0.5 rounded chain-badge"
+      >
         {{ t('posts.relationships.part_of_chain', continuationInfo) }}
       </div>
     </div>
@@ -19,9 +21,7 @@
         :to="localePath(chainPost.url || `/posts/${chainPost.slug || chainPost.id}`)"
         :class="[
           'px-2 py-1 rounded text-[10px] font-medium transition-colors flex items-center min-w-0',
-          chainPost.id === postId
-            ? 'chain-link-active'
-            : 'chain-link'
+          chainPost.id === postId ? 'chain-link-active' : 'chain-link',
         ]"
       >
         <span class="font-semibold mr-1 flex-shrink-0">{{ index + 1 }}.</span>
@@ -45,8 +45,8 @@
     },
     chain: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   })
 
   const continuationInfo = computed(() => {
@@ -54,13 +54,13 @@
       return null
     }
 
-    const currentIndex = props.chain.findIndex(post => post.id === props.postId)
+    const currentIndex = props.chain.findIndex((post) => post.id === props.postId)
     if (currentIndex === -1) return null
 
     return {
       current: currentIndex + 1,
       total: props.chain.length,
-      posts: props.chain
+      posts: props.chain,
     }
   })
 </script>

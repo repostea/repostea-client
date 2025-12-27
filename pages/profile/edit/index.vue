@@ -8,10 +8,7 @@
         <h2 class="text-lg font-medium">{{ t('profile.personal_info') }}</h2>
       </div>
       <div class="p-6">
-        <UserProfileForm
-          :user="userData"
-          @updated="handleProfileUpdated"
-        />
+        <UserProfileForm :user="userData" @updated="handleProfileUpdated" />
       </div>
     </div>
 
@@ -28,7 +25,9 @@
         </label>
 
         <div class="space-y-2">
-          <label class="flex items-center space-x-3 cursor-pointer p-3 rounded-lg profile-edit-option-hover transition-colors">
+          <label
+            class="flex items-center space-x-3 cursor-pointer p-3 rounded-lg profile-edit-option-hover transition-colors"
+          >
             <input
               v-model="tortillaPreference"
               type="radio"
@@ -37,7 +36,9 @@
               class="w-5 h-5 text-primary profile-edit-radio focus:ring-2 focus:ring-primary cursor-pointer"
               @change="handleTortillaChange"
             >
-            <span class="text-sm text-text dark:text-text-dark">{{ t('profile.tortilla.with_onion') }}</span>
+            <span class="text-sm text-text dark:text-text-dark">{{
+              t('profile.tortilla.with_onion')
+            }}</span>
           </label>
 
           <label
@@ -52,12 +53,17 @@
               class="w-5 h-5 text-primary profile-edit-radio focus:ring-2 focus:ring-primary cursor-pointer"
               @change="handleTortillaChange"
             >
-            <span class="text-sm text-text dark:text-text-dark">{{ t('profile.tortilla.without_onion') }}</span>
+            <span class="text-sm text-text dark:text-text-dark">{{
+              t('profile.tortilla.without_onion')
+            }}</span>
           </label>
         </div>
 
         <!-- Mensaje cuando se bloquea la opción -->
-        <div v-if="tortillaBlocked" class="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border-2 border-yellow-400 dark:border-yellow-600 rounded-lg">
+        <div
+          v-if="tortillaBlocked"
+          class="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border-2 border-yellow-400 dark:border-yellow-600 rounded-lg"
+        >
           <p class="text-sm font-semibold text-yellow-800 dark:text-yellow-200 text-center">
             {{ t('profile.tortilla.blocked_message') }}
           </p>

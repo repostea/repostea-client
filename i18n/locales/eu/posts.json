@@ -30,6 +30,8 @@
     "created_label": "Sortua",
     "vote": "botoa",
     "voted": "bozkatuta",
+    "closed": "itxita",
+    "voting_closed": "Bozketa itxita dago",
     "votes": "botuak",
     "vote_success": "Botoa ongi bidali da!",
     "vote_success_guest": "Botoa bidali da! Zure boto aldi baterakoa erregistratu da.",

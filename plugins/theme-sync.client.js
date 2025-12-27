@@ -2,7 +2,7 @@ import { useAuthStore } from '~/stores/auth'
 import { isDarkTheme, availableThemes } from '~/composables/useThemes'
 
 // List of valid theme names for validation
-const validThemes = availableThemes.map(t => t.name)
+const validThemes = availableThemes.map((t) => t.name)
 
 export default defineNuxtPlugin(async (nuxtApp) => {
   if (!import.meta.client) return
@@ -32,14 +32,14 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
       const prefsCookie = useCookie('user_prefs', {
         maxAge: 60 * 60 * 24 * 365,
-        sameSite: 'lax'
+        sameSite: 'lax',
       })
 
       let cookiePrefs = {
         theme: 'renegados1',
         layout: 'card',
         sortBy: 'created_at',
-        sortDir: 'desc'
+        sortDir: 'desc',
       }
 
       if (prefsCookie.value) {
@@ -58,7 +58,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       // Theme was already correctly applied by theme-cookie.server.js
       // If there's a difference, only update cookie for next visit
       const themesDiffer = dbPrefs.theme !== cookiePrefs.theme
-      const languagesDiffer = JSON.stringify(dbPrefs.content_languages) !== JSON.stringify(cookiePrefs.selectedLanguages)
+      const languagesDiffer =
+        JSON.stringify(dbPrefs.content_languages) !== JSON.stringify(cookiePrefs.selectedLanguages)
 
       if (themesDiffer || languagesDiffer) {
         const newPrefs = {
@@ -66,7 +67,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
           layout: dbPrefs.layout,
           sortBy: dbPrefs.sort_by,
           sortDir: dbPrefs.sort_dir,
-          selectedLanguages: dbPrefs.content_languages || []
+          selectedLanguages: dbPrefs.content_languages || [],
         }
 
         prefsCookie.value = JSON.stringify(newPrefs)
@@ -77,7 +78,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
           // Check if current theme in DOM is already correct
           const html = document.documentElement
           const currentTheme = Array.from(html.classList)
-            .find(c => c.startsWith('theme-'))?.replace('theme-', '')
+            .find((c) => c.startsWith('theme-'))
+            ?.replace('theme-', '')
 
           // Only change if DOM has a different theme than DB
           if (currentTheme !== dbPrefs.theme) {
@@ -85,7 +87,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
             html.style.transition = 'background-color 0.15s ease, color 0.15s ease'
 
             // Remove all theme classes
-            validThemes.forEach(t => html.classList.remove(`theme-${t}`))
+            validThemes.forEach((t) => html.classList.remove(`theme-${t}`))
             html.classList.remove('dark')
 
             // Add new theme

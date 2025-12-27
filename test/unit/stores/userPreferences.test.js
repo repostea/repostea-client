@@ -13,15 +13,15 @@ vi.mock('#app', () => ({
     $api: {
       user: {
         getPreferences: vi.fn(),
-        savePreferences: vi.fn()
-      }
-    }
-  })
+        savePreferences: vi.fn(),
+      },
+    },
+  }),
 }))
 
 // Mock global de useCookie
 global.useCookie = vi.fn(() => ({
-  value: null
+  value: null,
 }))
 
 describe('UserPreferences Store - Content Languages', () => {
@@ -90,7 +90,7 @@ describe('UserPreferences Store - Content Languages', () => {
       layout: 'list',
       sortBy: 'created_at',
       sortDir: 'desc',
-      selectedLanguages: ['es', 'ca']
+      selectedLanguages: ['es', 'ca'],
     })
   })
 

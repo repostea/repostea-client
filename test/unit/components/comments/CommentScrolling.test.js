@@ -264,9 +264,12 @@ describe('CommentsList Scrolling Functionality', () => {
       })
 
       // First need to expand the comment form
-      const writeCommentButton = wrapper.findAll('button').find(btn =>
-        btn.text().includes('comments.write_comment') || btn.html().includes('fa-comment')
-      )
+      const writeCommentButton = wrapper
+        .findAll('button')
+        .find(
+          (btn) =>
+            btn.text().includes('comments.write_comment') || btn.html().includes('fa-comment')
+        )
       await writeCommentButton.trigger('click')
       await nextTick()
 
@@ -313,9 +316,12 @@ describe('CommentsList Scrolling Functionality', () => {
       document.getElementById = vi.fn(() => null)
 
       // First need to expand the comment form
-      const writeCommentButton = wrapper.findAll('button').find(btn =>
-        btn.text().includes('comments.write_comment') || btn.html().includes('fa-comment')
-      )
+      const writeCommentButton = wrapper
+        .findAll('button')
+        .find(
+          (btn) =>
+            btn.text().includes('comments.write_comment') || btn.html().includes('fa-comment')
+        )
       await writeCommentButton.trigger('click')
       await nextTick()
 
@@ -646,7 +652,7 @@ describe('CommentsList Scrolling Functionality', () => {
 
       // Wait for retry attempts
       await nextTick()
-      await new Promise(resolve => setTimeout(resolve, 150))
+      await new Promise((resolve) => setTimeout(resolve, 150))
 
       // Verify getElementById was called multiple times (retry logic)
       expect(document.getElementById).toHaveBeenCalledTimes(callCount)
@@ -664,7 +670,7 @@ describe('CommentsList Scrolling Functionality', () => {
 
       // Verify no scroll happened
       mockScrollTo.mockClear()
-      await new Promise(resolve => setTimeout(resolve, 500))
+      await new Promise((resolve) => setTimeout(resolve, 500))
 
       // After all retries, scrollTo should not have been called
       expect(mockScrollTo).not.toHaveBeenCalled()

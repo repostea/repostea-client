@@ -12,12 +12,12 @@
 
   <!-- Teleport dropdown to body -->
   <Teleport to="body">
-      <div
-        v-if="showDropdown"
-        ref="dropdownElement"
-        :style="dropdownPosition"
-        class="actions-dropdown fixed z-[5000] w-48 rounded-md shadow-lg ring-1 ring-black ring-opacity-5"
-      >
+    <div
+      v-if="showDropdown"
+      ref="dropdownElement"
+      :style="dropdownPosition"
+      class="actions-dropdown fixed z-[5000] w-48 rounded-md shadow-lg ring-1 ring-black ring-opacity-5"
+    >
       <div class="py-1">
         <button
           class="actions-item block w-full text-left px-4 py-2 text-sm"
@@ -28,10 +28,7 @@
           <div class="flex items-center">
             <Icon
               :name="processingType === 'favorite' ? 'fa6-solid:spinner' : 'fa6-solid:star'"
-              :class="[
-                'text-yellow-500 mr-2',
-                {'animate-spin': processingType === 'favorite'}
-              ]"
+              :class="['text-yellow-500 mr-2', { 'animate-spin': processingType === 'favorite' }]"
               aria-hidden="true"
             />
             <span>{{ t('saved_lists.favorite', 'Favorites') }}</span>
@@ -46,11 +43,10 @@
         >
           <div class="flex items-center">
             <Icon
-              :name="processingType === 'read_later' ? 'fa6-solid:spinner' : 'fa6-solid:book-open-reader'"
-              :class="[
-                'text-blue-500 mr-2',
-                {'animate-spin': processingType === 'read_later'}
-              ]"
+              :name="
+                processingType === 'read_later' ? 'fa6-solid:spinner' : 'fa6-solid:book-open-reader'
+              "
+              :class="['text-blue-500 mr-2', { 'animate-spin': processingType === 'read_later' }]"
               aria-hidden="true"
             />
             <span>{{ t('saved_lists.read_later', 'Read later') }}</span>
@@ -75,10 +71,7 @@
             <div class="flex items-center">
               <Icon
                 :name="isProcessingListId === list.id ? 'fa6-solid:spinner' : 'fa6-solid:list-ul'"
-                :class="[
-                  'text-green-500 mr-2',
-                  {'animate-spin': isProcessingListId === list.id}
-                ]"
+                :class="['text-green-500 mr-2', { 'animate-spin': isProcessingListId === list.id }]"
                 aria-hidden="true"
               />
               <span>{{ list.name }}</span>
@@ -105,11 +98,9 @@
   <Teleport to="body">
     <div v-if="showCreateForm" class="fixed inset-0 z-[9999] overflow-y-auto" aria-modal="true">
       <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="fixed inset-0 bg-black bg-opacity-50" @click="showCreateForm = false"/>
+        <div class="fixed inset-0 bg-black bg-opacity-50" @click="showCreateForm = false" />
 
-        <div
-          class="actions-modal rounded-lg shadow-xl max-w-md w-full p-6 relative z-10"
-        >
+        <div class="actions-modal rounded-lg shadow-xl max-w-md w-full p-6 relative z-10">
           <h3 class="text-lg font-medium mb-4">
             {{ t('saved_lists.create_new_list', 'Create new list') }}
           </h3>
@@ -157,10 +148,7 @@
           </div>
 
           <div class="flex justify-end space-x-3">
-            <button
-              class="actions-cancel-btn px-4 py-2 rounded-md"
-              @click="showCreateForm = false"
-            >
+            <button class="actions-cancel-btn px-4 py-2 rounded-md" @click="showCreateForm = false">
               {{ t('common.cancel', 'Cancel') }}
             </button>
             <button
@@ -185,7 +173,7 @@
   <!-- Notification modal -->
   <Teleport to="body">
     <div v-if="notification.show" class="fixed inset-0 flex items-center justify-center z-[9999]">
-      <div class="fixed inset-0 bg-black bg-opacity-60"/>
+      <div class="fixed inset-0 bg-black bg-opacity-60" />
 
       <div
         class="actions-notification rounded-lg shadow-xl p-5 mx-auto flex items-start max-w-lg w-full relative z-10"
@@ -193,10 +181,7 @@
         <div class="flex-shrink-0 mr-4">
           <Icon
             :name="notification.isError ? 'fa6-solid:circle-exclamation' : 'fa6-solid:circle-check'"
-            :class="[
-              'text-3xl',
-              notification.isError ? 'text-red-500' : 'text-green-500'
-            ]"
+            :class="['text-3xl', notification.isError ? 'text-red-500' : 'text-green-500']"
             aria-hidden="true"
           />
         </div>
@@ -592,8 +577,12 @@
   }
 
   @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .actions-dropdown {

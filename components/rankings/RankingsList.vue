@@ -2,12 +2,20 @@
   <div class="rankings-list">
     <div v-if="loading" class="loading-container">
       <div class="loading-spinner">
-        <Icon name="fa6-solid:spinner" class="text-4xl text-primary-dark dark:text-primary-light animate-spin" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:spinner"
+          class="text-4xl text-primary-dark dark:text-primary-light animate-spin"
+          aria-hidden="true"
+        />
       </div>
     </div>
 
     <div v-else-if="filteredUsers.length === 0" class="empty-state">
-      <Icon name="fa6-solid:trophy" class="text-6xl text-gray-300 dark:text-gray-600 mb-4" aria-hidden="true" />
+      <Icon
+        name="fa6-solid:trophy"
+        class="text-6xl text-gray-300 dark:text-gray-600 mb-4"
+        aria-hidden="true"
+      />
       <p class="text-gray-500 dark:text-gray-400">{{ t('rankings.no_data') }}</p>
     </div>
 
@@ -20,19 +28,39 @@
           highlighted: isCurrentUser(user),
           'top-1': startRank + index === 1,
           'top-2': startRank + index === 2,
-          'top-3': startRank + index === 3
+          'top-3': startRank + index === 3,
         }"
       >
         <div class="rank-number">
-          <Icon v-if="index === 0" name="fa6-solid:crown" class="text-yellow-500" aria-hidden="true" />
-          <Icon v-else-if="index === 1" name="fa6-solid:medal" class="text-gray-400" aria-hidden="true" />
-          <Icon v-else-if="index === 2" name="fa6-solid:medal" class="text-orange-500" aria-hidden="true" />
+          <Icon
+            v-if="index === 0"
+            name="fa6-solid:crown"
+            class="text-yellow-500"
+            aria-hidden="true"
+          />
+          <Icon
+            v-else-if="index === 1"
+            name="fa6-solid:medal"
+            class="text-gray-400"
+            aria-hidden="true"
+          />
+          <Icon
+            v-else-if="index === 2"
+            name="fa6-solid:medal"
+            class="text-orange-500"
+            aria-hidden="true"
+          />
           <span v-else class="rank">#{{ startRank + index }}</span>
         </div>
 
         <NuxtLink :to="localePath(`/u/${user.username}`)" class="user-info">
           <div class="avatar">
-            <Icon v-if="!user.avatar" name="fa6-solid:user" class="text-gray-400 text-xl" aria-hidden="true" />
+            <Icon
+              v-if="!user.avatar"
+              name="fa6-solid:user"
+              class="text-gray-400 text-xl"
+              aria-hidden="true"
+            />
             <NuxtImg
               v-else
               :src="user.avatar"
@@ -120,7 +148,7 @@
 
   // Filter out users with 0 karma points (or 0 of the metric being displayed)
   const filteredUsers = computed(() => {
-    return props.users.filter(user => {
+    return props.users.filter((user) => {
       switch (props.category) {
         case 'karma':
           return (user.karma_points || 0) > 0

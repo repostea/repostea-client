@@ -39,9 +39,9 @@ describe('String Utilities', () => {
 
   describe('truncateText', () => {
     it('truncates strings longer than the specified length', () => {
-      expect(
-        truncateText('This is a very long string that needs to be truncated', 20)
-      ).toBe('This is a very long ...')
+      expect(truncateText('This is a very long string that needs to be truncated', 20)).toBe(
+        'This is a very long ...'
+      )
     })
 
     it('does not truncate strings shorter than the specified length', () => {
@@ -79,7 +79,8 @@ describe('String Utilities', () => {
 
   describe('createExcerpt', () => {
     it('creates excerpt from markdown content', () => {
-      const markdown = '# Title\n\nThis is a **long** content that should be truncated at some point to create a nice excerpt for display purposes.'
+      const markdown =
+        '# Title\n\nThis is a **long** content that should be truncated at some point to create a nice excerpt for display purposes.'
       const result = createExcerpt(markdown, 50)
       expect(result).toBe('Title This is a long content that should be trunca...')
     })

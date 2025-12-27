@@ -48,8 +48,8 @@
           <template #fallback>
             <!-- Skeleton loader para reservar espacio y evitar CLS -->
             <div class="space-y-4">
-              <div class="skeleton-loader rounded-lg h-48 animate-pulse"/>
-              <div class="skeleton-loader rounded-lg h-32 animate-pulse"/>
+              <div class="skeleton-loader rounded-lg h-48 animate-pulse" />
+              <div class="skeleton-loader rounded-lg h-32 animate-pulse" />
             </div>
           </template>
           <div ref="statsContainer">
@@ -142,17 +142,18 @@ definePageMeta({})
     // Determine initial posts count based on layout AND device
     // Mobile: much fewer posts for faster initial load (scroll infinite loads more)
     const layoutPerPage = isMobileSSR
-      ? { compact: 4, list: 3, card: 3 }  // Mobile: minimal initial load
-      : { compact: 8, list: 6, card: 5 }  // Desktop: normal load
+      ? { compact: 4, list: 3, card: 3 } // Mobile: minimal initial load
+      : { compact: 8, list: 6, card: 5 } // Desktop: normal load
     const perPage = layoutPerPage[layoutCookie.value] || (isMobileSSR ? 3 : 6)
 
     // Parse languages from cookie
     let languages = null
     if (selectedLanguagesCookie.value) {
       try {
-        languages = typeof selectedLanguagesCookie.value === 'string'
-          ? JSON.parse(selectedLanguagesCookie.value)
-          : selectedLanguagesCookie.value
+        languages =
+          typeof selectedLanguagesCookie.value === 'string'
+            ? JSON.parse(selectedLanguagesCookie.value)
+            : selectedLanguagesCookie.value
       } catch (e) {
         console.error('Error parsing languages cookie:', e)
       }
@@ -189,13 +190,29 @@ definePageMeta({})
 
       return {
         posts: response.data.data || [],
-        meta: response.data.meta || { current_page: 1, last_page: 1, total: 0, per_page: 15, has_more: false, next_cursor: null, prev_cursor: null }
+        meta: response.data.meta || {
+          current_page: 1,
+          last_page: 1,
+          total: 0,
+          per_page: 15,
+          has_more: false,
+          next_cursor: null,
+          prev_cursor: null,
+        },
       }
     } catch (error) {
       console.error('SSR: Error fetching posts:', error)
       return {
         posts: [],
-        meta: { current_page: 1, last_page: 1, total: 0, per_page: 15, has_more: false, next_cursor: null, prev_cursor: null }
+        meta: {
+          current_page: 1,
+          last_page: 1,
+          total: 0,
+          per_page: 15,
+          has_more: false,
+          next_cursor: null,
+          prev_cursor: null,
+        },
       }
     }
   })
@@ -226,29 +243,30 @@ definePageMeta({})
               name: appName,
               description: pageDescription,
               publisher: {
-                '@id': `${siteUrl}/#organization`
+                '@id': `${siteUrl}/#organization`,
               },
-              inLanguage: 'es-ES'
-            }
-          ]
+              inLanguage: 'es-ES',
+            },
+          ],
         }),
-        tagPosition: 'bodyClose'
-      }
-    ]
+        tagPosition: 'bodyClose',
+      },
+    ],
   })
 
   // Read user preferences from cookie (available on both server and client)
   const userPrefsCookie = useCookie('user_prefs', {
     maxAge: 60 * 60 * 24 * 365,
-    sameSite: 'lax'
+    sameSite: 'lax',
   })
 
   // Initialize user preferences from cookie BEFORE rendering
   if (userPrefsCookie.value) {
     try {
-      const cookiePrefs = typeof userPrefsCookie.value === 'string'
-        ? JSON.parse(userPrefsCookie.value)
-        : userPrefsCookie.value
+      const cookiePrefs =
+        typeof userPrefsCookie.value === 'string'
+          ? JSON.parse(userPrefsCookie.value)
+          : userPrefsCookie.value
 
       // Apply layout preference from cookie
       if (cookiePrefs.layout) {
@@ -263,7 +281,7 @@ definePageMeta({})
   if (initialPostsData.value?.posts && initialPostsData.value.posts.length > 0) {
     try {
       // Transform and set posts in store
-      postsStore.posts = initialPostsData.value.posts.map(post => {
+      postsStore.posts = initialPostsData.value.posts.map((post) => {
         try {
           return postsStore._transformPostData(post)
         } catch (transformError) {
@@ -271,7 +289,7 @@ definePageMeta({})
             postId: post.id,
             postSlug: post.slug,
             postTitle: post.title,
-            error: transformError.message
+            error: transformError.message,
           })
           // Return the post as-is if transformation fails
           return post
@@ -283,7 +301,7 @@ definePageMeta({})
         lastPage: ssrMeta.last_page || 1,
         total: ssrMeta.total_posts || ssrMeta.total || ssrMeta.post_count || 0,
         perPage: ssrMeta.per_page,
-        hasMore: ssrMeta.has_more ?? (ssrMeta.current_page < ssrMeta.last_page),
+        hasMore: ssrMeta.has_more ?? ssrMeta.current_page < ssrMeta.last_page,
         nextCursor: ssrMeta.next_cursor || null,
         prevCursor: ssrMeta.prev_cursor || null,
       }
@@ -291,7 +309,15 @@ definePageMeta({})
       console.error('🚨 [SSR] Critical error initializing posts:', e)
       // Fallback to empty state
       postsStore.posts = []
-      postsStore.meta = { currentPage: 1, lastPage: 1, total: 0, perPage: 15, hasMore: false, nextCursor: null, prevCursor: null }
+      postsStore.meta = {
+        currentPage: 1,
+        lastPage: 1,
+        total: 0,
+        perPage: 15,
+        hasMore: false,
+        nextCursor: null,
+        prevCursor: null,
+      }
     }
   }
 
@@ -304,12 +330,14 @@ definePageMeta({})
       component: instance?.$options?.name || instance?.$options?.__name || 'unknown',
       info,
       // Log post data if error is in PostCard or child
-      context: instance?.$props?.post ? {
-        postId: instance.$props.post.id,
-        postSlug: instance.$props.post.slug,
-        postTitle: instance.$props.post.title,
-        postType: instance.$props.post.content_type
-      } : null
+      context: instance?.$props?.post
+        ? {
+            postId: instance.$props.post.id,
+            postSlug: instance.$props.post.slug,
+            postTitle: instance.$props.post.title,
+            postType: instance.$props.post.content_type,
+          }
+        : null,
     })
 
     // Prevent error from propagating and crashing SSR
@@ -343,7 +371,6 @@ definePageMeta({})
   const showStats = ref(false)
   const statsContainer = ref(null)
 
-
   // Track current section (not just from URL, also from navigation)
   const currentSectionValue = ref('frontpage')
   const currentSection = computed({
@@ -369,7 +396,7 @@ definePageMeta({})
       nextTick(() => {
         fetchCurrentSection()
       })
-    }
+    },
   })
 
   // Get the user's layout preference
@@ -478,7 +505,6 @@ definePageMeta({})
     postsStore.clearPosts() // Clear posts immediately when changing filters
     fetchCurrentSection()
   }
-
 
   // Handle clear filters button click
   function handleClearFilters() {
@@ -591,37 +617,50 @@ definePageMeta({})
   })
 
   // Watch for route changes (when navigating between / and /pending)
-  watch(() => route.path, (newPath, oldPath) => {
-    // Only react to actual path changes, not initial mount
-    if (newPath === oldPath) return
+  watch(
+    () => route.path,
+    (newPath, oldPath) => {
+      // Only react to actual path changes, not initial mount
+      if (newPath === oldPath) return
 
-    // Reset section value when URL changes
-    if (route.path.endsWith('/pending')) {
-      currentSectionValue.value = 'pending'
-    } else if (route.path.endsWith('/my-subs')) {
-      currentSectionValue.value = 'my_subs'
-    } else {
-      currentSectionValue.value = 'frontpage'
+      // Reset section value when URL changes
+      if (route.path.endsWith('/pending')) {
+        currentSectionValue.value = 'pending'
+      } else if (route.path.endsWith('/my-subs')) {
+        currentSectionValue.value = 'my_subs'
+      } else {
+        currentSectionValue.value = 'frontpage'
+      }
+      page.value = 1
+      loading.value = true // Set loading immediately to avoid flash of "no content"
+      postsStore.clearPosts() // Clear posts immediately when changing sections
+      fetchCurrentSection()
     }
-    page.value = 1
-    loading.value = true // Set loading immediately to avoid flash of "no content"
-    postsStore.clearPosts() // Clear posts immediately when changing sections
-    fetchCurrentSection()
-  })
+  )
 
   // Watch for query changes (browser back/forward)
-  watch(() => route.query, (newQuery) => {
-    const newSort = newQuery.sort?.toString() || 'lastActive'
-    const newDir = newQuery.dir?.toString() || 'desc'
-    const newTime = newQuery.time?.toString() || '43200'
+  watch(
+    () => route.query,
+    (newQuery) => {
+      const newSort = newQuery.sort?.toString() || 'lastActive'
+      const newDir = newQuery.dir?.toString() || 'desc'
+      const newTime = newQuery.time?.toString() || '43200'
 
-    // Only update if values actually changed (avoid loops)
-    if (sort.value !== newSort) { sort.value = newSort }
-    if (direction.value !== newDir) { direction.value = newDir }
-    if (timeInterval.value !== newTime) { timeInterval.value = newTime }
+      // Only update if values actually changed (avoid loops)
+      if (sort.value !== newSort) {
+        sort.value = newSort
+      }
+      if (direction.value !== newDir) {
+        direction.value = newDir
+      }
+      if (timeInterval.value !== newTime) {
+        timeInterval.value = newTime
+      }
 
-    // The watchers on sort/direction/timeInterval will handle fetching
-  }, { deep: true })
+      // The watchers on sort/direction/timeInterval will handle fetching
+    },
+    { deep: true }
+  )
 
   watch(
     () => postsStore.currentSection,
@@ -635,7 +674,6 @@ definePageMeta({})
   let statsObserver = null
 
   onMounted(async () => {
-
     // Wait a tick to ensure user-preferences-init plugin has run
     await nextTick()
 
@@ -652,10 +690,8 @@ definePageMeta({})
     fetchPopularTags()
     checkMobile()
 
-
     // Lazy load SidebarStats only when visible (Intersection Observer)
     if (import.meta.client && statsContainer.value) {
-
       statsObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -668,7 +704,7 @@ definePageMeta({})
         },
         {
           rootMargin: '100px', // Load 100px before it's visible
-          threshold: 0.01
+          threshold: 0.01,
         }
       )
 

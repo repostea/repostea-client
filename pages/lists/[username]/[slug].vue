@@ -11,7 +11,12 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center">
             <div class="mr-3">
-              <Icon :name="getListIconIconify(list)" class="text-2xl" :class="getListIconColor(list)" aria-hidden="true" />
+              <Icon
+                :name="getListIconIconify(list)"
+                class="text-2xl"
+                :class="getListIconColor(list)"
+                aria-hidden="true"
+              />
             </div>
             <div>
               <h1 class="text-2xl font-bold">
@@ -52,7 +57,11 @@
         <div class="lg:col-span-2">
           <template v-if="posts.length === 0">
             <div class="card-bg p-6 rounded-lg shadow text-center">
-              <Icon name="fa6-solid:circle-info" class="text-primary text-3xl mb-2" aria-hidden="true" />
+              <Icon
+                name="fa6-solid:circle-info"
+                class="text-primary text-3xl mb-2"
+                aria-hidden="true"
+              />
               <p class="text-lg">{{ t('saved_lists.no_posts_in_list') }}</p>
               <p class="mt-2 text-sm text-text-muted dark:text-text-dark-muted">
                 {{ t('saved_lists.add_posts_instruction') }}
@@ -151,9 +160,7 @@
         </div>
 
         <div class="lg:col-span-1">
-          <div
-            class="card-bg p-4 rounded-lg shadow-sm border list-detail-border mb-4"
-          >
+          <div class="card-bg p-4 rounded-lg shadow-sm border list-detail-border mb-4">
             <h3 class="text-lg font-bold mb-3">
               <Icon name="fa6-solid:circle-info" class="mr-1" aria-hidden="true" />
               {{ t('saved_lists.list_info') }}
@@ -189,9 +196,7 @@
             </div>
           </div>
 
-          <div
-            class="card-bg p-4 rounded-lg shadow-sm border list-detail-border mb-4"
-          >
+          <div class="card-bg p-4 rounded-lg shadow-sm border list-detail-border mb-4">
             <h3 class="text-lg font-bold mb-3">
               <Icon name="fa6-solid:bolt" class="mr-1" aria-hidden="true" />
               {{ t('saved_lists.quick_actions') }}
@@ -234,9 +239,7 @@
             </div>
           </div>
 
-          <div
-            class="card-bg p-4 rounded-lg shadow-sm border list-detail-border"
-          >
+          <div class="card-bg p-4 rounded-lg shadow-sm border list-detail-border">
             <h3 class="text-lg font-bold mb-3">
               <Icon name="fa6-solid:lightbulb" class="mr-1" aria-hidden="true" />
               {{ t('saved_lists.tips') }}
@@ -255,11 +258,9 @@
     <Teleport to="body">
       <div v-if="showEditModal" class="fixed inset-0 z-50 overflow-y-auto" aria-modal="true">
         <div class="flex items-center justify-center min-h-screen p-4">
-          <div class="fixed inset-0 bg-black bg-opacity-50" @click="showEditModal = false"/>
+          <div class="fixed inset-0 bg-black bg-opacity-50" @click="showEditModal = false" />
 
-          <div
-            class="list-detail-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10"
-          >
+          <div class="list-detail-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10">
             <h3 class="text-lg font-medium mb-4">
               {{ t('saved_lists.edit_list') }}
             </h3>
@@ -335,11 +336,9 @@
     <Teleport to="body">
       <div v-if="showNotesModal" class="fixed inset-0 z-50 overflow-y-auto" aria-modal="true">
         <div class="flex items-center justify-center min-h-screen p-4">
-          <div class="fixed inset-0 bg-black bg-opacity-50" @click="showNotesModal = false"/>
+          <div class="fixed inset-0 bg-black bg-opacity-50" @click="showNotesModal = false" />
 
-          <div
-            class="list-detail-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10"
-          >
+          <div class="list-detail-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10">
             <h3 class="text-lg font-medium mb-2">
               {{ t('saved_lists.notes_for_post') }}
             </h3>
@@ -386,11 +385,9 @@
     <Teleport to="body">
       <div v-if="showShareModal" class="fixed inset-0 z-50 overflow-y-auto" aria-modal="true">
         <div class="flex items-center justify-center min-h-screen p-4">
-          <div class="fixed inset-0 bg-black bg-opacity-50" @click="showShareModal = false"/>
+          <div class="fixed inset-0 bg-black bg-opacity-50" @click="showShareModal = false" />
 
-          <div
-            class="list-detail-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10"
-          >
+          <div class="list-detail-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10">
             <h3 class="text-lg font-medium mb-2">
               {{ t('saved_lists.share_list') }}
             </h3>
@@ -459,11 +456,9 @@
     <Teleport to="body">
       <div v-if="showClearConfirm" class="fixed inset-0 z-50 overflow-y-auto" aria-modal="true">
         <div class="flex items-center justify-center min-h-screen p-4">
-          <div class="fixed inset-0 bg-black bg-opacity-50" @click="showClearConfirm = false"/>
+          <div class="fixed inset-0 bg-black bg-opacity-50" @click="showClearConfirm = false" />
 
-          <div
-            class="list-detail-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10"
-          >
+          <div class="list-detail-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10">
             <h3 class="text-lg font-medium mb-2">
               {{ t('saved_lists.confirm_clear') }}
             </h3>
@@ -508,12 +503,11 @@
 <script setup>
   import { ref, computed, onMounted, watch } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
-  import { useLocalePath, useI18n  } from '#i18n'
+  import { useLocalePath, useI18n } from '#i18n'
   import { useSavedListsStore } from '~/stores/savedLists'
   import { useAuthStore } from '~/stores/auth'
   import PostCard from '~/components/posts/PostCard.vue'
 
-  
   const { t, locale } = useI18n()
   const { timezone } = useUserTimezone()
 
@@ -598,7 +592,10 @@
   const fetchList = async () => {
     loading.value = true
     try {
-      list.value = await savedListsStore.fetchListByUsernameAndSlug(listUsername.value, listSlug.value)
+      list.value = await savedListsStore.fetchListByUsernameAndSlug(
+        listUsername.value,
+        listSlug.value
+      )
       await fetchListPosts()
     } catch (error) {
       console.error('Error al cargar lista:', error)
@@ -742,11 +739,7 @@
     notesSubmitting.value = true
 
     try {
-      await savedListsStore.updatePostNotes(
-        list.value.uuid,
-        selectedPost.value.id,
-        notesText.value
-      )
+      await savedListsStore.updatePostNotes(list.value.uuid, selectedPost.value.id, notesText.value)
       postsNotes.value[selectedPost.value.id] = notesText.value
       showNotesModal.value = false
       selectedPost.value = null
@@ -796,7 +789,9 @@
   const shareOnSocialMedia = (platform) => {
     const url = encodeURIComponent(shareUrl.value)
     const appName = runtimeConfig.public.appName || 'Repostea'
-    const title = encodeURIComponent(`${t('saved_lists.list_from', { app: appName })}: ${list.value.name}`)
+    const title = encodeURIComponent(
+      `${t('saved_lists.list_from', { app: appName })}: ${list.value.name}`
+    )
 
     let socialUrl
 

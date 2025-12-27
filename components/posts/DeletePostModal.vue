@@ -23,7 +23,17 @@
           @click.stop
         >
           <div class="delete-modal-header px-6 py-4">
-            <h2 id="delete-modal-title" class="text-xl font-medium text-red-600 dark:text-red-400 inline-flex items-center"><Icon name="fa6-solid:triangle-exclamation" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('posts.confirm_delete_title') }}</span></h2>
+            <h2
+              id="delete-modal-title"
+              class="text-xl font-medium text-red-600 dark:text-red-400 inline-flex items-center"
+            >
+              <Icon
+                name="fa6-solid:triangle-exclamation"
+                class="mr-2 flex-shrink-0"
+                aria-hidden="true"
+              />
+              <span>{{ t('posts.confirm_delete_title') }}</span>
+            </h2>
           </div>
 
           <div class="p-6">

@@ -8,8 +8,13 @@
           alt="Thumbnail"
           class="w-20 h-20 rounded-md object-cover thumb-border"
         >
-        <div v-if="isUploading || isDeleting" class="absolute inset-0 bg-black bg-opacity-50 rounded-md flex items-center justify-center">
-          <span class="inline-block animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"/>
+        <div
+          v-if="isUploading || isDeleting"
+          class="absolute inset-0 bg-black bg-opacity-50 rounded-md flex items-center justify-center"
+        >
+          <span
+            class="inline-block animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"
+          />
         </div>
       </div>
 
@@ -67,7 +72,10 @@
         @click="$refs.fileInput.click()"
       >
         <Icon name="fa6-solid:cloud-arrow-up" class="text-gray-400" aria-hidden="true" />
-        <span v-if="isUploading" class="inline-block animate-spin h-4 w-4 border-2 border-primary border-t-transparent rounded-full"/>
+        <span
+          v-if="isUploading"
+          class="inline-block animate-spin h-4 w-4 border-2 border-primary border-t-transparent rounded-full"
+        />
         <span class="text-sm text-gray-600 dark:text-gray-400">
           {{ isUploading ? t('common.uploading') + '...' : t('posts.upload_thumbnail') }}
         </span>
@@ -79,12 +87,18 @@
     </div>
 
     <!-- Mensajes -->
-    <div v-if="errorMessage" class="mt-2 text-sm text-red-600 dark:text-red-400 flex items-start gap-1">
+    <div
+      v-if="errorMessage"
+      class="mt-2 text-sm text-red-600 dark:text-red-400 flex items-start gap-1"
+    >
       <Icon name="fa6-solid:circle-exclamation" class="mt-0.5" aria-hidden="true" />
       <span>{{ errorMessage }}</span>
     </div>
 
-    <div v-if="successMessage" class="mt-2 text-sm text-green-600 dark:text-green-400 flex items-start gap-1">
+    <div
+      v-if="successMessage"
+      class="mt-2 text-sm text-green-600 dark:text-green-400 flex items-start gap-1"
+    >
       <Icon name="fa6-solid:circle-check" class="mt-0.5" aria-hidden="true" />
       <span>{{ successMessage }}</span>
     </div>
@@ -132,11 +146,14 @@
   const errorMessage = ref('')
   const successMessage = ref('')
 
-  watch(() => props.currentThumbnail, (newVal) => {
-    if (!newVal) {
-      previewUrl.value = null
+  watch(
+    () => props.currentThumbnail,
+    (newVal) => {
+      if (!newVal) {
+        previewUrl.value = null
+      }
     }
-  })
+  )
 
   function handleFileSelect(event) {
     const file = event.target.files[0]
@@ -230,7 +247,6 @@
       isDeleting.value = false
     }
   }
-
 </script>
 
 <style scoped>

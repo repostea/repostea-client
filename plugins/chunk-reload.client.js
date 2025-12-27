@@ -12,8 +12,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     const RELOAD_KEY = 'chunk-reload-attempted'
 
     // Detect chunk loading errors
-    nuxtApp.hook('app:chunkError', ({ error }) => {
-      console.warn('Chunk loading error detected:', error)
+    nuxtApp.hook('app:chunkError', () => {
       handleChunkError()
     })
 
@@ -28,8 +27,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         errorMessage.includes('Unable to preload CSS') ||
         errorMessage.includes('Failed to load module script')
       ) {
-        console.warn('Chunk loading error detected in unhandledrejection:', event.reason)
-        event.preventDefault() // Prevent default error handling
+        event.preventDefault()
         handleChunkError()
       }
     })
@@ -38,17 +36,14 @@ export default defineNuxtPlugin((nuxtApp) => {
       const hasReloaded = sessionStorage.getItem(RELOAD_KEY)
 
       if (!hasReloaded) {
-        console.info('New version detected. Reloading page to load latest assets...')
-
         // Mark that we've attempted a reload
         sessionStorage.setItem(RELOAD_KEY, 'true')
 
-        // Wait a tiny bit to ensure the error is logged
+        // Wait a tiny bit then reload
         setTimeout(() => {
           window.location.reload()
         }, 100)
       } else {
-        console.error('Chunk loading failed even after reload. Clearing reload flag.')
         // Clear the flag so user can try again later
         sessionStorage.removeItem(RELOAD_KEY)
       }

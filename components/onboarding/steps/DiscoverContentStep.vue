@@ -17,10 +17,16 @@
     <!-- Main content -->
     <div class="mb-6 text-left">
       <p class="text-gray-800 dark:text-gray-200 mb-4 text-lg">
-        {{ t('onboarding.steps.discover-content.content.main_text_1') }} <strong>{{ t('onboarding.steps.discover-content.content.main_text_2') }}</strong>.
+        {{ t('onboarding.steps.discover-content.content.main_text_1') }}
+        <strong>{{ t('onboarding.steps.discover-content.content.main_text_2') }}</strong
+        >.
       </p>
       <p class="text-gray-700 dark:text-gray-300 mb-4">
-        {{ t('onboarding.steps.discover-content.content.essence_text_1') }} <strong>{{ t('onboarding.steps.discover-content.content.essence_text_2') }}</strong> {{ t('onboarding.steps.discover-content.content.essence_text_3') }} <strong>{{ t('onboarding.steps.discover-content.content.essence_text_4') }}</strong> {{ t('onboarding.steps.discover-content.content.essence_text_5') }}
+        {{ t('onboarding.steps.discover-content.content.essence_text_1') }}
+        <strong>{{ t('onboarding.steps.discover-content.content.essence_text_2') }}</strong>
+        {{ t('onboarding.steps.discover-content.content.essence_text_3') }}
+        <strong>{{ t('onboarding.steps.discover-content.content.essence_text_4') }}</strong>
+        {{ t('onboarding.steps.discover-content.content.essence_text_5') }}
       </p>
       <p class="text-gray-700 dark:text-gray-300 text-sm">
         {{ t('onboarding.steps.discover-content.content.tip') }}

@@ -8,10 +8,7 @@
       @click="$emit('expand')"
     >
       <!-- Twitter Preview -->
-      <div
-        v-if="isTwitter"
-        class="social-preview absolute top-0 left-0 w-full h-full"
-      >
+      <div v-if="isTwitter" class="social-preview absolute top-0 left-0 w-full h-full">
         <NuxtImg
           v-if="twitterThumbnail"
           :src="twitterThumbnail"
@@ -24,14 +21,23 @@
         />
         <div v-else class="flex flex-col items-start justify-center p-4 h-full">
           <div class="flex items-center mb-3 w-full">
-            <div class="social-avatar w-10 h-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-              <Icon name="fa6-brands:x-twitter" class="text-text-muted dark:text-text-dark-muted" aria-hidden="true" />
+            <div
+              class="social-avatar w-10 h-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
+            >
+              <Icon
+                name="fa6-brands:x-twitter"
+                class="text-text-muted dark:text-text-dark-muted"
+                aria-hidden="true"
+              />
             </div>
             <div class="flex-1 min-w-0">
-              <div v-if="twitterAuthor" class="font-semibold text-text dark:text-text-dark text-sm truncate">
+              <div
+                v-if="twitterAuthor"
+                class="font-semibold text-text dark:text-text-dark text-sm truncate"
+              >
                 {{ twitterAuthor }}
               </div>
-              <div v-else class="social-skeleton h-3 rounded w-24 mb-1"/>
+              <div v-else class="social-skeleton h-3 rounded w-24 mb-1" />
               <div class="text-xs text-text-muted dark:text-text-dark-muted">@twitter</div>
             </div>
           </div>
@@ -39,17 +45,14 @@
             {{ twitterText }}
           </div>
           <div v-else class="w-full space-y-2">
-            <div class="social-skeleton h-2 rounded w-full"/>
-            <div class="social-skeleton h-2 rounded w-5/6"/>
-            <div class="social-skeleton h-2 rounded w-4/6"/>
+            <div class="social-skeleton h-2 rounded w-full" />
+            <div class="social-skeleton h-2 rounded w-5/6" />
+            <div class="social-skeleton h-2 rounded w-4/6" />
           </div>
         </div>
       </div>
       <!-- Instagram Preview -->
-      <div
-        v-else-if="isInstagram"
-        class="social-preview absolute top-0 left-0 w-full h-full"
-      >
+      <div v-else-if="isInstagram" class="social-preview absolute top-0 left-0 w-full h-full">
         <NuxtImg
           v-if="thumbnail"
           :src="thumbnail"
@@ -62,16 +65,17 @@
         />
         <div v-else class="flex flex-col items-center justify-center h-full">
           <div class="social-avatar w-16 h-16 rounded-full flex items-center justify-center mb-3">
-            <Icon name="fa6-brands:instagram" class="text-3xl text-text-muted dark:text-text-dark-muted" aria-hidden="true" />
+            <Icon
+              name="fa6-brands:instagram"
+              class="text-3xl text-text-muted dark:text-text-dark-muted"
+              aria-hidden="true"
+            />
           </div>
           <p class="text-sm text-text-muted dark:text-text-dark-muted">Instagram</p>
         </div>
       </div>
       <!-- TikTok Preview -->
-      <div
-        v-else-if="isTikTok"
-        class="social-preview absolute top-0 left-0 w-full h-full"
-      >
+      <div v-else-if="isTikTok" class="social-preview absolute top-0 left-0 w-full h-full">
         <NuxtImg
           v-if="thumbnail"
           :src="thumbnail"
@@ -84,7 +88,11 @@
         />
         <div v-else class="flex flex-col items-center justify-center h-full">
           <div class="social-avatar w-16 h-16 rounded-full flex items-center justify-center mb-3">
-            <Icon name="fa6-brands:tiktok" class="text-3xl text-text-muted dark:text-text-dark-muted" aria-hidden="true" />
+            <Icon
+              name="fa6-brands:tiktok"
+              class="text-3xl text-text-muted dark:text-text-dark-muted"
+              aria-hidden="true"
+            />
           </div>
           <p class="text-sm text-text-muted dark:text-text-dark-muted">TikTok</p>
         </div>
@@ -127,8 +135,17 @@
     </div>
 
     <div v-else class="mb-4">
-      <div v-if="isTwitter" ref="twitterContainer" class="flex justify-center" style="min-height: 500px;"/>
-      <div v-else-if="embedUrl" class="relative pb-9/16 overflow-hidden" style="padding-bottom: 56.25%">
+      <div
+        v-if="isTwitter"
+        ref="twitterContainer"
+        class="flex justify-center"
+        style="min-height: 500px"
+      />
+      <div
+        v-else-if="embedUrl"
+        class="relative pb-9/16 overflow-hidden"
+        style="padding-bottom: 56.25%"
+      >
         <iframe
           :src="embedUrl"
           class="absolute top-0 left-0 w-full h-full"
@@ -305,7 +322,7 @@
     try {
       const config = useRuntimeConfig()
       const response = await $fetch(`${config.public.apiBaseUrl}/v1/media/twitter-metadata`, {
-        params: { url: props.url }
+        params: { url: props.url },
       })
 
       if (response.success && response.data) {
@@ -346,7 +363,6 @@
     const tweetIdMatch = props.url.match(/status\/(\d+)/)
     const tweetId = tweetIdMatch ? tweetIdMatch[1] : null
 
-
     if (!tweetId) {
       console.error('[VideoPlayer] Could not extract tweet ID from URL')
       return
@@ -356,25 +372,26 @@
 
     const isDark = document.documentElement.classList.contains('dark')
 
-    window.twttr.widgets.createTweet(
-      tweetId,
-      twitterContainer.value,
-      {
+    window.twttr.widgets
+      .createTweet(tweetId, twitterContainer.value, {
         theme: isDark ? 'dark' : 'light',
         lang: locale.value,
-        dnt: true
-      }
-    ).then(() => {
-    }).catch((error) => {
-      console.error('[VideoPlayer] Error creating Twitter widget:', error)
-    })
+        dnt: true,
+      })
+      .then(() => {})
+      .catch((error) => {
+        console.error('[VideoPlayer] Error creating Twitter widget:', error)
+      })
   }
 
-  watch(() => props.expanded, (newVal) => {
-    if (newVal && isTwitter.value) {
-      setTimeout(loadTwitterWidget, 100)
+  watch(
+    () => props.expanded,
+    (newVal) => {
+      if (newVal && isTwitter.value) {
+        setTimeout(loadTwitterWidget, 100)
+      }
     }
-  })
+  )
 
   onMounted(() => {
     if (isTwitter.value) {

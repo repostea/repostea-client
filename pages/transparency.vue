@@ -8,16 +8,20 @@
 
     <div class="max-w-4xl mx-auto mt-8 space-y-8">
       <!-- Estadísticas generales -->
-      <div
-        class="card-bg rounded-lg shadow-sm border transparency-border p-6"
-      >
+      <div class="card-bg rounded-lg shadow-sm border transparency-border p-6">
         <h2 class="text-2xl font-bold mb-4 text-text dark:text-text-dark">
-          <Icon name="fa6-solid:chart-bar" class="mr-2 text-gray-600 dark:text-gray-400" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:chart-bar"
+            class="mr-2 text-gray-600 dark:text-gray-400"
+            aria-hidden="true"
+          />
           {{ $t('transparency.stats.title') }}
         </h2>
         <div class="grid md:grid-cols-4 gap-6">
           <div class="text-center">
-            <div class="text-3xl font-bold text-text dark:text-text-dark mb-2">{{ formatNumber(stats.posts) }}</div>
+            <div class="text-3xl font-bold text-text dark:text-text-dark mb-2">
+              {{ formatNumber(stats.posts) }}
+            </div>
             <div class="text-sm text-text-muted dark:text-text-dark-muted">
               {{ $t('transparency.stats.posts') }}
             </div>
@@ -50,11 +54,13 @@
       </div>
 
       <!-- Moderación -->
-      <div
-        class="card-bg rounded-lg shadow-sm border transparency-border p-6"
-      >
+      <div class="card-bg rounded-lg shadow-sm border transparency-border p-6">
         <h2 class="text-2xl font-bold mb-4 text-text dark:text-text-dark">
-          <Icon name="fa6-solid:shield-halved" class="mr-2 text-gray-600 dark:text-gray-400" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:shield-halved"
+            class="mr-2 text-gray-600 dark:text-gray-400"
+            aria-hidden="true"
+          />
           {{ $t('transparency.moderation.title') }}
         </h2>
         <div class="grid md:grid-cols-2 gap-8">
@@ -67,25 +73,33 @@
                 <span class="text-text-muted dark:text-text-dark-muted">{{
                   $t('transparency.moderation.reports.received')
                 }}</span>
-                <span class="font-semibold text-text dark:text-text-dark">{{ moderation.reports.total }}</span>
+                <span class="font-semibold text-text dark:text-text-dark">{{
+                  moderation.reports.total
+                }}</span>
               </div>
               <div class="flex justify-between items-center">
                 <span class="text-text-muted dark:text-text-dark-muted">{{
                   $t('transparency.moderation.reports.processed')
                 }}</span>
-                <span class="font-semibold text-text dark:text-text-dark">{{ moderation.reports.processed }}</span>
+                <span class="font-semibold text-text dark:text-text-dark">{{
+                  moderation.reports.processed
+                }}</span>
               </div>
               <div class="flex justify-between items-center">
                 <span class="text-text-muted dark:text-text-dark-muted">{{
                   $t('transparency.moderation.reports.pending')
                 }}</span>
-                <span class="font-semibold text-text dark:text-text-dark">{{ moderation.reports.pending }}</span>
+                <span class="font-semibold text-text dark:text-text-dark">{{
+                  moderation.reports.pending
+                }}</span>
               </div>
               <div class="flex justify-between items-center">
                 <span class="text-text-muted dark:text-text-dark-muted">{{
                   $t('transparency.moderation.reports.avg_response')
                 }}</span>
-                <span class="font-semibold text-text dark:text-text-dark">{{ moderation.avg_response_hours }}h</span>
+                <span class="font-semibold text-text dark:text-text-dark"
+                  >{{ moderation.avg_response_hours }}h</span
+                >
               </div>
             </div>
           </div>
@@ -98,13 +112,17 @@
                 <span class="text-text-muted dark:text-text-dark-muted">{{
                   $t('transparency.moderation.actions.content_removed')
                 }}</span>
-                <span class="font-semibold text-text dark:text-text-dark">{{ moderation.actions.removed }}</span>
+                <span class="font-semibold text-text dark:text-text-dark">{{
+                  moderation.actions.removed
+                }}</span>
               </div>
               <div class="flex justify-between items-center">
                 <span class="text-text-muted dark:text-text-dark-muted">{{
                   $t('transparency.moderation.actions.warnings')
                 }}</span>
-                <span class="font-semibold text-text dark:text-text-dark">{{ moderation.actions.warnings }}</span>
+                <span class="font-semibold text-text dark:text-text-dark">{{
+                  moderation.actions.warnings
+                }}</span>
               </div>
               <div class="flex justify-between items-center">
                 <span class="text-text-muted dark:text-text-dark-muted">{{
@@ -118,7 +136,9 @@
                 <span class="text-text-muted dark:text-text-dark-muted">{{
                   $t('transparency.moderation.actions.appeals')
                 }}</span>
-                <span class="font-semibold text-text dark:text-text-dark">{{ moderation.actions.appeals }}</span>
+                <span class="font-semibold text-text dark:text-text-dark">{{
+                  moderation.actions.appeals
+                }}</span>
               </div>
             </div>
           </div>
@@ -126,11 +146,13 @@
       </div>
 
       <!-- Tipos de reportes -->
-      <div
-        class="card-bg rounded-lg shadow-sm border transparency-border p-6"
-      >
+      <div class="card-bg rounded-lg shadow-sm border transparency-border p-6">
         <h2 class="text-2xl font-bold mb-4 text-text dark:text-text-dark">
-          <Icon name="fa6-solid:flag" class="mr-2 text-gray-600 dark:text-gray-400" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:flag"
+            class="mr-2 text-gray-600 dark:text-gray-400"
+            aria-hidden="true"
+          />
           {{ $t('transparency.report_types.title') }}
         </h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -140,7 +162,11 @@
             class="transparency-item p-4 rounded-lg"
           >
             <div class="flex items-center mb-2">
-              <Icon :name="report.icon" class="mr-2 text-gray-600 dark:text-gray-400" aria-hidden="true" />
+              <Icon
+                :name="report.icon"
+                class="mr-2 text-gray-600 dark:text-gray-400"
+                aria-hidden="true"
+              />
               <span class="font-semibold text-text dark:text-text-dark">{{
                 $t(`transparency.report_types.${report.type}`)
               }}</span>
@@ -272,13 +298,13 @@
           name: t('transparency.title'),
           description: t('transparency.description'),
           isPartOf: {
-            '@id': `${siteUrl}/#website`
+            '@id': `${siteUrl}/#website`,
           },
-          inLanguage: locale.value
+          inLanguage: locale.value,
         }),
-        tagPosition: 'bodyClose'
-      }
-    ]
+        tagPosition: 'bodyClose',
+      },
+    ],
   })
 </script>
 

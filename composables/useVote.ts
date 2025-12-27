@@ -29,7 +29,11 @@ export function useVote(minKarmaToDownvote = 8) {
     { value: 'incomplete', iconify: 'fa6-solid:scissors', iconColor: 'text-orange-500' },
     { value: 'irrelevant', iconify: 'fa6-solid:ban', iconColor: 'text-gray-500' },
     { value: 'false', iconify: 'fa6-solid:circle-xmark', iconColor: 'text-red-500' },
-    { value: 'outofplace', iconify: 'fa6-solid:arrow-up-right-from-square', iconColor: 'text-pink-500' },
+    {
+      value: 'outofplace',
+      iconify: 'fa6-solid:arrow-up-right-from-square',
+      iconColor: 'text-pink-500',
+    },
   ]
 
   // Get vote type icon (Iconify format)

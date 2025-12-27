@@ -124,7 +124,9 @@ describe('Sub Visibility Settings', () => {
           PostList: { template: '<div class="post-list-stub"></div>' },
           FilterControls: { template: '<div class="filter-controls-stub"></div>' },
           LayoutSelector: { template: '<div class="layout-selector-stub"></div>' },
-          ContentLanguageSelector: { template: '<div class="content-language-selector-stub"></div>' },
+          ContentLanguageSelector: {
+            template: '<div class="content-language-selector-stub"></div>',
+          },
           Teleport: { template: '<div><slot /></div>' },
         },
       },
@@ -221,7 +223,7 @@ describe('Sub Visibility Settings', () => {
       await flushPromises()
 
       // Should not show moderators header when list is empty
-      const moderatorsHeader = wrapper.findAll('h3').find(h => h.text() === 'subs.moderators')
+      const moderatorsHeader = wrapper.findAll('h3').find((h) => h.text() === 'subs.moderators')
       expect(moderatorsHeader).toBeUndefined()
     })
 

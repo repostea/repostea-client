@@ -2,12 +2,8 @@
   <div class="container mx-auto px-4 py-8">
     <div class="flex justify-center">
       <div class="w-full max-w-md">
-        <div
-          class="card-bg rounded-lg shadow-sm border auth-border"
-        >
-          <div
-            class="auth-header px-6 py-4 border-b auth-border rounded-t-lg"
-          >
+        <div class="card-bg rounded-lg shadow-sm border auth-border">
+          <div class="auth-header px-6 py-4 border-b auth-border rounded-t-lg">
             <h2 class="text-lg font-medium">
               {{ t('auth.register') }}
             </h2>
@@ -17,10 +13,7 @@
             <!-- Registration Status Messages -->
             <ClientOnly>
               <!-- Loading State -->
-              <div
-                v-if="!configLoaded"
-                class="auth-loading-state p-4 rounded-md mb-4"
-              >
+              <div v-if="!configLoaded" class="auth-loading-state p-4 rounded-md mb-4">
                 <div class="flex items-start">
                   <Icon name="fa6-solid:spinner" class="mr-2 mt-0.5" aria-hidden="true" />
                   <div class="flex-1">
@@ -47,8 +40,8 @@
                         :to="localePath('/auth/login')"
                         class="font-medium underline hover:no-underline"
                       >
-                        {{ t('auth.explore_anonymous_link') }}
-                      </NuxtLink>.
+                        {{ t('auth.explore_anonymous_link') }} </NuxtLink
+                      >.
                     </p>
                   </div>
                 </div>
@@ -86,8 +79,8 @@
                         :to="localePath('/auth/login')"
                         class="font-medium underline hover:no-underline"
                       >
-                        {{ t('auth.explore_anonymous_link') }}
-                      </NuxtLink>.
+                        {{ t('auth.explore_anonymous_link') }} </NuxtLink
+                      >.
                     </p>
                   </div>
                 </div>
@@ -109,10 +102,7 @@
               {{ t('auth.register_info') }}
             </p>
 
-            <form
-              :class="formClasses"
-              @submit.prevent="register"
-            >
+            <form :class="formClasses" @submit.prevent="register">
               <div class="mb-4">
                 <label for="username" class="block text-sm font-medium mb-1">{{
                   t('auth.username')
@@ -131,7 +121,12 @@
                   autocomplete="username"
                   autofocus
                 >
-                <p v-if="errors.username" id="username-error" role="alert" class="mt-1 text-sm text-red-500">
+                <p
+                  v-if="errors.username"
+                  id="username-error"
+                  role="alert"
+                  class="mt-1 text-sm text-red-500"
+                >
                   {{ errors.username }}
                 </p>
               </div>
@@ -153,7 +148,12 @@
                   required
                   autocomplete="email"
                 >
-                <p v-if="errors.email" id="email-error" role="alert" class="mt-1 text-sm text-red-500">
+                <p
+                  v-if="errors.email"
+                  id="email-error"
+                  role="alert"
+                  class="mt-1 text-sm text-red-500"
+                >
                   {{ errors.email }}
                 </p>
               </div>
@@ -175,7 +175,12 @@
                   required
                   autocomplete="new-password"
                 >
-                <p v-if="errors.password" id="password-error" role="alert" class="mt-1 text-sm text-red-500">
+                <p
+                  v-if="errors.password"
+                  id="password-error"
+                  role="alert"
+                  class="mt-1 text-sm text-red-500"
+                >
                   {{ errors.password }}
                 </p>
               </div>
@@ -193,11 +198,18 @@
                     'border-red-500 focus:ring-red-500': errors.password_confirmation,
                   }"
                   :aria-invalid="!!errors.password_confirmation"
-                  :aria-describedby="errors.password_confirmation ? 'password-confirm-error' : undefined"
+                  :aria-describedby="
+                    errors.password_confirmation ? 'password-confirm-error' : undefined
+                  "
                   required
                   autocomplete="new-password"
                 >
-                <p v-if="errors.password_confirmation" id="password-confirm-error" role="alert" class="mt-1 text-sm text-red-500">
+                <p
+                  v-if="errors.password_confirmation"
+                  id="password-confirm-error"
+                  role="alert"
+                  class="mt-1 text-sm text-red-500"
+                >
                   {{ errors.password_confirmation }}
                 </p>
               </div>
@@ -249,8 +261,8 @@
 <script setup>
   import { ref, reactive, computed, onMounted } from 'vue'
   import { useAuthStore } from '@/stores/auth'
-  import { useLocalePath, useI18n  } from '#i18n'
-  
+  import { useLocalePath, useI18n } from '#i18n'
+
   import { useRoute } from 'vue-router'
   import { useSystemSettings } from '@/composables/useSystemSettings'
   const { t, locale } = useI18n()
@@ -261,11 +273,7 @@
   const { $redirectAfterAuth } = useNuxtApp()
 
   // Use system settings composable (settings are auto-loaded by plugin)
-  const {
-    settings,
-    isLoaded: configLoaded,
-    canRegister,
-  } = useSystemSettings()
+  const { settings, isLoaded: configLoaded, canRegister } = useSystemSettings()
 
   const loading = ref(false)
   const errors = reactive({})

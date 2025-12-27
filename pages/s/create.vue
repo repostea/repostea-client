@@ -1,9 +1,15 @@
 <template>
   <div class="container mx-auto p-2 sm:p-4 max-w-3xl">
     <!-- Beta Warning Banner -->
-    <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-6">
+    <div
+      class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-6"
+    >
       <div class="flex items-start gap-3">
-        <Icon name="fa6-solid:triangle-exclamation" class="text-yellow-600 dark:text-yellow-400 text-lg mt-0.5" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:triangle-exclamation"
+          class="text-yellow-600 dark:text-yellow-400 text-lg mt-0.5"
+          aria-hidden="true"
+        />
         <div>
           <h3 class="font-semibold text-yellow-900 dark:text-yellow-200 text-sm mb-1">
             {{ $t('subs.beta_warning.title') }}
@@ -17,7 +23,9 @@
 
     <!-- Loading state while checking requirements -->
     <div v-if="isCheckingRequirements" class="py-8 text-center">
-      <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary"/>
+      <div
+        class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary"
+      />
       <p class="mt-2 text-gray-500 dark:text-gray-400">{{ $t('common.loading') }}</p>
     </div>
 
@@ -41,7 +49,11 @@
         >
           <div class="flex items-start">
             <div class="flex-shrink-0">
-              <Icon name="fa6-solid:circle-exclamation" class="text-yellow-500 dark:text-yellow-400 text-lg" aria-hidden="true" />
+              <Icon
+                name="fa6-solid:circle-exclamation"
+                class="text-yellow-500 dark:text-yellow-400 text-lg"
+                aria-hidden="true"
+              />
             </div>
             <div class="ml-3 flex-1">
               <h3 class="text-sm font-semibold text-yellow-800 dark:text-yellow-200 mb-2">
@@ -54,7 +66,11 @@
                 <li class="flex items-start">
                   <Icon
                     :name="hasEnoughKarma ? 'fa6-solid:circle-check' : 'fa6-solid:circle-xmark'"
-                    :class="hasEnoughKarma ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'"
+                    :class="
+                      hasEnoughKarma
+                        ? 'text-green-600 dark:text-green-400'
+                        : 'text-red-600 dark:text-red-400'
+                    "
                     class="mr-2 mt-0.5"
                     aria-hidden="true"
                   />
@@ -70,7 +86,9 @@
         <!-- Form -->
         <form
           class="p-6 space-y-6"
-          :class="{ 'opacity-50 pointer-events-none': authStore.isAuthenticated && !meetsRequirements }"
+          :class="{
+            'opacity-50 pointer-events-none': authStore.isAuthenticated && !meetsRequirements,
+          }"
           @submit.prevent="handleSubmit"
         >
           <!-- Basic Information -->
@@ -80,80 +98,89 @@
               {{ $t('subs.basic_info') }}
             </h2>
 
-              <div>
-                <label for="name" class="block text-sm font-medium mb-1">
-                  {{ $t('subs.sub_name') }} *
-                </label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span class="text-gray-500 dark:text-gray-400">s/</span>
-                  </div>
-                  <input
-                    id="name"
-                    v-model="form.name"
-                    type="text"
-                    required
-                    pattern="[a-zA-Z0-9_\-]+"
-                    :class="[
-                      'w-full pl-8 pr-3 py-2 rounded-md border settings-input',
-                      nameValidationError
-                        ? 'border-red-500 focus:ring-red-500'
-                        : 'focus:ring-2 focus:ring-primary'
-                    ]"
-                    :placeholder="$t('subs.name_placeholder')"
-                  >
+            <div>
+              <label for="name" class="block text-sm font-medium mb-1">
+                {{ $t('subs.sub_name') }} *
+              </label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 dark:text-gray-400">s/</span>
                 </div>
-                <p v-if="nameValidationError" class="mt-1 text-xs text-red-600 dark:text-red-400 inline-flex items-center"><Icon name="fa6-solid:circle-exclamation" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ nameValidationError }}</span>
-                </p>
-                <p v-else class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                  {{ $t('subs.name_requirements') }}
-                </p>
-              </div>
-
-              <div>
-                <label for="title" class="block text-sm font-medium mb-1">
-                  {{ $t('subs.title') }} *
-                </label>
                 <input
-                  id="title"
-                  v-model="form.title"
+                  id="name"
+                  v-model="form.name"
                   type="text"
                   required
-                  maxlength="100"
-                  class="w-full px-3 py-2 border rounded-md settings-input"
-                  :placeholder="$t('subs.title_placeholder')"
+                  pattern="[a-zA-Z0-9_\-]+"
+                  :class="[
+                    'w-full pl-8 pr-3 py-2 rounded-md border settings-input',
+                    nameValidationError
+                      ? 'border-red-500 focus:ring-red-500'
+                      : 'focus:ring-2 focus:ring-primary',
+                  ]"
+                  :placeholder="$t('subs.name_placeholder')"
                 >
               </div>
-
-              <div>
-                <label for="description" class="block text-sm font-medium mb-1">
-                  {{ $t('subs.description') }} *
-                </label>
-                <textarea
-                  id="description"
-                  v-model="form.description"
-                  required
-                  rows="3"
-                  maxlength="500"
-                  class="w-full px-3 py-2 border rounded-md settings-input"
-                  :placeholder="$t('subs.description_placeholder')"
+              <p
+                v-if="nameValidationError"
+                class="mt-1 text-xs text-red-600 dark:text-red-400 inline-flex items-center"
+              >
+                <Icon
+                  name="fa6-solid:circle-exclamation"
+                  class="mr-1 flex-shrink-0"
+                  aria-hidden="true"
                 />
-                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                  {{ form.description.length }}/500
-                </p>
-              </div>
+                <span>{{ nameValidationError }}</span>
+              </p>
+              <p v-else class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                {{ $t('subs.name_requirements') }}
+              </p>
             </div>
 
-            <!-- Shared Form Fields (Icon, Settings, Content Types, Rules) -->
-            <SubFormFields
-              v-model="form"
-              :sub-name="form.name"
-              :show-section-headers="true"
-              :show-nsfw-description="true"
-              :show-content-types-description="true"
-              :show-rules-description="false"
-              :use-is-public="true"
-            />
+            <div>
+              <label for="title" class="block text-sm font-medium mb-1">
+                {{ $t('subs.title') }} *
+              </label>
+              <input
+                id="title"
+                v-model="form.title"
+                type="text"
+                required
+                maxlength="100"
+                class="w-full px-3 py-2 border rounded-md settings-input"
+                :placeholder="$t('subs.title_placeholder')"
+              >
+            </div>
+
+            <div>
+              <label for="description" class="block text-sm font-medium mb-1">
+                {{ $t('subs.description') }} *
+              </label>
+              <textarea
+                id="description"
+                v-model="form.description"
+                required
+                rows="3"
+                maxlength="500"
+                class="w-full px-3 py-2 border rounded-md settings-input"
+                :placeholder="$t('subs.description_placeholder')"
+              />
+              <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                {{ form.description.length }}/500
+              </p>
+            </div>
+          </div>
+
+          <!-- Shared Form Fields (Icon, Settings, Content Types, Rules) -->
+          <SubFormFields
+            v-model="form"
+            :sub-name="form.name"
+            :show-section-headers="true"
+            :show-nsfw-description="true"
+            :show-content-types-description="true"
+            :show-rules-description="false"
+            :use-is-public="true"
+          />
 
           <!-- Error Display -->
           <div
@@ -188,10 +215,17 @@
 
             <button
               type="submit"
-              :disabled="loading || !isFormValid || !authStore.isAuthenticated || !meetsRequirements"
+              :disabled="
+                loading || !isFormValid || !authStore.isAuthenticated || !meetsRequirements
+              "
               class="px-6 py-2 text-sm bg-primary text-white rounded-md hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center"
             >
-              <Icon v-if="loading" name="fa6-solid:spinner" class="mr-2 flex-shrink-0 animate-spin" aria-hidden="true" />
+              <Icon
+                v-if="loading"
+                name="fa6-solid:spinner"
+                class="mr-2 flex-shrink-0 animate-spin"
+                aria-hidden="true"
+              />
               <span>{{ $t('subs.create_sub') }}</span>
             </button>
           </div>
@@ -326,23 +360,22 @@
 </script>
 
 <style scoped>
-.card-bg {
-  background-color: var(--color-bg-card);
-}
+  .card-bg {
+    background-color: var(--color-bg-card);
+  }
 
-.settings-border {
-  border-color: var(--color-border-default);
-}
+  .settings-border {
+    border-color: var(--color-border-default);
+  }
 
-.settings-input {
-  background-color: var(--color-bg-input);
-  border-color: var(--color-border-default);
-  color: var(--color-text-primary);
-}
+  .settings-input {
+    background-color: var(--color-bg-input);
+    border-color: var(--color-border-default);
+    color: var(--color-text-primary);
+  }
 
-.settings-input:focus {
-  border-color: var(--color-primary);
-  outline: none;
-}
+  .settings-input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+  }
 </style>
-

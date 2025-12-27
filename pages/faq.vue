@@ -11,19 +11,34 @@
       />
     </div>
 
-    <div v-else-if="error" class="bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-300 px-4 py-3 rounded">
+    <div
+      v-else-if="error"
+      class="bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-300 px-4 py-3 rounded"
+    >
       {{ error }}
     </div>
 
     <div v-else class="space-y-8">
-      <div v-for="category in faqData" :key="category.category" class="card-bg rounded-lg shadow p-6">
+      <div
+        v-for="category in faqData"
+        :key="category.category"
+        class="card-bg rounded-lg shadow p-6"
+      >
         <h2 class="text-2xl font-bold mb-4 flex items-center">
-          <Icon :name="getCategoryIcon(category.category)" class="mr-2 text-primary" aria-hidden="true" />
+          <Icon
+            :name="getCategoryIcon(category.category)"
+            class="mr-2 text-primary"
+            aria-hidden="true"
+          />
           {{ category.name }}
         </h2>
 
         <div class="space-y-4">
-          <div v-for="(item, index) in category.items" :key="index" class="faq-item border-b last:border-0 pb-4 last:pb-0">
+          <div
+            v-for="(item, index) in category.items"
+            :key="index"
+            class="faq-item border-b last:border-0 pb-4 last:pb-0"
+          >
             <button
               class="w-full text-left flex items-start justify-between py-2 hover:text-primary transition-colors"
               :aria-expanded="isOpen(category.category, index)"
@@ -32,7 +47,11 @@
             >
               <h3 class="text-lg font-semibold pr-4">{{ item.question }}</h3>
               <Icon
-                :name="isOpen(category.category, index) ? 'fa6-solid:chevron-up' : 'fa6-solid:chevron-down'"
+                :name="
+                  isOpen(category.category, index)
+                    ? 'fa6-solid:chevron-up'
+                    : 'fa6-solid:chevron-down'
+                "
                 class="flex-shrink-0 mt-1 text-primary"
                 aria-hidden="true"
               />
@@ -43,7 +62,7 @@
               :id="`faq-answer-${category.category}-${index}`"
               class="mt-2 text-text-muted dark:text-text-dark-muted leading-relaxed"
               role="region"
-              v-html="item.answer"
+              v-html="sanitizeHtml(item.answer)"
             />
           </div>
         </div>
@@ -55,8 +74,17 @@
 <script setup>
   import { ref, onMounted } from 'vue'
   import { useI18n } from '#i18n'
+  import DOMPurify from 'dompurify'
 
   const { t } = useI18n()
+
+  const sanitizeHtml = (html) => {
+    if (!html) return ''
+    return DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'a', 'ul', 'ol', 'li', 'code', 'pre'],
+      ALLOWED_ATTR: ['href', 'target', 'rel', 'class'],
+    })
+  }
 
   const faqData = ref([])
   const loading = ref(true)

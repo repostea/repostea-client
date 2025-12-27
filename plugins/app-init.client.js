@@ -20,7 +20,7 @@ export default defineNuxtPlugin(async () => {
   const preferencesStore = useUserPreferencesStore()
   const prefsCookie = useCookie('user_prefs', {
     maxAge: 60 * 60 * 24 * 365, // 1 year
-    sameSite: 'lax'
+    sameSite: 'lax',
   })
 
   if (prefsCookie.value) {
@@ -62,5 +62,4 @@ export default defineNuxtPlugin(async () => {
     console.error('[APP INIT] Failed to load system settings:', error)
     // Settings will use secure defaults
   }
-
 })

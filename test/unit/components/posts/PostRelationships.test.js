@@ -58,7 +58,12 @@ const PostRelationshipsMock = {
     groupedRelationships() {
       const groups = {
         reply: { type: 'reply', label: 'Replies', icon: 'reply', relationships: [] },
-        continuation: { type: 'continuation', label: 'Continuation', icon: 'arrow-right', relationships: [] },
+        continuation: {
+          type: 'continuation',
+          label: 'Continuation',
+          icon: 'arrow-right',
+          relationships: [],
+        },
         related: { type: 'related', label: 'Related', icon: 'link', relationships: [] },
         update: { type: 'update', label: 'Updates', icon: 'sync', relationships: [] },
         correction: { type: 'correction', label: 'Corrections', icon: 'edit', relationships: [] },
@@ -81,7 +86,8 @@ const PostRelationshipsMock = {
     canDelete(relationship) {
       return (
         this.currentUserId &&
-        (relationship.created_by === this.currentUserId || relationship.post.author_id === this.currentUserId)
+        (relationship.created_by === this.currentUserId ||
+          relationship.post.author_id === this.currentUserId)
       )
     },
     deleteRelationship(relationship) {
@@ -231,11 +237,11 @@ describe('PostRelationships Component', () => {
     await wrapper.setData({ relationships: mockRelationships })
 
     const icons = wrapper.findAll('.iconify-icon')
-    const iconNames = icons.map(icon => icon.attributes('name'))
+    const iconNames = icons.map((icon) => icon.attributes('name'))
 
     // Should have reply, continuation (arrow-right), and related (link) icons
-    expect(iconNames.some(name => name && name.includes('reply'))).toBe(true)
-    expect(iconNames.some(name => name && name.includes('arrow-right'))).toBe(true)
-    expect(iconNames.some(name => name && name.includes('link'))).toBe(true)
+    expect(iconNames.some((name) => name && name.includes('reply'))).toBe(true)
+    expect(iconNames.some((name) => name && name.includes('arrow-right'))).toBe(true)
+    expect(iconNames.some((name) => name && name.includes('link'))).toBe(true)
   })
 })

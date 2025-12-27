@@ -14,183 +14,242 @@
       </div>
 
       <template v-else>
-        <div v-if="error" class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mb-4">
+        <div
+          v-if="error"
+          class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mb-4"
+        >
           <div class="flex items-start">
-            <Icon name="fa6-solid:circle-exclamation" class="text-red-500 mt-0.5 mr-2" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:circle-exclamation"
+              class="text-red-500 mt-0.5 mr-2"
+              aria-hidden="true"
+            />
             <p class="text-sm text-red-700 dark:text-red-300">{{ error }}</p>
           </div>
         </div>
 
-      <div class="poll-options max-w-lg mx-auto">
-        <!-- Voting interface -->
-        <div v-if="!showResults" class="space-y-3">
-          <div
-            v-for="(option, index) in pollResults.options"
-            :key="option.id"
-            class="poll-option-card group"
-          >
-            <button
-              v-if="!pollExpired && !userHasVoted"
-              class="poll-option-button w-full text-left"
-              :class="{ 'poll-option-selected': userVotes.includes(option.id) }"
-              @click="vote(option.id)"
+        <div class="poll-options max-w-lg mx-auto">
+          <!-- Voting interface -->
+          <div v-if="!showResults" class="space-y-3">
+            <div
+              v-for="(option, index) in pollResults.options"
+              :key="option.id"
+              class="poll-option-card group"
             >
-              <div class="flex items-center">
-                <div class="poll-radio mr-4 flex-shrink-0">
-                  <div class="poll-radio-inner" :class="{ 'poll-radio-checked': userVotes.includes(option.id) }">
-                    <Icon name="fa6-solid:check" :class="userVotes.includes(option.id) ? 'text-white' : 'text-white'" class="text-xs" aria-hidden="true" />
+              <button
+                v-if="!pollExpired && !userHasVoted"
+                class="poll-option-button w-full text-left"
+                :class="{ 'poll-option-selected': userVotes.includes(option.id) }"
+                @click="vote(option.id)"
+              >
+                <div class="flex items-center">
+                  <div class="poll-radio mr-4 flex-shrink-0">
+                    <div
+                      class="poll-radio-inner"
+                      :class="{ 'poll-radio-checked': userVotes.includes(option.id) }"
+                    >
+                      <Icon
+                        name="fa6-solid:check"
+                        :class="userVotes.includes(option.id) ? 'text-white' : 'text-white'"
+                        class="text-xs"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex-grow">
+                    <span class="font-medium text-xs text-gray-900 dark:text-gray-100">
+                      <span class="text-gray-700 dark:text-gray-300"
+                        >{{ getOptionLetter(index) }})</span
+                      >
+                      {{ option.text }}
+                    </span>
                   </div>
                 </div>
-                <div class="flex-grow">
-                  <span class="font-medium text-xs text-gray-900 dark:text-gray-100">
-                    <span class="text-gray-700 dark:text-gray-300">{{ getOptionLetter(index) }})</span>
-                    {{ option.text }}
-                  </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Results view - Pie Chart -->
+          <div v-if="showResults" class="py-3">
+            <!-- Title -->
+            <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100 mb-4">
+              {{ t('polls.results_title') }}
+            </h3>
+
+            <div class="flex flex-col gap-4 items-center">
+              <!-- Pie chart SVG -->
+              <div class="flex-shrink-0">
+                <svg
+                  viewBox="0 0 200 200"
+                  class="w-40 h-40 lg:w-48 lg:h-48"
+                  role="img"
+                  :aria-label="t('polls.chart_aria_label')"
+                >
+                  <circle cx="100" cy="100" r="90" fill="transparent" />
+                  <!-- Pie slices -->
+                  <g
+                    v-for="(segment, index) in pieChartSegments"
+                    :key="'slice-' + index"
+                    class="transform -rotate-90 origin-center"
+                  >
+                    <path
+                      :d="
+                        describePieSlice(
+                          100,
+                          100,
+                          80,
+                          segment.startAngle,
+                          segment.startAngle + segment.angle
+                        )
+                      "
+                      :fill="segment.color"
+                      stroke="#ffffff"
+                      stroke-width="2"
+                      class="transition-all duration-300 hover:opacity-80 cursor-pointer"
+                    />
+                  </g>
+                  <!-- Percentage labels -->
+                  <g v-for="(segment, index) in pieChartSegments" :key="'label-' + index">
+                    <text
+                      v-if="segment.percentage >= 8"
+                      :x="getLabelPosition(segment).x"
+                      :y="getLabelPosition(segment).y"
+                      text-anchor="middle"
+                      dominant-baseline="middle"
+                      class="text-xs font-bold fill-white pointer-events-none"
+                      style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5)"
+                    >
+                      {{ segment.percentage }}%
+                    </text>
+                  </g>
+                </svg>
+              </div>
+
+              <!-- Legend -->
+              <div class="w-full space-y-1.5">
+                <div
+                  v-for="(segment, index) in pieChartSegments"
+                  :key="segment.id"
+                  class="border poll-border rounded-md overflow-hidden"
+                >
+                  <div class="flex items-center">
+                    <div class="flex-1 p-2 poll-legend-bg flex items-center gap-1.5">
+                      <div
+                        class="w-10 h-7 rounded flex items-center justify-center flex-shrink-0"
+                        :style="{ backgroundColor: segment.color }"
+                      >
+                        <span
+                          class="text-xs font-bold text-white"
+                          style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5)"
+                        >
+                          {{ segment.percentage }}%
+                        </span>
+                      </div>
+                      <span
+                        class="font-medium text-xs text-gray-900 dark:text-gray-100 leading-tight"
+                      >
+                        <span class="font-bold text-gray-700 dark:text-gray-300"
+                          >{{ getOptionLetter(index) }})</span
+                        >
+                        {{ segment.text }}
+                      </span>
+                    </div>
+                    <div class="px-2.5 py-2 poll-stats-bg border-l poll-border flex-shrink-0">
+                      <div class="text-xs text-gray-700 dark:text-gray-300 font-bold">
+                        {{ segment.votes }}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <!-- Time remaining - always visible and discrete -->
+          <div
+            v-if="timeLeft && !pollExpired"
+            class="mt-5 mb-3 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-center"
+          >
+            <Icon name="fa6-solid:hourglass-half" class="mr-1.5" aria-hidden="true" />
+            <span>{{ t('polls.time_left') }}: {{ timeLeft }}</span>
+          </div>
+
+          <div
+            v-if="pollExpired"
+            class="mt-5 mb-3 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-center"
+          >
+            <Icon name="fa6-solid:clock" class="mr-1.5" aria-hidden="true" />
+            <span>{{ t('polls.expired') }}</span>
+          </div>
+
+          <div v-if="showResults" class="mt-6 pt-4 border-t poll-border">
+            <div class="flex items-center text-gray-600 dark:text-gray-400 text-sm">
+              <Icon name="fa6-solid:users" class="mr-2" aria-hidden="true" />
+              <span class="font-medium">{{
+                t('polls.total_votes', { count: pollResults.total_votes })
+              }}</span>
+            </div>
+            <!-- Multiple options allowed indicator -->
+            <div
+              v-if="pollResults.allow_multiple_options"
+              class="mt-2 text-xs text-gray-500 dark:text-gray-400 flex items-center"
+            >
+              <Icon name="fa6-solid:layer-group" class="mr-1.5" aria-hidden="true" />
+              {{ t('polls.multiple_options_allowed') }}
+            </div>
+            <!-- User vote indicator below total votes -->
+            <div
+              v-if="userVotes.length > 0"
+              class="mt-2 text-xs text-green-600 dark:text-green-400 font-medium flex items-center"
+            >
+              <Icon name="fa6-solid:check" class="mr-1" aria-hidden="true" />
+              <template v-if="userVotes.length === 1">
+                {{ t('polls.you_voted_option', { option: getUserVotedLetters() }) }}
+              </template>
+              <template v-else>
+                {{ t('polls.you_voted_options', { options: getUserVotedLetters() }) }}
+              </template>
+            </div>
+          </div>
+
+          <div class="mt-6 mb-8 flex flex-wrap gap-3 justify-center">
+            <button
+              v-if="!pollExpired && !userHasVoted && !showResults && userVotes.length > 0"
+              class="poll-button poll-button-primary"
+              @click="submitVote"
+            >
+              <Icon name="fa6-solid:circle-check" class="mr-2" aria-hidden="true" />
+              {{ t('polls.submit_vote') }}
+            </button>
+
+            <button
+              v-if="!showResults && (userHasVoted || pollExpired)"
+              class="poll-button poll-button-secondary"
+              @click="showResults = true"
+            >
+              <Icon name="fa6-solid:chart-bar" class="mr-2" aria-hidden="true" />
+              {{ t('polls.show_results') }}
+            </button>
+
+            <button
+              v-if="showResults && !pollExpired && !userHasVoted"
+              class="poll-button poll-button-secondary"
+              @click="showResults = false"
+            >
+              <Icon name="fa6-solid:arrow-left" class="mr-2" aria-hidden="true" />
+              {{ t('polls.back_to_vote') }}
+            </button>
+
+            <button
+              v-if="showResults && !pollExpired && userHasVoted"
+              class="text-xs text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light hover:underline transition-colors flex items-center"
+              @click="removeVote"
+            >
+              <Icon name="fa6-solid:rotate-left" class="mr-1.5 text-xs" aria-hidden="true" />
+              {{ t('polls.remove_vote') }}
             </button>
           </div>
         </div>
-
-        <!-- Results view - Pie Chart -->
-        <div v-if="showResults" class="py-3">
-          <!-- Title -->
-          <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100 mb-4">{{ t('polls.results_title') }}</h3>
-
-          <div class="flex flex-col gap-4 items-center">
-            <!-- Pie chart SVG -->
-            <div class="flex-shrink-0">
-              <svg viewBox="0 0 200 200" class="w-40 h-40 lg:w-48 lg:h-48" role="img" :aria-label="t('polls.chart_aria_label')">
-                <circle cx="100" cy="100" r="90" fill="transparent" />
-                <!-- Pie slices -->
-                <g v-for="(segment, index) in pieChartSegments" :key="'slice-' + index" class="transform -rotate-90 origin-center">
-                  <path
-                    :d="describePieSlice(100, 100, 80, segment.startAngle, segment.startAngle + segment.angle)"
-                    :fill="segment.color"
-                    stroke="#ffffff"
-                    stroke-width="2"
-                    class="transition-all duration-300 hover:opacity-80 cursor-pointer"
-                  />
-                </g>
-                <!-- Percentage labels -->
-                <g v-for="(segment, index) in pieChartSegments" :key="'label-' + index">
-                  <text
-                    v-if="segment.percentage >= 8"
-                    :x="getLabelPosition(segment).x"
-                    :y="getLabelPosition(segment).y"
-                    text-anchor="middle"
-                    dominant-baseline="middle"
-                    class="text-xs font-bold fill-white pointer-events-none"
-                    style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5)"
-                  >
-                    {{ segment.percentage }}%
-                  </text>
-                </g>
-              </svg>
-            </div>
-
-            <!-- Legend -->
-            <div class="w-full space-y-1.5">
-              <div
-                v-for="(segment, index) in pieChartSegments"
-                :key="segment.id"
-                class="border poll-border rounded-md overflow-hidden"
-              >
-                <div class="flex items-center">
-                  <div class="flex-1 p-2 poll-legend-bg flex items-center gap-1.5">
-                    <div
-                      class="w-10 h-7 rounded flex items-center justify-center flex-shrink-0"
-                      :style="{ backgroundColor: segment.color }"
-                    >
-                      <span class="text-xs font-bold text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5)">
-                        {{ segment.percentage }}%
-                      </span>
-                    </div>
-                    <span class="font-medium text-xs text-gray-900 dark:text-gray-100 leading-tight">
-                      <span class="font-bold text-gray-700 dark:text-gray-300">{{ getOptionLetter(index) }})</span>
-                      {{ segment.text }}
-                    </span>
-                  </div>
-                  <div class="px-2.5 py-2 poll-stats-bg border-l poll-border flex-shrink-0">
-                    <div class="text-xs text-gray-700 dark:text-gray-300 font-bold">{{ segment.votes }}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Time remaining - always visible and discrete -->
-        <div v-if="timeLeft && !pollExpired" class="mt-5 mb-3 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-center">
-          <Icon name="fa6-solid:hourglass-half" class="mr-1.5" aria-hidden="true" />
-          <span>{{ t('polls.time_left') }}: {{ timeLeft }}</span>
-        </div>
-
-        <div v-if="pollExpired" class="mt-5 mb-3 text-xs text-gray-500 dark:text-gray-400 flex items-center justify-center">
-          <Icon name="fa6-solid:clock" class="mr-1.5" aria-hidden="true" />
-          <span>{{ t('polls.expired') }}</span>
-        </div>
-
-        <div v-if="showResults" class="mt-6 pt-4 border-t poll-border">
-          <div class="flex items-center text-gray-600 dark:text-gray-400 text-sm">
-            <Icon name="fa6-solid:users" class="mr-2" aria-hidden="true" />
-            <span class="font-medium">{{ t('polls.total_votes', { count: pollResults.total_votes }) }}</span>
-          </div>
-          <!-- Multiple options allowed indicator -->
-          <div v-if="pollResults.allow_multiple_options" class="mt-2 text-xs text-gray-500 dark:text-gray-400 flex items-center">
-            <Icon name="fa6-solid:layer-group" class="mr-1.5" aria-hidden="true" />
-            {{ t('polls.multiple_options_allowed') }}
-          </div>
-          <!-- User vote indicator below total votes -->
-          <div v-if="userVotes.length > 0" class="mt-2 text-xs text-green-600 dark:text-green-400 font-medium flex items-center">
-            <Icon name="fa6-solid:check" class="mr-1" aria-hidden="true" />
-            <template v-if="userVotes.length === 1">
-              {{ t('polls.you_voted_option', { option: getUserVotedLetters() }) }}
-            </template>
-            <template v-else>
-              {{ t('polls.you_voted_options', { options: getUserVotedLetters() }) }}
-            </template>
-          </div>
-        </div>
-
-        <div class="mt-6 mb-8 flex flex-wrap gap-3 justify-center">
-          <button
-            v-if="!pollExpired && !userHasVoted && !showResults && userVotes.length > 0"
-            class="poll-button poll-button-primary"
-            @click="submitVote"
-          >
-            <Icon name="fa6-solid:circle-check" class="mr-2" aria-hidden="true" />
-            {{ t('polls.submit_vote') }}
-          </button>
-
-          <button
-            v-if="!showResults && (userHasVoted || pollExpired)"
-            class="poll-button poll-button-secondary"
-            @click="showResults = true"
-          >
-            <Icon name="fa6-solid:chart-bar" class="mr-2" aria-hidden="true" />
-            {{ t('polls.show_results') }}
-          </button>
-
-          <button
-            v-if="showResults && !pollExpired && !userHasVoted"
-            class="poll-button poll-button-secondary"
-            @click="showResults = false"
-          >
-            <Icon name="fa6-solid:arrow-left" class="mr-2" aria-hidden="true" />
-            {{ t('polls.back_to_vote') }}
-          </button>
-
-          <button
-            v-if="showResults && !pollExpired && userHasVoted"
-            class="text-xs text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light hover:underline transition-colors flex items-center"
-            @click="removeVote"
-          >
-            <Icon name="fa6-solid:rotate-left" class="mr-1.5 text-xs" aria-hidden="true" />
-            {{ t('polls.remove_vote') }}
-          </button>
-        </div>
-      </div>
       </template>
     </div>
   </div>
@@ -219,7 +278,6 @@
   const { t } = useI18n()
   const { $api } = useNuxtApp()
   const authStore = useAuthStore()
-
 
   const loading = ref(true)
   const error = ref(null)
@@ -283,7 +341,7 @@
         color: colors[index % colors.length],
         startAngle,
         angle,
-        isUserVote: userVotes.value.includes(option.id)
+        isUserVote: userVotes.value.includes(option.id),
       }
     })
   })
@@ -296,8 +354,8 @@
   // Function to get letters of voted options
   function getUserVotedLetters() {
     const letters = pollResults.value.options
-      .map((option, index) => userVotes.value.includes(option.id) ? getOptionLetter(index) : null)
-      .filter(letter => letter !== null)
+      .map((option, index) => (userVotes.value.includes(option.id) ? getOptionLetter(index) : null))
+      .filter((letter) => letter !== null)
 
     if (letters.length === 1) {
       return letters[0]
@@ -323,18 +381,29 @@
     const largeArcFlag = angle <= 180 ? '0' : '1'
 
     return [
-      'M', x, y,
-      'L', start.x, start.y,
-      'A', radius, radius, 0, largeArcFlag, 0, end.x, end.y,
-      'Z'
+      'M',
+      x,
+      y,
+      'L',
+      start.x,
+      start.y,
+      'A',
+      radius,
+      radius,
+      0,
+      largeArcFlag,
+      0,
+      end.x,
+      end.y,
+      'Z',
     ].join(' ')
   }
 
   function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
     const angleInRadians = (angleInDegrees * Math.PI) / 180.0
     return {
-      x: centerX + (radius * Math.cos(angleInRadians)),
-      y: centerY + (radius * Math.sin(angleInRadians))
+      x: centerX + radius * Math.cos(angleInRadians),
+      y: centerY + radius * Math.sin(angleInRadians),
     }
   }
 
@@ -345,12 +414,12 @@
     const radius = 50 // Position labels at 50% of the radius (closer to center)
 
     // Calculate the middle angle of the segment
-    const middleAngle = segment.startAngle + (segment.angle / 2) - 90 // -90 to adjust for rotation
+    const middleAngle = segment.startAngle + segment.angle / 2 - 90 // -90 to adjust for rotation
     const angleInRadians = (middleAngle * Math.PI) / 180.0
 
     return {
-      x: centerX + (radius * Math.cos(angleInRadians)),
-      y: centerY + (radius * Math.sin(angleInRadians))
+      x: centerX + radius * Math.cos(angleInRadians),
+      y: centerY + radius * Math.sin(angleInRadians),
     }
   }
 
@@ -507,189 +576,180 @@
 </script>
 
 <style scoped>
-.poll-option-card {
-  @apply relative overflow-hidden rounded-lg transition-all duration-200;
-  border: 1px solid var(--color-border-default);
-}
+  .poll-option-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-200;
+    border: 1px solid var(--color-border-default);
+  }
 
-.poll-border {
-  border-color: var(--color-border-default);
-}
+  .poll-border {
+    border-color: var(--color-border-default);
+  }
 
-.poll-legend-bg {
-  background-color: var(--color-bg-card);
-}
+  .poll-legend-bg {
+    background-color: var(--color-bg-card);
+  }
 
-.poll-stats-bg {
-  background-color: var(--color-bg-subtle);
-}
+  .poll-stats-bg {
+    background-color: var(--color-bg-subtle);
+  }
 
-.poll-option-button {
-  @apply p-4 transition-all duration-200 hover:border-primary;
-  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
-}
+  .poll-option-button {
+    @apply p-4 transition-all duration-200 hover:border-primary;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
 
-.poll-option-button:hover {
-  background-color: var(--color-bg-hover);
-}
+  .poll-option-button:hover {
+    background-color: var(--color-bg-hover);
+  }
 
-.poll-option-selected {
-  border-color: var(--color-primary);
-  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
-}
+  .poll-option-selected {
+    border-color: var(--color-primary);
+    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  }
 
-:global(.dark) .poll-option-selected {
-  background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
-}
+  :global(.dark) .poll-option-selected {
+    background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
 
-.poll-radio {
-  @apply w-6 h-6 rounded-full border-2 transition-all duration-200;
-  @apply flex items-center justify-center;
-  border-color: var(--color-border-strong);
-}
+  .poll-radio {
+    @apply w-6 h-6 rounded-full border-2 transition-all duration-200;
+    @apply flex items-center justify-center;
+    border-color: var(--color-border-strong);
+  }
 
-.poll-option-button:hover .poll-radio {
-  @apply border-primary dark:border-primary scale-110;
-}
+  .poll-option-button:hover .poll-radio {
+    @apply border-primary dark:border-primary scale-110;
+  }
 
-.poll-radio-inner {
-  @apply w-full h-full rounded-full flex items-center justify-center transition-all duration-200;
-}
+  .poll-radio-inner {
+    @apply w-full h-full rounded-full flex items-center justify-center transition-all duration-200;
+  }
 
-.poll-radio-checked {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  transform: scale(1);
-}
+  .poll-radio-checked {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: scale(1);
+  }
 
-.poll-option-result {
-  @apply p-4 transition-all duration-200;
-}
+  .poll-option-result {
+    @apply p-4 transition-all duration-200;
+  }
 
-.poll-option-user-voted {
-  background-color: rgba(var(--color-primary-rgb), 0.05);
-  border-color: rgba(var(--color-primary-rgb), 0.5);
-}
+  .poll-option-user-voted {
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+    border-color: rgba(var(--color-primary-rgb), 0.5);
+  }
 
-.dark .poll-option-user-voted {
-  background-color: rgba(var(--color-primary-rgb), 0.1);
-}
+  .dark .poll-option-user-voted {
+    background-color: rgba(var(--color-primary-rgb), 0.1);
+  }
 
-.poll-progress-bar-container {
-  @apply relative h-6 rounded-full overflow-hidden;
-  background-color: var(--color-bg-subtle);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  .poll-progress-bar-container {
+    @apply relative h-6 rounded-full overflow-hidden;
+    background-color: var(--color-bg-subtle);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 
-.poll-progress-bar {
-  @apply relative h-full transition-all duration-1000 ease-out;
-  background: linear-gradient(135deg,
-    var(--color-primary) 0%,
-    var(--color-primary-dark) 100%);
-  border-radius: 9999px;
-  position: relative;
-  overflow: hidden;
-}
+  .poll-progress-bar {
+    @apply relative h-full transition-all duration-1000 ease-out;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 9999px;
+    position: relative;
+    overflow: hidden;
+  }
 
-.poll-progress-bar-voted {
-  background: linear-gradient(135deg,
-    #10b981 0%,
-    #059669 100%);
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
-}
+  .poll-progress-bar-voted {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+  }
 
-.poll-progress-shine {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  animation: shine 2s infinite;
-}
-
-@keyframes shine {
-  0% {
+  .poll-progress-shine {
+    position: absolute;
+    top: 0;
     left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shine 2s infinite;
   }
-  100% {
-    left: 100%;
+
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
   }
-}
 
-.poll-button {
-  @apply px-4 py-2.5 rounded-lg font-medium text-sm transition-all duration-200;
-  @apply flex items-center justify-center;
-  @apply focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-light focus:ring-offset-2 dark:focus:ring-offset-gray-900;
-  @apply shadow-sm hover:shadow-md;
-}
-
-.poll-button-primary {
-  background-color: var(--color-primary);
-  color: var(--color-btn-primary-text);
-}
-
-.poll-button-primary:hover {
-  background-color: var(--color-primary-dark);
-}
-
-.poll-button-primary:focus {
-  --tw-ring-color: var(--color-primary);
-}
-
-.poll-button-danger {
-  @apply bg-red-500 hover:bg-red-600 text-white;
-  @apply focus:ring-red-500;
-}
-
-.poll-button-secondary {
-  @apply text-gray-700 dark:text-gray-200;
-  @apply focus:ring-gray-500;
-  background-color: var(--color-bg-subtle);
-  border: 1px solid var(--color-border-default);
-}
-
-.poll-button-secondary:hover {
-  background-color: var(--color-bg-hover);
-}
-
-.poll-option-card:hover {
-  @apply shadow-md transform scale-[1.01];
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+  .poll-button {
+    @apply px-4 py-2.5 rounded-lg font-medium text-sm transition-all duration-200;
+    @apply flex items-center justify-center;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-primary-light focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+    @apply shadow-sm hover:shadow-md;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .poll-button-primary {
+    background-color: var(--color-primary);
+    color: var(--color-btn-primary-text);
   }
-}
 
-.poll-option-card {
-  animation: slideIn 0.3s ease-out;
-}
+  .poll-button-primary:hover {
+    background-color: var(--color-primary-dark);
+  }
 
-.poll-option-card:nth-child(2) {
-  animation-delay: 0.05s;
-}
+  .poll-button-primary:focus {
+    --tw-ring-color: var(--color-primary);
+  }
 
-.poll-option-card:nth-child(3) {
-  animation-delay: 0.1s;
-}
+  .poll-button-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white;
+    @apply focus:ring-red-500;
+  }
 
-.poll-option-card:nth-child(4) {
-  animation-delay: 0.15s;
-}
+  .poll-button-secondary {
+    @apply text-gray-700 dark:text-gray-200;
+    @apply focus:ring-gray-500;
+    background-color: var(--color-bg-subtle);
+    border: 1px solid var(--color-border-default);
+  }
 
-.poll-option-card:nth-child(5) {
-  animation-delay: 0.2s;
-}
+  .poll-button-secondary:hover {
+    background-color: var(--color-bg-hover);
+  }
+
+  .poll-option-card:hover {
+    @apply shadow-md transform scale-[1.01];
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .poll-option-card {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .poll-option-card:nth-child(2) {
+    animation-delay: 0.05s;
+  }
+
+  .poll-option-card:nth-child(3) {
+    animation-delay: 0.1s;
+  }
+
+  .poll-option-card:nth-child(4) {
+    animation-delay: 0.15s;
+  }
+
+  .poll-option-card:nth-child(5) {
+    animation-delay: 0.2s;
+  }
 </style>

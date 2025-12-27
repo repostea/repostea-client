@@ -34,7 +34,9 @@
         </p>
 
         <!-- Info card -->
-        <div class="bg-card dark:bg-card-dark rounded-lg shadow-xl p-8 mb-8 maintenance-card-border">
+        <div
+          class="bg-card dark:bg-card-dark rounded-lg shadow-xl p-8 mb-8 maintenance-card-border"
+        >
           <p class="text-lg font-semibold text-gray-900 dark:text-white mb-6">
             {{ $t('maintenance.estimated_time') }}
           </p>
@@ -69,84 +71,88 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { useNuxtApp } from '#app'
-import { useRouter } from 'vue-router'
+  import { ref, onMounted, onUnmounted } from 'vue'
+  import { useNuxtApp } from '#app'
+  import { useRouter } from 'vue-router'
 
-const { $api } = useNuxtApp()
-const router = useRouter()
-const runtimeConfig = useRuntimeConfig()
-const appName = runtimeConfig.public.appName || 'Repostea'
+  const { $api } = useNuxtApp()
+  const router = useRouter()
+  const runtimeConfig = useRuntimeConfig()
+  const appName = runtimeConfig.public.appName || 'Repostea'
 
-const checking = ref(false)
-let checkInterval = null
+  const checking = ref(false)
+  let checkInterval = null
 
-// Check API status
-const checkStatus = async () => {
-  checking.value = true
+  // Check API status
+  const checkStatus = async () => {
+    checking.value = true
 
-  try {
-    // Try to fetch any simple endpoint to check if API is back
-    await $api.stats.getGeneral()
+    try {
+      // Try to fetch any simple endpoint to check if API is back
+      await $api.stats.getGeneral()
 
-    // If successful, API is back online
-    router.push('/')
-  } catch (error) {
-    // Still in maintenance mode
-    if (error.response?.status !== 503) {
-      // If it's not 503, API might be back but with another error
+      // If successful, API is back online
       router.push('/')
+    } catch (error) {
+      // Still in maintenance mode
+      if (error.response?.status !== 503) {
+        // If it's not 503, API might be back but with another error
+        router.push('/')
+      }
+    } finally {
+      checking.value = false
     }
-  } finally {
-    checking.value = false
   }
-}
 
-// Auto-check every 30 seconds
-onMounted(() => {
-  checkInterval = setInterval(() => {
-    checkStatus()
-  }, 30000) // 30 seconds
-})
+  // Auto-check every 30 seconds
+  onMounted(() => {
+    checkInterval = setInterval(() => {
+      checkStatus()
+    }, 30000) // 30 seconds
+  })
 
-onUnmounted(() => {
-  if (checkInterval) {
-    clearInterval(checkInterval)
-  }
-})
+  onUnmounted(() => {
+    if (checkInterval) {
+      clearInterval(checkInterval)
+    }
+  })
 
-// Set page meta
-definePageMeta({
-  layout: false,
-})
+  // Set page meta
+  definePageMeta({
+    layout: false,
+  })
 </script>
 
 <style scoped>
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
-.logo-image {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+  .logo-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
 
-.logo-text {
-  font-size: 1.25rem;
-  font-weight: 900;
-  letter-spacing: -0.025em;
-  color: white;
-  text-transform: uppercase;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-}
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    color: white;
+    text-transform: uppercase;
+    font-family:
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      sans-serif;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
 
-.maintenance-card-border {
-  border: 1px solid var(--color-border-default);
-}
+  .maintenance-card-border {
+    border: 1px solid var(--color-border-default);
+  }
 </style>

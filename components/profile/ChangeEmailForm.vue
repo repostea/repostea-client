@@ -48,7 +48,9 @@
 
     <!-- New Email Field -->
     <div class="mb-4">
-      <label for="new_email" class="block text-sm font-medium mb-1">{{ t('profile.new_email') }}</label>
+      <label for="new_email" class="block text-sm font-medium mb-1">{{
+        t('profile.new_email')
+      }}</label>
       <input
         id="new_email"
         v-model="form.email"
@@ -97,7 +99,12 @@
           />
         </button>
       </div>
-      <p v-if="errors.current_password" id="current-password-error" role="alert" class="mt-1 text-sm text-red-500">
+      <p
+        v-if="errors.current_password"
+        id="current-password-error"
+        role="alert"
+        class="mt-1 text-sm text-red-500"
+      >
         {{ errors.current_password }}
       </p>
     </div>

@@ -1,7 +1,10 @@
 <template>
   <div class="space-y-3">
     <!-- Selected language (single display with change button) -->
-    <div v-if="selectedLanguage" class="lang-selector-selected flex items-center justify-between p-2 rounded-lg">
+    <div
+      v-if="selectedLanguage"
+      class="lang-selector-selected flex items-center justify-between p-2 rounded-lg"
+    >
       <div class="flex items-center gap-2">
         <span class="text-xl">{{ selectedLanguage.flag }}</span>
         <div>
@@ -70,7 +73,11 @@
       v-else-if="showDropdown && searchQuery && filteredLanguages.length === 0"
       class="lang-selector-empty rounded-lg p-6 text-center"
     >
-      <Icon name="fa6-solid:magnifying-glass" class="text-gray-400 text-3xl mb-2" aria-hidden="true" />
+      <Icon
+        name="fa6-solid:magnifying-glass"
+        class="text-gray-400 text-3xl mb-2"
+        aria-hidden="true"
+      />
       <p class="text-sm text-gray-500 dark:text-gray-400">
         {{ t('submit.form.no_language_found') }}
       </p>
@@ -79,48 +86,45 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useI18n } from '#i18n'
-import { languages } from '~/utils/language-data.js'
+  import { ref, computed, onMounted, onUnmounted } from 'vue'
+  import { useI18n } from '#i18n'
+  import { languages } from '~/utils/language-data.js'
 
-const { t } = useI18n()
+  const { t } = useI18n()
 
-const props = defineProps({
-  modelValue: {
-    type: String,
-    default: '',
-  },
-})
+  const props = defineProps({
+    modelValue: {
+      type: String,
+      default: '',
+    },
+  })
 
-const emit = defineEmits(['update:modelValue'])
+  const emit = defineEmits(['update:modelValue'])
 
-const searchQuery = ref('')
-const showDropdown = ref(false)
-const searchInput = ref(null)
+  const searchQuery = ref('')
+  const showDropdown = ref(false)
+  const searchInput = ref(null)
 
-// Active languages from the data
-const activeLanguages = computed(() => {
-  return languages.filter((lang) => lang.active)
-})
+  // Active languages from the data
+  const activeLanguages = computed(() => {
+    return languages.filter((lang) => lang.active)
+  })
 
-// Selected language (single)
-const selectedLanguage = computed(() => {
-  if (!props.modelValue) return null
-  return activeLanguages.value.find(l => l.code === props.modelValue) || null
-})
+  // Selected language (single)
+  const selectedLanguage = computed(() => {
+    if (!props.modelValue) return null
+    return activeLanguages.value.find((l) => l.code === props.modelValue) || null
+  })
 
-// Filtered languages based on search query (excluding already selected)
-const filteredLanguages = computed(() => {
-  if (!searchQuery.value) {
-    // Show all active languages except selected one
-    return activeLanguages.value.filter(
-      lang => lang.code !== props.modelValue
-    )
-  }
+  // Filtered languages based on search query (excluding already selected)
+  const filteredLanguages = computed(() => {
+    if (!searchQuery.value) {
+      // Show all active languages except selected one
+      return activeLanguages.value.filter((lang) => lang.code !== props.modelValue)
+    }
 
-  const query = searchQuery.value.toLowerCase()
-  return activeLanguages.value
-    .filter(lang => {
+    const query = searchQuery.value.toLowerCase()
+    return activeLanguages.value.filter((lang) => {
       // Exclude already selected
       if (lang.code === props.modelValue) {
         return false
@@ -132,44 +136,44 @@ const filteredLanguages = computed(() => {
         lang.code.toLowerCase().includes(query)
       )
     })
-})
+  })
 
-function selectLanguage(lang) {
-  emit('update:modelValue', lang.code)
-  searchQuery.value = ''
-  showDropdown.value = false
-}
-
-function removeLanguage() {
-  emit('update:modelValue', '')
-  searchQuery.value = ''
-  showDropdown.value = true
-  // Focus on search after a tick to ensure dropdown is shown
-  setTimeout(() => {
-    searchInput.value?.focus()
-  }, 50)
-}
-
-function closeDropdown() {
-  showDropdown.value = false
-  searchQuery.value = ''
-}
-
-// Close dropdown when clicking outside
-function handleClickOutside(event) {
-  const component = searchInput.value?.closest('.space-y-3')
-  if (component && !component.contains(event.target)) {
+  function selectLanguage(lang) {
+    emit('update:modelValue', lang.code)
+    searchQuery.value = ''
     showDropdown.value = false
   }
-}
 
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
+  function removeLanguage() {
+    emit('update:modelValue', '')
+    searchQuery.value = ''
+    showDropdown.value = true
+    // Focus on search after a tick to ensure dropdown is shown
+    setTimeout(() => {
+      searchInput.value?.focus()
+    }, 50)
+  }
 
-onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside)
-})
+  function closeDropdown() {
+    showDropdown.value = false
+    searchQuery.value = ''
+  }
+
+  // Close dropdown when clicking outside
+  function handleClickOutside(event) {
+    const component = searchInput.value?.closest('.space-y-3')
+    if (component && !component.contains(event.target)) {
+      showDropdown.value = false
+    }
+  }
+
+  onMounted(() => {
+    document.addEventListener('click', handleClickOutside)
+  })
+
+  onUnmounted(() => {
+    document.removeEventListener('click', handleClickOutside)
+  })
 </script>
 
 <style scoped>

@@ -3,6 +3,8 @@
     "end_of_posts": "You've reached the end!",
     "loading": "Loading...",
     "loading_more": "Loading more posts...",
-    "load_more": "Load more"
+    "load_more": "Load more",
+    "previous": "Previous",
+    "next": "Next"
   }
 }

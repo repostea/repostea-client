@@ -2,14 +2,18 @@
   <div class="min-h-screen bg-page dark:bg-page-dark">
     <div class="max-w-4xl mx-auto px-4 py-6">
       <!-- Header -->
-      <PageHeader :title="t('rankings.title')" :description="t('rankings.subtitle')" icon="trophy" />
+      <PageHeader
+        :title="t('rankings.title')"
+        :description="t('rankings.subtitle')"
+        icon="trophy"
+      />
 
       <!-- Filters -->
       <div class="mt-6">
-      <RankingFilters
-        :selected-timeframe="selectedTimeframe"
-        @timeframe-change="handleTimeframeChange"
-      />
+        <RankingFilters
+          :selected-timeframe="selectedTimeframe"
+          @timeframe-change="handleTimeframeChange"
+        />
       </div>
 
       <!-- Main Content -->
@@ -44,7 +48,11 @@
 
         <!-- Empty State -->
         <div v-if="!currentData.users || currentData.users.length === 0" class="empty-state">
-          <Icon name="fa6-solid:trophy" class="text-6xl text-gray-300 dark:text-gray-600 mb-4" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:trophy"
+            class="text-6xl text-gray-300 dark:text-gray-600 mb-4"
+            aria-hidden="true"
+          />
           <p class="text-gray-500 dark:text-gray-400">{{ t('rankings.no_data') }}</p>
         </div>
       </div>

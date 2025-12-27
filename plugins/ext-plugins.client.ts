@@ -44,9 +44,10 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       for (const pluginId of manifest.plugins) {
         try {
           // @ts-ignore - dynamic import
-          const pluginModule = await import(`../plugins-ext/${pluginId}/index.ts`).catch(() =>
-            // @ts-ignore - try js extension
-            import(`../plugins-ext/${pluginId}/index.js`)
+          const pluginModule = await import(`../plugins-ext/${pluginId}/index.ts`).catch(
+            () =>
+              // @ts-ignore - try js extension
+              import(`../plugins-ext/${pluginId}/index.js`)
           )
 
           const plugin: ExtPlugin = pluginModule.default || pluginModule
@@ -56,10 +57,9 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
             // Execute plugin setup
             await plugin.setup(nuxtApp)
-
           }
-        } catch (err) {
-          console.warn(`[Plugins] Failed to load plugin: ${pluginId}`, err)
+        } catch {
+          // Failed to load plugin, skip silently
         }
       }
     }

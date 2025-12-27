@@ -26,27 +26,29 @@ export function useGifSearch(options: UseGifSearchOptions = {}) {
   const config = useRuntimeConfig()
 
   // Get Tenor API key from runtime config
-  const apiKey = computed(() => config.public.tenorApiKey as string || '')
+  const apiKey = computed(() => (config.public.tenorApiKey as string) || '')
 
   // Check if Tenor is configured
   const isConfigured = computed(() => !!apiKey.value)
 
   // Transform Tenor API response to our format
   function transformTenorResponse(results: any[]): TenorGif[] {
-    return results.map((item) => {
-      // Get the best format for display (gif for full, tinygif for preview)
-      const gifFormat = item.media_formats?.gif || item.media_formats?.mediumgif
-      const previewFormat = item.media_formats?.tinygif || item.media_formats?.nanogif
+    return results
+      .map((item) => {
+        // Get the best format for display (gif for full, tinygif for preview)
+        const gifFormat = item.media_formats?.gif || item.media_formats?.mediumgif
+        const previewFormat = item.media_formats?.tinygif || item.media_formats?.nanogif
 
-      return {
-        id: item.id,
-        title: item.title || item.content_description || '',
-        url: gifFormat?.url || '',
-        preview: previewFormat?.url || gifFormat?.url || '',
-        width: gifFormat?.dims?.[0] || 200,
-        height: gifFormat?.dims?.[1] || 200,
-      }
-    }).filter(gif => gif.url) // Filter out any without URLs
+        return {
+          id: item.id,
+          title: item.title || item.content_description || '',
+          url: gifFormat?.url || '',
+          preview: previewFormat?.url || gifFormat?.url || '',
+          width: gifFormat?.dims?.[0] || 200,
+          height: gifFormat?.dims?.[1] || 200,
+        }
+      })
+      .filter((gif) => gif.url) // Filter out any without URLs
   }
 
   // Search GIFs

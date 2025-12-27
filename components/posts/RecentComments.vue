@@ -1,10 +1,14 @@
 <template>
-  <div
-    class="recent-comments-container px-3 py-2 md:p-4 rounded-lg shadow-sm"
-  >
+  <div class="recent-comments-container px-3 py-2 md:p-4 rounded-lg shadow-sm">
     <div class="flex items-center justify-between mb-3">
-      <h4 class="text-base lg:text-lg font-semibold text-text dark:text-text-dark flex items-center">
-        <Icon name="fa6-solid:clock" class="mr-2 text-primary dark:text-primary-light" aria-hidden="true" />
+      <h4
+        class="text-base lg:text-lg font-semibold text-text dark:text-text-dark flex items-center"
+      >
+        <Icon
+          name="fa6-solid:clock"
+          class="mr-2 text-primary dark:text-primary-light"
+          aria-hidden="true"
+        />
         <span class="truncate">{{ t('comments.recent_comments') }}</span>
       </h4>
     </div>
@@ -27,14 +31,16 @@
         :key="item.itemKey"
         :to="getItemLink(item)"
         class="recent-comment-item block border-l-2 pl-3 py-2 rounded-r transition-colors no-underline"
-        :class="item.isAgora ? 'border-primary/50 dark:border-primary-light/50' : 'border-primary/30 dark:border-primary-light/30'"
+        :class="
+          item.isAgora
+            ? 'border-primary/50 dark:border-primary-light/50'
+            : 'border-primary/30 dark:border-primary-light/30'
+        "
       >
         <!-- User info and time -->
         <div class="flex items-center justify-between mb-1">
           <div class="flex items-center gap-1.5 min-w-0 flex-1">
-            <span
-              class="text-xs font-medium text-primary dark:text-primary-light truncate"
-            >
+            <span class="text-xs font-medium text-primary dark:text-primary-light truncate">
               {{ item.user.display_name || item.user.username }}
             </span>
           </div>
@@ -44,9 +50,21 @@
         </div>
 
         <!-- Content -->
-        <p class="text-xs text-text dark:text-text-dark line-clamp-2 mb-1.5 flex items-center gap-1">
-          <Icon v-if="hasImage(item.content)" name="fa6-solid:image" class="text-primary dark:text-primary-light flex-shrink-0" aria-hidden="true" />
-          <Icon v-else-if="hasEmbed(item.content)" name="fa6-solid:link" class="text-primary dark:text-primary-light flex-shrink-0" aria-hidden="true" />
+        <p
+          class="text-xs text-text dark:text-text-dark line-clamp-2 mb-1.5 flex items-center gap-1"
+        >
+          <Icon
+            v-if="hasImage(item.content)"
+            name="fa6-solid:image"
+            class="text-primary dark:text-primary-light flex-shrink-0"
+            aria-hidden="true"
+          />
+          <Icon
+            v-else-if="hasEmbed(item.content)"
+            name="fa6-solid:link"
+            class="text-primary dark:text-primary-light flex-shrink-0"
+            aria-hidden="true"
+          />
           <span>{{ formatCommentPreview(item.content) }}</span>
         </p>
 
@@ -54,7 +72,11 @@
         <div
           class="text-[10px] text-gray-600 dark:text-gray-400 transition-colors flex items-center truncate"
         >
-          <Icon :name="item.isAgora ? 'fa6-solid:landmark' : 'fa6-solid:file-lines'" class="mr-1 flex-shrink-0" aria-hidden="true" />
+          <Icon
+            :name="item.isAgora ? 'fa6-solid:landmark' : 'fa6-solid:file-lines'"
+            class="mr-1 flex-shrink-0"
+            aria-hidden="true"
+          />
           <span class="truncate">{{ item.isAgora ? t('agora.title') : item.post.title }}</span>
         </div>
       </NuxtLink>
@@ -80,8 +102,8 @@
 
 <script setup>
   import { computed } from 'vue'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
+
   import { useNuxtApp } from '#app'
 
   const { t } = useI18n()
@@ -92,13 +114,21 @@
   const fetchLimit = 5
 
   // Fetch comments with agora messages included
-  const { data: itemsData, error, pending } = await useAsyncData(
+  const {
+    data: itemsData,
+    error,
+    pending,
+  } = await useAsyncData(
     'recent-items',
     async () => {
       try {
-        const res = await $api.comments.recent({ limit: fetchLimit, filter: 'recent', include_agora: true })
+        const res = await $api.comments.recent({
+          limit: fetchLimit,
+          filter: 'recent',
+          include_agora: true,
+        })
         const items = Array.isArray(res?.data?.data) ? res.data.data : []
-        return items.map(item => ({
+        return items.map((item) => ({
           ...item,
           isAgora: item.is_agora || false,
           itemKey: item.is_agora ? `agora-${item.id}` : `comment-${item.id}`,
@@ -159,7 +189,8 @@
     if (!cleaned) {
       if (hasEmbed(content)) {
         const provider = getEmbedProvider(content)
-        const providerName = provider === 'xtwitter' ? 'X' : provider?.charAt(0).toUpperCase() + provider?.slice(1)
+        const providerName =
+          provider === 'xtwitter' ? 'X' : provider?.charAt(0).toUpperCase() + provider?.slice(1)
         return t('comments.embed_content', { provider: providerName || 'embed' })
       }
       return t('comments.image_attachment')

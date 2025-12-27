@@ -66,7 +66,6 @@ export const useRankingsStore = defineStore('rankings', {
           params.timeframe = timeframe
         }
 
-
         let response
         switch (category) {
           case 'karma':
@@ -92,7 +91,6 @@ export const useRankingsStore = defineStore('rankings', {
         // API returns: { data: { users: [...], pagination: {...} }, timeframe: 'all' }
         // We only need the inner 'data' object
         const data = response.data.data
-
 
         // Store in cache
         this.cache[cacheKey] = {

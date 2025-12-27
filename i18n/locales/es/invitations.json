@@ -15,6 +15,7 @@
     "copy_link": "Copiar enlace de invitación",
     "delete": "Eliminar invitación",
     "confirm_delete": "¿Estás seguro de que quieres eliminar esta invitación?",
+    "confirm_delete_title": "Eliminar invitación",
     "no_invitations": "Aún no has creado ninguna invitación",
     "link_copied": "¡Enlace de invitación copiado al portapapeles!",
     "error_creating": "Error al crear la invitación",

@@ -14,10 +14,7 @@ import { useUserPreferencesStore } from '~/stores/userPreferences'
  * @param {boolean} options.updateUrl - Whether to update URL with filter state
  */
 export function usePostsPageLogic(options = {}) {
-  const {
-    defaultSection = 'frontpage',
-    updateUrl = true,
-  } = options
+  const { defaultSection = 'frontpage', updateUrl = true } = options
 
   const route = useRoute()
   const router = useRouter()
@@ -53,7 +50,7 @@ export function usePostsPageLogic(options = {}) {
       page.value = 1
       postsStore.clearPosts()
       nextTick(() => fetchCurrentSection())
-    }
+    },
   })
 
   // ============================================
@@ -98,7 +95,14 @@ export function usePostsPageLogic(options = {}) {
     loading.value = true
     try {
       const contentType = userPreferencesStore.getContentTypeFilter || null
-      await postsStore.fetchFrontpage(page.value, sort.value, direction.value, parseInt(timeInterval.value), 25, contentType)
+      await postsStore.fetchFrontpage(
+        page.value,
+        sort.value,
+        direction.value,
+        parseInt(timeInterval.value),
+        25,
+        contentType
+      )
     } catch (error) {
       console.error('Error fetching frontpage:', error)
     } finally {
@@ -110,7 +114,14 @@ export function usePostsPageLogic(options = {}) {
     loading.value = true
     try {
       const contentType = userPreferencesStore.getContentTypeFilter || null
-      await postsStore.fetchPending(page.value, sort.value, direction.value, parseInt(timeInterval.value), 25, contentType)
+      await postsStore.fetchPending(
+        page.value,
+        sort.value,
+        direction.value,
+        parseInt(timeInterval.value),
+        25,
+        contentType
+      )
     } catch (error) {
       console.error('Error fetching pending:', error)
     } finally {
@@ -122,7 +133,14 @@ export function usePostsPageLogic(options = {}) {
     loading.value = true
     try {
       const contentType = userPreferencesStore.getContentTypeFilter || null
-      await postsStore.fetchMySubs(page.value, sort.value, direction.value, parseInt(timeInterval.value), 25, contentType)
+      await postsStore.fetchMySubs(
+        page.value,
+        sort.value,
+        direction.value,
+        parseInt(timeInterval.value),
+        25,
+        contentType
+      )
     } catch (error) {
       console.error('Error fetching my subs:', error)
     } finally {
@@ -153,11 +171,32 @@ export function usePostsPageLogic(options = {}) {
       const section = currentSection.value
 
       if (section === 'frontpage') {
-        await postsStore.loadMoreFrontpage(page.value, sort.value, direction.value, parseInt(timeInterval.value), 25, contentType)
+        await postsStore.loadMoreFrontpage(
+          page.value,
+          sort.value,
+          direction.value,
+          parseInt(timeInterval.value),
+          25,
+          contentType
+        )
       } else if (section === 'pending') {
-        await postsStore.loadMorePending(page.value, sort.value, direction.value, parseInt(timeInterval.value), 25, contentType)
+        await postsStore.loadMorePending(
+          page.value,
+          sort.value,
+          direction.value,
+          parseInt(timeInterval.value),
+          25,
+          contentType
+        )
       } else if (section === 'my_subs') {
-        await postsStore.loadMoreMySubs(page.value, sort.value, direction.value, parseInt(timeInterval.value), 25, contentType)
+        await postsStore.loadMoreMySubs(
+          page.value,
+          sort.value,
+          direction.value,
+          parseInt(timeInterval.value),
+          25,
+          contentType
+        )
       }
     } catch (error) {
       console.error('Error loading more posts:', error)
@@ -201,14 +240,18 @@ export function usePostsPageLogic(options = {}) {
   })
 
   if (updateUrl) {
-    watch(() => route.query, (newQuery) => {
-      const newSort = newQuery.sort?.toString() || 'lastActive'
-      const newDir = newQuery.dir?.toString() || 'desc'
-      const newTime = newQuery.time?.toString() || '43200'
-      if (sort.value !== newSort) sort.value = newSort
-      if (direction.value !== newDir) direction.value = newDir
-      if (timeInterval.value !== newTime) timeInterval.value = newTime
-    }, { deep: true })
+    watch(
+      () => route.query,
+      (newQuery) => {
+        const newSort = newQuery.sort?.toString() || 'lastActive'
+        const newDir = newQuery.dir?.toString() || 'desc'
+        const newTime = newQuery.time?.toString() || '43200'
+        if (sort.value !== newSort) sort.value = newSort
+        if (direction.value !== newDir) direction.value = newDir
+        if (timeInterval.value !== newTime) timeInterval.value = newTime
+      },
+      { deep: true }
+    )
   }
 
   // ============================================

@@ -2,10 +2,7 @@
   <article
     ref="articleRef"
     class="link-card flex flex-col relative"
-    :class="[
-      { 'visited-post': post.is_visited && !showFullText },
-      sealBorderClass
-    ]"
+    :class="[{ 'visited-post': post.is_visited && !showFullText }, sealBorderClass]"
     :lang="post.language_code || undefined"
     :aria-labelledby="`post-title-${post.id || post.entryId}`"
   >
@@ -30,6 +27,7 @@
             :is-loading="isLoading"
             :user-has-voted="Boolean(post.userVote)"
             :has-federation-badge="post.federation?.has_engagement"
+            :voting-open="post.voting_open !== false"
             size="small"
             :aria-label="`${voteCount} ${t('posts.votes')} ${post.userVote ? t('posts.voted') : ''}`"
             @vote="vote"
@@ -39,7 +37,37 @@
 
         <!-- Title and metadata -->
         <div class="content-section">
-          <h3 :id="`post-title-${post.id || post.entryId}`" class="card-title break-words"><!-- NSFW Badge - Inline before title --><span v-if="post.is_nsfw" class="nsfw-badge mr-2" :title="t('posts.nsfw_badge', 'NSFW +18')">{{ t('posts.nsfw_badge', 'NSFW +18') }}</span><span v-if="isVideoContent()" class="inline-flex items-center mr-1" aria-hidden="true"><Icon name="fa6-solid:video" class="text-red-500" /></span><span v-else-if="isAudioContent()" class="inline-flex items-center mr-1" aria-hidden="true"><Icon name="fa6-solid:headphones" class="text-green-500" /></span><NuxtLink :to="getPostLinkPath()" :target="post.url && !isMediaContent() && !post.is_nsfw ? '_blank' : ''" :rel="post.url && !isMediaContent() && !post.is_nsfw ? 'noopener nofollow' : ''" :aria-label="post.title + (isVideoContent() ? ` (${t('posts.video')})` : isAudioContent() ? ` (${t('posts.audio')})` : '')" @mousedown="handleTitleClick">{{ post.title }}</NuxtLink><span v-if="post.is_visited" class="visited-badge-inline" :title="getVisitedTooltip()"><Icon name="fa6-solid:circle-check" aria-hidden="true" /></span></h3>
+          <h3 :id="`post-title-${post.id || post.entryId}`" class="card-title break-words">
+            <!-- NSFW Badge - Inline before title --><span
+              v-if="post.is_nsfw"
+              class="nsfw-badge mr-2"
+              :title="t('posts.nsfw_badge', 'NSFW +18')"
+              >{{ t('posts.nsfw_badge', 'NSFW +18') }}</span
+            ><span v-if="isVideoContent()" class="inline-flex items-center mr-1" aria-hidden="true"
+              ><Icon name="fa6-solid:video" class="text-red-500" /></span
+            ><span
+              v-else-if="isAudioContent()"
+              class="inline-flex items-center mr-1"
+              aria-hidden="true"
+              ><Icon name="fa6-solid:headphones" class="text-green-500" /></span
+            ><NuxtLink
+              :to="getPostLinkPath()"
+              :target="post.url && !isMediaContent() && !post.is_nsfw ? '_blank' : ''"
+              :rel="post.url && !isMediaContent() && !post.is_nsfw ? 'noopener nofollow' : ''"
+              :aria-label="
+                post.title +
+                (isVideoContent()
+                  ? ` (${t('posts.video')})`
+                  : isAudioContent()
+                    ? ` (${t('posts.audio')})`
+                    : '')
+              "
+              @mousedown="handleTitleClick"
+              >{{ post.title }}</NuxtLink
+            ><span v-if="post.is_visited" class="visited-badge-inline" :title="getVisitedTooltip()"
+              ><Icon name="fa6-solid:circle-check" aria-hidden="true"
+            /></span>
+          </h3>
 
           <!-- Seal Badges - Removed, only show corner badge -->
 
@@ -64,7 +92,11 @@
 
             <div class="flex items-center">
               <span v-if="post.url" class="flex items-center truncate max-w-[200px]">
-                {{ post.is_nsfw ? t('posts.external_content', '[contenido externo]') : getDomain(post.url) }}
+                {{
+                  post.is_nsfw
+                    ? t('posts.external_content', '[contenido externo]')
+                    : getDomain(post.url)
+                }}
               </span>
               <span v-else-if="isPollContent()" class="flex items-center">
                 {{ t('links.poll') }}
@@ -98,27 +130,38 @@
             v-if="post.recommended_seals_count > 0 || post.advise_against_seals_count > 0"
             class="seals-text-info text-xs mt-1"
           >
-            <div v-if="post.recommended_seals_count > 0" class="seal-text-recommended flex items-start gap-1">
+            <div
+              v-if="post.recommended_seals_count > 0"
+              class="seal-text-recommended flex items-start gap-1"
+            >
               <Icon name="fa6-solid:award" class="seal-text-icon" aria-hidden="true" />
               {{ t('seals.people_recommend', post.recommended_seals_count) }}
             </div>
-            <div v-if="post.advise_against_seals_count > 0" class="seal-text-advised-against flex items-start gap-1" :class="{ 'mt-0.5': post.recommended_seals_count > 0 }">
-              <Icon name="fa6-solid:triangle-exclamation" class="seal-text-icon" aria-hidden="true" />
+            <div
+              v-if="post.advise_against_seals_count > 0"
+              class="seal-text-advised-against flex items-start gap-1"
+              :class="{ 'mt-0.5': post.recommended_seals_count > 0 }"
+            >
+              <Icon
+                name="fa6-solid:triangle-exclamation"
+                class="seal-text-icon"
+                aria-hidden="true"
+              />
               {{ t('seals.people_advise_against', post.advise_against_seals_count) }}
             </div>
           </div>
 
           <!-- CTA below seals -->
-          <slot name="below-vote"/>
+          <slot name="below-vote" />
         </div>
       </div>
 
-      <slot name="content"/>
+      <slot name="content" />
 
-      <slot name="cta"/>
+      <slot name="cta" />
     </div>
 
-    <slot name="footer"/>
+    <slot name="footer" />
   </article>
 </template>
 
@@ -131,8 +174,7 @@
   import VoteBadge from '~/components/posts/VoteBadge.vue'
   import FederationBadge from '~/components/federation/FederationBadge.vue'
   import AuthorInfo from '~/components/common/AuthorInfo.vue'
-  import { useLocalePath, useI18n  } from '#i18n'
-  
+  import { useLocalePath, useI18n } from '#i18n'
 
   // Lazy load seal info modal
   const SealInfoModal = defineAsyncComponent(() => import('~/components/seals/SealInfoModal.vue'))
@@ -223,9 +265,6 @@
     return 0
   })
 
-
-
-
   function getDomain(url) {
     try {
       const domain = new URL(url).hostname
@@ -234,7 +273,6 @@
       return url
     }
   }
-
 
   function getVisitedTooltip() {
     if (!props.post.is_visited || !props.post.last_visited_at) {
@@ -267,17 +305,29 @@
 
   function getLanguageName(code) {
     // Import language data from language-data.js
-    import('~/utils/language-data').then(module => {
-      const lang = module.default.find(l => l.code === code)
+    import('~/utils/language-data').then((module) => {
+      const lang = module.default.find((l) => l.code === code)
       return lang ? lang.native : code.toUpperCase()
     })
 
     // Fallback for common languages
     const languages = {
-      es: 'Español', en: 'English', fr: 'Français', de: 'Deutsch',
-      it: 'Italiano', pt: 'Português', ca: 'Català', eu: 'Euskara',
-      gl: 'Galego', ru: 'Русский', zh: '中文', ja: '日本語',
-      ko: '한국어', ar: 'العربية', hi: 'हिन्दी', tr: 'Türkçe'
+      es: 'Español',
+      en: 'English',
+      fr: 'Français',
+      de: 'Deutsch',
+      it: 'Italiano',
+      pt: 'Português',
+      ca: 'Català',
+      eu: 'Euskara',
+      gl: 'Galego',
+      ru: 'Русский',
+      zh: '中文',
+      ja: '日本語',
+      ko: '한국어',
+      ar: 'العربية',
+      hi: 'हिन्दी',
+      tr: 'Türkçe',
     }
     return languages[code] || code.toUpperCase()
   }
@@ -285,9 +335,11 @@
   function openLanguageFilter() {
     // Emit a custom event to open language filter
     if (import.meta.client) {
-      window.dispatchEvent(new CustomEvent('open-language-filter', {
-        detail: { languageCode: props.post.language_code }
-      }))
+      window.dispatchEvent(
+        new CustomEvent('open-language-filter', {
+          detail: { languageCode: props.post.language_code },
+        })
+      )
     }
   }
 
@@ -340,10 +392,7 @@
 
       // Show success feedback
       if (authStore.user?.is_guest) {
-        success(
-          t('posts.vote_success_anonymous'),
-          { priority: 'low' }
-        )
+        success(t('posts.vote_success_anonymous'), { priority: 'low' })
       } else {
         success(t('posts.vote_success'), { priority: 'low' })
       }
@@ -364,7 +413,6 @@
       isLoading.value = false
     }
   }
-
 </script>
 
 <style scoped>
@@ -380,7 +428,7 @@
   }
 
   .card-body-inner::after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }
@@ -524,34 +572,60 @@
 
   /* Few comments (1-2) - Theme color light */
   .comments-engagement-footer.few-comments {
-    background: linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.05) 0%, rgba(var(--color-primary-rgb), 0.02) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(var(--color-primary-rgb), 0.05) 0%,
+      rgba(var(--color-primary-rgb), 0.02) 100%
+    );
     border-color: rgba(var(--color-primary-rgb), 0.15);
   }
 
   .dark .comments-engagement-footer.few-comments {
-    background: linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.07) 0%, rgba(var(--color-primary-rgb), 0.03) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(var(--color-primary-rgb), 0.07) 0%,
+      rgba(var(--color-primary-rgb), 0.03) 100%
+    );
     border-color: rgba(var(--color-primary-rgb), 0.2);
   }
 
   /* Active discussion (3-9) - Theme color medium */
   .comments-engagement-footer.active-discussion {
-    background: linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.08) 0%, rgba(var(--color-primary-rgb), 0.04) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(var(--color-primary-rgb), 0.08) 0%,
+      rgba(var(--color-primary-rgb), 0.04) 100%
+    );
     border-color: rgba(var(--color-primary-rgb), 0.25);
   }
 
   .dark .comments-engagement-footer.active-discussion {
-    background: linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.12) 0%, rgba(var(--color-primary-rgb), 0.06) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(var(--color-primary-rgb), 0.12) 0%,
+      rgba(var(--color-primary-rgb), 0.06) 100%
+    );
     border-color: rgba(var(--color-primary-rgb), 0.3);
   }
 
   /* Hot discussion (10+) - Theme color strong with fire gradient */
   .comments-engagement-footer.hot-discussion {
-    background: linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.12) 0%, rgba(251, 146, 60, 0.08) 50%, rgba(239, 68, 68, 0.08) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(var(--color-primary-rgb), 0.12) 0%,
+      rgba(251, 146, 60, 0.08) 50%,
+      rgba(239, 68, 68, 0.08) 100%
+    );
     border-color: rgba(var(--color-primary-rgb), 0.35);
   }
 
   .dark .comments-engagement-footer.hot-discussion {
-    background: linear-gradient(90deg, rgba(var(--color-primary-rgb), 0.18) 0%, rgba(251, 146, 60, 0.12) 50%, rgba(239, 68, 68, 0.12) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(var(--color-primary-rgb), 0.18) 0%,
+      rgba(251, 146, 60, 0.12) 50%,
+      rgba(239, 68, 68, 0.12) 100%
+    );
     border-color: rgba(var(--color-primary-rgb), 0.4);
   }
 

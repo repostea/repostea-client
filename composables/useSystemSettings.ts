@@ -147,9 +147,7 @@ export const useSystemSettings = () => {
   /**
    * Helper: Check if registration requires approval
    */
-  const isApprovalRequired = computed(
-    () => settings.value.registration_approval === 'required'
-  )
+  const isApprovalRequired = computed(() => settings.value.registration_approval === 'required')
 
   /**
    * Helper: Check if user can register with the given invitation code

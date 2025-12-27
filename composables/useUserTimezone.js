@@ -4,7 +4,7 @@ export const useUserTimezone = () => {
   // Read from cookie (works in SSR and client)
   const timezoneCookie = useCookie('user_timezone', {
     maxAge: 60 * 60 * 24 * 365, // 1 year
-    sameSite: 'lax'
+    sameSite: 'lax',
   })
 
   // If no cookie, detect from browser (client-side only)
@@ -20,6 +20,6 @@ export const useUserTimezone = () => {
   }
 
   return {
-    timezone: timezoneCookie.value || DEFAULT_TIMEZONE
+    timezone: timezoneCookie.value || DEFAULT_TIMEZONE,
   }
 }

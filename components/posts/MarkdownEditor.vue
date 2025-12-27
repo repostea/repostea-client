@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="markdown-editor"
-    :class="{ 'fullscreen-editor': isFullscreen }"
-  >
+  <div class="markdown-editor" :class="{ 'fullscreen-editor': isFullscreen }">
     <!-- Exit fullscreen bar (visible only in fullscreen mode) -->
     <div
       v-if="isFullscreen"
@@ -18,9 +15,7 @@
       </button>
     </div>
 
-    <div
-      class="md-editor-toolbar p-2 rounded-t-md flex flex-wrap items-center justify-between"
-    >
+    <div class="md-editor-toolbar p-2 rounded-t-md flex flex-wrap items-center justify-between">
       <div class="flex flex-wrap items-center space-x-1">
         <button
           v-for="tool in toolbarItems"
@@ -44,15 +39,10 @@
         </button>
 
         <!-- Image upload modal with backdrop -->
-        <div
-          v-if="showImageUpload"
-          class="fixed inset-0 z-50 flex items-center justify-center"
-        >
-          <!-- Backdrop -->
-          <div
-            class="absolute inset-0 bg-black/50"
-            @click="closeImageModal"
-          />
+        <Teleport to="body">
+          <div v-if="showImageUpload" class="fixed inset-0 z-50 flex items-center justify-center">
+            <!-- Backdrop -->
+            <div class="absolute inset-0 bg-black/50" @click="closeImageModal" />
           <!-- Modal content -->
           <div
             class="md-editor-modal relative rounded-md shadow-lg p-4 w-[min(400px,calc(100vw-2rem))] max-h-[80vh] overflow-y-auto"
@@ -67,7 +57,11 @@
                 :aria-label="t('common.close')"
                 @click="closeImageModal"
               >
-                <Icon name="fa6-solid:xmark" class="text-text-muted dark:text-text-dark-muted" aria-hidden="true" />
+                <Icon
+                  name="fa6-solid:xmark"
+                  class="text-text-muted dark:text-text-dark-muted"
+                  aria-hidden="true"
+                />
               </button>
             </div>
 
@@ -96,7 +90,7 @@
                 class="md-editor-dropzone rounded-md border-2 border-dashed transition-all"
                 :class="[
                   isDragging ? 'border-primary bg-primary/10' : 'border-default',
-                  isUploadingImage ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
+                  isUploadingImage ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
                 ]"
                 @dragover="handleDragOver"
                 @dragleave="handleDragLeave"
@@ -135,7 +129,9 @@
               </div>
 
               <div v-if="selectedFile && !uploadError">
-                <label class="block text-sm font-medium mb-1">{{ t('comments.image_upload.alt_text') }}</label>
+                <label class="block text-sm font-medium mb-1">{{
+                  t('comments.image_upload.alt_text')
+                }}</label>
                 <input
                   v-model="imageAlt"
                   type="text"
@@ -153,7 +149,9 @@
                   class="w-5 h-5 min-w-[20px] min-h-[20px] flex-shrink-0 text-red-600 border-2 border-gray-300 dark:border-neutral-500 rounded focus:ring-red-500"
                 >
                 <label for="md-image-nsfw-checkbox" class="text-sm">
-                  <span class="text-red-600 font-medium">{{ t('comments.image_upload.nsfw_label') }}</span>
+                  <span class="text-red-600 font-medium">{{
+                    t('comments.image_upload.nsfw_label')
+                  }}</span>
                   <span class="text-text-muted dark:text-text-dark-muted ml-1 text-xs">
                     {{ t('comments.image_upload.nsfw_hint') }}
                   </span>
@@ -176,13 +174,21 @@
                 type="button"
                 @click="uploadAndInsertImage"
               >
-                <span v-if="isUploadingImage" class="inline-block animate-spin h-3 w-3 mr-1 border-2 border-white border-t-transparent rounded-full"/>
+                <span
+                  v-if="isUploadingImage"
+                  class="inline-block animate-spin h-3 w-3 mr-1 border-2 border-white border-t-transparent rounded-full"
+                />
                 <Icon v-else name="fa6-solid:upload" class="mr-1" aria-hidden="true" />
-                {{ isUploadingImage ? t('comments.image_upload.uploading') : t('comments.image_upload.upload_insert') }}
+                {{
+                  isUploadingImage
+                    ? t('comments.image_upload.uploading')
+                    : t('comments.image_upload.upload_insert')
+                }}
               </button>
             </div>
           </div>
         </div>
+        </Teleport>
 
         <div class="flex items-center space-x-1">
           <EmojiPicker @select="insertEmoji" />
@@ -193,7 +199,10 @@
             type="button"
             @click="togglePreview"
           >
-            <Icon :name="isPreviewActive ? 'fa6-solid:pen-to-square' : 'fa6-solid:eye'" aria-hidden="true" />
+            <Icon
+              :name="isPreviewActive ? 'fa6-solid:pen-to-square' : 'fa6-solid:eye'"
+              aria-hidden="true"
+            />
           </button>
           <button
             class="md-editor-btn p-1.5 rounded-md transition-colors"
@@ -202,7 +211,10 @@
             type="button"
             @click="toggleFullscreen"
           >
-            <Icon :name="isFullscreen ? 'fa6-solid:compress' : 'fa6-solid:expand'" aria-hidden="true" />
+            <Icon
+              :name="isFullscreen ? 'fa6-solid:compress' : 'fa6-solid:expand'"
+              aria-hidden="true"
+            />
           </button>
         </div>
       </div>
@@ -234,7 +246,7 @@
         v-show="isPreviewActive"
         class="md-editor-preview w-full min-h-[250px] rounded-md p-3 overflow-auto"
       >
-        <div class="prose dark:prose-invert max-w-none" v-html="renderedContent"/>
+        <div class="prose dark:prose-invert max-w-none" v-html="renderedContent" />
       </div>
     </div>
 
@@ -518,7 +530,7 @@
 
       const response = await $api.images.uploadInlineImage(formData)
 
-      const uploadedImageUrl = response.data.image.urls.medium
+      const uploadedImageUrl = response.data.image.urls.url
       const isNsfw = response.data.image.urls.is_nsfw
       const altText = imageAlt.value || t('comments.image_upload.default_alt')
 

@@ -26,6 +26,8 @@
                   "sort_comments": "Most commented",
                   "vote":  "vote",
                   "voted":  "voted",
+                  "closed": "closed",
+                  "voting_closed": "Voting is closed",
                   "votes":  "votes",
                   "vote_success": "Vote submitted successfully!",
                   "vote_success_guest": "Vote submitted! Your guest vote has been recorded.",

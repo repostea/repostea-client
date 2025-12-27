@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="!isAuthenticated"
-    class="mt-2 flex items-center gap-2 text-xs"
-  >
+  <div v-if="!isAuthenticated" class="mt-2 flex items-center gap-2 text-xs">
     <Icon name="fa6-solid:star" class="text-primary flex-shrink-0" aria-hidden="true" />
     <span class="text-text-muted dark:text-text-dark-muted">{{ ctaMessage }}</span>
     <NuxtLink
@@ -17,8 +14,7 @@
 <script setup>
   import { computed } from 'vue'
   import { useAuth } from '~/composables/useAuth'
-  import { useLocalePath, useI18n  } from '#i18n'
-  
+  import { useLocalePath, useI18n } from '#i18n'
 
   const props = defineProps({
     authorName: {

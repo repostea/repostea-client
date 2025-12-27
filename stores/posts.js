@@ -154,7 +154,6 @@ export const usePostsStore = defineStore('posts', {
           params.languages = languages.join(',')
         }
 
-
         const response = await $api.posts.getFrontpage(params)
         this.posts = response.data.data.map((post) => this._transformPostData(post))
 
@@ -165,7 +164,7 @@ export const usePostsStore = defineStore('posts', {
           lastPage: meta.last_page || 1,
           total: meta.total_posts || meta.post_count || 0,
           perPage: meta.per_page,
-          hasMore: meta.has_more ?? (meta.current_page < meta.last_page),
+          hasMore: meta.has_more ?? meta.current_page < meta.last_page,
           nextCursor: meta.next_cursor || null,
           prevCursor: meta.prev_cursor || null,
         }
@@ -734,7 +733,8 @@ export const usePostsStore = defineStore('posts', {
         status: post.status || 'published',
         sub: post.sub || null,
         can_edit: post.can_edit || false,
-        // Federation stats
+        voting_open: post.voting_open !== false,
+        comments_open: post.comments_open !== false,
         federation: post.federation || null,
       }
 
@@ -895,14 +895,13 @@ export const usePostsStore = defineStore('posts', {
           this.currentPost.userVote = response.data.user_vote
         }
 
-        // If post just reached frontpage, invalidate cache and refetch lists
+        // Always clear cache after voting so reload shows correct state
+        this._clearCache()
+
+        // If post just reached frontpage, refetch lists
         if (response.data.frontpage_reached) {
-          this._clearCache()
           // Refetch both lists to show post in frontpage and remove from pending
-          await Promise.all([
-            this.fetchFrontpage(),
-            this.fetchPending()
-          ])
+          await Promise.all([this.fetchFrontpage(), this.fetchPending()])
         }
 
         return true
@@ -984,6 +983,8 @@ export const usePostsStore = defineStore('posts', {
           this.currentPost.userVote = null
         }
 
+        this._clearCache()
+
         return true
       } catch (error) {
         this.error = error.response?.data?.message || 'Error removing vote'
@@ -1025,6 +1026,5 @@ export const usePostsStore = defineStore('posts', {
         if (stats.total_views !== undefined) this.currentPost.total_views = stats.total_views
       }
     },
-
   },
 })

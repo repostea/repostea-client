@@ -17,7 +17,14 @@
     <!-- Resumen breve -->
     <div class="mb-6 text-left">
       <p class="text-gray-800 dark:text-gray-200 mb-3">
-        {{ t('onboarding.steps.creating-posts.content.brief_summary_1') }} <strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_2') }}</strong>, <strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_3') }}</strong>, <strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_4') }}</strong>, <strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_5') }}</strong> {{ t('onboarding.steps.creating-posts.content.brief_summary_6') }} <strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_7') }}</strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_8') }}
+        {{ t('onboarding.steps.creating-posts.content.brief_summary_1') }}
+        <strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_2') }}</strong
+        >, <strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_3') }}</strong
+        >, <strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_4') }}</strong
+        >, <strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_5') }}</strong>
+        {{ t('onboarding.steps.creating-posts.content.brief_summary_6') }}
+        <strong>{{ t('onboarding.steps.creating-posts.content.brief_summary_7') }}</strong
+        >{{ t('onboarding.steps.creating-posts.content.brief_summary_8') }}
       </p>
       <p class="text-gray-700 dark:text-gray-300 text-sm">
         {{ t('onboarding.steps.creating-posts.content.tip') }}
@@ -30,8 +37,14 @@
         class="inline-flex items-center text-primary hover:text-primary-dark transition-colors font-medium"
         @click="showDetails = !showDetails"
       >
-        <Icon :name="showDetails ? 'fa6-solid:chevron-up' : 'fa6-solid:chevron-down'" class="mr-2 text-sm" aria-hidden="true" />
-        <span v-if="!showDetails">{{ t('onboarding.steps.creating-posts.content.show_details') }}</span>
+        <Icon
+          :name="showDetails ? 'fa6-solid:chevron-up' : 'fa6-solid:chevron-down'"
+          class="mr-2 text-sm"
+          aria-hidden="true"
+        />
+        <span v-if="!showDetails">{{
+          t('onboarding.steps.creating-posts.content.show_details')
+        }}</span>
         <span v-else>{{ t('onboarding.steps.creating-posts.content.hide_details') }}</span>
       </button>
     </div>
@@ -50,7 +63,11 @@
               <div
                 class="flex items-center justify-center w-12 h-12 onboarding-type-icon rounded-lg"
               >
-                <Icon :name="type.iconify" class="text-xl text-gray-600 dark:text-gray-300" aria-hidden="true" />
+                <Icon
+                  :name="type.iconify"
+                  class="text-xl text-gray-600 dark:text-gray-300"
+                  aria-hidden="true"
+                />
               </div>
             </div>
             <div class="flex-1">

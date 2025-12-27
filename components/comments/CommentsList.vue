@@ -89,7 +89,11 @@
     >
       <div class="text-center">
         <p class="text-text dark:text-text-dark mb-4">
-          {{ isGuestAccessEnabled ? t('comments.login_required') : t('comments.login_required_no_guest') }}
+          {{
+            isGuestAccessEnabled
+              ? t('comments.login_required')
+              : t('comments.login_required_no_guest')
+          }}
         </p>
         <div class="flex justify-center gap-3">
           <NuxtLink
@@ -165,9 +169,10 @@
       <div class="flex items-center text-primary">
         <Icon name="fa6-solid:comment" class="mr-2 animate-bounce" aria-hidden="true" />
         <span class="font-medium">
-          {{ realtimePendingCount === 1
-            ? t('comments.new_comment_available')
-            : t('comments.new_comments_available', { count: realtimePendingCount })
+          {{
+            realtimePendingCount === 1
+              ? t('comments.new_comment_available')
+              : t('comments.new_comments_available', { count: realtimePendingCount })
           }}
         </span>
       </div>
@@ -227,7 +232,10 @@
         </template>
       </CommentItem>
     </div>
-    <div v-else-if="!loading" class="p-2 md:p-4 text-center text-text-muted dark:text-text-dark-muted">
+    <div
+      v-else-if="!loading"
+      class="p-2 md:p-4 text-center text-text-muted dark:text-text-dark-muted"
+    >
       <p>{{ t('comments.no_comments') }}</p>
     </div>
 
@@ -254,8 +262,8 @@
   import { useRealtimeComments } from '~/composables/useRealtimeComments'
   import CommentForm from '~/components/comments/CommentForm.vue'
   import CommentItem from '~/components/comments/CommentItem.vue'
-  import { useLocalePath, useI18n  } from '#i18n'
-  
+  import { useLocalePath, useI18n } from '#i18n'
+
   const { t } = useI18n()
   const localePath = useLocalePath()
 
@@ -302,11 +310,15 @@
   } = useRealtimeComments(postId.value)
 
   // Watch for postId changes to subscribe
-  watch(postId, (newId) => {
-    if (newId && newId > 0) {
-      subscribeToComments(newId)
-    }
-  }, { immediate: true })
+  watch(
+    postId,
+    (newId) => {
+      if (newId && newId > 0) {
+        subscribeToComments(newId)
+      }
+    },
+    { immediate: true }
+  )
 
   const loading = ref(true)
   const comments = computed(() => commentsStore.comments)
@@ -406,9 +418,8 @@
         const commentWithNumber = {
           ...comment,
           _commentNumber: numberMap.get(comment.id) || 0,
-          children: comment.children && comment.children.length > 0
-            ? addNumbers(comment.children)
-            : []
+          children:
+            comment.children && comment.children.length > 0 ? addNumbers(comment.children) : [],
         }
         return commentWithNumber
       })
@@ -443,7 +454,7 @@
           children: [],
           _parentComment: parentComment, // Store parent info for display
           _commentNumber: numberMap.get(comment.id) || 0,
-          _parentNumber: parentComment ? numberMap.get(parentComment.id) || 0 : 0
+          _parentNumber: parentComment ? numberMap.get(parentComment.id) || 0 : 0,
         }
         result.push(flatComment)
 

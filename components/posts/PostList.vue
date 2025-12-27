@@ -78,7 +78,10 @@
 
     <template v-else>
       <!-- Card layout (default) -->
-      <div v-if="layout === 'card'" class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-2 md:gap-4">
+      <div
+        v-if="layout === 'card'"
+        class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-2 md:gap-4"
+      >
         <template v-for="(post, index) in posts" :key="post.id || post.entryId">
           <PostCard
             :post="post"
@@ -88,11 +91,11 @@
           />
           <!-- Insert Recent Comments after 4th post when sidebar is hidden -->
           <div v-if="index === 3" class="lg:hidden col-span-full mt-0 mb-2 md:mt-4">
-            <slot name="after-third-post"/>
+            <slot name="after-third-post" />
           </div>
           <!-- Insert Top Comments after 8th post when sidebar is hidden -->
           <div v-if="index === 7" class="lg:hidden col-span-full mt-0 mb-2 md:mt-4">
-            <slot name="after-sixth-post"/>
+            <slot name="after-sixth-post" />
           </div>
         </template>
       </div>
@@ -108,20 +111,17 @@
           />
           <!-- Insert Recent Comments after 4th post when sidebar is hidden -->
           <div v-if="index === 3" class="lg:hidden mt-0 mb-2 md:mt-4">
-            <slot name="after-third-post"/>
+            <slot name="after-third-post" />
           </div>
           <!-- Insert Top Comments after 8th post when sidebar is hidden -->
           <div v-if="index === 7" class="lg:hidden mt-0 mb-2 md:mt-4">
-            <slot name="after-sixth-post"/>
+            <slot name="after-sixth-post" />
           </div>
         </template>
       </div>
 
       <!-- List layout -->
-      <div
-        v-else-if="layout === 'list'"
-        class="card-bg rounded-lg shadow-sm overflow-hidden"
-      >
+      <div v-else-if="layout === 'list'" class="card-bg rounded-lg shadow-sm overflow-hidden">
         <template v-for="(post, index) in posts" :key="post.id || post.entryId">
           <ListItemCard
             :post="post"
@@ -130,11 +130,11 @@
           />
           <!-- Insert Recent Comments after 20th post when sidebar is hidden -->
           <div v-if="index === 19" class="post-list-slot-divider lg:hidden pt-0 pb-2 md:pt-4">
-            <slot name="after-third-post"/>
+            <slot name="after-third-post" />
           </div>
           <!-- Insert Top Comments after 30th post when sidebar is hidden -->
           <div v-if="index === 29" class="post-list-slot-divider lg:hidden pt-0 pb-2 md:pt-4">
-            <slot name="after-sixth-post"/>
+            <slot name="after-sixth-post" />
           </div>
         </template>
       </div>

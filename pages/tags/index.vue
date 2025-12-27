@@ -1,11 +1,13 @@
 <template>
   <div class="container mx-auto px-4 py-6">
     <div class="max-w-4xl mx-auto">
-      <div
-        class="card-bg rounded-lg shadow-sm border tags-border mb-6"
-      >
+      <div class="card-bg rounded-lg shadow-sm border tags-border mb-6">
         <div class="px-6 py-4 border-b tags-border">
-          <h2 class="text-xl font-medium inline-flex items-center"><Icon name="fa6-solid:tags" class="mr-2 flex-shrink-0" aria-hidden="true" /><span>{{ t('tags.title') }}</span></h2>
+          <h2 class="text-xl font-medium inline-flex items-center">
+            <Icon name="fa6-solid:tags" class="mr-2 flex-shrink-0" aria-hidden="true" /><span>{{
+              t('tags.title')
+            }}</span>
+          </h2>
         </div>
         <div class="p-6">
           <div class="mb-6">
@@ -31,7 +33,11 @@
 
           <div v-else>
             <div v-if="filteredTags.length === 0" class="text-center py-8">
-              <Icon name="fa6-solid:tag" class="text-gray-300 dark:text-gray-600 text-5xl mb-3" aria-hidden="true" />
+              <Icon
+                name="fa6-solid:tag"
+                class="text-gray-300 dark:text-gray-600 text-5xl mb-3"
+                aria-hidden="true"
+              />
               <p class="text-gray-500 dark:text-gray-400">
                 {{ t('tags.no_results') }}
               </p>
@@ -81,11 +87,11 @@
         </div>
       </div>
 
-      <div
-        class="card-bg rounded-lg shadow-sm border tags-border"
-      >
+      <div class="card-bg rounded-lg shadow-sm border tags-border">
         <div class="px-6 py-4 border-b tags-border">
-          <h2 class="text-xl font-medium inline-flex items-center"><Icon name="fa6-solid:circle-info" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('tags.about') }}</span>
+          <h2 class="text-xl font-medium inline-flex items-center">
+            <Icon name="fa6-solid:circle-info" class="mr-2 flex-shrink-0" aria-hidden="true" />
+            <span>{{ t('tags.about') }}</span>
           </h2>
         </div>
         <div class="p-6">

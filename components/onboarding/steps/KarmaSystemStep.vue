@@ -17,7 +17,11 @@
     <!-- Resumen breve -->
     <div class="mb-6 text-left">
       <p class="text-gray-800 dark:text-gray-200 mb-3">
-        {{ t('onboarding.steps.karma-system.content.brief_text_1') }} <strong>{{ t('onboarding.steps.karma-system.content.brief_text_2') }}</strong> {{ t('onboarding.steps.karma-system.content.brief_text_3') }} <strong>{{ t('onboarding.steps.karma-system.content.brief_text_4') }}</strong>{{ t('onboarding.steps.karma-system.content.brief_text_5') }}
+        {{ t('onboarding.steps.karma-system.content.brief_text_1') }}
+        <strong>{{ t('onboarding.steps.karma-system.content.brief_text_2') }}</strong>
+        {{ t('onboarding.steps.karma-system.content.brief_text_3') }}
+        <strong>{{ t('onboarding.steps.karma-system.content.brief_text_4') }}</strong
+        >{{ t('onboarding.steps.karma-system.content.brief_text_5') }}
       </p>
       <p class="text-gray-700 dark:text-gray-300 mb-3">
         {{ t('onboarding.steps.karma-system.content.progression_text') }}
@@ -29,7 +33,9 @@
 
     <!-- Niveles de Karma -->
     <div class="onboarding-levels-container rounded-lg p-6 mb-6">
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center flex items-center justify-center">
+      <h3
+        class="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center flex items-center justify-center"
+      >
         <Icon name="fa6-solid:layer-group" class="mr-2" aria-hidden="true" />
         {{ t('onboarding.steps.karma-system.content.levels_title') }}
       </h3>
@@ -59,7 +65,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 

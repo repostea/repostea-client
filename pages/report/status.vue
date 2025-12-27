@@ -12,10 +12,7 @@
       </div>
 
       <!-- Formulario de búsqueda -->
-      <div
-        v-if="!reportData"
-        class="card-bg rounded-lg shadow-sm border report-status-border p-6"
-      >
+      <div v-if="!reportData" class="card-bg rounded-lg shadow-sm border report-status-border p-6">
         <form class="space-y-4" @submit.prevent="checkStatus">
           <div>
             <label class="block text-sm font-medium mb-2 text-text dark:text-text-dark">
@@ -62,10 +59,7 @@
       </div>
 
       <!-- Resultados -->
-      <div
-        v-if="reportData"
-        class="card-bg rounded-lg shadow-sm border report-status-border p-6"
-      >
+      <div v-if="reportData" class="card-bg rounded-lg shadow-sm border report-status-border p-6">
         <h2 class="text-xl font-semibold mb-4 text-text dark:text-text-dark">
           {{ $t('report.status.report_details') }}
         </h2>
@@ -128,18 +122,20 @@
         </div>
 
         <!-- Respuesta del equipo (si existe) -->
-        <div
-          v-if="reportData.user_response"
-          class="mt-6 pt-6 border-t report-status-border"
-        >
+        <div v-if="reportData.user_response" class="mt-6 pt-6 border-t report-status-border">
           <h3 class="text-lg font-semibold mb-3 text-text dark:text-text-dark">
             {{ $t('report.status.team_response') }}
           </h3>
-          <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+          <div
+            class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 border border-blue-200 dark:border-blue-800"
+          >
             <p class="text-sm text-gray-800 dark:text-gray-200 whitespace-pre-wrap">
               {{ reportData.user_response }}
             </p>
-            <p v-if="reportData.response_sent_at" class="text-xs text-gray-500 dark:text-gray-400 mt-3">
+            <p
+              v-if="reportData.response_sent_at"
+              class="text-xs text-gray-500 dark:text-gray-400 mt-3"
+            >
               {{ formatDate(reportData.response_sent_at) }}
             </p>
           </div>

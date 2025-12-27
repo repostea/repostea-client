@@ -4,13 +4,17 @@
       <div class="card-bg rounded-lg shadow-lg p-8 text-center">
         <!-- Loading State -->
         <div v-if="loading" class="py-8">
-          <div class="animate-spin h-12 w-12 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"/>
+          <div
+            class="animate-spin h-12 w-12 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"
+          />
           <p class="text-gray-600 dark:text-gray-400">{{ t('profile.confirming_email_change') }}</p>
         </div>
 
         <!-- Success State -->
         <div v-else-if="success" class="py-8">
-          <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div
+            class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
             <Icon name="fa6-solid:check" class="text-green-600 dark:text-green-400 text-2xl" />
           </div>
           <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -32,7 +36,9 @@
 
         <!-- Error State -->
         <div v-else class="py-8">
-          <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div
+            class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
             <Icon name="fa6-solid:xmark" class="text-red-600 dark:text-red-400 text-2xl" />
           </div>
           <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -90,7 +96,8 @@
       }
     } catch (error) {
       success.value = false
-      errorMessage.value = error.response?.data?.message || t('profile.email_change_failed_description')
+      errorMessage.value =
+        error.response?.data?.message || t('profile.email_change_failed_description')
     } finally {
       loading.value = false
     }

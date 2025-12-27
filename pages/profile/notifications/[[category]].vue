@@ -15,155 +15,198 @@
     </ClientOnly>
 
     <!-- Divider -->
-    <div class="my-6 border-t notif-border"/>
+    <div class="my-6 border-t notif-border" />
 
     <!-- Recent Notifications Section -->
     <ClientOnly>
-      <div class="bg-white dark:bg-card-dark rounded-lg shadow-sm border notif-border overflow-hidden">
-      <!-- Header -->
-      <div class="px-4 sm:px-6 py-3 sm:py-4 border-b notif-border">
-        <h2 class="text-lg sm:text-xl font-bold text-text dark:text-text-dark mb-1 flex items-center">
-          <template v-if="selectedCategory">
-            <Icon v-if="selectedCategory === 'posts'" name="fa6-solid:comment" class="text-blue-500 mr-2 text-sm sm:text-base" aria-hidden="true" />
-            <Icon v-else-if="selectedCategory === 'comments'" name="fa6-solid:reply" class="text-blue-500 mr-2 text-sm sm:text-base" aria-hidden="true" />
-            <Icon v-else-if="selectedCategory === 'mentions'" name="fa6-solid:at" class="text-purple-500 mr-2 text-sm sm:text-base" aria-hidden="true" />
-            <Icon v-else-if="selectedCategory === 'achievements'" name="fa6-solid:trophy" class="text-yellow-500 mr-2 text-sm sm:text-base" aria-hidden="true" />
-            {{ $t(`notifications.${selectedCategory === 'posts' ? 'post_comments' : selectedCategory === 'comments' ? 'comment_replies' : selectedCategory === 'mentions' ? 'mentions' : 'achievements_and_karma'}`) }}
-          </template>
-          <template v-else>
-            {{ $t('notifications.recent_notifications') }}
-          </template>
-        </h2>
-        <p class="text-xs sm:text-sm text-text-muted dark:text-text-dark-muted hidden sm:block">
-          {{ selectedCategory ? $t(`notifications.${selectedCategory === 'posts' ? 'post_comments_description' : selectedCategory === 'comments' ? 'comment_replies_description' : selectedCategory === 'mentions' ? 'mentions_description' : 'achievements_and_karma_description'}`) : $t('notifications.manage_recent_notifications') }}
-        </p>
-      </div>
-
-      <!-- Filters -->
-      <div class="px-4 sm:px-6 py-3 sm:py-4 border-b notif-border">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <div class="flex flex-wrap gap-2">
-          <button
-            v-for="filter in filters"
-            :key="filter.key"
-            class="px-3 py-1 rounded-full text-sm transition-colors"
-            :class="
-              activeFilter === filter.key
-                ? 'bg-primary text-white'
-                : 'notif-filter-btn text-text dark:text-text-dark'
-            "
-            @click="activeFilter = filter.key"
+      <div
+        class="bg-white dark:bg-card-dark rounded-lg shadow-sm border notif-border overflow-hidden"
+      >
+        <!-- Header -->
+        <div class="px-4 sm:px-6 py-3 sm:py-4 border-b notif-border">
+          <h2
+            class="text-lg sm:text-xl font-bold text-text dark:text-text-dark mb-1 flex items-center"
           >
-            {{ filter.label }}
-            <span v-if="filter.key !== 'all' && filter.total > 0" class="ml-1">
-              ({{ filter.total }})
-            </span>
-          </button>
-          </div>
-
-          <!-- Mark All Read -->
-          <button
-            v-if="currentViewUnreadCount > 0"
-            class="px-2 sm:px-3 py-1 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors text-xs whitespace-nowrap"
-            @click="markAllAsRead"
-          >
-            {{ $t('notifications.mark_all_read') }} ({{ currentViewUnreadCount }})
-          </button>
-        </div>
-      </div>
-
-      <!-- Notifications List -->
-      <div class="overflow-hidden">
-        <!-- Empty State -->
-        <div v-if="filteredNotifications.length === 0" class="px-4 sm:px-6 py-8 sm:py-12 text-center">
-          <Icon name="fa6-solid:bell-slash" class="text-4xl text-gray-400 mb-4" aria-hidden="true" />
-          <h3 class="text-lg font-medium text-text dark:text-text-dark mb-2">
-            {{ $t('notifications.no_notifications') }}
-          </h3>
-          <p class="text-text-muted dark:text-text-dark-muted mb-4">
-            {{ $t('notifications.no_notifications_description') }}
+            <template v-if="selectedCategory">
+              <Icon
+                v-if="selectedCategory === 'posts'"
+                name="fa6-solid:comment"
+                class="text-blue-500 mr-2 text-sm sm:text-base"
+                aria-hidden="true"
+              />
+              <Icon
+                v-else-if="selectedCategory === 'comments'"
+                name="fa6-solid:reply"
+                class="text-blue-500 mr-2 text-sm sm:text-base"
+                aria-hidden="true"
+              />
+              <Icon
+                v-else-if="selectedCategory === 'mentions'"
+                name="fa6-solid:at"
+                class="text-purple-500 mr-2 text-sm sm:text-base"
+                aria-hidden="true"
+              />
+              <Icon
+                v-else-if="selectedCategory === 'achievements'"
+                name="fa6-solid:trophy"
+                class="text-yellow-500 mr-2 text-sm sm:text-base"
+                aria-hidden="true"
+              />
+              {{
+                $t(
+                  `notifications.${selectedCategory === 'posts' ? 'post_comments' : selectedCategory === 'comments' ? 'comment_replies' : selectedCategory === 'mentions' ? 'mentions' : 'achievements_and_karma'}`
+                )
+              }}
+            </template>
+            <template v-else>
+              {{ $t('notifications.recent_notifications') }}
+            </template>
+          </h2>
+          <p class="text-xs sm:text-sm text-text-muted dark:text-text-dark-muted hidden sm:block">
+            {{
+              selectedCategory
+                ? $t(
+                    `notifications.${selectedCategory === 'posts' ? 'post_comments_description' : selectedCategory === 'comments' ? 'comment_replies_description' : selectedCategory === 'mentions' ? 'mentions_description' : 'achievements_and_karma_description'}`
+                  )
+                : $t('notifications.manage_recent_notifications')
+            }}
           </p>
+        </div>
 
-          <!-- Quick Actions -->
-          <div class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3">
-            <NuxtLink
-              :to="localePath('/profile/notifications/preferences')"
-              class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors text-sm text-center"
-            >
-              {{ $t('notifications.notification_settings') }}
-            </NuxtLink>
+        <!-- Filters -->
+        <div class="px-4 sm:px-6 py-3 sm:py-4 border-b notif-border">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap gap-2">
+              <button
+                v-for="filter in filters"
+                :key="filter.key"
+                class="px-3 py-1 rounded-full text-sm transition-colors"
+                :class="
+                  activeFilter === filter.key
+                    ? 'bg-primary text-white'
+                    : 'notif-filter-btn text-text dark:text-text-dark'
+                "
+                @click="activeFilter = filter.key"
+              >
+                {{ filter.label }}
+                <span v-if="filter.key !== 'all' && filter.total > 0" class="ml-1">
+                  ({{ filter.total }})
+                </span>
+              </button>
+            </div>
 
+            <!-- Mark All Read -->
             <button
-              class="px-4 py-2 notif-secondary-btn text-text dark:text-text-dark rounded-lg transition-colors text-sm"
-              @click="refreshNotifications"
+              v-if="currentViewUnreadCount > 0"
+              class="px-2 sm:px-3 py-1 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors text-xs whitespace-nowrap"
+              @click="markAllAsRead"
             >
-              {{ $t('common.refresh') }}
+              {{ $t('notifications.mark_all_read') }} ({{ currentViewUnreadCount }})
             </button>
           </div>
         </div>
 
-        <!-- Notifications -->
-        <div v-else>
-          <NotificationItem
-            v-for="notification in paginatedNotifications"
-            :key="notification.id"
-            :notification="notification"
-            @click="handleNotificationClick(notification)"
-            @mark-read="markAsRead(notification.id)"
-            @remove="removeNotification(notification.id)"
-          />
+        <!-- Notifications List -->
+        <div class="overflow-hidden">
+          <!-- Empty State -->
+          <div
+            v-if="filteredNotifications.length === 0"
+            class="px-4 sm:px-6 py-8 sm:py-12 text-center"
+          >
+            <Icon
+              name="fa6-solid:bell-slash"
+              class="text-4xl text-gray-400 mb-4"
+              aria-hidden="true"
+            />
+            <h3 class="text-lg font-medium text-text dark:text-text-dark mb-2">
+              {{ $t('notifications.no_notifications') }}
+            </h3>
+            <p class="text-text-muted dark:text-text-dark-muted mb-4">
+              {{ $t('notifications.no_notifications_description') }}
+            </p>
+
+            <!-- Quick Actions -->
+            <div class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3">
+              <NuxtLink
+                :to="localePath('/profile/notifications/preferences')"
+                class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors text-sm text-center"
+              >
+                {{ $t('notifications.notification_settings') }}
+              </NuxtLink>
+
+              <button
+                class="px-4 py-2 notif-secondary-btn text-text dark:text-text-dark rounded-lg transition-colors text-sm"
+                @click="refreshNotifications"
+              >
+                {{ $t('common.refresh') }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Notifications -->
+          <div v-else>
+            <NotificationItem
+              v-for="notification in paginatedNotifications"
+              :key="notification.id"
+              :notification="notification"
+              @click="handleNotificationClick(notification)"
+              @mark-read="markAsRead(notification.id)"
+              @remove="removeNotification(notification.id)"
+            />
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div v-if="totalPages > 1" class="mt-6 flex justify-center">
+          <nav class="flex items-center space-x-2">
+            <button
+              v-if="currentPage > 1"
+              class="px-3 py-2 notif-page-btn text-text dark:text-text-dark rounded-lg transition-colors"
+              :aria-label="$t('pagination.previous')"
+              @click="currentPage--"
+            >
+              <Icon name="fa6-solid:chevron-left" aria-hidden="true" />
+            </button>
+
+            <span class="px-4 py-2 text-sm text-text-muted dark:text-text-dark-muted">
+              {{ $t('pagination.page_of', { current: currentPage, total: totalPages }) }}
+            </span>
+
+            <button
+              v-if="currentPage < totalPages"
+              class="px-3 py-2 notif-page-btn text-text dark:text-text-dark rounded-lg transition-colors"
+              :aria-label="$t('pagination.next')"
+              @click="currentPage++"
+            >
+              <Icon name="fa6-solid:chevron-right" aria-hidden="true" />
+            </button>
+          </nav>
+        </div>
+
+        <!-- Bulk Actions -->
+        <div
+          v-if="filteredNotifications.length > 0"
+          class="px-4 sm:px-6 py-4 sm:py-6 border-t notif-border"
+        >
+          <div
+            class="flex flex-col sm:flex-row justify-end items-stretch sm:items-center gap-2 sm:gap-3"
+          >
+            <button
+              class="px-3 sm:px-4 py-2 text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/20 rounded-lg transition-colors text-xs sm:text-sm"
+              @click="clearOldNotifications"
+            >
+              {{ $t('notifications.clear_old') }}
+            </button>
+
+            <button
+              class="px-3 sm:px-4 py-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors text-xs sm:text-sm"
+              @click="clearAllNotifications"
+            >
+              {{ $t('notifications.clear_all') }}
+            </button>
+          </div>
         </div>
       </div>
-
-      <!-- Pagination -->
-      <div v-if="totalPages > 1" class="mt-6 flex justify-center">
-        <nav class="flex items-center space-x-2">
-          <button
-            v-if="currentPage > 1"
-            class="px-3 py-2 notif-page-btn text-text dark:text-text-dark rounded-lg transition-colors"
-            :aria-label="$t('pagination.previous')"
-            @click="currentPage--"
-          >
-            <Icon name="fa6-solid:chevron-left" aria-hidden="true" />
-          </button>
-
-          <span class="px-4 py-2 text-sm text-text-muted dark:text-text-dark-muted">
-            {{ $t('pagination.page_of', { current: currentPage, total: totalPages }) }}
-          </span>
-
-          <button
-            v-if="currentPage < totalPages"
-            class="px-3 py-2 notif-page-btn text-text dark:text-text-dark rounded-lg transition-colors"
-            :aria-label="$t('pagination.next')"
-            @click="currentPage++"
-          >
-            <Icon name="fa6-solid:chevron-right" aria-hidden="true" />
-          </button>
-        </nav>
-      </div>
-
-      <!-- Bulk Actions -->
-      <div
-        v-if="filteredNotifications.length > 0"
-        class="px-4 sm:px-6 py-4 sm:py-6 border-t notif-border"
-      >
-        <div class="flex flex-col sm:flex-row justify-end items-stretch sm:items-center gap-2 sm:gap-3">
-          <button
-            class="px-3 sm:px-4 py-2 text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/20 rounded-lg transition-colors text-xs sm:text-sm"
-            @click="clearOldNotifications"
-          >
-            {{ $t('notifications.clear_old') }}
-          </button>
-
-          <button
-            class="px-3 sm:px-4 py-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors text-xs sm:text-sm"
-            @click="clearAllNotifications"
-          >
-            {{ $t('notifications.clear_all') }}
-          </button>
-        </div>
-      </div>
-    </div>
     </ClientOnly>
 
     <!-- Notification Modal -->
@@ -201,8 +244,8 @@
 <script setup>
   import { ref, computed, onMounted, watch } from 'vue'
   import { useRealTimeNotificationsStore } from '~/stores/realTimeNotifications'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
+
   import ProfileLayout from '~/components/profile/ProfileLayout.vue'
   import NotificationPanel from '~/components/notifications/NotificationPanel.vue'
   import NotificationItem from '~/components/notifications/NotificationItem.vue'
@@ -234,17 +277,16 @@
   const categoryNotifications = ref([])
   const isLoadingCategory = ref(false) // Show loading overlay when switching categories
 
-
   // Compute unread count for current view (category or all)
   const currentViewUnreadCount = computed(() => {
     const source = selectedCategory.value ? categoryNotifications.value : notifications.value
-    return source.filter(n => !n.read).length
+    return source.filter((n) => !n.read).length
   })
 
   const filters = computed(() => {
     // Use category notifications if a category is selected
     const source = selectedCategory.value ? categoryNotifications.value : notifications.value
-    const categoryUnreadCount = source.filter(n => !n.read).length
+    const categoryUnreadCount = source.filter((n) => !n.read).length
 
     return [
       {
@@ -318,7 +360,7 @@
       if (index !== -1) {
         categoryNotifications.value[index] = {
           ...categoryNotifications.value[index],
-          read: true
+          read: true,
         }
       }
     }
@@ -338,7 +380,9 @@
 
     // Also update categoryNotifications if we're viewing a category
     if (selectedCategory.value && categoryNotifications.value) {
-      categoryNotifications.value = categoryNotifications.value.filter((n) => n.id !== notificationId)
+      categoryNotifications.value = categoryNotifications.value.filter(
+        (n) => n.id !== notificationId
+      )
     }
   }
 
@@ -420,7 +464,9 @@
 
     // Update URL without reloading - just change browser history
     const router = useRouter()
-    const targetPath = category ? localePath(`/profile/notifications/${category}`) : localePath('/profile/notifications')
+    const targetPath = category
+      ? localePath(`/profile/notifications/${category}`)
+      : localePath('/profile/notifications')
 
     // Use router.replace instead of navigateTo to avoid any reload
     // The watch on route.params.category will handle loading the data
@@ -450,7 +496,7 @@
 
       // Auto-switch to 'all' if 'unread' filter has no results
       if (activeFilter.value === 'unread' && data.data) {
-        const unreadCount = data.data.filter(n => !n.read).length
+        const unreadCount = data.data.filter((n) => !n.read).length
         if (unreadCount === 0 && data.data.length > 0) {
           activeFilter.value = 'all'
         }
@@ -511,24 +557,28 @@
 
   // Watch route parameter changes (only for initial load and browser back/forward)
   const route = useRoute()
-  watch(() => route.params.category, async (newCategory) => {
-    // Only load if it's different from current selection
-    // This handles initial page load and browser navigation (back/forward)
-    if (newCategory !== selectedCategory.value) {
-      selectedCategory.value = newCategory || null
-      currentPage.value = 1
+  watch(
+    () => route.params.category,
+    async (newCategory) => {
+      // Only load if it's different from current selection
+      // This handles initial page load and browser navigation (back/forward)
+      if (newCategory !== selectedCategory.value) {
+        selectedCategory.value = newCategory || null
+        currentPage.value = 1
 
-      if (newCategory) {
-        // Check cached summary to avoid showing empty 'unread' filter
-        checkInitialFilter(newCategory)
+        if (newCategory) {
+          // Check cached summary to avoid showing empty 'unread' filter
+          checkInitialFilter(newCategory)
 
-        // Don't set loading here - it's already set in handleCategorySelected
-        // This watch will trigger when user clicks category button, but we don't want double loading
-        await loadCategoryNotifications(newCategory)
-        await updateCategoryViewTimestamp(newCategory)
+          // Don't set loading here - it's already set in handleCategorySelected
+          // This watch will trigger when user clicks category button, but we don't want double loading
+          await loadCategoryNotifications(newCategory)
+          await updateCategoryViewTimestamp(newCategory)
+        }
       }
-    }
-  }, { immediate: true })
+    },
+    { immediate: true }
+  )
 
   // Initialize store and load notifications on mount (client-side only)
   onMounted(() => {

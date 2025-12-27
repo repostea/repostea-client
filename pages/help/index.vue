@@ -19,7 +19,11 @@
             <div
               class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center"
             >
-              <Icon name="fa6-solid:graduation-cap" class="text-xl text-primary" aria-hidden="true" />
+              <Icon
+                name="fa6-solid:graduation-cap"
+                class="text-xl text-primary"
+                aria-hidden="true"
+              />
             </div>
             <div class="ml-4 flex-1">
               <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
@@ -79,7 +83,11 @@
             <div
               class="flex-shrink-0 w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center"
             >
-              <Icon name="fa6-solid:circle-question" class="text-xl text-blue-500" aria-hidden="true" />
+              <Icon
+                name="fa6-solid:circle-question"
+                class="text-xl text-blue-500"
+                aria-hidden="true"
+              />
             </div>
             <div class="ml-4 flex-1">
               <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
@@ -101,9 +109,7 @@
       </div>
 
       <!-- Guides Section (placeholder for future) -->
-      <div
-        class="card-bg rounded-lg shadow-sm border help-border overflow-hidden"
-      >
+      <div class="card-bg rounded-lg shadow-sm border help-border overflow-hidden">
         <div class="p-6">
           <div class="flex items-start">
             <div

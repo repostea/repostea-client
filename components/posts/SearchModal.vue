@@ -6,7 +6,7 @@
       @click.self="close"
     >
       <!-- Backdrop -->
-      <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" @click="close"/>
+      <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" @click="close" />
 
       <!-- Modal -->
       <div
@@ -19,7 +19,10 @@
         <!-- Header -->
         <div class="search-header p-4">
           <div class="flex items-center justify-between mb-3">
-            <h2 id="search-modal-title" class="text-xl font-semibold text-text dark:text-text-dark flex items-center gap-2">
+            <h2
+              id="search-modal-title"
+              class="text-xl font-semibold text-text dark:text-text-dark flex items-center gap-2"
+            >
               <Icon name="fa6-solid:magnifying-glass" class="text-primary" aria-hidden="true" />
               {{ t('common.search') }}
             </h2>
@@ -47,7 +50,12 @@
               @click="performSearch"
             >
               <Icon v-if="!loading" name="fa6-solid:magnifying-glass" aria-hidden="true" />
-              <Icon v-if="loading" name="fa6-solid:spinner" class="animate-spin" aria-hidden="true" />
+              <Icon
+                v-if="loading"
+                name="fa6-solid:spinner"
+                class="animate-spin"
+                aria-hidden="true"
+              />
               <span>{{ loading ? t('search.searching') : t('search.search_button') }}</span>
             </button>
           </div>
@@ -94,7 +102,9 @@
             </select>
 
             <!-- Search in Comments -->
-            <label class="search-checkbox-label flex items-center gap-2 px-3 py-1.5 text-sm cursor-pointer rounded-md transition-colors">
+            <label
+              class="search-checkbox-label flex items-center gap-2 px-3 py-1.5 text-sm cursor-pointer rounded-md transition-colors"
+            >
               <input
                 v-model="filters.searchInComments"
                 type="checkbox"
@@ -119,7 +129,11 @@
             v-else-if="!hasSearched"
             class="text-center py-12 text-text-muted dark:text-text-dark-muted"
           >
-            <Icon name="fa6-solid:magnifying-glass" class="text-4xl mb-4 opacity-50" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:magnifying-glass"
+              class="text-4xl mb-4 opacity-50"
+              aria-hidden="true"
+            />
             <p class="text-lg">{{ t('search.enter_query') }}</p>
             <p class="text-sm mt-2">{{ t('search.help_text') }}</p>
           </div>
@@ -177,7 +191,11 @@
                     class="text-sm text-text-muted dark:text-text-dark-muted bg-yellow-50 dark:bg-yellow-900/20 border-l-2 border-yellow-400 dark:border-yellow-600 pl-3 py-2 mb-2 rounded-r"
                   >
                     <div class="flex items-center gap-2 mb-1">
-                      <Icon name="fa6-solid:comment" class="text-xs text-yellow-600 dark:text-yellow-500" aria-hidden="true" />
+                      <Icon
+                        name="fa6-solid:comment"
+                        class="text-xs text-yellow-600 dark:text-yellow-500"
+                        aria-hidden="true"
+                      />
                       <span class="text-xs font-medium text-yellow-700 dark:text-yellow-400">
                         {{ t('search.found_in_comment') }}
                       </span>
@@ -192,7 +210,9 @@
                   </div>
 
                   <!-- Meta info -->
-                  <div class="flex items-center gap-3 text-xs text-text-muted dark:text-text-dark-muted mb-2">
+                  <div
+                    class="flex items-center gap-3 text-xs text-text-muted dark:text-text-dark-muted mb-2"
+                  >
                     <span v-if="post.user" class="flex items-center gap-1">
                       <Icon name="fa6-solid:user" aria-hidden="true" />
                       {{ post.user.username }}
@@ -252,6 +272,7 @@
   import { ref, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
   import { useI18n, useLocalePath } from '#i18n'
   import { useRouter } from 'vue-router'
+  import DOMPurify from 'dompurify'
 
   const { t, locale } = useI18n()
   const { timezone } = useUserTimezone()
@@ -434,7 +455,10 @@
 
     // If there's a search query, find the first match and show context around it
     if (searchQuery.value) {
-      const searchWords = searchQuery.value.toLowerCase().split(/\s+/).filter((w) => w.length > 0)
+      const searchWords = searchQuery.value
+        .toLowerCase()
+        .split(/\s+/)
+        .filter((w) => w.length > 0)
       const lowerContent = stripped.toLowerCase()
 
       // Find the first matching word position
@@ -474,13 +498,16 @@
   const highlightMatch = (text) => {
     if (!text || !searchQuery.value) return text
 
+    // Sanitize text first to prevent XSS attacks
+    const sanitizedText = DOMPurify.sanitize(text, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] })
+
     // Split search query into individual words for flexible matching
     const searchWords = searchQuery.value
       .toLowerCase()
       .split(/\s+/)
       .filter((word) => word.length > 0)
 
-    let highlightedText = text
+    let highlightedText = sanitizedText
 
     // Highlight each word independently
     searchWords.forEach((word) => {

@@ -55,9 +55,7 @@
               :key="p"
               class="px-3 py-1 rounded-md text-sm"
               :class="
-                p === page
-                  ? 'bg-primary text-white'
-                  : 'tags-page-btn text-text dark:text-text-dark'
+                p === page ? 'bg-primary text-white' : 'tags-page-btn text-text dark:text-text-dark'
               "
               @click="page = p"
             >
@@ -67,10 +65,7 @@
         </div>
       </div>
 
-      <div
-        v-else
-        class="card-bg border tags-border rounded-lg shadow-sm p-6 text-center"
-      >
+      <div v-else class="card-bg border tags-border rounded-lg shadow-sm p-6 text-center">
         <Icon name="fa6-solid:circle-info" class="text-3xl text-primary mb-3" aria-hidden="true" />
         <p>
           {{
@@ -98,7 +93,11 @@
       v-else-if="!loading"
       class="card-bg p-6 rounded-lg shadow-sm border tags-border text-center"
     >
-      <Icon name="fa6-solid:triangle-exclamation" class="text-3xl text-danger mb-3" aria-hidden="true" />
+      <Icon
+        name="fa6-solid:triangle-exclamation"
+        class="text-3xl text-danger mb-3"
+        aria-hidden="true"
+      />
       <h2 class="text-xl font-bold mb-2">{{ t('errors.404.title') }}</h2>
       <p>{{ t('errors.404.message') }}</p>
     </div>
@@ -193,7 +192,11 @@
           const plainText = tag.value.description.replace(/<[^>]*>?/gm, '') // Basic strip
           descriptionText = plainText.substring(0, 155) + (plainText.length > 155 ? '...' : '')
         } else {
-          descriptionText = t('tags.seo_description', { tag: tag.value.name, app: appName, count: tag.value.links_count || 'many' })
+          descriptionText = t('tags.seo_description', {
+            tag: tag.value.name,
+            app: appName,
+            count: tag.value.links_count || 'many',
+          })
         }
 
         const ogImageUrl = `${siteBaseUrl}/logo-wolf.png`
@@ -223,9 +226,9 @@
           link: [
             {
               rel: 'canonical',
-              href: tagPageUrl
-            }
-          ]
+              href: tagPageUrl,
+            },
+          ],
         })
 
         // Add CollectionPage structured data
@@ -241,12 +244,12 @@
                 name: t('tags.posts_tagged', { tag: tag.value.name }),
                 description: descriptionText,
                 isPartOf: {
-                  '@id': `${siteBaseUrl}/#website`
-                }
+                  '@id': `${siteBaseUrl}/#website`,
+                },
               }),
-              tagPosition: 'bodyClose'
-            }
-          ]
+              tagPosition: 'bodyClose',
+            },
+          ],
         })
       }
     } catch (error) {

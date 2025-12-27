@@ -1,6 +1,10 @@
 <template>
   <div class="container mx-auto px-4 py-8">
-    <PageHeader :title="$t('report.title')" :description="$t('report.page_description')" icon="flag" />
+    <PageHeader
+      :title="$t('report.title')"
+      :description="$t('report.page_description')"
+      icon="flag"
+    />
 
     <div class="max-w-2xl mx-auto mt-8">
       <form
@@ -109,10 +113,7 @@
         </div>
 
         <!-- Campos específicos para copyright -->
-        <div
-          v-if="form.type === 'copyright'"
-          class="border-t report-border pt-6"
-        >
+        <div v-if="form.type === 'copyright'" class="border-t report-border pt-6">
           <h3 class="text-lg font-semibold mb-4 text-text dark:text-text-dark">
             {{ $t('report.copyright.title') }}
           </h3>
@@ -161,7 +162,10 @@
               </span>
             </label>
 
-            <label v-if="form.type === 'copyright'" class="flex items-start space-x-3 cursor-pointer">
+            <label
+              v-if="form.type === 'copyright'"
+              class="flex items-start space-x-3 cursor-pointer"
+            >
               <input
                 v-model="form.authorized"
                 type="checkbox"
@@ -176,9 +180,15 @@
         </div>
 
         <!-- Aviso de protección de datos -->
-        <div class="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mt-6">
+        <div
+          class="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mt-6"
+        >
           <div class="flex items-start">
-            <Icon name="fa6-solid:shield-halved" class="text-blue-600 dark:text-blue-400 mt-0.5 mr-3" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:shield-halved"
+              class="text-blue-600 dark:text-blue-400 mt-0.5 mr-3"
+              aria-hidden="true"
+            />
             <div class="text-sm text-blue-900 dark:text-blue-200">
               <p class="font-medium mb-1">{{ $t('report.privacy.title') }}</p>
               <p class="text-xs text-blue-700 dark:text-blue-300">

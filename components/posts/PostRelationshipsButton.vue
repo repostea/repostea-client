@@ -16,54 +16,63 @@
         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4"
         @click.self="showModal = false"
       >
-      <div class="card-bg rounded-lg shadow-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
-        <!-- Header -->
-        <div class="rel-modal-header px-4 py-3 flex items-center justify-between sticky top-0 z-10">
-          <h3 class="text-lg font-semibold text-text dark:text-text-dark flex items-center">
-            <Icon name="fa6-solid:diagram-project" class="mr-2" aria-hidden="true" />
-            {{ t('posts.relationships.title') }}
-          </h3>
-          <button
-            class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-            @click="showModal = false"
+        <div class="card-bg rounded-lg shadow-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+          <!-- Header -->
+          <div
+            class="rel-modal-header px-4 py-3 flex items-center justify-between sticky top-0 z-10"
           >
-            <Icon name="fa6-solid:xmark" class="text-xl" aria-hidden="true" />
-          </button>
-        </div>
-
-        <!-- Body -->
-        <div class="p-4">
-          <div v-if="loading" class="text-center py-8">
-            <div class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto"/>
-          </div>
-
-          <div v-else-if="error" class="text-center py-8 text-red-500 dark:text-red-400">
-            <Icon name="fa6-solid:triangle-exclamation" class="mr-2" aria-hidden="true" />
-            {{ error }}
-          </div>
-
-          <div v-else-if="groupedRelationships.length === 0" class="text-center py-8 text-gray-500 dark:text-gray-400">
-            <Icon name="fa6-solid:link-slash" class="text-4xl mb-4 opacity-50 mx-auto block" aria-hidden="true" />
-            <p class="mb-4">{{ t('posts.relationships.none') }}</p>
-          </div>
-
-          <div v-else class="space-y-3">
-            <div
-              v-for="group in groupedRelationships"
-              :key="group.type"
-              class="contents"
+            <h3 class="text-lg font-semibold text-text dark:text-text-dark flex items-center">
+              <Icon name="fa6-solid:diagram-project" class="mr-2" aria-hidden="true" />
+              {{ t('posts.relationships.title') }}
+            </h3>
+            <button
+              class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+              @click="showModal = false"
             >
+              <Icon name="fa6-solid:xmark" class="text-xl" aria-hidden="true" />
+            </button>
+          </div>
+
+          <!-- Body -->
+          <div class="p-4">
+            <div v-if="loading" class="text-center py-8">
               <div
-                v-for="rel in group.relationships"
-                :key="rel.id"
-                class="rel-card rounded-lg hover:shadow-md transition-shadow"
-              >
+                class="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto"
+              />
+            </div>
+
+            <div v-else-if="error" class="text-center py-8 text-red-500 dark:text-red-400">
+              <Icon name="fa6-solid:triangle-exclamation" class="mr-2" aria-hidden="true" />
+              {{ error }}
+            </div>
+
+            <div
+              v-else-if="groupedRelationships.length === 0"
+              class="text-center py-8 text-gray-500 dark:text-gray-400"
+            >
+              <Icon
+                name="fa6-solid:link-slash"
+                class="text-4xl mb-4 opacity-50 mx-auto block"
+                aria-hidden="true"
+              />
+              <p class="mb-4">{{ t('posts.relationships.none') }}</p>
+            </div>
+
+            <div v-else class="space-y-3">
+              <div v-for="group in groupedRelationships" :key="group.type" class="contents">
+                <div
+                  v-for="rel in group.relationships"
+                  :key="rel.id"
+                  class="rel-card rounded-lg hover:shadow-md transition-shadow"
+                >
                   <!-- Mobile: Use compact sidebar design -->
                   <div class="sm:hidden">
                     <div class="flex items-start">
                       <!-- Post votes badge - compact -->
                       <div class="flex-shrink-0 m-2">
-                        <div class="flex flex-col items-center justify-start w-14 px-1.5 py-2 rounded-lg vote-badge-static">
+                        <div
+                          class="flex flex-col items-center justify-start w-14 px-1.5 py-2 rounded-lg vote-badge-static"
+                        >
                           <div class="text-base font-bold leading-none tabular-nums">
                             {{ rel.post.vote_count || 0 }}
                           </div>
@@ -79,7 +88,9 @@
                         class="flex-1 p-2 rel-item-hover transition-colors"
                         @click="showModal = false"
                       >
-                        <div class="text-xs font-medium text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-light line-clamp-2 mb-1">
+                        <div
+                          class="text-xs font-medium text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-light line-clamp-2 mb-1"
+                        >
                           {{ rel.post.title }}
                         </div>
 
@@ -88,7 +99,9 @@
                           {{ rel.post.author }}
                         </div>
 
-                        <div class="flex flex-wrap items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400">
+                        <div
+                          class="flex flex-wrap items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400"
+                        >
                           <span class="flex items-center">
                             <Icon name="fa6-solid:clock" class="mr-1" aria-hidden="true" />
                             {{ formatDate(rel.post.created_at) }}
@@ -105,9 +118,19 @@
                     </div>
 
                     <!-- Footer -->
-                    <div v-if="rel.notes || rel.created_by || canEditRelationship(rel)" class="px-2 pb-2">
-                      <div v-if="rel.created_by" class="flex flex-wrap items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400 mb-1">
-                        <Icon name="fa6-solid:link" class="text-primary dark:text-primary-light" aria-hidden="true" />
+                    <div
+                      v-if="rel.notes || rel.created_by || canEditRelationship(rel)"
+                      class="px-2 pb-2"
+                    >
+                      <div
+                        v-if="rel.created_by"
+                        class="flex flex-wrap items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400 mb-1"
+                      >
+                        <Icon
+                          name="fa6-solid:link"
+                          class="text-primary dark:text-primary-light"
+                          aria-hidden="true"
+                        />
                         <span class="font-medium text-gray-700 dark:text-gray-300">
                           {{ rel.created_by || t('common.anonymous') }}
                         </span>
@@ -115,8 +138,13 @@
                         <span>{{ formatDate(rel.created_at) }}</span>
                       </div>
 
-                      <div v-if="rel.notes" class="text-[11px] text-gray-700 dark:text-gray-300 mb-1 p-1.5 rel-notes-bg border-l-2 rel-notes-border rounded-sm">
-                        <div class="font-semibold text-primary dark:text-primary-light text-[10px] mb-0.5">
+                      <div
+                        v-if="rel.notes"
+                        class="text-[11px] text-gray-700 dark:text-gray-300 mb-1 p-1.5 rel-notes-bg border-l-2 rel-notes-border rounded-sm"
+                      >
+                        <div
+                          class="font-semibold text-primary dark:text-primary-light text-[10px] mb-0.5"
+                        >
                           {{ t('posts.relationships.why_related') }}:
                         </div>
                         <div class="italic whitespace-pre-line line-clamp-2">
@@ -143,7 +171,9 @@
                     </div>
 
                     <!-- Vote section at bottom -->
-                    <div class="rel-vote-section flex items-center justify-center gap-2 px-3 py-1.5">
+                    <div
+                      class="rel-vote-section flex items-center justify-center gap-2 px-3 py-1.5"
+                    >
                       <span class="text-[10px] font-medium text-gray-600 dark:text-gray-400">
                         {{ t('posts.relationships.vote_relationship') }}
                       </span>
@@ -151,7 +181,9 @@
                         <button
                           :class="[
                             'w-6 h-6 flex items-center justify-center rounded rel-action-hover transition-colors',
-                            rel.user_vote === 1 ? 'text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30' : 'text-gray-500 dark:text-gray-400'
+                            rel.user_vote === 1
+                              ? 'text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30'
+                              : 'text-gray-500 dark:text-gray-400',
                           ]"
                           :title="t('posts.relationships.vote_useful')"
                           :aria-label="t('posts.relationships.vote_useful')"
@@ -159,13 +191,18 @@
                         >
                           <Icon name="fa6-solid:arrow-up" class="text-xs" aria-hidden="true" />
                         </button>
-                        <div class="text-sm font-bold leading-none tabular-nums min-w-[1.5rem] text-center" :class="getScoreClass(rel.score)">
+                        <div
+                          class="text-sm font-bold leading-none tabular-nums min-w-[1.5rem] text-center"
+                          :class="getScoreClass(rel.score)"
+                        >
                           {{ rel.score || 0 }}
                         </div>
                         <button
                           :class="[
                             'w-6 h-6 flex items-center justify-center rounded rel-action-hover transition-colors',
-                            rel.user_vote === -1 ? 'text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/30' : 'text-gray-500 dark:text-gray-400'
+                            rel.user_vote === -1
+                              ? 'text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/30'
+                              : 'text-gray-500 dark:text-gray-400',
                           ]"
                           :title="t('posts.relationships.vote_not_useful')"
                           :aria-label="t('posts.relationships.vote_not_useful')"
@@ -181,7 +218,9 @@
                   <div class="hidden sm:flex sm:items-stretch">
                     <div class="flex items-start flex-1">
                       <!-- Post votes badge (non-interactive, display only) - VoteBadge style -->
-                      <div class="flex flex-col items-center justify-start w-20 px-2 py-3 m-3 rounded-lg vote-badge-static flex-shrink-0">
+                      <div
+                        class="flex flex-col items-center justify-start w-20 px-2 py-3 m-3 rounded-lg vote-badge-static flex-shrink-0"
+                      >
                         <div class="text-xl font-bold leading-none tabular-nums">
                           {{ rel.post.vote_count || 0 }}
                         </div>
@@ -198,7 +237,9 @@
                       >
                         <div class="flex-1 min-w-0">
                           <div class="flex items-start gap-2 mb-2">
-                            <div class="text-base font-medium text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-light line-clamp-2 flex-1">
+                            <div
+                              class="text-base font-medium text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-light line-clamp-2 flex-1"
+                            >
                               {{ rel.post.title }}
                             </div>
                             <span
@@ -208,21 +249,25 @@
                                 color: getTypeColor(group.type),
                                 borderWidth: '1px',
                                 borderStyle: 'solid',
-                                borderColor: `${getTypeColor(group.type)}40`
+                                borderColor: `${getTypeColor(group.type)}40`,
                               }"
                             >
                               {{ group.label }}
                             </span>
                           </div>
 
-                          <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-2">
+                          <div
+                            class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-2"
+                          >
                             <span class="flex items-center">
                               <Icon name="fa6-solid:user" class="mr-1" aria-hidden="true" />
                               {{ rel.post.author }}
                             </span>
                           </div>
 
-                          <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+                          <div
+                            class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400"
+                          >
                             <span class="flex items-center">
                               <Icon name="fa6-solid:clock" class="mr-1" aria-hidden="true" />
                               {{ formatDate(rel.post.created_at) }}
@@ -244,9 +289,19 @@
                           </div>
 
                           <!-- Desktop footer inside NuxtLink -->
-                          <div v-if="rel.notes || rel.created_by || canEditRelationship(rel)" class="rel-expanded-add mt-3 pt-3">
-                            <div v-if="rel.created_by" class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-2">
-                              <Icon name="fa6-solid:link" class="text-primary dark:text-primary-light text-xs" aria-hidden="true" />
+                          <div
+                            v-if="rel.notes || rel.created_by || canEditRelationship(rel)"
+                            class="rel-expanded-add mt-3 pt-3"
+                          >
+                            <div
+                              v-if="rel.created_by"
+                              class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-2"
+                            >
+                              <Icon
+                                name="fa6-solid:link"
+                                class="text-primary dark:text-primary-light text-xs"
+                                aria-hidden="true"
+                              />
                               <span class="font-medium text-gray-700 dark:text-gray-300">
                                 {{ rel.created_by || t('common.anonymous') }}
                               </span>
@@ -255,8 +310,13 @@
                             </div>
 
                             <!-- Why related note (below who added it) -->
-                            <div v-if="rel.notes" class="text-sm text-gray-700 dark:text-gray-300 mb-2 p-2.5 rel-notes-bg border-l-3 rel-notes-border rounded-sm">
-                              <div class="font-semibold text-primary dark:text-primary-light text-xs mb-1">
+                            <div
+                              v-if="rel.notes"
+                              class="text-sm text-gray-700 dark:text-gray-300 mb-2 p-2.5 rel-notes-bg border-l-3 rel-notes-border rounded-sm"
+                            >
+                              <div
+                                class="font-semibold text-primary dark:text-primary-light text-xs mb-1"
+                              >
                                 {{ t('posts.relationships.why_related') }}:
                               </div>
                               <div class="italic whitespace-pre-line">
@@ -264,13 +324,20 @@
                               </div>
                             </div>
 
-                            <div v-if="canEditRelationship(rel)" class="flex items-center gap-2 mt-2">
+                            <div
+                              v-if="canEditRelationship(rel)"
+                              class="flex items-center gap-2 mt-2"
+                            >
                               <button
                                 class="inline-flex items-center text-xs px-2 py-1 text-primary dark:text-primary-light hover:bg-primary/10 dark:hover:bg-primary/20 rounded transition-colors"
                                 :title="t('common.edit')"
                                 @click.stop="editRelationship(rel)"
                               >
-                                <Icon name="fa6-solid:pen-to-square" class="mr-1" aria-hidden="true" />
+                                <Icon
+                                  name="fa6-solid:pen-to-square"
+                                  class="mr-1"
+                                  aria-hidden="true"
+                                />
                                 {{ t('common.edit') }}
                               </button>
                               <button
@@ -288,19 +355,23 @@
                     </div>
 
                     <!-- Vote relationship section (right side on desktop) - similar to VoteBadge -->
-                    <div class="flex flex-col items-center justify-center w-24 py-3 rel-vote-badge-border rounded-r-lg relationship-vote-badge">
-                      <div class="text-[10px] font-semibold vote-badge-text mb-1 text-center leading-tight">
+                    <div
+                      class="flex flex-col items-center justify-center w-24 py-3 rel-vote-badge-border rounded-r-lg relationship-vote-badge"
+                    >
+                      <div
+                        class="text-[10px] font-semibold vote-badge-text mb-1 text-center leading-tight"
+                      >
                         {{ t('posts.relationships.vote_relationship') }}
                       </div>
-                      <div class="text-2xl font-bold leading-none tabular-nums mb-2 vote-score-number" :class="getScoreClass(rel.score)">
+                      <div
+                        class="text-2xl font-bold leading-none tabular-nums mb-2 vote-score-number"
+                        :class="getScoreClass(rel.score)"
+                      >
                         {{ rel.score || 0 }}
                       </div>
                       <div class="flex gap-2">
                         <button
-                          :class="[
-                            'vote-arrow-btn',
-                            rel.user_vote === 1 ? 'active' : ''
-                          ]"
+                          :class="['vote-arrow-btn', rel.user_vote === 1 ? 'active' : '']"
                           :title="t('posts.relationships.vote_useful')"
                           :aria-label="t('posts.relationships.vote_useful')"
                           @click.stop="voteRelationship(rel.id, 1)"
@@ -308,10 +379,7 @@
                           <Icon name="fa6-solid:arrow-up" aria-hidden="true" />
                         </button>
                         <button
-                          :class="[
-                            'vote-arrow-btn',
-                            rel.user_vote === -1 ? 'active-down' : ''
-                          ]"
+                          :class="['vote-arrow-btn', rel.user_vote === -1 ? 'active-down' : '']"
                           :title="t('posts.relationships.vote_not_useful')"
                           :aria-label="t('posts.relationships.vote_not_useful')"
                           @click.stop="voteRelationship(rel.id, -1)"
@@ -325,26 +393,23 @@
               </div>
             </div>
 
-          <!-- Add Relationship Button (always visible at bottom) -->
-          <div class="rel-add-section mt-6 pt-4">
-            <button
-              class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary transition-colors rounded-lg"
-              @click="showCreateForm = true"
-            >
-              <Icon name="fa6-solid:plus" class="mr-2" aria-hidden="true" />
-              {{ t('posts.relationships.add_title') }}
-            </button>
+            <!-- Add Relationship Button (always visible at bottom) -->
+            <div class="rel-add-section mt-6 pt-4">
+              <button
+                class="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary transition-colors rounded-lg"
+                @click="showCreateForm = true"
+              >
+                <Icon name="fa6-solid:plus" class="mr-2" aria-hidden="true" />
+                {{ t('posts.relationships.add_title') }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </Teleport>
 
     <!-- Always Expanded Version (for sidebar) -->
-    <div
-      v-if="alwaysExpanded"
-      class="rel-expanded-container card-bg rounded-lg shadow-sm"
-    >
+    <div v-if="alwaysExpanded" class="rel-expanded-container card-bg rounded-lg shadow-sm">
       <!-- Header -->
       <div class="rel-expanded-header px-4 py-3 flex items-center justify-between">
         <h3 class="font-medium text-text dark:text-text-dark flex items-center">
@@ -359,7 +424,9 @@
       <!-- Body -->
       <div class="p-4">
         <div v-if="loading" class="text-center py-4">
-          <div class="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto"/>
+          <div
+            class="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto"
+          />
         </div>
 
         <div v-else-if="error" class="text-center py-4 text-red-500 dark:text-red-400 text-sm">
@@ -367,8 +434,15 @@
           {{ error }}
         </div>
 
-        <div v-else-if="groupedRelationships.length === 0" class="text-center py-6 text-gray-500 dark:text-gray-400">
-          <Icon name="fa6-solid:link-slash" class="text-3xl mb-3 opacity-50 mx-auto block" aria-hidden="true" />
+        <div
+          v-else-if="groupedRelationships.length === 0"
+          class="text-center py-6 text-gray-500 dark:text-gray-400"
+        >
+          <Icon
+            name="fa6-solid:link-slash"
+            class="text-3xl mb-3 opacity-50 mx-auto block"
+            aria-hidden="true"
+          />
           <p class="text-sm">{{ t('posts.relationships.none') }}</p>
           <button
             v-if="authStore.isAuthenticated"
@@ -381,146 +455,169 @@
         </div>
 
         <div v-else class="space-y-2">
-          <div
-            v-for="group in groupedRelationships"
-            :key="group.type"
-            class="contents"
-          >
+          <div v-for="group in groupedRelationships" :key="group.type" class="contents">
             <div
               v-for="rel in group.relationships"
               :key="rel.id"
               class="rel-card rounded-lg hover:shadow-md transition-shadow flex flex-col"
             >
-                <div class="flex items-start">
-                  <!-- Post votes badge - VoteBadge style -->
-                  <div class="flex-shrink-0 m-2">
-                    <div class="flex flex-col items-center justify-start w-14 px-1.5 py-2 rounded-lg vote-badge-static">
-                      <div class="text-base font-bold leading-none tabular-nums">
-                        {{ rel.post.vote_count || 0 }}
-                      </div>
-                      <div class="text-[10px] font-semibold mt-1 vote-badge-text-static">
-                        {{ t('posts.votes') }}
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Post card -->
-                  <NuxtLink
-                    :to="localePath(rel.post.url || `/posts/${rel.post.slug || rel.post.id}`)"
-                    class="flex-1 p-2 rel-item-hover transition-colors"
+              <div class="flex items-start">
+                <!-- Post votes badge - VoteBadge style -->
+                <div class="flex-shrink-0 m-2">
+                  <div
+                    class="flex flex-col items-center justify-start w-14 px-1.5 py-2 rounded-lg vote-badge-static"
                   >
-                    <div class="flex items-start gap-1.5 mb-1">
-                      <div class="text-xs font-medium text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-light line-clamp-2 flex-1">
-                        {{ rel.post.title }}
-                      </div>
-                      <span
-                        class="px-1.5 py-0.5 rounded-full text-[9px] font-semibold flex-shrink-0"
-                        :style="{
-                          backgroundColor: `${getTypeColor(group.type)}15`,
-                          color: getTypeColor(group.type),
-                          borderWidth: '1px',
-                          borderStyle: 'solid',
-                          borderColor: `${getTypeColor(group.type)}40`
-                        }"
-                      >
-                        {{ group.label }}
-                      </span>
+                    <div class="text-base font-bold leading-none tabular-nums">
+                      {{ rel.post.vote_count || 0 }}
                     </div>
-
-                    <div class="flex flex-wrap items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400 mb-1">
-                      <Icon name="fa6-solid:user" aria-hidden="true" />
-                      {{ rel.post.author }}
+                    <div class="text-[10px] font-semibold mt-1 vote-badge-text-static">
+                      {{ t('posts.votes') }}
                     </div>
-
-                    <div class="flex flex-wrap items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400">
-                      <span class="flex items-center">
-                        <Icon name="fa6-solid:clock" class="mr-1" aria-hidden="true" />
-                        {{ formatDate(rel.post.created_at) }}
-                      </span>
-                      <template v-if="rel.post.comment_count > 0">
-                        <span>•</span>
-                        <span class="flex items-center">
-                          <Icon name="fa6-solid:comment" class="mr-1" aria-hidden="true" />
-                          {{ rel.post.comment_count }}
-                        </span>
-                      </template>
-                    </div>
-                  </NuxtLink>
+                  </div>
                 </div>
 
-                <!-- Footer (outside of NuxtLink to span full width) -->
-                <div v-if="rel.notes || rel.created_by || canEditRelationship(rel)" class="px-2 pb-2">
-                  <div v-if="rel.created_by" class="flex flex-wrap items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400 mb-1">
-                    <Icon name="fa6-solid:link" class="text-primary dark:text-primary-light" aria-hidden="true" />
-                    <span class="font-medium text-gray-700 dark:text-gray-300">
-                      {{ rel.created_by || t('common.anonymous') }}
+                <!-- Post card -->
+                <NuxtLink
+                  :to="localePath(rel.post.url || `/posts/${rel.post.slug || rel.post.id}`)"
+                  class="flex-1 p-2 rel-item-hover transition-colors"
+                >
+                  <div class="flex items-start gap-1.5 mb-1">
+                    <div
+                      class="text-xs font-medium text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-light line-clamp-2 flex-1"
+                    >
+                      {{ rel.post.title }}
+                    </div>
+                    <span
+                      class="px-1.5 py-0.5 rounded-full text-[9px] font-semibold flex-shrink-0"
+                      :style="{
+                        backgroundColor: `${getTypeColor(group.type)}15`,
+                        color: getTypeColor(group.type),
+                        borderWidth: '1px',
+                        borderStyle: 'solid',
+                        borderColor: `${getTypeColor(group.type)}40`,
+                      }"
+                    >
+                      {{ group.label }}
                     </span>
-                    <span>•</span>
-                    <span>{{ formatDate(rel.created_at) }}</span>
                   </div>
 
-                  <div v-if="rel.notes" class="text-[11px] text-gray-700 dark:text-gray-300 mb-1 p-1.5 rel-notes-bg border-l-2 rel-notes-border rounded-sm">
-                    <div class="font-semibold text-primary dark:text-primary-light text-[10px] mb-0.5">
-                      {{ t('posts.relationships.why_related') }}:
-                    </div>
-                    <div class="italic whitespace-pre-line line-clamp-2">
-                      {{ rel.notes }}
-                    </div>
+                  <div
+                    class="flex flex-wrap items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400 mb-1"
+                  >
+                    <Icon name="fa6-solid:user" aria-hidden="true" />
+                    {{ rel.post.author }}
                   </div>
 
-                  <div v-if="canEditRelationship(rel)" class="flex items-center gap-1 mt-1">
-                    <button
-                      class="inline-flex items-center text-[10px] px-1.5 py-0.5 text-primary dark:text-primary-light hover:bg-primary/10 dark:hover:bg-primary/20 rounded transition-colors"
-                      @click.prevent="editRelationship(rel)"
-                    >
-                      <Icon name="fa6-solid:pen-to-square" class="mr-0.5" aria-hidden="true" />
-                      {{ t('common.edit') }}
-                    </button>
-                    <button
-                      class="inline-flex items-center text-[10px] px-1.5 py-0.5 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors"
-                      @click.prevent="openDeleteConfirm(rel)"
-                    >
-                      <Icon name="fa6-solid:trash" class="mr-0.5" aria-hidden="true" />
-                      {{ t('common.delete') }}
-                    </button>
+                  <div
+                    class="flex flex-wrap items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400"
+                  >
+                    <span class="flex items-center">
+                      <Icon name="fa6-solid:clock" class="mr-1" aria-hidden="true" />
+                      {{ formatDate(rel.post.created_at) }}
+                    </span>
+                    <template v-if="rel.post.comment_count > 0">
+                      <span>•</span>
+                      <span class="flex items-center">
+                        <Icon name="fa6-solid:comment" class="mr-1" aria-hidden="true" />
+                        {{ rel.post.comment_count }}
+                      </span>
+                    </template>
+                  </div>
+                </NuxtLink>
+              </div>
+
+              <!-- Footer (outside of NuxtLink to span full width) -->
+              <div v-if="rel.notes || rel.created_by || canEditRelationship(rel)" class="px-2 pb-2">
+                <div
+                  v-if="rel.created_by"
+                  class="flex flex-wrap items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400 mb-1"
+                >
+                  <Icon
+                    name="fa6-solid:link"
+                    class="text-primary dark:text-primary-light"
+                    aria-hidden="true"
+                  />
+                  <span class="font-medium text-gray-700 dark:text-gray-300">
+                    {{ rel.created_by || t('common.anonymous') }}
+                  </span>
+                  <span>•</span>
+                  <span>{{ formatDate(rel.created_at) }}</span>
+                </div>
+
+                <div
+                  v-if="rel.notes"
+                  class="text-[11px] text-gray-700 dark:text-gray-300 mb-1 p-1.5 rel-notes-bg border-l-2 rel-notes-border rounded-sm"
+                >
+                  <div
+                    class="font-semibold text-primary dark:text-primary-light text-[10px] mb-0.5"
+                  >
+                    {{ t('posts.relationships.why_related') }}:
+                  </div>
+                  <div class="italic whitespace-pre-line line-clamp-2">
+                    {{ rel.notes }}
                   </div>
                 </div>
 
-                <!-- Vote relationship badge (bottom) -->
-                <div class="rel-vote-section flex items-center justify-center gap-2 px-3 py-1.5">
-                  <span class="text-[10px] font-medium text-gray-600 dark:text-gray-400">
-                    {{ t('posts.relationships.vote_relationship') }}
-                  </span>
-                  <div class="flex items-center gap-1.5">
-                    <button
-                      :class="[
-                        'w-6 h-6 flex items-center justify-center rounded rel-action-hover transition-colors',
-                        rel.user_vote === 1 ? 'text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30' : 'text-gray-500 dark:text-gray-400'
-                      ]"
-                      :title="t('posts.relationships.vote_useful')"
-                      :aria-label="t('posts.relationships.vote_useful')"
-                      @click.stop="voteRelationship(rel.id, 1)"
-                    >
-                      <Icon name="fa6-solid:arrow-up" class="text-xs" aria-hidden="true" />
-                    </button>
-                    <div class="text-sm font-bold leading-none tabular-nums min-w-[1.5rem] text-center" :class="getScoreClass(rel.score)">
-                      {{ rel.score || 0 }}
-                    </div>
-                    <button
-                      :class="[
-                        'w-6 h-6 flex items-center justify-center rounded rel-action-hover transition-colors',
-                        rel.user_vote === -1 ? 'text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/30' : 'text-gray-500 dark:text-gray-400'
-                      ]"
-                      :title="t('posts.relationships.vote_not_useful')"
-                      :aria-label="t('posts.relationships.vote_not_useful')"
-                      @click.stop="voteRelationship(rel.id, -1)"
-                    >
-                      <Icon name="fa6-solid:arrow-down" class="text-xs" aria-hidden="true" />
-                    </button>
+                <div v-if="canEditRelationship(rel)" class="flex items-center gap-1 mt-1">
+                  <button
+                    class="inline-flex items-center text-[10px] px-1.5 py-0.5 text-primary dark:text-primary-light hover:bg-primary/10 dark:hover:bg-primary/20 rounded transition-colors"
+                    @click.prevent="editRelationship(rel)"
+                  >
+                    <Icon name="fa6-solid:pen-to-square" class="mr-0.5" aria-hidden="true" />
+                    {{ t('common.edit') }}
+                  </button>
+                  <button
+                    class="inline-flex items-center text-[10px] px-1.5 py-0.5 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors"
+                    @click.prevent="openDeleteConfirm(rel)"
+                  >
+                    <Icon name="fa6-solid:trash" class="mr-0.5" aria-hidden="true" />
+                    {{ t('common.delete') }}
+                  </button>
+                </div>
+              </div>
+
+              <!-- Vote relationship badge (bottom) -->
+              <div class="rel-vote-section flex items-center justify-center gap-2 px-3 py-1.5">
+                <span class="text-[10px] font-medium text-gray-600 dark:text-gray-400">
+                  {{ t('posts.relationships.vote_relationship') }}
+                </span>
+                <div class="flex items-center gap-1.5">
+                  <button
+                    :class="[
+                      'w-6 h-6 flex items-center justify-center rounded rel-action-hover transition-colors',
+                      rel.user_vote === 1
+                        ? 'text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30'
+                        : 'text-gray-500 dark:text-gray-400',
+                    ]"
+                    :title="t('posts.relationships.vote_useful')"
+                    :aria-label="t('posts.relationships.vote_useful')"
+                    @click.stop="voteRelationship(rel.id, 1)"
+                  >
+                    <Icon name="fa6-solid:arrow-up" class="text-xs" aria-hidden="true" />
+                  </button>
+                  <div
+                    class="text-sm font-bold leading-none tabular-nums min-w-[1.5rem] text-center"
+                    :class="getScoreClass(rel.score)"
+                  >
+                    {{ rel.score || 0 }}
                   </div>
+                  <button
+                    :class="[
+                      'w-6 h-6 flex items-center justify-center rounded rel-action-hover transition-colors',
+                      rel.user_vote === -1
+                        ? 'text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/30'
+                        : 'text-gray-500 dark:text-gray-400',
+                    ]"
+                    :title="t('posts.relationships.vote_not_useful')"
+                    :aria-label="t('posts.relationships.vote_not_useful')"
+                    @click.stop="voteRelationship(rel.id, -1)"
+                  >
+                    <Icon name="fa6-solid:arrow-down" class="text-xs" aria-hidden="true" />
+                  </button>
                 </div>
               </div>
             </div>
+          </div>
 
           <!-- Add Relationship Button -->
           <div v-if="authStore.isAuthenticated" class="rel-expanded-add mt-3 pt-3">
@@ -553,47 +650,47 @@
         class="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4"
         @click.self="closeDeleteConfirm"
       >
-      <div class="card-bg rounded-lg shadow-xl w-full max-w-md" @click.stop>
-        <div class="rel-delete-header px-6 py-4">
-          <h2 class="text-xl font-medium text-red-600 dark:text-red-400">
-            <Icon name="fa6-solid:triangle-exclamation" class="mr-2" aria-hidden="true" />
-            {{ t('posts.relationships.confirm_delete_title') }}
-          </h2>
-        </div>
-
-        <div class="p-6">
-          <p class="mb-4">{{ t('posts.relationships.confirm_delete') }}</p>
-          <div v-if="relationshipToDelete" class="rel-delete-item mb-6 p-3 rounded-lg">
-            <div class="text-sm font-medium text-text dark:text-text-dark mb-1">
-              {{ relationshipToDelete.post.title }}
-            </div>
-            <div class="text-xs text-gray-500 dark:text-gray-400">
-              {{ t('posts.relationships.types.' + relationshipToDelete.type) }}
-            </div>
+        <div class="card-bg rounded-lg shadow-xl w-full max-w-md" @click.stop>
+          <div class="rel-delete-header px-6 py-4">
+            <h2 class="text-xl font-medium text-red-600 dark:text-red-400">
+              <Icon name="fa6-solid:triangle-exclamation" class="mr-2" aria-hidden="true" />
+              {{ t('posts.relationships.confirm_delete_title') }}
+            </h2>
           </div>
 
-          <div class="flex justify-end space-x-3">
-            <button
-              class="rel-cancel-btn px-4 py-2 rounded-md transition-colors"
-              @click="closeDeleteConfirm"
-            >
-              {{ t('common.cancel') }}
-            </button>
-            <button
-              class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors"
-              :disabled="isDeleting"
-              @click="confirmDeleteRelationship"
-            >
-              <span
-                v-if="isDeleting"
-                class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-white border-t-transparent rounded-full"
-              />
-              {{ t('common.delete') }}
-            </button>
+          <div class="p-6">
+            <p class="mb-4">{{ t('posts.relationships.confirm_delete') }}</p>
+            <div v-if="relationshipToDelete" class="rel-delete-item mb-6 p-3 rounded-lg">
+              <div class="text-sm font-medium text-text dark:text-text-dark mb-1">
+                {{ relationshipToDelete.post.title }}
+              </div>
+              <div class="text-xs text-gray-500 dark:text-gray-400">
+                {{ t('posts.relationships.types.' + relationshipToDelete.type) }}
+              </div>
+            </div>
+
+            <div class="flex justify-end space-x-3">
+              <button
+                class="rel-cancel-btn px-4 py-2 rounded-md transition-colors"
+                @click="closeDeleteConfirm"
+              >
+                {{ t('common.cancel') }}
+              </button>
+              <button
+                class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors"
+                :disabled="isDeleting"
+                @click="confirmDeleteRelationship"
+              >
+                <span
+                  v-if="isDeleting"
+                  class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-white border-t-transparent rounded-full"
+                />
+                {{ t('common.delete') }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </Teleport>
   </div>
 </template>
@@ -647,12 +744,42 @@
 
   const groupedRelationships = computed(() => {
     const groups = {
-      reply: { type: 'reply', label: t('posts.relationships.types.reply'), icon: 'reply', relationships: [] },
-      continuation: { type: 'continuation', label: t('posts.relationships.types.continuation'), icon: 'forward', relationships: [] },
-      related: { type: 'related', label: t('posts.relationships.types.related'), icon: 'link', relationships: [] },
-      update: { type: 'update', label: t('posts.relationships.types.update'), icon: 'sync', relationships: [] },
-      correction: { type: 'correction', label: t('posts.relationships.types.correction'), icon: 'edit', relationships: [] },
-      duplicate: { type: 'duplicate', label: t('posts.relationships.types.duplicate'), icon: 'copy', relationships: [] },
+      reply: {
+        type: 'reply',
+        label: t('posts.relationships.types.reply'),
+        icon: 'reply',
+        relationships: [],
+      },
+      continuation: {
+        type: 'continuation',
+        label: t('posts.relationships.types.continuation'),
+        icon: 'forward',
+        relationships: [],
+      },
+      related: {
+        type: 'related',
+        label: t('posts.relationships.types.related'),
+        icon: 'link',
+        relationships: [],
+      },
+      update: {
+        type: 'update',
+        label: t('posts.relationships.types.update'),
+        icon: 'sync',
+        relationships: [],
+      },
+      correction: {
+        type: 'correction',
+        label: t('posts.relationships.types.correction'),
+        icon: 'edit',
+        relationships: [],
+      },
+      duplicate: {
+        type: 'duplicate',
+        label: t('posts.relationships.types.duplicate'),
+        icon: 'copy',
+        relationships: [],
+      },
     }
 
     // Ensure relationships.value is an array before iterating
@@ -693,7 +820,7 @@
       const response = await $api.relationships.vote(relationshipId, voteValue)
 
       // Update the relationship in the local data
-      const relationship = relationships.value.find(r => r.id === relationshipId)
+      const relationship = relationships.value.find((r) => r.id === relationshipId)
       if (relationship) {
         const previousVote = relationship.user_vote
 
@@ -706,7 +833,7 @@
           relationship.user_vote = voteValue
           // If had a previous vote, revert it first, then apply new vote
           if (previousVote !== null) {
-            relationship.score = ((relationship.score || 0) - previousVote) + voteValue
+            relationship.score = (relationship.score || 0) - previousVote + voteValue
           } else {
             relationship.score = (relationship.score || 0) + voteValue
           }
@@ -774,7 +901,11 @@
       const relationshipsData = response.data?.data || response.data
 
       // Handle new grouped structure
-      if (relationshipsData && typeof relationshipsData === 'object' && !Array.isArray(relationshipsData)) {
+      if (
+        relationshipsData &&
+        typeof relationshipsData === 'object' &&
+        !Array.isArray(relationshipsData)
+      ) {
         // New structure: {own: [...], external: [...]}
         const ownRels = relationshipsData.own || []
         const externalRels = relationshipsData.external || []
@@ -785,7 +916,7 @@
       }
 
       // Load continuation chain if there are continuation relationships
-      const hasContinuation = relationships.value.some(r => r.type === 'continuation')
+      const hasContinuation = relationships.value.some((r) => r.type === 'continuation')
       if (hasContinuation) {
         await loadContinuationChain()
       }
@@ -806,11 +937,15 @@
   })
 
   // Load relationships immediately if always expanded
-  watch(() => props.alwaysExpanded, (newVal) => {
-    if (newVal) {
-      loadRelationships()
-    }
-  }, { immediate: true })
+  watch(
+    () => props.alwaysExpanded,
+    (newVal) => {
+      if (newVal) {
+        loadRelationships()
+      }
+    },
+    { immediate: true }
+  )
 
   function handleRelationshipCreated() {
     showCreateForm.value = false
@@ -847,7 +982,9 @@
       isDeleting.value = true
       await $api.posts.deleteRelationship(props.postId, relationshipToDelete.value.id)
       // Remove from local list
-      relationships.value = relationships.value.filter(r => r.id !== relationshipToDelete.value.id)
+      relationships.value = relationships.value.filter(
+        (r) => r.id !== relationshipToDelete.value.id
+      )
       closeDeleteConfirm()
     } catch (err) {
       console.error('Error deleting relationship:', err)
@@ -930,7 +1067,8 @@
   }
 
   .relationship-vote-badge {
-    background: linear-gradient(to bottom,
+    background: linear-gradient(
+      to bottom,
       rgba(var(--color-primary-rgb), 0.08),
       rgba(var(--color-primary-rgb), 0.15)
     );
@@ -941,7 +1079,8 @@
 
   .relationship-vote-badge:hover {
     box-shadow: 0 4px 6px rgba(var(--color-primary-rgb), 0.2);
-    background: linear-gradient(to bottom,
+    background: linear-gradient(
+      to bottom,
       rgba(var(--color-primary-rgb), 0.12),
       rgba(var(--color-primary-rgb), 0.2)
     );

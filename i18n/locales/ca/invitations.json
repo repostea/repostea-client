@@ -15,6 +15,7 @@
     "copy_link": "Copiar enllaç d'invitació",
     "delete": "Eliminar invitació",
     "confirm_delete": "Estàs segur que vols eliminar aquesta invitació?",
+    "confirm_delete_title": "Eliminar invitació",
     "no_invitations": "Encara no has creat cap invitació",
     "link_copied": "Enllaç d'invitació copiat al porta-retalls!",
     "error_creating": "Error en crear la invitació",

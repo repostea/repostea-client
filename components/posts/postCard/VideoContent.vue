@@ -2,7 +2,7 @@
   <div>
     <!-- Compact view: video on left, text on right -->
     <div v-if="layout === 'compact'" class="flex gap-4">
-      <div class="flex-shrink-0" style="width: 200px;">
+      <div class="flex-shrink-0" style="width: 200px">
         <VideoPlayer
           :url="url"
           :title="title"
@@ -18,7 +18,7 @@
           class="prose dark:prose-invert max-w-none"
           v-html="renderedContent"
         />
-        <p v-else v-html="displayText"/>
+        <p v-else v-html="displayText" />
       </div>
     </div>
 
@@ -30,7 +30,7 @@
           class="prose dark:prose-invert max-w-none"
           v-html="renderedContent"
         />
-        <p v-else v-html="displayText"/>
+        <p v-else v-html="displayText" />
       </div>
 
       <div class="w-full">

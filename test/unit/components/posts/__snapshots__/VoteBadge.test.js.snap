@@ -3,27 +3,27 @@
 exports[`VoteBadge Component > Snapshots > matches snapshot when loading 1`] = `
 "<div data-v-3c76f535="" class="flex flex-col items-center justify-center w-20 px-2 vote-badge py-3">
   <div data-v-3c76f535="" class="text-xl font-bold leading-none tabular-nums min-w-[56px] text-center">42</div>
-  <div data-v-3c76f535="" class="text-[11px] font-medium vote-badge-text mb-2">Votes</div><button data-v-3c76f535="" class="bg-gradient-to-b vote-button hover:from-primary-light hover:to-primary-dark text-xs font-bold px-3 py-1 shadow-md transition-all" style="color: var(--color-btn-primary-text);" disabled="" aria-label="Vote"><span data-v-3c76f535="" class="spinner" aria-hidden="true"></span></button>
+  <div data-v-3c76f535="" class="text-[11px] font-medium vote-badge-text mb-2">Votes</div><button data-v-3c76f535="" class="bg-gradient-to-b vote-button text-xs font-bold px-3 py-1 shadow-md transition-all" style="color: var(--color-btn-primary-text);" disabled="" aria-label="Vote"><span data-v-3c76f535="" class="spinner" aria-hidden="true"></span></button>
 </div>"
 `;
 
 exports[`VoteBadge Component > Snapshots > matches snapshot when user has voted 1`] = `
 "<div data-v-3c76f535="" class="flex flex-col items-center justify-center w-20 px-2 vote-badge py-3">
   <div data-v-3c76f535="" class="text-xl font-bold leading-none tabular-nums min-w-[56px] text-center">42</div>
-  <div data-v-3c76f535="" class="text-[11px] font-medium vote-badge-text mb-2">Votes</div><button data-v-3c76f535="" class="bg-gradient-to-b vote-button hover:from-primary-light hover:to-primary-dark text-xs font-bold px-3 py-1 shadow-md transition-all voted" style="color: var(--color-btn-primary-text);" aria-label="Voted"><span data-v-3c76f535="">Voted</span></button>
+  <div data-v-3c76f535="" class="text-[11px] font-medium vote-badge-text mb-2">Votes</div><button data-v-3c76f535="" class="bg-gradient-to-b vote-button text-xs font-bold px-3 py-1 shadow-md transition-all voted" style="color: var(--color-btn-primary-text);" aria-label="Voted"><span data-v-3c76f535="">Voted</span></button>
 </div>"
 `;
 
 exports[`VoteBadge Component > Snapshots > matches snapshot with no votes 1`] = `
 "<div data-v-3c76f535="" class="flex flex-col items-center justify-center w-20 px-2 vote-badge py-3">
   <div data-v-3c76f535="" class="text-xl font-bold leading-none tabular-nums min-w-[56px] text-center">0</div>
-  <div data-v-3c76f535="" class="text-[11px] font-medium vote-badge-text mb-2">Votes</div><button data-v-3c76f535="" class="bg-gradient-to-b vote-button hover:from-primary-light hover:to-primary-dark text-xs font-bold px-3 py-1 shadow-md transition-all" style="color: var(--color-btn-primary-text);" aria-label="Vote"><span data-v-3c76f535="">Vote</span></button>
+  <div data-v-3c76f535="" class="text-[11px] font-medium vote-badge-text mb-2">Votes</div><button data-v-3c76f535="" class="bg-gradient-to-b vote-button text-xs font-bold px-3 py-1 shadow-md transition-all" style="color: var(--color-btn-primary-text);" aria-label="Vote"><span data-v-3c76f535="">Vote</span></button>
 </div>"
 `;
 
 exports[`VoteBadge Component > Snapshots > matches snapshot with votes 1`] = `
 "<div data-v-3c76f535="" class="flex flex-col items-center justify-center w-20 px-2 vote-badge py-3">
   <div data-v-3c76f535="" class="text-xl font-bold leading-none tabular-nums min-w-[56px] text-center">42</div>
-  <div data-v-3c76f535="" class="text-[11px] font-medium vote-badge-text mb-2">Votes</div><button data-v-3c76f535="" class="bg-gradient-to-b vote-button hover:from-primary-light hover:to-primary-dark text-xs font-bold px-3 py-1 shadow-md transition-all" style="color: var(--color-btn-primary-text);" aria-label="Vote"><span data-v-3c76f535="">Vote</span></button>
+  <div data-v-3c76f535="" class="text-[11px] font-medium vote-badge-text mb-2">Votes</div><button data-v-3c76f535="" class="bg-gradient-to-b vote-button text-xs font-bold px-3 py-1 shadow-md transition-all" style="color: var(--color-btn-primary-text);" aria-label="Vote"><span data-v-3c76f535="">Vote</span></button>
 </div>"
 `;

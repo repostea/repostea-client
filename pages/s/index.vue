@@ -1,9 +1,15 @@
 <template>
   <div class="container mx-auto p-4">
     <!-- Beta Warning Banner -->
-    <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-6">
+    <div
+      class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-6"
+    >
       <div class="flex items-start gap-3">
-        <Icon name="fa6-solid:triangle-exclamation" class="text-yellow-600 dark:text-yellow-400 text-lg mt-0.5" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:triangle-exclamation"
+          class="text-yellow-600 dark:text-yellow-400 text-lg mt-0.5"
+          aria-hidden="true"
+        />
         <div>
           <h3 class="font-semibold text-yellow-900 dark:text-yellow-200 text-sm mb-1">
             {{ $t('subs.beta_warning.title') }}
@@ -15,9 +21,7 @@
       </div>
     </div>
 
-    <div
-      class="subs-card-bg rounded-lg shadow-sm border subs-border mb-6"
-    >
+    <div class="subs-card-bg rounded-lg shadow-sm border subs-border mb-6">
       <div class="p-6">
         <h1 class="text-2xl font-bold mb-2">{{ $t('subs.explore_title') }}</h1>
         <p class="text-gray-600 dark:text-gray-400 mb-6">
@@ -106,7 +110,9 @@
               </div>
 
               <!-- Stats -->
-              <div class="hidden sm:flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 flex-shrink-0">
+              <div
+                class="hidden sm:flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 flex-shrink-0"
+              >
                 <span class="flex items-center gap-1">
                   <Icon name="fa6-solid:users" class="text-[10px]" aria-hidden="true" />
                   {{ (sub.members_count || 0).toLocaleString() }}
@@ -156,9 +162,7 @@
       </div>
     </div>
 
-    <div
-      class="subs-card-bg rounded-lg shadow-sm border subs-border"
-    >
+    <div class="subs-card-bg rounded-lg shadow-sm border subs-border">
       <div class="p-6">
         <h2 class="font-bold text-lg mb-3">{{ $t('subs.create_title') }}</h2>
         <p class="text-gray-600 dark:text-gray-400 mb-4">
@@ -166,9 +170,7 @@
         </p>
         <div class="subs-requirements-bg p-4 rounded-md mb-4">
           <div class="flex items-center text-sm">
-            <div
-              class="w-8 h-8 subs-star-icon rounded-full flex items-center justify-center mr-3"
-            >
+            <div class="w-8 h-8 subs-star-icon rounded-full flex items-center justify-center mr-3">
               <Icon name="fa6-solid:star" class="text-yellow-500" aria-hidden="true" />
             </div>
             <div>

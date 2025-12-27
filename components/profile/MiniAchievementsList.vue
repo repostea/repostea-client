@@ -127,7 +127,6 @@
     }
   }
 
-
   function getAchievementIconIconify(achievement) {
     // If the achievement has icon_iconify from backend, use it
     if (achievement.icon_iconify) {
@@ -144,9 +143,9 @@
       const iconName = achievement.icon.replace(/^(fas?|far|fal|fab)\s+fa-/, '')
       const fa6IconMap = {
         'code-branch': 'code-branch',
-        'laugh': 'face-smile',
-        'smile': 'face-smile',
-        'cut': 'scissors',
+        laugh: 'face-smile',
+        smile: 'face-smile',
+        cut: 'scissors',
         'times-circle': 'circle-xmark',
         'external-link-alt': 'arrow-up-right-from-square',
         'user-circle': 'circle-user',
@@ -156,10 +155,10 @@
         'fire-alt': 'fire-flame-curved',
         'share-alt': 'share-nodes',
         'pencil-alt': 'pen-to-square',
-        'edit': 'pen-to-square',
+        edit: 'pen-to-square',
         'file-alt': 'file-lines',
         'vote-yea': 'check-to-slot',
-        'poll': 'square-poll-vertical',
+        poll: 'square-poll-vertical',
         'check-to-slot': 'check-to-slot',
       }
 
@@ -172,7 +171,6 @@
     const index = (achievement.id || 0) % achievementStyles.length
     return achievementStyles[index].iconify
   }
-
 </script>
 
 <style scoped>

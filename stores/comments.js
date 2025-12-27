@@ -383,8 +383,6 @@ export const useCommentsStore = defineStore('comments', {
 
         if (updated) {
           this.comments = [...commentsCopy]
-        } else {
-          console.warn(`Comment not found: ${id}`)
         }
 
         return response.data

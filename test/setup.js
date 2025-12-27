@@ -103,8 +103,8 @@ config.global.stubs = {
           return `${faClass} fa-${iconName}`
         }
         return 'iconify-icon'
-      }
-    }
+      },
+    },
   },
 }
 

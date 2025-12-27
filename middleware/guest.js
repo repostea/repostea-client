@@ -8,8 +8,6 @@ export default defineNuxtRouteMiddleware((_to) => {
   if (authStore.isAuthenticated) {
     if (import.meta.client) {
       const { $navigateWithLocale } = useNuxtApp()
-
-      // Redirect to homepage
       return $navigateWithLocale('/')
     }
   }

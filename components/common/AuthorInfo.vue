@@ -17,11 +17,7 @@
       <div v-else class="author-avatar mr-1">
         <div
           class="w-4 h-4 rounded-full flex items-center justify-center"
-          :class="
-            user?.is_guest || isGuest
-              ? 'author-guest-avatar'
-              : 'author-default-avatar'
-          "
+          :class="user?.is_guest || isGuest ? 'author-guest-avatar' : 'author-default-avatar'"
         >
           <Icon
             :name="user?.is_guest || isGuest ? 'fa6-solid:user-secret' : 'fa6-solid:user'"
@@ -49,9 +45,7 @@
         </span>
       </template>
       <template v-else-if="!user">
-        <span class="font-medium text-gray-500 dark:text-gray-500 italic">
-          [deleted]
-        </span>
+        <span class="font-medium text-gray-500 dark:text-gray-500 italic"> [deleted] </span>
       </template>
       <template v-else>
         <NuxtLink

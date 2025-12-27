@@ -1,7 +1,7 @@
 import { isDarkTheme, availableThemes } from '~/composables/useThemes'
 
 // List of valid theme names for validation
-const validThemes = availableThemes.map(t => t.name)
+const validThemes = availableThemes.map((t) => t.name)
 
 export default defineNuxtPlugin((_nuxtApp) => {
   if (!import.meta.server) return
@@ -16,14 +16,14 @@ export default defineNuxtPlugin((_nuxtApp) => {
   // Read preferences from cookie (JSON encoded)
   const prefsCookie = useCookie('user_prefs', {
     maxAge: 60 * 60 * 24 * 365, // 1 year
-    sameSite: 'lax'
+    sameSite: 'lax',
   })
 
   let preferences = {
     theme: 'renegados1',
     layout: 'card',
     sortBy: 'created_at',
-    sortDir: 'desc'
+    sortDir: 'desc',
   }
 
   // Parse cookie if exists
@@ -56,7 +56,7 @@ export default defineNuxtPlugin((_nuxtApp) => {
   isDarkTheme(activeTheme)
 
   // All theme class names for removal
-  const allThemeClasses = validThemes.map(t => `theme-${t}`).join("', '")
+  const allThemeClasses = validThemes.map((t) => `theme-${t}`).join("', '")
 
   // Inject inline script to apply theme BEFORE page renders
   useHead({
@@ -89,7 +89,7 @@ export default defineNuxtPlugin((_nuxtApp) => {
         type: 'text/javascript',
         tagPosition: 'head',
         key: 'theme-init',
-      }
-    ]
+      },
+    ],
   })
 })

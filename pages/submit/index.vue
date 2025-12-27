@@ -2,11 +2,11 @@
   <div class="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div class="lg:col-span-2">
-        <div
-          class="card-bg rounded-lg shadow-sm border submit-border"
-        >
+        <div class="card-bg rounded-lg shadow-sm border submit-border">
           <div class="px-3 sm:px-6 py-3 sm:py-4 border-b submit-border">
-            <h1 class="text-xl font-medium inline-flex items-center"><Icon name="fa6-solid:circle-plus" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.title') }}</span>
+            <h1 class="text-xl font-medium inline-flex items-center">
+              <Icon name="fa6-solid:circle-plus" class="mr-2 flex-shrink-0" aria-hidden="true" />
+              <span>{{ t('submit.title') }}</span>
             </h1>
           </div>
           <PostFormWizard
@@ -19,11 +19,11 @@
       </div>
 
       <div class="lg:col-span-1">
-        <div
-          class="card-bg rounded-lg shadow-sm border submit-border"
-        >
+        <div class="card-bg rounded-lg shadow-sm border submit-border">
           <div class="px-6 py-4 border-b submit-border">
-            <h3 class="font-medium inline-flex items-center"><Icon name="fa6-solid:lightbulb" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.tips_title') }}</span>
+            <h3 class="font-medium inline-flex items-center">
+              <Icon name="fa6-solid:lightbulb" class="mr-2 flex-shrink-0" aria-hidden="true" />
+              <span>{{ t('submit.tips_title') }}</span>
             </h3>
           </div>
           <div class="p-4">
@@ -38,11 +38,11 @@
           </div>
         </div>
 
-        <div
-          class="card-bg rounded-lg shadow-sm border submit-border mt-4"
-        >
+        <div class="card-bg rounded-lg shadow-sm border submit-border mt-4">
           <div class="px-6 py-4 border-b submit-border">
-            <h3 class="font-medium inline-flex items-center"><Icon name="fa6-solid:film" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('submit.media_tips_title') }}</span>
+            <h3 class="font-medium inline-flex items-center">
+              <Icon name="fa6-solid:film" class="mr-2 flex-shrink-0" aria-hidden="true" />
+              <span>{{ t('submit.media_tips_title') }}</span>
             </h3>
           </div>
           <div class="p-4">

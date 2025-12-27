@@ -44,7 +44,14 @@
           ref="moreButton"
           class="px-4 py-2 text-sm font-medium whitespace-nowrap rounded-full transition-colors flex items-center gap-1"
           :class="
-            ['notifications', 'achievements', 'invitations', 'moderation', 'federation', 'settings'].includes(activeTab)
+            [
+              'notifications',
+              'achievements',
+              'invitations',
+              'moderation',
+              'federation',
+              'settings',
+            ].includes(activeTab)
               ? 'bg-primary text-white dark:bg-primary-light dark:text-gray-900 hover:text-white dark:hover:text-gray-900'
               : 'profile-nav-pill-inactive text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light'
           "
@@ -57,7 +64,7 @@
         <div
           v-if="isMoreMenuOpen"
           class="profile-nav-dropdown fixed mt-2 py-2 w-48 rounded-md shadow-lg"
-          style="z-index: 9999;"
+          style="z-index: 9999"
           :style="{ top: dropdownTop + 'px', right: dropdownRight + 'px' }"
         >
           <NuxtLink
@@ -70,7 +77,11 @@
             "
             @click="closeMoreMenu"
           >
-            <Icon name="fa6-solid:bell" class="w-5 mr-3 text-gray-500 dark:text-gray-400" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:bell"
+              class="w-5 mr-3 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+            />
             {{ t('notifications.notifications') }}
           </NuxtLink>
 
@@ -84,7 +95,11 @@
             "
             @click="closeMoreMenu"
           >
-            <Icon name="fa6-solid:trophy" class="w-5 mr-3 text-gray-500 dark:text-gray-400" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:trophy"
+              class="w-5 mr-3 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+            />
             {{ t('achievements.title') }}
           </NuxtLink>
 
@@ -98,7 +113,11 @@
             "
             @click="closeMoreMenu"
           >
-            <Icon name="fa6-solid:envelope" class="w-5 mr-3 text-gray-500 dark:text-gray-400" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:envelope"
+              class="w-5 mr-3 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+            />
             {{ t('profile.invitations') }}
           </NuxtLink>
 
@@ -112,7 +131,11 @@
             "
             @click="closeMoreMenu"
           >
-            <Icon name="fa6-solid:gavel" class="w-5 mr-3 text-gray-500 dark:text-gray-400" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:gavel"
+              class="w-5 mr-3 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+            />
             {{ t('profile.moderation.title') }}
           </NuxtLink>
 
@@ -126,7 +149,11 @@
             "
             @click="closeMoreMenu"
           >
-            <Icon name="fa6-solid:globe" class="w-5 mr-3 text-gray-500 dark:text-gray-400" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:globe"
+              class="w-5 mr-3 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+            />
             {{ t('settings.federation.title') }}
           </NuxtLink>
 
@@ -140,7 +167,11 @@
             "
             @click="closeMoreMenu"
           >
-            <Icon name="fa6-solid:gear" class="w-5 mr-3 text-gray-500 dark:text-gray-400" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:gear"
+              class="w-5 mr-3 text-gray-500 dark:text-gray-400"
+              aria-hidden="true"
+            />
             {{ t('profile.settings') }}
           </NuxtLink>
         </div>
@@ -352,8 +383,7 @@
 
 <script setup>
   import { ref } from 'vue'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
 
   defineProps({
     activeTab: {

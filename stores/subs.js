@@ -89,7 +89,9 @@ export const useSubsStore = defineStore('subs', {
 
         const response = await $api.subs.getSubPosts(subId, params)
         // Transform posts using the posts store transformation function
-        this.subPosts = (response.data.data || []).map(post => postsStore._transformPostData(post))
+        this.subPosts = (response.data.data || []).map((post) =>
+          postsStore._transformPostData(post)
+        )
 
         this.postsMeta = {
           currentPage: response.data.meta?.current_page || 1,

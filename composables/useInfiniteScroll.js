@@ -36,13 +36,17 @@ export const useInfiniteScroll = (callback, options = {}) => {
   }
 
   // Watch for target changes and re-observe when it becomes available
-  watch(target, (newTarget) => {
-    if (newTarget) {
-      observe()
-    } else {
-      disconnect()
-    }
-  }, { immediate: true })
+  watch(
+    target,
+    (newTarget) => {
+      if (newTarget) {
+        observe()
+      } else {
+        disconnect()
+      }
+    },
+    { immediate: true }
+  )
 
   onUnmounted(() => {
     disconnect()

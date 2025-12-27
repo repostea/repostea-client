@@ -1,9 +1,17 @@
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-background-dark flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div
+    class="min-h-screen bg-gray-50 dark:bg-background-dark flex flex-col justify-center py-12 sm:px-6 lg:px-8"
+  >
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
       <div class="flex justify-center">
-        <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/20 rounded-full flex items-center justify-center">
-          <Icon name="fa6-solid:envelope" class="text-3xl text-yellow-600 dark:text-yellow-400" aria-hidden="true" />
+        <div
+          class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/20 rounded-full flex items-center justify-center"
+        >
+          <Icon
+            name="fa6-solid:envelope"
+            class="text-3xl text-yellow-600 dark:text-yellow-400"
+            aria-hidden="true"
+          />
         </div>
       </div>
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
@@ -18,10 +26,16 @@
       <div class="verify-email-card card-bg py-8 px-4 shadow-lg sm:rounded-lg sm:px-10">
         <div class="space-y-6">
           <!-- Message -->
-          <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4">
+          <div
+            class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4"
+          >
             <div class="flex">
               <div class="flex-shrink-0">
-                <Icon name="fa6-solid:triangle-exclamation" class="text-yellow-400" aria-hidden="true" />
+                <Icon
+                  name="fa6-solid:triangle-exclamation"
+                  class="text-yellow-400"
+                  aria-hidden="true"
+                />
               </div>
               <div class="ml-3">
                 <h3 class="text-sm font-medium text-yellow-800 dark:text-yellow-300">
@@ -105,50 +119,50 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useAuthStore } from '~/stores/auth'
-import { useI18n } from 'vue-i18n'
-import { useNuxtApp } from '#app'
+  import { ref } from 'vue'
+  import { useAuthStore } from '~/stores/auth'
+  import { useI18n } from 'vue-i18n'
+  import { useNuxtApp } from '#app'
 
-definePageMeta({
-  layout: false,
-  middleware: 'auth'
-})
+  definePageMeta({
+    layout: false,
+    middleware: 'auth',
+  })
 
-const { t } = useI18n()
-const authStore = useAuthStore()
-const { $api } = useNuxtApp()
+  const { t } = useI18n()
+  const authStore = useAuthStore()
+  const { $api } = useNuxtApp()
 
-const resendingEmail = ref(false)
-const resendSuccess = ref('')
-const resendError = ref('')
+  const resendingEmail = ref(false)
+  const resendSuccess = ref('')
+  const resendError = ref('')
 
-// Check if user is already verified and redirect
-onMounted(() => {
-  if (authStore.user?.email_verified_at) {
-    navigateTo('/')
+  // Check if user is already verified and redirect
+  onMounted(() => {
+    if (authStore.user?.email_verified_at) {
+      navigateTo('/')
+    }
+  })
+
+  async function resendVerificationEmail() {
+    resendingEmail.value = true
+    resendSuccess.value = ''
+    resendError.value = ''
+
+    try {
+      await $api.auth.resendVerificationEmail()
+      resendSuccess.value = t('auth.verification_email_sent')
+    } catch (error) {
+      resendError.value = error.response?.data?.message || t('auth.error_sending_email')
+    } finally {
+      resendingEmail.value = false
+    }
   }
-})
 
-async function resendVerificationEmail() {
-  resendingEmail.value = true
-  resendSuccess.value = ''
-  resendError.value = ''
-
-  try {
-    await $api.auth.resendVerificationEmail()
-    resendSuccess.value = t('auth.verification_email_sent')
-  } catch (error) {
-    resendError.value = error.response?.data?.message || t('auth.error_sending_email')
-  } finally {
-    resendingEmail.value = false
+  async function logout() {
+    await authStore.logout()
+    navigateTo('/auth/login')
   }
-}
-
-async function logout() {
-  await authStore.logout()
-  navigateTo('/auth/login')
-}
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <div :class="containerClass">
-    <div :class="spinnerClass" role="status" :aria-label="loadingText"/>
+    <div :class="spinnerClass" role="status" :aria-label="loadingText" />
     <span v-if="showText" :class="textClass">
       {{ loadingText }}
     </span>

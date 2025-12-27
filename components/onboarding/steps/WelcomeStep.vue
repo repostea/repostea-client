@@ -20,7 +20,11 @@
         class="inline-flex items-center text-primary hover:text-primary-dark transition-colors font-medium"
         @click="showDetails = !showDetails"
       >
-        <Icon :name="showDetails ? 'fa6-solid:chevron-up' : 'fa6-solid:chevron-down'" class="mr-2 text-sm" aria-hidden="true" />
+        <Icon
+          :name="showDetails ? 'fa6-solid:chevron-up' : 'fa6-solid:chevron-down'"
+          class="mr-2 text-sm"
+          aria-hidden="true"
+        />
         <span v-if="!showDetails">{{ t('onboarding.steps.welcome.content.show_details') }}</span>
         <span v-else>{{ t('onboarding.steps.welcome.content.hide_details') }}</span>
       </button>
@@ -74,8 +78,7 @@
   const { t } = useI18n()
   const showDetails = ref(false)
 
-  onMounted(() => {
-  })
+  onMounted(() => {})
 
   const features = computed(() => [
     {

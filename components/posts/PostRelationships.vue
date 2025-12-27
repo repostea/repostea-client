@@ -1,16 +1,19 @@
 <template>
-  <div
-    class="post-relationships-container card-bg rounded-lg shadow-sm mb-4"
-  >
+  <div class="post-relationships-container card-bg rounded-lg shadow-sm mb-4">
     <div class="post-relationships-header px-4 py-3">
       <div class="flex items-center justify-between">
-        <h3 class="font-medium inline-flex items-center"><Icon name="fa6-solid:link" class="mr-2" aria-hidden="true" /> <span>{{ t('posts.relationships.title') }}</span></h3>
+        <h3 class="font-medium inline-flex items-center">
+          <Icon name="fa6-solid:link" class="mr-2" aria-hidden="true" />
+          <span>{{ t('posts.relationships.title') }}</span>
+        </h3>
         <button
           v-if="canAddRelationship"
           class="text-xs px-2 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light rounded hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors inline-flex items-center"
           :title="t('posts.relationships.add')"
           @click="showAddModal = true"
-        ><Icon name="fa6-solid:plus" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('common.add') }}</span>
+        >
+          <Icon name="fa6-solid:plus" class="mr-1 flex-shrink-0" aria-hidden="true" />
+          <span>{{ t('common.add') }}</span>
         </button>
       </div>
     </div>
@@ -24,7 +27,9 @@
     <div
       v-else-if="error"
       class="p-4 text-center text-red-500 dark:text-red-400 text-sm inline-flex items-center justify-center"
-    ><Icon name="fa6-solid:triangle-exclamation" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ error }}</span>
+    >
+      <Icon name="fa6-solid:triangle-exclamation" class="mr-2 flex-shrink-0" aria-hidden="true" />
+      <span>{{ error }}</span>
     </div>
 
     <div
@@ -38,7 +43,13 @@
       <!-- Own Content Relations Block -->
       <div v-if="groupedOwnRelationships.length > 0" class="p-3">
         <div class="post-relationships-section-header mb-3 pb-2">
-          <h4 class="text-sm font-bold text-text dark:text-text-dark inline-flex items-center"><Icon name="fa6-solid:circle-user" class="mr-2 text-primary flex-shrink-0" aria-hidden="true" /> <span>{{ t('posts.relationships.own_content') }}</span>
+          <h4 class="text-sm font-bold text-text dark:text-text-dark inline-flex items-center">
+            <Icon
+              name="fa6-solid:circle-user"
+              class="mr-2 text-primary flex-shrink-0"
+              aria-hidden="true"
+            />
+            <span>{{ t('posts.relationships.own_content') }}</span>
           </h4>
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
             {{ t('posts.relationships.own_content_description') }}
@@ -46,10 +57,7 @@
         </div>
 
         <div class="space-y-3">
-          <div
-            v-for="group in groupedOwnRelationships"
-            :key="'own-' + group.type"
-          >
+          <div v-for="group in groupedOwnRelationships" :key="'own-' + group.type">
             <div class="flex items-center mb-2">
               <Icon
                 :name="`fa6-solid:${group.icon}`"
@@ -83,9 +91,17 @@
                       >
                         {{ relationship.post.content }}
                       </div>
-                      <div class="flex items-center gap-2 mt-1 text-xs text-gray-400 dark:text-gray-500">
-                        <span class="inline-flex items-center"><Icon name="fa6-solid:user" class="text-xs mr-1" aria-hidden="true" /> <span>{{ relationship.post.author }}</span></span>
-                        <span class="inline-flex items-center"><Icon name="fa6-solid:clock" class="text-xs mr-1" aria-hidden="true" /> <span>{{ formatDate(relationship.post.created_at) }}</span></span>
+                      <div
+                        class="flex items-center gap-2 mt-1 text-xs text-gray-400 dark:text-gray-500"
+                      >
+                        <span class="inline-flex items-center"
+                          ><Icon name="fa6-solid:user" class="text-xs mr-1" aria-hidden="true" />
+                          <span>{{ relationship.post.author }}</span></span
+                        >
+                        <span class="inline-flex items-center"
+                          ><Icon name="fa6-solid:clock" class="text-xs mr-1" aria-hidden="true" />
+                          <span>{{ formatDate(relationship.post.created_at) }}</span></span
+                        >
                       </div>
                     </div>
 
@@ -94,7 +110,7 @@
                       class="ml-2 opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300 transition-opacity"
                       :title="t('common.delete')"
                       :aria-label="t('common.delete')"
-                      @click.prevent="deleteRelationship(relationship.id)"
+                      @click.prevent="confirmDeleteRelationship(relationship.id)"
                     >
                       <Icon name="fa6-solid:xmark" class="text-sm" aria-hidden="true" />
                     </button>
@@ -109,7 +125,13 @@
       <!-- External Content Relations Block -->
       <div v-if="groupedExternalRelationships.length > 0" class="p-3">
         <div class="post-relationships-section-header mb-3 pb-2">
-          <h4 class="text-sm font-bold text-text dark:text-text-dark inline-flex items-center"><Icon name="fa6-solid:link" class="mr-2 text-green-600 flex-shrink-0" aria-hidden="true" /> <span>{{ t('posts.relationships.external_content') }}</span>
+          <h4 class="text-sm font-bold text-text dark:text-text-dark inline-flex items-center">
+            <Icon
+              name="fa6-solid:link"
+              class="mr-2 text-green-600 flex-shrink-0"
+              aria-hidden="true"
+            />
+            <span>{{ t('posts.relationships.external_content') }}</span>
           </h4>
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
             {{ t('posts.relationships.external_content_description') }}
@@ -117,10 +139,7 @@
         </div>
 
         <div class="space-y-3">
-          <div
-            v-for="group in groupedExternalRelationships"
-            :key="'external-' + group.type"
-          >
+          <div v-for="group in groupedExternalRelationships" :key="'external-' + group.type">
             <div class="flex items-center mb-2">
               <Icon
                 :name="`fa6-solid:${group.icon}`"
@@ -154,9 +173,17 @@
                       >
                         {{ relationship.post.content }}
                       </div>
-                      <div class="flex items-center gap-2 mt-1 text-xs text-gray-400 dark:text-gray-500">
-                        <span class="inline-flex items-center"><Icon name="fa6-solid:user" class="text-xs mr-1" aria-hidden="true" /> <span>{{ relationship.post.author }}</span></span>
-                        <span class="inline-flex items-center"><Icon name="fa6-solid:clock" class="text-xs mr-1" aria-hidden="true" /> <span>{{ formatDate(relationship.post.created_at) }}</span></span>
+                      <div
+                        class="flex items-center gap-2 mt-1 text-xs text-gray-400 dark:text-gray-500"
+                      >
+                        <span class="inline-flex items-center"
+                          ><Icon name="fa6-solid:user" class="text-xs mr-1" aria-hidden="true" />
+                          <span>{{ relationship.post.author }}</span></span
+                        >
+                        <span class="inline-flex items-center"
+                          ><Icon name="fa6-solid:clock" class="text-xs mr-1" aria-hidden="true" />
+                          <span>{{ formatDate(relationship.post.created_at) }}</span></span
+                        >
                       </div>
                     </div>
 
@@ -165,7 +192,7 @@
                       class="ml-2 opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300 transition-opacity"
                       :title="t('common.delete')"
                       :aria-label="t('common.delete')"
-                      @click.prevent="deleteRelationship(relationship.id)"
+                      @click.prevent="confirmDeleteRelationship(relationship.id)"
                     >
                       <Icon name="fa6-solid:xmark" class="text-sm" aria-hidden="true" />
                     </button>
@@ -186,6 +213,17 @@
       :post-author-id="postAuthorId"
       @close="showAddModal = false"
       @created="handleRelationshipCreated"
+    />
+
+    <!-- Delete Confirmation Modal -->
+    <ConfirmModal
+      v-model="showDeleteConfirm"
+      :title="t('posts.relationships.confirm_delete_title')"
+      :message="t('posts.relationships.confirm_delete')"
+      :confirm-text="t('common.delete')"
+      :loading="isDeleting"
+      variant="danger"
+      @confirm="deleteRelationship"
     />
   </div>
 </template>
@@ -225,6 +263,9 @@
   const loading = ref(true)
   const error = ref(null)
   const showAddModal = ref(false)
+  const showDeleteConfirm = ref(false)
+  const pendingDeleteId = ref(null)
+  const isDeleting = ref(false)
 
   const canAddRelationship = computed(() => {
     return authStore.isAuthenticated
@@ -356,18 +397,26 @@
     }
   }
 
-  async function deleteRelationship(relationshipId) {
-    if (!confirm(t('posts.relationships.confirm_delete'))) {
-      return
-    }
+  function confirmDeleteRelationship(relationshipId) {
+    pendingDeleteId.value = relationshipId
+    showDeleteConfirm.value = true
+  }
 
+  async function deleteRelationship() {
+    if (!pendingDeleteId.value) return
+
+    isDeleting.value = true
     try {
-      await $api.posts.deleteRelationship(props.postId, relationshipId)
+      await $api.posts.deleteRelationship(props.postId, pendingDeleteId.value)
+      showDeleteConfirm.value = false
+      pendingDeleteId.value = null
       await loadRelationships()
     } catch (err) {
       if (!err._interceptorWillNotify) {
         showError(err.response?.data?.message || t('posts.relationships.error_deleting'))
       }
+    } finally {
+      isDeleting.value = false
     }
   }
 

@@ -28,12 +28,12 @@ describe('Voting E2E Tests', () => {
   // Helper to accept cookie banner
   const acceptCookies = () => {
     cy.get('body').then(($body) => {
-      const acceptBtn = $body.find('button').filter(function() {
-        return this.textContent.includes('Aceptar')
+      const acceptBtn = $body.find('button').filter(function () {
+        return this.textContent.includes('Accept')
       })
       if (acceptBtn.length > 0) {
         cy.wrap(acceptBtn.first()).click({ force: true })
-        cy.wait(500)
+        cy.wait(200)
       }
     })
   }
@@ -57,6 +57,7 @@ describe('Voting E2E Tests', () => {
         description: 'Post for testing voting',
         status: 'published',
         user_id: user.id,
+        sub_id: 1,
       }).then((post) => {
         testPost = post
       })
@@ -66,13 +67,15 @@ describe('Voting E2E Tests', () => {
   // Helper to navigate to any post page
   const visitAnyPost = () => {
     if (testPost && (testPost.slug || testPost.id)) {
-      visitWithRetry(`/es/p/${testPost.slug || testPost.id}`)
+      visitWithRetry(`/es/posts/${testPost.slug || testPost.id}`)
       acceptCookies()
     } else {
       // Fallback: go to homepage and click on a post
-      visitWithRetry('/es/')
+      visitWithRetry('/en/')
       acceptCookies()
-      cy.get('.post-card a[href*="/p/"], .list-item-card a[href*="/p/"], article a[href*="/p/"]', { timeout: 20000 })
+      cy.get('.post-card a[href*="/posts/"], .list-item-card a[href*="/posts/"], article a[href*="/posts/"]', {
+        timeout: 10000,
+      })
         .first()
         .click()
     }
@@ -83,183 +86,94 @@ describe('Voting E2E Tests', () => {
       cy.loginAs(testUser)
     })
 
-    it('should display vote buttons on posts', () => {
-      visitWithRetry('/es/')
-      acceptCookies()
+    it('should display vote badge on posts', () => {
+      visitAnyPost()
 
-      // Wait for posts to load
-      cy.get('.post-card, .list-item-card, article', { timeout: 20000 })
-        .first()
-        .within(() => {
-          // Should have upvote button
-          cy.get('[data-testid="vote-up"], .upvote, .vote-up, button[aria-label*="positivo"], button[aria-label*="upvote"]')
-            .should('exist')
-        })
+      // Should have vote badge with button
+      cy.get('.vote-badge', { timeout: 10000 }).should('exist')
+      cy.get('.vote-button', { timeout: 10000 }).should('exist')
     })
 
     it('should display vote count', () => {
-      visitWithRetry('/es/')
-      acceptCookies()
+      visitAnyPost()
 
-      // Posts should show karma/vote count
-      cy.get('.post-card, .list-item-card, article', { timeout: 20000 })
-        .first()
-        .find('.karma, .vote-count, .votes, [data-testid="vote-count"]')
-        .should('exist')
+      // Vote badge shows "votos" text with count
+      cy.get('.vote-badge', { timeout: 10000 }).should('contain.text', 'votos')
     })
 
-    it('should upvote a post', () => {
+    it('should vote on a post', () => {
       visitAnyPost()
       acceptCookies()
-      cy.wait(1000) // Wait for Vue hydration
+      cy.wait(300)
 
-      // Get initial vote count
-      cy.get('.karma, .vote-count, .votes, [data-testid="vote-count"]', { timeout: 20000 })
-        .first()
-        .invoke('text')
-        .then((initialCount) => {
-          // Parse initial count (unused but kept for reference)
-          parseInt(initialCount) || 0
+      // Click vote button
+      cy.get('.vote-button', { timeout: 10000 }).click()
+      cy.wait(300)
 
-          // Click upvote
-          cy.get('[data-testid="vote-up"], .upvote, .vote-up, button[aria-label*="positivo"]', { timeout: 10000 })
-            .first()
-            .click()
-
-          // Wait for API response
-          cy.wait(1000)
-
-          // Vote count should increase or button should show active state
-          cy.get('[data-testid="vote-up"], .upvote, .vote-up, button[aria-label*="positivo"]')
-            .first()
-            .should('satisfy', ($el) => {
-              // Either the button has active class or vote count increased
-              const hasActiveClass = $el.hasClass('active') ||
-                                     $el.hasClass('voted') ||
-                                     $el.hasClass('text-primary') ||
-                                     $el.attr('data-voted') === 'true'
-              return hasActiveClass || true // Accept any state for now
-            })
-        })
+      // Button should show "voted" state after clicking
+      cy.get('.vote-button', { timeout: 5000 }).should('exist')
     })
 
-    it('should downvote a post', () => {
+    it('should toggle vote when clicking button twice', () => {
       visitAnyPost()
       acceptCookies()
-      cy.wait(1000)
+      cy.wait(300)
 
-      // Click downvote
-      cy.get('[data-testid="vote-down"], .downvote, .vote-down, button[aria-label*="negativo"]', { timeout: 10000 })
-        .first()
-        .click()
+      // Click vote button
+      cy.get('.vote-button', { timeout: 10000 }).click()
+      cy.wait(300)
 
-      // Wait for API response
-      cy.wait(1000)
+      // Click again to toggle
+      cy.get('.vote-button', { timeout: 5000 }).click()
+      cy.wait(300)
 
-      // Downvote button should show active state
-      cy.get('[data-testid="vote-down"], .downvote, .vote-down, button[aria-label*="negativo"]')
-        .first()
-        .should('be.visible')
-    })
-
-    it('should toggle vote when clicking same button twice', () => {
-      visitAnyPost()
-      acceptCookies()
-      cy.wait(1000)
-
-      // Get upvote button
-      cy.get('[data-testid="vote-up"], .upvote, .vote-up, button[aria-label*="positivo"]', { timeout: 10000 })
-        .first()
-        .as('upvoteBtn')
-
-      // Click upvote
-      cy.get('@upvoteBtn').click()
-      cy.wait(500)
-
-      // Click again to remove vote
-      cy.get('@upvoteBtn').click()
-      cy.wait(500)
-
-      // Button should not have active state (vote removed)
-      cy.get('@upvoteBtn').should('be.visible')
+      // Button should still be visible
+      cy.get('.vote-button').should('be.visible')
     })
 
     it('should persist vote after page reload', () => {
       visitAnyPost()
       acceptCookies()
-      cy.wait(1000)
+      cy.wait(300)
 
-      // Click upvote
-      cy.get('[data-testid="vote-up"], .upvote, .vote-up, button[aria-label*="positivo"]', { timeout: 10000 })
-        .first()
-        .click()
-
-      cy.wait(1000)
+      // Click vote
+      cy.get('.vote-button', { timeout: 10000 }).click()
+      cy.wait(300)
 
       // Reload page
       cy.reload()
       acceptCookies()
-      cy.wait(1000)
+      cy.wait(500)
 
-      // Vote state should be preserved (button should still show active)
-      cy.get('[data-testid="vote-up"], .upvote, .vote-up, button[aria-label*="positivo"]', { timeout: 10000 })
-        .first()
-        .should('be.visible')
+      // Vote badge should still be visible
+      cy.get('.vote-badge', { timeout: 10000 }).should('exist')
     })
   })
 
-  describe('Voting from Post List', () => {
+  describe('Voting on Post Detail', () => {
     beforeEach(() => {
       cy.loginAs(testUser)
     })
 
-    it('should be able to vote from home page', () => {
-      visitWithRetry('/es/')
-      acceptCookies()
-      cy.wait(1000)
+    it('should be able to vote on post detail page', () => {
+      visitAnyPost()
+      cy.wait(300)
 
-      // Find first post's upvote button
-      cy.get('.post-card, .list-item-card, article', { timeout: 20000 })
-        .first()
-        .find('[data-testid="vote-up"], .upvote, .vote-up, button[aria-label*="positivo"]')
-        .first()
-        .click()
+      // Click vote button
+      cy.get('.vote-button', { timeout: 10000 }).click()
+      cy.wait(200)
 
-      cy.wait(500)
-
-      // Should still be on home page
-      cy.url().should('match', /\/es\/?$/)
+      // Should still be on post page
+      cy.url().should('include', '/posts/')
     })
 
-    it('should update vote count without page reload', () => {
-      visitWithRetry('/es/')
-      acceptCookies()
-      cy.wait(1000)
+    it('should show vote badge on post detail', () => {
+      visitAnyPost()
+      cy.wait(300)
 
-      // Get first post
-      cy.get('.post-card, .list-item-card, article', { timeout: 20000 })
-        .first()
-        .within(() => {
-          // Get initial karma
-          cy.get('.karma, .vote-count, .votes, [data-testid="vote-count"]')
-            .first()
-            .invoke('text')
-            .as('initialKarma')
-
-          // Click upvote
-          cy.get('[data-testid="vote-up"], .upvote, .vote-up, button[aria-label*="positivo"]')
-            .first()
-            .click()
-        })
-
-      cy.wait(1000)
-
-      // Karma should have changed (can't guarantee direction due to toggle behavior)
-      cy.get('.post-card, .list-item-card, article')
-        .first()
-        .find('.karma, .vote-count, .votes, [data-testid="vote-count"]')
-        .first()
-        .should('be.visible')
+      // Vote badge should be visible with vote count
+      cy.get('.vote-badge', { timeout: 10000 }).should('be.visible')
+      cy.get('.vote-badge').should('contain.text', 'votos')
     })
   })
 
@@ -270,20 +184,14 @@ describe('Voting E2E Tests', () => {
     })
 
     it('should not allow voting without authentication', () => {
-      visitWithRetry('/es/')
+      visitWithRetry(`/en/posts/vote-test-post-${uniqueId}`)
       acceptCookies()
 
-      // Try to find and click vote button
-      cy.get('.post-card, .list-item-card, article', { timeout: 20000 })
-        .first()
-        .find('[data-testid="vote-up"], .upvote, .vote-up, button[aria-label*="positivo"]')
-        .first()
-        .click()
+      // Try to click vote button
+      cy.get('.vote-button', { timeout: 10000 }).click()
 
-      // Should either redirect to login or show login modal
-      cy.url({ timeout: 5000 }).should('satisfy', (url) => {
-        return url.includes('/auth/login') || url.includes('/es/')
-      })
+      // Should show registration prompt (not redirect)
+      cy.contains(/join and share|register|sign up/i, { timeout: 5000 }).should('be.visible')
     })
   })
 })

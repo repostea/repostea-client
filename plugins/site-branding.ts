@@ -15,7 +15,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   const i18n = nuxtApp.$i18n as any
 
   if (!i18n) {
-    console.warn('[site-branding] i18n not available')
     return
   }
 

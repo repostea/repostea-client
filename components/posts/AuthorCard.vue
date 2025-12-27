@@ -1,7 +1,11 @@
 <template>
   <div class="author-card rounded-lg shadow-sm mb-4">
     <div class="author-card-header px-4 py-3">
-      <h3 class="font-medium inline-flex items-center"><Icon name="fa6-solid:user" class="mr-2 flex-shrink-0" aria-hidden="true" /><span>{{ t('links.show.author') }}</span></h3>
+      <h3 class="font-medium inline-flex items-center">
+        <Icon name="fa6-solid:user" class="mr-2 flex-shrink-0" aria-hidden="true" /><span>{{
+          t('links.show.author')
+        }}</span>
+      </h3>
     </div>
     <div class="p-4">
       <div class="flex items-center mb-3">
@@ -16,7 +20,7 @@
           <!-- Show user avatar for non-anonymous posts -->
           <div v-else-if="user?.avatar" class="w-16 h-16">
             <NuxtImg
-              :src="user.avatar.storageUrl || user.avatar"
+              :src="user.avatar"
               width="64"
               height="64"
               class="rounded-full w-full h-full object-cover author-avatar-border shadow-sm"
@@ -42,9 +46,7 @@
               </span>
             </template>
             <template v-else-if="!user">
-              <span class="font-medium text-gray-500 dark:text-gray-500 italic">
-                [deleted]
-              </span>
+              <span class="font-medium text-gray-500 dark:text-gray-500 italic"> [deleted] </span>
             </template>
             <template v-else>
               <NuxtLink
@@ -67,7 +69,10 @@
               </NuxtLink>
             </template>
           </h5>
-          <div v-if="!isAnonymous && !user?.is_guest && user" class="text-sm text-gray-500 dark:text-gray-400">
+          <div
+            v-if="!isAnonymous && !user?.is_guest && user"
+            class="text-sm text-gray-500 dark:text-gray-400"
+          >
             <div>
               {{ t('user.karma') }}:
               <span class="font-bold">{{ formatNumber(user?.karma || user?.karma_points) }}</span>
@@ -77,19 +82,22 @@
               {{ formatDate(user?.created_at) }}
             </div>
           </div>
-          <div v-if="isAnonymous || user?.is_guest" class="text-sm text-gray-500 dark:text-gray-400 italic">
+          <div
+            v-if="isAnonymous || user?.is_guest"
+            class="text-sm text-gray-500 dark:text-gray-400 italic"
+          >
             {{ t('user.anonymous_info') }}
           </div>
         </div>
       </div>
 
-      <p
-        v-if="user && (user?.bio || user?.body)"
-        class="author-bio text-sm mt-3 p-3 rounded-md"
-      >
+      <p v-if="user && (user?.bio || user?.body)" class="author-bio text-sm mt-3 p-3 rounded-md">
         {{ user.bio || user.body }}
       </p>
-      <p v-else-if="!isAnonymous && !user?.is_guest && user" class="text-sm text-gray-500 dark:text-gray-400 italic">
+      <p
+        v-else-if="!isAnonymous && !user?.is_guest && user"
+        class="text-sm text-gray-500 dark:text-gray-400 italic"
+      >
         {{ t('user.no_bio') }}
       </p>
 
@@ -108,8 +116,8 @@
 </template>
 
 <script setup>
-  import { useLocalePath, useI18n  } from '#i18n'
-  
+  import { useLocalePath, useI18n } from '#i18n'
+
   const { t, locale } = useI18n()
   const { timezone } = useUserTimezone()
 
@@ -138,7 +146,7 @@
     return date.toLocaleDateString(locale.value, {
       year: 'numeric',
       month: 'long',
-      timeZone: timezone
+      timeZone: timezone,
     })
   }
 </script>

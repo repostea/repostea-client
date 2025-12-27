@@ -1,5 +1,8 @@
 <template>
-  <ProfileLayout v-slot="{ userData, userAchievements, levelInfo, progressPercentage, nextLevelPoints }" active-tab="overview">
+  <ProfileLayout
+    v-slot="{ userData, userAchievements, levelInfo, progressPercentage, nextLevelPoints }"
+    active-tab="overview"
+  >
     <!-- Email Verification Banner -->
     <ClientOnly>
       <div
@@ -7,7 +10,11 @@
         class="mb-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700 rounded-lg"
       >
         <div class="flex items-start gap-3">
-          <Icon name="fa6-solid:triangle-exclamation" class="text-yellow-600 dark:text-yellow-400 mt-1" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:triangle-exclamation"
+            class="text-yellow-600 dark:text-yellow-400 mt-1"
+            aria-hidden="true"
+          />
           <div class="flex-1">
             <h3 class="font-semibold text-yellow-800 dark:text-yellow-300 mb-1">
               {{ t('profile.email_not_verified_title') }}

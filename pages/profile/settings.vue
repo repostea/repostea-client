@@ -6,8 +6,18 @@
         v-if="authStore.user && !authStore.user.email_verified_at"
         class="card-bg rounded-lg shadow-sm border-2 border-yellow-200 dark:border-yellow-800 overflow-hidden"
       >
-        <div class="px-6 py-4 border-b border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-900/20">
-          <h2 class="text-lg font-semibold text-yellow-700 dark:text-yellow-300 inline-flex items-center"><Icon name="fa6-solid:triangle-exclamation" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('settings.email_verification_required') }}</span>
+        <div
+          class="px-6 py-4 border-b border-yellow-200 dark:border-yellow-800 bg-yellow-50 dark:bg-yellow-900/20"
+        >
+          <h2
+            class="text-lg font-semibold text-yellow-700 dark:text-yellow-300 inline-flex items-center"
+          >
+            <Icon
+              name="fa6-solid:triangle-exclamation"
+              class="mr-2 flex-shrink-0"
+              aria-hidden="true"
+            />
+            <span>{{ t('settings.email_verification_required') }}</span>
           </h2>
         </div>
         <div class="p-6">
@@ -38,14 +48,13 @@
             <span
               v-if="resendingEmail"
               class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-white border-t-transparent rounded-full"
-            /><Icon name="fa6-solid:envelope" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('settings.resend_verification_email') }}</span>
+            /><Icon name="fa6-solid:envelope" class="mr-2 flex-shrink-0" aria-hidden="true" />
+            <span>{{ t('settings.resend_verification_email') }}</span>
           </button>
         </div>
       </div>
 
-      <div
-        class="card-bg rounded-lg shadow-sm border settings-border overflow-hidden"
-      >
+      <div class="card-bg rounded-lg shadow-sm border settings-border overflow-hidden">
         <div class="px-6 py-4 border-b settings-border">
           <h2 class="text-lg font-medium">{{ t('profile.account_preferences') }}</h2>
         </div>
@@ -72,8 +81,12 @@
           <div class="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-md">
             <Icon name="simple-icons:mastodon" class="text-2xl text-[#6364FF]" aria-hidden="true" />
             <div>
-              <p class="font-medium">{{ authStore.user?.federated_handle || authStore.user?.username }}</p>
-              <p class="text-sm text-text-muted dark:text-text-dark-muted">{{ authStore.user?.federated_instance }}</p>
+              <p class="font-medium">
+                {{ authStore.user?.federated_handle || authStore.user?.username }}
+              </p>
+              <p class="text-sm text-text-muted dark:text-text-dark-muted">
+                {{ authStore.user?.federated_instance }}
+              </p>
             </div>
           </div>
         </div>
@@ -97,7 +110,13 @@
           <div class="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-md">
             <Icon name="fa6-brands:telegram" class="text-2xl text-[#26A5E4]" aria-hidden="true" />
             <div>
-              <p class="font-medium">{{ authStore.user?.telegram_username ? '@' + authStore.user.telegram_username : authStore.user?.username }}</p>
+              <p class="font-medium">
+                {{
+                  authStore.user?.telegram_username
+                    ? '@' + authStore.user.telegram_username
+                    : authStore.user?.username
+                }}
+              </p>
               <p class="text-sm text-text-muted dark:text-text-dark-muted">Telegram</p>
             </div>
           </div>
@@ -131,9 +150,7 @@
       </div>
 
       <!-- Active Sessions -->
-      <div
-        class="card-bg rounded-lg shadow-sm border settings-border overflow-hidden"
-      >
+      <div class="card-bg rounded-lg shadow-sm border settings-border overflow-hidden">
         <div class="px-6 py-4 border-b settings-border">
           <h2 class="text-lg font-medium">{{ t('settings.active_sessions') }}</h2>
           <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
@@ -149,7 +166,9 @@
       <div
         class="card-bg rounded-lg shadow-sm border-2 border-red-200 dark:border-red-800 overflow-hidden"
       >
-        <div class="px-6 py-4 border-b border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20">
+        <div
+          class="px-6 py-4 border-b border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/20"
+        >
           <h2 class="text-lg font-semibold text-red-600 dark:text-red-400">
             {{ t('settings.danger_zone') }}
           </h2>
@@ -158,7 +177,9 @@
           </p>
         </div>
         <div class="p-6">
-          <div class="bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-lg p-6">
+          <div
+            class="bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-lg p-6"
+          >
             <h4 class="text-base font-semibold text-red-700 dark:text-red-300 mb-2">
               {{ t('settings.delete_account') }}
             </h4>
@@ -176,7 +197,10 @@
             </button>
 
             <!-- Confirmation form -->
-            <div v-if="showDeleteConfirm" class="mt-4 p-4 settings-confirm-bg rounded-md border border-red-300 dark:border-red-700">
+            <div
+              v-if="showDeleteConfirm"
+              class="mt-4 p-4 settings-confirm-bg rounded-md border border-red-300 dark:border-red-700"
+            >
               <p class="text-sm font-semibold mb-4 text-red-700 dark:text-red-300">
                 {{ t('settings.confirm_delete') }}
               </p>

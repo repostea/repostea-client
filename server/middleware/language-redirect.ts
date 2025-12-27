@@ -26,45 +26,60 @@ export default defineEventHandler((event) => {
   setResponseHeader(event, 'Content-Type', 'text/html; charset=utf-8')
 
   // Get supported locales and app name from environment
-  const supportedLocales = (process.env.NUXT_PUBLIC_SUPPORTED_LOCALES || 'es,en').split(',').map(l => l.trim())
+  const supportedLocales = (process.env.NUXT_PUBLIC_SUPPORTED_LOCALES || 'es,en')
+    .split(',')
+    .map((l) => l.trim())
   const appName = process.env.NUXT_PUBLIC_APP_NAME || 'Repostea'
 
-  const localeInfo: Record<string, { code: string; native: string; tagline: string; slogan: string }> = {
+  const localeInfo: Record<
+    string,
+    { code: string; native: string; tagline: string; slogan: string }
+  > = {
     es: {
       code: 'ES',
       native: 'Español',
-      tagline: 'Un espacio digital donde el pensamiento crítico, la diversidad de perspectivas y la calidad del contenido son prioridades fundamentales.',
-      slogan: 'Descubre, participa, evoluciona'
+      tagline:
+        'Un espacio digital donde el pensamiento crítico, la diversidad de perspectivas y la calidad del contenido son prioridades fundamentales.',
+      slogan: 'Descubre, participa, evoluciona',
     },
     en: {
       code: 'EN',
       native: 'English',
-      tagline: 'A digital space where critical thinking, diversity of perspectives, and quality content are fundamental priorities.',
-      slogan: 'Discover, participate, evolve'
+      tagline:
+        'A digital space where critical thinking, diversity of perspectives, and quality content are fundamental priorities.',
+      slogan: 'Discover, participate, evolve',
     },
     ca: {
       code: 'CA',
       native: 'Català',
-      tagline: 'Un espai digital on el pensament crític, la diversitat de perspectives i la qualitat del contingut són prioritats fonamentals.',
-      slogan: 'Descobreix, participa, evoluciona'
+      tagline:
+        'Un espai digital on el pensament crític, la diversitat de perspectives i la qualitat del contingut són prioritats fonamentals.',
+      slogan: 'Descobreix, participa, evoluciona',
     },
     gl: {
       code: 'GL',
       native: 'Galego',
-      tagline: 'Un espazo dixital onde o pensamento crítico, a diversidade de perspectivas e a calidade do contido son prioridades fundamentais.',
-      slogan: 'Descobre, participa, evoluciona'
+      tagline:
+        'Un espazo dixital onde o pensamento crítico, a diversidade de perspectivas e a calidade do contido son prioridades fundamentais.',
+      slogan: 'Descobre, participa, evoluciona',
     },
     eu: {
       code: 'EU',
       native: 'Euskara',
-      tagline: 'Espazio digitala non pentsamendu kritikoa, ikuspegiaren aniztasuna eta edukinaren kalitatea lehentasun nagusiak diren.',
-      slogan: 'Aurkitu, parte hartu, eboluzionatu'
+      tagline:
+        'Espazio digitala non pentsamendu kritikoa, ikuspegiaren aniztasuna eta edukinaren kalitatea lehentasun nagusiak diren.',
+      slogan: 'Aurkitu, parte hartu, eboluzionatu',
     },
   }
 
   const localeButtons = supportedLocales
-    .map(locale => {
-      const info = localeInfo[locale] || { code: locale.toUpperCase(), native: locale, tagline: '', slogan: '' }
+    .map((locale) => {
+      const info = localeInfo[locale] || {
+        code: locale.toUpperCase(),
+        native: locale,
+        tagline: '',
+        slogan: '',
+      }
       return `
         <a href="/${locale}" class="locale-btn" data-slogan="${info.slogan}" onclick="setLocaleCookie('${locale}')">
           <span class="code">${info.code}</span>
@@ -76,18 +91,14 @@ export default defineEventHandler((event) => {
 
   // Build taglines array for rotation (only supported locales)
   const taglines = supportedLocales
-    .map(locale => localeInfo[locale]?.tagline || '')
+    .map((locale) => localeInfo[locale]?.tagline || '')
     .filter(Boolean)
 
   // Build slogans array for rotation
-  const slogans = supportedLocales
-    .map(locale => localeInfo[locale]?.slogan || '')
-    .filter(Boolean)
+  const slogans = supportedLocales.map((locale) => localeInfo[locale]?.slogan || '').filter(Boolean)
 
   // Build tagline items HTML (duplicated for seamless loop)
-  const taglineItems = [...taglines, ...taglines]
-    .map(t => `<p class="tagline">${t}</p>`)
-    .join('')
+  const taglineItems = [...taglines, ...taglines].map((t) => `<p class="tagline">${t}</p>`).join('')
 
   // Calculate scroll duration based on number of taglines (4s per tagline)
   const scrollDuration = taglines.length * 4

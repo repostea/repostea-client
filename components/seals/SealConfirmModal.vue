@@ -16,8 +16,14 @@
           <!-- Header -->
           <div class="flex items-start justify-between mb-4">
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-full flex items-center justify-center bg-yellow-100 dark:bg-yellow-900/30">
-                <Icon name="fa6-solid:certificate" class="text-2xl text-yellow-600 dark:text-yellow-400" aria-hidden="true" />
+              <div
+                class="w-12 h-12 rounded-full flex items-center justify-center bg-yellow-100 dark:bg-yellow-900/30"
+              >
+                <Icon
+                  name="fa6-solid:certificate"
+                  class="text-2xl text-yellow-600 dark:text-yellow-400"
+                  aria-hidden="true"
+                />
               </div>
               <div>
                 <h3 id="seal-modal-title" class="text-lg font-bold text-text dark:text-text-dark">
@@ -45,7 +51,11 @@
               class="p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800"
             >
               <div class="flex items-start gap-3">
-                <Icon name="fa6-solid:circle-info" class="text-amber-600 dark:text-amber-400 mt-0.5 text-lg flex-shrink-0" aria-hidden="true" />
+                <Icon
+                  name="fa6-solid:circle-info"
+                  class="text-amber-600 dark:text-amber-400 mt-0.5 text-lg flex-shrink-0"
+                  aria-hidden="true"
+                />
                 <div>
                   <p class="text-sm font-medium text-amber-800 dark:text-amber-200 mb-1">
                     {{ $t('seals.own_content_title') }}
@@ -63,7 +73,11 @@
               class="mb-4 p-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800"
             >
               <div class="flex items-start gap-3">
-                <Icon name="fa6-solid:circle-info" class="text-yellow-600 dark:text-yellow-400 mt-0.5" aria-hidden="true" />
+                <Icon
+                  name="fa6-solid:circle-info"
+                  class="text-yellow-600 dark:text-yellow-400 mt-0.5"
+                  aria-hidden="true"
+                />
                 <div class="flex-1">
                   <p class="text-sm text-yellow-800 dark:text-yellow-200 font-medium mb-1">
                     {{ $t('seals.no_seals_available') }}
@@ -75,8 +89,13 @@
               </div>
             </div>
 
-            <p v-else-if="!isOwnContent" class="text-text-muted dark:text-text-dark-muted text-sm mb-4">
-              {{ hasRecommended || hasReported ? $t('seals.remove_seal') : $t('seals.choose_action') }}
+            <p
+              v-else-if="!isOwnContent"
+              class="text-text-muted dark:text-text-dark-muted text-sm mb-4"
+            >
+              {{
+                hasRecommended || hasReported ? $t('seals.remove_seal') : $t('seals.choose_action')
+              }}
             </p>
 
             <!-- Option Buttons (hidden for own content) -->
@@ -88,19 +107,35 @@
                 class="w-full p-4 rounded-lg border-2 transition-all text-left group"
                 :class="[
                   'seal-option-border',
-                  hasAvailableSeals ? 'hover:border-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 cursor-pointer' : 'opacity-50 cursor-not-allowed'
+                  hasAvailableSeals
+                    ? 'hover:border-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 cursor-pointer'
+                    : 'opacity-50 cursor-not-allowed',
                 ]"
                 @click="selectOption('recommended')"
               >
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                    <Icon name="fa6-solid:award" class="text-green-600 dark:text-green-400" aria-hidden="true" />
+                  <div
+                    class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center"
+                  >
+                    <Icon
+                      name="fa6-solid:award"
+                      class="text-green-600 dark:text-green-400"
+                      aria-hidden="true"
+                    />
                   </div>
                   <div class="flex-1">
-                    <div class="font-semibold text-text dark:text-text-dark">{{ $t('seals.recommend') }}</div>
-                    <div class="text-sm text-text-muted dark:text-text-dark-muted">{{ $t('seals.recommend_description') }}</div>
+                    <div class="font-semibold text-text dark:text-text-dark">
+                      {{ $t('seals.recommend') }}
+                    </div>
+                    <div class="text-sm text-text-muted dark:text-text-dark-muted">
+                      {{ $t('seals.recommend_description') }}
+                    </div>
                   </div>
-                  <Icon name="fa6-solid:chevron-right" class="text-text-muted group-hover:text-green-600 transition-colors" aria-hidden="true" />
+                  <Icon
+                    name="fa6-solid:chevron-right"
+                    class="text-text-muted group-hover:text-green-600 transition-colors"
+                    aria-hidden="true"
+                  />
                 </div>
               </button>
 
@@ -111,14 +146,28 @@
                 @click="selectOption('recommended')"
               >
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                    <Icon name="fa6-solid:xmark" class="text-red-600 dark:text-red-400" aria-hidden="true" />
+                  <div
+                    class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center"
+                  >
+                    <Icon
+                      name="fa6-solid:xmark"
+                      class="text-red-600 dark:text-red-400"
+                      aria-hidden="true"
+                    />
                   </div>
                   <div class="flex-1">
-                    <div class="font-semibold text-text dark:text-text-dark">{{ $t('seals.remove_seal') }}</div>
-                    <div class="text-sm text-text-muted dark:text-text-dark-muted">{{ $t('seals.recover_seal') }}</div>
+                    <div class="font-semibold text-text dark:text-text-dark">
+                      {{ $t('seals.remove_seal') }}
+                    </div>
+                    <div class="text-sm text-text-muted dark:text-text-dark-muted">
+                      {{ $t('seals.recover_seal') }}
+                    </div>
                   </div>
-                  <Icon name="fa6-solid:chevron-right" class="text-text-muted group-hover:text-red-600 transition-colors" aria-hidden="true" />
+                  <Icon
+                    name="fa6-solid:chevron-right"
+                    class="text-text-muted group-hover:text-red-600 transition-colors"
+                    aria-hidden="true"
+                  />
                 </div>
               </button>
 
@@ -129,19 +178,35 @@
                 class="w-full p-4 rounded-lg border-2 transition-all text-left group"
                 :class="[
                   'seal-option-border',
-                  hasAvailableSeals ? 'hover:border-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/20 cursor-pointer' : 'opacity-50 cursor-not-allowed'
+                  hasAvailableSeals
+                    ? 'hover:border-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/20 cursor-pointer'
+                    : 'opacity-50 cursor-not-allowed',
                 ]"
                 @click="selectOption('advise_against')"
               >
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
-                    <Icon name="fa6-solid:triangle-exclamation" class="text-orange-600 dark:text-orange-400" aria-hidden="true" />
+                  <div
+                    class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center"
+                  >
+                    <Icon
+                      name="fa6-solid:triangle-exclamation"
+                      class="text-orange-600 dark:text-orange-400"
+                      aria-hidden="true"
+                    />
                   </div>
                   <div class="flex-1">
-                    <div class="font-semibold text-text dark:text-text-dark">{{ $t('seals.advise_against') }}</div>
-                    <div class="text-sm text-text-muted dark:text-text-dark-muted">{{ $t('seals.advise_against_description') }}</div>
+                    <div class="font-semibold text-text dark:text-text-dark">
+                      {{ $t('seals.advise_against') }}
+                    </div>
+                    <div class="text-sm text-text-muted dark:text-text-dark-muted">
+                      {{ $t('seals.advise_against_description') }}
+                    </div>
                   </div>
-                  <Icon name="fa6-solid:chevron-right" class="text-text-muted group-hover:text-orange-600 transition-colors" aria-hidden="true" />
+                  <Icon
+                    name="fa6-solid:chevron-right"
+                    class="text-text-muted group-hover:text-orange-600 transition-colors"
+                    aria-hidden="true"
+                  />
                 </div>
               </button>
 
@@ -152,14 +217,28 @@
                 @click="selectOption('advise_against')"
               >
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
-                    <Icon name="fa6-solid:xmark" class="text-red-600 dark:text-red-400" aria-hidden="true" />
+                  <div
+                    class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center"
+                  >
+                    <Icon
+                      name="fa6-solid:xmark"
+                      class="text-red-600 dark:text-red-400"
+                      aria-hidden="true"
+                    />
                   </div>
                   <div class="flex-1">
-                    <div class="font-semibold text-text dark:text-text-dark">{{ $t('seals.remove_seal') }}</div>
-                    <div class="text-sm text-text-muted dark:text-text-dark-muted">{{ $t('seals.recover_seal') }}</div>
+                    <div class="font-semibold text-text dark:text-text-dark">
+                      {{ $t('seals.remove_seal') }}
+                    </div>
+                    <div class="text-sm text-text-muted dark:text-text-dark-muted">
+                      {{ $t('seals.recover_seal') }}
+                    </div>
                   </div>
-                  <Icon name="fa6-solid:chevron-right" class="text-text-muted group-hover:text-red-600 transition-colors" aria-hidden="true" />
+                  <Icon
+                    name="fa6-solid:chevron-right"
+                    class="text-text-muted group-hover:text-red-600 transition-colors"
+                    aria-hidden="true"
+                  />
                 </div>
               </button>
             </div>
@@ -179,63 +258,63 @@
 </template>
 
 <script setup lang="ts">
-interface Props {
-  isOpen: boolean
-  hasRecommended: boolean
-  hasReported: boolean
-  availableSeals: number
-  hasAvailableSeals: boolean
-  isOwnContent?: boolean
-}
+  interface Props {
+    isOpen: boolean
+    hasRecommended: boolean
+    hasReported: boolean
+    availableSeals: number
+    hasAvailableSeals: boolean
+    isOwnContent?: boolean
+  }
 
-withDefaults(defineProps<Props>(), {
-  isOwnContent: false
-})
+  withDefaults(defineProps<Props>(), {
+    isOwnContent: false,
+  })
 
-const emit = defineEmits<{
-  select: [type: 'recommended' | 'advise_against']
-  cancel: []
-}>()
+  const emit = defineEmits<{
+    select: [type: 'recommended' | 'advise_against']
+    cancel: []
+  }>()
 
-const selectOption = (type: 'recommended' | 'advise_against') => {
-  emit('select', type)
-}
+  const selectOption = (type: 'recommended' | 'advise_against') => {
+    emit('select', type)
+  }
 
-const cancel = () => {
-  emit('cancel')
-}
+  const cancel = () => {
+    emit('cancel')
+  }
 </script>
 
 <style scoped>
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.3s ease;
-}
+  .modal-enter-active,
+  .modal-leave-active {
+    transition: opacity 0.3s ease;
+  }
 
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
+  .modal-enter-from,
+  .modal-leave-to {
+    opacity: 0;
+  }
 
-.modal-enter-active > div,
-.modal-leave-active > div {
-  transition: transform 0.3s ease;
-}
+  .modal-enter-active > div,
+  .modal-leave-active > div {
+    transition: transform 0.3s ease;
+  }
 
-.modal-enter-from > div,
-.modal-leave-to > div {
-  transform: scale(0.9);
-}
+  .modal-enter-from > div,
+  .modal-leave-to > div {
+    transform: scale(0.9);
+  }
 
-.seal-option-border {
-  border-color: var(--color-border-default);
-}
+  .seal-option-border {
+    border-color: var(--color-border-default);
+  }
 
-.seal-cancel-btn {
-  border: 1px solid var(--color-border-default);
-}
+  .seal-cancel-btn {
+    border: 1px solid var(--color-border-default);
+  }
 
-.seal-cancel-btn:hover {
-  background-color: var(--color-bg-hover);
-}
+  .seal-cancel-btn:hover {
+    background-color: var(--color-bg-hover);
+  }
 </style>

@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { useWebSocket } from '~/composables/useWebSocket'
 import { useNotification } from '~/composables/useNotification'
+import { isSafeActionUrl } from '~/utils/urlSecurity'
 
 export interface RealTimeNotification {
   id: string
@@ -186,7 +187,9 @@ export const useRealTimeNotificationsStore = defineStore('realTimeNotifications'
       id: (data.id as string) || generateId(),
       type: 'comment',
       title: (data.title as string) || '💬 New Comment',
-      body: (data.body as string) || `${(data.author_name as string) || 'Someone'} commented on your post`,
+      body:
+        (data.body as string) ||
+        `${(data.author_name as string) || 'Someone'} commented on your post`,
       data: {
         postId: data.post_id,
         commentId: data.comment_id,
@@ -196,7 +199,9 @@ export const useRealTimeNotificationsStore = defineStore('realTimeNotifications'
       read: false,
       timestamp: (data.timestamp as number) || Date.now(),
       priority: 'normal',
-      actionUrl: (data.post_url as string) || `/p/${(data.post_uuid as string) || data.post_id}#comment-${data.comment_id}`,
+      actionUrl:
+        (data.post_url as string) ||
+        `/p/${(data.post_uuid as string) || data.post_id}#comment-${data.comment_id}`,
       iconClass: 'fa6-solid:comment text-blue-500',
     }
 
@@ -223,7 +228,9 @@ export const useRealTimeNotificationsStore = defineStore('realTimeNotifications'
       timestamp: (data.timestamp as number) || Date.now(),
       priority: 'low',
       actionUrl: (data.content_url as string) || `/p/${(data.post_uuid as string) || data.post_id}`,
-      iconClass: isUpvote ? 'fa6-solid:thumbs-up text-green-500' : 'fa6-solid:thumbs-down text-red-500',
+      iconClass: isUpvote
+        ? 'fa6-solid:thumbs-up text-green-500'
+        : 'fa6-solid:thumbs-down text-red-500',
     }
 
     addNotification(notification)
@@ -266,13 +273,13 @@ export const useRealTimeNotificationsStore = defineStore('realTimeNotifications'
 
     const { title, body, priority, actionUrl } = notification
 
-    const actions = actionUrl
+    const actions = isSafeActionUrl(actionUrl)
       ? [
           {
             label: 'View',
             action: () => {
               if (process.client) {
-                window.location.href = actionUrl
+                window.location.href = actionUrl!
               }
             },
           },
@@ -413,11 +420,14 @@ export const useRealTimeNotificationsStore = defineStore('realTimeNotifications'
         return
       }
 
-      const data = await $fetch<{ summary: NotificationSummary; total_unread: number }>(`${config.public.apiBaseUrl}/v1/notifications/summary`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      const data = await $fetch<{ summary: NotificationSummary; total_unread: number }>(
+        `${config.public.apiBaseUrl}/v1/notifications/summary`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
 
       summary.value = data.summary
       totalUnread.value = data.total_unread
@@ -467,14 +477,17 @@ export const useRealTimeNotificationsStore = defineStore('realTimeNotifications'
 
       notifications.value = apiNotifications.map((n) => ({
         id: n.id as string,
-        type: ((n.type as string)?.replace('App\\Notifications\\', '').toLowerCase() || 'system') as RealTimeNotification['type'],
+        type: ((n.type as string)?.replace('App\\Notifications\\', '').toLowerCase() ||
+          'system') as RealTimeNotification['type'],
         title: (n.title as string) || 'Notification',
         body: (n.body as string) || '',
         data: n.data as Record<string, unknown> | undefined,
         read: n.read as boolean,
         timestamp: new Date(n.created_at as string).getTime(),
         priority: 'normal' as const,
-        actionUrl: (n.data as Record<string, unknown>)?.action_url as string || (n.data as Record<string, unknown>)?.actionUrl as string,
+        actionUrl:
+          ((n.data as Record<string, unknown>)?.action_url as string) ||
+          ((n.data as Record<string, unknown>)?.actionUrl as string),
         iconClass: getIconForType(n.type as string),
       }))
     } catch {
@@ -514,14 +527,17 @@ export const useRealTimeNotificationsStore = defineStore('realTimeNotifications'
 
       notifications.value = apiNotifications.map((n) => ({
         id: n.id as string,
-        type: ((n.type as string)?.replace('App\\Notifications\\', '').toLowerCase() || 'system') as RealTimeNotification['type'],
+        type: ((n.type as string)?.replace('App\\Notifications\\', '').toLowerCase() ||
+          'system') as RealTimeNotification['type'],
         title: (n.title as string) || 'Notification',
         body: (n.body as string) || '',
         data: n.data as Record<string, unknown> | undefined,
         read: n.read as boolean,
         timestamp: new Date(n.created_at as string).getTime(),
         priority: 'normal' as const,
-        actionUrl: (n.data as Record<string, unknown>)?.action_url as string || (n.data as Record<string, unknown>)?.actionUrl as string,
+        actionUrl:
+          ((n.data as Record<string, unknown>)?.action_url as string) ||
+          ((n.data as Record<string, unknown>)?.actionUrl as string),
         iconClass: getIconForType(n.type as string),
       }))
     } catch {

@@ -7,6 +7,8 @@
     "delete_success": "Unvíu desaniciáu correutamente",
     "vote": "votu",
     "voted": "votáu",
+    "closed": "zarráu",
+    "voting_closed": "La votación ta zarrada",
     "votes": "votos",
     "vote_success": "¡Votu unviáu!",
     "type_article": "Artículu",

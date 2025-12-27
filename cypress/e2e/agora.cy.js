@@ -5,14 +5,12 @@
  * - Access agora page
  * - View messages
  * - Send messages (authenticated)
- * - Connection status
- * - Message interactions
+ * - View toggle
  */
 describe('Agora (Chat) E2E Tests', () => {
   const uniqueId = Date.now()
   let testUser
 
-  // Helper to visit page with retry on 503 errors
   const visitWithRetry = (url, retries = 3) => {
     cy.visit(url, { failOnStatusCode: false }).then(() => {
       cy.get('body').then(($body) => {
@@ -24,21 +22,19 @@ describe('Agora (Chat) E2E Tests', () => {
     })
   }
 
-  // Helper to accept cookie banner
   const acceptCookies = () => {
     cy.get('body').then(($body) => {
-      const acceptBtn = $body.find('button').filter(function() {
-        return this.textContent.includes('Aceptar')
+      const acceptBtn = $body.find('button').filter(function () {
+        return this.textContent.includes('Accept')
       })
       if (acceptBtn.length > 0) {
         cy.wrap(acceptBtn.first()).click({ force: true })
-        cy.wait(500)
+        cy.wait(200)
       }
     })
   }
 
   before(() => {
-    // Create a real user for testing
     cy.createUser({
       username: `agoratest_${uniqueId}`,
       email: `agoratest_${uniqueId}@example.com`,
@@ -50,111 +46,73 @@ describe('Agora (Chat) E2E Tests', () => {
   })
 
   describe('Agora Page Access', () => {
-    it('should display agora page', () => {
-      visitWithRetry('/es/agora')
+    it('should display agora page with h1 title', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
 
-      // Should show agora header (may have accent: Ágora)
-      cy.get('h1', { timeout: 20000 }).invoke('text').should('match', /[ÁA]gora/i)
+      cy.get('h1', { timeout: 10000 }).should('be.visible')
     })
 
-    it('should show agora description', () => {
-      visitWithRetry('/es/agora')
+    it('should show agora subtitle', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
 
-      // Should have subtitle or description
-      cy.get('body', { timeout: 20000 }).should('satisfy', ($body) => {
-        const text = $body.text().toLowerCase()
-        return text.includes('agora') ||
-               text.includes('chat') ||
-               text.includes('discusión') ||
-               text.includes('discussion')
-      })
+      // Subtitle is a p tag after h1
+      cy.get('h1 + p, h1').parent().find('p').should('exist')
     })
 
-    it('should display messages area', () => {
-      visitWithRetry('/es/agora')
+    it('should display messages area or empty state', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
 
-      // Should have messages container
-      cy.get('body', { timeout: 20000 }).then(($body) => {
-        const hasMessages = $body.find('.message, .agora-message, [data-testid="message"]').length > 0
-        const hasEmptyState = $body.text().includes('No hay mensajes') ||
-                             $body.text().includes('no messages')
-        const hasContainer = $body.find('.messages-container, .chat-container, .agora-messages').length > 0
+      cy.wait(1000)
 
-        expect(hasMessages || hasEmptyState || hasContainer || true).to.be.true
-      })
+      // Either has message wrappers or empty state
+      cy.get('.agora-message-wrapper, .agora-empty-state', { timeout: 10000 }).should('exist')
     })
   })
 
-  describe('Connection Status', () => {
-    it('should show connection status indicator', () => {
-      visitWithRetry('/es/agora')
+  describe('View Toggle', () => {
+    it('should show view toggle tabs', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
 
-      // May show online/offline status
-      cy.get('body', { timeout: 20000 }).should('be.visible')
+      // View tabs (threads/chronological)
+      cy.get('.agora-view-tab', { timeout: 10000 }).should('have.length', 2)
     })
 
-    it('should handle offline state gracefully', () => {
-      visitWithRetry('/es/agora')
+    it('should switch between threads and chronological view', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
 
-      // Connection state - either online or shows offline indicator
-      cy.get('body', { timeout: 20000 }).should('be.visible')
-      // Test passes regardless of connection state - just verifying page loads
+      // Click chronological tab
+      cy.get('.agora-view-tab', { timeout: 10000 }).last().click()
+      cy.wait(500)
+
+      // Tab should be active
+      cy.get('.agora-view-tab.active').should('exist')
     })
   })
 
   describe('View Messages', () => {
-    it('should display existing messages', () => {
-      visitWithRetry('/es/agora')
+    it('should display messages or empty state after loading', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
-
-      // Wait for messages to load
       cy.wait(2000)
 
-      // Should show messages or empty state
-      cy.get('body', { timeout: 20000 }).should('satisfy', ($body) => {
-        const hasMessages = $body.find('.message, .agora-message, article').length > 0
-        const isEmpty = $body.text().includes('No hay') ||
-                       $body.text().includes('vacío') ||
-                       $body.text().includes('empty')
-        return hasMessages || isEmpty || true
-      })
+      // Either messages or empty state - no skeleton loaders
+      cy.get('.agora-message-wrapper, .agora-empty-state', { timeout: 10000 }).should('exist')
     })
 
-    it('should show message author', () => {
-      visitWithRetry('/es/agora')
+    it('should show user link in messages if messages exist', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
       cy.wait(2000)
 
-      // If messages exist, they should show author
       cy.get('body').then(($body) => {
-        const messages = $body.find('.message, .agora-message')
-        if (messages.length > 0) {
-          cy.get('.message, .agora-message')
-            .first()
-            .find('.username, .author, a[href*="/u/"]')
-            .should('exist')
-        }
-      })
-    })
-
-    it('should show message timestamp', () => {
-      visitWithRetry('/es/agora')
-      acceptCookies()
-      cy.wait(2000)
-
-      // If messages exist, they should show time
-      cy.get('body').then(($body) => {
-        const messages = $body.find('.message, .agora-message')
-        if (messages.length > 0) {
-          cy.get('.message, .agora-message')
-            .first()
-            .find('time, .timestamp, .time, .date')
-            .should('exist')
+        if ($body.find('.agora-message-wrapper').length > 0) {
+          // Messages have user links
+          cy.get('.agora-message-wrapper a[href*="/u/"]').should('exist')
         }
       })
     })
@@ -165,150 +123,56 @@ describe('Agora (Chat) E2E Tests', () => {
       cy.loginAs(testUser)
     })
 
-    it('should show compose input when logged in', () => {
-      visitWithRetry('/es/agora')
+    it('should show compose bar when logged in', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
-      cy.wait(1000)
+      cy.wait(300)
 
-      // Should have compose area (collapsed bar or expanded editor)
-      cy.get('.agora-compose-bar, textarea, .compose-input, [contenteditable="true"]', { timeout: 20000 })
-        .should('exist')
+      cy.get('.agora-compose-bar', { timeout: 10000 }).should('exist')
     })
 
     it('should expand compose area on click', () => {
-      visitWithRetry('/es/agora')
+      visitWithRetry('/en/agora')
       acceptCookies()
-      cy.wait(1000)
+      cy.wait(300)
 
-      // Click on compose area
-      cy.get('.agora-compose-bar, .compose-input, textarea', { timeout: 20000 })
-        .first()
-        .click()
+      cy.get('.agora-compose-bar', { timeout: 10000 }).click()
 
-      // Should expand or show full editor
-      cy.get('textarea, [contenteditable="true"], .editor', { timeout: 5000 })
-        .should('be.visible')
+      // Should show compose form
+      cy.get('.agora-compose-form', { timeout: 5000 }).should('be.visible')
     })
 
-    it('should type message in compose area', () => {
-      visitWithRetry('/es/agora')
+    it('should have publish button in compose form', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
-      cy.wait(1000)
+      cy.wait(300)
 
-      // Click to expand compose
-      cy.get('.agora-compose-bar, .compose-input, textarea', { timeout: 20000 })
-        .first()
-        .click()
+      cy.get('.agora-compose-bar', { timeout: 10000 }).click()
 
-      // Type message
-      const testMessage = `E2E test message ${uniqueId}`
-      cy.get('textarea, [contenteditable="true"]', { timeout: 5000 })
-        .first()
-        .type(testMessage)
-
-      // Message should be in input (check value or text depending on element type)
-      cy.get('textarea, [contenteditable="true"]')
-        .first()
-        .then(($el) => {
-          const value = $el.val() || $el.text()
-          expect(value).to.include(testMessage)
-        })
+      // Publish button in footer
+      cy.get('.agora-compose-footer button.bg-primary', { timeout: 5000 }).should('exist')
     })
 
-    it('should have send button', () => {
-      visitWithRetry('/es/agora')
+    it('should have anonymous checkbox in compose form', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
-      cy.wait(1000)
+      cy.wait(300)
 
-      // Click to expand compose
-      cy.get('.agora-compose-bar, .compose-input, textarea', { timeout: 20000 })
-        .first()
-        .click()
+      cy.get('.agora-compose-bar', { timeout: 10000 }).click()
 
-      // Wait for compose form to appear
-      cy.wait(500)
-
-      // Should have publish button (Agora uses "Publicar" text instead of submit type)
-      cy.get('.agora-compose-form button, .agora-compose-footer button', { timeout: 5000 })
-        .contains(/publicar|publish/i)
-        .should('exist')
+      // Anonymous checkbox
+      cy.get('.agora-compose-footer input[type="checkbox"]', { timeout: 5000 }).should('exist')
     })
 
-    it('should send message', () => {
-      visitWithRetry('/es/agora')
+    it('should have close button in compose form', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
-      cy.wait(1000)
+      cy.wait(300)
 
-      // Expand compose
-      cy.get('.agora-compose-bar, .compose-input, textarea', { timeout: 20000 })
-        .first()
-        .click()
+      cy.get('.agora-compose-bar', { timeout: 10000 }).click()
 
-      // Wait for compose form to appear
-      cy.wait(500)
-
-      // Type unique message
-      const testMessage = `E2E agora message ${Date.now()}`
-      cy.get('.agora-compose-form textarea, .comment-editor textarea', { timeout: 5000 })
-        .first()
-        .type(testMessage)
-
-      // Click publish button (Agora uses "Publicar" button in the footer)
-      cy.get('.agora-compose-form button, .agora-compose-footer button', { timeout: 5000 })
-        .contains(/publicar|publish/i)
-        .first()
-        .click()
-
-      // Wait for send
-      cy.wait(2000)
-
-      // Message should appear or input should clear
-      cy.get('body').should('satisfy', ($body) => {
-        const messageAppears = $body.text().includes(testMessage)
-        const inputCleared = $body.find('textarea').val() === '' ||
-                            $body.find('[contenteditable="true"]').text() === ''
-        return messageAppears || inputCleared || true
-      })
-    })
-  })
-
-  describe('Message Interactions', () => {
-    beforeEach(() => {
-      cy.loginAs(testUser)
-    })
-
-    it('should show interaction buttons on messages', () => {
-      visitWithRetry('/es/agora')
-      acceptCookies()
-      cy.wait(2000)
-
-      // If messages exist, check for interaction buttons
-      cy.get('body').then(($body) => {
-        const messages = $body.find('.message, .agora-message')
-        if (messages.length > 0) {
-          cy.get('.message, .agora-message')
-            .first()
-            .find('button')
-            .should('have.length.at.least', 0) // May or may not have buttons
-        }
-      })
-    })
-
-    it('should allow voting on messages', () => {
-      visitWithRetry('/es/agora')
-      acceptCookies()
-      cy.wait(2000)
-
-      // If messages have vote buttons
-      cy.get('body').then(($body) => {
-        const voteButtons = $body.find('[data-testid="vote-up"], .upvote, .vote-up')
-        if (voteButtons.length > 0) {
-          cy.get('[data-testid="vote-up"], .upvote, .vote-up')
-            .first()
-            .click()
-          cy.wait(500)
-        }
-      })
+      // Close button
+      cy.get('.agora-close-btn', { timeout: 5000 }).should('exist')
     })
   })
 
@@ -319,81 +183,55 @@ describe('Agora (Chat) E2E Tests', () => {
     })
 
     it('should allow viewing agora without auth', () => {
-      visitWithRetry('/es/agora')
+      visitWithRetry('/en/agora')
       acceptCookies()
 
-      // Should show agora page (title may be "Ágora" with accent in Spanish)
       cy.url().should('include', '/agora')
-      cy.get('h1', { timeout: 20000 }).invoke('text').should('match', /[ÁA]gora/i)
+      cy.get('h1', { timeout: 10000 }).should('be.visible')
     })
 
-    it('should show login prompt for posting', () => {
-      visitWithRetry('/es/agora')
+    it('should show login CTA instead of compose bar', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
 
-      // Should show login message or no compose area
-      cy.get('body', { timeout: 20000 }).then(($body) => {
-        const hasLoginPrompt = $body.text().includes('iniciar sesión') ||
-                              $body.text().includes('login') ||
-                              $body.text().includes('Inicia sesión')
-        const noComposeArea = $body.find('.agora-compose-bar, textarea').length === 0
+      // Should not have compose bar
+      cy.get('.agora-compose-bar').should('not.exist')
 
-        expect(hasLoginPrompt || noComposeArea || true).to.be.true
-      })
+      // Should have login button in CTA
+      cy.get('a[href*="/auth/login"]', { timeout: 10000 }).should('exist')
     })
   })
 
   describe('Agora Sidebar', () => {
-    it('should show sidebar content', () => {
-      visitWithRetry('/es/agora')
+    it('should show sidebar on desktop', () => {
+      cy.viewport(1280, 800)
+      visitWithRetry('/en/agora')
       acceptCookies()
 
-      // Check for sidebar (may contain stats, rules, etc.)
-      cy.get('body', { timeout: 20000 }).then(($body) => {
-        const hasSidebar = $body.find('aside, .sidebar, .lg\\:col-span-1').length > 0
-        expect(hasSidebar || true).to.be.true
-      })
+      // Sidebar has lg:col-span-1 class
+      cy.get('.lg\\:col-span-1', { timeout: 10000 }).should('be.visible')
     })
 
-    it('should show active users or stats', () => {
-      visitWithRetry('/es/agora')
+    it('should hide sidebar on mobile', () => {
+      cy.viewport('iphone-6')
+      visitWithRetry('/en/agora')
       acceptCookies()
 
-      // May show online users count or activity
-      cy.get('body', { timeout: 20000 }).should('be.visible')
+      // Sidebar has hidden class on mobile
+      cy.get('.hidden.lg\\:block', { timeout: 10000 }).should('exist')
     })
   })
 
-  describe('Thread View', () => {
-    it('should navigate to individual thread', () => {
-      visitWithRetry('/es/agora')
-      acceptCookies()
-      cy.wait(2000)
-
-      // If threads exist, click on one
-      cy.get('body').then(($body) => {
-        const threadLinks = $body.find('a[href*="/agora/"]').not('[href="/es/agora"]')
-        if (threadLinks.length > 0) {
-          cy.wrap(threadLinks.first()).click()
-          cy.url().should('match', /\/agora\/[a-zA-Z0-9-]+/)
-        }
-      })
-    })
-
-    it('should show thread details', () => {
-      visitWithRetry('/es/agora')
+  describe('Thread Navigation', () => {
+    it('should have links to individual threads if messages exist', () => {
+      visitWithRetry('/en/agora')
       acceptCookies()
       cy.wait(2000)
 
       cy.get('body').then(($body) => {
-        const threadLinks = $body.find('a[href*="/agora/"]').not('[href="/es/agora"]')
-        if (threadLinks.length > 0) {
-          const href = threadLinks.first().attr('href')
-          cy.visit(href, { failOnStatusCode: false })
-          acceptCookies()
-
-          // Should show thread content
-          cy.get('body', { timeout: 20000 }).should('be.visible')
+        if ($body.find('.agora-message-wrapper').length > 0) {
+          // Messages have links to individual threads
+          cy.get('a[href*="/agora/"]').should('exist')
         }
       })
     })

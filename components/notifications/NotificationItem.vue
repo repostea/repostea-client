@@ -81,7 +81,7 @@
         <div class="mt-2 space-y-2">
           <!-- Notification body -->
           <div class="notification-body text-sm">
-            <div v-html="notification.body"/>
+            <div v-html="sanitizeHtml(notification.body)" />
           </div>
 
           <!-- Timestamp and View link -->
@@ -96,7 +96,10 @@
 
             <!-- View link if actionUrl exists (not for achievements/karma) -->
             <a
-              v-if="notification.actionUrl && !['achievement', 'karma_level'].includes(notification.type)"
+              v-if="
+                notification.actionUrl &&
+                !['achievement', 'karma_level'].includes(notification.type)
+              "
               :href="notification.actionUrl"
               class="text-xs text-primary hover:text-primary-dark dark:hover:text-primary-light font-medium hover:underline flex items-center gap-1"
               @click="handleViewClick"
@@ -123,9 +126,18 @@
 <script setup>
   import { ref, computed, onMounted, onUnmounted } from 'vue'
   import { useI18n } from '#i18n'
-
+  import DOMPurify from 'dompurify'
+  import { isSafeActionUrl } from '@/utils/urlSecurity'
 
   const { t, locale } = useI18n()
+
+  const sanitizeHtml = (html) => {
+    if (!html) return ''
+    return DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'a', 'span'],
+      ALLOWED_ATTR: ['href', 'target', 'rel', 'class'],
+    })
+  }
 
   // Ref for the notification element (for Intersection Observer)
   const notificationRef = ref(null)
@@ -186,9 +198,11 @@
 
   const username = computed(() => {
     if (!isSocialNotification.value || !props.notification.data) return null
-    return props.notification.data.commenter_username ||
-           props.notification.data.replier_username ||
-           props.notification.data.mentioner_username
+    return (
+      props.notification.data.commenter_username ||
+      props.notification.data.replier_username ||
+      props.notification.data.mentioner_username
+    )
   })
 
   const notificationAriaLabel = computed(() => {
@@ -233,7 +247,7 @@
     // Navigate after a brief delay to allow the mark-read request to be sent
     // Using setTimeout ensures the API call is initiated before navigation
     setTimeout(() => {
-      if (props.notification.actionUrl) {
+      if (isSafeActionUrl(props.notification.actionUrl)) {
         window.location.href = props.notification.actionUrl
       }
     }, 100)
@@ -279,7 +293,7 @@
       return new Date(timestamp).toLocaleString(locale.value, {
         timeZone: 'Europe/Madrid',
         dateStyle: 'long',
-        timeStyle: 'short'
+        timeStyle: 'short',
       })
     } catch (_error) {
       console.error('Error formatting full date:', _error)

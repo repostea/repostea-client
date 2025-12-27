@@ -21,9 +21,7 @@
     </div>
 
     <div class="mb-4">
-      <label class="block text-sm font-medium mb-1">
-        {{ t('submit.form.description') }} *
-      </label>
+      <label class="block text-sm font-medium mb-1"> {{ t('submit.form.description') }} * </label>
       <DescriptionEditor
         :model-value="content"
         :placeholder="t('submit.form.description_placeholder')"

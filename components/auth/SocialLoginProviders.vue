@@ -2,11 +2,11 @@
   <div v-if="enabledProvidersCount > 0" class="social-login-section">
     <!-- Divider with "or continue with" text -->
     <div class="relative my-6 flex items-center">
-      <div class="flex-grow border-t social-divider"/>
+      <div class="flex-grow border-t social-divider" />
       <span class="flex-shrink mx-4 text-sm text-gray-500 dark:text-gray-400">
         {{ t('auth.or_continue_with') }}
       </span>
-      <div class="flex-grow border-t social-divider"/>
+      <div class="flex-grow border-t social-divider" />
     </div>
 
     <!-- Social login buttons grid -->
@@ -139,7 +139,11 @@
                 class="w-full px-3 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 transition-colors"
                 @mousedown.prevent="selectInstance(instance)"
               >
-                <Icon name="simple-icons:mastodon" class="text-[#6364FF] text-xs" aria-hidden="true" />
+                <Icon
+                  name="simple-icons:mastodon"
+                  class="text-[#6364FF] text-xs"
+                  aria-hidden="true"
+                />
                 <span>{{ instance }}</span>
               </button>
             </div>
@@ -166,12 +170,7 @@
               class="flex-1 bg-[#6364FF] hover:bg-[#5354E0] text-white py-2 rounded-md transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               @click="handleMastodonLogin"
             >
-              <LoadingSpinner
-                v-if="mastodonLoading"
-                size="sm"
-                color="white"
-                display="inline"
-              />
+              <LoadingSpinner v-if="mastodonLoading" size="sm" color="white" display="inline" />
               <Icon v-else name="simple-icons:mastodon" aria-hidden="true" />
               {{ mastodonLoading ? t('auth.mastodon_connecting') : t('auth.continue') }}
             </button>
@@ -248,12 +247,7 @@
               class="flex-1 bg-[#00BC8C] hover:bg-[#00A67C] text-white py-2 rounded-md transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               @click="handleMbinLogin"
             >
-              <LoadingSpinner
-                v-if="mbinLoading"
-                size="sm"
-                color="white"
-                display="inline"
-              />
+              <LoadingSpinner v-if="mbinLoading" size="sm" color="white" display="inline" />
               <Icon v-else name="simple-icons:lemmy" aria-hidden="true" />
               {{ mbinLoading ? t('auth.mbin_connecting') : t('auth.continue') }}
             </button>
@@ -263,265 +257,259 @@
     </div>
 
     <!-- Provider info footer -->
-    <p v-if="!expandedProvider && enabledProvidersCount > 0" class="mt-4 text-xs text-center text-text-muted dark:text-text-dark-muted">
+    <p
+      v-if="!expandedProvider && enabledProvidersCount > 0"
+      class="mt-4 text-xs text-center text-text-muted dark:text-text-dark-muted"
+    >
       {{ t('auth.social_login_info') }}
     </p>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch, nextTick } from 'vue'
-import { useI18n } from '#i18n'
-import { useMastodonAuth } from '@/composables/useMastodonAuth'
-import { useMbinAuth } from '@/composables/useMbinAuth'
-import { useTelegramAuth } from '@/composables/useTelegramAuth'
-import LoadingSpinner from '~/components/common/LoadingSpinner.vue'
+  import { ref, computed, onMounted, watch, nextTick } from 'vue'
+  import { useI18n } from '#i18n'
+  import { useMastodonAuth } from '@/composables/useMastodonAuth'
+  import { useMbinAuth } from '@/composables/useMbinAuth'
+  import { useTelegramAuth } from '@/composables/useTelegramAuth'
+  import LoadingSpinner from '~/components/common/LoadingSpinner.vue'
 
-defineEmits(['login-success', 'login-error'])
+  defineEmits(['login-success', 'login-error'])
 
-const { t } = useI18n()
+  const { t } = useI18n()
 
-// Mastodon auth
-const {
-  loading: mastodonLoading,
-  error: mastodonError,
-  federationEnabled: mastodonEnabled,
-  checkFederationStatus: checkMastodonStatus,
-  redirectToMastodon,
-} = useMastodonAuth()
+  // Mastodon auth
+  const {
+    loading: mastodonLoading,
+    error: mastodonError,
+    federationEnabled: mastodonEnabled,
+    checkFederationStatus: checkMastodonStatus,
+    redirectToMastodon,
+  } = useMastodonAuth()
 
-// Mbin auth
-const {
-  loading: mbinLoading,
-  error: mbinError,
-  mbinEnabled,
-  checkMbinStatus,
-  redirectToMbin,
-} = useMbinAuth()
+  // Mbin auth
+  const {
+    loading: mbinLoading,
+    error: mbinError,
+    mbinEnabled,
+    checkMbinStatus,
+    redirectToMbin,
+  } = useMbinAuth()
 
-// Telegram auth
-const {
-  loading: telegramLoading,
-  error: telegramError,
-  telegramEnabled,
-  checkTelegramStatus,
-  initializeTelegramWidget,
-} = useTelegramAuth()
+  // Telegram auth
+  const {
+    loading: telegramLoading,
+    error: telegramError,
+    telegramEnabled,
+    checkTelegramStatus,
+    initializeTelegramWidget,
+  } = useTelegramAuth()
 
-// Local state
-const expandedProvider = ref(null)
-const mastodonInstance = ref('')
-const mbinInstance = ref('')
-const telegramWidgetContainer = ref(null)
-const showInstanceDropdown = ref(false)
-const showMbinInstanceDropdown = ref(false)
+  // Local state
+  const expandedProvider = ref(null)
+  const mastodonInstance = ref('')
+  const mbinInstance = ref('')
+  const telegramWidgetContainer = ref(null)
+  const showInstanceDropdown = ref(false)
+  const showMbinInstanceDropdown = ref(false)
 
-// Popular Mastodon instances (sorted by activity/popularity)
-const popularMastodonInstances = [
-  'mastodon.social',
-  'mas.to',
-  'mastodon.online',
-  'mstdn.social',
-  'fosstodon.org',
-  'mastodon.world',
-  'techhub.social',
-  'infosec.exchange',
-]
+  // Popular Mastodon instances (sorted by activity/popularity)
+  const popularMastodonInstances = [
+    'mastodon.social',
+    'mas.to',
+    'mastodon.online',
+    'mstdn.social',
+    'fosstodon.org',
+    'mastodon.world',
+    'techhub.social',
+    'infosec.exchange',
+  ]
 
-// Popular Mbin/Kbin instances
-const popularMbinInstances = [
-  'fedia.io',
-  'kbin.run',
-  'kbin.melroy.org',
-  'nadajnik.org',
-]
+  // Popular Mbin/Kbin instances
+  const popularMbinInstances = ['fedia.io', 'kbin.run', 'kbin.melroy.org', 'nadajnik.org']
 
-// Computed - filtered instances based on input
-const filteredInstances = computed(() => {
-  const query = mastodonInstance.value.toLowerCase().trim()
-  if (!query) return popularMastodonInstances
-  return popularMastodonInstances.filter((instance) => instance.toLowerCase().includes(query))
-})
+  // Computed - filtered instances based on input
+  const filteredInstances = computed(() => {
+    const query = mastodonInstance.value.toLowerCase().trim()
+    if (!query) return popularMastodonInstances
+    return popularMastodonInstances.filter((instance) => instance.toLowerCase().includes(query))
+  })
 
-const filteredMbinInstances = computed(() => {
-  const query = mbinInstance.value.toLowerCase().trim()
-  if (!query) return popularMbinInstances
-  return popularMbinInstances.filter((instance) => instance.toLowerCase().includes(query))
-})
+  const filteredMbinInstances = computed(() => {
+    const query = mbinInstance.value.toLowerCase().trim()
+    if (!query) return popularMbinInstances
+    return popularMbinInstances.filter((instance) => instance.toLowerCase().includes(query))
+  })
 
-// Computed
-const enabledProvidersCount = computed(() => {
-  let count = 0
-  if (telegramEnabled.value) count++
-  if (mastodonEnabled.value) count++
-  if (mbinEnabled.value) count++
-  return count
-})
+  // Computed
+  const enabledProvidersCount = computed(() => {
+    let count = 0
+    if (telegramEnabled.value) count++
+    if (mastodonEnabled.value) count++
+    if (mbinEnabled.value) count++
+    return count
+  })
 
-const gridClass = computed(() => {
-  const count = enabledProvidersCount.value
-  if (count === 1) return 'grid-cols-1'
-  if (count === 2) return 'grid-cols-2'
-  // With 3+ providers, stack vertically for better readability
-  return 'grid-cols-1'
-})
+  const gridClass = computed(() => {
+    const count = enabledProvidersCount.value
+    if (count === 1) return 'grid-cols-1'
+    if (count === 2) return 'grid-cols-2'
+    // With 3+ providers, stack vertically for better readability
+    return 'grid-cols-1'
+  })
 
-// Computed error message for Mbin (translates error codes)
-const mbinErrorMessage = computed(() => {
-  if (!mbinError.value) return ''
-  if (mbinError.value === 'instance_forbidden') {
-    return t('auth.mbin_error_403')
-  }
-  if (mbinError.value === 'connection_failed') {
-    return t('auth.mbin_error_instance')
-  }
-  return mbinError.value
-})
-
-// Methods
-function collapseProvider() {
-  expandedProvider.value = null
-  mastodonInstance.value = ''
-  mbinInstance.value = ''
-  showInstanceDropdown.value = false
-  showMbinInstanceDropdown.value = false
-}
-
-function selectInstance(instance) {
-  mastodonInstance.value = instance
-  showInstanceDropdown.value = false
-}
-
-function selectMbinInstance(instance) {
-  mbinInstance.value = instance
-  showMbinInstanceDropdown.value = false
-}
-
-function handleInstanceBlur() {
-  // Small delay to allow click on dropdown item
-  setTimeout(() => {
-    showInstanceDropdown.value = false
-  }, 150)
-}
-
-function handleMbinInstanceBlur() {
-  setTimeout(() => {
-    showMbinInstanceDropdown.value = false
-  }, 150)
-}
-
-async function handleMastodonLogin() {
-  if (mastodonLoading.value || !mastodonInstance.value.trim()) return
-  showInstanceDropdown.value = false
-  await redirectToMastodon(mastodonInstance.value.trim())
-}
-
-async function handleMbinLogin() {
-  if (mbinLoading.value || !mbinInstance.value.trim()) return
-  showMbinInstanceDropdown.value = false
-  await redirectToMbin(mbinInstance.value.trim())
-}
-
-// Watch for provider expansion to initialize widgets
-watch(expandedProvider, async (provider) => {
-  if (provider === 'telegram') {
-    // Wait for next tick to ensure the container is rendered
-    await nextTick()
-    if (telegramWidgetContainer.value) {
-      await initializeTelegramWidget(telegramWidgetContainer.value)
+  // Computed error message for Mbin (translates error codes)
+  const mbinErrorMessage = computed(() => {
+    if (!mbinError.value) return ''
+    if (mbinError.value === 'instance_forbidden') {
+      return t('auth.mbin_error_403')
     }
-  }
-})
+    if (mbinError.value === 'connection_failed') {
+      return t('auth.mbin_error_instance')
+    }
+    return mbinError.value
+  })
 
-// Initialize on mount
-onMounted(async () => {
-  await Promise.all([
-    checkMastodonStatus(),
-    checkMbinStatus(),
-    checkTelegramStatus(),
-  ])
-})
+  // Methods
+  function collapseProvider() {
+    expandedProvider.value = null
+    mastodonInstance.value = ''
+    mbinInstance.value = ''
+    showInstanceDropdown.value = false
+    showMbinInstanceDropdown.value = false
+  }
+
+  function selectInstance(instance) {
+    mastodonInstance.value = instance
+    showInstanceDropdown.value = false
+  }
+
+  function selectMbinInstance(instance) {
+    mbinInstance.value = instance
+    showMbinInstanceDropdown.value = false
+  }
+
+  function handleInstanceBlur() {
+    // Small delay to allow click on dropdown item
+    setTimeout(() => {
+      showInstanceDropdown.value = false
+    }, 150)
+  }
+
+  function handleMbinInstanceBlur() {
+    setTimeout(() => {
+      showMbinInstanceDropdown.value = false
+    }, 150)
+  }
+
+  async function handleMastodonLogin() {
+    if (mastodonLoading.value || !mastodonInstance.value.trim()) return
+    showInstanceDropdown.value = false
+    await redirectToMastodon(mastodonInstance.value.trim())
+  }
+
+  async function handleMbinLogin() {
+    if (mbinLoading.value || !mbinInstance.value.trim()) return
+    showMbinInstanceDropdown.value = false
+    await redirectToMbin(mbinInstance.value.trim())
+  }
+
+  // Watch for provider expansion to initialize widgets
+  watch(expandedProvider, async (provider) => {
+    if (provider === 'telegram') {
+      // Wait for next tick to ensure the container is rendered
+      await nextTick()
+      if (telegramWidgetContainer.value) {
+        await initializeTelegramWidget(telegramWidgetContainer.value)
+      }
+    }
+  })
+
+  // Initialize on mount
+  onMounted(async () => {
+    await Promise.all([checkMastodonStatus(), checkMbinStatus(), checkTelegramStatus()])
+  })
 </script>
 
 <style scoped>
-.social-divider {
-  border-color: var(--color-border-default);
-}
+  .social-divider {
+    border-color: var(--color-border-default);
+  }
 
-.social-btn {
-  @apply w-full flex items-center justify-center py-2.5 px-4 rounded-md border transition-all duration-200;
-  background-color: var(--color-bg-subtle);
-  border-color: var(--color-border-default);
-}
+  .social-btn {
+    @apply w-full flex items-center justify-center py-2.5 px-4 rounded-md border transition-all duration-200;
+    background-color: var(--color-bg-subtle);
+    border-color: var(--color-border-default);
+  }
 
-.social-btn:hover {
-  @apply transform scale-[1.02];
-}
+  .social-btn:hover {
+    @apply transform scale-[1.02];
+  }
 
-.beta-badge {
-  @apply ml-2 px-1.5 py-0.5 text-xs font-medium rounded;
-  background-color: rgba(251, 191, 36, 0.2);
-  color: #d97706;
-}
+  .beta-badge {
+    @apply ml-2 px-1.5 py-0.5 text-xs font-medium rounded;
+    background-color: rgba(251, 191, 36, 0.2);
+    color: #d97706;
+  }
 
-.dark .beta-badge {
-  background-color: rgba(251, 191, 36, 0.15);
-  color: #fbbf24;
-}
+  .dark .beta-badge {
+    background-color: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+  }
 
-.social-btn:hover .beta-badge {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-}
+  .social-btn:hover .beta-badge {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
 
-.telegram-btn:hover {
-  background-color: #26A5E4;
-  border-color: #26A5E4;
-  color: white;
-}
+  .telegram-btn:hover {
+    background-color: #26a5e4;
+    border-color: #26a5e4;
+    color: white;
+  }
 
-.mastodon-btn:hover {
-  background-color: #6364FF;
-  border-color: #6364FF;
-  color: white;
-}
+  .mastodon-btn:hover {
+    background-color: #6364ff;
+    border-color: #6364ff;
+    color: white;
+  }
 
-.mbin-btn:hover {
-  background-color: #00BC8C;
-  border-color: #00BC8C;
-  color: white;
-}
+  .mbin-btn:hover {
+    background-color: #00bc8c;
+    border-color: #00bc8c;
+    color: white;
+  }
 
-.social-input {
-  background-color: var(--color-bg-input);
-  border-color: var(--color-border-default);
-}
+  .social-input {
+    background-color: var(--color-bg-input);
+    border-color: var(--color-border-default);
+  }
 
-.social-cancel-btn {
-  background-color: var(--color-bg-subtle);
-  border-color: var(--color-border-default);
-}
+  .social-cancel-btn {
+    background-color: var(--color-bg-subtle);
+    border-color: var(--color-border-default);
+  }
 
-.social-cancel-btn:hover {
-  background-color: var(--color-bg-active);
-}
+  .social-cancel-btn:hover {
+    background-color: var(--color-bg-active);
+  }
 
-.social-instance-btn {
-  background-color: var(--color-bg-subtle);
-  border-color: var(--color-border-default);
-}
+  .social-instance-btn {
+    background-color: var(--color-bg-subtle);
+    border-color: var(--color-border-default);
+  }
 
-.social-instance-btn:hover {
-  background-color: var(--color-bg-active);
-}
+  .social-instance-btn:hover {
+    background-color: var(--color-bg-active);
+  }
 
-.provider-form {
-  @apply p-4 rounded-lg border;
-  background-color: var(--color-bg-subtle);
-  border-color: var(--color-border-default);
-}
+  .provider-form {
+    @apply p-4 rounded-lg border;
+    background-color: var(--color-bg-subtle);
+    border-color: var(--color-border-default);
+  }
 
-.telegram-widget-container {
-  min-height: 40px;
-}
+  .telegram-widget-container {
+    min-height: 40px;
+  }
 </style>

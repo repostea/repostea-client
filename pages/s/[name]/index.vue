@@ -1,9 +1,15 @@
 <template>
   <div class="container mx-auto p-2 sm:p-4">
     <!-- Beta Warning Banner -->
-    <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-6">
+    <div
+      class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-6"
+    >
       <div class="flex items-start gap-3">
-        <Icon name="fa6-solid:triangle-exclamation" class="text-yellow-600 dark:text-yellow-400 text-lg mt-0.5" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:triangle-exclamation"
+          class="text-yellow-600 dark:text-yellow-400 text-lg mt-0.5"
+          aria-hidden="true"
+        />
         <div>
           <h3 class="font-semibold text-yellow-900 dark:text-yellow-200 text-sm mb-1">
             {{ $t('subs.beta_warning.title') }}
@@ -28,7 +34,11 @@
       <div
         class="max-w-2xl mx-auto sub-view-card-bg rounded-lg shadow-sm border sub-view-border p-8 text-center"
       >
-        <Icon name="fa6-solid:folder-open" class="text-6xl text-gray-400 dark:text-gray-600 mb-4" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:folder-open"
+          class="text-6xl text-gray-400 dark:text-gray-600 mb-4"
+          aria-hidden="true"
+        />
         <h2 class="text-2xl font-bold mb-3 text-text dark:text-text-dark">
           {{ $t('subs.sub_not_found_title') }}
         </h2>
@@ -57,19 +67,26 @@
     <!-- Sub details -->
     <div v-else-if="sub" class="space-y-3 sm:space-y-6">
       <!-- Sub header -->
-      <div
-        class="sub-view-card-bg rounded-lg shadow-sm border sub-view-border"
-      >
+      <div class="sub-view-card-bg rounded-lg shadow-sm border sub-view-border">
         <div class="p-3 sm:p-6">
           <div class="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3">
-            <SubIcon :sub="sub" size="xl" class="!w-10 !h-10 sm:!w-16 sm:!h-16 !text-xl sm:!text-2xl !rounded-xl" />
+            <SubIcon
+              :sub="sub"
+              size="xl"
+              class="!w-10 !h-10 sm:!w-16 sm:!h-16 !text-xl sm:!text-2xl !rounded-xl"
+            />
             <div class="flex-1 min-w-0">
               <h1 class="text-lg sm:text-2xl font-bold break-words">s/{{ sub.name }}</h1>
-              <p class="text-xs sm:text-base text-gray-600 dark:text-gray-400 break-words">{{ sub.display_name }}</p>
+              <p class="text-xs sm:text-base text-gray-600 dark:text-gray-400 break-words">
+                {{ sub.display_name }}
+              </p>
             </div>
             <div v-if="!sub.is_member" class="flex-shrink-0">
               <!-- Solicitud pendiente -->
-              <div v-if="requestPending" class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 rounded-md">
+              <div
+                v-if="requestPending"
+                class="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 rounded-md"
+              >
                 <Icon name="fa6-solid:clock" class="text-sm" aria-hidden="true" />
                 {{ $t('subs.request_pending_status') }}
               </div>
@@ -95,15 +112,21 @@
 
           <p class="mb-2 sm:mb-3 text-xs sm:text-base">{{ sub.description }}</p>
 
-          <div class="flex flex-wrap items-center justify-between gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+          <div
+            class="flex flex-wrap items-center justify-between gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400"
+          >
             <div class="flex flex-wrap gap-2 sm:gap-4">
               <div class="flex items-center">
                 <Icon name="fa6-solid:users" class="mr-1.5 sm:mr-2" aria-hidden="true" />
-                <span>{{ (sub.members_count || 0).toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }) }}</span>
+                <span>{{
+                  (sub.members_count || 0).toLocaleString('es-ES', { timeZone: 'Europe/Madrid' })
+                }}</span>
               </div>
               <div class="flex items-center">
                 <Icon name="fa6-solid:file-lines" class="mr-1.5 sm:mr-2" aria-hidden="true" />
-                <span>{{ (sub.posts_count || 0).toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }) }}</span>
+                <span>{{
+                  (sub.posts_count || 0).toLocaleString('es-ES', { timeZone: 'Europe/Madrid' })
+                }}</span>
               </div>
               <div class="flex items-center text-gray-500 dark:text-gray-500">
                 <Icon name="fa6-solid:calendar-days" class="mr-1.5 sm:mr-2" aria-hidden="true" />
@@ -138,7 +161,11 @@
         class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4"
       >
         <div class="flex items-start gap-3">
-          <Icon name="fa6-solid:crown" class="text-orange-600 dark:text-orange-400 text-lg mt-0.5" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:crown"
+            class="text-orange-600 dark:text-orange-400 text-lg mt-0.5"
+            aria-hidden="true"
+          />
           <div class="flex-1">
             <h3 class="font-semibold text-orange-900 dark:text-orange-200 text-sm mb-1">
               {{ $t('subs.orphaned_sub') }}
@@ -151,9 +178,16 @@
               class="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white text-sm rounded-md transition-colors inline-flex items-center gap-2 disabled:opacity-50"
               @click="claimOwnership"
             >
-              <Icon v-if="claimingOwnership" name="fa6-solid:spinner" class="animate-spin" aria-hidden="true" />
+              <Icon
+                v-if="claimingOwnership"
+                name="fa6-solid:spinner"
+                class="animate-spin"
+                aria-hidden="true"
+              />
               <Icon v-else name="fa6-solid:hand" aria-hidden="true" />
-              {{ sub.has_claim_priority ? $t('subs.claim_as_moderator') : $t('subs.claim_as_member') }}
+              {{
+                sub.has_claim_priority ? $t('subs.claim_as_moderator') : $t('subs.claim_as_member')
+              }}
             </button>
           </div>
         </div>
@@ -165,7 +199,11 @@
         class="bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg p-4"
       >
         <div class="flex items-start gap-3">
-          <Icon name="fa6-solid:circle-info" class="text-gray-500 dark:text-gray-400 text-lg mt-0.5" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:circle-info"
+            class="text-gray-500 dark:text-gray-400 text-lg mt-0.5"
+            aria-hidden="true"
+          />
           <div>
             <h3 class="font-semibold text-gray-700 dark:text-gray-300 text-sm mb-1">
               {{ $t('subs.orphaned_sub') }}
@@ -204,14 +242,17 @@
         <!-- Sidebar -->
         <div class="lg:col-span-1 space-y-3 sm:space-y-6">
           <!-- About the sub -->
-          <div
-            class="sub-view-card-bg rounded-lg shadow-sm border sub-view-border"
-          >
+          <div class="sub-view-card-bg rounded-lg shadow-sm border sub-view-border">
             <div class="p-3 sm:p-4">
               <h3 class="font-bold text-sm sm:text-base mb-2 sm:mb-3">{{ $t('subs.about') }}</h3>
-              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">{{ sub.description }}</p>
+              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">
+                {{ sub.description }}
+              </p>
 
-              <div v-if="sub.creator?.username && !sub.hide_owner" class="flex justify-between mb-2 text-xs sm:text-sm">
+              <div
+                v-if="sub.creator?.username && !sub.hide_owner"
+                class="flex justify-between mb-2 text-xs sm:text-sm"
+              >
                 <span class="font-medium">{{ $t('subs.owner') }}</span>
                 <NuxtLink
                   :to="localePath(`/u/${sub.creator.username}`)"
@@ -221,7 +262,10 @@
                 </NuxtLink>
               </div>
 
-              <div class="flex justify-between text-xs sm:text-sm" :class="{ 'mt-2': !sub.creator?.username || sub.hide_owner }">
+              <div
+                class="flex justify-between text-xs sm:text-sm"
+                :class="{ 'mt-2': !sub.creator?.username || sub.hide_owner }"
+              >
                 <span class="font-medium">{{ $t('subs.created_at') }}</span>
                 <span class="text-gray-600 dark:text-gray-400">{{
                   formatDateShort(sub.created_at)
@@ -243,7 +287,9 @@
               <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">
                 {{ $t('subs.fediverse_follow_description') }}
               </p>
-              <code class="text-xs sm:text-sm text-primary bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded block break-all">
+              <code
+                class="text-xs sm:text-sm text-primary bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded block break-all"
+              >
                 {{ sub.fediverse_handle }}
               </code>
             </div>
@@ -255,7 +301,9 @@
             class="sub-view-card-bg rounded-lg shadow-sm border sub-view-border"
           >
             <div class="p-3 sm:p-4">
-              <h3 class="font-bold text-sm sm:text-base mb-2 sm:mb-3">{{ $t('subs.moderators') }}</h3>
+              <h3 class="font-bold text-sm sm:text-base mb-2 sm:mb-3">
+                {{ $t('subs.moderators') }}
+              </h3>
               <div class="space-y-2">
                 <NuxtLink
                   v-for="mod in sub.public_moderators"
@@ -269,11 +317,17 @@
                     :alt="mod.username"
                     class="w-6 h-6 rounded-full object-cover"
                   >
-                  <div v-else class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
+                  <div
+                    v-else
+                    class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center"
+                  >
                     <Icon name="fa6-solid:user" class="text-primary text-xs" aria-hidden="true" />
                   </div>
                   <span class="text-primary hover:underline">{{ mod.username }}</span>
-                  <span v-if="mod.pivot?.is_owner" class="text-[10px] bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 px-1.5 py-0.5 rounded">
+                  <span
+                    v-if="mod.pivot?.is_owner"
+                    class="text-[10px] bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 px-1.5 py-0.5 rounded"
+                  >
                     {{ $t('subs.owner') }}
                   </span>
                 </NuxtLink>
@@ -300,10 +354,7 @@
           </div>
 
           <!-- Create post button -->
-          <div
-            v-if="sub"
-            class="sub-view-card-bg rounded-lg shadow-sm border sub-view-border"
-          >
+          <div v-if="sub" class="sub-view-card-bg rounded-lg shadow-sm border sub-view-border">
             <div class="p-3 sm:p-4">
               <NuxtLink
                 :to="localePath(`/submit?sub=${sub.name}`)"
@@ -326,7 +377,9 @@
       @click.self="showJoinRequestModal = false"
     >
       <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full">
-        <div class="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+        <div
+          class="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between"
+        >
           <h3 class="text-lg font-bold flex items-center gap-2">
             <Icon name="fa6-solid:lock" class="text-primary" aria-hidden="true" />
             {{ $t('subs.request_join_title') }}
@@ -367,7 +420,12 @@
             class="px-4 py-2 text-sm bg-primary text-white rounded-md hover:bg-primary-dark disabled:opacity-50 flex items-center gap-2"
             @click="submitJoinRequest"
           >
-            <Icon v-if="submittingRequest" name="fa6-solid:spinner" class="animate-spin" aria-hidden="true" />
+            <Icon
+              v-if="submittingRequest"
+              name="fa6-solid:spinner"
+              class="animate-spin"
+              aria-hidden="true"
+            />
             {{ $t('subs.send_request') }}
           </button>
         </div>
@@ -507,9 +565,9 @@
           link: [
             {
               rel: 'canonical',
-              href: subPageUrl
-            }
-          ]
+              href: subPageUrl,
+            },
+          ],
         })
 
         // Add CollectionPage structured data
@@ -525,13 +583,13 @@
                 name: `s/${newSubValue.name} - ${newSubValue.title || newSubValue.name}`,
                 description: descriptionText,
                 isPartOf: {
-                  '@id': `${siteBaseUrl}/#website`
+                  '@id': `${siteBaseUrl}/#website`,
                 },
-                inLanguage: 'es-ES'
+                inLanguage: 'es-ES',
               }),
-              tagPosition: 'bodyClose'
-            }
-          ]
+              tagPosition: 'bodyClose',
+            },
+          ],
         })
       }
     },
@@ -625,7 +683,7 @@
     try {
       const { $api } = useNuxtApp()
       const response = await $api.post(`/subs/${sub.value.id}/join`, {
-        message: joinRequestMessage.value
+        message: joinRequestMessage.value,
       })
 
       if (response.data?.request_pending) {

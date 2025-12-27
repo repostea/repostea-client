@@ -37,7 +37,8 @@ export const useAuthStore = defineStore('auth', {
       }
       // Set cookie with 30 days expiration
       const config = useRuntimeConfig()
-      const cookieDomain = process.env.NODE_ENV === 'production' ? config.public.cookieDomain : undefined
+      const cookieDomain =
+        process.env.NODE_ENV === 'production' ? config.public.cookieDomain : undefined
       const tokenCookie = useCookie('token', {
         maxAge: 60 * 60 * 24 * 30, // 30 days
         sameSite: 'lax',
@@ -55,7 +56,8 @@ export const useAuthStore = defineStore('auth', {
       }
       // Save user data to cookie for SSR
       const config = useRuntimeConfig()
-      const cookieDomain = process.env.NODE_ENV === 'production' ? config.public.cookieDomain : undefined
+      const cookieDomain =
+        process.env.NODE_ENV === 'production' ? config.public.cookieDomain : undefined
       const userCookie = useCookie('user_data', {
         maxAge: 60 * 60 * 24 * 30, // 30 days
         sameSite: 'lax',
@@ -69,13 +71,30 @@ export const useAuthStore = defineStore('auth', {
     clearToken() {
       this.token = null
       this.user = null
+
+      const config = useRuntimeConfig()
+      const cookieDomain =
+        process.env.NODE_ENV === 'production' ? config.public.cookieDomain : undefined
+
       if (process.client) {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
+
+        // Clear cookies using native API (immediate effect before redirects)
+        const cookieNames = ['token', 'user_data']
+        const expiredDate = 'Thu, 01 Jan 1970 00:00:00 GMT'
+
+        for (const name of cookieNames) {
+          // Delete with domain
+          if (cookieDomain) {
+            document.cookie = `${name}=; expires=${expiredDate}; path=/; domain=${cookieDomain}`
+          }
+          // Delete without domain (handles cookies set on exact hostname)
+          document.cookie = `${name}=; expires=${expiredDate}; path=/`
+        }
       }
-      // Clear cookies with domain (new format)
-      const config = useRuntimeConfig()
-      const cookieDomain = process.env.NODE_ENV === 'production' ? config.public.cookieDomain : undefined
+
+      // Also clear via useCookie for SSR consistency
       const cookieOptionsWithDomain = {
         domain: cookieDomain,
       }
@@ -123,16 +142,13 @@ export const useAuthStore = defineStore('auth', {
             // Clear token on auth errors (401, 403) or user not found (404)
             // Not on network errors which may happen during deploys
             const status = error?.response?.status
-            const isAuthError = (status === 401 || status === 403 || status === 404) && error?.response?.data
+            const isAuthError =
+              (status === 401 || status === 403 || status === 404) && error?.response?.data
             if (isAuthError) {
-              console.warn('[Auth] Session invalid, logging out:', status)
               this.clearToken()
               this.user = null
               localStorage.removeItem('guest_user')
               localStorage.removeItem('user')
-            } else {
-              // Keep the cached user data and token for network errors
-              console.warn('[Auth] Failed to refresh user data, keeping cached session')
             }
           })
 
@@ -173,7 +189,7 @@ export const useAuthStore = defineStore('auth', {
         // Return both user and email verification status
         return {
           user: this.user,
-          email_verification_required: response.data.email_verification_required || false
+          email_verification_required: response.data.email_verification_required || false,
         }
       } catch (error) {
         this.error = error.response?.data?.message || 'Login error'
@@ -202,7 +218,7 @@ export const useAuthStore = defineStore('auth', {
         return {
           user: this.user,
           email_verification_required: response.data.email_verification_required || false,
-          status: response.data.status
+          status: response.data.status,
         }
       } catch (error) {
         this.error = error.response?.data?.message || 'Registration error'
@@ -253,8 +269,7 @@ export const useAuthStore = defineStore('auth', {
 
           // For network errors or server unavailable, retry after delay
           if (attempt < maxRetries) {
-            console.warn(`[Auth] Fetch user attempt ${attempt} failed, retrying in ${delayMs}ms...`)
-            await new Promise(resolve => setTimeout(resolve, delayMs))
+            await new Promise((resolve) => setTimeout(resolve, delayMs))
             // Exponential backoff
             delayMs = Math.min(delayMs * 2, 5000)
           }
@@ -308,10 +323,7 @@ export const useAuthStore = defineStore('auth', {
         const hasValidResponse = error?.response?.data
 
         if ((status === 401 || status === 403 || status === 404) && hasValidResponse) {
-          console.warn('[Auth] fetchUser: Session invalid, clearing token:', status)
           this.clearToken()
-        } else {
-          console.warn('[Auth] fetchUser: Error (keeping session):', error?.message || error)
         }
         throw error
       } finally {

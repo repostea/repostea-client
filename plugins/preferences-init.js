@@ -5,9 +5,8 @@ export default defineNuxtPlugin(async (_nuxtApp) => {
   // Initialize preferences from cookie during SSR
   if (prefsCookie.value) {
     try {
-      const prefs = typeof prefsCookie.value === 'string'
-        ? JSON.parse(prefsCookie.value)
-        : prefsCookie.value
+      const prefs =
+        typeof prefsCookie.value === 'string' ? JSON.parse(prefsCookie.value) : prefsCookie.value
 
       if (prefs.theme) {
         prefsStore.theme = prefs.theme

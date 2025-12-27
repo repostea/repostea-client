@@ -6,7 +6,7 @@
       @click.self="close"
     >
       <!-- Backdrop -->
-      <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" @click="close"/>
+      <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" @click="close" />
 
       <!-- Modal -->
       <div
@@ -19,7 +19,10 @@
         <!-- Header -->
         <div class="card-bg p-6 border-b audio-modal-border">
           <div class="flex items-center justify-between mb-4">
-            <h2 id="audio-platforms-modal-title" class="text-2xl font-semibold text-text dark:text-text-dark flex items-center gap-2">
+            <h2
+              id="audio-platforms-modal-title"
+              class="text-2xl font-semibold text-text dark:text-text-dark flex items-center gap-2"
+            >
               <Icon name="fa6-solid:headphones" class="text-primary" aria-hidden="true" />
               {{ t('audio_help.modal_title') }}
             </h2>
@@ -40,7 +43,11 @@
               :placeholder="t('audio_help.search_placeholder')"
               class="w-full px-4 py-3 pl-11 rounded-lg audio-modal-input focus:outline-none focus:ring-2 focus:ring-primary"
             >
-            <Icon name="fa6-solid:magnifying-glass" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:magnifying-glass"
+              class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+              aria-hidden="true"
+            />
           </div>
         </div>
 
@@ -50,9 +57,7 @@
             <button
               :class="[
                 'px-3 py-1.5 rounded-md text-sm font-medium transition-colors',
-                selectedCategory === 'all'
-                  ? 'bg-primary text-white'
-                  : 'audio-modal-tab-inactive'
+                selectedCategory === 'all' ? 'bg-primary text-white' : 'audio-modal-tab-inactive',
               ]"
               @click="selectedCategory = 'all'"
             >
@@ -63,7 +68,7 @@
                 'px-3 py-1.5 rounded-md text-sm font-medium transition-colors inline-flex items-center',
                 selectedCategory === 'podcasts'
                   ? 'bg-primary text-white'
-                  : 'audio-modal-tab-inactive'
+                  : 'audio-modal-tab-inactive',
               ]"
               @click="selectedCategory = 'podcasts'"
             >
@@ -73,9 +78,7 @@
             <button
               :class="[
                 'px-3 py-1.5 rounded-md text-sm font-medium transition-colors inline-flex items-center',
-                selectedCategory === 'music'
-                  ? 'bg-primary text-white'
-                  : 'audio-modal-tab-inactive'
+                selectedCategory === 'music' ? 'bg-primary text-white' : 'audio-modal-tab-inactive',
               ]"
               @click="selectedCategory = 'music'"
             >
@@ -87,7 +90,7 @@
                 'px-3 py-1.5 rounded-md text-sm font-medium transition-colors inline-flex items-center',
                 selectedCategory === 'audiobooks'
                   ? 'bg-primary text-white'
-                  : 'audio-modal-tab-inactive'
+                  : 'audio-modal-tab-inactive',
               ]"
               @click="selectedCategory = 'audiobooks'"
             >
@@ -109,18 +112,24 @@
               <div class="flex items-start gap-4">
                 <!-- Icon -->
                 <div class="flex-shrink-0">
-                  <Icon :name="platform.icon" :class="['text-3xl', getPlatformIconColor(platform.id)]" aria-hidden="true" />
+                  <Icon
+                    :name="platform.icon"
+                    :class="['text-3xl', getPlatformIconColor(platform.id)]"
+                    aria-hidden="true"
+                  />
                 </div>
 
                 <!-- Content -->
                 <div class="flex-1 min-w-0">
                   <!-- Name and Category -->
                   <div class="flex items-center gap-2 mb-2">
-                    <h3 class="font-semibold text-lg text-text dark:text-text-dark">{{ platform.name }}</h3>
+                    <h3 class="font-semibold text-lg text-text dark:text-text-dark">
+                      {{ platform.name }}
+                    </h3>
                     <span
                       :class="[
                         'inline-block px-2 py-0.5 text-xs rounded-full',
-                        getCategoryClass(platform.category)
+                        getCategoryClass(platform.category),
                       ]"
                     >
                       {{ getCategoryLabel(platform.category) }}
@@ -133,8 +142,13 @@
                   </p>
 
                   <!-- How to copy link -->
-                  <div v-if="platform.howToCopy" class="audio-modal-code-bg rounded p-3 mb-3 audio-modal-item-border">
-                    <p class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1">
+                  <div
+                    v-if="platform.howToCopy"
+                    class="audio-modal-code-bg rounded p-3 mb-3 audio-modal-item-border"
+                  >
+                    <p
+                      class="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1"
+                    >
                       <Icon name="fa6-solid:circle-info" class="text-primary" aria-hidden="true" />
                       {{ t('audio_help.how_to_copy') }}
                     </p>
@@ -146,7 +160,9 @@
                     <p class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">
                       {{ t('audio_help.example_url') }}:
                     </p>
-                    <code class="text-xs audio-modal-code-bg p-2 rounded block overflow-x-auto audio-modal-item-border">
+                    <code
+                      class="text-xs audio-modal-code-bg p-2 rounded block overflow-x-auto audio-modal-item-border"
+                    >
                       {{ platform.exampleUrl }}
                     </code>
                   </div>
@@ -160,7 +176,11 @@
                   >
                     <Icon name="fa6-solid:magnifying-glass" aria-hidden="true" />
                     {{ t('audio_help.search_on_platform', { platform: platform.name }) }}
-                    <Icon name="fa6-solid:arrow-up-right-from-square" class="text-xs" aria-hidden="true" />
+                    <Icon
+                      name="fa6-solid:arrow-up-right-from-square"
+                      class="text-xs"
+                      aria-hidden="true"
+                    />
                   </a>
                 </div>
               </div>
@@ -169,7 +189,11 @@
 
           <!-- No Results -->
           <div v-else class="text-center py-12">
-            <Icon name="fa6-solid:magnifying-glass" class="text-4xl text-gray-300 dark:text-gray-600 mb-4" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:magnifying-glass"
+              class="text-4xl text-gray-300 dark:text-gray-600 mb-4"
+              aria-hidden="true"
+            />
             <p class="text-gray-500 dark:text-gray-400">
               {{ t('audio_help.no_results') }}
             </p>
@@ -417,9 +441,13 @@
   ])
 
   // Category counts
-  const podcastCount = computed(() => allPlatforms.value.filter(p => p.category === 'podcasts').length)
-  const musicCount = computed(() => allPlatforms.value.filter(p => p.category === 'music').length)
-  const audiobookCount = computed(() => allPlatforms.value.filter(p => p.category === 'audiobooks').length)
+  const podcastCount = computed(
+    () => allPlatforms.value.filter((p) => p.category === 'podcasts').length
+  )
+  const musicCount = computed(() => allPlatforms.value.filter((p) => p.category === 'music').length)
+  const audiobookCount = computed(
+    () => allPlatforms.value.filter((p) => p.category === 'audiobooks').length
+  )
 
   // Filtered platforms
   const filteredPlatforms = computed(() => {
@@ -427,15 +455,14 @@
 
     // Filter by category
     if (selectedCategory.value !== 'all') {
-      platforms = platforms.filter(p => p.category === selectedCategory.value)
+      platforms = platforms.filter((p) => p.category === selectedCategory.value)
     }
 
     // Filter by search query
     if (searchQuery.value.trim()) {
       const query = searchQuery.value.toLowerCase()
-      platforms = platforms.filter(p =>
-        p.name.toLowerCase().includes(query) ||
-        p.description.toLowerCase().includes(query)
+      platforms = platforms.filter(
+        (p) => p.name.toLowerCase().includes(query) || p.description.toLowerCase().includes(query)
       )
     }
 

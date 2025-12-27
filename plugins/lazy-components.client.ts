@@ -22,9 +22,7 @@ export default defineNuxtPlugin(() => {
   ]
 
   // Sidebar components - deferred more (desktop only, not critical for mobile)
-  const sidebarComponents = [
-    { name: 'SidebarStats', loader: lazyComponents.SidebarStats },
-  ]
+  const sidebarComponents = [{ name: 'SidebarStats', loader: lazyComponents.SidebarStats }]
 
   // Modal components - NOT preloaded, only loaded on-demand when opened
   // SearchModal, AudioPlatformsModal, NotificationModal, AddRelationshipModal

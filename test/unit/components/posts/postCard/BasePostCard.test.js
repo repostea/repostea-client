@@ -146,7 +146,8 @@ describe('BasePostCard View Tracking', () => {
       }
 
       // Simulate the condition check from handleTitleClick
-      const isExternalLink = post.url && !post.is_nsfw && post.content_type !== 'video' && post.content_type !== 'audio'
+      const isExternalLink =
+        post.url && !post.is_nsfw && post.content_type !== 'video' && post.content_type !== 'audio'
 
       expect(isExternalLink).toBe(true)
     })

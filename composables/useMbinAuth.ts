@@ -74,7 +74,10 @@ export function useMbinAuth() {
    * Complete the Mbin OAuth flow with the callback code.
    * Returns an object with success status and optional returnUrl.
    */
-  async function completeMbinLogin(code: string, state: string): Promise<{ success: boolean; returnUrl?: string }> {
+  async function completeMbinLogin(
+    code: string,
+    state: string
+  ): Promise<{ success: boolean; returnUrl?: string }> {
     loading.value = true
     error.value = null
 

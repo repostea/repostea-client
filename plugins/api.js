@@ -22,9 +22,10 @@ export default defineNuxtPlugin(() => {
 
     if (import.meta.client) {
       token = sessionStorage.getItem('token') || localStorage.getItem('token')
-      isGuest = token?.startsWith('guest_') ||
-                sessionStorage.getItem('guest_user') === 'true' ||
-                localStorage.getItem('guest_user') === 'true'
+      isGuest =
+        token?.startsWith('guest_') ||
+        sessionStorage.getItem('guest_user') === 'true' ||
+        localStorage.getItem('guest_user') === 'true'
     } else {
       // SSR: read token from cookie
       token = tokenCookie.value
@@ -71,10 +72,11 @@ export default defineNuxtPlugin(() => {
       const statusCode = error.response?.status
       // Handle normalized ApiResponse format: { success, message, errors }
       // Fallback to old format: { error: { message } }
-      const message = error.response?.data?.error ||
-                      error.response?.data?.message ||
-                      error.response?.data?.error?.message ||
-                      getDefaultErrorMessage(statusCode)
+      const message =
+        error.response?.data?.error ||
+        error.response?.data?.message ||
+        error.response?.data?.error?.message ||
+        getDefaultErrorMessage(statusCode)
 
       // Handle 503 Service Unavailable (Maintenance Mode)
       if (statusCode === 503 && import.meta.client) {
@@ -92,7 +94,11 @@ export default defineNuxtPlugin(() => {
       }
 
       // Handle email verification required (403 with specific error code)
-      if (statusCode === 403 && error.response?.data?.error === 'email_not_verified' && import.meta.client) {
+      if (
+        statusCode === 403 &&
+        error.response?.data?.error === 'email_not_verified' &&
+        import.meta.client
+      ) {
         const router = useNuxtApp().$router
         if (router && !window.location.pathname.includes('/auth/verify-email')) {
           router.push('/auth/verify-email')
@@ -119,9 +125,24 @@ export default defineNuxtPlugin(() => {
 
         // Only clean up tokens if we have a valid 401 response (not a network error)
         if (hasValidResponse) {
-          // Clean up invalid tokens
+          // Clean up invalid tokens from all storage locations
           sessionStorage.removeItem('token')
           localStorage.removeItem('token')
+
+          // Clear cookies using native API - try multiple domain variations
+          const expiredDate = 'Thu, 01 Jan 1970 00:00:00 GMT'
+          const cookieNames = ['token', 'user_data']
+          const hostname = window.location.hostname
+          const baseDomain = hostname.split('.').slice(-2).join('.') // e.g., renegados.es
+
+          for (const name of cookieNames) {
+            // Try all possible domain variations
+            document.cookie = `${name}=; expires=${expiredDate}; path=/`
+            document.cookie = `${name}=; expires=${expiredDate}; path=/; domain=${hostname}`
+            document.cookie = `${name}=; expires=${expiredDate}; path=/; domain=.${hostname}`
+            document.cookie = `${name}=; expires=${expiredDate}; path=/; domain=${baseDomain}`
+            document.cookie = `${name}=; expires=${expiredDate}; path=/; domain=.${baseDomain}`
+          }
 
           // Only redirect if:
           // 1. It's NOT a background request (user initiated action)
@@ -134,11 +155,8 @@ export default defineNuxtPlugin(() => {
 
             window.location.href = '/auth/login'
           }
-        } else {
-          // Network error or server unavailable - don't clear tokens
-          // This prevents losing session during deploys/restarts
-          console.warn('[API] 401 without valid response - keeping tokens (possible network issue)')
         }
+        // else: Network error or server unavailable - keep tokens to prevent losing session during deploys
       }
 
       // Show error notification by default (prevents silent errors)
@@ -151,14 +169,16 @@ export default defineNuxtPlugin(() => {
         error._interceptorWillNotify = true
 
         // Import useNotification dynamically to avoid circular dependency
-        import('~/composables/useNotification').then(({ useNotification }) => {
-          const { error: showError } = useNotification()
-          // Show error with longer timeout (10 seconds) so user has time to read it
-          showError(message, { timeout: 10000 })
-        }).catch(() => {
-          // Fallback to console if notification system fails
-          console.error('[API Error]', message)
-        })
+        import('~/composables/useNotification')
+          .then(({ useNotification }) => {
+            const { error: showError } = useNotification()
+            // Show error with longer timeout (10 seconds) so user has time to read it
+            showError(message, { timeout: 10000 })
+          })
+          .catch(() => {
+            // Fallback to console if notification system fails
+            console.error('[API Error]', message)
+          })
       }
 
       return Promise.reject(error)
@@ -198,9 +218,10 @@ export default defineNuxtPlugin(() => {
       login: (credentials) => api.post('/login', credentials),
       register: (userData) => api.post('/register', userData),
       logout: () => api.post('/logout'),
-      getUser: (isBackgroundRequest = false) => api.get('/user', {
-        headers: isBackgroundRequest ? { 'X-Background-Request': 'true' } : {}
-      }),
+      getUser: (isBackgroundRequest = false) =>
+        api.get('/user', {
+          headers: isBackgroundRequest ? { 'X-Background-Request': 'true' } : {},
+        }),
       getUserByUsername,
       forgotPassword: (data) => api.post('/forgot-password', data),
       guestLogin: () => api.post('/guest-login'),
@@ -270,9 +291,12 @@ export default defineNuxtPlugin(() => {
       registerView: (postId, trackingData = {}) => api.post(`/posts/${postId}/view`, trackingData),
       // Post Relationships
       getRelationships: (postId) => api.get(`/posts/${postId}/relationships`),
-      createRelationship: (postId, relationshipData) => api.post(`/posts/${postId}/relationships`, relationshipData),
-      deleteRelationship: (postId, relationshipId) => api.delete(`/posts/${postId}/relationships/${relationshipId}`),
-      getContinuationChain: (postId) => api.get(`/posts/${postId}/relationships/continuation-chain`),
+      createRelationship: (postId, relationshipData) =>
+        api.post(`/posts/${postId}/relationships`, relationshipData),
+      deleteRelationship: (postId, relationshipId) =>
+        api.delete(`/posts/${postId}/relationships/${relationshipId}`),
+      getContinuationChain: (postId) =>
+        api.get(`/posts/${postId}/relationships/continuation-chain`),
       getRelationshipTypes: () => api.get('/relationship-types'),
       search: (params = {}) => api.get('/posts/search', { params }),
     },
@@ -280,8 +304,7 @@ export default defineNuxtPlugin(() => {
     relationships: {
       vote: (relationshipId, voteValue) =>
         api.post(`/relationships/${relationshipId}/vote`, { vote: voteValue }),
-      getStats: (relationshipId) =>
-        api.get(`/relationships/${relationshipId}/votes`),
+      getStats: (relationshipId) => api.get(`/relationships/${relationshipId}/votes`),
     },
 
     comments: {
@@ -332,18 +355,22 @@ export default defineNuxtPlugin(() => {
     },
 
     images: {
-      uploadAvatar: (formData) => api.post('/user/avatar', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      }),
+      uploadAvatar: (formData) =>
+        api.post('/user/avatar', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }),
       deleteAvatar: () => api.delete('/user/avatar'),
-      uploadPostThumbnail: (postId, formData) => api.post(`/posts/${postId}/thumbnail`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      }),
-      uploadPostThumbnailFromUrl: (postId, url, options = {}) => api.post(`/posts/${postId}/thumbnail-from-url`, { url }, options),
+      uploadPostThumbnail: (postId, formData) =>
+        api.post(`/posts/${postId}/thumbnail`, formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }),
+      uploadPostThumbnailFromUrl: (postId, url, options = {}) =>
+        api.post(`/posts/${postId}/thumbnail-from-url`, { url }, options),
       deletePostThumbnail: (postId) => api.delete(`/posts/${postId}/thumbnail`),
-      uploadInlineImage: (formData) => api.post('/images/inline', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      }),
+      uploadInlineImage: (formData) =>
+        api.post('/images/inline', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }),
     },
 
     karma: {
@@ -416,12 +443,10 @@ export default defineNuxtPlugin(() => {
       getPushSubscriptions: () => api.get('/notifications/push-subscriptions'),
       // Preferences
       getPreferences: () => api.get('/notifications/preferences'),
-      updatePreferences: (preferences) =>
-        api.put('/notifications/preferences', preferences),
+      updatePreferences: (preferences) => api.put('/notifications/preferences', preferences),
       // Legacy aliases for backwards compatibility
       getPushPreferences: () => api.get('/notifications/preferences'),
-      updatePushPreferences: (preferences) =>
-        api.put('/notifications/preferences', preferences),
+      updatePushPreferences: (preferences) => api.put('/notifications/preferences', preferences),
       // Test notification
       sendTestPushNotification: () => api.post('/notifications/test-push'),
       // Snooze
@@ -558,9 +583,11 @@ export default defineNuxtPlugin(() => {
       unmarkPost: (postId, type) => api.delete(`/posts/${postId}/seals`, { data: { type } }),
       getPostMarks: (postId) => api.get(`/posts/${postId}/seals`),
       markComment: (commentId, type) => api.post(`/comments/${commentId}/seals`, { type }),
-      unmarkComment: (commentId, type) => api.delete(`/comments/${commentId}/seals`, { data: { type } }),
+      unmarkComment: (commentId, type) =>
+        api.delete(`/comments/${commentId}/seals`, { data: { type } }),
       getCommentMarks: (commentId) => api.get(`/comments/${commentId}/seals`),
-      checkUserMarks: (contentType, contentId) => api.post('/seals/check', { content_type: contentType, content_id: contentId }),
+      checkUserMarks: (contentType, contentId) =>
+        api.post('/seals/check', { content_type: contentType, content_id: contentId }),
     },
 
     reports: {
@@ -595,7 +622,8 @@ export default defineNuxtPlugin(() => {
       updateSettings: (data) => api.patch('/activitypub/settings', data),
       // Post federation settings
       getPostSettings: (postId) => api.get(`/activitypub/posts/${postId}/settings`),
-      updatePostSettings: (postId, data) => api.patch(`/activitypub/posts/${postId}/settings`, data),
+      updatePostSettings: (postId, data) =>
+        api.patch(`/activitypub/posts/${postId}/settings`, data),
       // Sub federation settings (for moderators)
       getSubSettings: (subId) => api.get(`/activitypub/subs/${subId}/settings`),
       updateSubSettings: (subId, data) => api.patch(`/activitypub/subs/${subId}/settings`, data),

@@ -63,7 +63,7 @@ function findModalsWithoutTeleport(content, filePath) {
         issues.push({
           file: filePath,
           line: lineNumber,
-          message: 'Modal with "fixed inset-0" should be wrapped in <Teleport to="body">'
+          message: 'Modal with "fixed inset-0" should be wrapped in <Teleport to="body">',
         })
       }
     }
@@ -77,10 +77,7 @@ describe('Modals must use Teleport', () => {
     const componentsDir = join(process.cwd(), 'components')
     const pagesDir = join(process.cwd(), 'pages')
 
-    const allFiles = [
-      ...getAllVueFiles(componentsDir),
-      ...getAllVueFiles(pagesDir)
-    ]
+    const allFiles = [...getAllVueFiles(componentsDir), ...getAllVueFiles(pagesDir)]
 
     const allIssues = []
 
@@ -92,13 +89,13 @@ describe('Modals must use Teleport', () => {
 
     if (allIssues.length > 0) {
       const errorMessage = allIssues
-        .map(issue => `  - ${issue.file}:${issue.line}\n    ${issue.message}`)
+        .map((issue) => `  - ${issue.file}:${issue.line}\n    ${issue.message}`)
         .join('\n')
 
       expect.fail(
         `Found ${allIssues.length} modal(s) without Teleport:\n${errorMessage}\n\n` +
-        'Modals with "position: fixed" can break when inside elements with "transform" property.\n' +
-        'Wrap the modal with <Teleport to="body"> to fix this issue.'
+          'Modals with "position: fixed" can break when inside elements with "transform" property.\n' +
+          'Wrap the modal with <Teleport to="body"> to fix this issue.'
       )
     }
 

@@ -16,10 +16,7 @@
         leave-from-class="transform translate-y-0 opacity-100"
         leave-to-class="transform -translate-y-2 opacity-0"
       >
-        <div
-          v-if="newActivitiesCount > 0"
-          class="mb-4 sticky top-4 z-10"
-        >
+        <div v-if="newActivitiesCount > 0" class="mb-4 sticky top-4 z-10">
           <button
             class="w-full bg-primary hover:bg-primary-dark text-white rounded-lg shadow-lg p-3 transition flex items-center justify-center gap-2"
             @click="loadNewActivities"
@@ -36,13 +33,20 @@
       <div class="mb-4 flex justify-end">
         <button
           class="px-3 py-1.5 rounded-lg text-xs transition flex items-center gap-2"
-          :class="autoRefreshEnabled
-            ? 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400'
-            : 'activity-btn-inactive text-text-muted dark:text-text-dark-muted'"
+          :class="
+            autoRefreshEnabled
+              ? 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400'
+              : 'activity-btn-inactive text-text-muted dark:text-text-dark-muted'
+          "
           @click="toggleAutoRefresh"
         >
-          <Icon :name="autoRefreshEnabled ? 'fa6-solid:circle-check' : 'fa6-solid:circle-pause'" aria-hidden="true" />
-          <span>{{ autoRefreshEnabled ? $t('activity.auto_refresh_on') : $t('activity.auto_refresh_off') }}</span>
+          <Icon
+            :name="autoRefreshEnabled ? 'fa6-solid:circle-check' : 'fa6-solid:circle-pause'"
+            aria-hidden="true"
+          />
+          <span>{{
+            autoRefreshEnabled ? $t('activity.auto_refresh_on') : $t('activity.auto_refresh_off')
+          }}</span>
         </button>
       </div>
 
@@ -60,9 +64,11 @@
                 v-for="interval in timeIntervals"
                 :key="interval.value"
                 class="px-2 md:px-3 py-1 rounded-lg text-xs transition whitespace-nowrap"
-                :class="timeInterval === interval.value
-                  ? 'bg-primary text-white'
-                  : 'activity-btn text-text dark:text-text-dark'"
+                :class="
+                  timeInterval === interval.value
+                    ? 'bg-primary text-white'
+                    : 'activity-btn text-text dark:text-text-dark'
+                "
                 @click="setTimeInterval(interval.value)"
               >
                 {{ $t(interval.label) }}
@@ -90,9 +96,11 @@
                 v-for="type in activityTypes"
                 :key="type"
                 class="px-2 md:px-3 py-1.5 md:py-1 rounded-lg text-xs transition flex items-center justify-center md:justify-start gap-1.5"
-                :class="selectedTypes.includes(type)
-                  ? 'bg-primary text-white'
-                  : 'activity-btn text-text dark:text-text-dark'"
+                :class="
+                  selectedTypes.includes(type)
+                    ? 'bg-primary text-white'
+                    : 'activity-btn text-text dark:text-text-dark'
+                "
                 @click="toggleActivityType(type)"
               >
                 <Icon :name="getActivityIconIconify(type)" class="text-xs" aria-hidden="true" />
@@ -105,7 +113,11 @@
 
       <!-- Loading state -->
       <div v-if="loading && activities.length === 0" class="text-center py-12">
-        <Icon name="fa6-solid:spinner" class="text-4xl text-gray-400 dark:text-gray-600" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:spinner"
+          class="text-4xl text-gray-400 dark:text-gray-600"
+          aria-hidden="true"
+        />
         <p class="mt-4 text-text-muted dark:text-text-dark-muted">{{ $t('activity.loading') }}</p>
       </div>
 
@@ -114,7 +126,11 @@
         v-else-if="error"
         class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 text-center"
       >
-        <Icon name="fa6-solid:triangle-exclamation" class="text-3xl text-red-500 dark:text-red-400 mb-3" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:triangle-exclamation"
+          class="text-3xl text-red-500 dark:text-red-400 mb-3"
+          aria-hidden="true"
+        />
         <p class="text-red-700 dark:text-red-300">{{ error }}</p>
         <button
           class="mt-4 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition"
@@ -137,7 +153,11 @@
               class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
               :class="getActivityIconBg(activity.activity_type)"
             >
-              <Icon :name="getActivityIconIconify(activity.activity_type)" class="text-white" aria-hidden="true" />
+              <Icon
+                :name="getActivityIconIconify(activity.activity_type)"
+                class="text-white text-lg"
+                aria-hidden="true"
+              />
             </div>
 
             <!-- Activity content -->
@@ -180,9 +200,27 @@
                 <!-- Post vote -->
                 <div v-else-if="activity.activity_type === 'post_vote'">
                   <span class="inline-flex items-center gap-1">
-                    <Icon :name="activity.vote_value > 0 ? 'fa6-solid:arrow-up' : 'fa6-solid:arrow-down'" :class="activity.vote_value > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'" aria-hidden="true" />
-                    <span :class="activity.vote_value > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'">
-                      {{ activity.vote_value > 0 ? $t('activity.upvote') : $t('activity.downvote') }}
+                    <Icon
+                      :name="
+                        activity.vote_value > 0 ? 'fa6-solid:arrow-up' : 'fa6-solid:arrow-down'
+                      "
+                      :class="
+                        activity.vote_value > 0
+                          ? 'text-green-600 dark:text-green-400'
+                          : 'text-red-600 dark:text-red-400'
+                      "
+                      aria-hidden="true"
+                    />
+                    <span
+                      :class="
+                        activity.vote_value > 0
+                          ? 'text-green-600 dark:text-green-400'
+                          : 'text-red-600 dark:text-red-400'
+                      "
+                    >
+                      {{
+                        activity.vote_value > 0 ? $t('activity.upvote') : $t('activity.downvote')
+                      }}
                     </span>
                     {{ $t('activity.on_post') }}
                   </span>
@@ -199,7 +237,11 @@
                 <div v-else-if="activity.activity_type === 'new_comment'">
                   <span>{{ $t('activity.comment_on') }}</span>
                   <nuxt-link
-                    :to="localePath(`/posts/${activity.post_slug}${activity.comment_id ? '#comment-' + activity.comment_id : ''}`)"
+                    :to="
+                      localePath(
+                        `/posts/${activity.post_slug}${activity.comment_id ? '#comment-' + activity.comment_id : ''}`
+                      )
+                    "
                     class="font-medium text-primary dark:text-primary-light hover:underline ml-1 inline-flex items-center gap-1"
                   >
                     <Icon name="fa6-solid:file-lines" class="text-xs" aria-hidden="true" />
@@ -220,7 +262,11 @@
                   <div
                     v-if="activity.comment_content"
                     class="mt-1 text-xs text-text-muted dark:text-text-dark-muted italic line-clamp-2 cursor-pointer"
-                    @click="$router.push(`/${locale}/posts/${activity.post_slug}${activity.comment_id ? '#comment-' + activity.comment_id : ''}`)"
+                    @click="
+                      $router.push(
+                        `/${locale}/posts/${activity.post_slug}${activity.comment_id ? '#comment-' + activity.comment_id : ''}`
+                      )
+                    "
                   >
                     "{{ truncateText(activity.comment_content, 100) }}"
                   </div>
@@ -229,15 +275,37 @@
                 <!-- Comment vote -->
                 <div v-else-if="activity.activity_type === 'comment_vote'">
                   <span class="inline-flex items-center gap-1">
-                    <Icon :name="activity.vote_value > 0 ? 'fa6-solid:arrow-up' : 'fa6-solid:arrow-down'" :class="activity.vote_value > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'" aria-hidden="true" />
-                    <span :class="activity.vote_value > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'">
-                      {{ activity.vote_value > 0 ? $t('activity.upvote') : $t('activity.downvote') }}
+                    <Icon
+                      :name="
+                        activity.vote_value > 0 ? 'fa6-solid:arrow-up' : 'fa6-solid:arrow-down'
+                      "
+                      :class="
+                        activity.vote_value > 0
+                          ? 'text-green-600 dark:text-green-400'
+                          : 'text-red-600 dark:text-red-400'
+                      "
+                      aria-hidden="true"
+                    />
+                    <span
+                      :class="
+                        activity.vote_value > 0
+                          ? 'text-green-600 dark:text-green-400'
+                          : 'text-red-600 dark:text-red-400'
+                      "
+                    >
+                      {{
+                        activity.vote_value > 0 ? $t('activity.upvote') : $t('activity.downvote')
+                      }}
                     </span>
                     {{ $t('activity.on_comment') }}
                   </span>
                   {{ $t('activity.in_post') }}
                   <nuxt-link
-                    :to="localePath(`/posts/${activity.post_slug}${activity.comment_id ? '#comment-' + activity.comment_id : ''}`)"
+                    :to="
+                      localePath(
+                        `/posts/${activity.post_slug}${activity.comment_id ? '#comment-' + activity.comment_id : ''}`
+                      )
+                    "
                     class="font-medium text-primary dark:text-primary-light hover:underline ml-1 inline-flex items-center gap-1"
                   >
                     <Icon name="fa6-solid:file-lines" class="text-xs" aria-hidden="true" />
@@ -309,9 +377,27 @@
                 <!-- Agora vote -->
                 <div v-else-if="activity.activity_type === 'agora_vote'">
                   <span class="inline-flex items-center gap-1">
-                    <Icon :name="activity.vote_value > 0 ? 'fa6-solid:arrow-up' : 'fa6-solid:arrow-down'" :class="activity.vote_value > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'" aria-hidden="true" />
-                    <span :class="activity.vote_value > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'">
-                      {{ activity.vote_value > 0 ? $t('activity.upvote') : $t('activity.downvote') }}
+                    <Icon
+                      :name="
+                        activity.vote_value > 0 ? 'fa6-solid:arrow-up' : 'fa6-solid:arrow-down'
+                      "
+                      :class="
+                        activity.vote_value > 0
+                          ? 'text-green-600 dark:text-green-400'
+                          : 'text-red-600 dark:text-red-400'
+                      "
+                      aria-hidden="true"
+                    />
+                    <span
+                      :class="
+                        activity.vote_value > 0
+                          ? 'text-green-600 dark:text-green-400'
+                          : 'text-red-600 dark:text-red-400'
+                      "
+                    >
+                      {{
+                        activity.vote_value > 0 ? $t('activity.upvote') : $t('activity.downvote')
+                      }}
                     </span>
                     {{ $t('activity.on_agora_message') }}
                   </span>
@@ -351,7 +437,11 @@
 
         <!-- Loading more indicator -->
         <div v-if="loading && activities.length > 0" class="text-center py-4">
-          <Icon name="fa6-solid:spinner" class="text-2xl text-gray-400 dark:text-gray-600" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:spinner"
+            class="text-2xl text-gray-400 dark:text-gray-600"
+            aria-hidden="true"
+          />
         </div>
 
         <!-- No more activities -->
@@ -363,7 +453,11 @@
 
         <!-- No activities found -->
         <div v-if="!loading && activities.length === 0 && !error" class="text-center py-12">
-          <Icon name="fa6-solid:inbox" class="text-4xl text-gray-400 dark:text-gray-600 mb-4" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:inbox"
+            class="text-4xl text-gray-400 dark:text-gray-600 mb-4"
+            aria-hidden="true"
+          />
           <p class="text-text-muted dark:text-text-dark-muted">
             {{ $t('activity.no_activities') }}
           </p>
@@ -404,7 +498,17 @@
     { value: '7d', label: 'activity.filters.last_week', hours: 24 * 7 },
     { value: 'all', label: 'activity.filters.all_time', hours: null },
   ]
-  const activityTypes = ['new_post', 'post_vote', 'new_comment', 'comment_vote', 'seal_awarded', 'frontpage', 'new_agora_message', 'agora_vote', 'new_sub']
+  const activityTypes = [
+    'new_post',
+    'post_vote',
+    'new_comment',
+    'comment_vote',
+    'seal_awarded',
+    'frontpage',
+    'new_agora_message',
+    'agora_vote',
+    'new_sub',
+  ]
   const selectedTypes = ref([])
 
   const hasActiveFilters = computed(() => {
@@ -528,7 +632,7 @@
         offset: 0,
       }
 
-      const currentInterval = timeIntervals.find(i => i.value === timeInterval.value)
+      const currentInterval = timeIntervals.find((i) => i.value === timeInterval.value)
       if (currentInterval && currentInterval.hours) {
         params.since = new Date(Date.now() - currentInterval.hours * 60 * 60 * 1000).toISOString()
       }
@@ -576,7 +680,7 @@
         offset: offset.value,
       }
 
-      const currentInterval = timeIntervals.find(i => i.value === timeInterval.value)
+      const currentInterval = timeIntervals.find((i) => i.value === timeInterval.value)
       if (currentInterval && currentInterval.hours) {
         params.since = new Date(Date.now() - currentInterval.hours * 60 * 60 * 1000).toISOString()
       }

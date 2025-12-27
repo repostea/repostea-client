@@ -89,6 +89,56 @@ Cypress.Commands.add('createPost', (attributes = {}) => {
 })
 
 /**
+ * Create a sub/community via Laravel factory
+ */
+Cypress.Commands.add('createSub', (attributes = {}) => {
+  cy.request({
+    method: 'POST',
+    url: `${Cypress.env('laravelUrl')}/__cypress__/factory`,
+    body: {
+      model: 'App\\Models\\Sub',
+      attributes: attributes,
+    },
+  }).then((response) => {
+    return response.body
+  })
+})
+
+/**
+ * Delete a post via Laravel factory cleanup endpoint
+ */
+Cypress.Commands.add('deletePost', (postId) => {
+  cy.request({
+    method: 'POST',
+    url: `${Cypress.env('laravelUrl')}/__cypress__/cleanup`,
+    body: {
+      model: 'App\\Models\\Post',
+      id: postId,
+    },
+    failOnStatusCode: false,
+  }).then((response) => {
+    return response
+  })
+})
+
+/**
+ * Delete a user via Laravel factory cleanup endpoint
+ */
+Cypress.Commands.add('deleteUser', (userId) => {
+  cy.request({
+    method: 'POST',
+    url: `${Cypress.env('laravelUrl')}/__cypress__/cleanup`,
+    body: {
+      model: 'App\\Models\\User',
+      id: userId,
+    },
+    failOnStatusCode: false,
+  }).then((response) => {
+    return response
+  })
+})
+
+/**
  * Login as a specific user using Sanctum token
  */
 Cypress.Commands.add('loginAs', (user) => {

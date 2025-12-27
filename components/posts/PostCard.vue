@@ -9,7 +9,7 @@
     @vote="vote"
   >
     <template #below-vote>
-      <slot name="below-vote"/>
+      <slot name="below-vote" />
     </template>
 
     <template #content>
@@ -34,7 +34,7 @@
     </template>
 
     <template #cta>
-      <slot name="cta"/>
+      <slot name="cta" />
     </template>
 
     <template #footer>
@@ -64,7 +64,14 @@
         :user-has-recommended="post.user_has_recommended || false"
         :user-has-advise-against="post.user_has_advise_against || false"
         :is-own-post="post.can_edit || false"
-        :federation="post.federation || { likes_count: 0, shares_count: 0, replies_count: 0, has_engagement: false }"
+        :federation="
+          post.federation || {
+            likes_count: 0,
+            shares_count: 0,
+            replies_count: 0,
+            has_engagement: false,
+          }
+        "
         @seals-updated="handleSealsUpdated"
       >
         <template #actions>
@@ -81,10 +88,7 @@
             @read-later-toggled="onReadLaterToggled"
             @saved-to-list="onSavedToList"
           />
-          <EditPostModal
-            :post="post"
-            @post-updated="onPostUpdated"
-          />
+          <EditPostModal :post="post" @post-updated="onPostUpdated" />
         </template>
       </CardFooter>
     </template>
@@ -95,7 +99,7 @@
   import { computed } from 'vue'
   import { useRouter } from 'vue-router'
   import { usePostsStore } from '~/stores/posts'
-  import { useLocalePath, useI18n  } from '#i18n'
+  import { useLocalePath, useI18n } from '#i18n'
 
   import { useNotification } from '~/composables/useNotification'
   import BasePostCard from '~/components/posts/postCard/BasePostCard.vue'
@@ -112,7 +116,7 @@
   import PostRelationshipsButton from '~/components/posts/PostRelationshipsButton.vue'
 
   defineOptions({
-    inheritAttrs: false
+    inheritAttrs: false,
   })
 
   const props = defineProps({
@@ -176,8 +180,7 @@
     return ''
   }
 
-  function onFavoriteToggled() {
-  }
+  function onFavoriteToggled() {}
 
   function onReadLaterToggled() {
     // Read later toggled

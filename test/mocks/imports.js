@@ -140,16 +140,32 @@ const mockNuxtApp = {
         data: { available_seals: 5, total_earned: 10, total_used: 5, last_awarded_at: null },
       }),
       markPost: vi.fn().mockResolvedValue({
-        data: { success: true, available_seals: 4, post: { recommended_seals_count: 1, advise_against_seals_count: 0 } },
+        data: {
+          success: true,
+          available_seals: 4,
+          post: { recommended_seals_count: 1, advise_against_seals_count: 0 },
+        },
       }),
       unmarkPost: vi.fn().mockResolvedValue({
-        data: { success: true, available_seals: 5, post: { recommended_seals_count: 0, advise_against_seals_count: 0 } },
+        data: {
+          success: true,
+          available_seals: 5,
+          post: { recommended_seals_count: 0, advise_against_seals_count: 0 },
+        },
       }),
       markComment: vi.fn().mockResolvedValue({
-        data: { success: true, available_seals: 4, comment: { recommended_seals_count: 1, advise_against_seals_count: 0 } },
+        data: {
+          success: true,
+          available_seals: 4,
+          comment: { recommended_seals_count: 1, advise_against_seals_count: 0 },
+        },
       }),
       unmarkComment: vi.fn().mockResolvedValue({
-        data: { success: true, available_seals: 5, comment: { recommended_seals_count: 0, advise_against_seals_count: 0 } },
+        data: {
+          success: true,
+          available_seals: 5,
+          comment: { recommended_seals_count: 0, advise_against_seals_count: 0 },
+        },
       }),
       checkUserMarks: vi.fn().mockResolvedValue({
         data: { has_recommended: false, has_advise_against: false },

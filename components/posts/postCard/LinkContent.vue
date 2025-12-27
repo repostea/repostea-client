@@ -41,7 +41,7 @@
         dir="auto"
         v-html="renderedContent"
       />
-      <p v-else dir="auto" v-html="displayText"/>
+      <p v-else dir="auto" v-html="displayText" />
     </div>
 
     <!-- Image Lightbox -->

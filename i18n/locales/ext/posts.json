@@ -7,6 +7,8 @@
     "delete_success": "Envíu borrau correctamenti",
     "vote": "votu",
     "voted": "votau",
+    "closed": "cerrau",
+    "voting_closed": "La votación está cerrá",
     "votes": "votus",
     "vote_success": "Votu mandau correctamenti!",
     "type_article": "Artículu",

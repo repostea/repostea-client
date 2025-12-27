@@ -84,7 +84,6 @@ export const useRealtimeStats = () => {
         total_views: update.total_views,
       })
     })
-
   }
 
   // Subscribe to a channel
@@ -130,7 +129,9 @@ export const useRealtimeStats = () => {
 
     try {
       const config = useRuntimeConfig()
-      const token = import.meta.client ? (sessionStorage.getItem('token') || localStorage.getItem('token')) : null
+      const token = import.meta.client
+        ? sessionStorage.getItem('token') || localStorage.getItem('token')
+        : null
       const headers: Record<string, string> = { 'Content-Type': 'application/json' }
       if (token) headers['Authorization'] = `Bearer ${token}`
 
@@ -147,12 +148,12 @@ export const useRealtimeStats = () => {
             method: 'POST',
             headers,
           })
-        } catch (e) {
-          console.warn('[RealtimeStats] Heartbeat failed:', e)
+        } catch {
+          // Heartbeat failed silently
         }
       }, 60000)
-    } catch (e) {
-      console.warn('[RealtimeStats] Failed to register connection:', e)
+    } catch {
+      // Failed to register connection silently
     }
   }
 
@@ -168,7 +169,9 @@ export const useRealtimeStats = () => {
 
     try {
       const config = useRuntimeConfig()
-      const token = import.meta.client ? (sessionStorage.getItem('token') || localStorage.getItem('token')) : null
+      const token = import.meta.client
+        ? sessionStorage.getItem('token') || localStorage.getItem('token')
+        : null
       const headers: Record<string, string> = { 'Content-Type': 'application/json' }
       if (token) headers['Authorization'] = `Bearer ${token}`
 
@@ -190,8 +193,7 @@ export const useRealtimeStats = () => {
     const presence = presenceChannel(CHANNELS.PRESENCE)
     if (presence) {
       presence
-        .here(() => {
-        })
+        .here(() => {})
         .joining(() => {
           // User joined
         })

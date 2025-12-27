@@ -4,7 +4,8 @@
     class="agora-message-card mb-2 md:mb-3"
     :class="{
       'agora-root-message': !message.parent_id,
-      'agora-reply-message ml-1 md:ml-4 pl-2 border-l border-gray-200 dark:border-gray-700': message.parent_id,
+      'agora-reply-message ml-1 md:ml-4 pl-2 border-l border-gray-200 dark:border-gray-700':
+        message.parent_id,
     }"
   >
     <!-- Header with AuthorInfo and badges -->
@@ -28,15 +29,18 @@
         >
           <span class="text-gray-300 dark:text-gray-600">·</span>
           <Icon name="fa6-solid:hourglass-half" class="text-2xs" aria-hidden="true" />
-{{ t('agora.expires_in', { time: formatExpiryTime() }) }}{{ message.expiry_mode === 'from_last' ? ' ' + t('agora.from_last_reply') : '' }}
+          {{ t('agora.expires_in', { time: formatExpiryTime() })
+          }}{{ message.expiry_mode === 'from_last' ? ' ' + t('agora.from_last_reply') : '' }}
         </span>
 
         <!-- Edited indicator -->
-        <span v-if="message.edited_at" class="text-xs text-gray-500 dark:text-gray-400 flex items-center">
+        <span
+          v-if="message.edited_at"
+          class="text-xs text-gray-500 dark:text-gray-400 flex items-center"
+        >
           <Icon name="fa6-solid:pen-to-square" class="mr-1" aria-hidden="true" />
           {{ t('comments.edited') }}
         </span>
-
       </div>
 
       <!-- Edit/Delete buttons -->
@@ -117,7 +121,11 @@
                   v-for="option in expiryOptions"
                   :key="option.value"
                   class="w-full text-left px-3 py-1.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                  :class="editExpiresInHours === option.value ? 'text-primary font-medium' : 'text-gray-700 dark:text-gray-300'"
+                  :class="
+                    editExpiresInHours === option.value
+                      ? 'text-primary font-medium'
+                      : 'text-gray-700 dark:text-gray-300'
+                  "
                   type="button"
                   @click.stop="selectEditExpiry(option.value)"
                 >
@@ -133,7 +141,11 @@
                 type="button"
                 @click.stop="showEditModeDropdown = !showEditModeDropdown"
               >
-                {{ editExpiryMode === 'from_last' ? t('agora.expiry_mode_from_last').toLowerCase() : t('agora.expiry_mode_from_first').toLowerCase() }}
+                {{
+                  editExpiryMode === 'from_last'
+                    ? t('agora.expiry_mode_from_last').toLowerCase()
+                    : t('agora.expiry_mode_from_first').toLowerCase()
+                }}
                 <Icon name="fa6-solid:chevron-down" class="text-[10px]" />
               </button>
               <div
@@ -142,7 +154,11 @@
               >
                 <button
                   class="w-full text-left px-3 py-1.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                  :class="editExpiryMode === 'from_last' ? 'text-primary font-medium' : 'text-gray-700 dark:text-gray-300'"
+                  :class="
+                    editExpiryMode === 'from_last'
+                      ? 'text-primary font-medium'
+                      : 'text-gray-700 dark:text-gray-300'
+                  "
                   type="button"
                   @click.stop="selectEditMode('from_last')"
                 >
@@ -150,7 +166,11 @@
                 </button>
                 <button
                   class="w-full text-left px-3 py-1.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                  :class="editExpiryMode === 'from_first' ? 'text-primary font-medium' : 'text-gray-700 dark:text-gray-300'"
+                  :class="
+                    editExpiryMode === 'from_first'
+                      ? 'text-primary font-medium'
+                      : 'text-gray-700 dark:text-gray-300'
+                  "
                   type="button"
                   @click.stop="selectEditMode('from_first')"
                 >
@@ -168,7 +188,9 @@
             type="checkbox"
             class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
           >
-          <span class="text-sm text-gray-600 dark:text-gray-400">{{ t('agora.publish_anonymous') }}</span>
+          <span class="text-sm text-gray-600 dark:text-gray-400">{{
+            t('agora.publish_anonymous')
+          }}</span>
         </label>
 
         <!-- Action buttons -->
@@ -249,7 +271,10 @@
         :aria-label="showReplies ? t('agora.hide_replies') : t('agora.show_replies')"
         @click="toggleReplies"
       >
-        <Icon :name="showReplies ? 'fa6-solid:chevron-up' : 'fa6-solid:chevron-down'" aria-hidden="true" />
+        <Icon
+          :name="showReplies ? 'fa6-solid:chevron-up' : 'fa6-solid:chevron-down'"
+          aria-hidden="true"
+        />
         <span>
           {{ showReplies ? t('agora.hide_replies') : t('agora.show_replies') }}
           ({{ totalRepliesCount }})
@@ -276,7 +301,6 @@
         <Icon name="fa6-solid:comments" class="text-xs" aria-hidden="true" />
         <span class="font-medium">{{ totalRepliesCount }}</span>
       </NuxtLink>
-
     </div>
 
     <!-- Reply form - Desktop inline -->
@@ -334,20 +358,21 @@
     <Teleport to="body">
       <div v-if="showReplyForm && isMobile" class="fixed inset-0 z-50">
         <!-- Backdrop -->
-        <div
-          class="absolute inset-0 bg-black/50"
-          @click="cancelReplyForm"
-        />
+        <div class="absolute inset-0 bg-black/50" @click="cancelReplyForm" />
 
         <!-- Modal content (bottom sheet) -->
-        <div class="absolute bottom-0 left-0 right-0 agora-mobile-modal rounded-t-2xl p-4 pb-6 animate-slide-up max-h-[90vh] overflow-y-auto">
+        <div
+          class="absolute bottom-0 left-0 right-0 agora-mobile-modal rounded-t-2xl p-4 pb-6 animate-slide-up max-h-[90vh] overflow-y-auto"
+        >
           <!-- Header -->
           <div class="flex items-center justify-between mb-4">
             <div class="text-sm text-gray-600 dark:text-gray-400">
               <Icon name="fa6-solid:reply" class="mr-2" aria-hidden="true" />
               {{ t('agora.replying_to') }}:
               <span class="font-medium">
-                {{ message.is_anonymous ? t('agora.anonymous_user') : '@' + message.user?.username }}
+                {{
+                  message.is_anonymous ? t('agora.anonymous_user') : '@' + message.user?.username
+                }}
               </span>
             </div>
             <button
@@ -396,17 +421,22 @@
     </Teleport>
 
     <!-- Reply Preview (list view only) - Compact flat view -->
-    <div v-if="!isDetailView && message.replies && message.replies.length > 0 && !showFullReplies" class="mt-3 ml-2 pl-3 border-l-2 border-primary/30">
+    <div
+      v-if="!isDetailView && message.replies && message.replies.length > 0 && !showFullReplies"
+      class="mt-3 ml-2 pl-3 border-l-2 border-primary/30"
+    >
       <!-- Compact flat replies with nesting indication -->
       <div>
         <div
           v-for="reply in flatRepliesPreview"
           :key="reply.id"
           class="agora-reply-compact flex items-start gap-1.5 text-xs"
-          :style="{ paddingLeft: (reply._depth * 16) + 'px' }"
+          :style="{ paddingLeft: reply._depth * 16 + 'px' }"
         >
           <!-- Nesting indicator -->
-          <span v-if="reply._depth > 0" class="text-gray-300 dark:text-gray-600 mt-1 flex-shrink-0">↳</span>
+          <span v-if="reply._depth > 0" class="text-gray-300 dark:text-gray-600 mt-1 flex-shrink-0"
+            >↳</span
+          >
           <!-- Avatar -->
           <NuxtImg
             v-if="!reply.is_anonymous && reply.user?.avatar"
@@ -417,7 +447,10 @@
             loading="lazy"
             class="w-4.5 h-4.5 rounded-full flex-shrink-0 mt-0.5"
           />
-          <div v-else class="w-4.5 h-4.5 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div
+            v-else
+            class="w-4.5 h-4.5 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center flex-shrink-0 mt-0.5"
+          >
             <Icon name="fa6-solid:user" class="text-2xs text-gray-400" aria-hidden="true" />
           </div>
           <!-- Content -->
@@ -427,7 +460,11 @@
                 {{ reply.is_anonymous ? t('agora.anonymous_user') : reply.user?.username }}
               </span>
               <span v-if="reply.created_at" class="text-gray-300 dark:text-gray-600">·</span>
-              <TimeAgo v-if="reply.created_at" :datetime="reply.created_at" class="text-2xs text-gray-400 dark:text-gray-500" />
+              <TimeAgo
+                v-if="reply.created_at"
+                :datetime="reply.created_at"
+                class="text-2xs text-gray-400 dark:text-gray-500"
+              />
             </div>
             <div class="text-gray-500 dark:text-gray-400 leading-snug flex items-center gap-1.5">
               <img
@@ -459,7 +496,10 @@
     </div>
 
     <!-- Full Replies (detail view or expanded) -->
-    <div v-if="(isDetailView || showFullReplies) && message.replies && message.replies.length > 0" class="mt-4 space-y-3">
+    <div
+      v-if="(isDetailView || showFullReplies) && message.replies && message.replies.length > 0"
+      class="mt-4 space-y-3"
+    >
       <AgoraMessageCard
         v-for="reply in message.replies"
         :key="reply.id"
@@ -500,8 +540,8 @@
 
 <script setup>
   import { ref, computed, onMounted, onUnmounted } from 'vue'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
+
   import { useNuxtApp } from '#app'
   import { useAuthStore } from '~/stores/auth'
   import { useNotification } from '~/composables/useNotification'
@@ -512,7 +552,12 @@
   import ConfirmDialog from '~/components/common/ConfirmDialog.vue'
   import ImageLightbox from '~/components/common/ImageLightbox.vue'
   import { marked } from 'marked'
-  import { configureMarked, processLargeEmojis, extractEmbeds, replaceEmbedsWithPlaceholders } from '~/utils/markdown'
+  import {
+    configureMarked,
+    processLargeEmojis,
+    extractEmbeds,
+    replaceEmbedsWithPlaceholders,
+  } from '~/utils/markdown'
   import DOMPurify from 'dompurify'
   import InlineEmbed from '~/components/media/InlineEmbed.vue'
 
@@ -642,7 +687,9 @@
   })
 
   const canDelete = computed(() => {
-    return authStore.user && (authStore.user.id === props.message.user?.id || authStore.user.isAdmin)
+    return (
+      authStore.user && (authStore.user.id === props.message.user?.id || authStore.user.isAdmin)
+    )
   })
 
   // Check if this is a top-level message (can edit expiry)
@@ -660,7 +707,7 @@
 
   // Get label for expiry hours
   function getExpiryLabel(hours) {
-    const option = expiryOptions.value.find(o => o.value === hours)
+    const option = expiryOptions.value.find((o) => o.value === hours)
     return option ? option.label.toLowerCase() : ''
   }
 
@@ -755,8 +802,6 @@
     }
     return result
   }
-
-
 
   function formatExpiryTime() {
     if (!props.message.expires_at) return ''
@@ -997,11 +1042,14 @@
       // Replace @username with a placeholder to prevent Markdown parser from processing them
       // Uses negative lookbehind to exclude @ preceded by / (inside URLs like mastodon.social/@user)
       const mentions = []
-      processedContent = processedContent.replace(/(?<![/\w])@([a-zA-Z0-9_-]+)/g, (match, username) => {
-        const placeholder = `__MENTION_${mentions.length}__`
-        mentions.push({ username })
-        return placeholder
-      })
+      processedContent = processedContent.replace(
+        /(?<![/\w])@([a-zA-Z0-9_-]+)/g,
+        (match, username) => {
+          const placeholder = `__MENTION_${mentions.length}__`
+          mentions.push({ username })
+          return placeholder
+        }
+      )
 
       // Process large emoji syntax (::emoji:: and :::emoji:::)
       processedContent = processLargeEmojis(processedContent)
@@ -1014,13 +1062,48 @@
       // Note: span is needed for NSFW image blur containers
       formattedContent = DOMPurify.sanitize(formattedContent, {
         ALLOWED_TAGS: [
-          'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-          'p', 'br', 'strong', 'em', 'u', 'del',
-          'a', 'ul', 'ol', 'li', 'blockquote',
-          'pre', 'code', 'hr', 'img', 'span',
+          'h1',
+          'h2',
+          'h3',
+          'h4',
+          'h5',
+          'h6',
+          'p',
+          'br',
+          'strong',
+          'em',
+          'u',
+          'del',
+          'a',
+          'ul',
+          'ol',
+          'li',
+          'blockquote',
+          'pre',
+          'code',
+          'hr',
+          'img',
+          'span',
         ],
-        ALLOWED_ATTR: ['href', 'target', 'rel', 'class', 'src', 'alt', 'loading', 'data-original-src'],
-        FORBID_ATTR: ['onerror', 'onload', 'onmouseover', 'onfocus', 'onblur', 'onchange', 'onsubmit'],
+        ALLOWED_ATTR: [
+          'href',
+          'target',
+          'rel',
+          'class',
+          'src',
+          'alt',
+          'loading',
+          'data-original-src',
+        ],
+        FORBID_ATTR: [
+          'onerror',
+          'onload',
+          'onmouseover',
+          'onfocus',
+          'onblur',
+          'onchange',
+          'onsubmit',
+        ],
         FORBID_TAGS: ['script', 'object', 'embed', 'iframe', 'form', 'input', 'textarea', 'button'],
       })
 
@@ -1132,7 +1215,9 @@
     height: auto;
     border-radius: 0.5rem;
     cursor: zoom-in;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
     object-fit: contain;
   }
 

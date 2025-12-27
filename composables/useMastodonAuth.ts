@@ -67,7 +67,10 @@ export function useMastodonAuth() {
    * Complete the Mastodon OAuth flow with the callback code.
    * Returns an object with success status and optional returnUrl.
    */
-  async function completeMastodonLogin(code: string, state: string): Promise<{ success: boolean; returnUrl?: string }> {
+  async function completeMastodonLogin(
+    code: string,
+    state: string
+  ): Promise<{ success: boolean; returnUrl?: string }> {
     loading.value = true
     error.value = null
 

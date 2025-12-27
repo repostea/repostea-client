@@ -1,7 +1,9 @@
 <template>
   <div class="container mx-auto px-4 py-8 max-w-4xl">
     <div class="mb-8">
-      <h1 class="text-3xl font-bold text-text dark:text-text-dark mb-2">{{ $t('federation.page.title') }}</h1>
+      <h1 class="text-3xl font-bold text-text dark:text-text-dark mb-2">
+        {{ $t('federation.page.title') }}
+      </h1>
       <p class="text-text-muted dark:text-text-dark-muted leading-relaxed">
         {{ $t('federation.page.subtitle') }}
       </p>
@@ -30,12 +32,30 @@
       </p>
 
       <ul class="space-y-2 text-text-muted dark:text-text-dark-muted">
-        <li><strong class="text-text dark:text-text-dark">Mastodon</strong> — {{ $t('federation.page.platforms.mastodon') }}</li>
-        <li><strong class="text-text dark:text-text-dark">Lemmy</strong> — {{ $t('federation.page.platforms.lemmy') }}</li>
-        <li><strong class="text-text dark:text-text-dark">PeerTube</strong> — {{ $t('federation.page.platforms.peertube') }}</li>
-        <li><strong class="text-text dark:text-text-dark">Pixelfed</strong> — {{ $t('federation.page.platforms.pixelfed') }}</li>
-        <li><strong class="text-text dark:text-text-dark">Friendica</strong> — {{ $t('federation.page.platforms.friendica') }}</li>
-        <li><strong class="text-text dark:text-text-dark">Mbin</strong> — {{ $t('federation.page.platforms.mbin') }}</li>
+        <li>
+          <strong class="text-text dark:text-text-dark">Mastodon</strong> —
+          {{ $t('federation.page.platforms.mastodon') }}
+        </li>
+        <li>
+          <strong class="text-text dark:text-text-dark">Lemmy</strong> —
+          {{ $t('federation.page.platforms.lemmy') }}
+        </li>
+        <li>
+          <strong class="text-text dark:text-text-dark">PeerTube</strong> —
+          {{ $t('federation.page.platforms.peertube') }}
+        </li>
+        <li>
+          <strong class="text-text dark:text-text-dark">Pixelfed</strong> —
+          {{ $t('federation.page.platforms.pixelfed') }}
+        </li>
+        <li>
+          <strong class="text-text dark:text-text-dark">Friendica</strong> —
+          {{ $t('federation.page.platforms.friendica') }}
+        </li>
+        <li>
+          <strong class="text-text dark:text-text-dark">Mbin</strong> —
+          {{ $t('federation.page.platforms.mbin') }}
+        </li>
       </ul>
     </section>
 
@@ -52,7 +72,11 @@
         <!-- What we do -->
         <div class="card-bg rounded-lg p-5 border border-color">
           <h3 class="font-semibold text-text dark:text-text-dark mb-4 flex items-center">
-            <Icon name="fa6-solid:check" class="mr-2 text-green-600 dark:text-green-500" aria-hidden="true" />
+            <Icon
+              name="fa6-solid:check"
+              class="mr-2 text-green-600 dark:text-green-500"
+              aria-hidden="true"
+            />
             {{ $t('federation.page.our_approach.what_we_do') }}
           </h3>
           <ul class="space-y-3 text-sm text-text-muted dark:text-text-dark-muted">
@@ -118,9 +142,15 @@
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-color">
-              <th class="text-left py-3 px-4 font-semibold text-text dark:text-text-dark">{{ $t('federation.page.metrics.type') }}</th>
-              <th class="text-left py-3 px-4 font-semibold text-text dark:text-text-dark">{{ $t('federation.page.metrics.local') }}</th>
-              <th class="text-left py-3 px-4 font-semibold text-text dark:text-text-dark">{{ $t('federation.page.metrics.federated') }}</th>
+              <th class="text-left py-3 px-4 font-semibold text-text dark:text-text-dark">
+                {{ $t('federation.page.metrics.type') }}
+              </th>
+              <th class="text-left py-3 px-4 font-semibold text-text dark:text-text-dark">
+                {{ $t('federation.page.metrics.local') }}
+              </th>
+              <th class="text-left py-3 px-4 font-semibold text-text dark:text-text-dark">
+                {{ $t('federation.page.metrics.federated') }}
+              </th>
             </tr>
           </thead>
           <tbody class="text-text-muted dark:text-text-dark-muted">
@@ -168,97 +198,96 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useI18n, useLocalePath  } from '#i18n'
+  import { computed } from 'vue'
+  import { useI18n, useLocalePath } from '#i18n'
 
+  const { t, locale } = useI18n()
+  const localePath = useLocalePath()
+  const config = useRuntimeConfig()
 
-const { t, locale } = useI18n()
-const localePath = useLocalePath()
-const config = useRuntimeConfig()
+  // Computed arrays for translations (avoiding $tm() raw object issues)
+  const doItems = computed(() => [
+    t('federation.page.our_approach.do_item_1'),
+    t('federation.page.our_approach.do_item_2'),
+    t('federation.page.our_approach.do_item_3'),
+    t('federation.page.our_approach.do_item_4'),
+  ])
 
-// Computed arrays for translations (avoiding $tm() raw object issues)
-const doItems = computed(() => [
-  t('federation.page.our_approach.do_item_1'),
-  t('federation.page.our_approach.do_item_2'),
-  t('federation.page.our_approach.do_item_3'),
-  t('federation.page.our_approach.do_item_4')
-])
+  const dontItems = computed(() => [
+    t('federation.page.our_approach.dont_item_1'),
+    t('federation.page.our_approach.dont_item_2'),
+    t('federation.page.our_approach.dont_item_3'),
+  ])
 
-const dontItems = computed(() => [
-  t('federation.page.our_approach.dont_item_1'),
-  t('federation.page.our_approach.dont_item_2'),
-  t('federation.page.our_approach.dont_item_3')
-])
+  const privacyItems = computed(() => [
+    t('federation.page.privacy.item_1'),
+    t('federation.page.privacy.item_2'),
+    t('federation.page.privacy.item_3'),
+    t('federation.page.privacy.item_4'),
+    t('federation.page.privacy.item_5'),
+  ])
 
-const privacyItems = computed(() => [
-  t('federation.page.privacy.item_1'),
-  t('federation.page.privacy.item_2'),
-  t('federation.page.privacy.item_3'),
-  t('federation.page.privacy.item_4'),
-  t('federation.page.privacy.item_5')
-])
+  const enableSteps = computed(() => [
+    t('federation.page.how_to_enable.step_1'),
+    t('federation.page.how_to_enable.step_2'),
+    t('federation.page.how_to_enable.step_3'),
+    t('federation.page.how_to_enable.step_4'),
+  ])
 
-const enableSteps = computed(() => [
-  t('federation.page.how_to_enable.step_1'),
-  t('federation.page.how_to_enable.step_2'),
-  t('federation.page.how_to_enable.step_3'),
-  t('federation.page.how_to_enable.step_4')
-])
+  // SEO
+  const route = useRoute()
+  const siteUrl = config.public.siteUrl
+  const pageUrl = `${siteUrl}${route.path}`
+  const ogImageUrl = `${siteUrl}/logo-wolf.png`
 
-// SEO
-const route = useRoute()
-const siteUrl = config.public.siteUrl
-const pageUrl = `${siteUrl}${route.path}`
-const ogImageUrl = `${siteUrl}/logo-wolf.png`
+  useSeoMeta({
+    title: t('federation.page.title') + ' | ' + config.public.appName,
+    description: t('federation.page.subtitle'),
+    keywords: 'fediverse, mastodon, lemmy, activitypub, federación, descentralizado',
+    robots: 'index, follow',
+    ogTitle: t('federation.page.title') + ' | ' + config.public.appName,
+    ogDescription: t('federation.page.subtitle'),
+    ogImage: ogImageUrl,
+    ogUrl: pageUrl,
+    ogType: 'website',
+    ogSiteName: config.public.appName,
+    twitterCard: 'summary',
+    twitterTitle: t('federation.page.title') + ' | ' + config.public.appName,
+    twitterDescription: t('federation.page.subtitle'),
+    twitterImage: ogImageUrl,
+    twitterSite: config.public.twitterHandle || undefined,
+  })
 
-useSeoMeta({
-  title: t('federation.page.title') + ' | ' + config.public.appName,
-  description: t('federation.page.subtitle'),
-  keywords: 'fediverse, mastodon, lemmy, activitypub, federación, descentralizado',
-  robots: 'index, follow',
-  ogTitle: t('federation.page.title') + ' | ' + config.public.appName,
-  ogDescription: t('federation.page.subtitle'),
-  ogImage: ogImageUrl,
-  ogUrl: pageUrl,
-  ogType: 'website',
-  ogSiteName: config.public.appName,
-  twitterCard: 'summary',
-  twitterTitle: t('federation.page.title') + ' | ' + config.public.appName,
-  twitterDescription: t('federation.page.subtitle'),
-  twitterImage: ogImageUrl,
-  twitterSite: config.public.twitterHandle || undefined,
-})
+  useCanonical()
 
-useCanonical()
-
-useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        '@id': pageUrl,
-        url: pageUrl,
-        name: t('federation.page.title'),
-        description: t('federation.page.subtitle'),
-        isPartOf: {
-          '@id': `${siteUrl}/#website`
-        },
-        inLanguage: locale.value
-      }),
-      tagPosition: 'bodyClose'
-    }
-  ]
-})
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          '@id': pageUrl,
+          url: pageUrl,
+          name: t('federation.page.title'),
+          description: t('federation.page.subtitle'),
+          isPartOf: {
+            '@id': `${siteUrl}/#website`,
+          },
+          inLanguage: locale.value,
+        }),
+        tagPosition: 'bodyClose',
+      },
+    ],
+  })
 </script>
 
 <style scoped>
-.section-border {
-  border-bottom: 1px solid var(--color-border-default);
-}
+  .section-border {
+    border-bottom: 1px solid var(--color-border-default);
+  }
 
-.border-color {
-  border-color: var(--color-border-default);
-}
+  .border-color {
+    border-color: var(--color-border-default);
+  }
 </style>

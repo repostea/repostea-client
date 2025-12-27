@@ -57,9 +57,33 @@ describe('realTimeNotifications Store', () => {
 
       // Add notifications manually for testing
       store._setNotificationsForTesting([
-        { id: '1', read: false, title: 'Test 1', message: 'Body 1', type: 'system', timestamp: Date.now(), priority: 'normal' },
-        { id: '2', read: true, title: 'Test 2', message: 'Body 2', type: 'system', timestamp: Date.now(), priority: 'normal' },
-        { id: '3', read: false, title: 'Test 3', message: 'Body 3', type: 'system', timestamp: Date.now(), priority: 'normal' },
+        {
+          id: '1',
+          read: false,
+          title: 'Test 1',
+          message: 'Body 1',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
+        {
+          id: '2',
+          read: true,
+          title: 'Test 2',
+          message: 'Body 2',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
+        {
+          id: '3',
+          read: false,
+          title: 'Test 3',
+          message: 'Body 3',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
       ])
 
       expect(store.unreadCount).toBe(2)
@@ -69,28 +93,54 @@ describe('realTimeNotifications Store', () => {
       const store = useRealTimeNotificationsStore()
 
       store._setNotificationsForTesting([
-        { id: '1', read: false, title: 'Test 1', message: 'Body 1', type: 'system', timestamp: Date.now(), priority: 'normal' },
-        { id: '2', read: true, title: 'Test 2', message: 'Body 2', type: 'system', timestamp: Date.now(), priority: 'normal' },
-        { id: '3', read: false, title: 'Test 3', message: 'Body 3', type: 'system', timestamp: Date.now(), priority: 'normal' },
+        {
+          id: '1',
+          read: false,
+          title: 'Test 1',
+          message: 'Body 1',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
+        {
+          id: '2',
+          read: true,
+          title: 'Test 2',
+          message: 'Body 2',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
+        {
+          id: '3',
+          read: false,
+          title: 'Test 3',
+          message: 'Body 3',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
       ])
 
       expect(store.unreadNotifications).toHaveLength(2)
-      expect(store.unreadNotifications.every(n => !n.read)).toBe(true)
+      expect(store.unreadNotifications.every((n) => !n.read)).toBe(true)
     })
 
     it('limits unread notifications to 10', () => {
       const store = useRealTimeNotificationsStore()
 
       // Add 15 unread notifications
-      store._setNotificationsForTesting(Array.from({ length: 15 }, (_, i) => ({
-        id: `${i}`,
-        read: false,
-        title: `Test ${i}`,
-        message: `Body ${i}`,
-        type: 'system',
-        timestamp: Date.now(),
-        priority: 'normal',
-      })))
+      store._setNotificationsForTesting(
+        Array.from({ length: 15 }, (_, i) => ({
+          id: `${i}`,
+          read: false,
+          title: `Test ${i}`,
+          message: `Body ${i}`,
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        }))
+      )
 
       expect(store.unreadNotifications).toHaveLength(10)
     })
@@ -191,7 +241,15 @@ describe('realTimeNotifications Store', () => {
 
       const store = useRealTimeNotificationsStore()
       store._setNotificationsForTesting([
-        { id: '1', read: false, title: 'Test', message: 'Body', type: 'system', timestamp: Date.now(), priority: 'normal' },
+        {
+          id: '1',
+          read: false,
+          title: 'Test',
+          message: 'Body',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
       ])
 
       await store.markAsRead('1')
@@ -210,7 +268,15 @@ describe('realTimeNotifications Store', () => {
 
       const store = useRealTimeNotificationsStore()
       store._setNotificationsForTesting([
-        { id: '1', read: false, title: 'Test', message: 'Body', type: 'system', timestamp: Date.now(), priority: 'normal' },
+        {
+          id: '1',
+          read: false,
+          title: 'Test',
+          message: 'Body',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
       ])
 
       await store.markAsRead('1')
@@ -226,13 +292,29 @@ describe('realTimeNotifications Store', () => {
 
       const store = useRealTimeNotificationsStore()
       store._setNotificationsForTesting([
-        { id: '1', read: false, title: 'Test 1', message: 'Body 1', type: 'system', timestamp: Date.now(), priority: 'normal' },
-        { id: '2', read: false, title: 'Test 2', message: 'Body 2', type: 'system', timestamp: Date.now(), priority: 'normal' },
+        {
+          id: '1',
+          read: false,
+          title: 'Test 1',
+          message: 'Body 1',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
+        {
+          id: '2',
+          read: false,
+          title: 'Test 2',
+          message: 'Body 2',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
       ])
 
       await store.markAllAsRead()
 
-      expect(store.notifications.every(n => n.read)).toBe(true)
+      expect(store.notifications.every((n) => n.read)).toBe(true)
       expect(global.$fetch).toHaveBeenCalledWith(
         'http://localhost:8000/api/v1/notifications/read-all',
         expect.objectContaining({
@@ -246,8 +328,24 @@ describe('realTimeNotifications Store', () => {
     it('removes notification from store', () => {
       const store = useRealTimeNotificationsStore()
       store._setNotificationsForTesting([
-        { id: '1', read: false, title: 'Test 1', message: 'Body 1', type: 'system', timestamp: Date.now(), priority: 'normal' },
-        { id: '2', read: false, title: 'Test 2', message: 'Body 2', type: 'system', timestamp: Date.now(), priority: 'normal' },
+        {
+          id: '1',
+          read: false,
+          title: 'Test 1',
+          message: 'Body 1',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
+        {
+          id: '2',
+          read: false,
+          title: 'Test 2',
+          message: 'Body 2',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
       ])
 
       store.removeNotification('1')
@@ -261,8 +359,24 @@ describe('realTimeNotifications Store', () => {
     it('clears all notifications', () => {
       const store = useRealTimeNotificationsStore()
       store._setNotificationsForTesting([
-        { id: '1', read: false, title: 'Test 1', message: 'Body 1', type: 'system', timestamp: Date.now(), priority: 'normal' },
-        { id: '2', read: false, title: 'Test 2', message: 'Body 2', type: 'system', timestamp: Date.now(), priority: 'normal' },
+        {
+          id: '1',
+          read: false,
+          title: 'Test 1',
+          message: 'Body 1',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
+        {
+          id: '2',
+          read: false,
+          title: 'Test 2',
+          message: 'Body 2',
+          type: 'system',
+          timestamp: Date.now(),
+          priority: 'normal',
+        },
       ])
 
       store.clearAllNotifications()
@@ -282,11 +396,7 @@ describe('realTimeNotifications Store', () => {
 
     it('handles empty notification objects', () => {
       const store = useRealTimeNotificationsStore()
-      store._setNotificationsForTesting([
-        null,
-        undefined,
-        {},
-      ])
+      store._setNotificationsForTesting([null, undefined, {}])
 
       // Should not crash
       expect(store.unreadCount).toBe(0)

@@ -136,9 +136,20 @@
           class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0"
         >
           <div class="text-sm">
-            <p>&copy; {{ new Date().getFullYear() }} {{ siteName }}. {{ t('footer.rights_reserved') }}</p>
+            <p>
+              &copy; {{ new Date().getFullYear() }} {{ siteName }}.
+              {{ t('footer.rights_reserved') }}
+            </p>
             <p class="text-xs opacity-70 mt-1">
-              Powered by <a href="https://github.com/repostea" target="_blank" rel="noopener" class="underline hover:opacity-80 transition-opacity">Repostea</a> - Open Source Software (GPL v3)
+              Powered by
+              <a
+                href="https://github.com/repostea"
+                target="_blank"
+                rel="noopener"
+                class="underline hover:opacity-80 transition-opacity"
+                >Repostea</a
+              >
+              - Open Source Software (GPL v3)
             </p>
           </div>
           <div class="text-sm opacity-80 max-w-md text-left md:text-right">
@@ -146,8 +157,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </footer>
 </template>

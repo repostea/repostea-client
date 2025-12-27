@@ -21,13 +21,27 @@
   const appName = runtimeConfig.public.appName || 'Repostea'
 
   // Lazy load onboarding step components - only loaded when user visits /onboarding
-  const WelcomeStep = defineAsyncComponent(() => import('@/components/onboarding/steps/WelcomeStep.vue'))
-  const DiscoverContentStep = defineAsyncComponent(() => import('@/components/onboarding/steps/DiscoverContentStep.vue'))
-  const CreatingPostsStep = defineAsyncComponent(() => import('@/components/onboarding/steps/CreatingPostsStep.vue'))
-  const VotingStep = defineAsyncComponent(() => import('@/components/onboarding/steps/VotingStep.vue'))
-  const KarmaSystemStep = defineAsyncComponent(() => import('@/components/onboarding/steps/KarmaSystemStep.vue'))
-  const NotificationsStep = defineAsyncComponent(() => import('@/components/onboarding/steps/NotificationsStep.vue'))
-  const PlatformFeaturesStep = defineAsyncComponent(() => import('@/components/onboarding/steps/PlatformFeaturesStep.vue'))
+  const WelcomeStep = defineAsyncComponent(
+    () => import('@/components/onboarding/steps/WelcomeStep.vue')
+  )
+  const DiscoverContentStep = defineAsyncComponent(
+    () => import('@/components/onboarding/steps/DiscoverContentStep.vue')
+  )
+  const CreatingPostsStep = defineAsyncComponent(
+    () => import('@/components/onboarding/steps/CreatingPostsStep.vue')
+  )
+  const VotingStep = defineAsyncComponent(
+    () => import('@/components/onboarding/steps/VotingStep.vue')
+  )
+  const KarmaSystemStep = defineAsyncComponent(
+    () => import('@/components/onboarding/steps/KarmaSystemStep.vue')
+  )
+  const NotificationsStep = defineAsyncComponent(
+    () => import('@/components/onboarding/steps/NotificationsStep.vue')
+  )
+  const PlatformFeaturesStep = defineAsyncComponent(
+    () => import('@/components/onboarding/steps/PlatformFeaturesStep.vue')
+  )
 
   definePageMeta({
     layout: false,
@@ -54,11 +68,14 @@
   })
 
   // Watch for route changes
-  watch(() => route.params.step, (newStep) => {
-    if (newStep && ONBOARDING_STEPS.includes(newStep)) {
-      currentStep.value = newStep
+  watch(
+    () => route.params.step,
+    (newStep) => {
+      if (newStep && ONBOARDING_STEPS.includes(newStep)) {
+        currentStep.value = newStep
+      }
     }
-  })
+  )
 
   onMounted(() => {
     // Auth is already handled by middleware, no need to check here

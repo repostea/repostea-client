@@ -11,13 +11,15 @@ describe('RequiredFieldIndicator Component', () => {
         mocks: {
           $t: (key) => {
             const translations = {
-              'submit.validation.required_fields_description': 'Los campos marcados con * son obligatorios',
+              'submit.validation.required_fields_description':
+                'Los campos marcados con * son obligatorios',
             }
             return translations[key] || key
           },
           t: (key) => {
             const translations = {
-              'submit.validation.required_fields_description': 'Los campos marcados con * son obligatorios',
+              'submit.validation.required_fields_description':
+                'Los campos marcados con * son obligatorios',
             }
             return translations[key] || key
           },

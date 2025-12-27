@@ -8,7 +8,10 @@
       </div>
       <div class="p-6">
         <div v-if="userAchievements && userAchievements.length > 0">
-          <AchievementsList :achievements="userAchievements" :user-achievements="userAchievements" />
+          <AchievementsList
+            :achievements="userAchievements"
+            :user-achievements="userAchievements"
+          />
         </div>
         <div v-else class="text-center py-12">
           <div class="text-primary text-4xl mb-3">

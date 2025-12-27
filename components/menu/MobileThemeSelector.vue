@@ -48,7 +48,11 @@
       <!-- Temas Alto Contraste -->
       <template v-if="themesByCategory['high-contrast'].length > 0">
         <div class="category-header mt-2">
-          <Icon name="fa6-solid:circle-half-stroke" class="mr-1.5 text-primary dark:text-primary-light" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:circle-half-stroke"
+            class="mr-1.5 text-primary dark:text-primary-light"
+            aria-hidden="true"
+          />
           <span>{{ $t('settings.themes_high_contrast') }}</span>
         </div>
         <button
@@ -70,7 +74,12 @@
 
 <script setup>
   import { useUserPreferencesStore } from '~/stores/userPreferences'
-  import { useThemes, themeClasses, isDarkTheme, availableThemes as allThemes } from '~/composables/useThemes'
+  import {
+    useThemes,
+    themeClasses,
+    isDarkTheme,
+    availableThemes as allThemes,
+  } from '~/composables/useThemes'
 
   const { themesByCategory } = useThemes()
   const preferencesStore = useUserPreferencesStore()

@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
 import PostFormWizard from '~/components/posts/PostFormWizard.vue'
+import { wizardStubs } from './wizardStubs'
 
 // Mock i18n
 vi.mock('#i18n', () => ({
@@ -54,6 +55,7 @@ describe('PostFormWizard Auto-Advance Functionality', () => {
       global: {
         plugins: [pinia],
         stubs: {
+          ...wizardStubs,
           NuxtLink: { template: '<a><slot /></a>' },
           MarkdownEditor: { template: '<div data-testid="content-textarea"></div>' },
           TagSelector: { template: '<div data-testid="tags-input"></div>' },

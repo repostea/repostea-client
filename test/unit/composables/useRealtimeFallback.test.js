@@ -202,7 +202,8 @@ describe('useRealtimeFallback', () => {
     })
 
     it('should clear error on successful poll', async () => {
-      const fetchFn = vi.fn()
+      const fetchFn = vi
+        .fn()
         .mockRejectedValueOnce(new Error('First error'))
         .mockResolvedValueOnce(undefined)
 

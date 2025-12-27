@@ -68,7 +68,12 @@
   const hasImage = computed(() => {
     const icon = props.sub?.icon
     if (!icon) return false
-    return icon.startsWith('http://') || icon.startsWith('https://') || icon.startsWith('/') || icon.startsWith('data:image')
+    return (
+      icon.startsWith('http://') ||
+      icon.startsWith('https://') ||
+      icon.startsWith('/') ||
+      icon.startsWith('data:image')
+    )
   })
 
   const initials = computed(() => {
@@ -83,12 +88,32 @@
     // Map first letter to color (a-z = 0-25)
     const firstChar = name.toLowerCase().charCodeAt(0) - 97
     const colors = [
-      '#ef4444', '#dc2626', '#f97316', '#ea580c', '#eab308',
-      '#ca8a04', '#84cc16', '#22c55e', '#16a34a', '#14b8a6',
-      '#0d9488', '#06b6d4', '#0891b2', '#3b82f6', '#2563eb',
-      '#6366f1', '#4f46e5', '#8b5cf6', '#7c3aed', '#a855f7',
-      '#9333ea', '#d946ef', '#c026d3', '#ec4899', '#db2777',
-      '#f43f5e'
+      '#ef4444',
+      '#dc2626',
+      '#f97316',
+      '#ea580c',
+      '#eab308',
+      '#ca8a04',
+      '#84cc16',
+      '#22c55e',
+      '#16a34a',
+      '#14b8a6',
+      '#0d9488',
+      '#06b6d4',
+      '#0891b2',
+      '#3b82f6',
+      '#2563eb',
+      '#6366f1',
+      '#4f46e5',
+      '#8b5cf6',
+      '#7c3aed',
+      '#a855f7',
+      '#9333ea',
+      '#d946ef',
+      '#c026d3',
+      '#ec4899',
+      '#db2777',
+      '#f43f5e',
     ]
     const index = Math.max(0, Math.min(firstChar, 25))
     return colors[index]

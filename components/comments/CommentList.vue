@@ -2,13 +2,21 @@
   <div class="comment-list">
     <div v-if="loading && comments.length === 0" class="loading-container">
       <div class="text-center py-8">
-        <Icon name="fa6-solid:spinner" class="text-4xl text-primary animate-spin" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:spinner"
+          class="text-4xl text-primary animate-spin"
+          aria-hidden="true"
+        />
         <p class="mt-4 text-gray-600 dark:text-gray-400">{{ $t('common.loading') }}...</p>
       </div>
     </div>
 
     <div v-else-if="comments.length === 0" class="empty-state">
-      <Icon name="fa6-solid:comments" class="text-6xl text-gray-400 dark:text-gray-600 mb-4" aria-hidden="true" />
+      <Icon
+        name="fa6-solid:comments"
+        class="text-6xl text-gray-400 dark:text-gray-600 mb-4"
+        aria-hidden="true"
+      />
       <p class="text-xl text-gray-600 dark:text-gray-400">{{ $t('comments.no_comments_found') }}</p>
       <p v-if="nextTimeInterval" class="text-sm text-gray-500 dark:text-gray-400 mt-2">
         {{ $t('comments.try_expanding') }}
@@ -34,7 +42,11 @@
       <!-- Infinite scroll trigger -->
       <div v-if="hasMore" ref="loadMoreTrigger" class="load-more-trigger">
         <div v-if="loadMoreLoading" class="text-center py-4">
-          <Icon name="fa6-solid:spinner" class="text-2xl text-primary animate-spin" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:spinner"
+            class="text-2xl text-primary animate-spin"
+            aria-hidden="true"
+          />
         </div>
       </div>
     </div>
@@ -85,7 +97,7 @@
       { value: '0', label: t('filters.all_time') },
     ]
 
-    const currentIndex = intervals.findIndex(i => i.value === props.timeInterval)
+    const currentIndex = intervals.findIndex((i) => i.value === props.timeInterval)
 
     // If we're at "all time" or can't find the index, there's no next
     if (currentIndex === -1 || currentIndex === intervals.length - 1) {

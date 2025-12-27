@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
 import PostFormWizard from '~/components/posts/PostFormWizard.vue'
+import { wizardStubs } from './wizardStubs'
 
 // Mock i18n
 vi.mock('#i18n', () => ({
@@ -74,6 +75,7 @@ describe('PostFormWizard E2E-Style Tests', () => {
       global: {
         plugins: [pinia],
         stubs: {
+          ...wizardStubs,
           NuxtLink: { template: '<a><slot /></a>' },
           MarkdownEditor: {
             template:

@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="vote-stats card-bg rounded-lg shadow-sm p-4 border border-border-color"
-  >
+  <div class="vote-stats card-bg rounded-lg shadow-sm p-4 border border-border-color">
     <div v-if="!hasVoteData" class="text-center py-4 text-gray-500">
       {{ t('vote.stats.no_votes') }}
     </div>

@@ -256,7 +256,7 @@ describe('MobileMenu Component', () => {
       mockRoutePath.value = '/'
       wrapper = createWrapper()
       await wrapper.find('.menu-button').trigger('click')
-      const homeLink = wrapper.findAll('a').find(a => a.attributes('to') === '/')
+      const homeLink = wrapper.findAll('a').find((a) => a.attributes('to') === '/')
       expect(homeLink).toBeUndefined()
     })
 
@@ -264,7 +264,7 @@ describe('MobileMenu Component', () => {
       mockRoutePath.value = '/stats'
       wrapper = createWrapper()
       await wrapper.find('.menu-button').trigger('click')
-      const homeLink = wrapper.findAll('a').find(a => a.attributes('to') === '/')
+      const homeLink = wrapper.findAll('a').find((a) => a.attributes('to') === '/')
       expect(homeLink).toBeDefined()
     })
 
@@ -273,7 +273,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
       expect(wrapper.vm.isOpen).toBe(true)
 
-      const submitLink = wrapper.findAll('a').find(a => a.attributes('to') === '/submit')
+      const submitLink = wrapper.findAll('a').find((a) => a.attributes('to') === '/submit')
       await submitLink.trigger('click')
 
       expect(wrapper.vm.isOpen).toBe(false)
@@ -347,7 +347,7 @@ describe('MobileMenu Component', () => {
       wrapper = createWrapper()
       await wrapper.find('.menu-button').trigger('click')
       const buttons = wrapper.findAll('button')
-      const languageButton = buttons.find(btn => btn.text().includes('Language'))
+      const languageButton = buttons.find((btn) => btn.text().includes('Language'))
       const icon = languageButton.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:language')
@@ -357,7 +357,7 @@ describe('MobileMenu Component', () => {
       wrapper = createWrapper()
       await wrapper.find('.menu-button').trigger('click')
       const buttons = wrapper.findAll('button')
-      const themeButton = buttons.find(btn => btn.text().includes('Theme'))
+      const themeButton = buttons.find((btn) => btn.text().includes('Theme'))
       const icon = themeButton.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:palette')
@@ -376,7 +376,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const buttons = wrapper.findAll('button')
-      const languageButton = buttons.find(btn => btn.text().includes('Language'))
+      const languageButton = buttons.find((btn) => btn.text().includes('Language'))
       await languageButton.trigger('click')
 
       expect(wrapper.vm.showLanguageModal).toBe(true)
@@ -388,7 +388,7 @@ describe('MobileMenu Component', () => {
       expect(wrapper.vm.isOpen).toBe(true)
 
       const buttons = wrapper.findAll('button')
-      const languageButton = buttons.find(btn => btn.text().includes('Language'))
+      const languageButton = buttons.find((btn) => btn.text().includes('Language'))
       await languageButton.trigger('click')
 
       expect(wrapper.vm.isOpen).toBe(false)
@@ -399,7 +399,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const buttons = wrapper.findAll('button')
-      const languageButton = buttons.find(btn => btn.text().includes('Language'))
+      const languageButton = buttons.find((btn) => btn.text().includes('Language'))
       await languageButton.trigger('click')
       await wrapper.vm.$nextTick()
 
@@ -411,7 +411,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const buttons = wrapper.findAll('button')
-      const languageButton = buttons.find(btn => btn.text().includes('Language'))
+      const languageButton = buttons.find((btn) => btn.text().includes('Language'))
       await languageButton.trigger('click')
       await wrapper.vm.$nextTick()
 
@@ -467,7 +467,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const buttons = wrapper.findAll('button')
-      const themeButton = buttons.find(btn => btn.text().includes('Theme'))
+      const themeButton = buttons.find((btn) => btn.text().includes('Theme'))
       await themeButton.trigger('click')
 
       expect(wrapper.vm.showThemeModal).toBe(true)
@@ -479,7 +479,7 @@ describe('MobileMenu Component', () => {
       expect(wrapper.vm.isOpen).toBe(true)
 
       const buttons = wrapper.findAll('button')
-      const themeButton = buttons.find(btn => btn.text().includes('Theme'))
+      const themeButton = buttons.find((btn) => btn.text().includes('Theme'))
       await themeButton.trigger('click')
 
       expect(wrapper.vm.isOpen).toBe(false)
@@ -490,7 +490,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const buttons = wrapper.findAll('button')
-      const themeButton = buttons.find(btn => btn.text().includes('Theme'))
+      const themeButton = buttons.find((btn) => btn.text().includes('Theme'))
       await themeButton.trigger('click')
       await wrapper.vm.$nextTick()
 
@@ -503,7 +503,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const buttons = wrapper.findAll('button')
-      const themeButton = buttons.find(btn => btn.text().includes('Theme'))
+      const themeButton = buttons.find((btn) => btn.text().includes('Theme'))
       await themeButton.trigger('click')
       await wrapper.vm.$nextTick()
 
@@ -625,7 +625,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const links = wrapper.findAll('.mobile-nav-link')
-      const submitLink = links.find(link => link.text().includes('Submit'))
+      const submitLink = links.find((link) => link.text().includes('Submit'))
       const icon = submitLink.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:circle-plus')
@@ -636,7 +636,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const links = wrapper.findAll('.mobile-nav-link')
-      const statsLink = links.find(link => link.text().includes('Statistics'))
+      const statsLink = links.find((link) => link.text().includes('Statistics'))
       const icon = statsLink.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:chart-line')
@@ -647,7 +647,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const links = wrapper.findAll('.mobile-nav-link')
-      const rankingsLink = links.find(link => link.text().includes('Rankings'))
+      const rankingsLink = links.find((link) => link.text().includes('Rankings'))
       const icon = rankingsLink.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:trophy')
@@ -658,7 +658,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const links = wrapper.findAll('.mobile-nav-link')
-      const listsLink = links.find(link => link.text().includes('Saved Lists'))
+      const listsLink = links.find((link) => link.text().includes('Saved Lists'))
       const icon = listsLink.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:bookmark')
@@ -669,7 +669,7 @@ describe('MobileMenu Component', () => {
       await wrapper.find('.menu-button').trigger('click')
 
       const links = wrapper.findAll('.mobile-nav-link')
-      const activityLink = links.find(link => link.text().includes('Activity'))
+      const activityLink = links.find((link) => link.text().includes('Activity'))
       const icon = activityLink.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:rss')

@@ -1,8 +1,10 @@
 <template>
-  <article ref="articleRef" class="list-item-card" :aria-labelledby="`post-title-${post.id || post.entryId}`">
-    <div
-      class="list-item-content flex items-center py-2 px-3 transition-colors"
-    >
+  <article
+    ref="articleRef"
+    class="list-item-card"
+    :aria-labelledby="`post-title-${post.id || post.entryId}`"
+  >
+    <div class="list-item-content flex items-center py-2 px-3 transition-colors">
       <!-- Vote badge compacto -->
       <div class="vote-section mr-3">
         <button
@@ -13,7 +15,11 @@
           @click.stop="vote"
         >
           <span class="text-sm font-bold">{{ post.votes || 0 }}</span>
-          <Icon :name="isLoading ? 'fa6-solid:spinner' : 'fa6-solid:arrow-up'" :class="['text-xs', {'animate-spin': isLoading}]" aria-hidden="true" />
+          <Icon
+            :name="isLoading ? 'fa6-solid:spinner' : 'fa6-solid:arrow-up'"
+            :class="['text-xs', { 'animate-spin': isLoading }]"
+            aria-hidden="true"
+          />
         </button>
       </div>
 
@@ -53,7 +59,9 @@
         </h3>
 
         <!-- Desktop: Single line metadata -->
-        <div class="hidden md:flex items-center text-xs text-text-muted dark:text-text-dark-muted mt-0.5">
+        <div
+          class="hidden md:flex items-center text-xs text-text-muted dark:text-text-dark-muted mt-0.5"
+        >
           <AuthorInfo
             :user="post.user"
             :is-anonymous="post.is_guest"
@@ -63,7 +71,11 @@
           <span class="mx-1">·</span>
 
           <span v-if="post.url" class="truncate max-w-[200px]">
-            {{ post.is_nsfw ? t('posts.external_content', '[contenido externo]') : getDomain(post.url) }}
+            {{
+              post.is_nsfw
+                ? t('posts.external_content', '[contenido externo]')
+                : getDomain(post.url)
+            }}
           </span>
           <span v-else>
             {{ t('links.internal_link') }}
@@ -75,7 +87,9 @@
             {{ formatDate(post.created_at) }}
           </span>
 
-          <span v-if="post.numComments > 0" class="ml-2 inline-flex items-center"><Icon name="fa6-solid:comment" class="text-xs mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ post.numComments }}</span>
+          <span v-if="post.numComments > 0" class="ml-2 inline-flex items-center"
+            ><Icon name="fa6-solid:comment" class="text-xs mr-1 flex-shrink-0" aria-hidden="true" />
+            <span>{{ post.numComments }}</span>
           </span>
         </div>
 
@@ -90,7 +104,11 @@
           </div>
 
           <div v-if="post.url" class="truncate">
-            {{ post.is_nsfw ? t('posts.external_content', '[contenido externo]') : getDomain(post.url) }}
+            {{
+              post.is_nsfw
+                ? t('posts.external_content', '[contenido externo]')
+                : getDomain(post.url)
+            }}
           </div>
           <div v-else>
             {{ t('links.internal_link') }}
@@ -102,7 +120,11 @@
             </span>
 
             <span v-if="post.numComments > 0" class="inline-flex items-center">
-              <Icon name="fa6-solid:comment" class="text-xs mr-1 flex-shrink-0" aria-hidden="true" />
+              <Icon
+                name="fa6-solid:comment"
+                class="text-xs mr-1 flex-shrink-0"
+                aria-hidden="true"
+              />
               <span>{{ post.numComments }}</span>
             </span>
           </div>
@@ -118,7 +140,7 @@
   import { ref, onMounted, onBeforeUnmount } from 'vue'
   import { useAuthStore } from '~/stores/auth'
   import { usePostsStore } from '~/stores/posts'
-  import { useLocalePath, useI18n  } from '#i18n'
+  import { useLocalePath, useI18n } from '#i18n'
 
   import AuthorInfo from '~/components/common/AuthorInfo.vue'
 

@@ -68,7 +68,14 @@
         <div
           class="card-bg rounded-lg shadow-sm stats-card-border p-6 hover:shadow-md transition-shadow duration-300"
         >
-          <h3 class="text-lg font-bold text-text dark:text-text-dark inline-flex items-center mb-5"><Icon name="fa6-solid:circle-info" class="mr-2 text-primary dark:text-primary-light flex-shrink-0" aria-hidden="true" /> <span>{{ $t('stats.general') }}</span></h3>
+          <h3 class="text-lg font-bold text-text dark:text-text-dark inline-flex items-center mb-5">
+            <Icon
+              name="fa6-solid:circle-info"
+              class="mr-2 text-primary dark:text-primary-light flex-shrink-0"
+              aria-hidden="true"
+            />
+            <span>{{ $t('stats.general') }}</span>
+          </h3>
 
           <div class="grid grid-cols-2 gap-4">
             <div class="flex flex-col bg-primary/5 dark:bg-primary/10 rounded-lg p-3">
@@ -125,8 +132,17 @@
             v-if="generalStats.timestamp"
             class="mt-4 pt-3 stats-border-top flex items-center justify-between text-xs text-text-muted dark:text-text-dark-muted"
           >
-            <span class="inline-flex items-center"><Icon name="fa6-solid:clock" class="mr-1.5 flex-shrink-0" aria-hidden="true" /> <span>{{ $t('stats.last_updated') }}: {{ formatDateTime(generalStats.timestamp) }}</span></span>
-            <button class="text-primary dark:text-primary-light hover:underline inline-flex items-center" :aria-label="$t('common.refresh')" @click="loadStats">
+            <span class="inline-flex items-center"
+              ><Icon name="fa6-solid:clock" class="mr-1.5 flex-shrink-0" aria-hidden="true" />
+              <span
+                >{{ $t('stats.last_updated') }}: {{ formatDateTime(generalStats.timestamp) }}</span
+              ></span
+            >
+            <button
+              class="text-primary dark:text-primary-light hover:underline inline-flex items-center"
+              :aria-label="$t('common.refresh')"
+              @click="loadStats"
+            >
               <Icon name="fa6-solid:rotate" class="mr-1 flex-shrink-0" aria-hidden="true" />
             </button>
           </div>
@@ -136,7 +152,14 @@
         <div
           class="card-bg rounded-lg shadow-sm stats-card-border p-6 hover:shadow-md transition-shadow duration-300"
         >
-          <h3 class="text-lg font-bold mb-5 text-text dark:text-text-dark inline-flex items-center"><Icon name="fa6-solid:file-lines" class="mr-2 text-primary dark:text-primary-light flex-shrink-0" aria-hidden="true" /> <span>{{ $t('stats.content') }}</span></h3>
+          <h3 class="text-lg font-bold mb-5 text-text dark:text-text-dark inline-flex items-center">
+            <Icon
+              name="fa6-solid:file-lines"
+              class="mr-2 text-primary dark:text-primary-light flex-shrink-0"
+              aria-hidden="true"
+            />
+            <span>{{ $t('stats.content') }}</span>
+          </h3>
 
           <div class="grid grid-cols-2 gap-4">
             <div class="flex flex-col bg-blue-50 dark:bg-blue-900/10 rounded-lg p-3">
@@ -178,7 +201,14 @@
         <div
           class="card-bg rounded-lg shadow-sm stats-card-border p-6 hover:shadow-md transition-shadow duration-300"
         >
-          <h3 class="text-lg font-bold mb-5 text-text dark:text-text-dark inline-flex items-center"><Icon name="fa6-solid:users" class="mr-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" /> <span>{{ $t('stats.users') }}</span></h3>
+          <h3 class="text-lg font-bold mb-5 text-text dark:text-text-dark inline-flex items-center">
+            <Icon
+              name="fa6-solid:users"
+              class="mr-2 text-green-500 dark:text-green-400 flex-shrink-0"
+              aria-hidden="true"
+            />
+            <span>{{ $t('stats.users') }}</span>
+          </h3>
 
           <div class="grid grid-cols-2 gap-4 mb-6">
             <div class="flex flex-col bg-green-50 dark:bg-green-900/10 rounded-lg p-3">
@@ -209,7 +239,9 @@
               <span class="text-text-muted dark:text-text-dark-muted text-xs mb-1">{{
                 $t('stats.confirmation_rate')
               }}</span>
-              <span class="text-2xl font-bold text-text dark:text-text-dark">{{ userStats.confirmation_rate }}%</span>
+              <span class="text-2xl font-bold text-text dark:text-text-dark"
+                >{{ userStats.confirmation_rate }}%</span
+              >
             </div>
           </div>
 
@@ -223,7 +255,9 @@
                 numberFormat(userStats.verified_users)
               }}</span>
             </div>
-            <div class="flex flex-col bg-purple-50 dark:bg-purple-900/10 rounded-lg p-2 text-center">
+            <div
+              class="flex flex-col bg-purple-50 dark:bg-purple-900/10 rounded-lg p-2 text-center"
+            >
               <span class="text-text-muted dark:text-text-dark-muted text-xs mb-1">{{
                 $t('stats.federated_users')
               }}</span>
@@ -243,7 +277,16 @@
 
           <div class="stats-border-top pt-4 mt-6">
             <div class="flex items-center justify-between mb-3">
-              <h4 class="text-sm font-semibold text-text dark:text-text-dark inline-flex items-center"><Icon name="fa6-solid:trophy" class="mr-2 text-orange-500 dark:text-orange-400 flex-shrink-0" aria-hidden="true" /> <span>{{ $t('stats.top_users') }}</span></h4>
+              <h4
+                class="text-sm font-semibold text-text dark:text-text-dark inline-flex items-center"
+              >
+                <Icon
+                  name="fa6-solid:trophy"
+                  class="mr-2 text-orange-500 dark:text-orange-400 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                <span>{{ $t('stats.top_users') }}</span>
+              </h4>
               <NuxtLink
                 :to="localePath('/rankings')"
                 class="text-xs text-primary dark:text-primary-light hover:underline flex items-center"
@@ -259,24 +302,46 @@
                 :key="user.id"
                 class="flex items-center gap-3 p-2.5 rounded-lg border transition-all hover:shadow-md"
                 :class="{
-                  'border-2 border-yellow-400 dark:border-yellow-500 bg-yellow-50/50 dark:bg-yellow-900/10': index === 0,
-                  'border-2 border-gray-300 dark:border-gray-400 bg-gray-50/50 dark:bg-gray-900/10': index === 1,
-                  'border-2 border-orange-400 dark:border-orange-500 bg-orange-50/50 dark:bg-orange-900/10': index === 2,
-                  'stats-card-border card-bg': index > 2
+                  'border-2 border-yellow-400 dark:border-yellow-500 bg-yellow-50/50 dark:bg-yellow-900/10':
+                    index === 0,
+                  'border-2 border-gray-300 dark:border-gray-400 bg-gray-50/50 dark:bg-gray-900/10':
+                    index === 1,
+                  'border-2 border-orange-400 dark:border-orange-500 bg-orange-50/50 dark:bg-orange-900/10':
+                    index === 2,
+                  'stats-card-border card-bg': index > 2,
                 }"
               >
                 <div class="flex-shrink-0 w-8 text-center">
-                  <Icon v-if="index === 0" name="fa6-solid:crown" class="text-yellow-500" aria-hidden="true" />
-                  <Icon v-else-if="index === 1" name="fa6-solid:medal" class="text-gray-400" aria-hidden="true" />
-                  <Icon v-else-if="index === 2" name="fa6-solid:medal" class="text-orange-500" aria-hidden="true" />
-                  <span v-else class="text-sm font-bold text-gray-500 dark:text-gray-400">#{{ index + 1 }}</span>
+                  <Icon
+                    v-if="index === 0"
+                    name="fa6-solid:crown"
+                    class="text-yellow-500"
+                    aria-hidden="true"
+                  />
+                  <Icon
+                    v-else-if="index === 1"
+                    name="fa6-solid:medal"
+                    class="text-gray-400"
+                    aria-hidden="true"
+                  />
+                  <Icon
+                    v-else-if="index === 2"
+                    name="fa6-solid:medal"
+                    class="text-orange-500"
+                    aria-hidden="true"
+                  />
+                  <span v-else class="text-sm font-bold text-gray-500 dark:text-gray-400"
+                    >#{{ index + 1 }}</span
+                  >
                 </div>
 
                 <NuxtLink
                   :to="localePath(`/u/${user.username}`)"
                   class="flex items-center gap-2 flex-1 min-w-0"
                 >
-                  <div class="w-8 h-8 rounded-full overflow-hidden stats-avatar-border flex-shrink-0 stats-avatar-bg flex items-center justify-center">
+                  <div
+                    class="w-8 h-8 rounded-full overflow-hidden stats-avatar-border flex-shrink-0 stats-avatar-bg flex items-center justify-center"
+                  >
                     <Icon name="fa6-solid:user" class="text-gray-400 text-sm" aria-hidden="true" />
                   </div>
                   <span class="font-semibold text-sm truncate">
@@ -301,7 +366,14 @@
         <div
           class="card-bg rounded-lg shadow-sm stats-card-border p-6 hover:shadow-md transition-shadow duration-300"
         >
-          <h3 class="text-lg font-bold mb-5 text-text dark:text-text-dark inline-flex items-center"><Icon name="fa6-solid:chart-bar" class="mr-2 text-orange-500 dark:text-orange-400 flex-shrink-0" aria-hidden="true" /> <span>{{ $t('stats.engagement') }}</span></h3>
+          <h3 class="text-lg font-bold mb-5 text-text dark:text-text-dark inline-flex items-center">
+            <Icon
+              name="fa6-solid:chart-bar"
+              class="mr-2 text-orange-500 dark:text-orange-400 flex-shrink-0"
+              aria-hidden="true"
+            />
+            <span>{{ $t('stats.engagement') }}</span>
+          </h3>
 
           <div class="grid grid-cols-2 gap-4">
             <div class="flex flex-col bg-orange-50 dark:bg-orange-900/10 rounded-lg p-3">
@@ -355,7 +427,9 @@
               <span class="text-text-muted dark:text-text-dark-muted text-xs mb-1 text-center">{{
                 $t('stats.avg_votes_post')
               }}</span>
-              <span class="text-3xl font-bold text-text dark:text-text-dark">{{ engagementStats.avg_votes_per_post }}</span>
+              <span class="text-3xl font-bold text-text dark:text-text-dark">{{
+                engagementStats.avg_votes_per_post
+              }}</span>
             </div>
           </div>
         </div>
@@ -363,17 +437,23 @@
 
       <!-- Language Distribution Section -->
       <div class="mt-8">
-        <h2 class="inline-flex items-center text-2xl font-bold mb-6 text-text dark:text-text-dark"><Icon name="fa6-solid:language" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ $t('stats.language_distribution') }}</span></h2>
+        <h2 class="inline-flex items-center text-2xl font-bold mb-6 text-text dark:text-text-dark">
+          <Icon name="fa6-solid:language" class="mr-2 flex-shrink-0" aria-hidden="true" />
+          <span>{{ $t('stats.language_distribution') }}</span>
+        </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Language Chart Card -->
-          <div
-            class="md:col-span-2 card-bg rounded-lg shadow-sm stats-card-border p-5"
-          >
-            <h3 class="inline-flex items-center text-lg font-bold mb-4 text-text dark:text-text-dark"><Icon name="fa6-solid:chart-pie" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ $t('stats.articles_by_language') }}</span></h3>
+          <div class="md:col-span-2 card-bg rounded-lg shadow-sm stats-card-border p-5">
+            <h3
+              class="inline-flex items-center text-lg font-bold mb-4 text-text dark:text-text-dark"
+            >
+              <Icon name="fa6-solid:chart-pie" class="mr-2 flex-shrink-0" aria-hidden="true" />
+              <span>{{ $t('stats.articles_by_language') }}</span>
+            </h3>
 
             <div class="h-80 relative">
-              <canvas v-if="!chartError" ref="languageChartRef"/>
+              <canvas v-if="!chartError" ref="languageChartRef" />
               <div
                 v-else
                 class="flex items-center justify-center h-full text-gray-500 dark:text-gray-400"
@@ -394,10 +474,13 @@
           </div>
 
           <!-- Language Stats Table Card -->
-          <div
-            class="card-bg rounded-lg shadow-sm stats-card-border p-5"
-          >
-            <h3 class="inline-flex items-center text-lg font-bold mb-4 text-text dark:text-text-dark"><Icon name="fa6-solid:list" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ $t('stats.language_breakdown') }}</span></h3>
+          <div class="card-bg rounded-lg shadow-sm stats-card-border p-5">
+            <h3
+              class="inline-flex items-center text-lg font-bold mb-4 text-text dark:text-text-dark"
+            >
+              <Icon name="fa6-solid:list" class="mr-2 flex-shrink-0" aria-hidden="true" />
+              <span>{{ $t('stats.language_breakdown') }}</span>
+            </h3>
 
             <div class="overflow-hidden">
               <table class="w-full text-sm">
@@ -460,7 +543,11 @@
   const engagementStats = ref({})
 
   const languageStats = computed(() => {
-    if (!contentStats.value.posts_by_language || !Array.isArray(contentStats.value.posts_by_language)) return []
+    if (
+      !contentStats.value.posts_by_language ||
+      !Array.isArray(contentStats.value.posts_by_language)
+    )
+      return []
 
     const totalPosts = contentStats.value.posts_by_language.reduce(
       (sum, lang) => sum + lang.count,
@@ -708,7 +795,6 @@
               $api.stats.getUsers(),
               $api.stats.getEngagement(),
             ])
-
 
           // Extract data from responses, ensuring we handle the correct structure
           // The API returns data directly in the response.data object, not nested under a data property

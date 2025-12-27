@@ -2,8 +2,8 @@ import { defineEventHandler } from 'h3'
 
 /**
  * Server middleware to handle connection timeouts
- * This middleware sets appropriate timeout values and ensures
- * that long-running requests don't lead to connection aborts
+ * Sets appropriate timeout values and ensures long-running requests
+ * don't lead to connection aborts
  */
 export default defineEventHandler((event) => {
   // Set a reasonable timeout for the server request (2 minutes)
@@ -15,8 +15,6 @@ export default defineEventHandler((event) => {
 
   // Set timeout on the server response
   res.setTimeout(TIMEOUT_MS, () => {
-    console.warn('Request timeout reached for:', req.url)
-
     // Only end the response if it hasn't been sent yet
     if (!res.writableEnded) {
       res.statusCode = 503
@@ -30,9 +28,6 @@ export default defineEventHandler((event) => {
 
   // Handle client disconnection gracefully
   req.on('close', () => {
-    if (!req.complete && !res.writableEnded) {
-      console.warn('Client disconnected before response was complete:', req.url)
-      // We don't need to end the response here as the client is already gone
-    }
+    // Client disconnected - no action needed as client is already gone
   })
 })

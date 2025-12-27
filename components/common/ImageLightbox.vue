@@ -35,16 +35,12 @@
         </div>
 
         <!-- Image container -->
-        <div
-          class="lightbox-content relative max-w-[95vw] max-h-[95vh]"
-          @click.stop
-        >
+        <div class="lightbox-content relative max-w-[95vw] max-h-[95vh]" @click.stop>
           <!-- Loading spinner -->
-          <div
-            v-if="isLoading"
-            class="absolute inset-0 flex items-center justify-center"
-          >
-            <div class="animate-spin h-8 w-8 border-4 border-white border-t-transparent rounded-full"/>
+          <div v-if="isLoading" class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="animate-spin h-8 w-8 border-4 border-white border-t-transparent rounded-full"
+            />
           </div>
 
           <!-- Image -->
@@ -117,20 +113,23 @@
   }
 
   // Focus trap and keyboard handling
-  watch(() => props.isOpen, (isOpen) => {
-    if (isOpen) {
-      isLoading.value = true
-      // Prevent body scroll
-      document.body.style.overflow = 'hidden'
-      // Focus the overlay for keyboard events
-      setTimeout(() => {
-        overlayRef.value?.focus()
-      }, 0)
-    } else {
-      // Restore body scroll
-      document.body.style.overflow = ''
+  watch(
+    () => props.isOpen,
+    (isOpen) => {
+      if (isOpen) {
+        isLoading.value = true
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden'
+        // Focus the overlay for keyboard events
+        setTimeout(() => {
+          overlayRef.value?.focus()
+        }, 0)
+      } else {
+        // Restore body scroll
+        document.body.style.overflow = ''
+      }
     }
-  })
+  )
 
   onMounted(() => {
     document.addEventListener('keydown', handleKeydown)

@@ -7,7 +7,11 @@
     >
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div class="flex items-start">
-          <Icon name="fa6-solid:triangle-exclamation" class="text-yellow-600 dark:text-yellow-400 mt-1 mr-3" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:triangle-exclamation"
+            class="text-yellow-600 dark:text-yellow-400 mt-1 mr-3"
+            aria-hidden="true"
+          />
           <div>
             <h3 class="font-bold text-yellow-800 dark:text-yellow-200">
               {{ t('posts.draft_mode') }}
@@ -22,7 +26,12 @@
           class="flex-shrink-0 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap inline-flex items-center"
           @click="publishDraft"
         >
-          <Icon name="fa6-solid:spinner" class="mr-2 flex-shrink-0" aria-hidden="true" /><Icon name="fa6-solid:paper-plane" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ publishing ? t('posts.publishing') : t('posts.publish_now') }}</span>
+          <Icon name="fa6-solid:spinner" class="mr-2 flex-shrink-0" aria-hidden="true" /><Icon
+            name="fa6-solid:paper-plane"
+            class="mr-2 flex-shrink-0"
+            aria-hidden="true"
+          />
+          <span>{{ publishing ? t('posts.publishing') : t('posts.publish_now') }}</span>
         </button>
       </div>
     </div>
@@ -46,13 +55,14 @@
 
         <template v-else-if="post">
           <!-- Continuation Chain -->
-          <PostContinuationChain
-            v-if="post.id"
-            :post-id="post.id"
-            :chain="continuationChain"
-          />
+          <PostContinuationChain v-if="post.id" :post-id="post.id" :chain="continuationChain" />
 
-          <PostCard :post="post" :show-full-text="true" :hide-comments="true" :hide-seal-border="true">
+          <PostCard
+            :post="post"
+            :show-full-text="true"
+            :hide-comments="true"
+            :hide-seal-border="true"
+          >
             <template #below-vote>
               <CompactRegistrationCTA :author-name="post.user?.username || post.author_name" />
             </template>
@@ -73,14 +83,21 @@
             />
           </div>
 
-          <LargeRegistrationCTA :author-name="post.user?.username || post.author_name" class="mt-6" />
+          <LargeRegistrationCTA
+            :author-name="post.user?.username || post.author_name"
+            class="mt-6"
+          />
         </template>
 
         <div
           v-else-if="!loading"
           class="post-card-bg p-6 rounded-lg shadow-sm border post-border text-center"
         >
-          <Icon name="fa6-solid:triangle-exclamation" class="text-3xl text-danger mb-3" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:triangle-exclamation"
+            class="text-3xl text-danger mb-3"
+            aria-hidden="true"
+          />
           <h2 class="text-xl font-bold mb-2">
             {{ t('errors.404.title') }}
           </h2>
@@ -88,59 +105,66 @@
         </div>
       </div>
       <div class="lg:col-span-1">
-        <AuthorCard v-if="post" :user="post.user" :is-anonymous="post.is_anonymous" class="lg:mt-11" />
+        <AuthorCard
+          v-if="post"
+          :user="post.user"
+          :is-anonymous="post.is_anonymous"
+          class="lg:mt-11"
+        />
 
         <div ref="sidebarRef">
-        <PostRelationshipsButton
-          v-if="post && shouldLoadSidebar"
-          :post-id="post.id"
-          :relationships-count="post.relationships_count || 0"
-          :post-title="post.title"
-          :post-author-id="post.user?.id"
-          :always-expanded="true"
-          class="mb-6"
-        />
-        <div
-          v-if="post && shouldLoadSidebar"
-          class="post-card-bg rounded-lg shadow-sm border post-border"
-        >
-          <div class="px-4 py-3 border-b post-border">
-            <h3 class="font-medium inline-flex items-center"><Icon name="fa6-solid:share-nodes" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('links.show.share') }}</span>
-            </h3>
-          </div>
-          <div class="p-4">
-            <div class="flex justify-around">
-              <button
-                class="p-2 rounded-full post-share-btn text-primary"
-                :aria-label="t('links.show.share_on', { platform: 'Twitter' })"
-                @click="shareOnSocialMedia('twitter')"
-              >
-                <Icon name="fa6-brands:twitter" aria-hidden="true" />
-              </button>
-              <button
-                class="p-2 rounded-full post-share-btn text-primary"
-                :aria-label="t('links.show.share_on', { platform: 'Facebook' })"
-                @click="shareOnSocialMedia('facebook')"
-              >
-                <Icon name="fa6-brands:facebook-f" aria-hidden="true" />
-              </button>
-              <button
-                class="p-2 rounded-full post-share-btn text-primary"
-                :aria-label="t('links.show.share_on', { platform: 'WhatsApp' })"
-                @click="shareOnSocialMedia('whatsapp')"
-              >
-                <Icon name="fa6-brands:whatsapp" aria-hidden="true" />
-              </button>
-              <button
-                class="p-2 rounded-full post-share-btn text-primary"
-                :aria-label="t('common.copy_link')"
-                @click="copyToClipboard()"
-              >
-                <Icon name="fa6-solid:link" aria-hidden="true" />
-              </button>
+          <PostRelationshipsButton
+            v-if="post && shouldLoadSidebar"
+            :post-id="post.id"
+            :relationships-count="post.relationships_count || 0"
+            :post-title="post.title"
+            :post-author-id="post.user?.id"
+            :always-expanded="true"
+            class="mb-6"
+          />
+          <div
+            v-if="post && shouldLoadSidebar"
+            class="post-card-bg rounded-lg shadow-sm border post-border"
+          >
+            <div class="px-4 py-3 border-b post-border">
+              <h3 class="font-medium inline-flex items-center">
+                <Icon name="fa6-solid:share-nodes" class="mr-2 flex-shrink-0" aria-hidden="true" />
+                <span>{{ t('links.show.share') }}</span>
+              </h3>
+            </div>
+            <div class="p-4">
+              <div class="flex justify-around">
+                <button
+                  class="p-2 rounded-full post-share-btn text-primary"
+                  :aria-label="t('links.show.share_on', { platform: 'Twitter' })"
+                  @click="shareOnSocialMedia('twitter')"
+                >
+                  <Icon name="fa6-brands:twitter" aria-hidden="true" />
+                </button>
+                <button
+                  class="p-2 rounded-full post-share-btn text-primary"
+                  :aria-label="t('links.show.share_on', { platform: 'Facebook' })"
+                  @click="shareOnSocialMedia('facebook')"
+                >
+                  <Icon name="fa6-brands:facebook-f" aria-hidden="true" />
+                </button>
+                <button
+                  class="p-2 rounded-full post-share-btn text-primary"
+                  :aria-label="t('links.show.share_on', { platform: 'WhatsApp' })"
+                  @click="shareOnSocialMedia('whatsapp')"
+                >
+                  <Icon name="fa6-brands:whatsapp" aria-hidden="true" />
+                </button>
+                <button
+                  class="p-2 rounded-full post-share-btn text-primary"
+                  :aria-label="t('common.copy_link')"
+                  @click="copyToClipboard()"
+                >
+                  <Icon name="fa6-solid:link" aria-hidden="true" />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </div>
@@ -187,9 +211,7 @@
           </div>
 
           <div>
-            <div
-              class="flex items-center border post-modal-border rounded-md overflow-hidden"
-            >
+            <div class="flex items-center border post-modal-border rounded-md overflow-hidden">
               <input
                 v-model="shareUrl"
                 type="text"
@@ -210,7 +232,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -220,7 +241,7 @@
   import { useHead, useSeoMeta } from '#imports' // Added for JSON-LD
   import { usePostsStore } from '~/stores/posts'
   import { useAuthStore } from '~/stores/auth'
-  import { useLocalePath, useI18n  } from '#i18n'
+  import { useLocalePath, useI18n } from '#i18n'
   import AuthorCard from '~/components/posts/AuthorCard.vue'
   import CommentsList from '~/components/comments/CommentsList.vue'
   import PostCard from '~/components/posts/PostCard.vue'
@@ -313,7 +334,6 @@
       router.back()
     }
   }
-
 
   // Watch for hash changes to handle comment navigation
   watch(
@@ -410,16 +430,20 @@
   }
 
   // Handle numeric slug redirect on client
-  watch(() => post.value, (newPost) => {
-    if (newPost && import.meta.client) {
-      const slug = route.params.slug
-      const isNumeric = /^\d+$/.test(slug)
+  watch(
+    () => post.value,
+    (newPost) => {
+      if (newPost && import.meta.client) {
+        const slug = route.params.slug
+        const isNumeric = /^\d+$/.test(slug)
 
-      if (isNumeric && newPost.slug) {
-        router.replace(localePath(`/posts/${newPost.slug}`))
+        if (isNumeric && newPost.slug) {
+          router.replace(localePath(`/posts/${newPost.slug}`))
+        }
       }
-    }
-  }, { immediate: true })
+    },
+    { immediate: true }
+  )
 
   async function fetchContinuationChain() {
     if (!post.value) return
@@ -519,9 +543,10 @@
     const postUrl = `${siteBaseUrl}${canonicalPath}`
 
     // Generate keywords from tags
-    const keywords = newPost.tags && newPost.tags.length > 0
-      ? newPost.tags.map(tag => tag.name).join(', ')
-      : `${runtimeConfig.public.appName}, comunidad, debate`
+    const keywords =
+      newPost.tags && newPost.tags.length > 0
+        ? newPost.tags.map((tag) => tag.name).join(', ')
+        : `${runtimeConfig.public.appName}, comunidad, debate`
 
     const seoMetaConfig = {
       title: newPost.title,
@@ -640,8 +665,8 @@
       link: [
         {
           rel: 'canonical',
-          href: postUrl
-        }
+          href: postUrl,
+        },
       ],
       script: [
         {
@@ -678,10 +703,7 @@
           utm_content: route.query.utm_content,
         }
 
-        const response = await $api.posts.registerView(
-          postId,
-          trackingData
-        )
+        const response = await $api.posts.registerView(postId, trackingData)
 
         viewRegistered.value = true
 
@@ -711,7 +733,7 @@
             attempts++
             const delay = delays[Math.min(attempts - 1, delays.length - 1)] || 1000
 
-            await new Promise(resolve => setTimeout(resolve, delay))
+            await new Promise((resolve) => setTimeout(resolve, delay))
 
             const commentElement = document.getElementById(commentId)
 
@@ -751,7 +773,7 @@
           },
           {
             rootMargin: '200px',
-            threshold: 0.01
+            threshold: 0.01,
           }
         )
         observer.observe(sidebarRef.value)
@@ -789,7 +811,8 @@
 
   /* Pulse animation for extra visibility */
   @keyframes commentPulse {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
     }
     50% {

@@ -1,12 +1,16 @@
 <template>
   <div class="card">
     <div v-if="showHeader" class="card-header flex justify-between items-center">
-      <h2 class="card-title inline-flex items-center"><Icon name="fa6-solid:comments" class="mr-2 flex-shrink-0" aria-hidden="true" /><span>{{ headerTitle }}</span></h2>
+      <h2 class="card-title inline-flex items-center">
+        <Icon name="fa6-solid:comments" class="mr-2 flex-shrink-0" aria-hidden="true" /><span>{{
+          headerTitle
+        }}</span>
+      </h2>
     </div>
 
     <div class="card-body p-0">
       <div v-if="loading" class="p-6 text-center">
-        <div class="spinner"/>
+        <div class="spinner" />
         <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
           {{ t('profile.loading_comments') }}
         </p>
@@ -178,8 +182,8 @@
 
 <script setup>
   import { ref, computed } from 'vue'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
+
   import TimeAgo from '~/components/ui/TimeAgo.vue'
 
   const props = defineProps({

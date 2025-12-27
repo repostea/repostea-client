@@ -15,9 +15,9 @@
         :aria-expanded="isOpen"
         @click="toggleMenu"
       >
-        <span class="menu-bar"/>
-        <span class="menu-bar"/>
-        <span class="menu-bar"/>
+        <span class="menu-bar" />
+        <span class="menu-bar" />
+        <span class="menu-bar" />
       </button>
     </div>
 
@@ -47,7 +47,6 @@
           <Icon name="fa6-solid:circle-plus" class="w-8 text-center" aria-hidden="true" />
           <span>{{ t('navigation.submit') }}</span>
         </NuxtLink>
-
 
         <NuxtLink
           :to="localePath('/agora')"
@@ -131,7 +130,9 @@
 
         <div class="border-t border-white/10 mt-3 pt-3 pb-1">
           <div class="flex items-center justify-between">
-            <span class="text-sm" style="color: var(--color-navbar-text-secondary)">{{ t('navigation.settings') }}</span>
+            <span class="text-sm" style="color: var(--color-navbar-text-secondary)">{{
+              t('navigation.settings')
+            }}</span>
           </div>
         </div>
 
@@ -160,10 +161,7 @@
       class="mobile-modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       @click="closeLanguageModal"
     >
-      <div
-        class="mobile-modal rounded-lg p-4 w-4/5 max-w-md"
-        @click.stop
-      >
+      <div class="mobile-modal rounded-lg p-4 w-4/5 max-w-md" @click.stop>
         <div class="flex justify-between items-center mb-4">
           <h3 class="text-lg font-medium modal-title">
             {{ t('navigation.language') }}
@@ -187,19 +185,12 @@
       class="mobile-modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       @click="closeThemeModal"
     >
-      <div
-        class="mobile-modal rounded-lg p-4 w-4/5 max-w-md"
-        @click.stop
-      >
+      <div class="mobile-modal rounded-lg p-4 w-4/5 max-w-md" @click.stop>
         <div class="flex justify-between items-center mb-4">
           <h3 class="text-lg font-medium modal-title">
             {{ t('navigation.theme') }}
           </h3>
-          <button
-            class="modal-close-btn"
-            :aria-label="t('common.close')"
-            @click="closeThemeModal"
-          >
+          <button class="modal-close-btn" :aria-label="t('common.close')" @click="closeThemeModal">
             <Icon name="fa6-solid:xmark" aria-hidden="true" />
           </button>
         </div>
@@ -222,14 +213,13 @@
 
 <script setup>
   import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-  import { useLocalePath, useI18n  } from '#i18n'
+  import { useLocalePath, useI18n } from '#i18n'
   import { useRoute } from 'vue-router'
   import { useAuthStore } from '~/stores/auth'
   import MobileLanguageSelector from './MobileLanguageSelector.vue'
   import MobileThemeSelector from './MobileThemeSelector.vue'
   import NotificationDropdown from '~/components/notifications/NotificationDropdown.vue'
 
-  
   const { t } = useI18n()
   const route = useRoute()
   const authStore = useAuthStore()
@@ -356,8 +346,9 @@
   }
 
   .mobile-menu-container.open {
-    max-height: 100vh;
+    max-height: calc(100vh - 64px);
     opacity: 1;
+    overflow-y: auto;
   }
 
   .menu-button {

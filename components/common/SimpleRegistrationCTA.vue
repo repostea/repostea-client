@@ -23,7 +23,7 @@
   const messageKeys = [
     'auth.simple_cta_message_1',
     'auth.simple_cta_message_2',
-    'auth.simple_cta_message_3'
+    'auth.simple_cta_message_3',
   ]
 
   // Rotate based on day of month (no hydration mismatch)

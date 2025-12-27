@@ -52,15 +52,12 @@ export default defineNuxtPlugin(async (_nuxtApp) => {
         const hasValidResponse = error?.response?.data
 
         if ((status === 401 || status === 403 || status === 404) && hasValidResponse) {
-          console.warn('[AUTH INIT] Session invalid, clearing token:', status)
           authStore.clearToken()
           authStore.user = null
           localStorage.removeItem('user')
           localStorage.removeItem('guest_user')
-        } else {
-          // Keep cached session on network errors - don't logout users during deploys
-          console.warn('[AUTH INIT] Error fetching user (keeping session):', error?.message || error)
         }
+        // else: Keep cached session on network errors - don't logout users during deploys
       })
     }
   }

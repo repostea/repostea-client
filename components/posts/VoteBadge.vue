@@ -1,7 +1,11 @@
 <template>
   <div
     class="flex flex-col items-center justify-center w-20 px-2 vote-badge"
-    :class="{ 'has-federation': hasFederationBadge, 'py-3': !hasFederationBadge, 'py-2': hasFederationBadge }"
+    :class="{
+      'has-federation': hasFederationBadge,
+      'py-3': !hasFederationBadge,
+      'py-2': hasFederationBadge,
+    }"
   >
     <div
       class="text-xl font-bold leading-none tabular-nums min-w-[56px] text-center"
@@ -9,17 +13,29 @@
     >
       {{ paddedVotes }}
     </div>
-    <div class="text-[11px] font-medium vote-badge-text" :class="hasFederationBadge ? 'mb-1' : 'mb-2'">{{ $t('posts.votes') }}</div>
+    <div
+      class="text-[11px] font-medium vote-badge-text"
+      :class="hasFederationBadge ? 'mb-1' : 'mb-2'"
+    >
+      {{ $t('posts.votes') }}
+    </div>
 
     <button
-      class="bg-gradient-to-b vote-button hover:from-primary-light hover:to-primary-dark text-xs font-bold px-3 py-1 shadow-md transition-all"
-      :class="{ voted: userHasVoted }"
+      class="bg-gradient-to-b vote-button text-xs font-bold px-3 py-1 shadow-md transition-all"
+      :class="{ voted: userHasVoted, closed: !votingOpen }"
       style="color: var(--color-btn-primary-text)"
-      :disabled="isLoading"
-      :aria-label="userHasVoted ? $t('posts.voted') : $t('posts.vote')"
+      :disabled="isLoading || !votingOpen"
+      :aria-label="
+        !votingOpen
+          ? $t('posts.voting_closed')
+          : userHasVoted
+            ? $t('posts.voted')
+            : $t('posts.vote')
+      "
       @click.stop="handleVoteClick"
     >
-      <span v-if="isLoading" class="spinner" aria-hidden="true"/>
+      <span v-if="isLoading" class="spinner" aria-hidden="true" />
+      <span v-else-if="!votingOpen">{{ $t('posts.closed') }}</span>
       <span v-else>{{ userHasVoted ? $t('posts.voted') : $t('posts.vote') }}</span>
     </button>
   </div>
@@ -49,6 +65,10 @@
       type: Boolean,
       default: false,
     },
+    votingOpen: {
+      type: Boolean,
+      default: true,
+    },
   })
 
   const emit = defineEmits(['vote'])
@@ -61,6 +81,7 @@
   })
 
   function handleVoteClick() {
+    if (!props.votingOpen) return
     emit('vote', props.userHasVoted ? 0 : 1)
   }
 
@@ -153,6 +174,10 @@
   .vote-button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
+  }
+
+  .vote-button.closed {
+    opacity: 0.7;
   }
 
   /* Pulse animation for vote counter */

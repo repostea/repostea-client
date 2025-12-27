@@ -1,16 +1,20 @@
 <template>
-  <div
-    class="sidebar-stats-container p-4 rounded-lg shadow-sm"
-  >
+  <div class="sidebar-stats-container p-4 rounded-lg shadow-sm">
     <div class="flex items-center justify-between mb-4">
       <h4 class="text-lg font-semibold text-text dark:text-text-dark flex items-center">
-        <Icon name="fa6-solid:chart-bar" class="mr-2 text-primary dark:text-primary-light" aria-hidden="true" />
+        <Icon
+          name="fa6-solid:chart-bar"
+          class="mr-2 text-primary dark:text-primary-light"
+          aria-hidden="true"
+        />
         <span class="truncate">{{ t('stats.platform_stats') }}</span>
       </h4>
       <NuxtLink
         :to="localePath('/stats')"
         class="inline-flex items-center text-xs px-2 py-1 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light rounded hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors flex-shrink-0"
-      ><Icon name="fa6-solid:chart-line" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('common.view_all') }}</span></NuxtLink>
+        ><Icon name="fa6-solid:chart-line" class="mr-1 flex-shrink-0" aria-hidden="true" />
+        <span>{{ t('common.view_all') }}</span></NuxtLink
+      >
     </div>
 
     <div v-if="loading" class="flex items-center justify-center p-6 text-gray-500">
@@ -36,7 +40,12 @@
         >
           <div class="flex items-center min-w-0 flex-1">
             <div class="flex-shrink-0 mr-3">
-              <Icon :name="stat.icon" class="text-lg" :style="`color: ${getStatIconColor(stat.key)}`" aria-hidden="true" />
+              <Icon
+                :name="stat.icon"
+                class="text-lg"
+                :style="`color: ${getStatIconColor(stat.key)}`"
+                aria-hidden="true"
+              />
             </div>
             <div class="min-w-0 flex-1">
               <div class="text-xs text-text-muted dark:text-text-dark-muted truncate">
@@ -58,7 +67,11 @@
         <h5
           class="text-xs font-medium uppercase text-text-muted dark:text-text-dark-muted mb-3 flex items-center"
         >
-          <Icon name="fa6-solid:calendar-day" class="mr-2 text-green-500 dark:text-green-400" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:calendar-day"
+            class="mr-2 text-green-500 dark:text-green-400"
+            aria-hidden="true"
+          />
           <span class="truncate">{{ t('stats.last_24h', 'Últimas 24h') }}</span>
         </h5>
         <div class="space-y-2">
@@ -68,7 +81,12 @@
             class="flex justify-between items-center text-sm py-1"
           >
             <span class="text-text dark:text-text-dark flex items-center min-w-0 flex-1">
-              <Icon :name="stat.icon" class="mr-2 flex-shrink-0" :style="`color: ${getStatIconColor(stat.key)}`" aria-hidden="true" />
+              <Icon
+                :name="stat.icon"
+                class="mr-2 flex-shrink-0"
+                :style="`color: ${getStatIconColor(stat.key)}`"
+                aria-hidden="true"
+              />
               <span class="truncate">{{ stat.label }}</span>
             </span>
             <span
@@ -113,10 +131,7 @@
       </div>
 
       <!-- Additional Stats - Simplified -->
-      <div
-        v-if="processedStats.other.length > 0"
-        class="sidebar-stats-other p-3 rounded-lg"
-      >
+      <div v-if="processedStats.other.length > 0" class="sidebar-stats-other p-3 rounded-lg">
         <h5
           class="text-xs font-medium uppercase text-text-muted dark:text-text-dark-muted mb-3 flex items-center"
         >
@@ -132,9 +147,7 @@
             <span class="text-text dark:text-text-dark min-w-0 flex-1 truncate">{{
               stat.label
             }}</span>
-            <span
-              class="font-medium text-text dark:text-text-dark px-2 py-1 ml-2 flex-shrink-0"
-            >
+            <span class="font-medium text-text dark:text-text-dark px-2 py-1 ml-2 flex-shrink-0">
               {{ stat.formattedValue }}
             </span>
           </div>
@@ -155,8 +168,7 @@
 <script setup>
   import { onMounted, ref, computed } from 'vue'
   import { useNuxtApp } from '#app'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
 
   defineProps({
     tags: {
@@ -182,10 +194,7 @@
   // Get nice labels for stats keys using i18n with fallbacks
   const getStatLabel = (key) => {
     // Try i18n first, then fallback to formatted key
-    return (
-      t(`stats.${key}`, '') ||
-      key.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
-    )
+    return t(`stats.${key}`, '') || key.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
   }
 
   // Get appropriate icon for each stat
@@ -235,7 +244,6 @@
     }
     return classes[key] || 'text-text dark:text-text-dark'
   }
-
 
   // Process and organize all stats data
   const processedStats = computed(() => {
@@ -317,7 +325,6 @@
   })
 
   onMounted(() => {
-
     // Start with empty stats (component hidden until data loads)
     stats.value = {}
     loading.value = false

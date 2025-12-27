@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="mb-6">
-      <h1 class="text-2xl font-bold mb-2 inline-flex items-center"><Icon name="fa6-solid:bookmark" class="mr-2" aria-hidden="true" /> <span>{{ t('saved_lists.title') }}</span></h1>
+      <h1 class="text-2xl font-bold mb-2 inline-flex items-center">
+        <Icon name="fa6-solid:bookmark" class="mr-2" aria-hidden="true" />
+        <span>{{ t('saved_lists.title') }}</span>
+      </h1>
       <p class="text-text-muted dark:text-text-dark-muted">
         {{ t('saved_lists.description') }}
       </p>
@@ -20,7 +23,9 @@
         <button
           class="mt-4 px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors inline-flex items-center"
           @click="showCreateForm = true"
-        ><Icon name="fa6-solid:circle-plus" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('saved_lists.create_new') }}</span>
+        >
+          <Icon name="fa6-solid:circle-plus" class="mr-1 flex-shrink-0" aria-hidden="true" />
+          <span>{{ t('saved_lists.create_new') }}</span>
         </button>
       </div>
     </template>
@@ -42,7 +47,13 @@
                   @click="navigateToList(null, favoritesList.uuid || favoritesList.id)"
                 >
                   <div class="flex items-center justify-between">
-                    <h3 class="text-lg font-semibold inline-flex items-center"><Icon name="fa6-solid:star" class="text-yellow-400 mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ favoritesList.name }}</span>
+                    <h3 class="text-lg font-semibold inline-flex items-center">
+                      <Icon
+                        name="fa6-solid:star"
+                        class="text-yellow-400 mr-2 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ favoritesList.name }}</span>
                     </h3>
                     <span
                       class="lists-badge-bg text-text-muted dark:text-text-dark-muted px-2 py-1 rounded-full text-sm"
@@ -75,7 +86,13 @@
                   @click="navigateToList(null, readLaterList.uuid || readLaterList.id)"
                 >
                   <div class="flex items-center justify-between">
-                    <h3 class="text-lg font-semibold inline-flex items-center"><Icon name="fa6-solid:bookmark" class="text-blue-400 mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ readLaterList.name }}</span>
+                    <h3 class="text-lg font-semibold inline-flex items-center">
+                      <Icon
+                        name="fa6-solid:bookmark"
+                        class="text-blue-400 mr-2 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ readLaterList.name }}</span>
                     </h3>
                     <span
                       class="lists-badge-bg text-text-muted dark:text-text-dark-muted px-2 py-1 rounded-full text-sm"
@@ -102,7 +119,9 @@
 
           <!-- Custom lists -->
           <div v-if="customLists.length > 0">
-            <h2 class="text-xl font-bold mb-4 inline-flex items-center"><Icon name="fa6-solid:list-ul" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('saved_lists.custom_lists') }}</span>
+            <h2 class="text-xl font-bold mb-4 inline-flex items-center">
+              <Icon name="fa6-solid:list-ul" class="mr-2 flex-shrink-0" aria-hidden="true" />
+              <span>{{ t('saved_lists.custom_lists') }}</span>
             </h2>
 
             <div class="grid grid-cols-1 gap-4">
@@ -116,7 +135,13 @@
                   @click="navigateToList(list.username, list.slug)"
                 >
                   <div class="flex items-center justify-between">
-                    <h3 class="text-lg font-semibold inline-flex items-center"><Icon name="fa6-solid:list" class="text-primary mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ list.name }}</span>
+                    <h3 class="text-lg font-semibold inline-flex items-center">
+                      <Icon
+                        name="fa6-solid:list"
+                        class="text-primary mr-2 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ list.name }}</span>
                       <span
                         v-if="list.is_public"
                         class="ml-2 text-xs bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 px-2 py-0.5 rounded-full"
@@ -137,19 +162,29 @@
                     {{ t('saved_lists.no_description') }}
                   </p>
                 </div>
-                <div
-                  class="p-4 border-t lists-divider flex justify-end"
-                >
+                <div class="p-4 border-t lists-divider flex justify-end">
                   <div class="flex space-x-3">
                     <button
                       class="text-text-muted dark:text-text-dark-muted hover:text-primary text-sm inline-flex items-center"
                       @click="openEditModal(list)"
-                    ><Icon name="fa6-solid:pen-to-square" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('common.edit') }}</span>
+                    >
+                      <Icon
+                        name="fa6-solid:pen-to-square"
+                        class="mr-1 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ t('common.edit') }}</span>
                     </button>
                     <button
                       class="text-red-500 hover:text-red-600 text-sm inline-flex items-center"
                       @click="confirmDelete(list)"
-                    ><Icon name="fa6-solid:trash-can" class="mr-1 flex-shrink-0" aria-hidden="true" /> <span>{{ t('common.delete') }}</span>
+                    >
+                      <Icon
+                        name="fa6-solid:trash-can"
+                        class="mr-1 flex-shrink-0"
+                        aria-hidden="true"
+                      />
+                      <span>{{ t('common.delete') }}</span>
                     </button>
                     <NuxtLink
                       :to="localePath(`/lists/${list.uuid}`)"
@@ -169,17 +204,20 @@
             <button
               class="w-full py-3 border-2 border-dashed border-primary text-primary hover:bg-primary hover:text-white rounded-lg transition-colors inline-flex items-center justify-center"
               @click="showCreateForm = true"
-            ><Icon name="fa6-solid:circle-plus" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('saved_lists.create_new') }}</span>
+            >
+              <Icon name="fa6-solid:circle-plus" class="mr-2 flex-shrink-0" aria-hidden="true" />
+              <span>{{ t('saved_lists.create_new') }}</span>
             </button>
           </div>
         </div>
 
         <!-- Columna lateral -->
         <div class="lg:col-span-1">
-          <div
-            class="card-bg p-4 rounded-lg shadow-sm border lists-border mb-4"
-          >
-            <h3 class="text-lg font-bold mb-3 inline-flex items-center"><Icon name="fa6-solid:circle-info" class="mr-1" aria-hidden="true" /> <span>{{ t('saved_lists.about') }}</span></h3>
+          <div class="card-bg p-4 rounded-lg shadow-sm border lists-border mb-4">
+            <h3 class="text-lg font-bold mb-3 inline-flex items-center">
+              <Icon name="fa6-solid:circle-info" class="mr-1" aria-hidden="true" />
+              <span>{{ t('saved_lists.about') }}</span>
+            </h3>
             <p class="text-sm mb-4">
               {{ t('saved_lists.about_description') }}
             </p>
@@ -204,10 +242,11 @@
             </div>
           </div>
 
-          <div
-            class="card-bg p-4 rounded-lg shadow-sm border lists-border"
-          >
-            <h3 class="text-lg font-bold mb-3 inline-flex items-center"><Icon name="fa6-solid:lightbulb" class="mr-1" aria-hidden="true" /> <span>{{ t('saved_lists.tips') }}</span></h3>
+          <div class="card-bg p-4 rounded-lg shadow-sm border lists-border">
+            <h3 class="text-lg font-bold mb-3 inline-flex items-center">
+              <Icon name="fa6-solid:lightbulb" class="mr-1" aria-hidden="true" />
+              <span>{{ t('saved_lists.tips') }}</span>
+            </h3>
             <ul class="list-disc pl-5 text-sm space-y-2">
               <li>{{ t('saved_lists.tip_1') }}</li>
               <li>{{ t('saved_lists.tip_2') }}</li>
@@ -227,11 +266,9 @@
         aria-modal="true"
       >
         <div class="flex items-center justify-center min-h-screen p-4">
-          <div class="fixed inset-0 bg-black bg-opacity-50" @click="cancelForm"/>
+          <div class="fixed inset-0 bg-black bg-opacity-50" @click="cancelForm" />
 
-          <div
-            class="lists-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10"
-          >
+          <div class="lists-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10">
             <h3 class="text-lg font-medium mb-4">
               {{ editingList ? t('saved_lists.edit_list') : t('saved_lists.create_new_list') }}
             </h3>
@@ -290,7 +327,13 @@
                 :disabled="!formData.name || formSubmitting"
                 @click="saveList"
               >
-                <span v-if="formSubmitting" class="inline-flex items-center"><Icon name="fa6-solid:spinner" class="mr-2 flex-shrink-0 animate-spin" aria-hidden="true" /> <span>{{ t('common.saving') }}</span>
+                <span v-if="formSubmitting" class="inline-flex items-center"
+                  ><Icon
+                    name="fa6-solid:spinner"
+                    class="mr-2 flex-shrink-0 animate-spin"
+                    aria-hidden="true"
+                  />
+                  <span>{{ t('common.saving') }}</span>
                 </span>
                 <span v-else>
                   {{ editingList ? t('common.update') : t('common.create') }}
@@ -306,11 +349,9 @@
     <Teleport to="body">
       <div v-if="showDeleteConfirm" class="fixed inset-0 z-50 overflow-y-auto" aria-modal="true">
         <div class="flex items-center justify-center min-h-screen p-4">
-          <div class="fixed inset-0 bg-black bg-opacity-50" @click="showDeleteConfirm = false"/>
+          <div class="fixed inset-0 bg-black bg-opacity-50" @click="showDeleteConfirm = false" />
 
-          <div
-            class="lists-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10"
-          >
+          <div class="lists-modal-bg rounded-lg shadow-xl max-w-md w-full p-6 relative z-10">
             <h3 class="text-lg font-medium mb-2">
               {{ t('saved_lists.confirm_delete') }}
             </h3>
@@ -331,7 +372,13 @@
                 :disabled="deleteSubmitting"
                 @click="deleteList"
               >
-                <span v-if="deleteSubmitting" class="inline-flex items-center"><Icon name="fa6-solid:spinner" class="mr-2 flex-shrink-0 animate-spin" aria-hidden="true" /> <span>{{ t('common.deleting') }}</span>
+                <span v-if="deleteSubmitting" class="inline-flex items-center"
+                  ><Icon
+                    name="fa6-solid:spinner"
+                    class="mr-2 flex-shrink-0 animate-spin"
+                    aria-hidden="true"
+                  />
+                  <span>{{ t('common.deleting') }}</span>
                 </span>
                 <span v-else>
                   {{ t('common.delete') }}
@@ -348,10 +395,10 @@
 <script setup>
   import { ref, computed, onMounted } from 'vue'
   import { useRouter } from 'vue-router'
-  import { useLocalePath, useI18n  } from '#i18n'
+  import { useLocalePath, useI18n } from '#i18n'
   import { useSavedListsStore } from '~/stores/savedLists'
   import { useAuthStore } from '~/stores/auth'
-  
+
   const { t } = useI18n()
 
   const localePath = useLocalePath()

@@ -26,10 +26,7 @@
     </nav>
 
     <!-- Staging Environment Warning Banner -->
-    <div
-      v-if="isStaging"
-      class="bg-orange-700 text-white text-center py-2 px-4 text-sm"
-    >
+    <div v-if="isStaging" class="bg-orange-700 text-white text-center py-2 px-4 text-sm">
       <div class="container mx-auto flex items-center justify-center gap-2 flex-wrap">
         <Icon name="fa6-solid:flask" class="text-white" aria-hidden="true" />
         <span class="font-semibold">{{ $t('staging.banner_title') }}</span>
@@ -47,7 +44,7 @@
       <div class="container mx-auto">
         <div class="flex overflow-x-auto">
           <div class="w-full subnav-container">
-            <slot name="subnav"/>
+            <slot name="subnav" />
           </div>
         </div>
       </div>

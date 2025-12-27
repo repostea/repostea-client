@@ -2,14 +2,14 @@
   <div>
     <!-- Compact view: image on left, text on right -->
     <div v-if="layout === 'compact'" class="flex gap-4">
-      <div class="flex-shrink-0" style="width: 200px;">
+      <div class="flex-shrink-0" style="width: 200px">
         <div class="image-container cursor-pointer" @click="openLightbox">
           <NuxtImg
             v-if="imageUrl"
             :src="imageUrl"
             :alt="title"
             class="w-full h-auto object-cover rounded-lg"
-            style="max-height: 200px;"
+            style="max-height: 200px"
             loading="lazy"
             width="200"
             height="200"
@@ -25,22 +25,19 @@
           class="prose dark:prose-invert max-w-none"
           v-html="renderedContent"
         />
-        <p v-else v-html="displayText"/>
+        <p v-else v-html="displayText" />
       </div>
     </div>
 
     <!-- Card/List view: text on top, image below -->
     <div v-else>
-      <div
-        v-if="content"
-        class="card-text text-sm text-text dark:text-text-dark mb-4"
-      >
+      <div v-if="content" class="card-text text-sm text-text dark:text-text-dark mb-4">
         <div
           v-if="showFullText"
           class="prose dark:prose-invert max-w-none"
           v-html="renderedContent"
         />
-        <p v-else v-html="displayText"/>
+        <p v-else v-html="displayText" />
       </div>
 
       <div class="w-full">
@@ -50,7 +47,7 @@
             :src="imageUrl"
             :alt="title"
             class="w-full h-auto object-contain rounded-lg"
-            style="max-height: 600px;"
+            style="max-height: 600px"
             loading="lazy"
             width="800"
             height="600"

@@ -57,12 +57,12 @@
           name: t('stats.title'),
           description: t('stats.description'),
           isPartOf: {
-            '@id': `${siteUrl}/#website`
+            '@id': `${siteUrl}/#website`,
           },
-          inLanguage: 'es-ES'
+          inLanguage: 'es-ES',
         }),
-        tagPosition: 'bodyClose'
-      }
-    ]
+        tagPosition: 'bodyClose',
+      },
+    ],
   })
 </script>

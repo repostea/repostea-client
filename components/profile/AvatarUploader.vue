@@ -45,7 +45,10 @@
           class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center"
           @click="$refs.fileInput.click()"
         >
-          <span v-if="isUploading" class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-white border-t-transparent rounded-full"/>
+          <span
+            v-if="isUploading"
+            class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-white border-t-transparent rounded-full"
+          />
           <Icon v-else name="fa6-solid:upload" class="mr-2" aria-hidden="true" />
           {{ previewUrl ? t('profile.change_avatar') : t('profile.upload_avatar') }}
         </button>
@@ -61,7 +64,10 @@
       {{ errorMessage }}
     </div>
 
-    <div v-if="successMessage" class="mt-3 text-sm text-green-600 dark:text-green-400 flex items-center">
+    <div
+      v-if="successMessage"
+      class="mt-3 text-sm text-green-600 dark:text-green-400 flex items-center"
+    >
       <Icon name="fa6-solid:circle-check" class="mr-1" aria-hidden="true" />
       {{ successMessage }}
     </div>
@@ -107,11 +113,14 @@
   const errorMessage = ref('')
   const successMessage = ref('')
 
-  watch(() => props.currentAvatar, (newVal) => {
-    if (!newVal) {
-      previewUrl.value = null
+  watch(
+    () => props.currentAvatar,
+    (newVal) => {
+      if (!newVal) {
+        previewUrl.value = null
+      }
     }
-  })
+  )
 
   function handleFileSelect(event) {
     const file = event.target.files[0]

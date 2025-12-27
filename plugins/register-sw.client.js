@@ -18,8 +18,7 @@ export default defineNuxtPlugin(() => {
     window.addEventListener('load', () => {
       navigator.serviceWorker
         .register('/service-worker.js')
-        .then((_registration) => {
-        })
+        .then((_registration) => {})
         .catch((error) => {
           console.error('Service Worker registration failed:', error)
         })

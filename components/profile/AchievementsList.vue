@@ -19,7 +19,9 @@
         </div>
 
         <div v-if="activeAchievement === achievement.id" class="achievement-expanded">
-          <div class="achievement-description">{{ getTranslatedText(achievement.description) }}</div>
+          <div class="achievement-description">
+            {{ getTranslatedText(achievement.description) }}
+          </div>
           <div class="achievement-type">{{ achievement.type }}</div>
           <div v-if="!isUnlocked(achievement)" class="achievement-progress">
             <div class="progress-bar">
@@ -156,9 +158,9 @@
       const iconName = achievement.icon.replace(/^(fas?|far|fal|fab)\s+fa-/, '')
       const fa6IconMap = {
         'code-branch': 'code-branch',
-        'laugh': 'face-laugh',
-        'smile': 'face-smile',
-        'cut': 'scissors',
+        laugh: 'face-laugh',
+        smile: 'face-smile',
+        cut: 'scissors',
         'times-circle': 'circle-xmark',
         'external-link-alt': 'arrow-up-right-from-square',
         'user-circle': 'circle-user',
@@ -168,10 +170,10 @@
         'fire-alt': 'fire-flame-curved',
         'share-alt': 'share-nodes',
         'pencil-alt': 'pen-to-square',
-        'edit': 'pen-to-square',
+        edit: 'pen-to-square',
         'file-alt': 'file-lines',
         'vote-yea': 'check-to-slot',
-        'poll': 'square-poll-vertical',
+        poll: 'square-poll-vertical',
         'check-to-slot': 'check-to-slot',
       }
 

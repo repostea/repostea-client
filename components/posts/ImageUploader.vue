@@ -7,7 +7,7 @@
           :src="previewUrl || currentImageUrl"
           :alt="t('comments.image_upload.preview')"
           class="image-preview w-full h-auto rounded-lg"
-          style="max-height: 400px; object-fit: contain;"
+          style="max-height: 400px; object-fit: contain"
         >
         <div
           class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center"
@@ -31,7 +31,7 @@
       class="upload-area border-2 border-dashed rounded-lg p-8 text-center transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary"
       :class="[
         isDragging ? 'border-primary bg-primary/10' : 'hover:border-primary',
-        isUploading ? 'opacity-50 cursor-not-allowed' : ''
+        isUploading ? 'opacity-50 cursor-not-allowed' : '',
       ]"
       @dragover="handleDragOver"
       @dragleave="handleDragLeave"
@@ -85,7 +85,10 @@
     </div>
 
     <!-- Error message -->
-    <div v-if="uploadError" class="mt-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-md border border-red-200 dark:border-red-800">
+    <div
+      v-if="uploadError"
+      class="mt-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-md border border-red-200 dark:border-red-800"
+    >
       <p class="text-sm text-red-800 dark:text-red-200">
         <Icon name="fa6-solid:circle-exclamation" class="mr-1" aria-hidden="true" />
         {{ uploadError }}
@@ -95,7 +98,10 @@
     <!-- Uploading progress -->
     <div v-if="isUploading" class="mt-3">
       <div class="w-full image-progress-bg rounded-full h-2">
-        <div class="bg-primary h-2 rounded-full transition-all duration-300 animate-pulse" style="width: 100%"/>
+        <div
+          class="bg-primary h-2 rounded-full transition-all duration-300 animate-pulse"
+          style="width: 100%"
+        />
       </div>
       <p class="mt-1 text-xs text-center text-gray-500 dark:text-gray-400">
         {{ t('comments.image_upload.uploading') }}
@@ -130,9 +136,12 @@
   const isDragging = ref(false)
   const isNsfw = ref(false)
 
-  watch(() => props.currentImage, (newVal) => {
-    currentImageUrl.value = newVal
-  })
+  watch(
+    () => props.currentImage,
+    (newVal) => {
+      currentImageUrl.value = newVal
+    }
+  )
 
   function triggerFileInput() {
     if (fileInput.value) {
@@ -238,17 +247,13 @@
       // Emit the uploaded image data (including is_nsfw flag)
       emit('image-uploaded', {
         urls: imageData.urls,
-        original: imageData.urls.original,
-        large: imageData.urls.large,
-        medium: imageData.urls.medium,
-        small: imageData.urls.small,
+        url: imageData.urls.url,
         is_nsfw: imageData.urls.is_nsfw,
       })
 
       // Update current image URL
-      currentImageUrl.value = imageData.urls.large
+      currentImageUrl.value = imageData.urls.url
       previewUrl.value = null
-
     } catch (error) {
       console.error('Error uploading image:', error)
       uploadError.value = error.response?.data?.message || t('comments.image_upload.upload_error')

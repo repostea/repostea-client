@@ -26,6 +26,8 @@
                   "sort_comments": "Comentados",
                   "vote":  "voto",
                   "voted":  "votado",
+                  "closed": "cerrado",
+                  "voting_closed": "La votación está cerrada",
                   "votes":  "votos",
                   "vote_success": "¡Voto enviado correctamente!",
                   "vote_success_guest": "¡Voto enviado! Tu voto efímero ha sido registrado.",

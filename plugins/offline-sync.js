@@ -10,18 +10,14 @@ export default defineNuxtPlugin(() => {
         return navigator && navigator.onLine
       },
 
-      // Sync data when connection is restored
+      // Sync data when connection is restored (runs once)
       syncWhenOnline: async (callback) => {
         if (!callback || typeof callback !== 'function') {
-          console.error('A callback function is required for syncing')
           return
         }
 
         if (navigator) {
-          // Listen for connection events
-          window.addEventListener('online', async () => {
-            await callback()
-          })
+          window.addEventListener('online', callback, { once: true })
         }
       },
 

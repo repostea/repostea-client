@@ -26,6 +26,8 @@
     "sort_comments": "Comentats",
     "vote": "vot",
     "voted": "votat",
+    "closed": "tancat",
+    "voting_closed": "La votació està tancada",
     "votes": "vots",
     "vote_success": "Vot enviat correctament!",
     "vote_success_guest": "Vot enviat! El teu vot efímer ha estat registrat.",

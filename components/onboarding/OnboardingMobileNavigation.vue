@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="block md:hidden onboarding-mobile-nav p-4"
-  >
+  <div class="block md:hidden onboarding-mobile-nav p-4">
     <div class="flex items-center justify-between mb-4">
       <button
         v-if="!isFirstStep"
@@ -12,7 +10,7 @@
         <Icon name="fa6-solid:arrow-left" class="mr-2" aria-hidden="true" />
         {{ t('onboarding.previous') }}
       </button>
-      <div v-else/>
+      <div v-else />
 
       <button
         v-if="!isLastStep"

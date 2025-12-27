@@ -22,7 +22,8 @@ const EMBED_PROVIDERS: EmbedProviderConfig[] = [
   {
     name: 'YouTube',
     type: 'video',
-    pattern: /(?:youtube\.com\/(?:shorts\/|[^/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/i,
+    pattern:
+      /(?:youtube\.com\/(?:shorts\/|[^/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/i,
     getEmbedUrl: (_url, match) => `https://www.youtube.com/embed/${match[1]}?autoplay=0&rel=0`,
     getId: (_url, match) => match[1],
   },
@@ -65,15 +66,18 @@ const EMBED_PROVIDERS: EmbedProviderConfig[] = [
   {
     name: 'Spotify',
     type: 'audio',
-    pattern: /spotify\.com\/(?:intl-[a-z]{2}\/)?(show|episode|track|album|playlist)\/([a-zA-Z0-9]+)/i,
-    getEmbedUrl: (_url, match) => `https://open.spotify.com/embed/${match[1]}/${match[2]}?utm_source=generator&theme=0`,
+    pattern:
+      /spotify\.com\/(?:intl-[a-z]{2}\/)?(show|episode|track|album|playlist)\/([a-zA-Z0-9]+)/i,
+    getEmbedUrl: (_url, match) =>
+      `https://open.spotify.com/embed/${match[1]}/${match[2]}?utm_source=generator&theme=0`,
     getId: (_url, match) => match[2],
   },
   {
     name: 'SoundCloud',
     type: 'audio',
     pattern: /soundcloud\.com\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+/i,
-    getEmbedUrl: (url) => `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&color=%23ff5500&auto_play=false&visual=false`,
+    getEmbedUrl: (url) =>
+      `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}&color=%23ff5500&auto_play=false&visual=false`,
   },
   {
     name: 'Suno',
@@ -167,12 +171,16 @@ export const useEmbedDetection = (text: Ref<string>) => {
 
   // Watch for text changes and re-detect (debounced)
   let debounceTimer: ReturnType<typeof setTimeout> | null = null
-  watch(text, (_newText) => {
-    if (debounceTimer) {
-      clearTimeout(debounceTimer)
-    }
-    debounceTimer = setTimeout(detectEmbeds, 300)
-  }, { immediate: true })
+  watch(
+    text,
+    (_newText) => {
+      if (debounceTimer) {
+        clearTimeout(debounceTimer)
+      }
+      debounceTimer = setTimeout(detectEmbeds, 300)
+    },
+    { immediate: true }
+  )
 
   // Computed for quick checks
   const hasEmbeds = computed(() => detectedEmbeds.value.length > 0)

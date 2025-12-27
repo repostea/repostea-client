@@ -2,7 +2,9 @@
   <ClientOnly>
     <template #fallback>
       <div class="container mx-auto p-6 flex justify-center">
-        <div class="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"/>
+        <div
+          class="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin"
+        />
       </div>
     </template>
     <div v-if="loading" class="container mx-auto p-6 flex justify-center">
@@ -14,14 +16,16 @@
     <!-- Página especial para usuarios eliminados -->
     <div v-else-if="isDeletedUser" class="container mx-auto px-4 py-8">
       <div class="max-w-2xl mx-auto">
-        <div
-          class="card-bg rounded-lg shadow-sm border user-border p-8 text-center"
-        >
+        <div class="card-bg rounded-lg shadow-sm border user-border p-8 text-center">
           <div class="mb-6">
             <div
               class="w-16 h-16 mx-auto mb-4 user-avatar-placeholder rounded-full flex items-center justify-center"
             >
-              <Icon name="fa6-solid:user-slash" class="text-2xl text-gray-500 dark:text-gray-400" aria-hidden="true" />
+              <Icon
+                name="fa6-solid:user-slash"
+                class="text-2xl text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+              />
             </div>
             <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">
               {{ userData?.display_name || t('profile.deleted_user') }}
@@ -48,14 +52,16 @@
     <!-- Página especial para usuarios efímeros -->
     <div v-else-if="isAnonymousUser" class="container mx-auto px-4 py-8">
       <div class="max-w-2xl mx-auto">
-        <div
-          class="card-bg rounded-lg shadow-sm border user-border p-8 text-center"
-        >
+        <div class="card-bg rounded-lg shadow-sm border user-border p-8 text-center">
           <div class="mb-6">
             <div
               class="w-16 h-16 mx-auto mb-4 user-avatar-placeholder rounded-full flex items-center justify-center"
             >
-              <Icon name="fa6-solid:user-secret" class="text-2xl text-gray-500 dark:text-gray-400" aria-hidden="true" />
+              <Icon
+                name="fa6-solid:user-secret"
+                class="text-2xl text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+              />
             </div>
             <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">
               {{ t('profile.anonymous_user') }}
@@ -70,13 +76,37 @@
               {{ t('profile.anonymous_features_title') }}
             </h3>
             <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2">
-              <li class="inline-flex items-center"><Icon name="fa6-solid:check" class="text-green-500 mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('profile.anonymous_feature_1') }}</span>
+              <li class="inline-flex items-center">
+                <Icon
+                  name="fa6-solid:check"
+                  class="text-green-500 mr-2 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                <span>{{ t('profile.anonymous_feature_1') }}</span>
               </li>
-              <li class="inline-flex items-center"><Icon name="fa6-solid:check" class="text-green-500 mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('profile.anonymous_feature_2') }}</span>
+              <li class="inline-flex items-center">
+                <Icon
+                  name="fa6-solid:check"
+                  class="text-green-500 mr-2 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                <span>{{ t('profile.anonymous_feature_2') }}</span>
               </li>
-              <li class="inline-flex items-center"><Icon name="fa6-solid:xmark" class="text-red-500 mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('profile.anonymous_limitation_1') }}</span>
+              <li class="inline-flex items-center">
+                <Icon
+                  name="fa6-solid:xmark"
+                  class="text-red-500 mr-2 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                <span>{{ t('profile.anonymous_limitation_1') }}</span>
               </li>
-              <li class="inline-flex items-center"><Icon name="fa6-solid:xmark" class="text-red-500 mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('profile.anonymous_limitation_2') }}</span>
+              <li class="inline-flex items-center">
+                <Icon
+                  name="fa6-solid:xmark"
+                  class="text-red-500 mr-2 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                <span>{{ t('profile.anonymous_limitation_2') }}</span>
               </li>
             </ul>
           </div>
@@ -85,12 +115,18 @@
             <NuxtLink
               :to="localePath('/register')"
               class="inline-flex items-center px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors"
-            ><Icon name="fa6-solid:user-plus" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('auth.register') }}</span>
+              ><Icon name="fa6-solid:user-plus" class="mr-2 flex-shrink-0" aria-hidden="true" />
+              <span>{{ t('auth.register') }}</span>
             </NuxtLink>
             <NuxtLink
               :to="localePath('/login')"
               class="inline-flex items-center px-4 py-2 user-secondary-btn rounded-md transition-colors"
-            ><Icon name="fa6-solid:right-to-bracket" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('auth.login') }}</span>
+              ><Icon
+                name="fa6-solid:right-to-bracket"
+                class="mr-2 flex-shrink-0"
+                aria-hidden="true"
+              />
+              <span>{{ t('auth.login') }}</span>
             </NuxtLink>
           </div>
         </div>
@@ -129,7 +165,13 @@
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-600'
                 "
                 @click="activeTab = 'achievements'"
-              ><Icon name="fa6-solid:trophy" class="mr-1 sm:mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('achievements.title') }}</span>
+              >
+                <Icon
+                  name="fa6-solid:trophy"
+                  class="mr-1 sm:mr-2 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                <span>{{ t('achievements.title') }}</span>
               </button>
               <button
                 class="ml-2 sm:ml-4 md:ml-8 py-3 px-2 sm:px-4 border-b-2 font-medium text-xs sm:text-sm inline-flex items-center whitespace-nowrap"
@@ -139,7 +181,13 @@
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-600'
                 "
                 @click="activeTab = 'posts'"
-              ><Icon name="fa6-solid:newspaper" class="mr-1 sm:mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('profile.posts') }}</span>
+              >
+                <Icon
+                  name="fa6-solid:newspaper"
+                  class="mr-1 sm:mr-2 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                <span>{{ t('profile.posts') }}</span>
               </button>
               <button
                 class="ml-2 sm:ml-4 md:ml-8 py-3 px-2 sm:px-4 border-b-2 font-medium text-xs sm:text-sm inline-flex items-center whitespace-nowrap"
@@ -149,7 +197,13 @@
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-600'
                 "
                 @click="activeTab = 'comments'"
-              ><Icon name="fa6-solid:comments" class="mr-1 sm:mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('profile.comments') }}</span>
+              >
+                <Icon
+                  name="fa6-solid:comments"
+                  class="mr-1 sm:mr-2 flex-shrink-0"
+                  aria-hidden="true"
+                />
+                <span>{{ t('profile.comments') }}</span>
               </button>
             </nav>
           </div>
@@ -192,9 +246,7 @@
       </div>
     </div>
     <div v-else-if="!loading" class="container mx-auto p-6">
-      <div
-        class="card-bg rounded-lg shadow-sm border user-border p-8 text-center"
-      >
+      <div class="card-bg rounded-lg shadow-sm border user-border p-8 text-center">
         <div class="text-red-500 text-4xl mb-3">
           <Icon name="fa6-solid:circle-exclamation" aria-hidden="true" />
         </div>
@@ -205,7 +257,8 @@
         <NuxtLink
           :to="localePath('/')"
           class="inline-flex items-center px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors"
-        ><Icon name="fa6-solid:house" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('common.go_home') }}</span>
+          ><Icon name="fa6-solid:house" class="mr-2 flex-shrink-0" aria-hidden="true" />
+          <span>{{ t('common.go_home') }}</span>
         </NuxtLink>
       </div>
     </div>
@@ -363,9 +416,9 @@
           link: [
             {
               rel: 'canonical',
-              href: profileUrl
-            }
-          ]
+              href: profileUrl,
+            },
+          ],
         })
 
         // Add Person structured data
@@ -385,7 +438,7 @@
           personSchema.memberOf = {
             '@type': 'Organization',
             '@id': `${siteBaseUrl}/#organization`,
-            name: runtimeConfig.public.appName
+            name: runtimeConfig.public.appName,
           }
         }
 
@@ -394,9 +447,9 @@
             {
               type: 'application/ld+json',
               children: JSON.stringify(personSchema),
-              tagPosition: 'bodyClose'
-            }
-          ]
+              tagPosition: 'bodyClose',
+            },
+          ],
         })
       }
     } catch (error) {

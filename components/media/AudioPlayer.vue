@@ -8,14 +8,18 @@
     >
       <div class="flex items-center gap-3">
         <div class="flex-grow min-w-0">
-          <p class="font-semibold text-text dark:text-text-dark truncate mb-0.5 text-base">{{ title }}</p>
+          <p class="font-semibold text-text dark:text-text-dark truncate mb-0.5 text-base">
+            {{ title }}
+          </p>
           <div class="flex items-center gap-2 text-xs text-text-muted dark:text-text-dark-muted">
             <Icon name="fa6-solid:circle" class="text-[4px]" aria-hidden="true" />
             <span>{{ provider }}</span>
           </div>
         </div>
         <div class="ml-2 flex-shrink-0">
-          <div class="w-10 h-10 rounded-full bg-primary hover:bg-primary-dark flex items-center justify-center transition-colors">
+          <div
+            class="w-10 h-10 rounded-full bg-primary hover:bg-primary-dark flex items-center justify-center transition-colors"
+          >
             <Icon name="fa6-solid:play" class="text-white text-sm ml-0.5" aria-hidden="true" />
           </div>
         </div>
@@ -45,10 +49,7 @@
           loading="lazy"
         />
       </div>
-      <div
-        v-else
-        class="audio-fallback w-full py-4 flex items-center justify-center rounded-md"
-      >
+      <div v-else class="audio-fallback w-full py-4 flex items-center justify-center rounded-md">
         <a
           :href="url"
           target="_blank"

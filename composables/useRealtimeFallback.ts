@@ -12,11 +12,7 @@ export interface FallbackOptions {
 }
 
 export const useRealtimeFallback = (options: FallbackOptions) => {
-  const {
-    pollingInterval = 30000,
-    autoStart = false,
-    fetchFn,
-  } = options
+  const { pollingInterval = 30000, autoStart = false, fetchFn } = options
 
   const isPolling = ref(false)
   const lastPollTime = ref<Date | null>(null)

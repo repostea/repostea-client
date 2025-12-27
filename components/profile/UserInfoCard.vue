@@ -1,14 +1,26 @@
 <template>
-  <div
-    class="user-info-card card-bg rounded-lg shadow-sm overflow-hidden mb-6"
-  >
-    <div class="bg-primary h-16 relative"/>
+  <div class="user-info-card card-bg rounded-lg shadow-sm overflow-hidden mb-6">
+    <div class="bg-primary h-16 relative" />
     <div class="px-4 pt-0 pb-4 text-center">
       <div
         class="user-info-avatar w-20 h-20 rounded-full mx-auto -mt-10 overflow-hidden flex items-center justify-center z-10 relative"
       >
-        <Icon v-if="!user.avatar" name="fa6-solid:user" class="text-gray-400 text-2xl" aria-hidden="true" />
-        <NuxtImg v-else :src="user.avatar" :alt="`${user.display_name || user.username}`" width="80" height="80" class="w-full h-full object-cover" loading="lazy" preset="avatar" />
+        <Icon
+          v-if="!user.avatar"
+          name="fa6-solid:user"
+          class="text-gray-400 text-2xl"
+          aria-hidden="true"
+        />
+        <NuxtImg
+          v-else
+          :src="user.avatar"
+          :alt="`${user.display_name || user.username}`"
+          width="80"
+          height="80"
+          class="w-full h-full object-cover"
+          loading="lazy"
+          preset="avatar"
+        />
       </div>
       <h3 class="font-medium text-lg mt-2">
         <ClientOnly fallback="...">
@@ -44,9 +56,11 @@
       </div>
       <ClientOnly>
         <template #fallback>
-          <div class="h-4 mt-1"/>
+          <div class="h-4 mt-1" />
         </template>
-        <div class="flex items-center justify-center text-xs text-gray-400 dark:text-gray-500 mt-1 opacity-70">
+        <div
+          class="flex items-center justify-center text-xs text-gray-400 dark:text-gray-500 mt-1 opacity-70"
+        >
           <Icon name="fa6-solid:calendar-days" class="mr-1 text-[10px]" aria-hidden="true" />
           {{ formatDate(user.created_at) }}
         </div>
@@ -68,7 +82,7 @@
         class="fixed inset-0 z-50 flex items-center justify-center p-4"
         @click.self="showFollowModal = false"
       >
-        <div class="fixed inset-0 bg-black/50" aria-hidden="true"/>
+        <div class="fixed inset-0 bg-black/50" aria-hidden="true" />
         <div class="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full p-6">
           <button
             class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
@@ -88,7 +102,9 @@
 
           <!-- Handle to copy -->
           <div class="flex items-center gap-2 mb-4">
-            <code class="flex-1 px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-md text-sm font-mono overflow-x-auto">
+            <code
+              class="flex-1 px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-md text-sm font-mono overflow-x-auto"
+            >
               {{ user.federation?.handle }}
             </code>
             <button
@@ -102,7 +118,9 @@
 
           <!-- Platform links -->
           <div class="space-y-2">
-            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">{{ t('profile.or_search_on') }}</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+              {{ t('profile.or_search_on') }}
+            </p>
             <div class="flex flex-wrap gap-2">
               <a
                 :href="`https://mastodon.social/search?q=${encodeURIComponent(user.federation?.handle)}`"

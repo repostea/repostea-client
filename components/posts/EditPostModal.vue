@@ -1,10 +1,6 @@
 <template>
   <div v-if="canEdit">
-    <FooterButton
-      icon="fa6-solid:pen-to-square"
-      :title="t('posts.edit')"
-      @click="openModal"
-    />
+    <FooterButton icon="fa6-solid:pen-to-square" :title="t('posts.edit')" @click="openModal" />
 
     <Teleport to="body">
       <div
@@ -19,10 +15,10 @@
           aria-labelledby="edit-modal-title"
           @click.stop
         >
-          <div
-            class="edit-modal-header px-6 py-4 flex justify-between items-center"
-          >
-            <h2 id="edit-modal-title" class="text-xl font-medium inline-flex items-center"><Icon name="fa6-solid:pen-to-square" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ t('posts.edit_post') }}</span>
+          <div class="edit-modal-header px-6 py-4 flex justify-between items-center">
+            <h2 id="edit-modal-title" class="text-xl font-medium inline-flex items-center">
+              <Icon name="fa6-solid:pen-to-square" class="mr-2 flex-shrink-0" aria-hidden="true" />
+              <span>{{ t('posts.edit_post') }}</span>
             </h2>
             <button
               class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"

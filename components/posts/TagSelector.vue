@@ -99,7 +99,13 @@
         class="tag-selector-list w-full rounded-md shadow-sm overflow-y-auto"
         style="max-height: 240px"
       >
-        <div v-if="loading" class="p-4 text-center text-gray-500 flex items-center justify-center"><Icon name="fa6-solid:spinner" class="mr-2 flex-shrink-0 animate-spin" aria-hidden="true" /> <span>{{ t('common.loading') }}</span>
+        <div v-if="loading" class="p-4 text-center text-gray-500 flex items-center justify-center">
+          <Icon
+            name="fa6-solid:spinner"
+            class="mr-2 flex-shrink-0 animate-spin"
+            aria-hidden="true"
+          />
+          <span>{{ t('common.loading') }}</span>
         </div>
 
         <div v-else-if="filteredTags.length > 0" class="grid grid-cols-1 sm:grid-cols-3 gap-2 p-2">

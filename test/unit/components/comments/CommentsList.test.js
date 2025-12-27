@@ -106,9 +106,12 @@ describe('CommentsList', () => {
 
     it('should render sort dropdown', () => {
       // Find sort button by the sort icon (using Icon component attributes)
-      const sortButton = wrapper.findAll('button').find(btn =>
-        btn.html().includes('fa6-solid:sort') || btn.html().includes('fa6-solid:chevron-down')
-      )
+      const sortButton = wrapper
+        .findAll('button')
+        .find(
+          (btn) =>
+            btn.html().includes('fa6-solid:sort') || btn.html().includes('fa6-solid:chevron-down')
+        )
       expect(sortButton).toBeDefined()
       // The button should contain sort-related text (from sortButtonText computed)
       expect(sortButton.text().length).toBeGreaterThan(0)
@@ -118,9 +121,12 @@ describe('CommentsList', () => {
   describe('Sort functionality', () => {
     it('should toggle sort dropdown', async () => {
       // Find sort button by the sort icon (using Icon component attributes)
-      const sortButton = wrapper.findAll('button').find(btn =>
-        btn.html().includes('fa6-solid:sort') || btn.html().includes('fa6-solid:chevron-down')
-      )
+      const sortButton = wrapper
+        .findAll('button')
+        .find(
+          (btn) =>
+            btn.html().includes('fa6-solid:sort') || btn.html().includes('fa6-solid:chevron-down')
+        )
       expect(sortButton).toBeDefined()
       await sortButton.trigger('click')
 
@@ -132,11 +138,14 @@ describe('CommentsList', () => {
       await nextTick()
 
       // Check that the sort options exist
-      const sortOptions = wrapper.findAll('button').filter(btn =>
-        btn.text().includes('sort_threads') ||
-        btn.text().includes('sort_by_votes') ||
-        btn.text().includes('sort_chronological')
-      )
+      const sortOptions = wrapper
+        .findAll('button')
+        .filter(
+          (btn) =>
+            btn.text().includes('sort_threads') ||
+            btn.text().includes('sort_by_votes') ||
+            btn.text().includes('sort_chronological')
+        )
       expect(sortOptions.length).toBeGreaterThan(0)
     })
   })

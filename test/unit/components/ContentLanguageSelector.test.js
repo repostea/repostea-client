@@ -62,13 +62,13 @@ const ContentLanguageSelectorMock = {
     return {
       showDropdown: false,
       searchQuery: '',
-      _selectedLanguages: [],  // Internal reactive data
+      _selectedLanguages: [], // Internal reactive data
       availableLocales: [
         { code: 'es', native: 'Español', flag: '🇪🇸' },
         { code: 'en', native: 'English', flag: '🇬🇧' },
         { code: 'fr', native: 'Français', flag: '🇫🇷' },
         { code: 'de', native: 'Deutsch', flag: '🇩🇪' },
-      ]
+      ],
     }
   },
   computed: {
@@ -82,21 +82,23 @@ const ContentLanguageSelectorMock = {
         if (this.$userPrefsStore) {
           this.$userPrefsStore.selectedLanguages = value
         }
-      }
+      },
     },
     selectedLanguagesDisplay() {
       if (!this.selectedLanguages || this.selectedLanguages.length === 0) {
         return 'All languages'
       }
       if (this.selectedLanguages.length === 1) {
-        const lang = this.availableLocales.find(l => l.code === this.selectedLanguages[0])
+        const lang = this.availableLocales.find((l) => l.code === this.selectedLanguages[0])
         return lang ? lang.native : this.selectedLanguages[0]
       }
       if (this.selectedLanguages.length <= 3) {
-        return this.selectedLanguages.map(code => {
-          const lang = this.availableLocales.find(l => l.code === code)
-          return lang ? lang.native : code
-        }).join(', ')
+        return this.selectedLanguages
+          .map((code) => {
+            const lang = this.availableLocales.find((l) => l.code === code)
+            return lang ? lang.native : code
+          })
+          .join(', ')
       }
       return `${this.selectedLanguages.length} languages selected`
     },
@@ -105,11 +107,11 @@ const ContentLanguageSelectorMock = {
         return this.availableLocales
       }
       const query = this.searchQuery.toLowerCase()
-      return this.availableLocales.filter(locale =>
-        locale.native.toLowerCase().includes(query) ||
-        locale.code.toLowerCase().includes(query)
+      return this.availableLocales.filter(
+        (locale) =>
+          locale.native.toLowerCase().includes(query) || locale.code.toLowerCase().includes(query)
       )
-    }
+    },
   },
   methods: {
     toggleDropdown() {
@@ -122,7 +124,7 @@ const ContentLanguageSelectorMock = {
     applyLanguages() {
       this.$userPrefsStore.setSelectedLanguages(this.selectedLanguages)
       this.showDropdown = false
-    }
+    },
   },
   beforeMount() {
     // Create a simple mock store that works with our internal data
@@ -130,9 +132,9 @@ const ContentLanguageSelectorMock = {
       selectedLanguages: this._selectedLanguages,
       setSelectedLanguages: vi.fn((langs) => {
         this._selectedLanguages = langs
-      })
+      }),
     }
-  }
+  },
 }
 
 describe('ContentLanguageSelector Component', () => {
@@ -146,18 +148,18 @@ describe('ContentLanguageSelector Component', () => {
         userPreferences: {
           selectedLanguages: [],
           theme: 'renegados1',
-          layout: 'card'
-        }
+          layout: 'card',
+        },
       },
-      stubActions: false
+      stubActions: false,
     })
   })
 
   it('should render the language button', () => {
     wrapper = mount(ContentLanguageSelectorMock, {
       global: {
-        plugins: [pinia]
-      }
+        plugins: [pinia],
+      },
     })
 
     const button = wrapper.find('[data-testid="language-button"]')
@@ -167,8 +169,8 @@ describe('ContentLanguageSelector Component', () => {
   it('should display "All languages" when no languages selected', () => {
     wrapper = mount(ContentLanguageSelectorMock, {
       global: {
-        plugins: [pinia]
-      }
+        plugins: [pinia],
+      },
     })
 
     const button = wrapper.find('[data-testid="language-button"]')
@@ -180,16 +182,16 @@ describe('ContentLanguageSelector Component', () => {
       createSpy: vi.fn,
       initialState: {
         userPreferences: {
-          selectedLanguages: []
-        }
+          selectedLanguages: [],
+        },
       },
-      stubActions: false
+      stubActions: false,
     })
 
     wrapper = mount(ContentLanguageSelectorMock, {
       global: {
-        plugins: [pinia]
-      }
+        plugins: [pinia],
+      },
     })
 
     // Set selectedLanguages directly on the component's computed property
@@ -208,16 +210,16 @@ describe('ContentLanguageSelector Component', () => {
       createSpy: vi.fn,
       initialState: {
         userPreferences: {
-          selectedLanguages: []
-        }
+          selectedLanguages: [],
+        },
       },
-      stubActions: false
+      stubActions: false,
     })
 
     wrapper = mount(ContentLanguageSelectorMock, {
       global: {
-        plugins: [pinia]
-      }
+        plugins: [pinia],
+      },
     })
 
     // Set selectedLanguages directly on the component's computed property
@@ -237,16 +239,16 @@ describe('ContentLanguageSelector Component', () => {
       createSpy: vi.fn,
       initialState: {
         userPreferences: {
-          selectedLanguages: []
-        }
+          selectedLanguages: [],
+        },
       },
-      stubActions: false
+      stubActions: false,
     })
 
     wrapper = mount(ContentLanguageSelectorMock, {
       global: {
-        plugins: [pinia]
-      }
+        plugins: [pinia],
+      },
     })
 
     // Set selectedLanguages directly on the component's computed property
@@ -263,8 +265,8 @@ describe('ContentLanguageSelector Component', () => {
   it('should toggle modal on button click', async () => {
     wrapper = mount(ContentLanguageSelectorMock, {
       global: {
-        plugins: [pinia]
-      }
+        plugins: [pinia],
+      },
     })
 
     expect(wrapper.find('[data-testid="modal"]').exists()).toBe(false)
@@ -278,8 +280,8 @@ describe('ContentLanguageSelector Component', () => {
   it('should filter languages by search query', async () => {
     wrapper = mount(ContentLanguageSelectorMock, {
       global: {
-        plugins: [pinia]
-      }
+        plugins: [pinia],
+      },
     })
 
     await wrapper.find('[data-testid="language-button"]').trigger('click')
@@ -298,16 +300,16 @@ describe('ContentLanguageSelector Component', () => {
       createSpy: vi.fn,
       initialState: {
         userPreferences: {
-          selectedLanguages: []
-        }
+          selectedLanguages: [],
+        },
       },
-      stubActions: false
+      stubActions: false,
     })
 
     wrapper = mount(ContentLanguageSelectorMock, {
       global: {
-        plugins: [pinia]
-      }
+        plugins: [pinia],
+      },
     })
 
     // Set selectedLanguages directly on the component's computed property
@@ -328,8 +330,8 @@ describe('ContentLanguageSelector Component', () => {
   it('should close modal when applying languages', async () => {
     wrapper = mount(ContentLanguageSelectorMock, {
       global: {
-        plugins: [pinia]
-      }
+        plugins: [pinia],
+      },
     })
 
     await wrapper.find('[data-testid="language-button"]').trigger('click')

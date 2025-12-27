@@ -18,8 +18,8 @@
 </template>
 
 <script setup>
-const config = useRuntimeConfig()
-const siteName = config.public.appName || 'Repostea'
+  const config = useRuntimeConfig()
+  const siteName = config.public.appName || 'Repostea'
 </script>
 
 <style scoped>
@@ -57,7 +57,11 @@ const siteName = config.public.appName || 'Repostea'
     letter-spacing: -0.025em;
     color: var(--color-navbar-text);
     text-transform: uppercase;
-    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      sans-serif;
   }
 
   /* En móviles muy estrechos, reducir tamaño del texto */

@@ -1,88 +1,111 @@
 <template>
   <div ref="menuRef" class="auth-nav">
-      <div v-if="authStore.isAuthenticated" class="user-menu">
-        <button class="user-info" :aria-expanded="isOpen" aria-haspopup="menu" @click="toggleDropdown">
-          <Icon v-if="isGuest" name="fa6-solid:user-secret" class="text-lg" aria-hidden="true" />
-          <Icon v-else name="fa6-solid:circle-user" class="text-lg" aria-hidden="true" />
-          <!-- Desktop: Show full username (only on large screens) -->
-          <span class="username hidden lg:inline truncate">
-            <div v-if="isGuest" class="flex flex-col">
-              <span class="guest-name-header">
-                {{ authStore.user?.display_name || authStore.user?.name || 'Guest' }}
-              </span>
-              <span class="guest-indicator">{{ t('auth.guest') }}</span>
+    <div v-if="authStore.isAuthenticated" class="user-menu">
+      <button
+        class="user-info"
+        :aria-expanded="isOpen"
+        aria-haspopup="menu"
+        @click="toggleDropdown"
+      >
+        <Icon v-if="isGuest" name="fa6-solid:user-secret" class="text-lg" aria-hidden="true" />
+        <Icon v-else name="fa6-solid:circle-user" class="text-lg" aria-hidden="true" />
+        <!-- Desktop: Show full username (only on large screens) -->
+        <span class="username hidden lg:inline truncate">
+          <div v-if="isGuest" class="flex flex-col">
+            <span class="guest-name-header">
+              {{ authStore.user?.display_name || authStore.user?.name || 'Guest' }}
+            </span>
+            <span class="guest-indicator">{{ t('auth.guest') }}</span>
+          </div>
+          <span v-else>{{ authStore.username }}</span>
+        </span>
+        <!-- Mobile & Tablet: Show only icon + arrow, no text to save space -->
+        <span class="lg:hidden" />
+        <Icon name="fa6-solid:chevron-down" class="ml-1 text-xs" aria-hidden="true" />
+      </button>
+
+      <div v-if="isOpen" class="dropdown-menu" role="menu">
+        <!-- Different menu for guest users -->
+        <template v-if="isGuest">
+          <div class="guest-info menu-item inline-flex items-center">
+            <Icon name="fa6-solid:user-secret" class="mr-2 flex-shrink-0" aria-hidden="true" />
+            <div class="flex flex-col">
+              <span class="guest-name">{{
+                authStore.user?.display_name || authStore.user?.name || 'Guest'
+              }}</span>
+              <span class="guest-indicator-dropdown">{{ t('auth.guest') }}</span>
             </div>
-            <span v-else>{{ authStore.username }}</span>
-          </span>
-          <!-- Mobile & Tablet: Show only icon + arrow, no text to save space -->
-          <span class="lg:hidden"/>
-          <Icon name="fa6-solid:chevron-down" class="ml-1 text-xs" aria-hidden="true" />
-        </button>
+          </div>
 
-        <div v-if="isOpen" class="dropdown-menu" role="menu">
-          <!-- Different menu for guest users -->
-          <template v-if="isGuest">
-            <div class="guest-info menu-item inline-flex items-center">
-              <Icon name="fa6-solid:user-secret" class="mr-2 flex-shrink-0" aria-hidden="true" />
-              <div class="flex flex-col">
-                <span class="guest-name">{{
-                  authStore.user?.display_name || authStore.user?.name || 'Guest'
-                }}</span>
-                <span class="guest-indicator-dropdown">{{ t('auth.guest') }}</span>
-              </div>
-            </div>
+          <div class="menu-divider" role="separator" />
 
-            <div class="menu-divider" role="separator"/>
+          <button class="menu-item logout inline-flex items-center" role="menuitem" @click="logout">
+            <Icon
+              name="fa6-solid:right-from-bracket"
+              class="mr-2 flex-shrink-0"
+              aria-hidden="true"
+            />
+            <span class="logout-text">{{ t('auth.exit_guest') }}</span>
+          </button>
+        </template>
 
-            <button class="menu-item logout inline-flex items-center" role="menuitem" @click="logout">
-              <Icon name="fa6-solid:right-from-bracket" class="mr-2 flex-shrink-0" aria-hidden="true" />
-              <span class="logout-text">{{ t('auth.exit_guest') }}</span>
-            </button>
-          </template>
+        <!-- Regular user menu -->
+        <template v-else>
+          <NuxtLink
+            :to="localePath('/profile/')"
+            class="menu-item inline-flex items-center"
+            role="menuitem"
+            @click="closeDropdown"
+          >
+            <Icon name="fa6-solid:circle-user" class="mr-2" aria-hidden="true" />
+            {{ t('navigation.my_profile') }}
+          </NuxtLink>
 
-          <!-- Regular user menu -->
-          <template v-else>
-            <NuxtLink :to="localePath('/profile/')" class="menu-item inline-flex items-center" role="menuitem" @click="closeDropdown">
-              <Icon name="fa6-solid:circle-user" class="mr-2" aria-hidden="true" />
-              {{ t('navigation.my_profile') }}
-            </NuxtLink>
+          <NuxtLink
+            :to="localePath('/profile/posts')"
+            class="menu-item inline-flex items-center"
+            role="menuitem"
+            @click="closeDropdown"
+          >
+            <Icon name="fa6-solid:newspaper" class="mr-2" aria-hidden="true" />
+            {{ t('profile.my_posts') }}
+          </NuxtLink>
 
-            <NuxtLink :to="localePath('/profile/posts')" class="menu-item inline-flex items-center" role="menuitem" @click="closeDropdown">
-              <Icon name="fa6-solid:newspaper" class="mr-2" aria-hidden="true" />
-              {{ t('profile.my_posts') }}
-            </NuxtLink>
+          <NuxtLink
+            :to="localePath('/profile/settings')"
+            class="menu-item inline-flex items-center"
+            role="menuitem"
+            @click="closeDropdown"
+          >
+            <Icon name="fa6-solid:gear" class="mr-2" aria-hidden="true" />
+            {{ t('navigation.settings') }}
+          </NuxtLink>
 
-            <NuxtLink
-              :to="localePath('/profile/settings')"
-              class="menu-item inline-flex items-center"
-              role="menuitem"
-              @click="closeDropdown"
-            >
-              <Icon name="fa6-solid:gear" class="mr-2" aria-hidden="true" />
-              {{ t('navigation.settings') }}
-            </NuxtLink>
+          <div class="menu-divider" role="separator" />
 
-            <div class="menu-divider" role="separator"/>
-
-            <button class="menu-item logout inline-flex items-center" role="menuitem" @click="logout">
-              <Icon name="fa6-solid:right-from-bracket" class="mr-2" aria-hidden="true" />
-              {{ t('navigation.logout') }}
-            </button>
-          </template>
-        </div>
+          <button class="menu-item logout inline-flex items-center" role="menuitem" @click="logout">
+            <Icon name="fa6-solid:right-from-bracket" class="mr-2" aria-hidden="true" />
+            {{ t('navigation.logout') }}
+          </button>
+        </template>
       </div>
+    </div>
 
-      <div v-else class="auth-buttons">
-        <NuxtLink :to="localePath('/auth/login')" class="btn-login" :aria-label="t('auth.login')">
-          <span class="login-text">{{ t('auth.login') }}</span>
-          <Icon name="fa6-solid:right-to-bracket" class="login-icon" aria-hidden="true" />
-        </NuxtLink>
+    <div v-else class="auth-buttons">
+      <NuxtLink :to="localePath('/auth/login')" class="btn-login" :aria-label="t('auth.login')">
+        <span class="login-text">{{ t('auth.login') }}</span>
+        <Icon name="fa6-solid:right-to-bracket" class="login-icon" aria-hidden="true" />
+      </NuxtLink>
 
-        <NuxtLink :to="localePath('/auth/register')" class="btn-register" :aria-label="t('auth.register')">
-          <span class="hidden lg:inline">{{ t('auth.register') }}</span>
-          <Icon name="fa6-solid:user-plus" class="lg:hidden" aria-hidden="true" />
-        </NuxtLink>
-      </div>
+      <NuxtLink
+        :to="localePath('/auth/register')"
+        class="btn-register"
+        :aria-label="t('auth.register')"
+      >
+        <span class="hidden lg:inline">{{ t('auth.register') }}</span>
+        <Icon name="fa6-solid:user-plus" class="lg:hidden" aria-hidden="true" />
+      </NuxtLink>
+    </div>
   </div>
 </template>
 

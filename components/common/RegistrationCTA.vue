@@ -5,7 +5,9 @@
   >
     <div class="flex items-start gap-3">
       <div class="flex-shrink-0">
-        <div class="w-9 h-9 bg-primary/20 dark:bg-primary/30 rounded-full flex items-center justify-center">
+        <div
+          class="w-9 h-9 bg-primary/20 dark:bg-primary/30 rounded-full flex items-center justify-center"
+        >
           <Icon name="fa6-solid:star" class="text-primary text-base" aria-hidden="true" />
         </div>
       </div>
@@ -18,15 +20,15 @@
             :to="localePath('/auth/register')"
             class="text-primary dark:text-primary-light font-semibold hover:underline"
           >
-            {{ t('auth.register') }}
-          </NuxtLink>{{ ctaMessage }}
+            {{ t('auth.register') }} </NuxtLink
+          >{{ ctaMessage }}
           {{ t('auth.register_cta_learn_suffix') }}
           <NuxtLink
             :to="localePath('/onboarding')"
             class="text-primary dark:text-primary-light hover:underline"
           >
-            {{ t('auth.learn_how_it_works') }}
-          </NuxtLink>.
+            {{ t('auth.learn_how_it_works') }} </NuxtLink
+          >.
         </p>
       </div>
     </div>
@@ -36,8 +38,7 @@
 <script setup>
   import { computed } from 'vue'
   import { useAuth } from '~/composables/useAuth'
-  import { useLocalePath, useI18n  } from '#i18n'
-  
+  import { useLocalePath, useI18n } from '#i18n'
 
   const props = defineProps({
     authorName: {

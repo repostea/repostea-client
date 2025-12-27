@@ -32,6 +32,6 @@ export const useSession = () => {
   return {
     getSessionId,
     getScreenResolution,
-    getReferer
+    getReferer,
   }
 }

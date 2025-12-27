@@ -9,8 +9,8 @@
             class="user-link"
           >
             <NuxtImg
-              v-if="comment.user.avatar_url"
-              :src="comment.user.avatar_url"
+              v-if="comment.user.avatar"
+              :src="comment.user.avatar"
               :alt="comment.user.username"
               width="24"
               height="24"
@@ -35,10 +35,7 @@
           <span class="separator">·</span>
 
           <span class="post-prefix">{{ $t('comments.on_post') }}</span>
-          <NuxtLink
-            :to="localePath(`/posts/${comment.post?.slug}`)"
-            class="post-link"
-          >
+          <NuxtLink :to="localePath(`/posts/${comment.post?.slug}`)" class="post-link">
             {{ comment.post?.title }}
           </NuxtLink>
         </div>
@@ -89,6 +86,7 @@
   import { defineProps, computed } from 'vue'
   import { useI18n, useLocalePath } from '#i18n'
   import { marked } from 'marked'
+  import DOMPurify from 'dompurify'
   import { extractEmbeds, replaceEmbedsWithPlaceholders } from '~/utils/markdown'
   import InlineEmbed from '~/components/media/InlineEmbed.vue'
 
@@ -114,9 +112,12 @@
     const diffInSeconds = Math.floor((now - date) / 1000)
 
     if (diffInSeconds < 60) return t('time.seconds_ago', { count: diffInSeconds })
-    if (diffInSeconds < 3600) return t('time.minutes_ago', { count: Math.floor(diffInSeconds / 60) })
-    if (diffInSeconds < 86400) return t('time.hours_ago', { count: Math.floor(diffInSeconds / 3600) })
-    if (diffInSeconds < 2592000) return t('time.days_ago', { count: Math.floor(diffInSeconds / 86400) })
+    if (diffInSeconds < 3600)
+      return t('time.minutes_ago', { count: Math.floor(diffInSeconds / 60) })
+    if (diffInSeconds < 86400)
+      return t('time.hours_ago', { count: Math.floor(diffInSeconds / 3600) })
+    if (diffInSeconds < 2592000)
+      return t('time.days_ago', { count: Math.floor(diffInSeconds / 86400) })
 
     return date.toLocaleDateString(locale.value, { timeZone: timezone })
   }
@@ -129,7 +130,12 @@
     // Clean up embed placeholders
     html = html.replace(/<!--EMBED_PLACEHOLDER_\d+-->/g, '')
     html = html.replace(/<p>\s*<\/p>/g, '')
-    return html
+    // Sanitize HTML to prevent XSS attacks
+    return DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'del', 'a', 'ul', 'ol', 'li', 'blockquote', 'pre', 'code', 'hr', 'img'],
+      ALLOWED_ATTR: ['href', 'target', 'rel', 'class', 'src', 'alt', 'loading'],
+      FORBID_TAGS: ['script', 'object', 'embed', 'iframe', 'form', 'input', 'textarea', 'button'],
+    })
   }
 
   const getVoteIcon = (voteType) => {
@@ -314,7 +320,6 @@
   .vote-type-label {
     @apply text-xs opacity-75 ml-1;
   }
-
 
   .view-context-btn {
     @apply flex items-center gap-1 px-3 py-1.5 text-xs rounded-md transition-colors no-underline;

@@ -1,5 +1,6 @@
 import { defineNuxtPlugin } from '#app'
 import { useI18n } from '#i18n'
+import { isSafeRedirectUrl } from '~/utils/urlSecurity'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const navigateWithLocale = (route, options = {}) => {
@@ -13,10 +14,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     const returnUrl = route.query.returnUrl
 
-    if (returnUrl && typeof returnUrl === 'string') {
-      if (returnUrl.startsWith('/')) {
-        return navigateTo(returnUrl, options)
-      }
+    if (isSafeRedirectUrl(returnUrl)) {
+      return navigateTo(returnUrl, options)
     }
 
     return navigateWithLocale(defaultPath, options)
@@ -40,6 +39,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       navigateWithLocale,
       redirectAfterAuth,
       handleAuthError,
+      isSafeRedirectUrl,
     },
   }
 })

@@ -16,7 +16,7 @@ const mockUserPreferencesStore = {
     } else {
       mockUserPreferencesStore.getFilters = {
         ...mockUserPreferencesStore.getFilters,
-        content_type: contentType
+        content_type: contentType,
       }
       mockUserPreferencesStore.setFilters(mockUserPreferencesStore.getFilters)
     }
@@ -132,14 +132,14 @@ describe('FilterControls Component', () => {
       mockUserPreferencesStore.getFilters = null
       wrapper = createWrapper()
       const icons = wrapper.findAll('.iconify-icon')
-      const iconNames = icons.map(icon => icon.attributes('name'))
+      const iconNames = icons.map((icon) => icon.attributes('name'))
       expect(iconNames).toContain('fa6-solid:filter')
     })
 
     it('shows chevron down when collapsed', () => {
       wrapper = createWrapper()
       const icons = wrapper.findAll('.iconify-icon')
-      const iconNames = icons.map(icon => icon.attributes('name'))
+      const iconNames = icons.map((icon) => icon.attributes('name'))
       expect(iconNames).toContain('fa6-solid:chevron-down')
     })
 
@@ -173,7 +173,7 @@ describe('FilterControls Component', () => {
       wrapper = createWrapper()
       await wrapper.find('.control-button').trigger('click')
       const icons = wrapper.findAll('.iconify-icon')
-      const iconNames = icons.map(icon => icon.attributes('name'))
+      const iconNames = icons.map((icon) => icon.attributes('name'))
       expect(iconNames).toContain('fa6-solid:chevron-up')
     })
 
@@ -209,7 +209,7 @@ describe('FilterControls Component', () => {
       await wrapper.find('.control-button').trigger('click')
 
       const icons = wrapper.findAll('.iconify-icon')
-      const iconNames = icons.map(icon => icon.attributes('name'))
+      const iconNames = icons.map((icon) => icon.attributes('name'))
       expect(iconNames).toContain('fa6-solid:globe') // All
       expect(iconNames).toContain('fa6-solid:file-lines') // Text
       expect(iconNames).toContain('fa6-solid:link') // Link
@@ -243,7 +243,7 @@ describe('FilterControls Component', () => {
       await wrapper.find('.control-button').trigger('click')
 
       const buttons = wrapper.findAll('.filter-button')
-      const textButton = buttons.find(btn => btn.text().includes('Text'))
+      const textButton = buttons.find((btn) => btn.text().includes('Text'))
       await textButton.trigger('click')
 
       expect(mockUserPreferencesStore.setFilters).toHaveBeenCalledWith({
@@ -256,7 +256,7 @@ describe('FilterControls Component', () => {
       await wrapper.find('.control-button').trigger('click')
 
       const buttons = wrapper.findAll('.filter-button')
-      const linkButton = buttons.find(btn => btn.text().includes('Link'))
+      const linkButton = buttons.find((btn) => btn.text().includes('Link'))
       await linkButton.trigger('click')
 
       expect(mockUserPreferencesStore.setFilters).toHaveBeenCalledWith({
@@ -269,7 +269,7 @@ describe('FilterControls Component', () => {
       await wrapper.find('.control-button').trigger('click')
 
       const buttons = wrapper.findAll('.filter-button')
-      const videoButton = buttons.find(btn => btn.text().includes('Video'))
+      const videoButton = buttons.find((btn) => btn.text().includes('Video'))
       await videoButton.trigger('click')
 
       expect(mockUserPreferencesStore.setFilters).toHaveBeenCalledWith({
@@ -282,7 +282,7 @@ describe('FilterControls Component', () => {
       await wrapper.find('.control-button').trigger('click')
 
       const buttons = wrapper.findAll('.filter-button')
-      const audioButton = buttons.find(btn => btn.text().includes('Audio'))
+      const audioButton = buttons.find((btn) => btn.text().includes('Audio'))
       await audioButton.trigger('click')
 
       expect(mockUserPreferencesStore.setFilters).toHaveBeenCalledWith({
@@ -295,7 +295,7 @@ describe('FilterControls Component', () => {
       await wrapper.find('.control-button').trigger('click')
 
       const buttons = wrapper.findAll('.filter-button')
-      const pollButton = buttons.find(btn => btn.text().includes('Poll'))
+      const pollButton = buttons.find((btn) => btn.text().includes('Poll'))
       await pollButton.trigger('click')
 
       expect(mockUserPreferencesStore.setFilters).toHaveBeenCalledWith({
@@ -321,7 +321,7 @@ describe('FilterControls Component', () => {
       expect(wrapper.vm.isExpanded).toBe(true)
 
       const buttons = wrapper.findAll('.filter-button')
-      const textButton = buttons.find(btn => btn.text().includes('Text'))
+      const textButton = buttons.find((btn) => btn.text().includes('Text'))
       await textButton.trigger('click')
 
       expect(wrapper.vm.isExpanded).toBe(false)
@@ -332,7 +332,7 @@ describe('FilterControls Component', () => {
       await wrapper.find('.control-button').trigger('click')
 
       const buttons = wrapper.findAll('.filter-button')
-      const textButton = buttons.find(btn => btn.text().includes('Text'))
+      const textButton = buttons.find((btn) => btn.text().includes('Text'))
       await textButton.trigger('click')
 
       expect(wrapper.emitted('filter-changed')).toBeTruthy()
@@ -417,7 +417,7 @@ describe('FilterControls Component', () => {
       await wrapper.find('.control-button').trigger('click')
 
       const buttons = wrapper.findAll('.filter-button')
-      const textButton = buttons.find(btn => btn.text().includes('Text'))
+      const textButton = buttons.find((btn) => btn.text().includes('Text'))
       expect(textButton.classes()).toContain('active')
     })
 
@@ -436,7 +436,7 @@ describe('FilterControls Component', () => {
       await wrapper.find('.control-button').trigger('click')
 
       const buttons = wrapper.findAll('.filter-button')
-      const textButton = buttons.find(btn => btn.text().includes('Text'))
+      const textButton = buttons.find((btn) => btn.text().includes('Text'))
       await textButton.trigger('click')
 
       expect(mockUserPreferencesStore.setFilters).toHaveBeenCalledWith({
@@ -478,10 +478,7 @@ describe('FilterControls Component', () => {
   describe('Click Outside Handling', () => {
     it('registers click listener on mount', () => {
       wrapper = createWrapper()
-      expect(document.addEventListener).toHaveBeenCalledWith(
-        'click',
-        expect.any(Function)
-      )
+      expect(document.addEventListener).toHaveBeenCalledWith('click', expect.any(Function))
     })
 
     it('registers close-other-dropdowns listener on mount', () => {
@@ -541,10 +538,7 @@ describe('FilterControls Component', () => {
     it('removes click listener on unmount', () => {
       wrapper = createWrapper()
       wrapper.unmount()
-      expect(document.removeEventListener).toHaveBeenCalledWith(
-        'click',
-        expect.any(Function)
-      )
+      expect(document.removeEventListener).toHaveBeenCalledWith('click', expect.any(Function))
     })
 
     it('removes close-other-dropdowns listener on unmount', () => {

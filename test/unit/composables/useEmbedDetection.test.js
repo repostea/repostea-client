@@ -1,6 +1,10 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { ref, nextTick } from 'vue'
-import { useEmbedDetection, isUrlEmbeddable, getUrlEmbedInfo } from '~/composables/useEmbedDetection'
+import {
+  useEmbedDetection,
+  isUrlEmbeddable,
+  getUrlEmbedInfo,
+} from '~/composables/useEmbedDetection'
 
 describe('useEmbedDetection composable', () => {
   beforeEach(() => {
@@ -48,8 +52,12 @@ describe('useEmbedDetection composable', () => {
     })
 
     it('should detect Suno URLs', () => {
-      expect(isUrlEmbeddable('https://suno.com/song/b27c29f6-8ab4-47eb-81fd-efb85c848ada')).toBe(true)
-      expect(isUrlEmbeddable('https://suno.com/embed/b27c29f6-8ab4-47eb-81fd-efb85c848ada')).toBe(true)
+      expect(isUrlEmbeddable('https://suno.com/song/b27c29f6-8ab4-47eb-81fd-efb85c848ada')).toBe(
+        true
+      )
+      expect(isUrlEmbeddable('https://suno.com/embed/b27c29f6-8ab4-47eb-81fd-efb85c848ada')).toBe(
+        true
+      )
     })
 
     it('should detect Dailymotion URLs', () => {
@@ -144,7 +152,9 @@ describe('useEmbedDetection composable', () => {
         expect(info.provider).toBe('Spotify')
         expect(info.type).toBe('audio')
         expect(info.id).toBe('4uLU6hMCjMI75M1A2tKUQC')
-        expect(info.embedUrl).toContain('https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC')
+        expect(info.embedUrl).toContain(
+          'https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC'
+        )
       })
 
       it('should handle Spotify playlists', () => {
@@ -223,7 +233,9 @@ describe('useEmbedDetection composable', () => {
     })
 
     it('should detect multiple embeds in text', async () => {
-      const text = ref('Video: https://www.youtube.com/watch?v=abc12345678 and music: https://open.spotify.com/track/xyz789abcdef')
+      const text = ref(
+        'Video: https://www.youtube.com/watch?v=abc12345678 and music: https://open.spotify.com/track/xyz789abcdef'
+      )
       const { detectedEmbeds } = useEmbedDetection(text)
 
       // Wait for immediate watch to trigger
@@ -236,7 +248,9 @@ describe('useEmbedDetection composable', () => {
     })
 
     it('should not duplicate URLs', async () => {
-      const text = ref('Same video twice: https://youtu.be/abc12345678 and again https://youtu.be/abc12345678')
+      const text = ref(
+        'Same video twice: https://youtu.be/abc12345678 and again https://youtu.be/abc12345678'
+      )
       const { detectedEmbeds } = useEmbedDetection(text)
 
       vi.advanceTimersByTime(350)
@@ -271,13 +285,15 @@ describe('useEmbedDetection composable', () => {
 
       // Should detect YouTube and Instagram, but not example.com
       expect(detectedEmbeds.value).toHaveLength(2)
-      const providers = detectedEmbeds.value.map(e => e.provider)
+      const providers = detectedEmbeds.value.map((e) => e.provider)
       expect(providers).toContain('YouTube')
       expect(providers).toContain('Instagram')
     })
 
     it('should provide extractUrls helper', async () => {
-      const text = ref('Links: https://youtube.com/watch?v=12345678901 and https://twitter.com/u/status/2')
+      const text = ref(
+        'Links: https://youtube.com/watch?v=12345678901 and https://twitter.com/u/status/2'
+      )
       const { extractUrls } = useEmbedDetection(text)
 
       const urls = extractUrls(text.value)
@@ -326,7 +342,9 @@ describe('useEmbedDetection composable', () => {
     })
 
     it('should detect bare URLs but not those inside markdown syntax', async () => {
-      const text = ref('Check this video https://www.youtube.com/watch?v=abc12345678 and this [embedded](https://x.com/user/status/123)')
+      const text = ref(
+        'Check this video https://www.youtube.com/watch?v=abc12345678 and this [embedded](https://x.com/user/status/123)'
+      )
       const { detectedEmbeds, hasEmbeds } = useEmbedDetection(text)
 
       vi.advanceTimersByTime(350)

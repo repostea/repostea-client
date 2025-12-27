@@ -20,9 +20,12 @@
   const uuid = route.params.uuid
 
   // SSR: Fetch post data for SEO meta tags
-  const { data: post } = await useFetch(`${runtimeConfig.public.apiBaseUrl}/v1/posts/permalink/${uuid}`, {
-    key: `permalink-${uuid}`,
-  })
+  const { data: post } = await useFetch(
+    `${runtimeConfig.public.apiBaseUrl}/v1/posts/permalink/${uuid}`,
+    {
+      key: `permalink-${uuid}`,
+    }
+  )
 
   // Setup SEO meta tags during SSR (crawlers will see these)
   if (post.value) {

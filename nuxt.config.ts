@@ -77,12 +77,15 @@ export default defineNuxtConfig({
         { name: 'application-name', content: process.env.NUXT_PUBLIC_SITE_NAME || 'Repostea' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'mobile-web-app-title', content: process.env.NUXT_PUBLIC_SITE_NAME || 'Repostea' },
-        { name: 'apple-mobile-web-app-title', content: process.env.NUXT_PUBLIC_SITE_NAME || 'Repostea' },
+        {
+          name: 'apple-mobile-web-app-title',
+          content: process.env.NUXT_PUBLIC_SITE_NAME || 'Repostea',
+        },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
       ],
       link: [
         // Preconnect to API server (dynamic based on environment)
-        ...((() => {
+        ...(() => {
           const apiBase = process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:8000/api'
           try {
             const apiUrl = new URL(apiBase)
@@ -90,15 +93,19 @@ export default defineNuxtConfig({
             // Only add if it's a remote API (not localhost)
             if (!apiOrigin.includes('localhost') && !apiOrigin.includes('127.0.0.1')) {
               return [
-                { rel: 'preconnect' as const, href: apiOrigin, crossorigin: 'use-credentials' as const },
-                { rel: 'dns-prefetch' as const, href: apiOrigin }
+                {
+                  rel: 'preconnect' as const,
+                  href: apiOrigin,
+                  crossorigin: 'use-credentials' as const,
+                },
+                { rel: 'dns-prefetch' as const, href: apiOrigin },
               ]
             }
           } catch {
             // Invalid URL, skip
           }
           return []
-        })()),
+        })(),
 
         // Favicons and app icons
         { rel: 'icon', type: 'image/png', href: '/favicon-96x96.png', sizes: '96x96' },
@@ -191,12 +198,21 @@ export default defineNuxtConfig({
     quality: 80,
     format: ['webp'],
     sizes: [320, 640, 768, 1024, 1280],
+    // Domains allowed for remote images (configurable via env)
     domains: (() => {
-      const domains = ['img.youtube.com']
+      const envDomains = process.env.NUXT_IMAGE_DOMAINS || ''
+      const domains = envDomains ? envDomains.split(',').map((d) => d.trim()) : []
+
+      // Always allow YouTube thumbnails
+      if (!domains.includes('img.youtube.com')) {
+        domains.push('img.youtube.com')
+      }
+
+      // Add API hostname if configured (for external URLs like Mbin imports)
       const apiBase = process.env.NUXT_PUBLIC_API_BASE || ''
       try {
         const apiUrl = new URL(apiBase)
-        if (apiUrl.hostname) {
+        if (apiUrl.hostname && apiUrl.hostname !== 'localhost' && !domains.includes(apiUrl.hostname)) {
           domains.unshift(apiUrl.hostname)
         }
       } catch {
@@ -274,13 +290,15 @@ export default defineNuxtConfig({
       let postUrls = []
       try {
         // Fetch all published posts (increase limit or implement pagination)
-        const postsData = await $fetch(`${apiBaseUrl}/posts?limit=1000&orderBy=created_at&order=desc&status=published`)
+        const postsData = await $fetch(
+          `${apiBaseUrl}/posts?limit=1000&orderBy=created_at&order=desc&status=published`
+        )
         if (postsData && postsData.data) {
           postUrls = postsData.data.map((post: any) => ({
             url: `/posts/${post.slug}`,
             lastmod: post.updated_at || post.created_at || new Date().toISOString(),
             priority: 0.8,
-            changefreq: 'weekly'
+            changefreq: 'weekly',
           }))
         }
       } catch (e) {
@@ -295,7 +313,7 @@ export default defineNuxtConfig({
           userUrls = usersData.data.map((user: any) => ({
             url: `/u/${user.username}`,
             priority: 0.6,
-            changefreq: 'weekly'
+            changefreq: 'weekly',
           }))
         }
       } catch (e) {
@@ -310,7 +328,7 @@ export default defineNuxtConfig({
           tagUrls = tagsData.data.map((tag: any) => ({
             url: `/tags/${tag.name}`,
             priority: 0.5,
-            changefreq: 'weekly'
+            changefreq: 'weekly',
           }))
         }
       } catch (e) {
@@ -325,7 +343,7 @@ export default defineNuxtConfig({
           subUrls = subsData.data.map((sub: any) => ({
             url: `/s/${sub.name}`,
             priority: 0.7,
-            changefreq: 'daily'
+            changefreq: 'daily',
           }))
         }
       } catch (e) {
@@ -335,11 +353,13 @@ export default defineNuxtConfig({
       return [...staticPages, ...postUrls, ...userUrls, ...tagUrls, ...subUrls]
     },
     // Exclude auth and private routes
-    filter: ({ routes }: { routes: Array<{ url: string }> }) => routes.filter((route: { url: string }) =>
-      !route.url.includes('/admin') &&
-      !route.url.includes('/profile') &&
-      !route.url.includes('/auth')
-    ),
+    filter: ({ routes }: { routes: Array<{ url: string }> }) =>
+      routes.filter(
+        (route: { url: string }) =>
+          !route.url.includes('/admin') &&
+          !route.url.includes('/profile') &&
+          !route.url.includes('/auth')
+      ),
   },
 
   turnstile: {
@@ -399,7 +419,10 @@ export default defineNuxtConfig({
     // Read supported locales from environment variable
     // Format: "es,en,ca,gl,eu" (comma-separated list)
     const supportedLocalesEnv = process.env.NUXT_PUBLIC_SUPPORTED_LOCALES || 'es,en'
-    const supportedLocales = supportedLocalesEnv.split(',').map(l => l.trim()).filter(Boolean)
+    const supportedLocales = supportedLocalesEnv
+      .split(',')
+      .map((l) => l.trim())
+      .filter(Boolean)
 
     // Get all available locale directories
     const availableCodes = fs
@@ -407,10 +430,12 @@ export default defineNuxtConfig({
       .filter((d) => fs.statSync(path.join(localesDir, d)).isDirectory())
 
     // Filter to only include supported locales
-    const codes = availableCodes.filter(code => supportedLocales.includes(code))
+    const codes = availableCodes.filter((code) => supportedLocales.includes(code))
 
     if (codes.length === 0) {
-      throw new Error(`No valid locales found! Supported: ${supportedLocales.join(', ')} | Available: ${availableCodes.join(', ')}`)
+      throw new Error(
+        `No valid locales found! Supported: ${supportedLocales.join(', ')} | Available: ${availableCodes.join(', ')}`
+      )
     }
 
     const locales = codes.map((code) => {
@@ -432,7 +457,9 @@ export default defineNuxtConfig({
 
     // Validate that defaultLocale is in supportedLocales
     if (!supportedLocales.includes(defaultLocale)) {
-      throw new Error(`Default locale "${defaultLocale}" is not in supported locales: ${supportedLocales.join(', ')}`)
+      throw new Error(
+        `Default locale "${defaultLocale}" is not in supported locales: ${supportedLocales.join(', ')}`
+      )
     }
 
     // Only set baseUrl in production to avoid nuxt-site-config localhost warning
@@ -461,7 +488,10 @@ export default defineNuxtConfig({
   routeRules: (() => {
     // Get supported locales from environment
     const supportedLocalesEnv = process.env.NUXT_PUBLIC_SUPPORTED_LOCALES || 'es,en'
-    const supportedLocales = supportedLocalesEnv.split(',').map(l => l.trim()).filter(Boolean)
+    const supportedLocales = supportedLocalesEnv
+      .split(',')
+      .map((l) => l.trim())
+      .filter(Boolean)
     const defaultLocale = process.env.NUXT_PUBLIC_DEFAULT_LOCALE || 'es'
 
     // List of all locale folders that exist in the project
@@ -474,7 +504,7 @@ export default defineNuxtConfig({
         // Redirect unsupported locale to default locale
         unsupportedLocaleRedirects[`/${locale}/**`] = {
           redirect: `/${defaultLocale}/**`,
-          statusCode: 301
+          statusCode: 301,
         }
       }
     }
@@ -485,63 +515,65 @@ export default defineNuxtConfig({
 
       '/api/**': {
         cors: true,
-      prerender: false,
-      index: false,
-      headers: {
-        'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-        'Access-Control-Allow-Origin':
-          process.env.NUXT_PUBLIC_SITE_URL || process.env.NUXT_PUBLIC_CLIENT_URL || 'http://localhost:3000',
-        'Access-Control-Allow-Credentials': 'true',
+        prerender: false,
+        index: false,
+        headers: {
+          'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+          'Access-Control-Allow-Origin':
+            process.env.NUXT_PUBLIC_SITE_URL ||
+            process.env.NUXT_PUBLIC_CLIENT_URL ||
+            'http://localhost:3000',
+          'Access-Control-Allow-Credentials': 'true',
+        },
       },
-    },
 
-    // Auth routes
-    '/auth/login': { middleware: ['guest'] },
-    '/auth/register': { middleware: ['guest'] },
-    '/auth/forgot-password': { middleware: ['guest'] },
-    '/auth/reset-password/**': { middleware: ['guest'] },
+      // Auth routes
+      '/auth/login': { middleware: ['guest'] },
+      '/auth/register': { middleware: ['guest'] },
+      '/auth/forgot-password': { middleware: ['guest'] },
+      '/auth/reset-password/**': { middleware: ['guest'] },
 
-    // Static pages with cache
-    '/': { isr: true },
-    '/stats': { isr: 60 }, // Regenerate every minute
+      // Static pages with cache
+      '/': { isr: true },
+      '/stats': { isr: 60 }, // Regenerate every minute
 
-    // Profile routes - require auth
-    '/profile/**': {
-      middleware: ['auth'],
-      isr: true,
-    },
+      // Profile routes - require auth
+      '/profile/**': {
+        middleware: ['auth'],
+        isr: true,
+      },
 
-    // Onboarding routes - lazy load, guest only
-    '/onboarding/**': {
-      middleware: ['guest'],
-      prerender: false,
-    },
+      // Onboarding routes - lazy load, guest only
+      '/onboarding/**': {
+        middleware: ['guest'],
+        prerender: false,
+      },
 
-    // Dynamic post routes with ISR
-    '/posts/**': { isr: 60 }, // 1 minute cache - synced with backend for faster updates
-    '/p/**': { isr: 60 }, // Post permalinks with cache
+      // Dynamic post routes with ISR
+      '/posts/**': { isr: 60 }, // 1 minute cache - synced with backend for faster updates
+      '/p/**': { isr: 60 }, // Post permalinks with cache
 
-    // User profiles with cache
-    '/u/**': { isr: 300 }, // 5 minutes cache - reduced for more responsive updates
+      // User profiles with cache
+      '/u/**': { isr: 300 }, // 5 minutes cache - reduced for more responsive updates
 
-    // Subs with cache
-    '/s/**': { isr: 60 }, // 1 minute cache - synced with posts
+      // Subs with cache
+      '/s/**': { isr: 60 }, // 1 minute cache - synced with posts
 
-    // Tags with cache
-    '/tags/**': { isr: 600 }, // 10 minutes cache
+      // Tags with cache
+      '/tags/**': { isr: 600 }, // 10 minutes cache
 
-    // Notifications require auth
-    '/notifications': { middleware: ['auth'] },
+      // Notifications require auth
+      '/notifications': { middleware: ['auth'] },
 
-    // Submit page requires auth
-    '/submit': { middleware: ['auth'] },
+      // Submit page requires auth
+      '/submit': { middleware: ['auth'] },
 
-    // Lists require auth
-    '/lists/**': { middleware: ['auth'] },
+      // Lists require auth
+      '/lists/**': { middleware: ['auth'] },
 
-    '/.well-known/appspecific/com.chrome.devtools.json': {
-      statusCode: 404,
-    },
+      '/.well-known/appspecific/com.chrome.devtools.json': {
+        statusCode: 404,
+      },
     }
   })(),
 
@@ -667,7 +699,10 @@ export default defineNuxtConfig({
           },
         },
       },
-      minify: process.env.NODE_ENV === 'production' || process.env.APP_ENV === 'staging' ? 'esbuild' : false,
+      minify:
+        process.env.NODE_ENV === 'production' || process.env.APP_ENV === 'staging'
+          ? 'esbuild'
+          : false,
       target: 'esnext',
       chunkSizeWarningLimit: 1000,
     },

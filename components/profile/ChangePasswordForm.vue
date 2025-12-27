@@ -43,7 +43,12 @@
           />
         </button>
       </div>
-      <p v-if="errors.current_password" id="current-password-error" role="alert" class="mt-1 text-sm text-red-500">
+      <p
+        v-if="errors.current_password"
+        id="current-password-error"
+        role="alert"
+        class="mt-1 text-sm text-red-500"
+      >
         {{ errors.current_password }}
       </p>
     </div>
@@ -70,10 +75,21 @@
           :aria-label="showNewPassword ? t('common.hide_password') : t('common.show_password')"
           @click="showNewPassword = !showNewPassword"
         >
-          <Icon :name="showNewPassword ? 'fa6-solid:eye-slash' : 'fa6-solid:eye'" class="text-gray-500" aria-hidden="true" />
+          <Icon
+            :name="showNewPassword ? 'fa6-solid:eye-slash' : 'fa6-solid:eye'"
+            class="text-gray-500"
+            aria-hidden="true"
+          />
         </button>
       </div>
-      <p v-if="errors.password" id="new-password-error" role="alert" class="mt-1 text-sm text-red-500">{{ errors.password }}</p>
+      <p
+        v-if="errors.password"
+        id="new-password-error"
+        role="alert"
+        class="mt-1 text-sm text-red-500"
+      >
+        {{ errors.password }}
+      </p>
       <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
         {{ t('profile.password_requirements') }}
       </p>
@@ -108,7 +124,12 @@
           />
         </button>
       </div>
-      <p v-if="errors.password_confirmation" id="password-confirm-error" role="alert" class="mt-1 text-sm text-red-500">
+      <p
+        v-if="errors.password_confirmation"
+        id="password-confirm-error"
+        role="alert"
+        class="mt-1 text-sm text-red-500"
+      >
         {{ errors.password_confirmation }}
       </p>
     </div>

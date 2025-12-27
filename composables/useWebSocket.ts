@@ -96,7 +96,9 @@ export const useWebSocket = (options: WebSocketOptions = {}) => {
 
     try {
       // Get auth token for SSE connection
-      const token = process.client ? (sessionStorage.getItem('token') || localStorage.getItem('token')) : null
+      const token = process.client
+        ? sessionStorage.getItem('token') || localStorage.getItem('token')
+        : null
 
       const sseUrl = getSSEUrl()
       const urlWithAuth = token ? `${sseUrl}?token=${encodeURIComponent(token)}` : sseUrl
@@ -208,7 +210,6 @@ export const useWebSocket = (options: WebSocketOptions = {}) => {
 
     reconnectAttempts.value++
     const delay = reconnectInterval * Math.min(reconnectAttempts.value, 5) // Exponential backoff
-
 
     reconnectTimer = setTimeout(() => {
       if (!isConnected.value) {

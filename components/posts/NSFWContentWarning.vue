@@ -4,11 +4,11 @@
     <div v-if="post.is_nsfw && !showContent && !showFullText" class="relative min-h-[200px]">
       <!-- Blurred content -->
       <div class="blur-[40px] pointer-events-none opacity-20">
-        <slot :show-content="false"/>
+        <slot :show-content="false" />
       </div>
 
       <!-- Overlay -->
-      <div class="absolute inset-0 nsfw-overlay-light z-10 rounded-lg"/>
+      <div class="absolute inset-0 nsfw-overlay-light z-10 rounded-lg" />
 
       <!-- Simple button to go to post -->
       <div class="absolute inset-0 z-20 flex items-center justify-center p-4">
@@ -31,11 +31,11 @@
     <div v-else-if="post.is_nsfw && !showContent && showFullText" class="relative min-h-[400px]">
       <!-- Heavily blurred content in background -->
       <div class="blur-[60px] pointer-events-none opacity-10">
-        <slot :show-content="false"/>
+        <slot :show-content="false" />
       </div>
 
       <!-- Soft overlay -->
-      <div class="absolute inset-0 nsfw-overlay-full z-10 rounded-lg"/>
+      <div class="absolute inset-0 nsfw-overlay-full z-10 rounded-lg" />
 
       <!-- Centered warning content -->
       <div class="absolute inset-0 z-20 flex items-center justify-center p-6">
@@ -52,9 +52,13 @@
 
           <!-- Content list -->
           <div class="text-left mb-4 text-sm text-gray-700 dark:text-gray-300">
-            <p class="font-medium mb-2">{{ t('posts.nsfw_warning_message', 'Este contenido puede incluir:') }}</p>
+            <p class="font-medium mb-2">
+              {{ t('posts.nsfw_warning_message', 'Este contenido puede incluir:') }}
+            </p>
             <ul class="space-y-1 pl-5 list-disc">
-              <li>{{ t('posts.nsfw_explicit_content', 'Desnudos o contenido sexual explícito') }}</li>
+              <li>
+                {{ t('posts.nsfw_explicit_content', 'Desnudos o contenido sexual explícito') }}
+              </li>
               <li>{{ t('posts.nsfw_violence', 'Violencia gráfica') }}</li>
               <li>{{ t('posts.nsfw_sensitive', 'Contenido sensible para algunas audiencias') }}</li>
             </ul>
@@ -62,7 +66,12 @@
 
           <!-- Age confirmation message -->
           <p class="text-xs text-gray-600 dark:text-gray-400 mb-4">
-            {{ t('posts.nsfw_age_confirmation', 'Al hacer clic en "Entrar", confirmas que eres mayor de 18 años y aceptas ver contenido explícito.') }}
+            {{
+              t(
+                'posts.nsfw_age_confirmation',
+                'Al hacer clic en "Entrar", confirmas que eres mayor de 18 años y aceptas ver contenido explícito.'
+              )
+            }}
           </p>
 
           <!-- Enter button -->
@@ -78,12 +87,19 @@
 
     <!-- Contenido visible (no NSFW o revelado) -->
     <div v-else class="w-full">
-      <slot :show-content="true"/>
+      <slot :show-content="true" />
 
       <!-- Show external link after NSFW confirmation -->
-      <div v-if="post.is_nsfw && showContent && post.url && showFullText" class="nsfw-external-link mt-4 p-4 rounded-lg">
+      <div
+        v-if="post.is_nsfw && showContent && post.url && showFullText"
+        class="nsfw-external-link mt-4 p-4 rounded-lg"
+      >
         <div class="flex items-center gap-3">
-          <Icon name="fa6-solid:arrow-up-right-from-square" class="text-gray-500 dark:text-gray-400" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:arrow-up-right-from-square"
+            class="text-gray-500 dark:text-gray-400"
+            aria-hidden="true"
+          />
           <div class="flex-grow">
             <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">
               {{ t('posts.external_link_available', 'Enlace externo disponible') }}
@@ -112,37 +128,37 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useI18n, useLocalePath } from '#i18n'
+  import { ref } from 'vue'
+  import { useI18n, useLocalePath } from '#i18n'
 
-const { t } = useI18n()
-const localePath = useLocalePath()
+  const { t } = useI18n()
+  const localePath = useLocalePath()
 
-const props = defineProps({
-  post: {
-    type: Object,
-    required: true
-  },
-  showFullText: {
-    type: Boolean,
-    default: false
+  const props = defineProps({
+    post: {
+      type: Object,
+      required: true,
+    },
+    showFullText: {
+      type: Boolean,
+      default: false,
+    },
+  })
+
+  const showContent = ref(false)
+
+  function revealContent() {
+    showContent.value = true
   }
-})
 
-const showContent = ref(false)
-
-function revealContent() {
-  showContent.value = true
-}
-
-function getPostLink() {
-  if (props.post.slug) {
-    return localePath(`/posts/${props.post.slug}`)
-  } else if (props.post.id) {
-    return localePath(`/p/${props.post.id}`)
+  function getPostLink() {
+    if (props.post.slug) {
+      return localePath(`/posts/${props.post.slug}`)
+    } else if (props.post.id) {
+      return localePath(`/p/${props.post.id}`)
+    }
+    return '#'
   }
-  return '#'
-}
 </script>
 
 <style scoped>

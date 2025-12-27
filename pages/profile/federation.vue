@@ -1,9 +1,7 @@
 <template>
   <ProfileLayout active-tab="federation">
     <div class="space-y-6">
-      <div
-        class="card-bg rounded-lg shadow-sm border settings-border overflow-hidden"
-      >
+      <div class="card-bg rounded-lg shadow-sm border settings-border overflow-hidden">
         <div class="px-6 py-4 border-b settings-border">
           <h2 class="text-lg font-medium inline-flex items-center">
             <Icon name="fa6-solid:globe" class="mr-2 text-primary" aria-hidden="true" />

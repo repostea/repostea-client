@@ -7,7 +7,11 @@
           class="section-tab inline-flex items-center"
           :class="{ active: currentSection === 'frontpage' }"
           @click="navigateToFrontpage"
-        ><Icon name="fa6-solid:house" class="mr-2" aria-hidden="true" /><span>{{ $t('sections.frontpage') }}</span></button>
+        >
+          <Icon name="fa6-solid:house" class="mr-2" aria-hidden="true" /><span>{{
+            $t('sections.frontpage')
+          }}</span>
+        </button>
         <button
           class="section-tab inline-flex items-center"
           :class="{ active: currentSection === 'my_subs' }"
@@ -20,13 +24,30 @@
           class="section-tab inline-flex items-center"
           :class="{ active: currentSection === 'pending' }"
           @click="navigateToPending"
-        ><Icon name="fa6-solid:hourglass-half" class="mr-2" aria-hidden="true" /><span>{{ $t('sections.pending') }}</span><span v-if="pendingCount > 0" class="ml-1.5 px-1.5 py-0.5 text-xs font-semibold bg-red-500 text-white rounded-full">{{ pendingCount }}</span></button>
+        >
+          <Icon name="fa6-solid:hourglass-half" class="mr-2" aria-hidden="true" /><span>{{
+            $t('sections.pending')
+          }}</span
+          ><span
+            v-if="pendingCount > 0"
+            class="ml-1.5 px-1.5 py-0.5 text-xs font-semibold bg-red-500 text-white rounded-full"
+            >{{ pendingCount }}</span
+          >
+        </button>
         <button
           class="section-tab inline-flex items-center"
           :class="{ active: currentSection === 'comments' }"
           @click="navigateToComments"
-        ><Icon name="fa6-solid:comments" class="mr-2" aria-hidden="true" /><span>{{ $t('sections.comments') }}</span></button>
-        <button class="section-tab inline-flex items-center" @click="openSearchModal"><Icon name="fa6-solid:magnifying-glass" class="mr-2" aria-hidden="true" /><span>{{ $t('common.search') }}</span></button>
+        >
+          <Icon name="fa6-solid:comments" class="mr-2" aria-hidden="true" /><span>{{
+            $t('sections.comments')
+          }}</span>
+        </button>
+        <button class="section-tab inline-flex items-center" @click="openSearchModal">
+          <Icon name="fa6-solid:magnifying-glass" class="mr-2" aria-hidden="true" /><span>{{
+            $t('common.search')
+          }}</span>
+        </button>
       </div>
 
       <div v-if="currentSection !== 'comments'" class="tabs-container mt-2">
@@ -35,22 +56,38 @@
             class="sort-tab inline-flex items-center"
             :class="{ active: isActiveSort('lastActive', 'desc') }"
             @click="setSort('lastActive', 'desc')"
-          ><Icon name="fa6-solid:clock" class="mr-2" aria-hidden="true" /><span>{{ $t('links.recent') }}</span></button>
+          >
+            <Icon name="fa6-solid:clock" class="mr-2" aria-hidden="true" /><span>{{
+              $t('links.recent')
+            }}</span>
+          </button>
           <button
             class="sort-tab inline-flex items-center"
             :class="{ active: isActiveSort('favourites', 'desc') }"
             @click="setSort('favourites', 'desc')"
-          ><Icon name="fa6-solid:bolt" class="mr-2" aria-hidden="true" /><span>{{ $t('links.most_valued') }}</span></button>
+          >
+            <Icon name="fa6-solid:bolt" class="mr-2" aria-hidden="true" /><span>{{
+              $t('links.most_valued')
+            }}</span>
+          </button>
           <button
             class="sort-tab inline-flex items-center"
             :class="{ active: isActiveSort('comments', 'desc') }"
             @click="setSort('comments', 'desc')"
-          ><Icon name="fa6-solid:comments" class="mr-2" aria-hidden="true" /><span>{{ $t('links.most_commented') }}</span></button>
+          >
+            <Icon name="fa6-solid:comments" class="mr-2" aria-hidden="true" /><span>{{
+              $t('links.most_commented')
+            }}</span>
+          </button>
           <button
             class="sort-tab inline-flex items-center"
             :class="{ active: isActiveSort('views', 'desc') }"
             @click="setSort('views', 'desc')"
-          ><Icon name="fa6-solid:eye" class="mr-2" aria-hidden="true" /><span>{{ $t('links.most_visited') }}</span></button>
+          >
+            <Icon name="fa6-solid:eye" class="mr-2" aria-hidden="true" /><span>{{
+              $t('links.most_visited')
+            }}</span>
+          </button>
 
           <div v-if="needsTimeFilter(sort)" class="time-filter-container">
             <div class="flex justify-end">
@@ -85,7 +122,9 @@
               @click="navigateToFrontpage"
             >
               <Icon name="fa6-solid:house" aria-hidden="true" />
-              <span v-if="activeSection === 'frontpage'" class="ml-2">{{ $t('sections.frontpage') }}</span>
+              <span v-if="activeSection === 'frontpage'" class="ml-2">{{
+                $t('sections.frontpage')
+              }}</span>
             </button>
             <button
               class="section-tab-mobile"
@@ -94,7 +133,9 @@
               @click="handleMySubs"
             >
               <Icon name="fa6-solid:users" aria-hidden="true" />
-              <span v-if="activeSection === 'my_subs'" class="ml-2">{{ $t('sections.my_subs') }}</span>
+              <span v-if="activeSection === 'my_subs'" class="ml-2">{{
+                $t('sections.my_subs')
+              }}</span>
             </button>
             <button
               class="section-tab-mobile"
@@ -103,7 +144,9 @@
               @click="navigateToPending"
             >
               <Icon name="fa6-solid:hourglass-half" aria-hidden="true" />
-              <span v-if="activeSection === 'pending'" class="ml-2">{{ $t('sections.pending') }}</span>
+              <span v-if="activeSection === 'pending'" class="ml-2">{{
+                $t('sections.pending')
+              }}</span>
               <span
                 v-if="pendingCount > 0"
                 class="ml-1.5 px-1.5 py-0.5 text-xs font-semibold bg-red-500 text-white rounded-full"
@@ -118,9 +161,15 @@
               @click="navigateToComments"
             >
               <Icon name="fa6-solid:comments" aria-hidden="true" />
-              <span v-if="activeSection === 'comments'" class="ml-2">{{ $t('sections.comments') }}</span>
+              <span v-if="activeSection === 'comments'" class="ml-2">{{
+                $t('sections.comments')
+              }}</span>
             </button>
-            <button class="section-tab-mobile" :aria-label="$t('common.search')" @click="openSearchModal">
+            <button
+              class="section-tab-mobile"
+              :aria-label="$t('common.search')"
+              @click="openSearchModal"
+            >
               <Icon name="fa6-solid:magnifying-glass" aria-hidden="true" />
               <span v-if="activeSection === 'search'" class="ml-2">{{ $t('common.search') }}</span>
             </button>
@@ -159,7 +208,10 @@
             </div>
           </div>
 
-          <div v-if="currentSection !== 'comments' && needsTimeFilter(sort)" class="time-filter-container">
+          <div
+            v-if="currentSection !== 'comments' && needsTimeFilter(sort)"
+            class="time-filter-container"
+          >
             <select
               v-model="timeIntervalModel"
               :aria-label="$t('filters.time_period')"
@@ -252,7 +304,12 @@
 
   const sortOptions = [
     { key: 'lastActive', direction: 'desc', label: t('links.recent'), iconify: 'fa6-solid:clock' },
-    { key: 'favourites', direction: 'desc', label: t('links.most_valued'), iconify: 'fa6-solid:bolt' },
+    {
+      key: 'favourites',
+      direction: 'desc',
+      label: t('links.most_valued'),
+      iconify: 'fa6-solid:bolt',
+    },
     {
       key: 'comments',
       direction: 'desc',
@@ -341,14 +398,20 @@
   }
 
   // Reset clickedSection when currentSection changes (navigation completed)
-  watch(() => props.currentSection, () => {
-    clickedSection.value = null
-  })
+  watch(
+    () => props.currentSection,
+    () => {
+      clickedSection.value = null
+    }
+  )
 
   // Also reset clickedSection when route changes (ensures clean state after navigation)
-  watch(() => route.path, () => {
-    clickedSection.value = null
-  })
+  watch(
+    () => route.path,
+    () => {
+      clickedSection.value = null
+    }
+  )
 
   onMounted(() => {
     if (import.meta.client) {
@@ -500,7 +563,6 @@
     height: 3px;
     background-color: var(--color-navbar-text);
   }
-
 
   .mobile-navigation .sort-dropdown {
     @apply border-t;

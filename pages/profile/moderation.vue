@@ -13,7 +13,7 @@
 
       <!-- Loading State -->
       <div v-if="loading" class="flex justify-center py-12">
-        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"/>
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
       </div>
 
       <!-- Content -->
@@ -39,11 +39,11 @@
                     <span
                       class="px-2 py-1 text-xs font-medium rounded"
                       :class="{
-                        'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200': ban.type === 'permanent',
+                        'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200':
+                          ban.type === 'permanent',
                         'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200':
                           ban.type === 'temporary',
-                        'mod-badge-shadowban':
-                          ban.type === 'shadowban',
+                        'mod-badge-shadowban': ban.type === 'shadowban',
                       }"
                     >
                       {{ t(`profile.moderation.ban_type.${ban.type}`) }}
@@ -73,7 +73,9 @@
           v-if="moderationData.strikes.active.length > 0"
           class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6"
         >
-          <h2 class="text-lg font-semibold text-yellow-900 dark:text-yellow-200 mb-4 flex items-center">
+          <h2
+            class="text-lg font-semibold text-yellow-900 dark:text-yellow-200 mb-4 flex items-center"
+          >
             <Icon name="fa6-solid:triangle-exclamation" class="mr-2" aria-hidden="true" />
             {{ t('profile.moderation.active_strikes') }}
           </h2>
@@ -89,7 +91,8 @@
                     <span
                       class="px-2 py-1 text-xs font-medium rounded"
                       :class="{
-                        'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200': strike.type === 'critical',
+                        'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200':
+                          strike.type === 'critical',
                         'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200':
                           strike.type === 'major',
                         'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200':
@@ -121,7 +124,10 @@
         </div>
 
         <!-- Moderated Posts -->
-        <div v-if="moderationData.moderated_posts.length > 0" class="card-bg rounded-lg border mod-border p-6">
+        <div
+          v-if="moderationData.moderated_posts.length > 0"
+          class="card-bg rounded-lg border mod-border p-6"
+        >
           <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
             <Icon name="fa6-solid:newspaper" class="mr-2" aria-hidden="true" />
             {{ t('profile.moderation.moderated_posts') }}
@@ -138,15 +144,23 @@
                 {{ post.moderation_reason }}
               </p>
               <div class="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
-                <span>{{ t('profile.moderation.moderated_on') }}: {{ formatDate(post.moderated_at) }}</span>
-                <span v-if="post.moderated_by">{{ t('profile.moderation.by') }}: {{ post.moderated_by.username }}</span>
+                <span
+                  >{{ t('profile.moderation.moderated_on') }}:
+                  {{ formatDate(post.moderated_at) }}</span
+                >
+                <span v-if="post.moderated_by"
+                  >{{ t('profile.moderation.by') }}: {{ post.moderated_by.username }}</span
+                >
               </div>
             </div>
           </div>
         </div>
 
         <!-- Moderated Comments -->
-        <div v-if="moderationData.moderated_comments.length > 0" class="card-bg rounded-lg border mod-border p-6">
+        <div
+          v-if="moderationData.moderated_comments.length > 0"
+          class="card-bg rounded-lg border mod-border p-6"
+        >
           <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
             <Icon name="fa6-solid:comments" class="mr-2" aria-hidden="true" />
             {{ t('profile.moderation.moderated_comments') }}
@@ -157,7 +171,9 @@
               :key="comment.id"
               class="border-l-4 border-orange-500 bg-orange-50 dark:bg-orange-900/20 p-4 rounded"
             >
-              <p class="text-sm text-gray-700 dark:text-gray-300 mb-2 italic">"{{ comment.content }}"</p>
+              <p class="text-sm text-gray-700 dark:text-gray-300 mb-2 italic">
+                "{{ comment.content }}"
+              </p>
               <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">
                 <span class="font-medium">{{ t('profile.moderation.reason') }}:</span>
                 {{ comment.moderation_reason }}
@@ -173,8 +189,13 @@
                   </NuxtLink>
                 </div>
                 <div class="flex items-center gap-4">
-                  <span>{{ t('profile.moderation.moderated_on') }}: {{ formatDate(comment.moderated_at) }}</span>
-                  <span v-if="comment.moderated_by">{{ t('profile.moderation.by') }}: {{ comment.moderated_by.username }}</span>
+                  <span
+                    >{{ t('profile.moderation.moderated_on') }}:
+                    {{ formatDate(comment.moderated_at) }}</span
+                  >
+                  <span v-if="comment.moderated_by"
+                    >{{ t('profile.moderation.by') }}: {{ comment.moderated_by.username }}</span
+                  >
                 </div>
               </div>
             </div>
@@ -238,7 +259,10 @@
 
           <!-- No History -->
           <p
-            v-if="moderationData.bans.history.length === 0 && moderationData.strikes.history.length === 0"
+            v-if="
+              moderationData.bans.history.length === 0 &&
+              moderationData.strikes.history.length === 0
+            "
             class="text-sm text-gray-500 dark:text-gray-400 italic"
           >
             {{ t('profile.moderation.no_history') }}
@@ -257,7 +281,11 @@
           "
           class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 text-center flex flex-col items-center"
         >
-          <Icon name="fa6-solid:circle-check" class="text-green-600 dark:text-green-400 text-3xl mb-3" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:circle-check"
+            class="text-green-600 dark:text-green-400 text-3xl mb-3"
+            aria-hidden="true"
+          />
           <p class="text-green-900 dark:text-green-200 font-medium">
             {{ t('profile.moderation.clean_record') }}
           </p>
@@ -272,8 +300,8 @@
 
 <script setup>
   import { ref, onMounted } from 'vue'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
+
   import ProfileLayout from '~/components/profile/ProfileLayout.vue'
 
   definePageMeta({

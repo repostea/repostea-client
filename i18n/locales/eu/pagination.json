@@ -1,1 +1,10 @@
-{"pagination":{"end_of_posts":"Amaierara iritsi zara!","loading":"Kargatzen...","loading_more":"Argitalpen gehiago kargatzen...","load_more":"Kargatu gehiago"}}
+{
+  "pagination": {
+    "end_of_posts": "Amaierara iritsi zara!",
+    "loading": "Kargatzen...",
+    "loading_more": "Argitalpen gehiago kargatzen...",
+    "load_more": "Kargatu gehiago",
+    "previous": "Aurrekoa",
+    "next": "Hurrengoa"
+  }
+}

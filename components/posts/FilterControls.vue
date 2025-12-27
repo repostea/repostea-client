@@ -25,11 +25,7 @@
         />
       </button>
 
-      <div
-        v-if="isExpanded"
-        class="control-dropdown absolute mt-1"
-        role="menu"
-      >
+      <div v-if="isExpanded" class="control-dropdown absolute mt-1" role="menu">
         <div class="flex flex-col p-2">
           <button
             class="filter-button text-left px-4 py-2 rounded-md"
@@ -136,9 +132,11 @@
     // Emit event to close other dropdowns
     if (isExpanded.value && process.client) {
       // Dispatch custom event to close other dropdowns
-      window.dispatchEvent(new CustomEvent('close-other-dropdowns', {
-        detail: { source: 'filter-controls' }
-      }))
+      window.dispatchEvent(
+        new CustomEvent('close-other-dropdowns', {
+          detail: { source: 'filter-controls' },
+        })
+      )
     }
   }
 

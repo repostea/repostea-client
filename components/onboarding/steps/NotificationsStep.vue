@@ -27,7 +27,9 @@
       <!-- Already subscribed -->
       <div v-else-if="isSubscribed" class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center flex-shrink-0">
+          <div
+            class="w-10 h-10 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center flex-shrink-0"
+          >
             <Icon name="fa6-solid:check" class="text-green-500" aria-hidden="true" />
           </div>
           <div>
@@ -44,7 +46,9 @@
       <!-- Permission blocked -->
       <div v-else-if="isBlocked" class="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-red-100 dark:bg-red-900/40 rounded-full flex items-center justify-center flex-shrink-0">
+          <div
+            class="w-10 h-10 bg-red-100 dark:bg-red-900/40 rounded-full flex items-center justify-center flex-shrink-0"
+          >
             <Icon name="fa6-solid:bell-slash" class="text-red-500" aria-hidden="true" />
           </div>
           <div>
@@ -61,7 +65,9 @@
       <!-- Can enable push -->
       <div v-else class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
         <div class="flex items-start gap-3">
-          <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center flex-shrink-0">
+          <div
+            class="w-10 h-10 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center flex-shrink-0"
+          >
             <Icon name="fa6-solid:bell" class="text-blue-500" aria-hidden="true" />
           </div>
           <div class="flex-1">
@@ -76,7 +82,10 @@
               class="px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg transition-colors disabled:opacity-50 inline-flex items-center gap-2"
               @click="handleEnablePush"
             >
-              <span v-if="loading" class="inline-block animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"/>
+              <span
+                v-if="loading"
+                class="inline-block animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"
+              />
               <Icon v-else name="fa6-solid:bell" aria-hidden="true" />
               {{ t('onboarding.steps.notifications.push.enable_button') }}
             </button>
@@ -119,35 +128,35 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { useI18n } from '#i18n'
-import { usePushNotifications } from '~/composables/usePushNotifications'
+  import { onMounted } from 'vue'
+  import { useI18n } from '#i18n'
+  import { usePushNotifications } from '~/composables/usePushNotifications'
 
-const { t } = useI18n()
+  const { t } = useI18n()
 
-const {
-  isSupported,
-  isSubscribed,
-  isBlocked,
-  needsPermission,
-  loading,
-  requestPermission,
-  subscribe,
-  initialize,
-} = usePushNotifications()
+  const {
+    isSupported,
+    isSubscribed,
+    isBlocked,
+    needsPermission,
+    loading,
+    requestPermission,
+    subscribe,
+    initialize,
+  } = usePushNotifications()
 
-async function handleEnablePush() {
-  if (needsPermission.value) {
-    const granted = await requestPermission()
-    if (granted) {
+  async function handleEnablePush() {
+    if (needsPermission.value) {
+      const granted = await requestPermission()
+      if (granted) {
+        await subscribe()
+      }
+    } else {
       await subscribe()
     }
-  } else {
-    await subscribe()
   }
-}
 
-onMounted(async () => {
-  await initialize()
-})
+  onMounted(async () => {
+    await initialize()
+  })
 </script>

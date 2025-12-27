@@ -6,7 +6,14 @@ describe('API Plugin', () => {
 
   it('should expose auth API structure', () => {
     // Verify auth functions are defined
-    const authMethods = ['login', 'register', 'logout', 'getUser', 'forgotPassword', 'resetPassword']
+    const authMethods = [
+      'login',
+      'register',
+      'logout',
+      'getUser',
+      'forgotPassword',
+      'resetPassword',
+    ]
     expect(authMethods).toHaveLength(6)
   })
 

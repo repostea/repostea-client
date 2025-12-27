@@ -112,7 +112,7 @@ describe('SortControls Component', () => {
     it('Recent button has clock icon', () => {
       wrapper = createWrapper()
       const buttons = wrapper.findAll('.sort-button')
-      const recentButton = buttons.find(btn => btn.text().includes('Recent'))
+      const recentButton = buttons.find((btn) => btn.text().includes('Recent'))
       const icon = recentButton.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:clock')
@@ -121,7 +121,7 @@ describe('SortControls Component', () => {
     it('Most Valued button has bolt icon', () => {
       wrapper = createWrapper()
       const buttons = wrapper.findAll('.sort-button')
-      const valuedButton = buttons.find(btn => btn.text().includes('Most Valued'))
+      const valuedButton = buttons.find((btn) => btn.text().includes('Most Valued'))
       const icon = valuedButton.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:bolt')
@@ -130,7 +130,7 @@ describe('SortControls Component', () => {
     it('Most Commented button has comments icon', () => {
       wrapper = createWrapper()
       const buttons = wrapper.findAll('.sort-button')
-      const commentedButton = buttons.find(btn => btn.text().includes('Most Commented'))
+      const commentedButton = buttons.find((btn) => btn.text().includes('Most Commented'))
       const icon = commentedButton.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:comments')
@@ -139,7 +139,7 @@ describe('SortControls Component', () => {
     it('Most Visited button has eye icon', () => {
       wrapper = createWrapper()
       const buttons = wrapper.findAll('.sort-button')
-      const visitedButton = buttons.find(btn => btn.text().includes('Most Visited'))
+      const visitedButton = buttons.find((btn) => btn.text().includes('Most Visited'))
       const icon = visitedButton.find('.iconify-icon')
       expect(icon.exists()).toBe(true)
       expect(icon.attributes('name')).toBe('fa6-solid:eye')
@@ -150,28 +150,28 @@ describe('SortControls Component', () => {
     it('marks Recent as active by default', () => {
       wrapper = createWrapper({ sort: 'lastActive', direction: 'desc' })
       const buttons = wrapper.findAll('.sort-button')
-      const recentButton = buttons.find(btn => btn.text().includes('Recent'))
+      const recentButton = buttons.find((btn) => btn.text().includes('Recent'))
       expect(recentButton.classes()).toContain('active')
     })
 
     it('marks Most Valued as active when selected', () => {
       wrapper = createWrapper({ sort: 'favourites', direction: 'desc' })
       const buttons = wrapper.findAll('.sort-button')
-      const valuedButton = buttons.find(btn => btn.text().includes('Most Valued'))
+      const valuedButton = buttons.find((btn) => btn.text().includes('Most Valued'))
       expect(valuedButton.classes()).toContain('active')
     })
 
     it('marks Most Commented as active when selected', () => {
       wrapper = createWrapper({ sort: 'comments', direction: 'desc' })
       const buttons = wrapper.findAll('.sort-button')
-      const commentedButton = buttons.find(btn => btn.text().includes('Most Commented'))
+      const commentedButton = buttons.find((btn) => btn.text().includes('Most Commented'))
       expect(commentedButton.classes()).toContain('active')
     })
 
     it('marks Most Visited as active when selected', () => {
       wrapper = createWrapper({ sort: 'views', direction: 'desc' })
       const buttons = wrapper.findAll('.sort-button')
-      const visitedButton = buttons.find(btn => btn.text().includes('Most Visited'))
+      const visitedButton = buttons.find((btn) => btn.text().includes('Most Visited'))
       expect(visitedButton.classes()).toContain('active')
     })
 
@@ -192,7 +192,7 @@ describe('SortControls Component', () => {
     it('emits update:sort when clicking Recent', async () => {
       wrapper = createWrapper({ sort: 'favourites', direction: 'desc' })
       const buttons = wrapper.findAll('.sort-button')
-      const recentButton = buttons.find(btn => btn.text().includes('Recent'))
+      const recentButton = buttons.find((btn) => btn.text().includes('Recent'))
       await recentButton.trigger('click')
 
       expect(wrapper.emitted('update:sort')).toBeTruthy()
@@ -202,7 +202,7 @@ describe('SortControls Component', () => {
     it('emits update:direction when clicking Recent', async () => {
       wrapper = createWrapper({ sort: 'favourites', direction: 'desc' })
       const buttons = wrapper.findAll('.sort-button')
-      const recentButton = buttons.find(btn => btn.text().includes('Recent'))
+      const recentButton = buttons.find((btn) => btn.text().includes('Recent'))
       await recentButton.trigger('click')
 
       expect(wrapper.emitted('update:direction')).toBeTruthy()
@@ -212,7 +212,7 @@ describe('SortControls Component', () => {
     it('emits update:sort when clicking Most Valued', async () => {
       wrapper = createWrapper({ sort: 'lastActive', direction: 'desc' })
       const buttons = wrapper.findAll('.sort-button')
-      const valuedButton = buttons.find(btn => btn.text().includes('Most Valued'))
+      const valuedButton = buttons.find((btn) => btn.text().includes('Most Valued'))
       await valuedButton.trigger('click')
 
       expect(wrapper.emitted('update:sort')[0]).toEqual(['favourites'])
@@ -221,7 +221,7 @@ describe('SortControls Component', () => {
     it('emits update:sort when clicking Most Commented', async () => {
       wrapper = createWrapper({ sort: 'lastActive', direction: 'desc' })
       const buttons = wrapper.findAll('.sort-button')
-      const commentedButton = buttons.find(btn => btn.text().includes('Most Commented'))
+      const commentedButton = buttons.find((btn) => btn.text().includes('Most Commented'))
       await commentedButton.trigger('click')
 
       expect(wrapper.emitted('update:sort')[0]).toEqual(['comments'])
@@ -230,7 +230,7 @@ describe('SortControls Component', () => {
     it('emits update:sort when clicking Most Visited', async () => {
       wrapper = createWrapper({ sort: 'lastActive', direction: 'desc' })
       const buttons = wrapper.findAll('.sort-button')
-      const visitedButton = buttons.find(btn => btn.text().includes('Most Visited'))
+      const visitedButton = buttons.find((btn) => btn.text().includes('Most Visited'))
       await visitedButton.trigger('click')
 
       expect(wrapper.emitted('update:sort')[0]).toEqual(['views'])
@@ -239,7 +239,7 @@ describe('SortControls Component', () => {
     it('does not emit when clicking already active sort', async () => {
       wrapper = createWrapper({ sort: 'favourites', direction: 'desc' })
       const buttons = wrapper.findAll('.sort-button')
-      const valuedButton = buttons.find(btn => btn.text().includes('Most Valued'))
+      const valuedButton = buttons.find((btn) => btn.text().includes('Most Valued'))
       await valuedButton.trigger('click')
 
       expect(wrapper.emitted('update:sort')).toBeFalsy()
@@ -436,7 +436,7 @@ describe('SortControls Component', () => {
     it('active button has correct classes', () => {
       wrapper = createWrapper({ sort: 'favourites' })
       const buttons = wrapper.findAll('.sort-button')
-      const activeButton = buttons.find(btn => btn.classes().includes('active'))
+      const activeButton = buttons.find((btn) => btn.classes().includes('active'))
       expect(activeButton.classes()).toContain('sort-button')
       expect(activeButton.classes()).toContain('active')
     })

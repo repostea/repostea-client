@@ -1,7 +1,10 @@
 <template>
   <div>
-    <div v-if="isEnabled" ref="turnstileRef" class="mb-4 turnstile-container"/>
-    <div v-else class="mb-4 p-4 bg-yellow-100 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-200 rounded">
+    <div v-if="isEnabled" ref="turnstileRef" class="mb-4 turnstile-container" />
+    <div
+      v-else
+      class="mb-4 p-4 bg-yellow-100 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-200 rounded"
+    >
       <p class="text-sm">Turnstile CAPTCHA is not configured (development mode)</p>
     </div>
   </div>
@@ -156,8 +159,7 @@
 
   onMounted(async () => {
     if (!isEnabled.value) {
-      console.warn('Turnstile is disabled (no sitekey configured)')
-      // Emit success immediately in development mode without captcha
+      // Turnstile disabled (no sitekey) - emit success immediately for dev mode
       emit('update:modelValue', 'dev-mode-bypass')
       emit('success', 'dev-mode-bypass')
       return

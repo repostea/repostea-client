@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { createPinia, setActivePinia } from 'pinia'
 import PostFormWizard from '~/components/posts/PostFormWizard.vue'
+import { wizardStubs } from './wizardStubs'
 
 // Mock the composables
 vi.mock('~/composables/useNotification', () => ({
@@ -87,6 +88,7 @@ describe('PostFormWizard - Validation Navigation', () => {
     wrapper = mount(PostFormWizard, {
       global: {
         stubs: {
+          ...wizardStubs,
           'client-only': true,
           LazyIcon: true,
           NuxtLink: true,

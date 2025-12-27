@@ -3,7 +3,10 @@
     <!-- Compact Header (same as main Agora) -->
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center gap-3">
-        <NuxtLink :to="localePath('/agora')" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <NuxtLink
+          :to="localePath('/agora')"
+          class="flex items-center gap-3 hover:opacity-80 transition-opacity"
+        >
           <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
             <Icon name="fa6-solid:landmark" class="text-lg text-white" aria-hidden="true" />
           </div>
@@ -20,7 +23,7 @@
       <!-- Connection status (only show when offline) -->
       <div v-if="!isConnected" class="flex items-center gap-2">
         <span class="flex items-center gap-1 text-xs text-red-600 dark:text-red-400">
-          <span class="w-1.5 h-1.5 bg-red-500 rounded-full"/>
+          <span class="w-1.5 h-1.5 bg-red-500 rounded-full" />
           Offline
         </span>
       </div>
@@ -42,13 +45,19 @@
 
         <!-- Loading state -->
         <div v-if="loading" class="text-center py-12">
-          <div class="inline-block animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"/>
+          <div
+            class="inline-block animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"
+          />
           <p class="mt-4 text-gray-600 dark:text-gray-400">{{ t('agora.loading') }}</p>
         </div>
 
         <!-- Error state -->
         <div v-else-if="error" class="bg-red-50 dark:bg-red-900/20 rounded-lg p-6 text-center">
-          <Icon name="fa6-solid:circle-exclamation" class="text-3xl text-red-500 mb-3" aria-hidden="true" />
+          <Icon
+            name="fa6-solid:circle-exclamation"
+            class="text-3xl text-red-500 mb-3"
+            aria-hidden="true"
+          />
           <p class="text-red-900 dark:text-red-200 mb-4">{{ t('agora.error_loading') }}</p>
           <NuxtLink
             :to="localePath('/agora')"
@@ -90,8 +99,8 @@
 
 <script setup>
   import { ref, onMounted, onUnmounted, nextTick } from 'vue'
-  import { useI18n, useLocalePath  } from '#i18n'
-  
+  import { useI18n, useLocalePath } from '#i18n'
+
   import { useNuxtApp } from '#app'
   import { useRoute, useRouter } from 'vue-router'
   import { useNotification } from '~/composables/useNotification'
@@ -144,7 +153,7 @@
     // Check if this is the parent
     if (msg.id === parentId) {
       if (!msg.replies) msg.replies = []
-      if (!msg.replies.find(r => r.id === reply.id)) {
+      if (!msg.replies.find((r) => r.id === reply.id)) {
         msg.replies.push(reply)
         msg.replies_count = (msg.replies_count || 0) + 1
       }
@@ -276,7 +285,7 @@
 
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'smooth'
+            behavior: 'smooth',
           })
 
           // Add highlight animation
@@ -324,7 +333,8 @@
   }
 
   @keyframes highlight-pulse {
-    0%, 15% {
+    0%,
+    15% {
       background-color: rgba(251, 191, 36, 0.3);
       box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.2);
     }
@@ -339,7 +349,8 @@
   }
 
   @keyframes highlight-pulse-dark {
-    0%, 15% {
+    0%,
+    15% {
       background-color: rgba(251, 191, 36, 0.2);
       box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.15);
     }

@@ -22,7 +22,9 @@
         <ClientOnly fallback-tag="div">
           <template #fallback>
             <div class="flex items-center gap-3">
-              <div class="flex-1 px-4 py-3 account-settings-bg-subtle rounded-md border account-settings-border">
+              <div
+                class="flex-1 px-4 py-3 account-settings-bg-subtle rounded-md border account-settings-border"
+              >
                 <span class="text-sm text-gray-500 dark:text-gray-400 flex items-center">
                   <Icon name="fa6-solid:spinner" class="mr-2 animate-spin" aria-hidden="true" />
                   <span>{{ t('common.loading') }}</span>
@@ -39,9 +41,16 @@
           </template>
 
           <div class="flex items-center gap-3">
-            <div class="flex-1 px-4 py-3 account-settings-bg-subtle rounded-md border account-settings-border">
+            <div
+              class="flex-1 px-4 py-3 account-settings-bg-subtle rounded-md border account-settings-border"
+            >
               <span class="text-sm text-gray-700 dark:text-gray-300 inline-flex items-center">
-                <Icon :name="getCurrentThemeIconIconify()" :class="getCurrentThemeIconColor()" class="mr-2" aria-hidden="true" />
+                <Icon
+                  :name="getCurrentThemeIconIconify()"
+                  :class="getCurrentThemeIconColor()"
+                  class="mr-2"
+                  aria-hidden="true"
+                />
                 <span class="font-medium">{{ getCurrentThemeLabel() }}</span>
               </span>
             </div>
@@ -74,90 +83,96 @@
               }"
               @click="switchTheme(theme.name)"
             >
-              <Icon :name="theme.iconify" :class="theme.colorClass" class="mr-2 flex-shrink-0" aria-hidden="true" /> <span>{{ theme.label }}</span>
+              <Icon
+                :name="theme.iconify"
+                :class="theme.colorClass"
+                class="mr-2 flex-shrink-0"
+                aria-hidden="true"
+              />
+              <span>{{ theme.label }}</span>
             </button>
           </div>
         </ClientOnly>
       </div>
 
-    <div class="mb-6">
-      <h3 class="text-sm font-medium mb-3">{{ t('profile.display_options') }}</h3>
+      <div class="mb-6">
+        <h3 class="text-sm font-medium mb-3">{{ t('profile.display_options') }}</h3>
 
-      <div class="space-y-3">
-        <div class="flex items-start">
-          <input
-            id="show_thumbnails"
-            v-model="displayOptions.show_thumbnails"
-            type="checkbox"
-            class="w-6 h-6 mt-0.5 rounded border-2 account-settings-checkbox-border text-primary focus:ring-2 focus:ring-primary"
-          >
-          <div class="ml-3">
-            <label for="show_thumbnails" class="text-sm font-medium cursor-pointer">
-              {{ t('profile.show_thumbnails') }}
-            </label>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-              {{ t('settings.show_thumbnails_description') }}
-            </p>
+        <div class="space-y-3">
+          <div class="flex items-start">
+            <input
+              id="show_thumbnails"
+              v-model="displayOptions.show_thumbnails"
+              type="checkbox"
+              class="w-6 h-6 mt-0.5 rounded border-2 account-settings-checkbox-border text-primary focus:ring-2 focus:ring-primary"
+            >
+            <div class="ml-3">
+              <label for="show_thumbnails" class="text-sm font-medium cursor-pointer">
+                {{ t('profile.show_thumbnails') }}
+              </label>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                {{ t('settings.show_thumbnails_description') }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="mb-6">
-      <h3 class="text-sm font-medium mb-3">{{ t('settings.privacy_options') }}</h3>
-      <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">
-        {{ t('settings.privacy_description') }}
-      </p>
+      <div class="mb-6">
+        <h3 class="text-sm font-medium mb-3">{{ t('settings.privacy_options') }}</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">
+          {{ t('settings.privacy_description') }}
+        </p>
 
-      <div class="space-y-3">
-        <div class="flex items-start">
-          <input
-            id="hide_achievements"
-            v-model="privacyOptions.hide_achievements"
-            type="checkbox"
-            class="w-6 h-6 mt-0.5 rounded border-2 account-settings-checkbox-border text-primary focus:ring-2 focus:ring-primary"
-          >
-          <div class="ml-3">
-            <label for="hide_achievements" class="text-sm font-medium cursor-pointer">
-              {{ t('settings.hide_achievements') }}
-            </label>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-              {{ t('settings.hide_achievements_description') }}
-            </p>
+        <div class="space-y-3">
+          <div class="flex items-start">
+            <input
+              id="hide_achievements"
+              v-model="privacyOptions.hide_achievements"
+              type="checkbox"
+              class="w-6 h-6 mt-0.5 rounded border-2 account-settings-checkbox-border text-primary focus:ring-2 focus:ring-primary"
+            >
+            <div class="ml-3">
+              <label for="hide_achievements" class="text-sm font-medium cursor-pointer">
+                {{ t('settings.hide_achievements') }}
+              </label>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                {{ t('settings.hide_achievements_description') }}
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div class="flex items-start">
-          <input
-            id="hide_comments"
-            v-model="privacyOptions.hide_comments"
-            type="checkbox"
-            class="w-6 h-6 mt-0.5 rounded border-2 account-settings-checkbox-border text-primary focus:ring-2 focus:ring-primary"
-          >
-          <div class="ml-3">
-            <label for="hide_comments" class="text-sm font-medium cursor-pointer">
-              {{ t('settings.hide_comments') }}
-            </label>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-              {{ t('settings.hide_comments_description') }}
-            </p>
+          <div class="flex items-start">
+            <input
+              id="hide_comments"
+              v-model="privacyOptions.hide_comments"
+              type="checkbox"
+              class="w-6 h-6 mt-0.5 rounded border-2 account-settings-checkbox-border text-primary focus:ring-2 focus:ring-primary"
+            >
+            <div class="ml-3">
+              <label for="hide_comments" class="text-sm font-medium cursor-pointer">
+                {{ t('settings.hide_comments') }}
+              </label>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                {{ t('settings.hide_comments_description') }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="flex justify-end">
-      <button
-        type="submit"
-        class="px-6 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-        :disabled="loading"
-      >
-        <span
-          v-if="loading"
-          class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-white border-t-transparent rounded-full"
-        />
-        {{ t('profile.save_preferences') }}
-      </button>
+      <div class="flex justify-end">
+        <button
+          type="submit"
+          class="px-6 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          :disabled="loading"
+        >
+          <span
+            v-if="loading"
+            class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-white border-t-transparent rounded-full"
+          />
+          {{ t('profile.save_preferences') }}
+        </button>
       </div>
     </form>
   </div>
@@ -214,17 +229,17 @@
   ]
 
   function getCurrentThemeLabel() {
-    const theme = availableThemes.find(t => t.name === preferencesStore.theme)
+    const theme = availableThemes.find((t) => t.name === preferencesStore.theme)
     return theme?.label || preferencesStore.theme
   }
 
   function getCurrentThemeIconIconify() {
-    const theme = availableThemes.find(t => t.name === preferencesStore.theme)
+    const theme = availableThemes.find((t) => t.name === preferencesStore.theme)
     return theme?.iconify || 'fa6-solid:palette'
   }
 
   function getCurrentThemeIconColor() {
-    const theme = availableThemes.find(t => t.name === preferencesStore.theme)
+    const theme = availableThemes.find((t) => t.name === preferencesStore.theme)
     return theme?.colorClass || 'text-gray-500'
   }
 

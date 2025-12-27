@@ -222,7 +222,17 @@ export const FULL_SANITIZE_CONFIG = {
     'img',
     'span',
   ],
-  ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'class', 'loading', 'data-original-src'],
+  ALLOWED_ATTR: [
+    'href',
+    'target',
+    'rel',
+    'src',
+    'alt',
+    'title',
+    'class',
+    'loading',
+    'data-original-src',
+  ],
   FORBID_ATTR: [
     'onerror',
     'onload',

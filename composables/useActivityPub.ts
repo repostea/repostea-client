@@ -40,7 +40,9 @@ export const useActivityPub = () => {
   // Server has ActivityPub enabled globally
   const isServerEnabled = computed(() => serverEnabled.value ?? false)
   // User has federation enabled AND server has it enabled
-  const isFederationEnabled = computed(() => isServerEnabled.value && (userSettings.value?.federation_enabled ?? false))
+  const isFederationEnabled = computed(
+    () => isServerEnabled.value && (userSettings.value?.federation_enabled ?? false)
+  )
   const defaultFederatePosts = computed(() => userSettings.value?.default_federate_posts ?? false)
   const userHandle = computed(() => userSettings.value?.handle ?? null)
   const userActorUri = computed(() => userSettings.value?.actor_uri ?? null)
