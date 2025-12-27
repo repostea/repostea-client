@@ -1,0 +1,13 @@
+{
+  "cookies": {
+    "banner": {
+      "title": "Ús de Cookies",
+      "description": "Aquest lloc utilitza únicament cookies essencials necessàries per al funcionament bàsic. No fem servir cookies de seguiment, analítiques ni publicitàries.",
+      "accept": "Acceptar",
+      "learnMore": "Per a més informació, consulta la nostra",
+      "privacyPolicy": "Política de Privadesa",
+      "and": "i",
+      "cookiesPolicy": "Política de Cookies"
+    }
+  }
+}

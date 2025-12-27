@@ -1,0 +1,13 @@
+{
+  "cookies": {
+    "banner": {
+      "title": "Uso de Cookies",
+      "description": "Este sitio utiliza únicamente cookies esenciales necesarias para el funcionamiento básico. No usamos cookies de seguimiento, analíticas ni publicitarias.",
+      "accept": "Aceptar",
+      "learnMore": "Para más información, consulta nuestra",
+      "privacyPolicy": "Política de Privacidad",
+      "and": "y",
+      "cookiesPolicy": "Política de Cookies"
+    }
+  }
+}
