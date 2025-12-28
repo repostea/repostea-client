@@ -1,0 +1,40 @@
+# Git
+.git
+.gitignore
+
+# Dependencies (will be installed in container)
+node_modules
+
+# Build output (will be built in container)
+.output
+.nuxt
+dist
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage
+cypress/videos
+cypress/screenshots
+.nyc_output
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Docs
+*.md
+!README.md

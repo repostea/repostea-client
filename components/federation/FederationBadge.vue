@@ -3,9 +3,16 @@
     v-if="federation?.has_engagement"
     class="federation-badge w-20 cursor-pointer"
     :title="$t('federation.stats_tooltip')"
+    :aria-label="$t('federation.stats_tooltip')"
+    role="button"
+    tabindex="0"
     @click.stop="showModal = true"
+    @keydown.enter.stop="showModal = true"
+    @keydown.space.prevent.stop="showModal = true"
   >
-    <div class="flex items-center justify-center gap-1.5 px-1 py-1">
+    <div class="flex items-center justify-center gap-1.5 px-1 py-1.5 min-h-[28px]">
+      <!-- Fediverse icon indicator -->
+      <Icon name="fa6-solid:globe" class="text-[9px] opacity-60" aria-hidden="true" />
       <!-- Likes -->
       <div v-if="federation.likes_count" class="flex items-center gap-0.5">
         <Icon name="fa6-solid:heart" class="text-[9px]" aria-hidden="true" />
@@ -125,11 +132,26 @@
     transition: all 0.2s ease;
     margin-top: -1px;
     opacity: 0.85;
+    /* Improve touch target */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
-  .federation-badge:hover {
+  .federation-badge:hover,
+  .federation-badge:focus {
     background-color: rgba(var(--color-primary-rgb), 0.15);
     opacity: 1;
+    outline: none;
+  }
+
+  .federation-badge:focus-visible {
+    box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.5);
+  }
+
+  /* Touch feedback for mobile */
+  .federation-badge:active {
+    background-color: rgba(var(--color-primary-rgb), 0.25);
+    transform: scale(0.98);
   }
 
   .federation-modal {

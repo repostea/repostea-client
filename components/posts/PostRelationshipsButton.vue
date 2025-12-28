@@ -741,6 +741,8 @@
   const loading = ref(false)
   const error = ref(null)
   const isDeleting = ref(false)
+  const continuationChainLoading = ref(false)
+  const continuationChain = ref([])
 
   const groupedRelationships = computed(() => {
     const groups = {

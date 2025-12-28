@@ -47,6 +47,19 @@
           <span class="ml-2">{{ t('auth.mbin_label') }}</span>
           <span class="beta-badge">Beta</span>
         </button>
+
+        <!-- Reddit button (direct redirect, no form needed) -->
+        <button
+          v-if="redditEnabled"
+          type="button"
+          class="social-btn reddit-btn"
+          :disabled="redditLoading"
+          @click="handleRedditLogin"
+        >
+          <LoadingSpinner v-if="redditLoading" size="sm" display="inline" />
+          <Icon v-else name="fa6-brands:reddit-alien" class="text-lg" aria-hidden="true" />
+          <span class="ml-2">Reddit</span>
+        </button>
       </div>
 
       <!-- Expanded view: Show selected provider form -->
@@ -272,6 +285,7 @@
   import { useMastodonAuth } from '@/composables/useMastodonAuth'
   import { useMbinAuth } from '@/composables/useMbinAuth'
   import { useTelegramAuth } from '@/composables/useTelegramAuth'
+  import { useRedditAuth } from '@/composables/useRedditAuth'
   import LoadingSpinner from '~/components/common/LoadingSpinner.vue'
 
   defineEmits(['login-success', 'login-error'])
@@ -304,6 +318,15 @@
     checkTelegramStatus,
     initializeTelegramWidget,
   } = useTelegramAuth()
+
+  // Reddit auth
+  const {
+    loading: redditLoading,
+    error: redditError,
+    redditEnabled,
+    checkRedditStatus,
+    redirectToReddit,
+  } = useRedditAuth()
 
   // Local state
   const expandedProvider = ref(null)
@@ -347,6 +370,7 @@
     if (telegramEnabled.value) count++
     if (mastodonEnabled.value) count++
     if (mbinEnabled.value) count++
+    if (redditEnabled.value) count++
     return count
   })
 
@@ -414,6 +438,11 @@
     await redirectToMbin(mbinInstance.value.trim())
   }
 
+  async function handleRedditLogin() {
+    if (redditLoading.value) return
+    await redirectToReddit()
+  }
+
   // Watch for provider expansion to initialize widgets
   watch(expandedProvider, async (provider) => {
     if (provider === 'telegram') {
@@ -427,7 +456,12 @@
 
   // Initialize on mount
   onMounted(async () => {
-    await Promise.all([checkMastodonStatus(), checkMbinStatus(), checkTelegramStatus()])
+    await Promise.all([
+      checkMastodonStatus(),
+      checkMbinStatus(),
+      checkTelegramStatus(),
+      checkRedditStatus(),
+    ])
   })
 </script>
 
@@ -478,6 +512,17 @@
     background-color: #00bc8c;
     border-color: #00bc8c;
     color: white;
+  }
+
+  .reddit-btn:hover {
+    background-color: #ff4500;
+    border-color: #ff4500;
+    color: white;
+  }
+
+  .reddit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 
   .social-input {

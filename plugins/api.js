@@ -614,6 +614,12 @@ export default defineNuxtPlugin(() => {
       callback: (telegramUser) => api.post('/auth/telegram/callback', telegramUser),
     },
 
+    reddit: {
+      getStatus: () => api.get('/auth/reddit/status'),
+      getRedirectUrl: () => api.post('/auth/reddit/redirect'),
+      callback: (code, state) => api.post('/auth/reddit/callback', { code, state }),
+    },
+
     activitypub: {
       // Server-wide ActivityPub status
       getStatus: () => api.get('/activitypub/status'),

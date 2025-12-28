@@ -1,120 +1,102 @@
 # Repostea Client
 
-Frontend for the **Repostea** project, built with [Nuxt 3](https://nuxt.com) and [Tailwind CSS](https://tailwindcss.com). This client consumes the API from the `server` backend, developed in Laravel.
+Frontend application for **[Repostea](https://github.com/repostea/server)** - an open-source content aggregation platform.
 
-## 🧱 Stack
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Nuxt](https://img.shields.io/badge/Nuxt-3.x-green.svg)](https://nuxt.com)
+[![Vue](https://img.shields.io/badge/Vue-3.x-brightgreen.svg)](https://vuejs.org)
 
-- [Nuxt 3](https://nuxt.com)
-- [Pinia](https://pinia.vuejs.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [@nuxt/ui](https://ui.nuxt.com)
-- [VueUse](https://vueuse.org)
-- [i18n](https://i18n.nuxtjs.org) multilingual support
-- [Axios](https://axios-http.com)
-- [TypeScript](https://www.typescriptlang.org)
+## Overview
 
-## 🚀 Scripts
+This is the Nuxt 3 frontend for Repostea. For the complete platform setup, see the **[main repository](https://github.com/repostea/server)**.
 
-> ⚠️ **Use `pnpm` instead of `npm` or `yarn`.**
+## Tech Stack
 
-### PNPM Setup
+- [Nuxt 3](https://nuxt.com) - Vue framework with SSR
+- [Vue 3](https://vuejs.org) - Composition API
+- [Pinia](https://pinia.vuejs.org) - State management
+- [Tailwind CSS](https://tailwindcss.com) - Styling
+- [TypeScript](https://www.typescriptlang.org) - Type safety
+- [i18n](https://i18n.nuxtjs.org) - 15+ languages
 
-If you encounter the error `ERR_PNPM_NO_GLOBAL_BIN_DIR Unable to find the global bin directory`, run the following command to configure PNPM correctly:
+## Quick Start
 
-```bash
-pnpm run setup-pnpm
-```
-
-This script:
-1. Runs `pnpm setup` to create the global bin directory
-2. Configures the `.npmrc` file with the correct path
-3. Provides instructions to set the `PNPM_HOME` environment variable
-
-After running the script, restart your terminal for changes to take effect.
-
-### Installation:
+> **Note**: You need the [backend server](https://github.com/repostea/server) running first.
 
 ```bash
+# Install dependencies (use pnpm)
 pnpm install
+
+# Configure environment
+cp .env.example .env
+
+# Start development server
+pnpm dev
 ```
 
-Development:
+Visit http://localhost:3000
+
+## Scripts
 
 ```bash
-pnpm run dev
+pnpm dev          # Development server
+pnpm build        # Production build
+pnpm preview      # Preview production build
+pnpm quality      # Run ESLint + Prettier
+pnpm test         # Run Vitest unit tests
+pnpm test:e2e     # Run Cypress E2E tests
 ```
 
-Build:
+## Configuration
 
-```bash
-pnpm run build
+Edit `.env` file:
+
+```env
+# API endpoint (your backend server)
+NUXT_PUBLIC_API_BASE=http://localhost:8000/api
+NUXT_PUBLIC_SERVER_URL=http://localhost:8000
+NUXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# Site branding
+NUXT_PUBLIC_APP_NAME=Repostea
 ```
 
-Static Generation (production API):
+See `.env.example` for all available options.
 
-```bash
-pnpm run generate:api
-```
-
-Static Generation (local API):
-
-```bash
-pnpm run generate:local
-```
-
-Preview the build:
-
-```bash
-pnpm run preview
-```
-
-Linter and Prettier:
-
-```bash
-pnpm run quality
-```
-
-## 🧪 Code Quality
-
-- ESLint with Nuxt and Vue rules
-- Prettier
-- Stylelint for CSS/SCSS
-- Lint-staged + Husky (pre-commit)
-
-## 🌍 i18n
-
-Multilingual project with internationalized routes and full support via `@nuxtjs/i18n`.
-
-## 🛠 Project Structure
+## Project Structure
 
 ```
-.
-├── components/         # Reusable Vue components
-├── composables/        # Hooks and shared logic
-├── locales/            # Translations
-├── pages/              # Nuxt pages
-├── public/             # Static files
-├── server/             # Endpoints and middlewares
-├── tailwind.config.js  # Tailwind configuration
-└── nuxt.config.ts      # Main project config
+client/
+├── components/     # Vue components
+├── composables/    # Reusable logic (use*)
+├── i18n/           # Translations
+├── pages/          # Nuxt pages (file-based routing)
+├── stores/         # Pinia stores
+├── public/         # Static assets
+└── server/         # Server middleware
 ```
 
-## 📚 Additional Documentation
+## Full Documentation
 
-- **[DEVELOPMENT.md](./DEVELOPMENT.md)** - Development guide (PWA, i18n, configuration)
-- **[TESTING.md](./TESTING.md)** - Testing guide
+For complete setup instructions including:
+- Backend installation
+- Database configuration
+- Production deployment
+- Nginx/Apache setup
 
-## 🧑‍💻 Contributing
+See the **[Server Repository](https://github.com/repostea/server)**.
+
+## Contributing
 
 1. Fork the repository
-2. Create a branch (`git checkout -b feature/new-feature`)
-3. Commit your changes (`pnpm run quality` first)
-4. Open a PR
+2. Create a feature branch
+3. Run `pnpm quality` before committing
+4. Open a Pull Request
 
-## 💬 Using Repostea?
+## Using Repostea?
 
-We'd love to hear from you! If you're using Repostea for your project, please [open an issue](https://github.com/repostea/repostea/issues/new?labels=showcase&title=Showcase:%20[Your%20Project%20Name]) to let us know. It helps us understand how the project is being used and motivates continued development.
+We'd love to hear from you! [Let us know](https://github.com/repostea/server/issues/new?labels=showcase&title=Showcase:%20[Your%20Site%20Name]) if you're running a Repostea instance.
 
-## 📄 License
+## License
 
 [GPL-3.0](LICENSE)
