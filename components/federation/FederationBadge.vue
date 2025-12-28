@@ -11,8 +11,6 @@
     @keydown.space.prevent.stop="showModal = true"
   >
     <div class="flex items-center justify-center gap-1.5 px-1 py-1.5 min-h-[28px]">
-      <!-- Fediverse icon indicator -->
-      <Icon name="fa6-solid:globe" class="text-[9px] opacity-60" aria-hidden="true" />
       <!-- Likes -->
       <div v-if="federation.likes_count" class="flex items-center gap-0.5">
         <Icon name="fa6-solid:heart" class="text-[9px]" aria-hidden="true" />
