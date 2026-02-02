@@ -121,6 +121,7 @@
                                 "title_placeholder": "Escribe un título descriptivo...",
                                 "link_step": "Comparte el enlace",
                                 "link_subtitle": "Pega la URL que quieres compartir",
+                                "link_url_placeholder": "https://ejemplo.com/articulo",
                                 "link_url_step": "Pega el enlace",
                                 "link_url_subtitle": "Introduce la URL y pulsa el botón para extraer la información",
                                 "fetch_info": "Buscar info",

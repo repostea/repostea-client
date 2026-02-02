@@ -58,20 +58,18 @@ describe('Search E2E Tests', () => {
     it('should display search results', () => {
       visitWithRetry('/en/')
       acceptCookies()
-      cy.wait(1000)
 
       // Ensure desktop navigation is visible (viewport must be >= md breakpoint)
       cy.viewport(1280, 720)
-      cy.wait(500)
 
-      // Open search modal
+      // Wait for navigation to be ready
+      cy.get('.desktop-navigation', { timeout: 10000 }).should('be.visible')
+
+      // Open search modal with retry for SSR hydration
       cy.get('.desktop-navigation .section-tabs .section-tab', { timeout: 10000 })
         .filter(':contains("Search")')
         .should('be.visible')
-        .click()
-
-      // Wait for modal to be visible first
-      cy.get('.search-modal', { timeout: 10000 }).should('be.visible')
+        .clickWithRetry('.search-modal')
 
       // Then type in search input inside modal
       cy.get('.search-modal .search-input', { timeout: 10000 })
@@ -117,13 +115,15 @@ describe('Search E2E Tests', () => {
       const searchTerm = `Searchable Post ${uniqueId}`
       visitWithRetry('/en/')
       acceptCookies()
-      cy.wait(500)
 
-      // Open search modal
+      // Wait for navigation to be ready
+      cy.get('.desktop-navigation', { timeout: 10000 }).should('be.visible')
+
+      // Open search modal with retry for SSR hydration
       cy.get('.desktop-navigation .section-tabs .section-tab', { timeout: 10000 })
         .filter(':contains("Search")')
         .should('be.visible')
-        .click()
+        .clickWithRetry('.search-modal')
 
       // Search for exact title
       cy.get('.search-modal .search-input', { timeout: 10000 }).type(searchTerm)
@@ -233,13 +233,15 @@ describe('Search E2E Tests', () => {
     it('should show loading state during search', () => {
       visitWithRetry('/en/')
       acceptCookies()
-      cy.wait(500)
 
-      // Open search modal
+      // Wait for navigation to be ready
+      cy.get('.desktop-navigation', { timeout: 10000 }).should('be.visible')
+
+      // Open search modal with retry for SSR hydration
       cy.get('.desktop-navigation .section-tabs .section-tab', { timeout: 10000 })
         .filter(':contains("Search")')
         .should('be.visible')
-        .click()
+        .clickWithRetry('.search-modal')
 
       // Type in search input
       cy.get('.search-modal .search-input', { timeout: 10000 }).type('test')
@@ -251,13 +253,15 @@ describe('Search E2E Tests', () => {
     it('should debounce search input', () => {
       visitWithRetry('/en/')
       acceptCookies()
-      cy.wait(500)
 
-      // Open search modal
+      // Wait for navigation to be ready
+      cy.get('.desktop-navigation', { timeout: 10000 }).should('be.visible')
+
+      // Open search modal with retry for SSR hydration
       cy.get('.desktop-navigation .section-tabs .section-tab', { timeout: 10000 })
         .filter(':contains("Search")')
         .should('be.visible')
-        .click()
+        .clickWithRetry('.search-modal')
 
       // Type quickly
       cy.get('.search-modal .search-input', { timeout: 10000 }).type('testing search debounce')

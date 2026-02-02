@@ -121,6 +121,7 @@
       "title_placeholder": "Escribe un título descriptivo...",
       "link_step": "Comparte a ligazón",
       "link_subtitle": "Pega a URL que queres compartir",
+      "link_url_placeholder": "https://exemplo.com/artigo",
       "video_step": "Comparte o vídeo",
       "video_subtitle": "Pega a URL do vídeo de YouTube, Vimeo, etc.",
       "audio_step": "Comparte o audio",

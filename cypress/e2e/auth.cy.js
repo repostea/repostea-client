@@ -97,37 +97,25 @@ describe('Authentication E2E Tests', () => {
     })
 
     it('should show user-info button and open dropdown with logout', () => {
-      // Force fresh page state
-      cy.reload()
-      cy.get('.user-menu', { timeout: 10000 }).should('be.visible')
-      // Both desktop and mobile menus render AuthNav, use :visible to get the active one
-      cy.get('.user-menu:visible .user-info', { timeout: 10000 }).should('be.visible')
-      // Click to open dropdown
-      cy.wait(500)
-      cy.get('.user-menu:visible .user-info', { timeout: 10000 })
+      // Use clickWithRetry for SSR hydration (retries until dropdown opens)
+      cy.get('[data-testid="user-menu-button"]', { timeout: 10000 })
         .should('be.visible')
-        .click()
-      cy.wait(300)
-      cy.get('.dropdown-menu', { timeout: 10000 }).should('be.visible')
-      cy.get('.dropdown-menu .logout', { timeout: 5000 }).should('exist')
+        .clickWithRetry('[data-testid="user-dropdown"]')
+      cy.get('[data-testid="user-dropdown"] .logout', { timeout: 5000 }).should('exist')
     })
 
     it('should show profile link in dropdown', () => {
-      cy.wait(500)
-      cy.get('.user-menu:visible .user-info', { timeout: 10000 })
+      cy.get('[data-testid="user-menu-button"]', { timeout: 10000 })
         .should('be.visible')
-        .trigger('click')
-      cy.get('.dropdown-menu', { timeout: 10000 }).should('be.visible')
-      cy.get('.dropdown-menu a[href*="profile"]', { timeout: 5000 }).should('exist')
+        .clickWithRetry('[data-testid="user-dropdown"]')
+      cy.get('[data-testid="user-dropdown"] a[href*="profile"]', { timeout: 5000 }).should('exist')
     })
 
     it('should show settings link in dropdown', () => {
-      cy.wait(500)
-      cy.get('.user-menu:visible .user-info', { timeout: 10000 })
+      cy.get('[data-testid="user-menu-button"]', { timeout: 10000 })
         .should('be.visible')
-        .trigger('click')
-      cy.get('.dropdown-menu', { timeout: 10000 }).should('be.visible')
-      cy.get('.dropdown-menu a[href*="settings"]', { timeout: 5000 }).should('exist')
+        .clickWithRetry('[data-testid="user-dropdown"]')
+      cy.get('[data-testid="user-dropdown"] a[href*="settings"]', { timeout: 5000 }).should('exist')
     })
   })
 

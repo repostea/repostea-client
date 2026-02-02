@@ -319,15 +319,14 @@ describe('Notifications E2E Tests', () => {
     it('should navigate to notifications from header', () => {
       visitWithRetry('/en/')
       acceptCookies()
-      cy.wait(1000)
 
-      // Click notification bell to open dropdown
+      // Wait for navbar to be ready
+      cy.get('.navbar', { timeout: 10000 }).should('be.visible')
+
+      // Click notification bell with retry for SSR hydration
       cy.get('.notification-bell-btn, [aria-label*="notification"]', { timeout: 10000 })
         .first()
-        .click()
-
-      // Wait for dropdown to open
-      cy.get('.notification-dropdown', { timeout: 5000 }).should('be.visible')
+        .clickWithRetry('.notification-dropdown')
 
       // Click "View all" link inside dropdown to navigate (first link)
       cy.get('.notification-dropdown a[href*="/notification"]', { timeout: 5000 }).first().click()

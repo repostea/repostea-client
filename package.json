@@ -95,6 +95,7 @@
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "cypress": "^14.4.1",
+    "cypress-pipe": "^2.0.1",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-vue": "^10.1.0",

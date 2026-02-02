@@ -91,17 +91,17 @@ describe('User Profile E2E Tests', () => {
     it('should access own profile from menu', () => {
       visitWithRetry('/en/')
       acceptCookies()
-      cy.wait(500)
 
-      // Wait for auth to be fully loaded and click user menu button (first for desktop)
-      cy.get('.user-menu .user-info', { timeout: 10000 }).first().click()
+      // Wait for auth to be fully loaded
+      cy.get('.user-menu', { timeout: 10000 }).should('be.visible')
 
-      // Wait for dropdown to render
-      cy.wait(300)
+      // Click user menu with retry for SSR hydration
+      cy.get('[data-testid="user-menu-button"]', { timeout: 10000 })
+        .should('be.visible')
+        .clickWithRetry('[data-testid="user-dropdown"]')
 
       // Click on profile link in dropdown
-      cy.get('.dropdown-menu', { timeout: 5000 }).should('be.visible')
-      cy.get('.dropdown-menu a[href*="/profile"]').first().click()
+      cy.get('[data-testid="user-dropdown"] a[href*="/profile"]').first().click()
 
       // Should be on profile page
       cy.url().should('include', '/profile')

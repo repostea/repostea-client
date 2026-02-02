@@ -136,7 +136,7 @@
       <ThemeSelector ref="themeSelector" />
       <LanguageSelector class="ml-2" />
       <NotificationDropdown v-if="authStore.isAuthenticated" class="ml-2" />
-      <AuthNav class="ml-2" />
+      <AuthNav class="ml-2" data-testid="desktop-auth-nav" />
     </div>
   </div>
 </template>

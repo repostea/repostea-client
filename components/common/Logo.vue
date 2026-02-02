@@ -2,7 +2,7 @@
   <div class="logo-container">
     <div class="logo-wrapper">
       <NuxtImg
-        src="/logo-wolf.png"
+        :src="logoUrl"
         :alt="siteName"
         class="logo-image"
         width="36"
@@ -20,6 +20,7 @@
 <script setup>
   const config = useRuntimeConfig()
   const siteName = config.public.appName || 'Repostea'
+  const logoUrl = config.public.logoUrl || '/logo-wolf.png'
 </script>
 
 <style scoped>

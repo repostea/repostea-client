@@ -112,7 +112,7 @@
             'border-red-500 focus:ring-red-500': error,
             'wizard-input-border focus:ring-primary': !error,
           }"
-          placeholder="https://ejemplo.com/articulo"
+          :placeholder="t('submit.wizard.link_url_placeholder')"
           @input="$emit('update:modelValue', $event.target.value)"
           @paste="$emit('paste', $event)"
         >

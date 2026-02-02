@@ -594,10 +594,9 @@ export default defineNuxtConfig({
       appName: process.env.NUXT_PUBLIC_APP_NAME || process.env.NUXT_PUBLIC_SITE_NAME || 'Repostea',
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:8000/api',
       serverUrl: process.env.NUXT_PUBLIC_SERVER_URL || 'http://localhost:8000',
-      clientUrl: process.env.NUXT_PUBLIC_CLIENT_URL || 'http://localhost:3000',
-      appEnvironment: process.env.APP_ENV || 'development',
-      appEnv: process.env.APP_ENV || 'development', // Alias for convenience
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+      // Site URL - supports both SITE_URL (preferred) and CLIENT_URL (legacy) for backwards compatibility
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || process.env.NUXT_PUBLIC_CLIENT_URL || 'http://localhost:3000',
+      appEnv: process.env.APP_ENV || 'development',
       turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || '',
       // Reverb WebSocket config
       reverbAppKey: process.env.NUXT_PUBLIC_REVERB_APP_KEY || 'local',
@@ -610,6 +609,7 @@ export default defineNuxtConfig({
       contactEmail: process.env.NUXT_PUBLIC_CONTACT_EMAIL || '',
       fediverseHandle: process.env.NUXT_PUBLIC_FEDIVERSE_HANDLE || '',
       twitterHandle: process.env.NUXT_PUBLIC_TWITTER_HANDLE || '',
+      logoUrl: process.env.NUXT_PUBLIC_LOGO_URL || '/logo-wolf.png',
       // Cookie domain for cross-subdomain auth
       cookieDomain: process.env.NUXT_PUBLIC_COOKIE_DOMAIN || '',
     },

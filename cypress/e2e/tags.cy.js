@@ -87,10 +87,12 @@ describe('Tags E2E Tests', () => {
       visitWithRetry('/en/tags')
       acceptCookies()
 
-      cy.get('input[type="text"]', { timeout: 10000 }).type('a')
-      cy.wait(500)
+      // Wait for tags to load first
+      cy.get('.tag-item', { timeout: 10000 }).should('exist')
 
-      // Results should update
+      cy.get('input[type="text"]').type('a')
+
+      // Results should still show (filtered)
       cy.get('.grid', { timeout: 5000 }).should('exist')
     })
 
@@ -98,10 +100,13 @@ describe('Tags E2E Tests', () => {
       visitWithRetry('/en/tags')
       acceptCookies()
 
-      cy.get('input[type="text"]', { timeout: 10000 }).type('xyznonexistenttag123')
-      cy.wait(500)
+      // Wait for tags to load first
+      cy.get('.tag-item, .grid a[href*="/tags/"]', { timeout: 10000 }).should('exist')
 
-      // Message is "No topics found that match your search"
+      // Then type search term - filtering is client-side
+      cy.get('input[type="text"]').clear().type('xyznonexistenttag123')
+
+      // Wait for Vue reactivity to filter results - no fixed wait
       cy.contains(/no topics found/i, { timeout: 10000 }).should('be.visible')
     })
   })

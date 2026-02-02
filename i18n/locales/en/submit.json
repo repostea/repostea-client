@@ -120,6 +120,7 @@
       "title_placeholder": "Write a descriptive title...",
       "link_step": "Share the link",
       "link_subtitle": "Paste the URL you want to share",
+      "link_url_placeholder": "https://example.com/article",
       "link_url_step": "Paste the link",
       "link_url_subtitle": "Enter the URL and click the button to extract the information",
       "fetch_info": "Get info",

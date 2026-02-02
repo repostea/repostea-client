@@ -92,16 +92,10 @@ describe('Activity Feed E2E Tests', () => {
       acceptCookies()
       cy.wait(500)
 
-      // Get the first filter button and verify it's initially unselected
-      cy.get('.grid button', { timeout: 10000 }).first().as('filterBtn')
-      cy.get('@filterBtn').should('have.class', 'activity-btn')
-
-      // Click to select
-      cy.get('@filterBtn').click()
-      cy.wait(300)
-
-      // After clicking, should be selected (bg-primary) - retry up to 10 seconds
-      cy.get('.grid button').first().should('have.class', 'bg-primary')
+      // Click first filter and verify it becomes selected
+      cy.get('.grid button.activity-btn', { timeout: 10000 }).first().click()
+      // After click, the clear button should appear (proves filter is active)
+      cy.get('button.bg-red-100', { timeout: 10000 }).should('exist')
     })
 
     it('should show clear filters button when filters active', () => {

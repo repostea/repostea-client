@@ -1,7 +1,7 @@
 # Repostea Client - Development Dockerfile
 # For local testing only, not recommended for production
 
-FROM node:20-alpine
+FROM node:22-alpine
 
 # Set working directory
 WORKDIR /app

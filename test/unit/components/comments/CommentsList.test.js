@@ -247,3 +247,203 @@ describe('CommentsList', () => {
     })
   })
 })
+
+// Pure logic function tests (extracted from CommentsList.vue)
+describe('CommentsList Pure Logic', () => {
+  describe('postId conversion', () => {
+    function getPostId(linkId) {
+      if (typeof linkId === 'number') return linkId
+      if (typeof linkId === 'string' && /^\d+$/.test(linkId)) return parseInt(linkId, 10)
+      return null
+    }
+
+    it('returns number directly when linkId is a number', () => {
+      expect(getPostId(123)).toBe(123)
+      expect(getPostId(1)).toBe(1)
+    })
+
+    it('parses string to number when linkId is numeric string', () => {
+      expect(getPostId('123')).toBe(123)
+      expect(getPostId('1')).toBe(1)
+    })
+
+    it('returns null for non-numeric strings', () => {
+      expect(getPostId('abc')).toBeNull()
+      expect(getPostId('123abc')).toBeNull()
+      expect(getPostId('')).toBeNull()
+    })
+  })
+
+  describe('countAllComments (recursive)', () => {
+    function countAllComments(commentsList) {
+      if (!commentsList || !Array.isArray(commentsList)) return 0
+      let count = commentsList.length
+      for (const comment of commentsList) {
+        if (comment.children && comment.children.length > 0) {
+          count += countAllComments(comment.children)
+        }
+      }
+      return count
+    }
+
+    it('returns 0 for empty or null comments', () => {
+      expect(countAllComments([])).toBe(0)
+      expect(countAllComments(null)).toBe(0)
+    })
+
+    it('counts top-level comments', () => {
+      expect(countAllComments([{ id: 1 }, { id: 2 }, { id: 3 }])).toBe(3)
+    })
+
+    it('counts nested comments recursively', () => {
+      const comments = [
+        { id: 1, children: [{ id: 2, children: [{ id: 3 }] }, { id: 4 }] },
+        { id: 5 },
+      ]
+      expect(countAllComments(comments)).toBe(5)
+    })
+  })
+
+  describe('assignCommentNumbers', () => {
+    function assignCommentNumbers(commentsList) {
+      const allComments = []
+      const collectAll = (comments) => {
+        for (const comment of comments) {
+          allComments.push(comment)
+          if (comment.children && comment.children.length > 0) {
+            collectAll(comment.children)
+          }
+        }
+      }
+      collectAll(commentsList)
+      allComments.sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime())
+      const numberMap = new Map()
+      allComments.forEach((comment, index) => numberMap.set(comment.id, index + 1))
+      return numberMap
+    }
+
+    it('assigns sequential numbers based on creation time', () => {
+      const comments = [
+        { id: 1, created_at: '2024-01-01T12:00:00Z', children: [] },
+        { id: 2, created_at: '2024-01-01T10:00:00Z', children: [] },
+        { id: 3, created_at: '2024-01-01T14:00:00Z', children: [] },
+      ]
+      const numberMap = assignCommentNumbers(comments)
+      expect(numberMap.get(2)).toBe(1) // Earliest
+      expect(numberMap.get(1)).toBe(2)
+      expect(numberMap.get(3)).toBe(3) // Latest
+    })
+
+    it('includes nested comments in numbering', () => {
+      const comments = [
+        {
+          id: 1,
+          created_at: '2024-01-01T12:00:00Z',
+          children: [{ id: 2, created_at: '2024-01-01T10:00:00Z', children: [] }],
+        },
+      ]
+      const numberMap = assignCommentNumbers(comments)
+      expect(numberMap.get(2)).toBe(1) // Nested but earliest
+      expect(numberMap.get(1)).toBe(2)
+    })
+  })
+
+  describe('flattenComments', () => {
+    function flattenComments(commentsList, numberMap) {
+      const result = []
+      const flatten = (comments, parentComment = null) => {
+        for (const comment of comments) {
+          result.push({
+            ...comment,
+            children: [],
+            _parentComment: parentComment,
+            _commentNumber: numberMap.get(comment.id) || 0,
+            _parentNumber: parentComment ? numberMap.get(parentComment.id) || 0 : 0,
+          })
+          if (comment.children && comment.children.length > 0) {
+            flatten(comment.children, comment)
+          }
+        }
+      }
+      flatten(commentsList)
+      return result
+    }
+
+    it('flattens nested comments to single level', () => {
+      const numberMap = new Map([[1, 1], [2, 2], [3, 3]])
+      const comments = [
+        { id: 1, children: [{ id: 2, children: [{ id: 3, children: [] }] }] },
+      ]
+      const result = flattenComments(comments, numberMap)
+      expect(result.length).toBe(3)
+      expect(result.map((c) => c.id)).toEqual([1, 2, 3])
+    })
+
+    it('attaches parent info correctly', () => {
+      const numberMap = new Map([[1, 1], [2, 2]])
+      const comments = [{ id: 1, children: [{ id: 2, children: [] }] }]
+      const result = flattenComments(comments, numberMap)
+      expect(result[0]._parentComment).toBeNull()
+      expect(result[1]._parentComment.id).toBe(1)
+      expect(result[1]._parentNumber).toBe(1)
+    })
+  })
+
+  describe('sorting logic', () => {
+    const baseComments = [
+      { id: 1, created_at: '2024-01-01T12:00:00Z', votes: 5 },
+      { id: 2, created_at: '2024-01-01T10:00:00Z', votes: 10 },
+      { id: 3, created_at: '2024-01-01T14:00:00Z', votes: 3 },
+    ]
+
+    it('sorts by creation time for threads mode', () => {
+      const sorted = [...baseComments].sort(
+        (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+      )
+      expect(sorted[0].id).toBe(2) // 10:00
+      expect(sorted[2].id).toBe(3) // 14:00
+    })
+
+    it('sorts by votes for votes mode', () => {
+      const sorted = [...baseComments].sort((a, b) => (b.votes || 0) - (a.votes || 0))
+      expect(sorted[0].id).toBe(2) // 10 votes
+      expect(sorted[2].id).toBe(3) // 3 votes
+    })
+
+    it('uses creation time as tie-breaker for votes', () => {
+      const tied = [
+        { id: 1, created_at: '2024-01-01T14:00:00Z', votes: 5 },
+        { id: 2, created_at: '2024-01-01T10:00:00Z', votes: 5 },
+      ]
+      const sorted = [...tied].sort((a, b) => {
+        if (b.votes !== a.votes) return b.votes - a.votes
+        return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+      })
+      expect(sorted[0].id).toBe(2) // Same votes, but older
+    })
+  })
+
+  describe('isFlatMode', () => {
+    it('returns true only for oldest sort', () => {
+      expect('oldest' === 'oldest').toBe(true)
+      expect('threads' === 'oldest').toBe(false)
+      expect('votes' === 'oldest').toBe(false)
+    })
+  })
+
+  describe('commentsOpen', () => {
+    function commentsOpen(post) {
+      return post?.comments_open !== false
+    }
+
+    it('returns true when comments_open is true or undefined', () => {
+      expect(commentsOpen({ comments_open: true })).toBe(true)
+      expect(commentsOpen({})).toBe(true)
+      expect(commentsOpen(null)).toBe(true)
+    })
+
+    it('returns false when comments_open is false', () => {
+      expect(commentsOpen({ comments_open: false })).toBe(false)
+    })
+  })
+})

@@ -121,6 +121,7 @@
       "title_placeholder": "Idatzi izenburu deskribatzaile bat...",
       "link_step": "Partekatu esteka",
       "link_subtitle": "Itsatsi partekatu nahi duzun URLa",
+      "link_url_placeholder": "https://adibidea.com/artikulua",
       "video_step": "Partekatu bideoa",
       "video_subtitle": "Itsatsi YouTube, Vimeo, etab.-ko bideoaren URLa",
       "audio_step": "Partekatu audioa",

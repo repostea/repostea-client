@@ -180,24 +180,15 @@ describe('Media Upload E2E Tests', () => {
       cy.loginAs(testUser)
     })
 
-    it('should show error for invalid file type', () => {
+    it('should restrict file input to images only', () => {
       visitWithRetry('/en/submit')
       acceptCookies()
       cy.wait(300)
 
-      cy.get('body').then(($body) => {
-        const imageBtn = $body.find('[data-testid="content-type-image"]')
-        if (imageBtn.length > 0) {
-          cy.wrap(imageBtn).click()
-          cy.wait(200)
-
-          // Try to upload invalid file (test with fixture if available)
-          cy.get('input[type="file"]').then(($input) => {
-            // Input should have accept attribute restricting file types
-            expect($input.attr('accept')).to.include('image')
-          })
-        }
-      })
+      cy.get('[data-testid="content-type-image"]', { timeout: 10000 }).click()
+      cy.get('.upload-area input[type="file"]', { timeout: 10000 })
+        .should('have.attr', 'accept')
+        .and('include', 'image')
     })
   })
 
@@ -206,38 +197,15 @@ describe('Media Upload E2E Tests', () => {
       cy.loginAs(testUser)
     })
 
-    it('should show drag and drop area', () => {
+    it('should show drag and drop area with instructions', () => {
       visitWithRetry('/en/submit')
       acceptCookies()
       cy.wait(300)
 
-      cy.get('body').then(($body) => {
-        const imageBtn = $body.find('[data-testid="content-type-image"]')
-        if (imageBtn.length > 0) {
-          cy.wrap(imageBtn).click()
-          cy.wait(200)
-
-          cy.get('.upload-area, [class*="drag"], [class*="drop"]', { timeout: 5000 }).should(
-            'exist'
-          )
-        }
-      })
-    })
-
-    it('should show drag instructions', () => {
-      visitWithRetry('/en/submit')
-      acceptCookies()
-      cy.wait(300)
-
-      cy.get('body').then(($body) => {
-        const imageBtn = $body.find('[data-testid="content-type-image"]')
-        if (imageBtn.length > 0) {
-          cy.wrap(imageBtn).click()
-          cy.wait(200)
-
-          cy.get('body').should('contain.text', 'Drag')
-        }
-      })
+      cy.get('[data-testid="content-type-image"]', { timeout: 10000 }).click()
+      cy.get('.upload-area', { timeout: 10000 })
+        .should('exist')
+        .and('contain.text', 'Drag')
     })
   })
 

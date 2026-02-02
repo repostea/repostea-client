@@ -5,7 +5,8 @@
         class="user-info"
         :aria-expanded="isOpen"
         aria-haspopup="menu"
-        @click="toggleDropdown"
+        data-testid="user-menu-button"
+        @click.stop="toggleDropdown"
       >
         <Icon v-if="isGuest" name="fa6-solid:user-secret" class="text-lg" aria-hidden="true" />
         <Icon v-else name="fa6-solid:circle-user" class="text-lg" aria-hidden="true" />
@@ -24,7 +25,7 @@
         <Icon name="fa6-solid:chevron-down" class="ml-1 text-xs" aria-hidden="true" />
       </button>
 
-      <div v-if="isOpen" class="dropdown-menu" role="menu">
+      <div v-if="isOpen" class="dropdown-menu" role="menu" data-testid="user-dropdown">
         <!-- Different menu for guest users -->
         <template v-if="isGuest">
           <div class="guest-info menu-item inline-flex items-center">

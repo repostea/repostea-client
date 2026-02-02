@@ -100,28 +100,28 @@ describe('Responsive Design E2E Tests', () => {
     it('should open mobile menu when clicking hamburger', () => {
       visitWithRetry('/en/')
       acceptCookies()
-      cy.wait(500)
 
-      // Click hamburger button with force to avoid flaky behavior
+      // Wait for navbar to be ready
+      cy.get('.navbar', { timeout: 10000 }).should('be.visible')
+
+      // Use clickWithRetry for SSR hydration
       cy.get('.menu-button', { timeout: 10000 })
-        .scrollIntoView()
         .should('be.visible')
-        .click({ force: true })
-
-      // Wait for animation and check mobile menu is open
-      cy.wait(300)
-      cy.get('.mobile-menu-container', { timeout: 10000 })
-        .should('have.class', 'open')
+        .clickWithRetry('.mobile-menu-container.open')
     })
 
     it('should close mobile menu when clicking a link', () => {
       visitWithRetry('/en/')
       acceptCookies()
-      cy.wait(500)
 
-      // Open menu
-      cy.get('.menu-button', { timeout: 10000 }).scrollIntoView().should('be.visible').click()
-      cy.get('.mobile-menu-container.open', { timeout: 5000 }).should('exist')
+      // Wait for navbar to be ready
+      cy.get('.navbar', { timeout: 10000 }).should('be.visible')
+
+      // Open menu with retry for SSR hydration
+      cy.get('.menu-button', { timeout: 10000 })
+        .scrollIntoView()
+        .should('be.visible')
+        .clickWithRetry('.mobile-menu-container.open')
 
       // Click on a navigation link
       cy.get('.mobile-nav-link', { timeout: 5000 }).first().click()

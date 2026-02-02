@@ -258,3 +258,16 @@ Cypress.Commands.add('submitPostWizard', () => {
 Cypress.Commands.add('waitForSuccess', () => {
   cy.get('.bg-green-50', { timeout: 10000 }).should('be.visible')
 })
+
+/**
+ * Click with retry for SSR hydration
+ * Retries the click until the expected result selector becomes visible
+ * This handles the case where Vue hasn't attached event handlers yet
+ */
+Cypress.Commands.add('clickWithRetry', { prevSubject: 'element' }, (subject, resultSelector) => {
+  cy.wrap(subject)
+    .pipe(($el) => $el.click())
+    .should(() => {
+      expect(Cypress.$(`${resultSelector}:visible`)).to.have.length.greaterThan(0)
+    })
+})
