@@ -3,8 +3,13 @@
     "end_of_posts": "Chegaches ao final!",
     "loading": "Cargando...",
     "loading_more": "Cargando máis publicacións...",
+    "loading_page": "Cargando páxina...",
     "load_more": "Cargar máis",
     "previous": "Anterior",
-    "next": "Seguinte"
+    "next": "Seguinte",
+    "page": "Páxina",
+    "next_page": "Páxina seguinte",
+    "navigation": "Navegación de páxinas",
+    "go_to_page": "Ir á páxina {page}"
   }
 }

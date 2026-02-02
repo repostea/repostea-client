@@ -349,44 +349,60 @@
         </div>
       </div>
 
-      <div class="flex justify-end space-x-3">
-        <button
-          type="button"
-          class="post-form-cancel-btn px-4 py-2 rounded-md transition-colors"
-          @click="$emit('cancel')"
-        >
-          {{ t('submit.form.cancel') }}
-        </button>
-        <button
-          v-if="!isEditMode"
-          type="button"
-          class="post-form-cancel-btn px-4 py-2 rounded-md transition-colors inline-flex items-center"
-          :disabled="loading"
-          @click="submitPost('draft')"
-        >
-          <span
-            v-if="loading && savingAsDraft"
-            class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-gray-500 border-t-transparent rounded-full flex-shrink-0"
-          /><Icon
-            v-else
-            name="fa6-solid:floppy-disk"
-            class="mr-2 flex-shrink-0"
-            aria-hidden="true"
-          />
-          <span>{{ t('posts.save_as_draft') }}</span>
-        </button>
-        <button
-          v-if="!isPostHidden"
-          type="submit"
-          class="px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors"
-          :disabled="loading"
-        >
-          <span
-            v-if="loading && !savingAsDraft"
-            class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-white border-t-transparent rounded-full"
-          />
-          {{ isEditMode ? t('submit.form.update') : t('posts.publish') }}
-        </button>
+      <div class="flex justify-between items-center">
+        <!-- Delete button (left side) -->
+        <div>
+          <button
+            v-if="showDeleteButton"
+            type="button"
+            class="px-4 py-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-colors inline-flex items-center"
+            @click="$emit('delete')"
+          >
+            <Icon name="fa6-solid:trash-can" class="mr-2" aria-hidden="true" />
+            {{ t('posts.delete') }}
+          </button>
+        </div>
+
+        <!-- Other buttons (right side) -->
+        <div class="flex space-x-3">
+          <button
+            type="button"
+            class="post-form-cancel-btn px-4 py-2 rounded-md transition-colors"
+            @click="$emit('cancel')"
+          >
+            {{ t('submit.form.cancel') }}
+          </button>
+          <button
+            v-if="!isEditMode"
+            type="button"
+            class="post-form-cancel-btn px-4 py-2 rounded-md transition-colors inline-flex items-center"
+            :disabled="loading"
+            @click="submitPost('draft')"
+          >
+            <span
+              v-if="loading && savingAsDraft"
+              class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-gray-500 border-t-transparent rounded-full flex-shrink-0"
+            /><Icon
+              v-else
+              name="fa6-solid:floppy-disk"
+              class="mr-2 flex-shrink-0"
+              aria-hidden="true"
+            />
+            <span>{{ t('posts.save_as_draft') }}</span>
+          </button>
+          <button
+            v-if="!isPostHidden"
+            type="submit"
+            class="px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors"
+            :disabled="loading"
+          >
+            <span
+              v-if="loading && !savingAsDraft"
+              class="inline-block animate-spin h-4 w-4 mr-2 border-2 border-white border-t-transparent rounded-full"
+            />
+            {{ isEditMode ? t('submit.form.update') : t('posts.publish') }}
+          </button>
+        </div>
       </div>
     </form>
   </div>
@@ -440,9 +456,13 @@
       type: [Number, String],
       default: null,
     },
+    showDeleteButton: {
+      type: Boolean,
+      default: false,
+    },
   })
 
-  const emit = defineEmits(['submit', 'cancel', 'update'])
+  const emit = defineEmits(['submit', 'cancel', 'update', 'delete'])
 
   const { $api } = useNuxtApp()
   const localePath = useLocalePath()

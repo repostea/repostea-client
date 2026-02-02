@@ -3,8 +3,13 @@
     "end_of_posts": "Amaierara iritsi zara!",
     "loading": "Kargatzen...",
     "loading_more": "Argitalpen gehiago kargatzen...",
+    "loading_page": "Orria kargatzen...",
     "load_more": "Kargatu gehiago",
     "previous": "Aurrekoa",
-    "next": "Hurrengoa"
+    "next": "Hurrengoa",
+    "page": "Orria",
+    "next_page": "Hurrengo orria",
+    "navigation": "Orrien nabigazioa",
+    "go_to_page": "Joan {page} orrira"
   }
 }

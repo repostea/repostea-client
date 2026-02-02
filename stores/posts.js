@@ -9,33 +9,27 @@ export const usePostsStore = defineStore('posts', {
     pendingPosts: [],
     mySubsPosts: [],
     currentPost: null,
+    // Pagination token for stable pagination (session timestamp)
+    paginationToken: null,
+    pendingPaginationToken: null,
+    mySubsPaginationToken: null,
     meta: {
       currentPage: 1,
       lastPage: 1,
       total: 0,
-      perPage: 25,
-      // Cursor-based pagination fields
-      hasMore: false,
-      nextCursor: null,
-      prevCursor: null,
+      perPage: 50,
     },
     pendingMeta: {
       currentPage: 1,
       lastPage: 1,
       total: 0,
-      perPage: 25,
-      hasMore: false,
-      nextCursor: null,
-      prevCursor: null,
+      perPage: 50,
     },
     mySubsMeta: {
       currentPage: 1,
       lastPage: 1,
       total: 0,
-      perPage: 25,
-      hasMore: false,
-      nextCursor: null,
-      prevCursor: null,
+      perPage: 50,
     },
     loading: false,
     error: null,
@@ -53,7 +47,7 @@ export const usePostsStore = defineStore('posts', {
       sort = this.sort,
       direction = this.direction,
       interval = 43200,
-      perPage = 25,
+      perPage = 50,
       contentType = null,
       languages = null
     ) {
@@ -71,6 +65,11 @@ export const usePostsStore = defineStore('posts', {
           per_page: perPage,
         }
 
+        // Include pagination token for stable pagination
+        if (this.paginationToken) {
+          params.pagination_token = this.paginationToken
+        }
+
         if (contentType) {
           params.content_type = contentType
         }
@@ -82,10 +81,15 @@ export const usePostsStore = defineStore('posts', {
         const response = await $api.posts.getPosts(params)
         this.posts = response.data.data.map((post) => this._transformPostData(post))
 
+        // Save pagination token from first load
+        if (!this.paginationToken && response.data.meta.pagination_token) {
+          this.paginationToken = response.data.meta.pagination_token
+        }
+
         this.meta = {
           currentPage: response.data.meta.current_page,
           lastPage: response.data.meta.last_page,
-          total: response.data.meta.total,
+          total: response.data.meta.total_posts || response.data.meta.total,
           perPage: response.data.meta.per_page,
         }
 
@@ -102,7 +106,7 @@ export const usePostsStore = defineStore('posts', {
           currentPage: 1,
           lastPage: 1,
           total: 0,
-          perPage: 25,
+          perPage: 50,
         }
 
         throw error
@@ -112,11 +116,11 @@ export const usePostsStore = defineStore('posts', {
     },
 
     async fetchFrontpage(
-      _page = 1,
+      page = 1,
       sort = this.sort,
       direction = this.direction,
       interval = 43200,
-      perPage = 25,
+      perPage = 50,
       contentType = null,
       languages = null
     ) {
@@ -137,11 +141,16 @@ export const usePostsStore = defineStore('posts', {
         }
 
         const params = {
-          pagination: 'cursor', // Use cursor-based pagination
+          page,
           sort_by: sort,
           sort_dir: direction,
           time_interval: interval,
           per_page: perPage,
+        }
+
+        // Include pagination token for stable pagination
+        if (this.paginationToken) {
+          params.pagination_token = this.paginationToken
         }
 
         // Add content_type to params if provided
@@ -157,16 +166,18 @@ export const usePostsStore = defineStore('posts', {
         const response = await $api.posts.getFrontpage(params)
         this.posts = response.data.data.map((post) => this._transformPostData(post))
 
-        // Handle cursor-based pagination meta
+        // Save pagination token from first load
+        if (!this.paginationToken && response.data.meta.pagination_token) {
+          this.paginationToken = response.data.meta.pagination_token
+        }
+
+        // Handle page-based pagination meta
         const meta = response.data.meta
         this.meta = {
           currentPage: meta.current_page || 1,
           lastPage: meta.last_page || 1,
           total: meta.total_posts || meta.post_count || 0,
           perPage: meta.per_page,
-          hasMore: meta.has_more ?? meta.current_page < meta.last_page,
-          nextCursor: meta.next_cursor || null,
-          prevCursor: meta.prev_cursor || null,
         }
 
         this.sort = sort
@@ -182,7 +193,7 @@ export const usePostsStore = defineStore('posts', {
           currentPage: 1,
           lastPage: 1,
           total: 0,
-          perPage: 25,
+          perPage: 50,
         }
 
         throw error
@@ -196,7 +207,7 @@ export const usePostsStore = defineStore('posts', {
       sort = this.sort,
       direction = this.direction,
       interval = 43200,
-      perPage = 25,
+      perPage = 50,
       contentType = null,
       languages = null
     ) {
@@ -224,6 +235,11 @@ export const usePostsStore = defineStore('posts', {
           per_page: perPage,
         }
 
+        // Include pagination token for stable pagination
+        if (this.pendingPaginationToken) {
+          params.pagination_token = this.pendingPaginationToken
+        }
+
         // Add content_type to params if provided
         if (contentType) {
           params.content_type = contentType
@@ -238,10 +254,15 @@ export const usePostsStore = defineStore('posts', {
         this.pendingPosts = response.data.data.map((post) => this._transformPostData(post))
         this.posts = this.pendingPosts
 
+        // Save pagination token from first load
+        if (!this.pendingPaginationToken && response.data.meta.pagination_token) {
+          this.pendingPaginationToken = response.data.meta.pagination_token
+        }
+
         this.pendingMeta = {
           currentPage: response.data.meta.current_page,
           lastPage: response.data.meta.last_page,
-          total: response.data.meta.total,
+          total: response.data.meta.total_posts || response.data.meta.total,
           perPage: response.data.meta.per_page,
         }
         this.meta = this.pendingMeta
@@ -260,7 +281,7 @@ export const usePostsStore = defineStore('posts', {
           currentPage: 1,
           lastPage: 1,
           total: 0,
-          perPage: 25,
+          perPage: 50,
         }
         this.meta = this.pendingMeta
 
@@ -275,7 +296,7 @@ export const usePostsStore = defineStore('posts', {
       sort = this.sort,
       direction = this.direction,
       interval = 43200,
-      perPage = 25,
+      perPage = 50,
       contentType = null,
       languages = null
     ) {
@@ -310,6 +331,11 @@ export const usePostsStore = defineStore('posts', {
           source: 'my-subs', // Filter to show only posts from subscribed subs
         }
 
+        // Include pagination token for stable pagination
+        if (this.mySubsPaginationToken) {
+          params.pagination_token = this.mySubsPaginationToken
+        }
+
         if (contentType) {
           params.content_type = contentType
         }
@@ -322,10 +348,15 @@ export const usePostsStore = defineStore('posts', {
         this.mySubsPosts = response.data.data.map((post) => this._transformPostData(post))
         this.posts = this.mySubsPosts
 
+        // Save pagination token from first load
+        if (!this.mySubsPaginationToken && response.data.meta.pagination_token) {
+          this.mySubsPaginationToken = response.data.meta.pagination_token
+        }
+
         this.mySubsMeta = {
           currentPage: response.data.meta.current_page,
           lastPage: response.data.meta.last_page,
-          total: response.data.meta.total,
+          total: response.data.meta.total_posts || response.data.meta.total,
           perPage: response.data.meta.per_page,
         }
         this.meta = this.mySubsMeta
@@ -344,7 +375,7 @@ export const usePostsStore = defineStore('posts', {
           currentPage: 1,
           lastPage: 1,
           total: 0,
-          perPage: 25,
+          perPage: 50,
         }
         this.meta = this.mySubsMeta
 
@@ -360,7 +391,7 @@ export const usePostsStore = defineStore('posts', {
       sort = this.sort,
       direction = this.direction,
       interval = 43200,
-      perPage = 25,
+      perPage = 50,
       languages = null
     ) {
       this.loading = true
@@ -386,6 +417,11 @@ export const usePostsStore = defineStore('posts', {
           per_page: perPage,
         }
 
+        // Include pagination token for stable pagination
+        if (this.paginationToken) {
+          params.pagination_token = this.paginationToken
+        }
+
         // Add languages to params if provided
         if (languages && languages.length > 0) {
           params.languages = languages.join(',')
@@ -394,10 +430,15 @@ export const usePostsStore = defineStore('posts', {
         const response = await $api.posts.getContentByType(contentType, params)
         this.posts = response.data.data.map((post) => this._transformPostData(post))
 
+        // Save pagination token from first load
+        if (!this.paginationToken && response.data.meta.pagination_token) {
+          this.paginationToken = response.data.meta.pagination_token
+        }
+
         this.meta = {
           currentPage: response.data.meta.current_page,
           lastPage: response.data.meta.last_page,
-          total: response.data.meta.total,
+          total: response.data.meta.total_posts || response.data.meta.total,
           perPage: response.data.meta.per_page,
         }
 
@@ -414,7 +455,7 @@ export const usePostsStore = defineStore('posts', {
           currentPage: 1,
           lastPage: 1,
           total: 0,
-          perPage: 25,
+          perPage: 50,
         }
 
         throw error
@@ -427,7 +468,7 @@ export const usePostsStore = defineStore('posts', {
       page = 1,
       sort = this.sort,
       direction = this.direction,
-      perPage = 25,
+      perPage = 50,
       languages = null
     ) {
       return this.fetchPostsByContentType('video', page, sort, direction, 43200, perPage, languages)
@@ -437,221 +478,25 @@ export const usePostsStore = defineStore('posts', {
       page = 1,
       sort = this.sort,
       direction = this.direction,
-      perPage = 25,
+      perPage = 50,
       languages = null
     ) {
       return this.fetchPostsByContentType('audio', page, sort, direction, 43200, perPage, languages)
     },
 
-    // Load more methods for infinite scroll
-    async loadMoreFrontpage(
-      page,
-      sort = this.sort,
-      direction = this.direction,
-      interval = 43200,
-      perPage = 25,
-      contentType = null,
-      languages = null
-    ) {
-      // Don't load more if no cursor available
-      if (!this.meta.nextCursor) {
-        return []
+    // Reset pagination tokens (call when refreshing or changing sections)
+    resetPagination(section = null) {
+      if (section === 'frontpage' || section === null) {
+        this.paginationToken = null
+        this.meta.currentPage = 1
       }
-
-      try {
-        const { $api } = useNuxtApp()
-
-        // Get selected languages from user preferences store if not provided
-        if (!languages) {
-          const userPrefsStore = useUserPreferencesStore()
-          const savedLanguages = userPrefsStore.selectedLanguages
-          if (savedLanguages && savedLanguages.length > 0) {
-            languages = savedLanguages
-          }
-        }
-
-        const params = {
-          pagination: 'cursor',
-          cursor: this.meta.nextCursor,
-          sort_by: sort,
-          sort_dir: direction,
-          time_interval: interval,
-          per_page: perPage,
-        }
-
-        // Add content_type to params if provided
-        if (contentType) {
-          params.content_type = contentType
-        }
-
-        // Add languages to params if provided
-        if (languages && languages.length > 0) {
-          params.languages = languages.join(',')
-        }
-
-        const response = await $api.posts.getFrontpage(params)
-        const newPosts = response.data.data.map((post) => this._transformPostData(post))
-
-        // Append new posts to existing posts
-        this.posts = [...this.posts, ...newPosts]
-
-        // Handle cursor-based pagination meta
-        const meta = response.data.meta
-        this.meta = {
-          currentPage: meta.current_page || this.meta.currentPage + 1,
-          lastPage: meta.last_page || 1,
-          total: meta.total_posts || meta.post_count || 0,
-          perPage: meta.per_page,
-          hasMore: meta.has_more ?? false,
-          nextCursor: meta.next_cursor || null,
-          prevCursor: meta.prev_cursor || null,
-        }
-
-        this.sort = sort
-        this.direction = direction
-
-        return newPosts
-      } catch (error) {
-        this.error = error.response?.data?.message || 'Error loading more posts'
-        console.error('Error loading more frontpage posts:', error)
-        throw error
+      if (section === 'pending' || section === null) {
+        this.pendingPaginationToken = null
+        this.pendingMeta.currentPage = 1
       }
-    },
-
-    async loadMorePending(
-      page,
-      sort = this.sort,
-      direction = this.direction,
-      interval = 43200,
-      perPage = 25,
-      contentType = null,
-      languages = null
-    ) {
-      try {
-        const { $api } = useNuxtApp()
-
-        // Get selected languages from user preferences store if not provided
-        if (!languages) {
-          const userPrefsStore = useUserPreferencesStore()
-          const savedLanguages = userPrefsStore.selectedLanguages
-          if (savedLanguages && savedLanguages.length > 0) {
-            languages = savedLanguages
-          }
-        }
-
-        const params = {
-          page,
-          sort_by: sort,
-          sort_dir: direction,
-          time_interval: interval,
-          per_page: perPage,
-        }
-
-        // Add content_type to params if provided
-        if (contentType) {
-          params.content_type = contentType
-        }
-
-        // Add languages to params if provided
-        if (languages && languages.length > 0) {
-          params.languages = languages.join(',')
-        }
-
-        const response = await $api.posts.getPending(params)
-        const newPosts = response.data.data.map((post) => this._transformPostData(post))
-
-        // Append new posts to existing pending posts
-        this.pendingPosts = [...this.pendingPosts, ...newPosts]
-        this.posts = this.pendingPosts
-
-        this.pendingMeta = {
-          currentPage: response.data.meta.current_page,
-          lastPage: response.data.meta.last_page,
-          total: response.data.meta.total,
-          perPage: response.data.meta.per_page,
-        }
-        this.meta = this.pendingMeta
-
-        this.sort = sort
-        this.direction = direction
-
-        return newPosts
-      } catch (error) {
-        this.error = error.response?.data?.message || 'Error loading more pending posts'
-        console.error('Error loading more pending posts:', error)
-        throw error
-      }
-    },
-
-    async loadMoreMySubs(
-      page,
-      sort = this.sort,
-      direction = this.direction,
-      interval = 43200,
-      perPage = 25,
-      contentType = null,
-      languages = null
-    ) {
-      try {
-        const { $api } = useNuxtApp()
-        const authStore = useAuthStore()
-
-        // Require authentication
-        if (!authStore.isAuthenticated) {
-          throw new Error('Authentication required to view My Subs')
-        }
-
-        // Get selected languages from user preferences store if not provided
-        if (!languages) {
-          const userPrefsStore = useUserPreferencesStore()
-          const savedLanguages = userPrefsStore.selectedLanguages
-          if (savedLanguages && savedLanguages.length > 0) {
-            languages = savedLanguages
-          }
-        }
-
-        const params = {
-          page,
-          sort_by: sort,
-          sort_dir: direction,
-          time_interval: interval,
-          per_page: perPage,
-          source: 'my-subs',
-        }
-
-        // Add content_type to params if provided
-        if (contentType) {
-          params.content_type = contentType
-        }
-
-        if (languages && languages.length > 0) {
-          params.languages = languages.join(',')
-        }
-
-        const response = await $api.posts.getFrontpage(params)
-        const newPosts = response.data.data.map((post) => this._transformPostData(post))
-
-        // Append new posts to existing mySubsPosts
-        this.mySubsPosts = [...this.mySubsPosts, ...newPosts]
-        this.posts = this.mySubsPosts
-
-        // Update meta
-        this.mySubsMeta = {
-          currentPage: response.data.meta.current_page,
-          lastPage: response.data.meta.last_page,
-          total: response.data.meta.total,
-          perPage: response.data.meta.per_page,
-        }
-        this.meta = this.mySubsMeta
-
-        this.sort = sort
-        this.direction = direction
-
-        return newPosts
-      } catch (error) {
-        this.error = error.response?.data?.message || 'Error loading more My Subs posts'
-        console.error('Error loading more My Subs posts:', error)
-        throw error
+      if (section === 'my_subs' || section === null) {
+        this.mySubsPaginationToken = null
+        this.mySubsMeta.currentPage = 1
       }
     },
 
@@ -998,6 +843,10 @@ export const usePostsStore = defineStore('posts', {
       this.posts = []
       this.mySubsPosts = []
       this.pendingPosts = []
+      // Reset pagination tokens when clearing posts
+      this.paginationToken = null
+      this.pendingPaginationToken = null
+      this.mySubsPaginationToken = null
     },
 
     // Update post stats from realtime broadcast (votes, comments, views)

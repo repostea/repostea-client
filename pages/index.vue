@@ -28,9 +28,8 @@
           :meta="meta"
           :loading="loading"
           :layout="layout"
-          :has-more="hasMorePosts"
-          :load-more-loading="loadMoreLoading"
-          @load-more="loadMorePosts"
+          :load-more-loading="pageLoading"
+          @page-change="handlePageChange"
           @clear-filters="handleClearFilters"
         >
           <template #after-third-post>
@@ -69,7 +68,7 @@ definePageMeta({})
   import { usePostsStore } from '~/stores/posts'
   import { useUserPreferencesStore } from '~/stores/userPreferences'
   import { useI18n } from '#i18n'
-  import { useNuxtApp, useCookie, useRequestHeaders } from '#app'
+  import { useNuxtApp, useCookie } from '#app'
   import { useSeoMeta } from '#imports'
   import ResponsiveNavigation from '~/components/posts/ResponsiveNavigation.vue'
   import PostList from '~/components/posts/PostList.vue'
@@ -132,19 +131,6 @@ definePageMeta({})
     // Read preferences from cookie (available on server)
     const contentTypeFilterCookie = useCookie('content_type_filter')
     const selectedLanguagesCookie = useCookie('selected_languages')
-    const layoutCookie = useCookie('layout')
-
-    // Detect mobile via User-Agent in SSR for aggressive optimization
-    const headers = useRequestHeaders(['user-agent'])
-    const userAgent = headers['user-agent'] || ''
-    const isMobileSSR = /android|iphone|ipad|ipod|mobile|tablet/i.test(userAgent)
-
-    // Determine initial posts count based on layout AND device
-    // Mobile: much fewer posts for faster initial load (scroll infinite loads more)
-    const layoutPerPage = isMobileSSR
-      ? { compact: 4, list: 3, card: 3 } // Mobile: minimal initial load
-      : { compact: 8, list: 6, card: 5 } // Desktop: normal load
-    const perPage = layoutPerPage[layoutCookie.value] || (isMobileSSR ? 3 : 6)
 
     // Parse languages from cookie
     let languages = null
@@ -163,13 +149,14 @@ definePageMeta({})
     const sortBy = route.query.sort?.toString() || 'lastActive'
     const sortDir = route.query.dir?.toString() || 'desc'
     const timeInt = parseInt(route.query.time?.toString() || '43200')
+    const pageNum = parseInt(route.query.page?.toString() || '1')
 
     const params = {
-      pagination: 'cursor',
+      page: pageNum,
       sort_by: sortBy,
       sort_dir: sortDir,
       time_interval: timeInt,
-      per_page: perPage, // Adjusted based on layout (compact: 15, list: 12, card: 10)
+      per_page: 50,
     }
 
     // Add content type filter if present
@@ -194,10 +181,7 @@ definePageMeta({})
           current_page: 1,
           last_page: 1,
           total: 0,
-          per_page: 15,
-          has_more: false,
-          next_cursor: null,
-          prev_cursor: null,
+          per_page: 50,
         },
       }
     } catch (error) {
@@ -208,10 +192,7 @@ definePageMeta({})
           current_page: 1,
           last_page: 1,
           total: 0,
-          per_page: 15,
-          has_more: false,
-          next_cursor: null,
-          prev_cursor: null,
+          per_page: 50,
         },
       }
     }
@@ -301,9 +282,10 @@ definePageMeta({})
         lastPage: ssrMeta.last_page || 1,
         total: ssrMeta.total_posts || ssrMeta.total || ssrMeta.post_count || 0,
         perPage: ssrMeta.per_page,
-        hasMore: ssrMeta.has_more ?? ssrMeta.current_page < ssrMeta.last_page,
-        nextCursor: ssrMeta.next_cursor || null,
-        prevCursor: ssrMeta.prev_cursor || null,
+      }
+      // Save pagination token from SSR response
+      if (ssrMeta.pagination_token) {
+        postsStore.paginationToken = ssrMeta.pagination_token
       }
     } catch (e) {
       console.error('🚨 [SSR] Critical error initializing posts:', e)
@@ -313,10 +295,7 @@ definePageMeta({})
         currentPage: 1,
         lastPage: 1,
         total: 0,
-        perPage: 15,
-        hasMore: false,
-        nextCursor: null,
-        prevCursor: null,
+        perPage: 50,
       }
     }
   }
@@ -348,9 +327,9 @@ definePageMeta({})
   // Initialize filters from URL query params (with defaults)
   const sort = ref(route.query.sort?.toString() || 'lastActive')
   const direction = ref(route.query.dir?.toString() || 'desc')
-  const page = ref(1)
+  const page = ref(parseInt(route.query.page?.toString()) || 1)
   const loading = ref(false) // Start as false if we have SSR data
-  const loadMoreLoading = ref(false)
+  const pageLoading = ref(false) // Loading state for page changes
   const timeInterval = ref(route.query.time?.toString() || '43200')
   const isMobile = ref(false)
 
@@ -364,6 +343,7 @@ definePageMeta({})
     if (sort.value !== 'lastActive') query.sort = sort.value
     if (direction.value !== 'desc') query.dir = direction.value
     if (timeInterval.value !== '43200') query.time = timeInterval.value
+    if (page.value > 1) query.page = page.value.toString()
 
     // Use replace to avoid polluting browser history
     router.replace({ query })
@@ -392,6 +372,7 @@ definePageMeta({})
       // Reset to page 1 when changing section
       page.value = 1
       postsStore.clearPosts()
+      updateUrlState()
       // Fetch the new section
       nextTick(() => {
         fetchCurrentSection()
@@ -405,16 +386,6 @@ definePageMeta({})
 
   const posts = computed(() => postsStore.posts)
   const meta = computed(() => postsStore.meta)
-  const hasMorePosts = computed(() => {
-    // Use cursor-based pagination check first, fallback to page-based
-    if (meta.value.hasMore !== undefined) {
-      return meta.value.hasMore
-    }
-    if (meta.value.nextCursor) {
-      return true
-    }
-    return meta.value.currentPage < meta.value.lastPage
-  })
 
   function checkMobile() {
     if (import.meta.client) {
@@ -446,7 +417,7 @@ definePageMeta({})
         sort.value,
         direction.value,
         parseInt(timeInterval.value),
-        25, // perPage
+        15, // perPage
         contentType
       )
     } catch (error) {
@@ -467,7 +438,7 @@ definePageMeta({})
         sort.value,
         direction.value,
         parseInt(timeInterval.value),
-        25, // perPage
+        15, // perPage
         contentType
       )
     } catch (error) {
@@ -488,7 +459,7 @@ definePageMeta({})
         sort.value,
         direction.value,
         parseInt(timeInterval.value),
-        25, // perPage
+        15, // perPage
         contentType
       )
     } catch (error) {
@@ -503,6 +474,7 @@ definePageMeta({})
     // Reset to page 1 when filter changes
     page.value = 1
     postsStore.clearPosts() // Clear posts immediately when changing filters
+    updateUrlState()
     fetchCurrentSection()
   }
 
@@ -513,70 +485,30 @@ definePageMeta({})
     // Reset to page 1 and reload posts
     page.value = 1
     postsStore.clearPosts() // Clear posts immediately when clearing filters
+    updateUrlState()
     fetchCurrentSection()
   }
 
-  // Load more posts for infinite scroll
-  async function loadMorePosts() {
-    if (loadMoreLoading.value || !hasMorePosts.value) return
+  // Handle page change from pagination
+  async function handlePageChange(pageNum) {
+    if (pageLoading.value) return
 
-    loadMoreLoading.value = true
-    page.value += 1
+    pageLoading.value = true
+    page.value = pageNum
+    updateUrlState()
+
+    // Scroll to top of page for better UX
+    if (import.meta.client) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
 
     try {
-      if (currentSection.value === 'frontpage') {
-        await loadMoreFrontpage()
-      } else if (currentSection.value === 'pending') {
-        await loadMorePending()
-      } else if (currentSection.value === 'my_subs') {
-        await loadMoreMySubs()
-      }
+      await fetchCurrentSection()
     } catch (error) {
-      console.error('Error loading more posts:', error)
-      // Revert page on error
-      page.value -= 1
+      console.error('Error changing page:', error)
     } finally {
-      loadMoreLoading.value = false
+      pageLoading.value = false
     }
-  }
-
-  async function loadMoreFrontpage() {
-    const contentType = userPreferencesStore.getContentTypeFilter || null
-
-    await postsStore.loadMoreFrontpage(
-      page.value,
-      sort.value,
-      direction.value,
-      parseInt(timeInterval.value),
-      25,
-      contentType
-    )
-  }
-
-  async function loadMorePending() {
-    const contentType = userPreferencesStore.getContentTypeFilter || null
-
-    await postsStore.loadMorePending(
-      page.value,
-      sort.value,
-      direction.value,
-      parseInt(timeInterval.value),
-      25,
-      contentType
-    )
-  }
-
-  async function loadMoreMySubs() {
-    const contentType = userPreferencesStore.getContentTypeFilter || null
-
-    await postsStore.loadMoreMySubs(
-      page.value,
-      sort.value,
-      direction.value,
-      parseInt(timeInterval.value),
-      25,
-      contentType
-    )
   }
 
   async function fetchPopularTags() {
@@ -645,19 +577,32 @@ definePageMeta({})
       const newSort = newQuery.sort?.toString() || 'lastActive'
       const newDir = newQuery.dir?.toString() || 'desc'
       const newTime = newQuery.time?.toString() || '43200'
+      const newPage = parseInt(newQuery.page?.toString()) || 1
 
       // Only update if values actually changed (avoid loops)
+      let needsFetch = false
+
       if (sort.value !== newSort) {
         sort.value = newSort
+        needsFetch = true
       }
       if (direction.value !== newDir) {
         direction.value = newDir
+        needsFetch = true
       }
       if (timeInterval.value !== newTime) {
         timeInterval.value = newTime
+        needsFetch = true
+      }
+      if (page.value !== newPage) {
+        page.value = newPage
+        needsFetch = true
       }
 
-      // The watchers on sort/direction/timeInterval will handle fetching
+      // Fetch if page changed without other watchers triggering
+      if (needsFetch && page.value !== 1) {
+        fetchCurrentSection()
+      }
     },
     { deep: true }
   )

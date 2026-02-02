@@ -462,12 +462,11 @@ export default defineNuxtConfig({
       )
     }
 
-    // Only set baseUrl in production to avoid nuxt-site-config localhost warning
-    const siteUrl = process.env.NUXT_PUBLIC_SITE_URL
-    const isProduction = siteUrl && !siteUrl.includes('localhost')
+    // Set baseUrl for i18n SEO tags (hreflang, canonical, etc.)
+    const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
     return {
-      ...(isProduction && { baseUrl: siteUrl }),
+      baseUrl: siteUrl,
       lazy: true,
       // langDir is relative to this config file (i18n/i18n.config.ts), so 'locales' maps to ./i18n/locales
       langDir: 'locales',

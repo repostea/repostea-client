@@ -84,18 +84,25 @@
   }
 
   function switchLocale(localeCode) {
-    const currentPath = route.fullPath
+    // Separate path from query string
+    const currentPath = route.path
+    const queryString = route.fullPath.includes('?')
+      ? route.fullPath.substring(route.fullPath.indexOf('?'))
+      : ''
+
     const pathParts = currentPath.split('/')
     const hasLocalePrefix = pathParts.length > 1 && pathParts[1].length === 2
+
     let newPath
     if (hasLocalePrefix) {
       pathParts[1] = localeCode
       newPath = pathParts.join('/')
     } else {
-      newPath = `${localeCode}${currentPath.startsWith('/') ? currentPath : `/${currentPath}`}`
+      newPath = `/${localeCode}${currentPath.startsWith('/') ? currentPath : `/${currentPath}`}`
     }
 
-    window.location.href = newPath
+    // Re-append query string
+    window.location.href = newPath + queryString
     showDropdown.value = false
   }
 

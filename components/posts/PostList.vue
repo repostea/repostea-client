@@ -139,29 +139,27 @@
         </template>
       </div>
 
-      <!-- Infinite scroll trigger and load more button -->
-      <div v-if="hasMore" ref="infiniteScrollTrigger" class="flex justify-center mt-6">
+      <!-- Pagination -->
+      <div v-if="showPagination" class="mt-6 py-4">
         <div v-if="loadMoreLoading" class="text-center py-4" role="status" aria-live="polite">
           <LoadingSpinner
             size="lg"
             display="centered"
             :show-text="true"
-            :text="$t('pagination.loading_more')"
+            :text="$t('pagination.loading_page')"
           />
         </div>
-        <button
+        <Pagination
           v-else
-          class="btn-primary px-6 py-3 bg-primary rounded-lg hover:bg-primary-dark transition-colors font-medium"
-          :disabled="loadMoreLoading"
-          @click="$emit('load-more')"
-        >
-          {{ $t('pagination.load_more') }}
-        </button>
+          :current-page="meta.currentPage || 1"
+          :last-page="meta.lastPage || 1"
+          @page-change="goToPage"
+        />
       </div>
 
-      <!-- End of posts message -->
+      <!-- End of posts message (only when on last page) -->
       <div
-        v-else-if="posts.length > 0"
+        v-else-if="posts.length > 0 && isLastPage"
         class="text-center py-6 text-text-muted dark:text-text-dark-muted"
       >
         <Icon name="fa6-solid:circle-check" class="text-xl mb-2" aria-hidden="true" />
@@ -172,12 +170,14 @@
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue'
-  import PostCard from '~/components/posts/PostCard.vue'
-  import ListItemCard from '~/components/posts/ListItemCard.vue'
+  import { ref, computed, onMounted, defineAsyncComponent } from 'vue'
   import LoadingSpinner from '~/components/common/LoadingSpinner.vue'
   import { useI18n, useLocalePath } from '#i18n'
-  import { useInfiniteScroll } from '~/composables/useInfiniteScroll'
+
+  // Lazy load components based on layout
+  const PostCard = defineAsyncComponent(() => import('~/components/posts/PostCard.vue'))
+  const ListItemCard = defineAsyncComponent(() => import('~/components/posts/ListItemCard.vue'))
+  const Pagination = defineAsyncComponent(() => import('~/components/common/Pagination.vue'))
 
   useI18n()
   const localePath = useLocalePath()
@@ -199,10 +199,6 @@
       type: Boolean,
       default: false,
     },
-    hasMore: {
-      type: Boolean,
-      default: false,
-    },
     loadMoreLoading: {
       type: Boolean,
       default: false,
@@ -219,21 +215,23 @@
     },
   })
 
-  const emit = defineEmits(['load-more', 'vote', 'clear-filters'])
+  const emit = defineEmits(['vote', 'clear-filters', 'page-change'])
 
   const showTutorial = ref(false)
 
-  // Setup infinite scroll
-  const handleLoadMore = () => {
-    if (props.hasMore && !props.loadMoreLoading) {
-      emit('load-more')
-    }
-  }
-
-  const { target: infiniteScrollTrigger } = useInfiniteScroll(handleLoadMore, {
-    rootMargin: '100px',
-    threshold: 0.1,
+  // Should show pagination (when there's more than one page)
+  const showPagination = computed(() => {
+    return props.meta.lastPage > 1
   })
+
+  // Check if we're on the last page
+  const isLastPage = computed(() => {
+    return props.meta.currentPage >= props.meta.lastPage
+  })
+
+  const goToPage = (pageNum) => {
+    emit('page-change', pageNum)
+  }
 
   onMounted(async () => {
     try {
