@@ -36,7 +36,6 @@ describe('Search E2E Tests', () => {
     })
   }
 
-
   describe('Search Results Page', () => {
     // Non-modal tests first to avoid Cypress flaky first-test issue
     it('should highlight search term', () => {

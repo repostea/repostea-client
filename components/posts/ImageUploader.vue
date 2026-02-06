@@ -8,7 +8,7 @@
           :alt="t('comments.image_upload.preview')"
           class="image-preview w-full h-auto rounded-lg"
           style="max-height: 400px; object-fit: contain"
-        >
+        />
         <div
           class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center"
         >
@@ -45,7 +45,7 @@
         accept="image/jpeg,image/png,image/gif,image/webp"
         class="hidden"
         @change="handleFileSelect"
-      >
+      />
 
       <div class="mb-4">
         <Icon
@@ -77,7 +77,7 @@
           v-model="isNsfw"
           type="checkbox"
           class="w-5 h-5 min-w-[20px] min-h-[20px] flex-shrink-0 text-red-600 border-2 border-gray-300 dark:border-neutral-500 rounded focus:ring-red-500"
-        >
+        />
         <label for="uploader-nsfw-checkbox" class="text-sm cursor-pointer">
           <span class="text-red-600 font-medium">{{ t('comments.image_upload.nsfw_label') }}</span>
         </label>

@@ -56,7 +56,7 @@
           class="post-form-input flex-grow rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
           :placeholder="`${t('submit.form.poll_option')} ${index + 1}`"
           :class="{ 'border-red-500': pollOptionsError }"
-        >
+        />
         <button
           v-if="index > 1 && !(hasVotes && isEditMode)"
           type="button"
@@ -116,7 +116,7 @@
           v-model="allowMultipleOptions"
           type="checkbox"
           class="poll-checkbox w-6 h-6 rounded text-primary dark:text-primary focus:ring-primary dark:focus:ring-primary"
-        >
+        />
         <label for="allow_multiple_options" class="ml-2 text-sm">
           {{ t('submit.form.poll_allow_multiple') }}
         </label>

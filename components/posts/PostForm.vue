@@ -48,7 +48,7 @@
           :aria-describedby="errors.title ? 'title-error' : undefined"
           required
           maxlength="255"
-        >
+        />
         <p v-if="errors.title" id="title-error" role="alert" class="mt-1 text-sm text-red-500">
           {{ errors.title }}
         </p>
@@ -278,7 +278,7 @@
             type="checkbox"
             class="post-form-checkbox w-6 h-6 rounded text-primary dark:text-primary focus:ring-primary dark:focus:ring-primary"
             :disabled="!!externalSource"
-          >
+          />
           <label v-if="!isEditMode" for="is_original" class="ml-2 text-sm">
             {{ t('submit.form.is_original') }}
           </label>
@@ -288,7 +288,7 @@
             v-model="form.is_anonymous"
             type="checkbox"
             class="post-form-checkbox w-6 h-6 rounded text-primary dark:text-primary focus:ring-primary dark:focus:ring-primary"
-          >
+          />
           <label v-if="isEditMode" for="is_anonymous" class="ml-2 text-sm">
             {{ t('submit.form.is_anonymous') }}
           </label>
@@ -304,7 +304,7 @@
             :disabled="
               isEditMode && (initialData?.moderated_by || initialData?.nsfw_locked_by_admin)
             "
-          >
+          />
           <div class="ml-2">
             <label for="is_nsfw" class="text-sm font-medium">
               {{ t('submit.form.is_nsfw') }}
@@ -329,7 +329,7 @@
             v-model="form.should_federate"
             type="checkbox"
             class="post-form-checkbox w-6 h-6 mt-0.5 rounded text-primary dark:text-primary focus:ring-primary dark:focus:ring-primary"
-          >
+          />
           <div class="ml-2">
             <label for="should_federate" class="text-sm font-medium inline-flex items-center gap-1">
               <Icon name="fa6-solid:globe" class="text-primary" aria-hidden="true" />

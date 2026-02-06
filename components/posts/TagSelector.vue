@@ -32,7 +32,7 @@
           @keydown.backspace="handleBackspace"
           @keydown.enter.prevent="focusInput"
           @focus="focusInput"
-        >
+        />
       </div>
 
       <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">

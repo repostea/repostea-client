@@ -35,7 +35,7 @@
               class="w-full px-3 py-1.5 text-sm rounded-md border comments-compact-input focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               :placeholder="t('profile.search_comments')"
               :aria-label="t('profile.search_comments')"
-            >
+            />
           </div>
 
           <button

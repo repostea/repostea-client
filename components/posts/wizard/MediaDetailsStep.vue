@@ -70,7 +70,7 @@
             maxlength="255"
             @input="$emit('update:title', $event.target.value)"
             @blur="$emit('title-blur')"
-          >
+          />
           <div class="flex justify-between mt-2">
             <p v-if="titleError" class="text-sm text-red-500" data-testid="title-error">
               {{ titleError }}

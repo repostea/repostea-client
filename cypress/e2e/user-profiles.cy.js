@@ -73,7 +73,9 @@ describe('User Profiles E2E Tests', () => {
       visitWithRetry(`/en/u/${testUser.username}`)
       acceptCookies()
 
-      cy.get('.lg\\:col-span-1, [class*="info"], [class*="card"]', { timeout: 10000 }).should('exist')
+      cy.get('.lg\\:col-span-1, [class*="info"], [class*="card"]', { timeout: 10000 }).should(
+        'exist'
+      )
     })
   })
 
@@ -82,7 +84,9 @@ describe('User Profiles E2E Tests', () => {
       visitWithRetry(`/en/u/${testUser.username}`)
       acceptCookies()
 
-      cy.get('button, nav button', { timeout: 10000 }).contains(/Achievements/i).should('exist')
+      cy.get('button, nav button', { timeout: 10000 })
+        .contains(/Achievements/i)
+        .should('exist')
     })
 
     it('should show posts tab', () => {
@@ -96,7 +100,9 @@ describe('User Profiles E2E Tests', () => {
       visitWithRetry(`/en/u/${testUser.username}`)
       acceptCookies()
 
-      cy.get('button, nav button', { timeout: 10000 }).contains(/comments/i).should('exist')
+      cy.get('button, nav button', { timeout: 10000 })
+        .contains(/comments/i)
+        .should('exist')
     })
 
     it('should switch to posts tab', () => {

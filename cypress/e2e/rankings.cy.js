@@ -95,7 +95,7 @@ describe('Rankings E2E Tests', () => {
       acceptCookies()
 
       cy.get('body').then(($body) => {
-        const weekButton = $body.find('button').filter(function() {
+        const weekButton = $body.find('button').filter(function () {
           return /semana|week|7d/i.test(this.textContent)
         })
         if (weekButton.length > 0) {
@@ -111,7 +111,7 @@ describe('Rankings E2E Tests', () => {
       acceptCookies()
 
       cy.get('body').then(($body) => {
-        const monthButton = $body.find('button').filter(function() {
+        const monthButton = $body.find('button').filter(function () {
           return /mes|month|30d/i.test(this.textContent)
         })
         if (monthButton.length > 0) {
@@ -126,7 +126,7 @@ describe('Rankings E2E Tests', () => {
       acceptCookies()
 
       cy.get('body').then(($body) => {
-        const allButton = $body.find('button').filter(function() {
+        const allButton = $body.find('button').filter(function () {
           return /all/i.test(this.textContent)
         })
         if (allButton.length > 0) {

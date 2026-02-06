@@ -48,7 +48,9 @@ describe('Federation E2E Tests', () => {
       visitWithRetry('/en/federation')
       acceptCookies()
 
-      cy.get('body', { timeout: 10000 }).invoke('text').should('match', /federation|fediverse/i)
+      cy.get('body', { timeout: 10000 })
+        .invoke('text')
+        .should('match', /federation|fediverse/i)
     })
 
     it('should show federation explanation', () => {
@@ -56,7 +58,9 @@ describe('Federation E2E Tests', () => {
       acceptCookies()
 
       // Check for English content from federation.json translations
-      cy.get('body', { timeout: 10000 }).invoke('text').should('match', /ActivityPub|Fediverse/i)
+      cy.get('body', { timeout: 10000 })
+        .invoke('text')
+        .should('match', /ActivityPub|Fediverse/i)
     })
 
     it('should show connected instances info', () => {
@@ -84,7 +88,9 @@ describe('Federation E2E Tests', () => {
       visitWithRetry('/en/profile/federation')
       acceptCookies()
 
-      cy.get('body', { timeout: 10000 }).invoke('text').should('match', /federation|fediverse/i)
+      cy.get('body', { timeout: 10000 })
+        .invoke('text')
+        .should('match', /federation|fediverse/i)
     })
 
     it('should show ActivityPub address', () => {

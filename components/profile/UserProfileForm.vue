@@ -27,7 +27,7 @@
       :class="{ 'border-red-500': errors.username }"
       :aria-invalid="!!errors.username"
       :aria-describedby="errors.username ? 'username-error' : undefined"
-    >
+    />
     <p v-if="errors.username" id="username-error" role="alert" class="mt-1 text-sm text-red-500">
       {{ errors.username }}
     </p>
@@ -47,7 +47,7 @@
           disabled
           autocomplete="email"
           class="form-input-disabled flex-1 rounded-md px-3 py-2 cursor-not-allowed"
-        >
+        />
         <NuxtLink
           :to="localePath('/profile/settings')"
           class="px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-md transition-colors whitespace-nowrap"

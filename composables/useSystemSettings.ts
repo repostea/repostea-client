@@ -15,11 +15,31 @@ export type EmailVerification = 'required' | 'optional' | 'disabled'
 export type GuestAccess = 'enabled' | 'disabled'
 export type RegistrationApproval = 'none' | 'required'
 
+export interface SocialProviderStatus {
+  enabled: boolean
+  bot_username?: string | null
+}
+
+export interface SocialProviders {
+  mastodon: SocialProviderStatus
+  mbin: SocialProviderStatus
+  telegram: SocialProviderStatus
+  bluesky: SocialProviderStatus
+}
+
 export interface SystemSettings {
   registration_mode: RegistrationMode
   email_verification: EmailVerification
   guest_access: GuestAccess
   registration_approval: RegistrationApproval
+  social_providers: SocialProviders
+}
+
+const defaultSocialProviders: SocialProviders = {
+  mastodon: { enabled: false },
+  mbin: { enabled: false },
+  telegram: { enabled: false, bot_username: null },
+  bluesky: { enabled: false },
 }
 
 // Shared state across all instances (singleton pattern)
@@ -28,6 +48,7 @@ const settings = ref<SystemSettings>({
   email_verification: 'optional',
   guest_access: 'disabled', // Default to disabled for security
   registration_approval: 'none',
+  social_providers: { ...defaultSocialProviders },
 })
 
 const isLoading = ref(false)
@@ -77,6 +98,7 @@ export const useSystemSettings = () => {
         email_verification: data.email_verification || 'optional',
         guest_access: data.guest_access || 'disabled',
         registration_approval: data.registration_approval || 'none',
+        social_providers: data.social_providers || { ...defaultSocialProviders },
       }
 
       isLoaded.value = true
@@ -90,6 +112,7 @@ export const useSystemSettings = () => {
         email_verification: 'optional',
         guest_access: 'disabled',
         registration_approval: 'none',
+        social_providers: { ...defaultSocialProviders },
       }
     } finally {
       isLoading.value = false

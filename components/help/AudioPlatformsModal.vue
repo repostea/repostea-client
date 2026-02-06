@@ -42,7 +42,7 @@
               type="text"
               :placeholder="t('audio_help.search_placeholder')"
               class="w-full px-4 py-3 pl-11 rounded-lg audio-modal-input focus:outline-none focus:ring-2 focus:ring-primary"
-            >
+            />
             <Icon
               name="fa6-solid:magnifying-glass"
               class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"

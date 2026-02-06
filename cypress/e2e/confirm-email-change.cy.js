@@ -93,7 +93,9 @@ describe('Email Change Confirmation E2E Tests', () => {
       acceptCookies()
 
       // Check for centering classes - the page uses flex justify-center and mx-auto
-      cy.get('.justify-center, .mx-auto, .text-center, [class*="center"]', { timeout: 10000 }).should('exist')
+      cy.get('.justify-center, .mx-auto, .text-center, [class*="center"]', {
+        timeout: 10000,
+      }).should('exist')
     })
 
     it('should have card-style layout', () => {

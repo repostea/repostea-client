@@ -75,7 +75,14 @@ export const WizardNavigationStub = {
       </button>
     </div>
   `,
-  props: ['currentStep', 'totalSteps', 'canProceed', 'isSubmitting', 'savingAsDraft', 'isFormValid'],
+  props: [
+    'currentStep',
+    'totalSteps',
+    'canProceed',
+    'isSubmitting',
+    'savingAsDraft',
+    'isFormValid',
+  ],
   emits: ['previous', 'next', 'save-draft', 'publish'],
 }
 
@@ -94,7 +101,14 @@ export const MediaUrlStepStub = {
     </div>
   `,
   props: ['contentType', 'modelValue', 'error', 'title', 'subtitle', 'placeholder'],
-  emits: ['update:modelValue', 'blur', 'paste', 'image-uploaded', 'image-deleted', 'show-audio-help'],
+  emits: [
+    'update:modelValue',
+    'blur',
+    'paste',
+    'image-uploaded',
+    'image-deleted',
+    'show-audio-help',
+  ],
 }
 
 export const TitleStepStub = {
@@ -138,7 +152,15 @@ export const MediaDetailsStepStub = {
       </template>
     </div>
   `,
-  props: ['isLoading', 'metadataApplied', 'metadataError', 'title', 'titleError', 'content', 'contentError'],
+  props: [
+    'isLoading',
+    'metadataApplied',
+    'metadataError',
+    'title',
+    'titleError',
+    'content',
+    'contentError',
+  ],
   emits: ['update:title', 'update:content', 'title-blur', 'content-blur'],
 }
 
@@ -162,7 +184,13 @@ export const TextContentStepStub = {
     </div>
   `,
   props: ['titleValue', 'titleError', 'content', 'contentError', 'previewActive'],
-  emits: ['update:titleValue', 'update:content', 'title-blur', 'toggle-preview', 'toggle-fullscreen'],
+  emits: [
+    'update:titleValue',
+    'update:content',
+    'title-blur',
+    'toggle-preview',
+    'toggle-fullscreen',
+  ],
 }
 
 export const PollCreationStepStub = {
@@ -185,8 +213,22 @@ export const PollCreationStepStub = {
       <button @click="$emit('add-option')">Add option</button>
     </div>
   `,
-  props: ['content', 'pollOptions', 'expirationOption', 'allowMultiple', 'pollHasVotes', 'isEditMode'],
-  emits: ['update:content', 'update:expirationOption', 'update:allowMultiple', 'update:pollOptions', 'add-option', 'remove-option'],
+  props: [
+    'content',
+    'pollOptions',
+    'expirationOption',
+    'allowMultiple',
+    'pollHasVotes',
+    'isEditMode',
+  ],
+  emits: [
+    'update:content',
+    'update:expirationOption',
+    'update:allowMultiple',
+    'update:pollOptions',
+    'add-option',
+    'remove-option',
+  ],
   methods: {
     updateOption(index, value) {
       const newOptions = [...this.pollOptions]
@@ -230,14 +272,31 @@ export const PostDetailsStepStub = {
     </div>
   `,
   props: [
-    'languageCode', 'subId', 'mySubs', 'currentPostSub', 'isAnonymous', 'isNsfw',
-    'shouldFederate', 'isFederationEnabled', 'isAuthenticated', 'isGuest',
-    'contentType', 'thumbnailUrl', 'effectivePostId', 'postRelationships',
+    'languageCode',
+    'subId',
+    'mySubs',
+    'currentPostSub',
+    'isAnonymous',
+    'isNsfw',
+    'shouldFederate',
+    'isFederationEnabled',
+    'isAuthenticated',
+    'isGuest',
+    'contentType',
+    'thumbnailUrl',
+    'effectivePostId',
+    'postRelationships',
   ],
   emits: [
-    'update:languageCode', 'update:subId', 'update:isAnonymous', 'update:isNsfw',
-    'update:shouldFederate', 'thumbnail-updated', 'thumbnail-deleted',
-    'add-relationship', 'remove-relationship',
+    'update:languageCode',
+    'update:subId',
+    'update:isAnonymous',
+    'update:isNsfw',
+    'update:shouldFederate',
+    'thumbnail-updated',
+    'thumbnail-deleted',
+    'add-relationship',
+    'remove-relationship',
   ],
 }
 

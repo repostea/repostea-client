@@ -63,7 +63,7 @@
                 :placeholder="t('posts.relationships.search_placeholder')"
                 class="add-rel-input w-full px-3 sm:px-4 py-2 text-sm rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 @input="handleSearch"
-              >
+              />
               <Icon
                 name="fa6-solid:magnifying-glass"
                 class="absolute right-3 top-3 text-gray-400 text-sm"
@@ -456,7 +456,7 @@
                 v-model="publishAsAnonymous"
                 type="checkbox"
                 class="w-4 h-4 mt-0.5 sm:mt-0 text-primary rounded focus:ring-primary focus:ring-2 flex-shrink-0 relationship-checkbox"
-              >
+              />
               <span class="ml-2 text-xs sm:text-sm text-text dark:text-text-dark">
                 {{ t('posts.relationships.publish_anonymous') }}
               </span>

@@ -119,7 +119,7 @@
                       : 'focus:ring-2 focus:ring-primary',
                   ]"
                   :placeholder="$t('subs.name_placeholder')"
-                >
+                />
               </div>
               <p
                 v-if="nameValidationError"
@@ -149,7 +149,7 @@
                 maxlength="100"
                 class="w-full px-3 py-2 border rounded-md settings-input"
                 :placeholder="$t('subs.title_placeholder')"
-              >
+              />
             </div>
 
             <div>

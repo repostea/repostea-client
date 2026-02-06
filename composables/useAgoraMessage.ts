@@ -59,8 +59,7 @@ export function useAgoraMessage(
    */
   const canDelete = computed<boolean>(() => {
     return Boolean(
-      authUser.value &&
-        (authUser.value.id === message.value.user?.id || authUser.value.isAdmin)
+      authUser.value && (authUser.value.id === message.value.user?.id || authUser.value.isAdmin)
     )
   })
 
@@ -87,10 +86,7 @@ export function useAgoraMessage(
    * Get total replies count - prefers server-calculated total if available
    */
   const totalRepliesCount = computed<number>(() => {
-    if (
-      message.value.total_replies_count !== undefined &&
-      message.value.total_replies_count > 0
-    ) {
+    if (message.value.total_replies_count !== undefined && message.value.total_replies_count > 0) {
       return message.value.total_replies_count
     }
     return countAllReplies(message.value)

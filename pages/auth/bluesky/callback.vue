@@ -18,7 +18,7 @@
             <Icon name="heroicons:x-mark" class="w-8 h-8 text-red-600 dark:text-red-400" />
           </div>
           <h2 class="text-lg font-medium text-red-600 dark:text-red-400">
-            {{ t('auth.reddit_callback_error') }}
+            {{ t('auth.bluesky_callback_error') }}
           </h2>
           <p class="text-sm text-text-muted dark:text-text-dark-muted">
             {{ error }}
@@ -51,7 +51,7 @@
   import { ref, onMounted } from 'vue'
   import { useRoute } from 'vue-router'
   import { useLocalePath, useI18n } from '#i18n'
-  import { useRedditAuth } from '@/composables/useRedditAuth'
+  import { useBlueskyAuth } from '@/composables/useBlueskyAuth'
   import { isSafeRedirectUrl } from '@/utils/urlSecurity'
   import LoadingSpinner from '~/components/common/LoadingSpinner.vue'
 
@@ -61,32 +61,31 @@
   const localePath = useLocalePath()
   const { $redirectAfterAuth } = useNuxtApp()
 
-  const { completeRedditLogin, error: authError } = useRedditAuth()
+  const { completeBlueskyLogin, error: authError } = useBlueskyAuth()
 
   const loading = ref(true)
   const error = ref('')
 
   onMounted(async () => {
-    const code = route.query.code || ''
-    const state = route.query.state || ''
+    const exchangeCode = route.query.exchange_code || ''
     const errorParam = route.query.error || ''
 
-    // Check for error from Reddit
+    // Check for error from backend
     if (errorParam) {
       loading.value = false
-      error.value = route.query.error_description || errorParam
+      error.value = errorParam
       return
     }
 
     // Validate required params
-    if (!code || !state) {
+    if (!exchangeCode) {
       loading.value = false
-      error.value = t('auth.reddit_callback_error')
+      error.value = t('auth.bluesky_callback_error')
       return
     }
 
-    // Complete the OAuth flow
-    const result = await completeRedditLogin(code, state)
+    // Complete the OAuth flow by exchanging the code
+    const result = await completeBlueskyLogin(exchangeCode)
 
     loading.value = false
 
@@ -100,7 +99,7 @@
         }
       }, 500)
     } else {
-      error.value = authError.value || t('auth.reddit_callback_error')
+      error.value = authError.value || t('auth.bluesky_callback_error')
     }
   })
 </script>

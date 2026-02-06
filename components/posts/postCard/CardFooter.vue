@@ -185,7 +185,7 @@
                   type="text"
                   readonly
                   class="modal-input flex-grow py-2 px-3 focus:outline-none"
-                >
+                />
                 <button
                   class="modal-copy-btn px-3 py-2 transition-colors"
                   aria-label="Copy to clipboard"

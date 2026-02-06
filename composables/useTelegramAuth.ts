@@ -47,9 +47,17 @@ export function useTelegramAuth() {
 
   /**
    * Initialize the Telegram Login Widget in the given container.
+   * @param container - The HTML element to render the widget in
+   * @param overrideBotUsername - Bot username from system settings (avoids extra API call)
    */
-  async function initializeTelegramWidget(container: HTMLElement): Promise<void> {
-    if (!telegramEnabled.value || !botUsername.value) {
+  async function initializeTelegramWidget(
+    container: HTMLElement,
+    overrideBotUsername?: string | null
+  ): Promise<void> {
+    if (overrideBotUsername) {
+      botUsername.value = overrideBotUsername
+      telegramEnabled.value = true
+    } else if (!telegramEnabled.value || !botUsername.value) {
       await checkTelegramStatus()
     }
 

@@ -51,7 +51,7 @@
             :class="{ 'opacity-0': isLoading }"
             @load="onImageLoad"
             @error="onImageError"
-          >
+          />
 
           <!-- Alt text caption -->
           <div

@@ -501,7 +501,6 @@
     }
   })
 
-
   // Handle paste event to detect images from clipboard
   // Opens modal instead of uploading directly so user can mark as NSFW
   async function handlePaste(event) {
@@ -704,5 +703,4 @@
     background-color: var(--color-bg-card);
     border: 1px solid var(--color-border-default);
   }
-
 </style>

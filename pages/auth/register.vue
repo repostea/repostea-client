@@ -120,7 +120,7 @@
                   required
                   autocomplete="username"
                   autofocus
-                >
+                />
                 <p
                   v-if="errors.username"
                   id="username-error"
@@ -147,7 +147,7 @@
                   :aria-describedby="errors.email ? 'email-error' : undefined"
                   required
                   autocomplete="email"
-                >
+                />
                 <p
                   v-if="errors.email"
                   id="email-error"
@@ -174,7 +174,7 @@
                   :aria-describedby="errors.password ? 'password-error' : undefined"
                   required
                   autocomplete="new-password"
-                >
+                />
                 <p
                   v-if="errors.password"
                   id="password-error"
@@ -203,7 +203,7 @@
                   "
                   required
                   autocomplete="new-password"
-                >
+                />
                 <p
                   v-if="errors.password_confirmation"
                   id="password-confirm-error"
@@ -251,6 +251,9 @@
                 </p>
               </div>
             </form>
+
+            <!-- Social Login Providers (Telegram, Mastodon, Bluesky, etc.) -->
+            <SocialLoginProviders />
           </div>
         </div>
       </div>
@@ -265,6 +268,7 @@
 
   import { useRoute } from 'vue-router'
   import { useSystemSettings } from '@/composables/useSystemSettings'
+  import SocialLoginProviders from '~/components/auth/SocialLoginProviders.vue'
   const { t, locale } = useI18n()
 
   const authStore = useAuthStore()

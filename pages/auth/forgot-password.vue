@@ -40,7 +40,7 @@
                   autocomplete="email"
                   class="w-full rounded-md border auth-input px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   required
-                >
+                />
               </div>
 
               <div class="mb-4">

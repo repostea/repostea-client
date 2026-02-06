@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="comment-content text-text dark:text-text-dark mb-2"
-    data-testid="comment-content"
-  >
+  <div class="comment-content text-text dark:text-text-dark mb-2" data-testid="comment-content">
     <!-- Editing mode -->
     <div v-if="isEditing" class="space-y-2">
       <CommentEditor
@@ -68,125 +65,125 @@
 </template>
 
 <script setup>
-import CommentEditor from '~/components/comments/CommentEditor.vue'
-import InlineEmbed from '~/components/media/InlineEmbed.vue'
-import { useI18n } from '#i18n'
+  import CommentEditor from '~/components/comments/CommentEditor.vue'
+  import InlineEmbed from '~/components/media/InlineEmbed.vue'
+  import { useI18n } from '#i18n'
 
-const { t } = useI18n()
+  const { t } = useI18n()
 
-defineProps({
-  comment: {
-    type: Object,
-    required: true,
-  },
-  isEditing: {
-    type: Boolean,
-    default: false,
-  },
-  editContent: {
-    type: String,
-    default: '',
-  },
-  isSavingEdit: {
-    type: Boolean,
-    default: false,
-  },
-  formattedContent: {
-    type: String,
-    default: '',
-  },
-  embeds: {
-    type: Array,
-    default: () => [],
-  },
-})
+  defineProps({
+    comment: {
+      type: Object,
+      required: true,
+    },
+    isEditing: {
+      type: Boolean,
+      default: false,
+    },
+    editContent: {
+      type: String,
+      default: '',
+    },
+    isSavingEdit: {
+      type: Boolean,
+      default: false,
+    },
+    formattedContent: {
+      type: String,
+      default: '',
+    },
+    embeds: {
+      type: Array,
+      default: () => [],
+    },
+  })
 
-defineEmits(['edit-submit', 'edit-cancel', 'content-click'])
+  defineEmits(['edit-submit', 'edit-cancel', 'content-click'])
 </script>
 
 <style scoped>
-.comment-deleted-box {
-  background-color: var(--color-bg-subtle);
-  color: var(--color-text-muted);
-}
+  .comment-deleted-box {
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text-muted);
+  }
 
-/* Markdown styles */
-.prose {
-  max-width: 100%;
-  font-size: 0.875rem;
-  line-height: 1.5rem;
-}
+  /* Markdown styles */
+  .prose {
+    max-width: 100%;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
 
-.prose img {
-  max-width: 100%;
-  height: auto;
-  margin: 0.5rem 0;
-  border-radius: 0.25rem;
-}
+  .prose img {
+    max-width: 100%;
+    height: auto;
+    margin: 0.5rem 0;
+    border-radius: 0.25rem;
+  }
 
-.prose h1 {
-  font-size: 1.125rem;
-  font-weight: 700;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
+  .prose h1 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
 
-.prose h2 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
+  .prose h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
 
-.prose h3 {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  margin-top: 0.75rem;
-  margin-bottom: 0.25rem;
-}
+  .prose h3 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
 
-.prose p {
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-}
+  .prose p {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
 
-.prose ul,
-.prose ol {
-  margin-top: 0.25rem;
-  margin-bottom: 0.5rem;
-  padding-left: 1.25rem;
-}
+  .prose ul,
+  .prose ol {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.25rem;
+  }
 
-.prose ul {
-  list-style-type: disc;
-}
+  .prose ul {
+    list-style-type: disc;
+  }
 
-.prose ol {
-  list-style-type: decimal;
-}
+  .prose ol {
+    list-style-type: decimal;
+  }
 
-.prose blockquote {
-  border-left: 3px solid var(--color-border-default);
-  padding-left: 0.75rem;
-  font-style: italic;
-  margin: 0.5rem 0;
-}
+  .prose blockquote {
+    border-left: 3px solid var(--color-border-default);
+    padding-left: 0.75rem;
+    font-style: italic;
+    margin: 0.5rem 0;
+  }
 
-.prose code {
-  font-family: monospace;
-  background-color: var(--color-bg-hover);
-  padding: 0.1rem 0.25rem;
-  border-radius: 0.25rem;
-}
+  .prose code {
+    font-family: monospace;
+    background-color: var(--color-bg-hover);
+    padding: 0.1rem 0.25rem;
+    border-radius: 0.25rem;
+  }
 
-.prose a {
-  color: var(--color-text-link);
-  text-decoration: underline;
-}
+  .prose a {
+    color: var(--color-text-link);
+    text-decoration: underline;
+  }
 
-.prose hr {
-  margin: 1rem 0;
-  border: 0;
-  border-top: 1px solid var(--color-border-default);
-}
+  .prose hr {
+    margin: 1rem 0;
+    border: 0;
+    border-top: 1px solid var(--color-border-default);
+  }
 </style>

@@ -79,7 +79,9 @@ describe('User Profile E2E Tests', () => {
       acceptCookies()
 
       // Profile page has tab buttons for achievements/posts/comments
-      cy.get('button', { timeout: 10000 }).filter(':contains("Posts"), :contains("Comments"), :contains("Achievements")').should('have.length.at.least', 1)
+      cy.get('button', { timeout: 10000 })
+        .filter(':contains("Posts"), :contains("Comments"), :contains("Achievements")')
+        .should('have.length.at.least', 1)
     })
   })
 

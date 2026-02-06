@@ -35,7 +35,7 @@
               value="con-cebolla"
               class="w-5 h-5 text-primary profile-edit-radio focus:ring-2 focus:ring-primary cursor-pointer"
               @change="handleTortillaChange"
-            >
+            />
             <span class="text-sm text-text dark:text-text-dark">{{
               t('profile.tortilla.with_onion')
             }}</span>
@@ -52,7 +52,7 @@
               value="sin-cebolla"
               class="w-5 h-5 text-primary profile-edit-radio focus:ring-2 focus:ring-primary cursor-pointer"
               @change="handleTortillaChange"
-            >
+            />
             <span class="text-sm text-text dark:text-text-dark">{{
               t('profile.tortilla.without_onion')
             }}</span>

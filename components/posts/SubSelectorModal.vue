@@ -51,7 +51,7 @@
               :placeholder="t('subs.search_all_subs')"
               class="sub-modal-input w-full pl-10 pr-4 py-3 text-base rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               @keydown.escape="close"
-            >
+            />
           </div>
         </div>
 

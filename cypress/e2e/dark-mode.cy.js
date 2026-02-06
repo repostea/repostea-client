@@ -46,7 +46,9 @@ describe('Dark Mode E2E Tests', () => {
       cy.wait(500)
 
       // Theme button should exist in menu
-      cy.get('button', { timeout: 5000 }).contains(/theme|tema/i).should('exist')
+      cy.get('button', { timeout: 5000 })
+        .contains(/theme|tema/i)
+        .should('exist')
     })
 
     it('should open theme modal when clicking theme option', () => {
@@ -55,12 +57,14 @@ describe('Dark Mode E2E Tests', () => {
       acceptCookies()
 
       cy.get('body').then(($body) => {
-        const menuBtn = $body.find('.menu-button, [aria-label*="menu"], button.hamburger, .mobile-menu-button')
+        const menuBtn = $body.find(
+          '.menu-button, [aria-label*="menu"], button.hamburger, .mobile-menu-button'
+        )
         if (menuBtn.length > 0) {
           cy.wrap(menuBtn.first()).click({ force: true })
           cy.wait(500)
 
-          const themeBtn = $body.find('button:visible').filter(function() {
+          const themeBtn = $body.find('button:visible').filter(function () {
             return /theme/i.test(this.textContent)
           })
           if (themeBtn.length > 0) {
@@ -118,7 +122,9 @@ describe('Dark Mode E2E Tests', () => {
       acceptCookies()
 
       // Desktop should have theme button visible
-      cy.get('button', { timeout: 10000 }).contains(/theme|tema/i).should('exist')
+      cy.get('button', { timeout: 10000 })
+        .contains(/theme|tema/i)
+        .should('exist')
     })
   })
 })

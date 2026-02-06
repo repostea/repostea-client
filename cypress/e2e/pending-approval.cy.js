@@ -81,7 +81,9 @@ describe('Pending Approval E2E Tests', () => {
       visitWithRetry('/en/auth/pending-approval')
       acceptCookies()
 
-      cy.get('svg, [class*="check"], [class*="hourglass"], [class*="clock"]', { timeout: 10000 }).should('exist')
+      cy.get('svg, [class*="check"], [class*="hourglass"], [class*="clock"]', {
+        timeout: 10000,
+      }).should('exist')
     })
   })
 

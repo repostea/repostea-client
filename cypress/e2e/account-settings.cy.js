@@ -207,7 +207,9 @@ describe('Account Settings E2E Tests', () => {
       acceptCookies()
 
       // Scroll to danger zone and click delete button
-      cy.contains('button', /delete account/i, { timeout: 10000 }).scrollIntoView().click({ force: true })
+      cy.contains('button', /delete account/i, { timeout: 10000 })
+        .scrollIntoView()
+        .click({ force: true })
 
       // Confirmation should have multiple buttons (confirm + cancel)
       cy.get('button', { timeout: 5000 }).should('have.length.at.least', 2)

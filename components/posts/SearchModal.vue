@@ -43,7 +43,7 @@
               :aria-label="t('search.placeholder')"
               class="search-input flex-1 px-4 py-2.5 rounded-lg outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               @keyup.enter="performSearch"
-            >
+            />
             <button
               :disabled="searchQuery.length < 2 || loading"
               class="px-6 py-2.5 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
@@ -109,7 +109,7 @@
                 v-model="filters.searchInComments"
                 type="checkbox"
                 class="w-4 h-4 rounded text-primary focus:ring-2 focus:ring-primary cursor-pointer"
-              >
+              />
               <span class="select-none">{{ t('search.include_comments') }}</span>
             </label>
           </div>

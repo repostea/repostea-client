@@ -93,14 +93,10 @@ describe('Smart Validation and Error Navigation - E2E Tests', () => {
       waitForStep(3)
 
       // Type into the actual textarea inside the markdown editor
-      cy.get('.md-editor-textarea', { timeout: 5000 })
-        .should('be.visible')
-        .type('Short')
+      cy.get('.md-editor-textarea', { timeout: 5000 }).should('be.visible').type('Short')
       cy.get('[data-testid="next-button"]').should('be.disabled')
 
-      cy.get('.md-editor-textarea')
-        .clear()
-        .type('This is a longer content that should be valid')
+      cy.get('.md-editor-textarea').clear().type('This is a longer content that should be valid')
       cy.get('[data-testid="next-button"]').should('not.be.disabled')
     })
 
@@ -265,13 +261,9 @@ describe('Smart Validation and Error Navigation - E2E Tests', () => {
       waitForStep(3)
 
       cy.get('[data-testid="next-button"]').should('be.disabled')
-      cy.get('.md-editor-textarea', { timeout: 5000 })
-        .should('be.visible')
-        .type('Short')
+      cy.get('.md-editor-textarea', { timeout: 5000 }).should('be.visible').type('Short')
       cy.get('[data-testid="next-button"]').should('be.disabled')
-      cy.get('.md-editor-textarea')
-        .clear()
-        .type('This is valid content with enough characters')
+      cy.get('.md-editor-textarea').clear().type('This is valid content with enough characters')
       cy.get('[data-testid="next-button"]').should('not.be.disabled')
     })
 

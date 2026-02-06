@@ -65,9 +65,7 @@ describe('Media Upload E2E Tests', () => {
       cy.wait(1000)
 
       // Select image type - need to wait for wizard to fully render first
-      cy.get('[data-testid="content-type-image"]', { timeout: 10000 })
-        .should('be.visible')
-        .click()
+      cy.get('[data-testid="content-type-image"]', { timeout: 10000 }).should('be.visible').click()
 
       // Wait for auto-advance and Step 2 content to render
       cy.wait(1000)
@@ -171,7 +169,9 @@ describe('Media Upload E2E Tests', () => {
       cy.wait(1000)
 
       // Profile edit page should have avatar upload section
-      cy.get('input[type="file"], .avatar-uploader, [class*="avatar"]', { timeout: 10000 }).should('exist')
+      cy.get('input[type="file"], .avatar-uploader, [class*="avatar"]', { timeout: 10000 }).should(
+        'exist'
+      )
     })
   })
 
@@ -203,9 +203,7 @@ describe('Media Upload E2E Tests', () => {
       cy.wait(300)
 
       cy.get('[data-testid="content-type-image"]', { timeout: 10000 }).click()
-      cy.get('.upload-area', { timeout: 10000 })
-        .should('exist')
-        .and('contain.text', 'Drag')
+      cy.get('.upload-area', { timeout: 10000 }).should('exist').and('contain.text', 'Drag')
     })
   })
 

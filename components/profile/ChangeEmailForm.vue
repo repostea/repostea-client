@@ -62,7 +62,7 @@
         :aria-describedby="errors.email ? 'email-error' : undefined"
         :disabled="pendingChange && !pendingChange.is_expired"
         required
-      >
+      />
       <p v-if="errors.email" id="email-error" role="alert" class="mt-1 text-sm text-red-500">
         {{ errors.email }}
       </p>
@@ -85,7 +85,7 @@
           :aria-describedby="errors.current_password ? 'current-password-error' : undefined"
           :disabled="pendingChange && !pendingChange.is_expired"
           required
-        >
+        />
         <button
           type="button"
           class="absolute inset-y-0 right-0 px-3 flex items-center"

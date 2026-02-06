@@ -75,93 +75,86 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import VoteControls from '~/components/comments/VoteControls.vue'
-import { useI18n } from '#i18n'
+  import { computed } from 'vue'
+  import VoteControls from '~/components/comments/VoteControls.vue'
+  import { useI18n } from '#i18n'
 
-const { t } = useI18n()
+  const { t } = useI18n()
 
-const props = defineProps({
-  comment: {
-    type: Object,
-    required: true,
-  },
-  voteRefreshKey: {
-    type: Number,
-    default: 0,
-  },
-  canEdit: {
-    type: Boolean,
-    default: false,
-  },
-  isEditing: {
-    type: Boolean,
-    default: false,
-  },
-  isAuthor: {
-    type: Boolean,
-    default: false,
-  },
-  isMobile: {
-    type: Boolean,
-    default: false,
-  },
-  nested: {
-    type: Boolean,
-    default: false,
-  },
-  isThreadCollapsed: {
-    type: Boolean,
-    default: false,
-  },
-})
+  const props = defineProps({
+    comment: {
+      type: Object,
+      required: true,
+    },
+    voteRefreshKey: {
+      type: Number,
+      default: 0,
+    },
+    canEdit: {
+      type: Boolean,
+      default: false,
+    },
+    isEditing: {
+      type: Boolean,
+      default: false,
+    },
+    isAuthor: {
+      type: Boolean,
+      default: false,
+    },
+    isMobile: {
+      type: Boolean,
+      default: false,
+    },
+    nested: {
+      type: Boolean,
+      default: false,
+    },
+    isThreadCollapsed: {
+      type: Boolean,
+      default: false,
+    },
+  })
 
-defineEmits([
-  'voted',
-  'reply',
-  'show-permalink',
-  'start-edit',
-  'show-delete',
-  'toggle-collapse',
-])
+  defineEmits(['voted', 'reply', 'show-permalink', 'start-edit', 'show-delete', 'toggle-collapse'])
 
-const voteTypeSummary = computed(() => {
-  try {
-    const voteStats = props.comment?.vote_stats || props.comment?.voteStats
-    if (voteStats?.vote_types) {
-      return voteStats.vote_types
+  const voteTypeSummary = computed(() => {
+    try {
+      const voteStats = props.comment?.vote_stats || props.comment?.voteStats
+      if (voteStats?.vote_types) {
+        return voteStats.vote_types
+      }
+    } catch (error) {
+      console.error('Error computing voteTypeSummary:', error)
     }
-  } catch (error) {
-    console.error('Error computing voteTypeSummary:', error)
-  }
-  return {}
-})
+    return {}
+  })
 
-const hasChildren = computed(() => {
-  return props.comment.children && props.comment.children.length > 0
-})
+  const hasChildren = computed(() => {
+    return props.comment.children && props.comment.children.length > 0
+  })
 
-const childrenCount = computed(() => {
-  return props.comment.children?.length || 0
-})
+  const childrenCount = computed(() => {
+    return props.comment.children?.length || 0
+  })
 </script>
 
 <style scoped>
-.comment-footer {
-  min-height: 28px;
-}
-
-.text-2xs {
-  font-size: 0.65rem;
-  line-height: 1rem;
-}
-
-/* On very narrow screens, let items wrap naturally */
-@media (max-width: 400px) {
-  .comment-footer .vote-types-summary {
-    margin-left: 0;
-    margin-top: 0.25rem;
-    width: 100%;
+  .comment-footer {
+    min-height: 28px;
   }
-}
+
+  .text-2xs {
+    font-size: 0.65rem;
+    line-height: 1rem;
+  }
+
+  /* On very narrow screens, let items wrap naturally */
+  @media (max-width: 400px) {
+    .comment-footer .vote-types-summary {
+      margin-left: 0;
+      margin-top: 0.25rem;
+      width: 100%;
+    }
+  }
 </style>

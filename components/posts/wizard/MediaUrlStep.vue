@@ -8,32 +8,18 @@
     <div class="max-w-2xl mx-auto space-y-4">
       <!-- Image uploader for image-type posts -->
       <div v-if="contentType === 'image'">
-        <label class="block text-sm font-medium mb-2">
-          {{ t('submit.form.image_url') }} *
-        </label>
+        <label class="block text-sm font-medium mb-2"> {{ t('submit.form.image_url') }} * </label>
         <ImageUploader
           :current-image="modelValue"
           @image-uploaded="$emit('image-uploaded', $event)"
           @image-deleted="$emit('image-deleted')"
         />
-        <p
-          v-if="error"
-          class="mt-2 text-sm text-red-500 flex items-center"
-          data-testid="url-error"
-        >
-          <Icon
-            name="fa6-solid:circle-exclamation"
-            class="mr-1 flex-shrink-0"
-            aria-hidden="true"
-          />
+        <p v-if="error" class="mt-2 text-sm text-red-500 flex items-center" data-testid="url-error">
+          <Icon name="fa6-solid:circle-exclamation" class="mr-1 flex-shrink-0" aria-hidden="true" />
           <span>{{ error }}</span>
         </p>
         <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 flex items-center">
-          <Icon
-            name="fa6-solid:shield-halved"
-            class="mr-1 flex-shrink-0"
-            aria-hidden="true"
-          />
+          <Icon name="fa6-solid:shield-halved" class="mr-1 flex-shrink-0" aria-hidden="true" />
           <span>{{ t('submit.wizard.image_storage_info') }}</span>
         </p>
       </div>
@@ -59,17 +45,13 @@
             :placeholder="placeholder"
             @input="$emit('update:modelValue', $event.target.value)"
             @blur="$emit('blur')"
-          >
+          />
           <button
             type="button"
             class="absolute right-2 top-1/2 -translate-y-1/2 px-2 sm:px-4 py-2 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-md transition-colors flex items-center gap-1 sm:gap-2 shadow-sm"
             @click="$emit('show-audio-help')"
           >
-            <Icon
-              name="fa6-solid:magnifying-glass"
-              class="flex-shrink-0"
-              aria-hidden="true"
-            />
+            <Icon name="fa6-solid:magnifying-glass" class="flex-shrink-0" aria-hidden="true" />
             <span class="hidden sm:inline">{{ t('audio_help.search_platforms_button') }}</span>
             <span class="sm:hidden">{{ t('common.search') }}</span>
           </button>
@@ -90,7 +72,7 @@
           :placeholder="placeholder"
           @input="$emit('update:modelValue', $event.target.value)"
           @blur="$emit('blur')"
-        >
+        />
 
         <p v-if="error" class="mt-2 text-sm text-red-500" data-testid="url-error">
           {{ error }}
@@ -115,7 +97,7 @@
           :placeholder="t('submit.wizard.link_url_placeholder')"
           @input="$emit('update:modelValue', $event.target.value)"
           @paste="$emit('paste', $event)"
-        >
+        />
         <p v-if="error" class="mt-2 text-sm text-red-500" data-testid="url-error">
           {{ error }}
         </p>

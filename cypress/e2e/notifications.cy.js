@@ -132,7 +132,9 @@ describe('Notifications E2E Tests', () => {
       acceptCookies()
 
       // Page should show the "Recent Notifications" section (always present)
-      cy.contains(/recent notifications|notificaciones recientes/i, { timeout: 10000 }).should('be.visible')
+      cy.contains(/recent notifications|notificaciones recientes/i, { timeout: 10000 }).should(
+        'be.visible'
+      )
     })
 
     it('should show notification content', () => {
@@ -305,7 +307,10 @@ describe('Notifications E2E Tests', () => {
       acceptCookies()
 
       // Header should have notification bell or user info (logged in)
-      cy.get('[aria-label*="notification"], .notification-bell, a[href*="/notification"], .user-info', { timeout: 10000 }).should('exist')
+      cy.get(
+        '[aria-label*="notification"], .notification-bell, a[href*="/notification"], .user-info',
+        { timeout: 10000 }
+      ).should('exist')
     })
 
     it('should show unread count badge', () => {

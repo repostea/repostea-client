@@ -212,7 +212,11 @@ export default defineNuxtConfig({
       const apiBase = process.env.NUXT_PUBLIC_API_BASE || ''
       try {
         const apiUrl = new URL(apiBase)
-        if (apiUrl.hostname && apiUrl.hostname !== 'localhost' && !domains.includes(apiUrl.hostname)) {
+        if (
+          apiUrl.hostname &&
+          apiUrl.hostname !== 'localhost' &&
+          !domains.includes(apiUrl.hostname)
+        ) {
           domains.unshift(apiUrl.hostname)
         }
       } catch {
@@ -594,7 +598,10 @@ export default defineNuxtConfig({
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:8000/api',
       serverUrl: process.env.NUXT_PUBLIC_SERVER_URL || 'http://localhost:8000',
       // Site URL - supports both SITE_URL (preferred) and CLIENT_URL (legacy) for backwards compatibility
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || process.env.NUXT_PUBLIC_CLIENT_URL || 'http://localhost:3000',
+      siteUrl:
+        process.env.NUXT_PUBLIC_SITE_URL ||
+        process.env.NUXT_PUBLIC_CLIENT_URL ||
+        'http://localhost:3000',
       appEnv: process.env.APP_ENV || 'development',
       turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || '',
       // Reverb WebSocket config

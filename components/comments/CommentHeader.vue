@@ -52,22 +52,22 @@
 </template>
 
 <script setup>
-import AuthorInfo from '~/components/common/AuthorInfo.vue'
-import TimeAgo from '~/components/ui/TimeAgo.vue'
-import { useI18n } from '#i18n'
+  import AuthorInfo from '~/components/common/AuthorInfo.vue'
+  import TimeAgo from '~/components/ui/TimeAgo.vue'
+  import { useI18n } from '#i18n'
 
-const { t } = useI18n()
+  const { t } = useI18n()
 
-defineProps({
-  comment: {
-    type: Object,
-    required: true,
-  },
-  nested: {
-    type: Boolean,
-    default: false,
-  },
-})
+  defineProps({
+    comment: {
+      type: Object,
+      required: true,
+    },
+    nested: {
+      type: Boolean,
+      default: false,
+    },
+  })
 
-defineEmits(['scroll-to-comment'])
+  defineEmits(['scroll-to-comment'])
 </script>

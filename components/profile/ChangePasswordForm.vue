@@ -29,7 +29,7 @@
           :aria-invalid="!!errors.current_password"
           :aria-describedby="errors.current_password ? 'current-password-error' : undefined"
           required
-        >
+        />
         <button
           type="button"
           class="absolute inset-y-0 right-0 px-3 flex items-center"
@@ -68,7 +68,7 @@
           :aria-invalid="!!errors.password"
           :aria-describedby="errors.password ? 'new-password-error' : undefined"
           required
-        >
+        />
         <button
           type="button"
           class="absolute inset-y-0 right-0 px-3 flex items-center"
@@ -110,7 +110,7 @@
           :aria-invalid="!!errors.password_confirmation"
           :aria-describedby="errors.password_confirmation ? 'password-confirm-error' : undefined"
           required
-        >
+        />
         <button
           type="button"
           class="absolute inset-y-0 right-0 px-3 flex items-center"

@@ -227,14 +227,18 @@ describe('Reports E2E Tests', () => {
       visitWithRetry('/en/report')
       acceptCookies()
 
-      cy.get('a').contains(/cancel/i, { timeout: 10000 }).should('exist')
+      cy.get('a')
+        .contains(/cancel/i, { timeout: 10000 })
+        .should('exist')
     })
 
     it('should navigate to home when canceling', () => {
       visitWithRetry('/en/report')
       acceptCookies()
 
-      cy.get('a').contains(/cancel/i).click()
+      cy.get('a')
+        .contains(/cancel/i)
+        .click()
 
       // Accept both /en and /en/ (with or without trailing slash)
       cy.url().should('match', /\/en\/?$/)

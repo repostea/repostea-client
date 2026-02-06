@@ -55,7 +55,11 @@
         >
           <div class="edit-modal-header px-6 py-4">
             <h2 class="text-xl font-medium text-red-600 dark:text-red-400 inline-flex items-center">
-              <Icon name="fa6-solid:triangle-exclamation" class="mr-2 flex-shrink-0" aria-hidden="true" />
+              <Icon
+                name="fa6-solid:triangle-exclamation"
+                class="mr-2 flex-shrink-0"
+                aria-hidden="true"
+              />
               <span>{{ t('posts.confirm_delete_title') }}</span>
             </h2>
           </div>
@@ -83,7 +87,12 @@
                 :disabled="isDeleting"
                 @click="deletePost"
               >
-                <Icon v-if="isDeleting" name="fa6-solid:spinner" class="animate-spin mr-2" aria-hidden="true" />
+                <Icon
+                  v-if="isDeleting"
+                  name="fa6-solid:spinner"
+                  class="animate-spin mr-2"
+                  aria-hidden="true"
+                />
                 {{ t('posts.delete') }}
               </button>
             </div>
@@ -96,9 +105,8 @@
 
 <script setup>
   import { ref, computed } from 'vue'
-  import { useI18n } from '#i18n'
+  import { useI18n, useLocalePath } from '#i18n'
   import { useRouter } from 'vue-router'
-  import { useLocalePath } from '#i18n'
   import { useNuxtApp } from '#app'
   import { useNotification } from '~/composables/useNotification'
   import { usePostsStore } from '~/stores/posts'

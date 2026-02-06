@@ -67,49 +67,49 @@
 </template>
 
 <script setup>
-import { useI18n } from '#i18n'
+  import { useI18n } from '#i18n'
 
-const { t } = useI18n()
+  const { t } = useI18n()
 
-defineProps({
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
-  isDeleting: {
-    type: Boolean,
-    default: false,
-  },
-})
+  defineProps({
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+    isDeleting: {
+      type: Boolean,
+      default: false,
+    },
+  })
 
-defineEmits(['update:modelValue', 'confirm'])
+  defineEmits(['update:modelValue', 'confirm'])
 </script>
 
 <style scoped>
-.comment-modal {
-  background-color: var(--color-bg-card);
-  color: var(--color-text-primary);
-}
+  .comment-modal {
+    background-color: var(--color-bg-card);
+    color: var(--color-text-primary);
+  }
 
-.modal-close-btn {
-  color: var(--color-text-muted);
-  transition: color 0.2s ease;
-}
+  .modal-close-btn {
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
+  }
 
-.modal-close-btn:hover {
-  color: var(--color-text-primary);
-}
+  .modal-close-btn:hover {
+    color: var(--color-text-primary);
+  }
 
-.modal-description {
-  color: var(--color-text-secondary);
-}
+  .modal-description {
+    color: var(--color-text-secondary);
+  }
 
-.modal-btn-secondary {
-  background-color: var(--color-bg-active);
-  color: var(--color-text-primary);
-}
+  .modal-btn-secondary {
+    background-color: var(--color-bg-active);
+    color: var(--color-text-primary);
+  }
 
-.modal-btn-secondary:hover {
-  background-color: var(--color-bg-elevated);
-}
+  .modal-btn-secondary:hover {
+    background-color: var(--color-bg-elevated);
+  }
 </style>

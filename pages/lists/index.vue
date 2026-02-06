@@ -283,7 +283,7 @@
                 type="text"
                 class="w-full rounded-md border lists-input px-3 py-2"
                 required
-              >
+              />
             </div>
 
             <div class="mb-4">
@@ -305,7 +305,7 @@
                   v-model="formData.is_public"
                   type="checkbox"
                   class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
-                >
+                />
                 <label for="is-public" class="ml-2 text-sm">
                   {{ t('saved_lists.is_public') }}
                 </label>

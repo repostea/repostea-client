@@ -28,7 +28,7 @@
                 accept="image/jpeg,image/png,image/gif,image/webp"
                 class="hidden"
                 @change="handleImageUpload"
-              >
+              />
             </label>
             <!-- Reset to initials -->
             <button
@@ -73,7 +73,7 @@
             type="checkbox"
             class="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
             @change="togglePrivacy"
-          >
+          />
           <div>
             <span class="font-medium text-sm">{{ $t('subs.public_sub') }}</span>
             <p class="text-xs text-gray-600 dark:text-gray-400">
@@ -88,7 +88,7 @@
             v-model="modelValue.require_approval"
             type="checkbox"
             class="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
-          >
+          />
           <div>
             <span class="font-medium text-sm">{{ $t('subs.require_approval') }}</span>
             <p class="text-xs text-gray-600 dark:text-gray-400">
@@ -103,7 +103,7 @@
             v-model="modelValue.allow_nsfw"
             type="checkbox"
             class="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
-          >
+          />
           <div>
             <span class="font-medium text-sm">{{ $t('subs.allow_nsfw') }}</span>
             <p v-if="showNsfwDescription" class="text-xs text-gray-600 dark:text-gray-400">
@@ -145,7 +145,7 @@
             type="checkbox"
             :value="type.value"
             class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
-          >
+          />
           <Icon :name="type.icon" class="text-gray-600 dark:text-gray-400" aria-hidden="true" />
           <span class="text-sm">{{ $t(type.label) }}</span>
         </label>
@@ -183,7 +183,7 @@
                 :aria-label="$t('subs.rule_title_placeholder')"
                 class="w-full px-3 py-1.5 text-sm border rounded sub-form-input"
                 maxlength="100"
-              >
+              />
               <textarea
                 v-model="rule.description"
                 :placeholder="$t('subs.rule_description_placeholder')"

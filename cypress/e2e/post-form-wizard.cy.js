@@ -240,7 +240,9 @@ describe('PostFormWizard E2E Tests', () => {
       cy.wait(500)
 
       // Invalid URL should show error or disable next button
-      cy.get('[data-testid="url-error"], [data-testid="next-button"]:disabled', { timeout: 5000 }).should('exist')
+      cy.get('[data-testid="url-error"], [data-testid="next-button"]:disabled', {
+        timeout: 5000,
+      }).should('exist')
     })
 
     it('should auto-add https protocol to URLs', () => {
@@ -253,9 +255,11 @@ describe('PostFormWizard E2E Tests', () => {
       cy.wait(500)
 
       // URL should have https added or next button should work
-      cy.get('[data-testid="url-input"]').invoke('val').then((val) => {
-        expect(val).to.match(/^https?:\/\/example\.com$|^example\.com$/)
-      })
+      cy.get('[data-testid="url-input"]')
+        .invoke('val')
+        .then((val) => {
+          expect(val).to.match(/^https?:\/\/example\.com$|^example\.com$/)
+        })
     })
 
     it('should validate title length', () => {

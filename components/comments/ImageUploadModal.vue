@@ -33,7 +33,7 @@
               :src="imagePreviewUrl"
               :alt="t('comments.image_upload.preview')"
               class="w-full max-h-48 object-contain rounded-md bg-gray-100 dark:bg-neutral-800"
-            >
+            />
             <button
               type="button"
               class="absolute top-2 right-2 p-1 bg-red-500 hover:bg-red-600 text-white rounded-full transition-colors"
@@ -63,7 +63,7 @@
               accept="image/jpeg,image/png,image/gif,image/webp"
               class="hidden"
               @change="handleFileSelect"
-            >
+            />
             <div class="flex flex-col items-center justify-center py-6 px-4 text-center">
               <Icon
                 :name="isDragging ? 'fa6-solid:cloud-arrow-down' : 'fa6-solid:cloud-arrow-up'"
@@ -97,7 +97,7 @@
               type="text"
               class="editor-input w-full text-sm rounded-md px-2 py-1"
               :placeholder="t('comments.image_upload.alt_placeholder')"
-            >
+            />
           </div>
 
           <!-- NSFW checkbox -->
@@ -107,7 +107,7 @@
               v-model="imageIsNsfw"
               type="checkbox"
               class="w-5 h-5 min-w-[20px] min-h-[20px] flex-shrink-0 text-red-600 border-2 border-gray-300 dark:border-neutral-500 rounded focus:ring-red-500"
-            >
+            />
             <label for="image-nsfw-checkbox" class="text-sm">
               <span class="text-red-600 font-medium">{{
                 t('comments.image_upload.nsfw_label')
@@ -152,200 +152,200 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
-import { useI18n } from '#i18n'
+  import { ref, watch } from 'vue'
+  import { useI18n } from '#i18n'
 
-const { t } = useI18n()
+  const { t } = useI18n()
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
-  initialFile: {
-    type: [File, null],
-    default: null,
-  },
-})
+  const props = defineProps({
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+    initialFile: {
+      type: [File, null],
+      default: null,
+    },
+  })
 
-const emit = defineEmits(['update:modelValue', 'upload'])
+  const emit = defineEmits(['update:modelValue', 'upload'])
 
-// State
-const fileInput = ref(null)
-const selectedFile = ref(null)
-const imagePreviewUrl = ref(null)
-const imageAlt = ref('')
-const imageIsNsfw = ref(false)
-const isUploading = ref(false)
-const uploadError = ref('')
-const isDragging = ref(false)
+  // State
+  const fileInput = ref(null)
+  const selectedFile = ref(null)
+  const imagePreviewUrl = ref(null)
+  const imageAlt = ref('')
+  const imageIsNsfw = ref(false)
+  const isUploading = ref(false)
+  const uploadError = ref('')
+  const isDragging = ref(false)
 
-// Watch for initial file (from paste)
-watch(
-  () => props.initialFile,
-  (file) => {
-    if (file) {
-      selectedFile.value = file
-      generatePreview(file)
+  // Watch for initial file (from paste)
+  watch(
+    () => props.initialFile,
+    (file) => {
+      if (file) {
+        selectedFile.value = file
+        generatePreview(file)
+      }
+    },
+    { immediate: true }
+  )
+
+  // Generate preview URL for selected file
+  function generatePreview(file) {
+    if (imagePreviewUrl.value) {
+      URL.revokeObjectURL(imagePreviewUrl.value)
     }
-  },
-  { immediate: true }
-)
-
-// Generate preview URL for selected file
-function generatePreview(file) {
-  if (imagePreviewUrl.value) {
-    URL.revokeObjectURL(imagePreviewUrl.value)
-  }
-  imagePreviewUrl.value = URL.createObjectURL(file)
-}
-
-function handleFileSelect(event) {
-  const file = event.target.files[0]
-  if (!file) return
-
-  uploadError.value = ''
-
-  if (!file.type.startsWith('image/')) {
-    uploadError.value = t('comments.image_upload.invalid_type')
-    return
+    imagePreviewUrl.value = URL.createObjectURL(file)
   }
 
-  if (file.size > 16 * 1024 * 1024) {
-    uploadError.value = t('comments.image_upload.too_large')
-    return
+  function handleFileSelect(event) {
+    const file = event.target.files[0]
+    if (!file) return
+
+    uploadError.value = ''
+
+    if (!file.type.startsWith('image/')) {
+      uploadError.value = t('comments.image_upload.invalid_type')
+      return
+    }
+
+    if (file.size > 16 * 1024 * 1024) {
+      uploadError.value = t('comments.image_upload.too_large')
+      return
+    }
+
+    selectedFile.value = file
+    generatePreview(file)
   }
 
-  selectedFile.value = file
-  generatePreview(file)
-}
-
-function triggerFileInput() {
-  if (fileInput.value) {
-    fileInput.value.click()
-  }
-}
-
-function handleDragOver(event) {
-  event.preventDefault()
-  event.stopPropagation()
-  isDragging.value = true
-}
-
-function handleDragLeave(event) {
-  event.preventDefault()
-  event.stopPropagation()
-  isDragging.value = false
-}
-
-function handleDrop(event) {
-  event.preventDefault()
-  event.stopPropagation()
-  isDragging.value = false
-
-  const files = event.dataTransfer?.files
-  if (!files || files.length === 0) return
-
-  const file = files[0]
-  if (!file.type.startsWith('image/')) {
-    uploadError.value = t('comments.image_upload.invalid_type')
-    return
+  function triggerFileInput() {
+    if (fileInput.value) {
+      fileInput.value.click()
+    }
   }
 
-  if (file.size > 16 * 1024 * 1024) {
-    uploadError.value = t('comments.image_upload.too_large')
-    return
+  function handleDragOver(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    isDragging.value = true
   }
 
-  uploadError.value = ''
-  selectedFile.value = file
-  generatePreview(file)
-}
-
-async function uploadImage() {
-  if (!selectedFile.value) return
-
-  isUploading.value = true
-  uploadError.value = ''
-
-  try {
-    const { $api } = useNuxtApp()
-    const formData = new FormData()
-    formData.append('image', selectedFile.value, selectedFile.value.name)
-    formData.append('is_nsfw', imageIsNsfw.value ? '1' : '0')
-
-    const response = await $api.images.uploadInlineImage(formData)
-
-    const uploadedImageUrl = response.data.image.urls.url
-    const isNsfw = response.data.image.urls.is_nsfw
-    const altText = imageAlt.value || t('comments.image_upload.default_alt')
-
-    emit('upload', { url: uploadedImageUrl, alt: altText, isNsfw })
-    closeModal()
-  } catch (error) {
-    console.error('Error uploading image:', error)
-    uploadError.value = error.response?.data?.message || t('comments.image_upload.upload_error')
-  } finally {
-    isUploading.value = false
+  function handleDragLeave(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    isDragging.value = false
   }
-}
 
-function clearSelectedFile() {
-  selectedFile.value = null
-  if (imagePreviewUrl.value) {
-    URL.revokeObjectURL(imagePreviewUrl.value)
-    imagePreviewUrl.value = null
-  }
-  if (fileInput.value) {
-    fileInput.value.value = ''
-  }
-}
+  function handleDrop(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    isDragging.value = false
 
-function closeModal() {
-  emit('update:modelValue', false)
-  imageAlt.value = ''
-  imageIsNsfw.value = false
-  clearSelectedFile()
-  uploadError.value = ''
-}
+    const files = event.dataTransfer?.files
+    if (!files || files.length === 0) return
+
+    const file = files[0]
+    if (!file.type.startsWith('image/')) {
+      uploadError.value = t('comments.image_upload.invalid_type')
+      return
+    }
+
+    if (file.size > 16 * 1024 * 1024) {
+      uploadError.value = t('comments.image_upload.too_large')
+      return
+    }
+
+    uploadError.value = ''
+    selectedFile.value = file
+    generatePreview(file)
+  }
+
+  async function uploadImage() {
+    if (!selectedFile.value) return
+
+    isUploading.value = true
+    uploadError.value = ''
+
+    try {
+      const { $api } = useNuxtApp()
+      const formData = new FormData()
+      formData.append('image', selectedFile.value, selectedFile.value.name)
+      formData.append('is_nsfw', imageIsNsfw.value ? '1' : '0')
+
+      const response = await $api.images.uploadInlineImage(formData)
+
+      const uploadedImageUrl = response.data.image.urls.url
+      const isNsfw = response.data.image.urls.is_nsfw
+      const altText = imageAlt.value || t('comments.image_upload.default_alt')
+
+      emit('upload', { url: uploadedImageUrl, alt: altText, isNsfw })
+      closeModal()
+    } catch (error) {
+      console.error('Error uploading image:', error)
+      uploadError.value = error.response?.data?.message || t('comments.image_upload.upload_error')
+    } finally {
+      isUploading.value = false
+    }
+  }
+
+  function clearSelectedFile() {
+    selectedFile.value = null
+    if (imagePreviewUrl.value) {
+      URL.revokeObjectURL(imagePreviewUrl.value)
+      imagePreviewUrl.value = null
+    }
+    if (fileInput.value) {
+      fileInput.value.value = ''
+    }
+  }
+
+  function closeModal() {
+    emit('update:modelValue', false)
+    imageAlt.value = ''
+    imageIsNsfw.value = false
+    clearSelectedFile()
+    uploadError.value = ''
+  }
 </script>
 
 <style scoped>
-.editor-image-modal {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border-default);
-}
+  .editor-image-modal {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-default);
+  }
 
-.editor-tool-btn:hover {
-  background-color: var(--color-bg-active);
-}
+  .editor-tool-btn:hover {
+    background-color: var(--color-bg-active);
+  }
 
-.editor-input {
-  background-color: var(--color-bg-input);
-  border: 1px solid var(--color-border-default);
-  color: var(--color-text-primary);
-}
+  .editor-input {
+    background-color: var(--color-bg-input);
+    border: 1px solid var(--color-border-default);
+    color: var(--color-text-primary);
+  }
 
-.editor-cancel-btn {
-  background-color: transparent;
-  border: 1px solid var(--color-border-default);
-  color: var(--color-text-primary);
-}
+  .editor-cancel-btn {
+    background-color: transparent;
+    border: 1px solid var(--color-border-default);
+    color: var(--color-text-primary);
+  }
 
-.editor-cancel-btn:hover {
-  background-color: var(--color-bg-hover);
-}
+  .editor-cancel-btn:hover {
+    background-color: var(--color-bg-hover);
+  }
 
-.editor-dropzone {
-  border-color: var(--color-border-default);
-}
+  .editor-dropzone {
+    border-color: var(--color-border-default);
+  }
 
-.editor-dropzone:hover {
-  border-color: var(--color-primary);
-  background-color: var(--color-bg-hover);
-}
+  .editor-dropzone:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-bg-hover);
+  }
 
-.border-default {
-  border-color: var(--color-border-default);
-}
+  .border-default {
+    border-color: var(--color-border-default);
+  }
 </style>

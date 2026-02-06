@@ -57,7 +57,7 @@
         class="sub-selector-input w-full pl-10 pr-4 py-3 text-base rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
         @focus="showDropdown = true"
         @keydown.escape="closeDropdown"
-      >
+      />
     </div>
 
     <!-- Dropdown with filtered subs (only my subs) -->

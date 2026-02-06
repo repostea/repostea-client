@@ -8,9 +8,7 @@
         {{ t('submit.wizard.step') }} {{ currentStep }} {{ t('submit.wizard.of') }}
         {{ totalSteps }}
       </span>
-      <span class="text-sm text-gray-500 dark:text-gray-400">
-        {{ Math.round(percentage) }}%
-      </span>
+      <span class="text-sm text-gray-500 dark:text-gray-400"> {{ Math.round(percentage) }}% </span>
     </div>
     <div class="w-full wizard-progress-bg rounded-full h-2">
       <div

@@ -7,7 +7,7 @@
           :src="previewUrl || currentThumbnail"
           alt="Thumbnail"
           class="w-20 h-20 rounded-md object-cover thumb-border"
-        >
+        />
         <div
           v-if="isUploading || isDeleting"
           class="absolute inset-0 bg-black bg-opacity-50 rounded-md flex items-center justify-center"
@@ -25,7 +25,7 @@
           accept="image/jpeg,image/png,image/gif,image/webp"
           class="hidden"
           @change="handleFileSelect"
-        >
+        />
 
         <div class="flex gap-2">
           <button
@@ -63,7 +63,7 @@
         accept="image/jpeg,image/png,image/gif,image/webp"
         class="hidden"
         @change="handleFileSelect"
-      >
+      />
 
       <button
         type="button"

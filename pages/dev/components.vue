@@ -665,7 +665,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium mb-1">Label Primary</label>
-                <input type="text" placeholder="Placeholder text" class="input-field" >
+                <input type="text" placeholder="Placeholder text" class="input-field" />
               </div>
               <div>
                 <label class="block text-sm font-medium mb-1">Con borde primary</label>
@@ -673,7 +673,7 @@
                   type="text"
                   placeholder="Placeholder text"
                   class="input-field border-primary"
-                >
+                />
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -685,19 +685,19 @@
             </div>
             <div class="flex gap-4 mt-4 items-center">
               <label class="flex items-center gap-2">
-                <input type="checkbox" class="w-4 h-4 accent-primary" checked >
+                <input type="checkbox" class="w-4 h-4 accent-primary" checked />
                 <span class="text-sm">Checkbox marcado</span>
               </label>
               <label class="flex items-center gap-2">
-                <input type="checkbox" class="w-4 h-4 accent-primary" >
+                <input type="checkbox" class="w-4 h-4 accent-primary" />
                 <span class="text-sm">Checkbox</span>
               </label>
               <label class="flex items-center gap-2">
-                <input type="radio" name="radio" class="w-4 h-4 accent-primary" checked >
+                <input type="radio" name="radio" class="w-4 h-4 accent-primary" checked />
                 <span class="text-sm">Radio 1</span>
               </label>
               <label class="flex items-center gap-2">
-                <input type="radio" name="radio" class="w-4 h-4 accent-primary" >
+                <input type="radio" name="radio" class="w-4 h-4 accent-primary" />
                 <span class="text-sm">Radio 2</span>
               </label>
             </div>

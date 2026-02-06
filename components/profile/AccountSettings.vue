@@ -105,7 +105,7 @@
               v-model="displayOptions.show_thumbnails"
               type="checkbox"
               class="w-6 h-6 mt-0.5 rounded border-2 account-settings-checkbox-border text-primary focus:ring-2 focus:ring-primary"
-            >
+            />
             <div class="ml-3">
               <label for="show_thumbnails" class="text-sm font-medium cursor-pointer">
                 {{ t('profile.show_thumbnails') }}
@@ -131,7 +131,7 @@
               v-model="privacyOptions.hide_achievements"
               type="checkbox"
               class="w-6 h-6 mt-0.5 rounded border-2 account-settings-checkbox-border text-primary focus:ring-2 focus:ring-primary"
-            >
+            />
             <div class="ml-3">
               <label for="hide_achievements" class="text-sm font-medium cursor-pointer">
                 {{ t('settings.hide_achievements') }}
@@ -148,7 +148,7 @@
               v-model="privacyOptions.hide_comments"
               type="checkbox"
               class="w-6 h-6 mt-0.5 rounded border-2 account-settings-checkbox-border text-primary focus:ring-2 focus:ring-primary"
-            >
+            />
             <div class="ml-3">
               <label for="hide_comments" class="text-sm font-medium cursor-pointer">
                 {{ t('settings.hide_comments') }}

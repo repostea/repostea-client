@@ -45,21 +45,21 @@
 </template>
 
 <script setup>
-import { useI18n } from '#i18n'
+  import { useI18n } from '#i18n'
 
-const { t } = useI18n()
+  const { t } = useI18n()
 
-defineProps({
-  modelValue: {
-    type: Boolean,
-    default: false,
-  },
-})
+  defineProps({
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+  })
 </script>
 
 <style scoped>
-.editor-help-panel {
-  background-color: var(--color-bg-hover);
-  border: 1px solid var(--color-border-default);
-}
+  .editor-help-panel {
+    background-color: var(--color-bg-hover);
+    border: 1px solid var(--color-border-default);
+  }
 </style>

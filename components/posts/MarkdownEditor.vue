@@ -43,151 +43,151 @@
           <div v-if="showImageUpload" class="fixed inset-0 z-50 flex items-center justify-center">
             <!-- Backdrop -->
             <div class="absolute inset-0 bg-black/50" @click="closeImageModal" />
-          <!-- Modal content -->
-          <div
-            class="md-editor-modal relative rounded-md shadow-lg p-4 w-[min(400px,calc(100vw-2rem))] max-h-[80vh] overflow-y-auto"
-            @click.stop
-          >
-            <div class="flex items-center justify-between mb-3">
-              <h3 class="text-sm font-semibold">{{ t('comments.image_upload.title') }}</h3>
-              <button
-                class="md-editor-btn p-1 rounded-md transition-colors"
-                type="button"
-                :title="t('common.close')"
-                :aria-label="t('common.close')"
-                @click="closeImageModal"
-              >
-                <Icon
-                  name="fa6-solid:xmark"
-                  class="text-text-muted dark:text-text-dark-muted"
-                  aria-hidden="true"
-                />
-              </button>
-            </div>
-
-            <!-- Upload content with drop zone -->
-            <div class="space-y-3">
-              <!-- Image preview when file is selected -->
-              <div v-if="imagePreviewUrl" class="relative">
-                <img
-                  :src="imagePreviewUrl"
-                  :alt="t('comments.image_upload.preview')"
-                  class="w-full max-h-48 object-contain rounded-md bg-gray-100 dark:bg-neutral-800"
-                >
+            <!-- Modal content -->
+            <div
+              class="md-editor-modal relative rounded-md shadow-lg p-4 w-[min(400px,calc(100vw-2rem))] max-h-[80vh] overflow-y-auto"
+              @click.stop
+            >
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-sm font-semibold">{{ t('comments.image_upload.title') }}</h3>
                 <button
+                  class="md-editor-btn p-1 rounded-md transition-colors"
                   type="button"
-                  class="absolute top-2 right-2 p-1 bg-red-500 hover:bg-red-600 text-white rounded-full transition-colors"
-                  :title="t('common.delete')"
-                  @click="clearSelectedFile"
+                  :title="t('common.close')"
+                  :aria-label="t('common.close')"
+                  @click="closeImageModal"
                 >
-                  <Icon name="fa6-solid:xmark" class="text-sm" aria-hidden="true" />
+                  <Icon
+                    name="fa6-solid:xmark"
+                    class="text-text-muted dark:text-text-dark-muted"
+                    aria-hidden="true"
+                  />
                 </button>
               </div>
 
-              <!-- Drop zone (hidden when preview is shown) -->
-              <div
-                v-else
-                class="md-editor-dropzone rounded-md border-2 border-dashed transition-all"
-                :class="[
-                  isDragging ? 'border-primary bg-primary/10' : 'border-default',
-                  isUploadingImage ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
-                ]"
-                @dragover="handleDragOver"
-                @dragleave="handleDragLeave"
-                @drop="handleDrop"
-                @click="!isUploadingImage && triggerFileInput()"
-              >
-                <input
-                  ref="fileInput"
-                  type="file"
-                  accept="image/jpeg,image/png,image/gif,image/webp"
-                  class="hidden"
-                  @change="handleFileSelect"
-                >
-                <div class="flex flex-col items-center justify-center py-6 px-4 text-center">
-                  <Icon
-                    :name="isDragging ? 'fa6-solid:cloud-arrow-down' : 'fa6-solid:cloud-arrow-up'"
-                    class="text-3xl mb-2 text-text-muted dark:text-text-dark-muted"
-                    :class="{ 'text-primary': isDragging }"
-                    aria-hidden="true"
+              <!-- Upload content with drop zone -->
+              <div class="space-y-3">
+                <!-- Image preview when file is selected -->
+                <div v-if="imagePreviewUrl" class="relative">
+                  <img
+                    :src="imagePreviewUrl"
+                    :alt="t('comments.image_upload.preview')"
+                    class="w-full max-h-48 object-contain rounded-md bg-gray-100 dark:bg-neutral-800"
                   />
-                  <p v-if="isDragging" class="text-sm text-primary font-medium">
-                    {{ t('comments.image_upload.drop_here') }}
-                  </p>
-                  <p v-else class="text-sm text-text-muted dark:text-text-dark-muted">
-                    {{ t('comments.image_upload.drag_or_click') }}
-                  </p>
-                  <p class="mt-1 text-xs text-text-muted dark:text-text-dark-muted">
-                    {{ t('comments.image_upload.file_types') }}
-                  </p>
+                  <button
+                    type="button"
+                    class="absolute top-2 right-2 p-1 bg-red-500 hover:bg-red-600 text-white rounded-full transition-colors"
+                    :title="t('common.delete')"
+                    @click="clearSelectedFile"
+                  >
+                    <Icon name="fa6-solid:xmark" class="text-sm" aria-hidden="true" />
+                  </button>
+                </div>
+
+                <!-- Drop zone (hidden when preview is shown) -->
+                <div
+                  v-else
+                  class="md-editor-dropzone rounded-md border-2 border-dashed transition-all"
+                  :class="[
+                    isDragging ? 'border-primary bg-primary/10' : 'border-default',
+                    isUploadingImage ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
+                  ]"
+                  @dragover="handleDragOver"
+                  @dragleave="handleDragLeave"
+                  @drop="handleDrop"
+                  @click="!isUploadingImage && triggerFileInput()"
+                >
+                  <input
+                    ref="fileInput"
+                    type="file"
+                    accept="image/jpeg,image/png,image/gif,image/webp"
+                    class="hidden"
+                    @change="handleFileSelect"
+                  />
+                  <div class="flex flex-col items-center justify-center py-6 px-4 text-center">
+                    <Icon
+                      :name="isDragging ? 'fa6-solid:cloud-arrow-down' : 'fa6-solid:cloud-arrow-up'"
+                      class="text-3xl mb-2 text-text-muted dark:text-text-dark-muted"
+                      :class="{ 'text-primary': isDragging }"
+                      aria-hidden="true"
+                    />
+                    <p v-if="isDragging" class="text-sm text-primary font-medium">
+                      {{ t('comments.image_upload.drop_here') }}
+                    </p>
+                    <p v-else class="text-sm text-text-muted dark:text-text-dark-muted">
+                      {{ t('comments.image_upload.drag_or_click') }}
+                    </p>
+                    <p class="mt-1 text-xs text-text-muted dark:text-text-dark-muted">
+                      {{ t('comments.image_upload.file_types') }}
+                    </p>
+                  </div>
+                </div>
+
+                <div v-if="uploadError" class="text-sm text-red-600 dark:text-red-400">
+                  <Icon name="fa6-solid:circle-exclamation" class="mr-1" aria-hidden="true" />
+                  {{ uploadError }}
+                </div>
+
+                <div v-if="selectedFile && !uploadError">
+                  <label class="block text-sm font-medium mb-1">{{
+                    t('comments.image_upload.alt_text')
+                  }}</label>
+                  <input
+                    v-model="imageAlt"
+                    type="text"
+                    class="md-editor-input w-full text-sm rounded-md px-2 py-1"
+                    :placeholder="t('comments.image_upload.alt_placeholder')"
+                  />
+                </div>
+
+                <!-- NSFW checkbox -->
+                <div v-if="selectedFile && !uploadError" class="flex items-center gap-2">
+                  <input
+                    id="md-image-nsfw-checkbox"
+                    v-model="imageIsNsfw"
+                    type="checkbox"
+                    class="w-5 h-5 min-w-[20px] min-h-[20px] flex-shrink-0 text-red-600 border-2 border-gray-300 dark:border-neutral-500 rounded focus:ring-red-500"
+                  />
+                  <label for="md-image-nsfw-checkbox" class="text-sm">
+                    <span class="text-red-600 font-medium">{{
+                      t('comments.image_upload.nsfw_label')
+                    }}</span>
+                    <span class="text-text-muted dark:text-text-dark-muted ml-1 text-xs">
+                      {{ t('comments.image_upload.nsfw_hint') }}
+                    </span>
+                  </label>
                 </div>
               </div>
 
-              <div v-if="uploadError" class="text-sm text-red-600 dark:text-red-400">
-                <Icon name="fa6-solid:circle-exclamation" class="mr-1" aria-hidden="true" />
-                {{ uploadError }}
-              </div>
-
-              <div v-if="selectedFile && !uploadError">
-                <label class="block text-sm font-medium mb-1">{{
-                  t('comments.image_upload.alt_text')
-                }}</label>
-                <input
-                  v-model="imageAlt"
-                  type="text"
-                  class="md-editor-input w-full text-sm rounded-md px-2 py-1"
-                  :placeholder="t('comments.image_upload.alt_placeholder')"
+              <!-- Actions -->
+              <div class="flex justify-end space-x-2 mt-4">
+                <button
+                  class="md-editor-cancel-btn px-3 py-1.5 text-sm rounded-md"
+                  type="button"
+                  @click="closeImageModal"
                 >
-              </div>
-
-              <!-- NSFW checkbox -->
-              <div v-if="selectedFile && !uploadError" class="flex items-center gap-2">
-                <input
-                  id="md-image-nsfw-checkbox"
-                  v-model="imageIsNsfw"
-                  type="checkbox"
-                  class="w-5 h-5 min-w-[20px] min-h-[20px] flex-shrink-0 text-red-600 border-2 border-gray-300 dark:border-neutral-500 rounded focus:ring-red-500"
+                  {{ t('common.cancel') }}
+                </button>
+                <button
+                  :disabled="!selectedFile || isUploadingImage"
+                  class="px-3 py-1.5 text-sm bg-primary text-white rounded-md hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="button"
+                  @click="uploadAndInsertImage"
                 >
-                <label for="md-image-nsfw-checkbox" class="text-sm">
-                  <span class="text-red-600 font-medium">{{
-                    t('comments.image_upload.nsfw_label')
-                  }}</span>
-                  <span class="text-text-muted dark:text-text-dark-muted ml-1 text-xs">
-                    {{ t('comments.image_upload.nsfw_hint') }}
-                  </span>
-                </label>
+                  <span
+                    v-if="isUploadingImage"
+                    class="inline-block animate-spin h-3 w-3 mr-1 border-2 border-white border-t-transparent rounded-full"
+                  />
+                  <Icon v-else name="fa6-solid:upload" class="mr-1" aria-hidden="true" />
+                  {{
+                    isUploadingImage
+                      ? t('comments.image_upload.uploading')
+                      : t('comments.image_upload.upload_insert')
+                  }}
+                </button>
               </div>
-            </div>
-
-            <!-- Actions -->
-            <div class="flex justify-end space-x-2 mt-4">
-              <button
-                class="md-editor-cancel-btn px-3 py-1.5 text-sm rounded-md"
-                type="button"
-                @click="closeImageModal"
-              >
-                {{ t('common.cancel') }}
-              </button>
-              <button
-                :disabled="!selectedFile || isUploadingImage"
-                class="px-3 py-1.5 text-sm bg-primary text-white rounded-md hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed"
-                type="button"
-                @click="uploadAndInsertImage"
-              >
-                <span
-                  v-if="isUploadingImage"
-                  class="inline-block animate-spin h-3 w-3 mr-1 border-2 border-white border-t-transparent rounded-full"
-                />
-                <Icon v-else name="fa6-solid:upload" class="mr-1" aria-hidden="true" />
-                {{
-                  isUploadingImage
-                    ? t('comments.image_upload.uploading')
-                    : t('comments.image_upload.upload_insert')
-                }}
-              </button>
             </div>
           </div>
-        </div>
         </Teleport>
 
         <div class="flex items-center space-x-1">

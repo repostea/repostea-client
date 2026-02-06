@@ -132,7 +132,23 @@
     html = html.replace(/<p>\s*<\/p>/g, '')
     // Sanitize HTML to prevent XSS attacks
     return DOMPurify.sanitize(html, {
-      ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'del', 'a', 'ul', 'ol', 'li', 'blockquote', 'pre', 'code', 'hr', 'img'],
+      ALLOWED_TAGS: [
+        'p',
+        'br',
+        'strong',
+        'em',
+        'u',
+        'del',
+        'a',
+        'ul',
+        'ol',
+        'li',
+        'blockquote',
+        'pre',
+        'code',
+        'hr',
+        'img',
+      ],
       ALLOWED_ATTR: ['href', 'target', 'rel', 'class', 'src', 'alt', 'loading'],
       FORBID_TAGS: ['script', 'object', 'embed', 'iframe', 'form', 'input', 'textarea', 'button'],
     })

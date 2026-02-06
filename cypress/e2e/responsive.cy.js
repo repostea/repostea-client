@@ -175,7 +175,10 @@ describe('Responsive Design E2E Tests', () => {
       cy.get('.mobile-menu-container', { timeout: 5000 }).should('have.class', 'open')
 
       // Click language button - target the button element directly
-      cy.get('button.mobile-nav-link').contains(/language|idioma/i).scrollIntoView().click()
+      cy.get('button.mobile-nav-link')
+        .contains(/language|idioma/i)
+        .scrollIntoView()
+        .click()
       cy.get('.mobile-modal-overlay', { timeout: 5000 }).should('exist')
     })
 
@@ -194,7 +197,10 @@ describe('Responsive Design E2E Tests', () => {
       cy.wait(200)
 
       // Click theme button - use first() in case of multiple matches
-      cy.get('button.mobile-nav-link').contains(/theme|tema/i).first().click({ force: true })
+      cy.get('button.mobile-nav-link')
+        .contains(/theme|tema/i)
+        .first()
+        .click({ force: true })
       cy.get('.mobile-modal-overlay', { timeout: 5000 }).should('exist')
     })
   })
@@ -224,7 +230,10 @@ describe('Responsive Design E2E Tests', () => {
 
       cy.get('body').then(($body) => {
         if ($body.find('.list-item-card, .post-card').length > 0) {
-          cy.get('.list-item-card, .post-card').first().find('[class*="vote"], button').should('exist')
+          cy.get('.list-item-card, .post-card')
+            .first()
+            .find('[class*="vote"], button')
+            .should('exist')
         }
       })
     })
@@ -389,9 +398,9 @@ describe('Responsive Design E2E Tests', () => {
 
       // Click write comment button (Spanish or English)
       cy.get('.comments-list-container', { timeout: 10000 }).then(($container) => {
-        const writeBtn = $container.find('button').filter((i, el) =>
-          /write comment|escribir comentario/i.test(el.textContent)
-        )
+        const writeBtn = $container
+          .find('button')
+          .filter((i, el) => /write comment|escribir comentario/i.test(el.textContent))
         if (writeBtn.length > 0) {
           cy.wrap(writeBtn.first()).click()
           cy.get('.comment-editor, [data-testid="comment-form"]', { timeout: 5000 }).should('exist')
@@ -412,9 +421,9 @@ describe('Responsive Design E2E Tests', () => {
 
       // Click write comment button
       cy.get('.comments-list-container', { timeout: 10000 }).then(($container) => {
-        const writeBtn = $container.find('button').filter((i, el) =>
-          /write comment|escribir comentario/i.test(el.textContent)
-        )
+        const writeBtn = $container
+          .find('button')
+          .filter((i, el) => /write comment|escribir comentario/i.test(el.textContent))
         if (writeBtn.length > 0) {
           cy.wrap(writeBtn.first()).click()
           cy.wait(300)
@@ -438,9 +447,9 @@ describe('Responsive Design E2E Tests', () => {
 
       // Click write comment button
       cy.get('.comments-list-container', { timeout: 10000 }).then(($container) => {
-        const writeBtn = $container.find('button').filter((i, el) =>
-          /write comment|escribir comentario/i.test(el.textContent)
-        )
+        const writeBtn = $container
+          .find('button')
+          .filter((i, el) => /write comment|escribir comentario/i.test(el.textContent))
         if (writeBtn.length > 0) {
           cy.wrap(writeBtn.first()).click()
           cy.wait(300)
@@ -505,7 +514,9 @@ describe('Responsive Design E2E Tests', () => {
 
       // Tap on a post link if posts exist
       cy.get('body').then(($body) => {
-        const postLink = $body.find('.list-item-card a[href*="/posts/"], .post-card a[href*="/posts/"]')
+        const postLink = $body.find(
+          '.list-item-card a[href*="/posts/"], .post-card a[href*="/posts/"]'
+        )
         if (postLink.length > 0) {
           cy.wrap(postLink.first()).click()
           cy.url().should('include', '/posts/')
@@ -593,7 +604,9 @@ describe('Responsive Design E2E Tests', () => {
       acceptCookies()
 
       // Search should be accessible via search button or input
-      cy.get('input[type="search"], .search-input, button:contains("Search"), .menu-button', { timeout: 10000 }).should('exist')
+      cy.get('input[type="search"], .search-input, button:contains("Search"), .menu-button', {
+        timeout: 10000,
+      }).should('exist')
     })
 
     it('should show notifications icon for authenticated users', () => {

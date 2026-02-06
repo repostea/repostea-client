@@ -218,7 +218,7 @@
                 readonly
                 :aria-label="t('common.share_link')"
                 class="flex-grow py-2 px-3 post-modal-input focus:outline-none"
-              >
+              />
               <button
                 class="px-3 py-2 post-modal-copy-btn transition-colors"
                 :aria-label="t('common.copy_link')"

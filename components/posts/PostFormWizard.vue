@@ -61,12 +61,7 @@
         />
 
         <!-- TEXT, POLL: Step 2 = Title -->
-        <TitleStep
-          v-else
-          v-model="form.title"
-          :error="errors.title"
-          @blur="validateTitle"
-        />
+        <TitleStep v-else v-model="form.title" :error="errors.title" @blur="validateTitle" />
       </div>
 
       <!-- Step 3: For links/audio/video/image = Title/Description, For text/poll = Content -->
@@ -429,7 +424,6 @@
     },
   ])
 
-
   // Function to calculate more intuitive progress
   function getProgressPercentage() {
     switch (currentStep.value) {
@@ -601,7 +595,6 @@
       suggestedThumbnailUrl.value = null
     }
   }
-
 
   function addPollOption() {
     if (form.poll_options.length < 10) {

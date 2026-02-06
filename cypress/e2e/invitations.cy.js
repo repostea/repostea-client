@@ -128,7 +128,9 @@ describe('Invitations E2E Tests', () => {
       acceptCookies()
 
       // Should show invitations or empty state
-      cy.get('.invitations-code-bg, .text-gray-500, [class*="empty"]', { timeout: 10000 }).should('exist')
+      cy.get('.invitations-code-bg, .text-gray-500, [class*="empty"]', { timeout: 10000 }).should(
+        'exist'
+      )
     })
   })
 })

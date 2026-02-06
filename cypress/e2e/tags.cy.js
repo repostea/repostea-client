@@ -66,7 +66,9 @@ describe('Tags E2E Tests', () => {
       acceptCookies()
 
       // Should show tags or empty state
-      cy.get('.tag-item, .grid a[href*="/tags/"], [class*="empty"]', { timeout: 10000 }).should('exist')
+      cy.get('.tag-item, .grid a[href*="/tags/"], [class*="empty"]', { timeout: 10000 }).should(
+        'exist'
+      )
     })
 
     it('should show tag count', () => {
@@ -157,17 +159,23 @@ describe('Tags E2E Tests', () => {
       cy.wait(500)
 
       // Fill title
-      cy.get('[data-testid="title-input"], input[name="title"]', { timeout: 10000 }).type('Test post for tags')
+      cy.get('[data-testid="title-input"], input[name="title"]', { timeout: 10000 }).type(
+        'Test post for tags'
+      )
 
       // Click next
-      cy.get('button').contains(/next|continue/i).click()
+      cy.get('button')
+        .contains(/next|continue/i)
+        .click()
       cy.wait(500)
 
       // Fill content
       cy.get('textarea, .ProseMirror', { timeout: 10000 }).first().type('Test content')
 
       // Click next
-      cy.get('button').contains(/next|continue/i).click()
+      cy.get('button')
+        .contains(/next|continue/i)
+        .click()
       cy.wait(500)
 
       // Final step shows "Related content" section and Publish button

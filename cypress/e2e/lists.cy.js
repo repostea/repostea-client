@@ -127,14 +127,18 @@ describe('Saved Lists E2E Tests', () => {
       acceptCookies()
 
       // English: "Create New List" or "Create new list"
-      cy.get('button', { timeout: 10000 }).contains(/create/i).should('be.visible')
+      cy.get('button', { timeout: 10000 })
+        .contains(/create/i)
+        .should('be.visible')
     })
 
     it('should open create list modal', () => {
       visitWithRetry('/en/lists')
       acceptCookies()
 
-      cy.get('button').contains(/create/i).click()
+      cy.get('button')
+        .contains(/create/i)
+        .click()
       cy.get('[aria-modal="true"], .fixed', { timeout: 5000 }).should('be.visible')
       cy.get('#list-name, input[type="text"]').should('be.visible')
     })
@@ -143,14 +147,19 @@ describe('Saved Lists E2E Tests', () => {
       visitWithRetry('/en/lists')
       acceptCookies()
 
-      cy.get('button').contains(/create/i).click()
+      cy.get('button')
+        .contains(/create/i)
+        .click()
       cy.wait(500)
 
       const listName = `Test List ${uniqueId}`
       cy.get('#list-name').type(listName)
       cy.get('#list-description').type('Test list description')
 
-      cy.get('button').contains(/create/i).last().click()
+      cy.get('button')
+        .contains(/create/i)
+        .last()
+        .click()
 
       cy.wait(2000)
       cy.contains(listName, { timeout: 10000 }).should('be.visible')
@@ -261,7 +270,9 @@ describe('Saved Lists E2E Tests', () => {
       visitWithRetry('/en/lists')
       acceptCookies()
 
-      cy.get('button').contains(/create/i).click()
+      cy.get('button')
+        .contains(/create/i)
+        .click()
       cy.wait(500)
       cy.get('#is-public, input[type="checkbox"]').should('exist')
     })

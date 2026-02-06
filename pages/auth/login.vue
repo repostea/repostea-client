@@ -63,7 +63,7 @@
                   :placeholder="t('auth.email_or_username_placeholder') || t('auth.email')"
                   class="w-full rounded-md border auth-input px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   required
-                >
+                />
               </div>
 
               <div class="mb-4">
@@ -77,7 +77,7 @@
                   type="password"
                   class="w-full rounded-md border auth-input px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   required
-                >
+                />
               </div>
 
               <!-- Agregamos el enlace a recuperación de contraseña -->
@@ -123,10 +123,8 @@
               </p>
             </div>
 
-            <!-- Social Login Providers (Telegram, Mastodon, etc.) -->
-            <ClientOnly>
-              <SocialLoginProviders />
-            </ClientOnly>
+            <!-- Social Login Providers (Telegram, Mastodon, Bluesky, etc.) -->
+            <SocialLoginProviders />
           </div>
         </div>
       </div>

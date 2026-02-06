@@ -18,7 +18,7 @@
         maxlength="255"
         @input="$emit('update:titleValue', $event.target.value)"
         @blur="$emit('title-blur')"
-      >
+      />
       <div class="flex justify-between mt-2">
         <p v-if="titleError" class="text-sm text-red-500">{{ titleError }}</p>
         <span class="text-sm text-gray-500 dark:text-gray-400 ml-auto">
@@ -29,9 +29,7 @@
 
     <!-- Article content -->
     <div>
-      <div
-        class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2"
-      >
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
         <label for="content" class="block text-sm font-medium">
           {{ t('submit.form.content') }} *
         </label>

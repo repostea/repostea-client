@@ -27,121 +27,121 @@
         class="gif-picker fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-xl p-4 z-50 w-[calc(100vw-1rem)] h-[calc(100vh-2rem)] md:w-[700px] md:h-auto md:max-h-[80vh] flex flex-col"
         @click.stop
       >
-      <!-- Header with search -->
-      <div class="flex items-center gap-2 mb-3">
-        <div class="relative flex-1">
-          <Icon
-            name="fa6-solid:magnifying-glass"
-            class="absolute left-2 top-1/2 -translate-y-1/2 text-text-muted dark:text-text-dark-muted text-sm"
-            aria-hidden="true"
-          />
-          <input
-            ref="searchInput"
-            v-model="searchTerm"
-            type="text"
-            class="gif-search-input w-full text-sm rounded-md pl-8 pr-3 py-2"
-            :placeholder="t('gifs.search_placeholder')"
-            :aria-label="t('gifs.search_placeholder')"
-            @input="debouncedSearch"
-            @keydown.enter.prevent
-          >
-        </div>
-        <button
-          type="button"
-          class="gif-close-btn p-2 rounded-md transition-colors flex items-center justify-center"
-          :title="t('common.close')"
-          :aria-label="t('common.close')"
-          @click="isOpen = false"
-        >
-          <Icon
-            name="fa6-solid:xmark"
-            class="text-text-muted dark:text-text-dark-muted"
-            aria-hidden="true"
-          />
-        </button>
-      </div>
-
-      <!-- GIF Grid -->
-      <div ref="gridContainer" class="gif-grid flex-1 overflow-y-auto" @scroll="handleScroll">
-        <!-- Loading state -->
-        <div v-if="isLoading && gifs.length === 0" class="flex items-center justify-center py-8">
-          <div
-            class="animate-spin h-6 w-6 border-2 border-primary border-t-transparent rounded-full"
-          />
-        </div>
-
-        <!-- Error state -->
-        <div v-else-if="error" class="text-center py-8">
-          <Icon
-            name="fa6-solid:circle-exclamation"
-            class="text-2xl text-red-500 mb-2"
-            aria-hidden="true"
-          />
-          <p class="text-sm text-text-muted dark:text-text-dark-muted">{{ error }}</p>
+        <!-- Header with search -->
+        <div class="flex items-center gap-2 mb-3">
+          <div class="relative flex-1">
+            <Icon
+              name="fa6-solid:magnifying-glass"
+              class="absolute left-2 top-1/2 -translate-y-1/2 text-text-muted dark:text-text-dark-muted text-sm"
+              aria-hidden="true"
+            />
+            <input
+              ref="searchInput"
+              v-model="searchTerm"
+              type="text"
+              class="gif-search-input w-full text-sm rounded-md pl-8 pr-3 py-2"
+              :placeholder="t('gifs.search_placeholder')"
+              :aria-label="t('gifs.search_placeholder')"
+              @input="debouncedSearch"
+              @keydown.enter.prevent
+            />
+          </div>
           <button
             type="button"
-            class="mt-2 text-sm text-primary hover:underline"
-            @click="retryLoad"
+            class="gif-close-btn p-2 rounded-md transition-colors flex items-center justify-center"
+            :title="t('common.close')"
+            :aria-label="t('common.close')"
+            @click="isOpen = false"
           >
-            {{ t('common.retry') }}
+            <Icon
+              name="fa6-solid:xmark"
+              class="text-text-muted dark:text-text-dark-muted"
+              aria-hidden="true"
+            />
           </button>
         </div>
 
-        <!-- Empty state -->
-        <div v-else-if="gifs.length === 0 && !isLoading" class="text-center py-8">
-          <Icon
-            name="fa6-regular:face-meh"
-            class="text-3xl text-text-muted dark:text-text-dark-muted mb-2"
-            aria-hidden="true"
-          />
-          <p class="text-sm text-text-muted dark:text-text-dark-muted">
-            {{ t('gifs.no_results') }}
-          </p>
-        </div>
+        <!-- GIF Grid -->
+        <div ref="gridContainer" class="gif-grid flex-1 overflow-y-auto" @scroll="handleScroll">
+          <!-- Loading state -->
+          <div v-if="isLoading && gifs.length === 0" class="flex items-center justify-center py-8">
+            <div
+              class="animate-spin h-6 w-6 border-2 border-primary border-t-transparent rounded-full"
+            />
+          </div>
 
-        <!-- GIF Masonry Grid -->
-        <div v-else class="grid grid-cols-2 md:grid-cols-4 gap-2">
-          <button
-            v-for="gif in gifs"
-            :key="gif.id"
-            type="button"
-            class="gif-item relative overflow-hidden rounded-md transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary"
-            :style="{ aspectRatio: gif.width / gif.height }"
-            @click="selectGif(gif)"
-          >
-            <img
-              :src="gif.preview"
-              :alt="gif.title"
-              class="w-full h-full object-cover"
-              loading="lazy"
-              @error="handleImageError"
+          <!-- Error state -->
+          <div v-else-if="error" class="text-center py-8">
+            <Icon
+              name="fa6-solid:circle-exclamation"
+              class="text-2xl text-red-500 mb-2"
+              aria-hidden="true"
+            />
+            <p class="text-sm text-text-muted dark:text-text-dark-muted">{{ error }}</p>
+            <button
+              type="button"
+              class="mt-2 text-sm text-primary hover:underline"
+              @click="retryLoad"
             >
-            <!-- Hover overlay -->
-            <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors" />
-          </button>
+              {{ t('common.retry') }}
+            </button>
+          </div>
+
+          <!-- Empty state -->
+          <div v-else-if="gifs.length === 0 && !isLoading" class="text-center py-8">
+            <Icon
+              name="fa6-regular:face-meh"
+              class="text-3xl text-text-muted dark:text-text-dark-muted mb-2"
+              aria-hidden="true"
+            />
+            <p class="text-sm text-text-muted dark:text-text-dark-muted">
+              {{ t('gifs.no_results') }}
+            </p>
+          </div>
+
+          <!-- GIF Masonry Grid -->
+          <div v-else class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <button
+              v-for="gif in gifs"
+              :key="gif.id"
+              type="button"
+              class="gif-item relative overflow-hidden rounded-md transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary"
+              :style="{ aspectRatio: gif.width / gif.height }"
+              @click="selectGif(gif)"
+            >
+              <img
+                :src="gif.preview"
+                :alt="gif.title"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                @error="handleImageError"
+              />
+              <!-- Hover overlay -->
+              <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors" />
+            </button>
+          </div>
+
+          <!-- Load more indicator -->
+          <div v-if="isLoading && gifs.length > 0" class="flex items-center justify-center py-4">
+            <div
+              class="animate-spin h-5 w-5 border-2 border-primary border-t-transparent rounded-full"
+            />
+          </div>
         </div>
 
-        <!-- Load more indicator -->
-        <div v-if="isLoading && gifs.length > 0" class="flex items-center justify-center py-4">
-          <div
-            class="animate-spin h-5 w-5 border-2 border-primary border-t-transparent rounded-full"
-          />
+        <!-- Tenor attribution -->
+        <div class="flex items-center justify-center pt-3 border-t border-default mt-3">
+          <a
+            href="https://tenor.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-1 text-xs text-text-muted dark:text-text-dark-muted hover:text-primary transition-colors"
+          >
+            <span>{{ t('gifs.powered_by') }}</span>
+            <span class="font-semibold">Tenor</span>
+          </a>
         </div>
       </div>
-
-      <!-- Tenor attribution -->
-      <div class="flex items-center justify-center pt-3 border-t border-default mt-3">
-        <a
-          href="https://tenor.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-1 text-xs text-text-muted dark:text-text-dark-muted hover:text-primary transition-colors"
-        >
-          <span>{{ t('gifs.powered_by') }}</span>
-          <span class="font-semibold">Tenor</span>
-        </a>
-      </div>
-    </div>
     </Teleport>
   </div>
 </template>

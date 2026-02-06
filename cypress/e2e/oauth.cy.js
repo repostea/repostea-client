@@ -65,10 +65,7 @@ describe('OAuth Social Login E2E Tests', () => {
       acceptCookies()
 
       // Click Mastodon button if it exists
-      cy.get('button, a', { timeout: 10000 })
-        .filter(':contains("Mastodon")')
-        .first()
-        .click()
+      cy.get('button, a', { timeout: 10000 }).filter(':contains("Mastodon")').first().click()
 
       // Should show instance input
       cy.get('input', { timeout: 5000 }).should('exist')

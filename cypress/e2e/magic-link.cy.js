@@ -59,7 +59,9 @@ describe('Magic Link E2E Tests', () => {
       visitWithRetry('/en/auth/magic-link')
       acceptCookies()
 
-      cy.get('label[for="email"], label', { timeout: 10000 }).invoke('text').should('match', /email/i)
+      cy.get('label[for="email"], label', { timeout: 10000 })
+        .invoke('text')
+        .should('match', /email/i)
     })
 
     it('should have submit button', () => {

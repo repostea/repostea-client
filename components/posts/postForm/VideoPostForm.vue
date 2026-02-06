@@ -13,7 +13,7 @@
         placeholder="https://"
         required
         @input="updateUrl"
-      >
+      />
       <p v-if="error" class="mt-1 text-sm text-red-500">
         {{ error }}
       </p>

@@ -73,7 +73,7 @@
                     :placeholder="t('submit.form.search_language')"
                     :aria-label="t('submit.form.search_language')"
                     class="modal-input w-full pl-10 pr-3 py-3 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  >
+                  />
                 </div>
               </div>
 
@@ -91,7 +91,7 @@
                     :value="locale.code"
                     class="w-6 h-6 mr-2 rounded text-primary focus:ring-primary"
                     @change="clearSearchOnSelect"
-                  >
+                  />
                   <label
                     :for="`lang-${locale.code}`"
                     class="flex items-center cursor-pointer flex-1"

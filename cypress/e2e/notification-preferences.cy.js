@@ -133,9 +133,9 @@ describe('Notification Preferences E2E Tests', () => {
       acceptCookies()
 
       // Snooze section should have input controls (select, radio, or buttons)
-      cy.get('select, input[type="radio"], input[type="number"], button', { timeout: 10000 }).should(
-        'exist'
-      )
+      cy.get('select, input[type="radio"], input[type="number"], button', {
+        timeout: 10000,
+      }).should('exist')
     })
   })
 

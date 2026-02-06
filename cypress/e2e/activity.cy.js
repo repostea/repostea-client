@@ -54,7 +54,9 @@ describe('Activity Feed E2E Tests', () => {
       acceptCookies()
 
       // Time interval buttons use translated labels like "Last 24 hours"
-      cy.get('button', { timeout: 10000 }).contains(/24|hour/i).should('exist')
+      cy.get('button', { timeout: 10000 })
+        .contains(/24|hour/i)
+        .should('exist')
     })
 
     it('should have 24h selected by default', () => {
@@ -70,7 +72,9 @@ describe('Activity Feed E2E Tests', () => {
       acceptCookies()
 
       // Click on "Last hour" button
-      cy.get('button', { timeout: 10000 }).contains(/last hour/i).click()
+      cy.get('button', { timeout: 10000 })
+        .contains(/last hour/i)
+        .click()
       cy.wait(500)
 
       // Now the hour button should have bg-primary

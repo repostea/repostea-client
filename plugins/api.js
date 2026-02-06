@@ -614,10 +614,10 @@ export default defineNuxtPlugin(() => {
       callback: (telegramUser) => api.post('/auth/telegram/callback', telegramUser),
     },
 
-    reddit: {
-      getStatus: () => api.get('/auth/reddit/status'),
-      getRedirectUrl: () => api.post('/auth/reddit/redirect'),
-      callback: (code, state) => api.post('/auth/reddit/callback', { code, state }),
+    bluesky: {
+      getStatus: () => api.get('/auth/bluesky/status'),
+      exchange: (exchangeCode) =>
+        api.post('/auth/bluesky/exchange', { exchange_code: exchangeCode }),
     },
 
     activitypub: {

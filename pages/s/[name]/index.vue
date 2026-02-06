@@ -316,7 +316,7 @@
                     :src="mod.avatar"
                     :alt="mod.username"
                     class="w-6 h-6 rounded-full object-cover"
-                  >
+                  />
                   <div
                     v-else
                     class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center"

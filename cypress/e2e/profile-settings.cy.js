@@ -71,7 +71,9 @@ describe('Profile Settings E2E Tests', () => {
       visitWithRetry('/en/profile/settings')
       acceptCookies()
 
-      cy.get('body', { timeout: 10000 }).invoke('text').should('match', /sessions/i)
+      cy.get('body', { timeout: 10000 })
+        .invoke('text')
+        .should('match', /sessions/i)
     })
 
     it('should show current session', () => {

@@ -36,11 +36,7 @@
         @click="$emit('save-draft')"
       >
         <span v-if="isSubmitting && savingAsDraft" class="mr-2 flex items-center">
-          <Icon
-            name="fa6-solid:spinner"
-            class="flex-shrink-0 animate-spin"
-            aria-hidden="true"
-          />
+          <Icon name="fa6-solid:spinner" class="flex-shrink-0 animate-spin" aria-hidden="true" />
         </span>
         <Icon name="fa6-solid:floppy-disk" class="mr-2 flex-shrink-0" aria-hidden="true" />
         <span class="hidden sm:inline">{{ t('posts.save_as_draft') }}</span>

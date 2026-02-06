@@ -197,10 +197,7 @@
   </div>
 
   <!-- Permalink Modal -->
-  <CommentPermalinkModal
-    v-model="showPermalinkModal"
-    :permalink-url="permalinkUrl"
-  />
+  <CommentPermalinkModal v-model="showPermalinkModal" :permalink-url="permalinkUrl" />
 
   <!-- Delete Confirmation Modal -->
   <CommentDeleteModal

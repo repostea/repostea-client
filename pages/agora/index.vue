@@ -263,7 +263,7 @@
                           v-model="isAnonymous"
                           type="checkbox"
                           class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
-                        >
+                        />
                         <span class="text-sm agora-text-secondary">
                           {{ t('agora.publish_anonymous') }}
                         </span>
@@ -361,7 +361,7 @@
                   :placeholder="t('auth.mastodon_instance_help')"
                   class="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-[#6364FF] focus:border-transparent"
                   @keyup.enter="handleMastodonLogin"
-                >
+                />
                 <button
                   type="button"
                   :disabled="mastodonLoading || !mastodonInstance.trim()"
@@ -416,7 +416,7 @@
                   :placeholder="t('auth.mbin_instance_help')"
                   class="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-[#00BC8C] focus:border-transparent"
                   @keyup.enter="handleMbinLogin"
-                >
+                />
                 <button
                   type="button"
                   :disabled="mbinLoading || !mbinInstance.trim()"

@@ -187,7 +187,7 @@
             v-model="editIsAnonymous"
             type="checkbox"
             class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
-          >
+          />
           <span class="text-sm text-gray-600 dark:text-gray-400">{{
             t('agora.publish_anonymous')
           }}</span>
@@ -346,7 +346,7 @@
             v-model="replyAnonymous"
             type="checkbox"
             class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
-          >
+          />
           <span class="text-sm text-gray-700 dark:text-gray-300">
             {{ t('agora.publish_anonymous') }}
           </span>
@@ -410,7 +410,7 @@
                 v-model="replyAnonymous"
                 type="checkbox"
                 class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
-              >
+              />
               <span class="text-sm text-gray-700 dark:text-gray-300">
                 {{ t('agora.publish_anonymous') }}
               </span>
@@ -473,7 +473,7 @@
                 alt=""
                 class="w-5 h-5 rounded object-cover flex-shrink-0"
                 loading="lazy"
-              >
+              />
               <span>{{ truncateContent(reply.content, 80) }}</span>
             </div>
           </div>

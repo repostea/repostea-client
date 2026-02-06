@@ -151,7 +151,9 @@ describe('Communities E2E Tests', () => {
           acceptCookies()
 
           // Community page should have a content area (posts list or empty state)
-          cy.get('.post-card, .list-item-card, article, [class*="empty"]', { timeout: 10000 }).should('exist')
+          cy.get('.post-card, .list-item-card, article, [class*="empty"]', {
+            timeout: 10000,
+          }).should('exist')
         }
       })
     })

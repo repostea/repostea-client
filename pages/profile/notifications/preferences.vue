@@ -196,7 +196,7 @@
                 :checked="enabled"
                 class="w-5 h-5 text-primary rounded focus:ring-primary cursor-pointer"
                 @change="updateInstantPreference(key, ($event.target as HTMLInputElement).checked)"
-              >
+              />
             </label>
           </div>
         </div>
@@ -276,7 +276,7 @@
                 :checked="enabled"
                 class="w-5 h-5 text-primary rounded focus:ring-primary cursor-pointer"
                 @change="updateDigestPreference(key, ($event.target as HTMLInputElement).checked)"
-              >
+              />
             </label>
           </div>
         </div>
@@ -304,7 +304,7 @@
               type="checkbox"
               class="w-5 h-5 text-primary rounded focus:ring-primary cursor-pointer"
               @change="toggleQuietHours"
-            >
+            />
           </label>
 
           <!-- Time selectors -->
@@ -318,7 +318,7 @@
                 type="time"
                 class="w-full px-3 py-2 prefs-input rounded-md focus:ring-2 focus:ring-primary"
                 @change="saveQuietHours"
-              >
+              />
             </div>
             <div>
               <label class="block text-sm font-medium mb-2">
@@ -329,7 +329,7 @@
                 type="time"
                 class="w-full px-3 py-2 prefs-input rounded-md focus:ring-2 focus:ring-primary"
                 @change="saveQuietHours"
-              >
+              />
             </div>
           </div>
 

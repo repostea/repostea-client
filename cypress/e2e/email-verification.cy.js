@@ -62,7 +62,9 @@ describe('Email Verification E2E Tests', () => {
       visitWithRetry('/en/auth/verify-email')
       acceptCookies()
 
-      cy.get('body', { timeout: 10000 }).invoke('text').should('match', /verif|email/i)
+      cy.get('body', { timeout: 10000 })
+        .invoke('text')
+        .should('match', /verif|email/i)
     })
   })
 
@@ -183,7 +185,9 @@ describe('Email Verification E2E Tests', () => {
       visitWithRetry('/en/auth/verify-email')
       acceptCookies()
 
-      cy.get('[class*="mx-auto"], [class*="max-w"], [class*="center"]', { timeout: 10000 }).should('exist')
+      cy.get('[class*="mx-auto"], [class*="max-w"], [class*="center"]', { timeout: 10000 }).should(
+        'exist'
+      )
     })
   })
 

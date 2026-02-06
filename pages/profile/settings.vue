@@ -215,7 +215,7 @@
                   autocomplete="current-password"
                   class="w-full px-3 py-2 border settings-input rounded-md text-gray-900 dark:text-white focus:ring-2 focus:ring-red-500"
                   :placeholder="t('settings.current_password')"
-                >
+                />
               </div>
 
               <div

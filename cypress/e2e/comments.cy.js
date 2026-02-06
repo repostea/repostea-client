@@ -134,7 +134,9 @@ describe('Comments E2E Tests', () => {
       cy.wait(500)
 
       // Comment editor should appear (use data-testid or class selectors)
-      cy.get('[data-testid="comment-form"], .comment-editor, .comment-form-container', { timeout: 10000 }).should('exist')
+      cy.get('[data-testid="comment-form"], .comment-editor, .comment-form-container', {
+        timeout: 10000,
+      }).should('exist')
     })
 
     it('should not show comment editor for unauthenticated users', () => {
@@ -161,7 +163,7 @@ describe('Comments E2E Tests', () => {
 
       // Check if comments are open and write button exists
       cy.get('body', { timeout: 10000 }).then(($body) => {
-        const writeBtn = $body.find('button').filter(function() {
+        const writeBtn = $body.find('button').filter(function () {
           return /write comment/i.test(this.textContent)
         })
 
@@ -204,7 +206,7 @@ describe('Comments E2E Tests', () => {
 
       // Check if comments are open
       cy.get('body', { timeout: 10000 }).then(($body) => {
-        const writeBtn = $body.find('button').filter(function() {
+        const writeBtn = $body.find('button').filter(function () {
           return /write comment/i.test(this.textContent)
         })
 
@@ -235,7 +237,7 @@ describe('Comments E2E Tests', () => {
 
       // Check if comments are open
       cy.get('body', { timeout: 10000 }).then(($body) => {
-        const writeBtn = $body.find('button').filter(function() {
+        const writeBtn = $body.find('button').filter(function () {
           return /write comment/i.test(this.textContent)
         })
 
@@ -283,20 +285,25 @@ describe('Comments E2E Tests', () => {
         const comments = $body.find('.comment-container')
         if (comments.length > 0) {
           // Check if comments have reply button
-          cy.get('.comment-container').first().then(($comment) => {
-            const hasReplyBtn = $comment.find('.reply-button, button[aria-label*="reply"], button[aria-label*="reply"]').length > 0
-            if (hasReplyBtn) {
-              cy.get('.comment-container')
-                .first()
-                .find('.reply-button, button[aria-label*="reply"], button[aria-label*="reply"]')
-                .should('exist')
-            } else {
-              cy.log('Reply button not found on comments')
-            }
-          })
+          cy.get('.comment-container')
+            .first()
+            .then(($comment) => {
+              const hasReplyBtn =
+                $comment.find(
+                  '.reply-button, button[aria-label*="reply"], button[aria-label*="reply"]'
+                ).length > 0
+              if (hasReplyBtn) {
+                cy.get('.comment-container')
+                  .first()
+                  .find('.reply-button, button[aria-label*="reply"], button[aria-label*="reply"]')
+                  .should('exist')
+              } else {
+                cy.log('Reply button not found on comments')
+              }
+            })
         } else {
           // No existing comments - try to add one first
-          const writeBtn = $body.find('button').filter(function() {
+          const writeBtn = $body.find('button').filter(function () {
             return /write comment/i.test(this.textContent)
           })
 
@@ -383,7 +390,9 @@ describe('Comments E2E Tests', () => {
 
         if (comments.length > 0) {
           // Vote on existing comment
-          const voteBtn = comments.first().find('.vote-bar-btn, button[aria-label*="positivo"], button[aria-label*="upvote"]')
+          const voteBtn = comments
+            .first()
+            .find('.vote-bar-btn, button[aria-label*="positivo"], button[aria-label*="upvote"]')
           if (voteBtn.length > 0) {
             cy.get('.comment-container')
               .first()
@@ -407,7 +416,7 @@ describe('Comments E2E Tests', () => {
           }
         } else {
           // No comments - try to add one first
-          const writeBtn = $body.find('button').filter(function() {
+          const writeBtn = $body.find('button').filter(function () {
             return /write comment/i.test(this.textContent)
           })
 
@@ -455,7 +464,7 @@ describe('Comments E2E Tests', () => {
 
       // Check if we can add a comment
       cy.get('body', { timeout: 10000 }).then(($body) => {
-        const writeBtn = $body.find('button').filter(function() {
+        const writeBtn = $body.find('button').filter(function () {
           return /write comment/i.test(this.textContent)
         })
 
@@ -480,10 +489,9 @@ describe('Comments E2E Tests', () => {
               .parents('.comment-container')
               .first()
               .within(() => {
-                cy.get('.edit-button, button[aria-label*="edit"], button[aria-label*="edit"]').should(
-                  'have.length.at.least',
-                  1
-                )
+                cy.get(
+                  '.edit-button, button[aria-label*="edit"], button[aria-label*="edit"]'
+                ).should('have.length.at.least', 1)
               })
           } else {
             cy.log('Comment editor did not appear')
@@ -505,7 +513,7 @@ describe('Comments E2E Tests', () => {
 
       // Check if we can add a comment
       cy.get('body', { timeout: 10000 }).then(($body) => {
-        const writeBtn = $body.find('button').filter(function() {
+        const writeBtn = $body.find('button').filter(function () {
           return /write comment/i.test(this.textContent)
         })
 

@@ -48,17 +48,17 @@
           <span class="beta-badge">Beta</span>
         </button>
 
-        <!-- Reddit button (direct redirect, no form needed) -->
+        <!-- Bluesky button (direct redirect, no handle needed) -->
         <button
-          v-if="redditEnabled"
+          v-if="blueskyEnabled"
           type="button"
-          class="social-btn reddit-btn"
-          :disabled="redditLoading"
-          @click="handleRedditLogin"
+          class="social-btn bluesky-btn"
+          :disabled="blueskyLoading"
+          @click="handleBlueskyLogin"
         >
-          <LoadingSpinner v-if="redditLoading" size="sm" display="inline" />
-          <Icon v-else name="fa6-brands:reddit-alien" class="text-lg" aria-hidden="true" />
-          <span class="ml-2">Reddit</span>
+          <LoadingSpinner v-if="blueskyLoading" size="sm" color="white" display="inline" />
+          <Icon v-else name="simple-icons:bluesky" class="text-lg" aria-hidden="true" />
+          <span class="ml-2">Bluesky</span>
         </button>
       </div>
 
@@ -266,6 +266,7 @@
             </button>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -280,24 +281,26 @@
 </template>
 
 <script setup>
-  import { ref, computed, onMounted, watch, nextTick } from 'vue'
+  import { ref, computed, watch, nextTick } from 'vue'
   import { useI18n } from '#i18n'
+  import { useBlueskyAuth } from '@/composables/useBlueskyAuth'
   import { useMastodonAuth } from '@/composables/useMastodonAuth'
   import { useMbinAuth } from '@/composables/useMbinAuth'
   import { useTelegramAuth } from '@/composables/useTelegramAuth'
-  import { useRedditAuth } from '@/composables/useRedditAuth'
+  import { useSystemSettings } from '@/composables/useSystemSettings'
   import LoadingSpinner from '~/components/common/LoadingSpinner.vue'
 
   defineEmits(['login-success', 'login-error'])
 
   const { t } = useI18n()
 
+  // Read social provider status from system settings (loaded during SSR)
+  const { settings } = useSystemSettings()
+
   // Mastodon auth
   const {
     loading: mastodonLoading,
     error: mastodonError,
-    federationEnabled: mastodonEnabled,
-    checkFederationStatus: checkMastodonStatus,
     redirectToMastodon,
   } = useMastodonAuth()
 
@@ -305,8 +308,6 @@
   const {
     loading: mbinLoading,
     error: mbinError,
-    mbinEnabled,
-    checkMbinStatus,
     redirectToMbin,
   } = useMbinAuth()
 
@@ -314,19 +315,20 @@
   const {
     loading: telegramLoading,
     error: telegramError,
-    telegramEnabled,
-    checkTelegramStatus,
     initializeTelegramWidget,
   } = useTelegramAuth()
 
-  // Reddit auth
+  // Bluesky auth
   const {
-    loading: redditLoading,
-    error: redditError,
-    redditEnabled,
-    checkRedditStatus,
-    redirectToReddit,
-  } = useRedditAuth()
+    loading: blueskyLoading,
+    redirectToBluesky,
+  } = useBlueskyAuth()
+
+  // Provider enabled flags from system settings (SSR-safe)
+  const mastodonEnabled = computed(() => settings.value.social_providers?.mastodon?.enabled ?? false)
+  const mbinEnabled = computed(() => settings.value.social_providers?.mbin?.enabled ?? false)
+  const telegramEnabled = computed(() => settings.value.social_providers?.telegram?.enabled ?? false)
+  const blueskyEnabled = computed(() => settings.value.social_providers?.bluesky?.enabled ?? false)
 
   // Local state
   const expandedProvider = ref(null)
@@ -370,7 +372,7 @@
     if (telegramEnabled.value) count++
     if (mastodonEnabled.value) count++
     if (mbinEnabled.value) count++
-    if (redditEnabled.value) count++
+    if (blueskyEnabled.value) count++
     return count
   })
 
@@ -438,9 +440,9 @@
     await redirectToMbin(mbinInstance.value.trim())
   }
 
-  async function handleRedditLogin() {
-    if (redditLoading.value) return
-    await redirectToReddit()
+  function handleBlueskyLogin() {
+    if (blueskyLoading.value) return
+    redirectToBluesky()
   }
 
   // Watch for provider expansion to initialize widgets
@@ -449,20 +451,12 @@
       // Wait for next tick to ensure the container is rendered
       await nextTick()
       if (telegramWidgetContainer.value) {
-        await initializeTelegramWidget(telegramWidgetContainer.value)
+        const tgBotUsername = settings.value.social_providers?.telegram?.bot_username
+        await initializeTelegramWidget(telegramWidgetContainer.value, tgBotUsername)
       }
     }
   })
 
-  // Initialize on mount
-  onMounted(async () => {
-    await Promise.all([
-      checkMastodonStatus(),
-      checkMbinStatus(),
-      checkTelegramStatus(),
-      checkRedditStatus(),
-    ])
-  })
 </script>
 
 <style scoped>
@@ -514,15 +508,10 @@
     color: white;
   }
 
-  .reddit-btn:hover {
-    background-color: #ff4500;
-    border-color: #ff4500;
+  .bluesky-btn:hover {
+    background-color: #0085ff;
+    border-color: #0085ff;
     color: white;
-  }
-
-  .reddit-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
   }
 
   .social-input {

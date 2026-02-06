@@ -36,47 +36,47 @@
 </template>
 
 <script setup>
-defineProps({
-  show: {
-    type: Boolean,
-    default: false,
-  },
-  users: {
-    type: Array,
-    default: () => [],
-  },
-  selectedIndex: {
-    type: Number,
-    default: 0,
-  },
-  left: {
-    type: Number,
-    default: 0,
-  },
-  top: {
-    type: Number,
-    default: 0,
-  },
-})
+  defineProps({
+    show: {
+      type: Boolean,
+      default: false,
+    },
+    users: {
+      type: Array,
+      default: () => [],
+    },
+    selectedIndex: {
+      type: Number,
+      default: 0,
+    },
+    left: {
+      type: Number,
+      default: 0,
+    },
+    top: {
+      type: Number,
+      default: 0,
+    },
+  })
 
-defineEmits(['select'])
+  defineEmits(['select'])
 </script>
 
 <style scoped>
-.editor-mentions-dropdown {
-  background-color: var(--color-bg-card);
-  border: 1px solid var(--color-border-default);
-}
+  .editor-mentions-dropdown {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-default);
+  }
 
-.editor-mention-item:hover {
-  background-color: var(--color-bg-hover);
-}
+  .editor-mention-item:hover {
+    background-color: var(--color-bg-hover);
+  }
 
-.editor-mention-item-active {
-  background-color: var(--color-bg-hover);
-}
+  .editor-mention-item-active {
+    background-color: var(--color-bg-hover);
+  }
 
-.editor-avatar-placeholder {
-  background-color: var(--color-bg-hover);
-}
+  .editor-avatar-placeholder {
+    background-color: var(--color-bg-hover);
+  }
 </style>

@@ -316,7 +316,9 @@ describe('CommentsList Pure Logic', () => {
         }
       }
       collectAll(commentsList)
-      allComments.sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime())
+      allComments.sort(
+        (a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+      )
       const numberMap = new Map()
       allComments.forEach((comment, index) => numberMap.set(comment.id, index + 1))
       return numberMap
@@ -370,17 +372,22 @@ describe('CommentsList Pure Logic', () => {
     }
 
     it('flattens nested comments to single level', () => {
-      const numberMap = new Map([[1, 1], [2, 2], [3, 3]])
-      const comments = [
-        { id: 1, children: [{ id: 2, children: [{ id: 3, children: [] }] }] },
-      ]
+      const numberMap = new Map([
+        [1, 1],
+        [2, 2],
+        [3, 3],
+      ])
+      const comments = [{ id: 1, children: [{ id: 2, children: [{ id: 3, children: [] }] }] }]
       const result = flattenComments(comments, numberMap)
       expect(result.length).toBe(3)
       expect(result.map((c) => c.id)).toEqual([1, 2, 3])
     })
 
     it('attaches parent info correctly', () => {
-      const numberMap = new Map([[1, 1], [2, 2]])
+      const numberMap = new Map([
+        [1, 1],
+        [2, 2],
+      ])
       const comments = [{ id: 1, children: [{ id: 2, children: [] }] }]
       const result = flattenComments(comments, numberMap)
       expect(result[0]._parentComment).toBeNull()

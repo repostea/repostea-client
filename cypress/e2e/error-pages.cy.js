@@ -37,7 +37,9 @@ describe('Error Pages E2E Tests', () => {
       cy.visit('/en/nonexistent-page-12345', { failOnStatusCode: false })
       acceptCookies()
 
-      cy.get('body', { timeout: 10000 }).invoke('text').should('match', /404|not found|error/i)
+      cy.get('body', { timeout: 10000 })
+        .invoke('text')
+        .should('match', /404|not found|error/i)
     })
 
     it('should have link to home on 404 page', () => {
@@ -51,7 +53,9 @@ describe('Error Pages E2E Tests', () => {
       cy.visit('/en/this-page-does-not-exist', { failOnStatusCode: false })
       acceptCookies()
 
-      cy.get('body', { timeout: 10000 }).invoke('text').should('match', /404|not found|error/i)
+      cy.get('body', { timeout: 10000 })
+        .invoke('text')
+        .should('match', /404|not found|error/i)
     })
   })
 
@@ -60,7 +64,9 @@ describe('Error Pages E2E Tests', () => {
       cy.visit('/en/500', { failOnStatusCode: false })
       acceptCookies()
 
-      cy.get('body', { timeout: 10000 }).invoke('text').should('match', /500|error|server/i)
+      cy.get('body', { timeout: 10000 })
+        .invoke('text')
+        .should('match', /500|error|server/i)
     })
 
     it('should have retry or home link on 500 page', () => {
@@ -115,7 +121,9 @@ describe('Error Pages E2E Tests', () => {
       cy.visit('/en/nonexistent-page-12345', { failOnStatusCode: false })
       acceptCookies()
 
-      cy.get('body', { timeout: 10000 }).invoke('text').should('match', /404|not found|error/i)
+      cy.get('body', { timeout: 10000 })
+        .invoke('text')
+        .should('match', /404|not found|error/i)
     })
   })
 })

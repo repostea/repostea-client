@@ -127,7 +127,7 @@
                       type="text"
                       disabled
                       class="w-full pl-8 pr-3 py-2 border rounded-md settings-input opacity-60 cursor-not-allowed"
-                    >
+                    />
                   </div>
                   <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
                     {{ $t('subs.name_requirements') }}
@@ -146,7 +146,7 @@
                     class="w-full px-3 py-2 border rounded-md settings-input"
                     :placeholder="$t('subs.title_placeholder')"
                     maxlength="100"
-                  >
+                  />
                 </div>
 
                 <!-- Description -->
@@ -192,7 +192,7 @@
                       v-model="form.hide_owner"
                       type="checkbox"
                       class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary mt-0.5"
-                    >
+                    />
                     <div class="ml-3">
                       <label for="hide_owner" class="text-sm font-medium cursor-pointer">
                         {{ $t('subs.hide_owner') }}
@@ -209,7 +209,7 @@
                       v-model="form.hide_moderators"
                       type="checkbox"
                       class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary mt-0.5"
-                    >
+                    />
                     <div class="ml-3">
                       <label for="hide_moderators" class="text-sm font-medium cursor-pointer">
                         {{ $t('subs.hide_moderators') }}
@@ -468,7 +468,7 @@
                         :src="request.avatar"
                         :alt="request.username"
                         class="w-10 h-10 rounded-full"
-                      >
+                      />
                       <div
                         v-else
                         class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold"
@@ -555,7 +555,7 @@
                       :src="member.avatar"
                       :alt="member.username"
                       class="w-8 h-8 rounded-full"
-                    >
+                    />
                     <div
                       v-else
                       class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm font-bold"
@@ -632,7 +632,7 @@
                     :src="sub.creator.avatar"
                     :alt="sub.creator?.username"
                     class="w-8 h-8 rounded-full"
-                  >
+                  />
                   <div
                     v-else
                     class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm font-bold"
@@ -665,7 +665,7 @@
                     :src="mod.avatar"
                     :alt="mod.username"
                     class="w-8 h-8 rounded-full"
-                  >
+                  />
                   <div
                     v-else
                     class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm font-bold"
@@ -742,7 +742,7 @@
                     :src="member.avatar"
                     :alt="member.username"
                     class="w-8 h-8 rounded-full"
-                  >
+                  />
                   <div
                     v-else
                     class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm font-bold"

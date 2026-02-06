@@ -2,6 +2,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { ref } from 'vue'
 
+import { useAgoraMessage } from '~/composables/useAgoraMessage'
+
 // Mock the markdown utility
 vi.mock('~/utils/markdown', () => ({
   extractEmbeds: vi.fn((content) => {
@@ -16,8 +18,6 @@ vi.mock('~/utils/markdown', () => ({
     return embeds
   }),
 }))
-
-import { useAgoraMessage } from '~/composables/useAgoraMessage'
 
 describe('useAgoraMessage composable', () => {
   describe('canEdit', () => {
@@ -117,10 +117,7 @@ describe('useAgoraMessage composable', () => {
       const message = ref({
         id: 1,
         content: 'test',
-        replies: [
-          { id: 2, replies: [{ id: 3 }] },
-          { id: 4 },
-        ],
+        replies: [{ id: 2, replies: [{ id: 3 }] }, { id: 4 }],
       })
       const authUser = ref(null)
 
@@ -138,10 +135,7 @@ describe('useAgoraMessage composable', () => {
 
       const nestedMessage = {
         id: 1,
-        replies: [
-          { id: 2, replies: [{ id: 3 }, { id: 4 }] },
-          { id: 5 },
-        ],
+        replies: [{ id: 2, replies: [{ id: 3 }, { id: 4 }] }, { id: 5 }],
       }
 
       expect(countAllReplies(nestedMessage)).toBe(4)

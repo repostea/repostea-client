@@ -25,70 +25,70 @@
         class="emoji-picker fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-xl p-4 z-50 max-h-[min(450px,80vh)] overflow-y-auto w-[min(320px,calc(100vw-2rem))] md:w-[380px]"
         @click.stop
       >
-      <div class="flex items-center gap-2 mb-2">
-        <input
-          v-model="emojiSearch"
-          type="text"
-          class="emoji-search-input flex-1 text-sm rounded-md px-2 py-1"
-          :placeholder="t('emojis.search_placeholder')"
-          :aria-label="t('emojis.search_placeholder')"
-        >
-        <button
-          type="button"
-          class="emoji-close-btn p-1.5 rounded-md transition-colors flex items-center justify-center"
-          :title="t('common.close')"
-          :aria-label="t('common.close')"
-          @click="isOpen = false"
-        >
-          <Icon
-            name="fa6-solid:xmark"
-            class="text-text-muted dark:text-text-dark-muted"
-            aria-hidden="true"
+        <div class="flex items-center gap-2 mb-2">
+          <input
+            v-model="emojiSearch"
+            type="text"
+            class="emoji-search-input flex-1 text-sm rounded-md px-2 py-1"
+            :placeholder="t('emojis.search_placeholder')"
+            :aria-label="t('emojis.search_placeholder')"
           />
-        </button>
-      </div>
+          <button
+            type="button"
+            class="emoji-close-btn p-1.5 rounded-md transition-colors flex items-center justify-center"
+            :title="t('common.close')"
+            :aria-label="t('common.close')"
+            @click="isOpen = false"
+          >
+            <Icon
+              name="fa6-solid:xmark"
+              class="text-text-muted dark:text-text-dark-muted"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
 
-      <!-- Size selector -->
-      <div class="flex items-center gap-1 mb-3 pb-2 border-b border-default">
-        <span class="text-xs text-text-muted dark:text-text-dark-muted mr-1"
-          >{{ t('emojis.size') }}:</span
-        >
-        <button
-          v-for="size in sizes"
-          :key="size.value"
-          type="button"
-          class="emoji-size-btn px-2 py-1 rounded text-sm transition-colors"
-          :class="
-            selectedSize === size.value
-              ? 'bg-primary text-white'
-              : 'hover:bg-gray-100 dark:hover:bg-neutral-700'
-          "
-          :title="size.label"
-          @click="selectedSize = size.value"
-        >
-          <span :class="size.previewClass">😀</span>
-        </button>
-      </div>
+        <!-- Size selector -->
+        <div class="flex items-center gap-1 mb-3 pb-2 border-b border-default">
+          <span class="text-xs text-text-muted dark:text-text-dark-muted mr-1"
+            >{{ t('emojis.size') }}:</span
+          >
+          <button
+            v-for="size in sizes"
+            :key="size.value"
+            type="button"
+            class="emoji-size-btn px-2 py-1 rounded text-sm transition-colors"
+            :class="
+              selectedSize === size.value
+                ? 'bg-primary text-white'
+                : 'hover:bg-gray-100 dark:hover:bg-neutral-700'
+            "
+            :title="size.label"
+            @click="selectedSize = size.value"
+          >
+            <span :class="size.previewClass">😀</span>
+          </button>
+        </div>
 
-      <div class="grid grid-cols-8 gap-1">
-        <button
-          v-for="(emoji, index) in filteredEmojis"
-          :key="`${emoji}-${index}`"
-          type="button"
-          class="emoji-item text-2xl rounded p-1 transition-colors"
-          :title="emoji"
-          @click="selectEmoji(emoji)"
+        <div class="grid grid-cols-8 gap-1">
+          <button
+            v-for="(emoji, index) in filteredEmojis"
+            :key="`${emoji}-${index}`"
+            type="button"
+            class="emoji-item text-2xl rounded p-1 transition-colors"
+            :title="emoji"
+            @click="selectEmoji(emoji)"
+          >
+            {{ emoji }}
+          </button>
+        </div>
+        <div
+          v-if="filteredEmojis.length === 0"
+          class="text-center text-sm text-text-muted dark:text-text-dark-muted py-4"
         >
-          {{ emoji }}
-        </button>
+          {{ t('emojis.no_results') }}
+        </div>
       </div>
-      <div
-        v-if="filteredEmojis.length === 0"
-        class="text-center text-sm text-text-muted dark:text-text-dark-muted py-4"
-      >
-        {{ t('emojis.no_results') }}
-      </div>
-    </div>
     </Teleport>
   </div>
 </template>

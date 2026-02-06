@@ -40,9 +40,7 @@
 
     <!-- Poll options -->
     <div>
-      <label class="block text-sm font-medium mb-2">
-        {{ t('submit.form.poll_options') }} *
-      </label>
+      <label class="block text-sm font-medium mb-2"> {{ t('submit.form.poll_options') }} * </label>
       <div class="space-y-3" data-testid="poll-options">
         <div
           v-for="(option, index) in pollOptions"
@@ -56,7 +54,7 @@
             class="flex-1 rounded-lg wizard-form-input px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
             :placeholder="`${t('submit.form.option')} ${index + 1}`"
             @input="updateOption(index, $event.target.value)"
-          >
+          />
           <button
             v-if="pollOptions.length > 2 && !(pollHasVotes && isEditMode)"
             type="button"
@@ -107,7 +105,7 @@
         type="checkbox"
         class="w-6 h-6 mt-1 rounded wizard-checkbox-border text-primary dark:text-primary focus:ring-primary dark:focus:ring-primary"
         @change="$emit('update:allowMultiple', $event.target.checked)"
-      >
+      />
       <div>
         <label for="allow_multiple" class="text-sm font-medium">
           {{ t('submit.form.poll_allow_multiple') }}

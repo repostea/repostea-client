@@ -10,7 +10,7 @@
             :src="previewUrl || currentAvatar"
             alt="Avatar"
             class="w-full h-full object-cover"
-          >
+          />
           <Icon name="fa6-solid:user" class="text-4xl text-gray-400" aria-hidden="true" />
         </div>
 
@@ -38,7 +38,7 @@
           accept="image/jpeg,image/png,image/gif,image/webp"
           class="hidden"
           @change="handleFileSelect"
-        >
+        />
 
         <button
           :disabled="isUploading"

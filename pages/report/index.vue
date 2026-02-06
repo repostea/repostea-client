@@ -42,7 +42,7 @@
             required
             placeholder="https://example.com/post/12345"
             class="w-full px-3 py-2 border report-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-          >
+          />
           <p class="text-sm text-text-muted dark:text-text-dark-muted mt-1">
             {{ $t('report.url.help') }}
           </p>
@@ -65,7 +65,7 @@
                 required
                 autocomplete="name"
                 class="w-full px-3 py-2 border report-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
+              />
             </div>
 
             <div>
@@ -78,7 +78,7 @@
                 required
                 autocomplete="email"
                 class="w-full px-3 py-2 border report-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
+              />
             </div>
           </div>
 
@@ -91,7 +91,7 @@
               type="text"
               placeholder="Empresa, organización o dejar en blanco si es individual"
               class="w-full px-3 py-2 border report-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-            >
+            />
           </div>
         </div>
 
@@ -127,7 +127,7 @@
               type="url"
               placeholder="https://ejemplo.com/mi-contenido-original"
               class="w-full px-3 py-2 border report-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-            >
+            />
           </div>
 
           <div class="mt-4">
@@ -156,7 +156,7 @@
                 type="checkbox"
                 required
                 class="mt-1 w-5 h-5 text-primary report-checkbox rounded focus:ring-2 focus:ring-primary cursor-pointer"
-              >
+              />
               <span class="text-sm text-text dark:text-text-dark">
                 {{ $t('report.legal.good_faith') }}
               </span>
@@ -171,7 +171,7 @@
                 type="checkbox"
                 required
                 class="mt-1 w-5 h-5 text-primary report-checkbox rounded focus:ring-2 focus:ring-primary cursor-pointer"
-              >
+              />
               <span class="text-sm text-text dark:text-text-dark">
                 {{ $t('report.legal.authorized') }}
               </span>

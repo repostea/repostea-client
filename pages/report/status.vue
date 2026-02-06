@@ -24,7 +24,7 @@
               required
               placeholder="REP-20251101-XXXX"
               class="w-full px-3 py-2 border report-status-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent font-mono"
-            >
+            />
           </div>
 
           <div>
@@ -37,7 +37,7 @@
               required
               autocomplete="email"
               class="w-full px-3 py-2 border report-status-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-            >
+            />
             <p class="text-sm text-text-muted dark:text-text-dark-muted mt-1">
               {{ $t('report.status.email_help') }}
             </p>

@@ -24,7 +24,7 @@
           maxlength="255"
           @input="$emit('update:modelValue', $event.target.value)"
           @blur="$emit('blur')"
-        >
+        />
         <div class="flex justify-between mt-2">
           <p v-if="error" class="text-sm text-red-500" data-testid="title-error">
             {{ error }}

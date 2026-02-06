@@ -49,7 +49,7 @@
               type="text"
               class="w-full px-3 py-1.5 text-sm rounded-md border posts-compact-input focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               :placeholder="t('profile.search_posts')"
-            >
+            />
           </div>
 
           <div class="flex items-center gap-2">

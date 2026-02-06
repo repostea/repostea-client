@@ -17,9 +17,7 @@
       <span v-if="comment._parentComment">
         <span class="mx-1">-</span>
         <template v-if="comment._parentComment.is_anonymous">
-          <span class="text-gray-600 dark:text-gray-400">
-            @{{ t('common.anonymous') }}
-          </span>
+          <span class="text-gray-600 dark:text-gray-400"> @{{ t('common.anonymous') }} </span>
         </template>
         <template v-else>
           <NuxtLink
@@ -39,21 +37,21 @@
 </template>
 
 <script setup>
-import { useI18n, useLocalePath } from '#i18n'
+  import { useI18n, useLocalePath } from '#i18n'
 
-const { t } = useI18n()
-const localePath = useLocalePath()
+  const { t } = useI18n()
+  const localePath = useLocalePath()
 
-defineProps({
-  comment: {
-    type: Object,
-    required: true,
-  },
-  isFlatMode: {
-    type: Boolean,
-    default: false,
-  },
-})
+  defineProps({
+    comment: {
+      type: Object,
+      required: true,
+    },
+    isFlatMode: {
+      type: Boolean,
+      default: false,
+    },
+  })
 
-defineEmits(['scroll-to-comment'])
+  defineEmits(['scroll-to-comment'])
 </script>

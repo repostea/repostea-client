@@ -54,7 +54,7 @@
           data-testid="guest-checkbox"
           class="w-6 h-6 mt-1 rounded wizard-checkbox-border text-primary dark:text-primary focus:ring-primary dark:focus:ring-primary"
           @change="$emit('update:isAnonymous', $event.target.checked)"
-        >
+        />
         <div>
           <label for="guest" class="text-sm font-medium">
             {{ t('submit.form.post_anonymously') }}
@@ -66,11 +66,7 @@
             v-if="isAnonymous"
             class="text-xs text-amber-600 dark:text-amber-400 mt-2 flex items-start gap-1"
           >
-            <Icon
-              name="fa6-solid:circle-info"
-              class="mt-0.5 flex-shrink-0"
-              aria-hidden="true"
-            />
+            <Icon name="fa6-solid:circle-info" class="mt-0.5 flex-shrink-0" aria-hidden="true" />
             <span>{{ t('submit.wizard.anonymous_moderator_note') }}</span>
           </p>
         </div>
@@ -85,13 +81,18 @@
           data-testid="nsfw-checkbox"
           class="w-6 h-6 mt-1 rounded wizard-checkbox-border text-red-600 dark:text-red-500 focus:ring-red-500 dark:focus:ring-red-500"
           @change="$emit('update:isNsfw', $event.target.checked)"
-        >
+        />
         <div>
           <label for="is_nsfw" class="text-sm font-medium">
             {{ t('submit.form.is_nsfw', 'Mark as NSFW/adult content (+18)') }}
           </label>
           <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            {{ t('submit.form.nsfw_help', 'NSFW content includes nudity, sexual content or graphic violence') }}
+            {{
+              t(
+                'submit.form.nsfw_help',
+                'NSFW content includes nudity, sexual content or graphic violence'
+              )
+            }}
           </p>
         </div>
       </div>
@@ -105,12 +106,9 @@
           data-testid="federate-checkbox"
           class="w-6 h-6 mt-1 rounded wizard-checkbox-border text-primary dark:text-primary focus:ring-primary dark:focus:ring-primary"
           @change="$emit('update:shouldFederate', $event.target.checked)"
-        >
+        />
         <div>
-          <label
-            for="should_federate"
-            class="text-sm font-medium inline-flex items-center gap-2"
-          >
+          <label for="should_federate" class="text-sm font-medium inline-flex items-center gap-2">
             <Icon name="fa6-solid:globe" class="text-primary" aria-hidden="true" />
             {{ t('submit.form.federate_post') }}
           </label>

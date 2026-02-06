@@ -115,7 +115,7 @@
               type="text"
               class="actions-input w-full rounded-md px-3 py-2"
               required
-            >
+            />
           </div>
 
           <div class="mb-4">
@@ -137,7 +137,7 @@
                 v-model="newList.is_public"
                 type="checkbox"
                 class="w-6 h-6 rounded actions-checkbox text-primary dark:text-primary focus:ring-primary dark:focus:ring-primary"
-              >
+              />
               <label for="is-public" class="ml-2 text-sm">
                 {{ t('saved_lists.is_public', 'Public list') }}
               </label>

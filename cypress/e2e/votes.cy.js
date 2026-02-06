@@ -73,9 +73,12 @@ describe('Voting E2E Tests', () => {
       // Fallback: go to homepage and click on a post
       visitWithRetry('/en/')
       acceptCookies()
-      cy.get('.post-card a[href*="/posts/"], .list-item-card a[href*="/posts/"], article a[href*="/posts/"]', {
-        timeout: 10000,
-      })
+      cy.get(
+        '.post-card a[href*="/posts/"], .list-item-card a[href*="/posts/"], article a[href*="/posts/"]',
+        {
+          timeout: 10000,
+        }
+      )
         .first()
         .click()
     }

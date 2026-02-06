@@ -76,7 +76,9 @@ describe('Internationalization E2E Tests', () => {
 
       // Look for menu button or hamburger
       cy.get('body').then(($body) => {
-        const menuBtn = $body.find('.menu-button, [aria-label*="menu"], button.hamburger, .mobile-menu-button')
+        const menuBtn = $body.find(
+          '.menu-button, [aria-label*="menu"], button.hamburger, .mobile-menu-button'
+        )
         if (menuBtn.length > 0) {
           cy.wrap(menuBtn.first()).click()
           cy.wait(500)
@@ -94,12 +96,14 @@ describe('Internationalization E2E Tests', () => {
       acceptCookies()
 
       cy.get('body').then(($body) => {
-        const menuBtn = $body.find('.menu-button, [aria-label*="menu"], button.hamburger, .mobile-menu-button')
+        const menuBtn = $body.find(
+          '.menu-button, [aria-label*="menu"], button.hamburger, .mobile-menu-button'
+        )
         if (menuBtn.length > 0) {
           cy.wrap(menuBtn.first()).click()
           cy.wait(500)
 
-          const langBtn = $body.find('button').filter(function() {
+          const langBtn = $body.find('button').filter(function () {
             return /Language/i.test(this.textContent)
           })
           if (langBtn.length > 0) {
@@ -116,19 +120,23 @@ describe('Internationalization E2E Tests', () => {
       acceptCookies()
 
       cy.get('body').then(($body) => {
-        const menuBtn = $body.find('.menu-button, [aria-label*="menu"], button.hamburger, .mobile-menu-button')
+        const menuBtn = $body.find(
+          '.menu-button, [aria-label*="menu"], button.hamburger, .mobile-menu-button'
+        )
         if (menuBtn.length > 0) {
           cy.wrap(menuBtn.first()).click()
           cy.wait(500)
 
-          const langBtn = $body.find('button').filter(function() {
+          const langBtn = $body.find('button').filter(function () {
             return /Language/i.test(this.textContent)
           })
           if (langBtn.length > 0) {
             cy.wrap(langBtn.first()).click()
             cy.wait(500)
 
-            cy.get('.mobile-modal, [aria-modal="true"]').contains(/español|english|català/i).should('exist')
+            cy.get('.mobile-modal, [aria-modal="true"]')
+              .contains(/español|english|català/i)
+              .should('exist')
           }
         }
       })
@@ -178,7 +186,9 @@ describe('Internationalization E2E Tests', () => {
 
       cy.get('body', { timeout: 10000 }).should('be.visible')
       // Check layout is functional (posts or empty state or main container)
-      cy.get('.post-card, .list-item-card, article, main, [role="main"]', { timeout: 10000 }).should('exist')
+      cy.get('.post-card, .list-item-card, article, main, [role="main"]', {
+        timeout: 10000,
+      }).should('exist')
     })
   })
 })

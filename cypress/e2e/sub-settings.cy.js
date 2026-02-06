@@ -138,7 +138,9 @@ describe('Sub Settings E2E Tests', () => {
       visitWithRetry(`/en/s/${testSub.name}/settings`)
       acceptCookies()
 
-      cy.get('button').contains(/save|cancel/i, { timeout: 10000 }).should('exist')
+      cy.get('button')
+        .contains(/save|cancel/i, { timeout: 10000 })
+        .should('exist')
     })
   })
 
